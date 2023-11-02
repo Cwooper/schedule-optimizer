@@ -2,8 +2,7 @@
 Schedule crafting passion project
 
 A good example of output/customizability:
-https://gizmoa.com/college-schedule-maker/
-[Gizmoa](https://gizmoa.com/college-schedule-maker/){:target="_blank"}
+[Gizmoa](https://gizmoa.com/college-schedule-maker/)
 
 ## Listed from most important to most complex
 - Users should be able to input as little data as possible while getting the most out of it as possible
