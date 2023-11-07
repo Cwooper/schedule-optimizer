@@ -17,5 +17,6 @@ A good example of output/customizability:
 - use rate my professor rating, WTA, and difficulty as weights
 
 Possible future additions (probably WWU only):
+- past WWU data for courses (passing rate, total people taking it, etc.)
 - automatic class finder scraping for less input (only input some classes)
 - future class scheduler per quarter based on pre-requisites
