@@ -29,9 +29,9 @@ website-root   # Usually /var/www/html/
     ├── default.css     # Default theme for the website
     └── schedule-crafter.css # Theme for the schedule-crafter application (if applicable)
 ```
-User → React Frontend → API Requests → Django Backend → MongoDB Database
+User → React Frontend → API Requests → Django Backend → MongoDB Database (if web scraped data is needed)
 
-MongoDB Database → Django Backend → API Responses → React Frontend → User
+(if using web scraped data) MongoDB Database → Django Backend → API Responses → React Frontend → User
 
 ## Listed from most important to most complex
 **The schedule crafter should...**
