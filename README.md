@@ -9,7 +9,7 @@ A good example of output/customizability:
 
 ## How to show/deploy this project onto your website
 Proposed file hierarchy:
-
+```
 website-root   # Usually /var/www/html/
 ├── index.html # Website's frontend HTML file
 ├── schedule-crafter # This project's GitHub repo
@@ -28,7 +28,7 @@ website-root   # Usually /var/www/html/
 └── themes   # Theme files for the website
     ├── default.css     # Default theme for the website
     └── schedule-crafter.css # Theme for the schedule-crafter application (if applicable)
-
+```
 User → React Frontend → API Requests → Django Backend → MongoDB Database
 MongoDB Database → Django Backend → API Responses → React Frontend → User
 
