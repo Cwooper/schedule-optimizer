@@ -30,6 +30,7 @@ website-root   # Usually /var/www/html/
     └── schedule-crafter.css # Theme for the schedule-crafter application (if applicable)
 ```
 User → React Frontend → API Requests → Django Backend → MongoDB Database
+
 MongoDB Database → Django Backend → API Responses → React Frontend → User
 
 ## Listed from most important to most complex
