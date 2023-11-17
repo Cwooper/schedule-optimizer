@@ -2,7 +2,7 @@
 Schedule Crafter passion project
 
 Current working example:
-[cwooper.me](https://cwooper.me/schedule-crafter)
+[cwooper.me](https://cwooper.me/)
 
 A good example of output/customizability:
 [Gizmoa](https://gizmoa.com/college-schedule-maker/)
