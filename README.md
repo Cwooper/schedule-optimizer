@@ -33,6 +33,8 @@ User → React Frontend → API Requests → Django Backend → MongoDB Database
 
 (if using web scraped data) MongoDB Database → Django Backend → API Responses → React Frontend → User
 
+Django should handle all requests, and use **pandas** to manipulate data.
+
 ## Listed from most important to most complex
 **The schedule crafter should...**
 
