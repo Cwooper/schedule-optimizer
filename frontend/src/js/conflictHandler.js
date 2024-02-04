@@ -3,7 +3,6 @@ class Course {
   constructor(className, days, timeStart, timeEnd) {
       this.className = className;
       this.days = days;
-      //both total minutes
       this.timeStart = timeStart;
       this.timeEnd = timeEnd;
   }
@@ -17,35 +16,32 @@ class Course {
   }
 }
 
-// Return a list of lists of schedule objects
-// Finds conflicting schedules using recursion
-// ListOfCourses is a list of courses
-// result is a list of lists of courses that don't conflict
-// step starts at 0
+// Returns a list of all nonconflicting schedules
 function possibleSchedules(listOfCourses) {
-  if (listOfCourses.length === 0) {                  // Base Case
+  if (listOfCourses.length === 0) {                    // Base Case
     return;
   }
   const permutations = allPermutations(listOfCourses); // List of List of Courses
   console.log("Permutations\n");
   console.log(permutations);
-  const conflicts = allConflicts(listOfCourses);    // Pairs of conflicts
+  const conflicts = allConflicts(listOfCourses);       // Pairs of conflicts
   console.log("Conflicts\n");
   console.log(conflicts);
 
+  // Remove conflicts from permutations
   const results = removeConflicts(permutations, conflicts);
   console.log("Results\n");
   console.log(results);
-  // Remove conflicts from permutations
   return results;
 }
 
-//returns true if courses have time conflict, has to account for days of the week as well
+// Returns true if course1 and course2 have a time conflict
 function hasConflict(course1, course2) {
-  for(let i = 0; i<course1.days.length; i++){
+  for(let i = 0; i < course1.days.length; i++){
     const day = course1.days.charAt(i);
     if(course2.days.includes(day)){
-      if(((course1.timeStart>=course2.timeStart) && (course1.timeStart<=course2.timeEnd)) || ((course1.timeEnd>=course2.timeStart) && (course1.timeEnd<=course2.timeEnd))){
+      if(((course1.timeStart>=course2.timeStart) && (course1.timeStart<=course2.timeEnd)) || 
+         ((course1.timeEnd>=course2.timeStart) && (course1.timeEnd<=course2.timeEnd))){
         return true;
       }
     }
@@ -58,11 +54,10 @@ function allPermutations(listOfCourses, results = [], currentPermutation = [], s
   if (start === listOfCourses.length) {
     // Add a copy of the current permutation to the results
     results.push([...currentPermutation]);
-    return results; // Return the results array
+    return results;
   }
 
   for (let i = start; i < listOfCourses.length; i++) {
-    // Include the current course in the permutation
     currentPermutation.push(listOfCourses[i]);
 
     // Recursively generate permutations for the remaining courses
@@ -79,7 +74,7 @@ function allPermutations(listOfCourses, results = [], currentPermutation = [], s
 function allConflicts(listOfCourses) {
   let conflicts = [];
   for (let i = 0; i < listOfCourses.length; i++) {
-    for (let j = i+1; j < listOfCourses.length; j++) {
+    for (let j = i + 1; j < listOfCourses.length; j++) {
       if (hasConflict(listOfCourses[i], listOfCourses[j])) {
         conflicts.push([listOfCourses[i], listOfCourses[j]]);
       }
@@ -93,7 +88,8 @@ function removeConflicts(permutations, conflicts) {
   let results = permutations;
   for (let i = 0; i < permutations.length; i++) {
     for (let j = 0; j < conflicts.length; j++) {
-      if (permutations[i].includes(conflicts[j][0]) && permutations[i].includes(conflicts[j][1])) {
+      if (permutations[i].includes(conflicts[j][0]) && 
+          permutations[i].includes(conflicts[j][1])) {
         results.splice(i, 1);
       }
     }
