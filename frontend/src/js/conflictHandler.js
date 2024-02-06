@@ -40,8 +40,9 @@ function hasConflict(course1, course2) {
   for(let i = 0; i < course1.days.length; i++){
     const day = course1.days.charAt(i);
     if(course2.days.includes(day)){
-      if(((course1.timeStart>=course2.timeStart) && (course1.timeStart<=course2.timeEnd)) || 
-         ((course1.timeEnd>=course2.timeStart) && (course1.timeEnd<=course2.timeEnd))){
+      if((((course1.timeStart>=course2.timeStart) && (course1.timeStart<=course2.timeEnd)) || 
+         ((course1.timeEnd>=course2.timeStart) && (course1.timeEnd<=course2.timeEnd))) ||
+          (course1.className === course2.className)){
         return true;
       }
     }
@@ -67,8 +68,8 @@ function allPermutations(listOfCourses, results = [], currentPermutation = [], s
     currentPermutation.pop();
   }
 
-  return results; // Return the results array
-}
+  return results;
+} 
 
 // Finds all Conflicts between each pair of courses
 function allConflicts(listOfCourses) {
@@ -86,11 +87,12 @@ function allConflicts(listOfCourses) {
 // Returns permutations without the conflicting pairs 
 function removeConflicts(permutations, conflicts) {
   let results = permutations;
-  for (let i = 0; i < permutations.length; i++) {
-    for (let j = 0; j < conflicts.length; j++) {
-      if (permutations[i].includes(conflicts[j][0]) && 
-          permutations[i].includes(conflicts[j][1])) {
+  for (const conflict of conflicts) {
+    for (let i = 0; i < permutations.length; i++) {
+      if (permutations[i].includes(conflict[0]) &&
+          permutations[i].includes(conflict[1])) {
         results.splice(i, 1);
+        i--;
       }
     }
   }
@@ -99,8 +101,8 @@ function removeConflicts(permutations, conflicts) {
 
 const courses = [
   new Course("Math 1", "MTWRF", "0900", "1030"),
-  new Course("Math 2", "TR", "1100", "1230"),
+  new Course("Math 2", "TWR", "1100", "1230"),
   new Course("Math 3", "MWF", "1200", "1400"),
-  new Course("Math 4", "MTWRF", "0800", "0820")
+  new Course("Math 1", "MTWRF", "0800", "0820")
 ];
 const result = possibleSchedules(courses);
