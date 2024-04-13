@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.task-list {
+    margin-bottom: 20px;
+}
+
+.task {
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 5px;
+}
+
+.add-task {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.add-task input {
+    flex: 1;
+    padding: 5px;
+}
+
+.add-task button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.add-task button:hover {
+    background-color: #0056b3;
+}
