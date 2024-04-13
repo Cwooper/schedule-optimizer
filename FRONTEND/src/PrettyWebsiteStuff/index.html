@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schedule Crafter</title>
-</head>
-<body>
-
-    <div id="courseInfo"></div>
-
-    <script src="js/conflictHandler.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WWU Class Optimizer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>WWU Class Optimizer</h1>
+      <div class="task-list" id="taskList">
+        <!-- Classes will be added here -->
+      </div>
+      <div class="add-task">
+        <select id="classInput">
+          <option value="" selected disabled>Select a class...</option>
+          <option value="CSCI">CSCI</option>
+          <option value="ENVSCI">ENVSCI</option>
+          <option value="MATH">MATH</option>
+          <option value="ENG">ENG</option>
+          <!-- Add more options as needed -->
+        </select>
+        <input type="number" id="sectionInput" placeholder="Enter section..." />
+        <button onclick="addTask()">Add Class</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
