@@ -1,8 +1,8 @@
 # txt_to_pkl.py
 # This file turns text files into pickle files.
 #
-# Unfortunately, to use this file, you have to copy Ctrl+A the text of
-# WWU Classfinder into a "{term}.txt" file.
+# Unfortunately, to use this file, you have to copy the text of
+# (Ctrl+A, Ctrl+C) WWU Classfinder into a "{term}.txt" file.
 #
 # You can then use this file by doing:
 #   python3 txt_to_pkl.py <your_file.txt>
