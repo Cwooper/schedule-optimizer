@@ -30,7 +30,7 @@ import pandas as pd
 # Instructor Last Name
 # Instructor First Name
 # Dates
-header_pattern = r'.*?([A-Z\/]{4})\s*'  \
+header_pattern = r'.*?([A-Z\/]{3,4})\s*'\
                 r'(\d{3}[A-Z]?)\s*'     \
                 r'(.*?)\s*'             \
                 r'(\d{5})\s*'           \
@@ -53,9 +53,9 @@ footer_pattern = r'.*?DELIVERY\s*(.*?)' \
                  r'(\d{2}:\d{2})-'      \
                  r'(\d{2}:\d{2})\s*'    \
                  r'(am|pm)\s*'          \
-                 r'(.*?)\s*'            \
-                 r'([\s\d\s]|\d-\d)\s*' \
-                 r'(\$[\d]+\.[\d]+)?\s*'\
+                 r'(.*?)\s+'            \
+                 r'([\d]|\d-\d)'        \
+                 r'(\s+\$[\d]+\.[\d]+)?\s*'\
                  r'(.*)?'
 
 # Days
@@ -75,7 +75,7 @@ restrictions_pattern = r'\s*Restrictions:\s*(.*)'
 
 prerequisites_pattern = r'\s*Prerequisites:\s*(.*)'
 
-building_room_pattern = r'\s*([A-Z]+)\s*([A-Z\d]+)\s*'
+building_room_pattern = r'\s*([A-Z]+)\s+([A-Z0-9]+)\s*'
 
 ################################### OBJECTS ###################################
 
@@ -267,6 +267,7 @@ def courses_to_pkl(courses, pkl_file):
 
     df = pd.DataFrame(courses_dict_list)
     df.to_pickle(pkl_file)
+    print(df)
 
 # Converts a text file to a pickle file
 # Returns the name of the saved pickle file
@@ -278,9 +279,14 @@ def txt_to_pkl(txt_file) -> str:
     lines = text.split('\n')
     current_course = None
 
-    for line in lines:
+    i = 0
+    while i < len(lines):
+        line = lines[i]
         # Filter empty lines
-        if line.strip() == "":
+        if line.strip() == "" and current_course is not None:
+            # This is an empty line, which means that 7 lines of garbage follows
+            print(f"Found garbage at {i}")
+            i += 8
             continue
         elif re.match(header_pattern, line):
             # Add the current course to the list if it's not the first iteration
@@ -297,7 +303,7 @@ def txt_to_pkl(txt_file) -> str:
         elif "Prerequisites:" in line:
             match = re.match(prerequisites_pattern, line)
             current_course.prerequisites = match.group(1).strip()
-        elif "TBA" not in line and "N/A" not in line:
+        elif "TBA" not in line and "N/A" not in line:                   # Fix Later, Bandaid
             # Line is not empty, but does not match above, must be prereqs
             # Unless it is the first lines, when no course has yet been found
             if current_course:
@@ -305,7 +311,7 @@ def txt_to_pkl(txt_file) -> str:
                     current_course.prerequisites = line.strip()
                 else:
                     current_course.prerequisites += " " + line.strip()
-    
+        i += 1
     # Append the last course to courses
     courses.append(current_course)
     if courses is None:
