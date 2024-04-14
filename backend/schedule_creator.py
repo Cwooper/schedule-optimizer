@@ -10,7 +10,7 @@ def all_conflicts(courses: list[Course]):
 
     return conflicts
 
-def all_schedules(courses, conflicts, max_schedule_size):
+def all_schedules(courses, conflicts, min_schedule_size, max_schedule_size):
     schedules = []
     # For every permutation size
     for size in range(1, max_schedule_size + 1):
@@ -25,31 +25,29 @@ def all_schedules(courses, conflicts, max_schedule_size):
                     break
 
             # Add it to all schedules if it is valid
-            if valid_schedule:
+            if valid_schedule and len(course_combination) >= min_schedule_size:
                 schedules.append(course_combination)
+
     return schedules
 
 courses = [
-    Course("Math 1", "MTWRF", 900, 1030),
-    Course("Math 2", "TR", 1100, 1230),
-    Course("Math 3", "MWF", 1200, 1400),
-    Course("Math 4", "MTWRF", 800, 820),
-    Course("English 1", "MW", 1000, 1130),
-    Course("English 2", "TWF", 900, 1030),
-    Course("Biology 1", "MWF", 930, 1100),
-    Course("Chemistry 1", "TR", 1400, 1530),
-    Course("Physics 1", "MWF", 1030, 1200),
-    Course("History 1", "MW", 1100, 1230),
-    Course("Math 1", "MWF", 800, 900),  # Duplicate name with Math 1
-    Course("English 3", "TR", 1200, 1330),
-    Course("Chemistry 2", "MTWRF", 830, 1000),
-    Course("Biology 2", "TR", 930, 1100),
-    Course("Physics 2", "MW", 1030, 1200)
+    Course(subject="Math 1", days="MTWRF", start_time=900, end_time=1030),
+    Course(subject="Math 2", days="TR", start_time=1100, end_time=1230),
+    Course(subject="Math 3", days="MWF", start_time=1200, end_time=1400),
+    Course(subject="Math 4", days="MTWRF", start_time=800, end_time=820),
+    Course(subject="Math 1", days="TR", start_time=1300, end_time=1350, lab_days="TW", lab_start_time=1150, lab_end_time=1250)
+    # Course(subject="English 1", days="MW", start_time=1000, end_time=1130),
+    # Course(subject="English 2", days="TWF", start_time=900, end_time=1030),
+    # Course(subject="Biology 1", days="MWF", start_time=930, end_time=1100),
+    # Course(subject="Chemistry 1", days="TR", start_time=1400, end_time=1530),
+    # Course(subject="Physics 1", days="MWF", start_time=1030, end_time=1200),
+    # Course(subject="History 1", days="MW", start_time=1100, end_time=1230),
+    # Course(subject="Math 1", days="MWF", start_time=800, end_time=900)
 ]
 
 
 conflicts = all_conflicts(courses)
-all = all_schedules(courses, conflicts, 5)
+all = all_schedules(courses, conflicts, 2, 3)
 
 for schedule in all:
     print(schedule)
