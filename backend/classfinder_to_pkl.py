@@ -2,6 +2,7 @@ import os
 import requests
 from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
+from course import Course
 
 MAX_SUBJECT_WAIT =  30      # Days
 MAX_COURSE_WAIT =   2       # Days
@@ -14,7 +15,9 @@ url = 'https://web4u.banner.wwu.edu/pls/wwis/wwskcfnd.TimeTable'
 
 s = requests.Session()
 
-def fetch_subjects() -> list:
+fetch_sub
+
+def fetch_subjects_list() -> list:
     # Check if subjects file exists and is newer than one day
     if os.path.exists(subjects_file):
         with open(subjects_file, 'r') as file:
@@ -23,7 +26,8 @@ def fetch_subjects() -> list:
             max_wait = timedelta(days=MAX_SUBJECT_WAIT)
 
             if datetime.now() - file_time < max_wait:
-                print("Shorter than one day, retrieving subjects file.")
+                print(f"Shorter than {MAX_SUBJECT_WAIT} days since last, "    \ 
+                      f"update, retrieving subjects file.")
                 # Cut off the timestamp and newline
                 return lines[1:-1]
 
@@ -53,16 +57,20 @@ def fetch_subjects() -> list:
     print("Successfully fetched from server.")
     return subjects
 
+# Returns a list of courses provided by one subject
+def fetch_subject(subject: str) -> list:
+
+
 def main():
-    subjects = fetch_subjects()
+    subjects = fetch_subjects_list()
     
     for subject in subjects:
         payload = {
             'term': 202420,                           # Edit later
             'curr_yr': 2324,
-            'subj': section
+            'subj': subject
         }
-        # TODO Retrieve every file from each section from the website.
+        # TODO Retrieve every file from each subject from the website.
         # Store each in a file system like the above.
 
 if __name__ == "__main__":
