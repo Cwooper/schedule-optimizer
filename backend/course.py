@@ -1,14 +1,14 @@
 # Course object
 
 class Course:
-    def __init__(self, subject=None,  class_credits=None, crn=None, days=None,
+    def __init__(self, subject=None,  course_credits=None, crn=None, days=None,
                  start_time=None,     end_time=None,      lab_days=None,
                  lab_start_time=None, lab_end_time=None,  instructor=None,
                  room=None,           lab_room=None,      addl_fees=None, 
                  cap=None, enrl=None, avail=None,         waitlist=None,
                  restrictions=None,   attributes=None,    prerequisites=None):
         self.subject = subject
-        self.class_credits = class_credits
+        self.course_credits = course_credits
         self.crn = crn
         self.days = days
         self.start_time = start_time
@@ -30,7 +30,7 @@ class Course:
 
     def __repr__(self):
         return (
-            f"Course(subject={self.subject}, class_credits={self.class_credits}, "
+            f"Course(subject={self.subject}, course_credits={self.course_credits}, "
             f"crn={self.crn}, days={self.days}, start_time={self.start_time}, "
             f"end_time={self.end_time}, lab_days={self.lab_days}, "
             f"lab_start_time={self.lab_start_time}, lab_end_time={self.lab_end_time}, "
@@ -43,7 +43,7 @@ class Course:
     def to_dict(self):
         return {
             "subject": self.subject,
-            "class_credits": self.class_credits,
+            "course_credits": self.course_credits,
             "crn": self.crn,
             "days": self.days,
             "start_time": self.start_time,
