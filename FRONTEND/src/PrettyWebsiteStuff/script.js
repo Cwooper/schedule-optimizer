@@ -10,18 +10,23 @@ function addTask() {
         var task = document.createElement("div");
         task.className = "task";
         task.innerHTML = `
+        <div class="class-item">
             <div>
                 <span>Class: ${className}</span><br>
                 <span>Section: ${section}</span>
             </div>
             <button onclick="removeTask(this)">Remove</button>
+            </div>
         `;
         taskList.appendChild(task);
         classInput.value = "";
         sectionInput.value = "";
         classInput.selectedIndex = 0; // Reset dropdown to default option
-    } else {
-        alert("Please fill in all fields.");
+    } else if (className!== ""){
+        alert("Please enter a correct number pussy😝");
+    }else {
+        alert("Please enter a class name 😾");
+
     }
 }
 
