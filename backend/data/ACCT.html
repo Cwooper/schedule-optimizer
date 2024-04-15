@@ -1,11 +1,11 @@
-<SCRIPT language="JavaScript">
-function my_win(x)
+<script language="JavaScript">
+ function my_win(x)
  {
 window.open("/pls/wwis/wwskcfnd.display_comment?bldg="+x ,"mywindow","width=400,height=150"); }
- </SCRIPT>
+</script>
 <form action="/pls/wwis/wwskcfnd.TimeTable" method="POST">
-<SCRIPT language="JavaScript">
-function reload_page()
+ <script language="JavaScript">
+  function reload_page()
  {
 document.getElementById("term").value="";
 document.getElementById("subj").value="";
@@ -14,1907 +14,3578 @@ document.getElementById("curr_yr").value="";
    document.forms[0].action="wwskcfnd.TimeTable";
    document.forms[0].submit();
 }
-</SCRIPT>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<HTML lang="en">
-<HEAD>
-<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<LINK REL="stylesheet" HREF="/local_adds/css/wwu_web_defaultapp.css" TYPE="text/css">
-<LINK REL="stylesheet" HREF="/local_adds/css/web_defaultprint.css" TYPE="text/css" media="print">
-<TITLE>WWU TimeTable of Classes</TITLE>
-                 <p>
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-</HEAD>
-<DIV class="pagetitlediv">
-<TABLE  CLASS="plaintable" SUMMARY="This table displays title and static header displays."
-   WIDTH="100%">
-<TR>
-<TD CLASS="pldefault">
-<H2>WWU TimeTable of Classes</H2>
-</TD>
-<TD CLASS="pldefault">
-&nbsp;
-</TD>
-<TD CLASS="pldefault"><p class="rightaligntext">
-<DIV class="staticheaders">
-</div>
-</TD>
-</TR>
-<TR>
-<TD class="bg3" width="100%" colSpan=3><IMG SRC="/wtlgifs/web_transparent.gif" ALT="Transparent Image" TITLE="Transparent Image"  NAME="web_transparent" HSPACE=0 VSPACE=0 BORDER=0 HEIGHT=3 WIDTH=10></TD>
-</TR>
-</TABLE>
-<a name="main_content"></a>
-</DIV>
-<BODY>
-<center>
-                         <strong>Term:</strong> 
-                         <select id="term" name="term">
-<OPTION SELECTED VALUE=202420>Spring 2024</OPTION>
-<OPTION VALUE="All">All Terms for Year</OPTION>
-<OPTION VALUE="202430">Summer 2024</OPTION>
-<OPTION VALUE="202420">Spring 2024</OPTION>
-<OPTION VALUE="202410">Winter 2024</OPTION>
-<OPTION VALUE="202340">Fall 2023</OPTION>
-<OPTION VALUE="202330">Summer 2023</OPTION>
-<OPTION VALUE="202320">Spring 2023</OPTION>
-<OPTION VALUE="202310">Winter 2023</OPTION>
-<OPTION VALUE="202240">Fall 2022</OPTION>
-<OPTION VALUE="202230">Summer 2022</OPTION>
-<OPTION VALUE="202220">Spring 2022</OPTION>
-<OPTION VALUE="202210">Winter 2022</OPTION>
-<OPTION VALUE="202140">Fall 2021</OPTION>
-<OPTION VALUE="202130">Summer 2021</OPTION>
-<OPTION VALUE="202120">Spring 2021</OPTION>
-<OPTION VALUE="202110">Winter 2021</OPTION>
-<OPTION VALUE="202040">Fall 2020</OPTION>
-<OPTION VALUE="202030">Summer 2020</OPTION>
-<OPTION VALUE="202020">Spring 2020</OPTION>
-<OPTION VALUE="202010">Winter 2020</OPTION>
-<OPTION VALUE="201940">Fall 2019</OPTION>
-<OPTION VALUE="201930">Summer 2019</OPTION>
-<OPTION VALUE="201920">Spring 2019</OPTION>
-<OPTION VALUE="201910">Winter 2019</OPTION>
-<OPTION VALUE="201840">Fall 2018</OPTION>
-<OPTION VALUE="201830">Summer 2018</OPTION>
-<OPTION VALUE="201820">Spring 2018</OPTION>
-<OPTION VALUE="201810">Winter 2018</OPTION>
-<OPTION VALUE="201740">Fall 2017</OPTION>
-<OPTION VALUE="201730">Summer 2017</OPTION>
-<OPTION VALUE="201720">Spring 2017</OPTION>
-<OPTION VALUE="201710">Winter 2017</OPTION>
-<OPTION VALUE="201640">Fall 2016</OPTION>
-<OPTION VALUE="201630">Summer 2016</OPTION>
-<OPTION VALUE="201620">Spring 2016</OPTION>
-<OPTION VALUE="201610">Winter 2016</OPTION>
-<OPTION VALUE="201540">Fall 2015</OPTION>
-<OPTION VALUE="201530">Summer 2015</OPTION>
-<OPTION VALUE="201520">Spring 2015</OPTION>
-<OPTION VALUE="201510">Winter 2015</OPTION>
-<OPTION VALUE="201440">Fall 2014</OPTION>
-<OPTION VALUE="201430">Summer 2014</OPTION>
-<OPTION VALUE="201420">Spring 2014</OPTION>
-<OPTION VALUE="201410">Winter 2014</OPTION>
-<OPTION VALUE="201340">Fall 2013</OPTION>
-<OPTION VALUE="201330">Summer 2013</OPTION>
-<OPTION VALUE="201320">Spring 2013</OPTION>
-<OPTION VALUE="201310">Winter 2013</OPTION>
-<OPTION VALUE="201240">Fall 2012</OPTION>
-<OPTION VALUE="201230">Summer 2012</OPTION>
-<OPTION VALUE="201220">Spring 2012</OPTION>
-<OPTION VALUE="201210">Winter 2012</OPTION>
-<OPTION VALUE="201140">Fall 2011</OPTION>
-<OPTION VALUE="201130">Summer 2011</OPTION>
-<OPTION VALUE="201120">Spring 2011</OPTION>
-<OPTION VALUE="201110">Winter 2011</OPTION>
-<OPTION VALUE="201040">Fall 2010</OPTION>
-<OPTION VALUE="201030">Summer 2010</OPTION>
-<OPTION VALUE="201020">Spring 2010</OPTION>
-<OPTION VALUE="201010">Winter 2010</OPTION>
-<OPTION VALUE="200940">Fall 2009</OPTION>
-<OPTION VALUE="200930">Summer 2009</OPTION>
-<OPTION VALUE="200920">Spring 2009</OPTION>
-<OPTION VALUE="200910">Winter 2009</OPTION>
-<OPTION VALUE="200840">Fall 2008</OPTION>
-<OPTION VALUE="200830">Summer 2008</OPTION>
-<OPTION VALUE="200820">Spring 2008</OPTION>
-<OPTION VALUE="200810">Winter 2008</OPTION>
-<OPTION VALUE="200740">Fall 2007</OPTION>
-<OPTION VALUE="200730">Summer 2007</OPTION>
-<OPTION VALUE="200720">Spring 2007</OPTION>
-<OPTION VALUE="200710">Winter 2007</OPTION>
-<OPTION VALUE="200640">Fall 2006</OPTION>
-<OPTION VALUE="200630">Summer 2006</OPTION>
-<OPTION VALUE="200620">Spring 2006</OPTION>
-<OPTION VALUE="200610">Winter 2006</OPTION>
-<OPTION VALUE="200540">Fall 2005</OPTION>
-<OPTION VALUE="200530">Summer 2005</OPTION>
-<OPTION VALUE="200520">Spring 2005</OPTION>
-<OPTION VALUE="200510">Winter 2005</OPTION>
-<OPTION VALUE="200440">Fall 2004</OPTION>
-<OPTION VALUE="200430">Summer 2004</OPTION>
-<OPTION VALUE="200420">Spring 2004</OPTION>
-<OPTION VALUE="200410">Winter 2004</OPTION>
-<OPTION VALUE="200340">Fall 2003</OPTION>
-                         </select>
-<INPUT TYPE="hidden" NAME="curr_yr" VALUE="2324">
-                         <strong>Subject:</strong> 
-                         <select id="subj" name="subj">
-<OPTION SELECTED VALUE=ACCT>Accounting</OPTION>
-<OPTION VALUE="ACCT">Accounting</OPTION>
-<OPTION VALUE="AHE">Adult and Higher Ed</OPTION>
-<OPTION VALUE="AMST">American Cultural Studies</OPTION>
-<OPTION VALUE="ASLC">American Sign Lang & Culture</OPTION>
-<OPTION VALUE="ANTH">Anthropology</OPTION>
-<OPTION VALUE="ARAB">Arabic</OPTION>
-<OPTION VALUE="ART">Art</OPTION>
-<OPTION VALUE="A/HI">Art History</OPTION>
-<OPTION VALUE="AECI">Arts Enterprise/Cult Innovatn</OPTION>
-<OPTION VALUE="AUAP">Asia University America Progrm</OPTION>
-<OPTION VALUE="ASTR">Astronomy</OPTION>
-<OPTION VALUE="BNS">Behavioral Neuroscience</OPTION>
-<OPTION VALUE="BIOL">Biology</OPTION>
-<OPTION VALUE="BUS">Business</OPTION>
-<OPTION VALUE="C/AM">Canadian/American Studies</OPTION>
-<OPTION VALUE="CHEM">Chemistry</OPTION>
-<OPTION VALUE="CHIN">Chinese</OPTION>
-<OPTION VALUE="CLST">Classical Studies</OPTION>
-<OPTION VALUE="CD">Coaching Development</OPTION>
-<OPTION VALUE="CSEC">Coll Sci & Engr Collaboration</OPTION>
-<OPTION VALUE="CSD">Communication Sci & Disorders</OPTION>
-<OPTION VALUE="COMM">Communication Studies</OPTION>
-<OPTION VALUE="C2C">Compass to Campus</OPTION>
-<OPTION VALUE="CSCI">Computer Science</OPTION>
-<OPTION VALUE="CISS">Computr & Info Systms Security</OPTION>
-<OPTION VALUE="DISA">Critical Disability Studies</OPTION>
-<OPTION VALUE="DNC">Dance</OPTION>
-<OPTION VALUE="DATA">Data Science</OPTION>
-<OPTION VALUE="DSCI">Decision Sciences</OPTION>
-<OPTION VALUE="DSGN">Design</OPTION>
-<OPTION VALUE="DIAD">Disability and Advocacy</OPTION>
-<OPTION VALUE="ECE">Early Childhood Education</OPTION>
-<OPTION VALUE="EAST">East Asian Studies</OPTION>
-<OPTION VALUE="ECON">Economics</OPTION>
-<OPTION VALUE="EDUC">Education</OPTION>
-<OPTION VALUE="EDAD">Education Leadership</OPTION>
-<OPTION VALUE="ESJ">Education and Social Justice</OPTION>
-<OPTION VALUE="EECE">Electrical & Computer Engineer</OPTION>
-<OPTION VALUE="ELED">Elementary Education</OPTION>
-<OPTION VALUE="ENRG">Energy</OPTION>
-<OPTION VALUE="ENGR">Engineering</OPTION>
-<OPTION VALUE="ENG">English</OPTION>
-<OPTION VALUE="ENTR">Entrepreneurship</OPTION>
-<OPTION VALUE="ESCI">Environmental Sciences</OPTION>
-<OPTION VALUE="ENVS">Environmental Studies</OPTION>
-<OPTION VALUE="EUS">Eurasian Studies</OPTION>
-<OPTION VALUE="FAIR">Fairhaven</OPTION>
-<OPTION VALUE="FIN">Finance</OPTION>
-<OPTION VALUE="FREN">French</OPTION>
-<OPTION VALUE="GEOL">Geology</OPTION>
-<OPTION VALUE="GERM">German</OPTION>
-<OPTION VALUE="GLBL">Global Studies</OPTION>
-<OPTION VALUE="GRAD">Graduate Studies</OPTION>
-<OPTION VALUE="GREK">Greek</OPTION>
-<OPTION VALUE="HLED">Health Education</OPTION>
-<OPTION VALUE="HIST">History</OPTION>
-<OPTION VALUE="HGST">Holocaust & Genocide Studies</OPTION>
-<OPTION VALUE="HNRS">Honors</OPTION>
-<OPTION VALUE="HRM">Human Resource Management</OPTION>
-<OPTION VALUE="HSP">Human Services</OPTION>
-<OPTION VALUE="HUMA">Humanities</OPTION>
-<OPTION VALUE="ID">Industrial Design</OPTION>
-<OPTION VALUE="I T">Instructional Technology</OPTION>
-<OPTION VALUE="IEP">Intensive English Program</OPTION>
-<OPTION VALUE="IBUS">International Business</OPTION>
-<OPTION VALUE="INTL">International Studies</OPTION>
-<OPTION VALUE="ITAL">Italian</OPTION>
-<OPTION VALUE="JAPN">Japanese</OPTION>
-<OPTION VALUE="JOUR">Journalism</OPTION>
-<OPTION VALUE="KIN">Kinesiology</OPTION>
-<OPTION VALUE="LAT">Latin</OPTION>
-<OPTION VALUE="LDST">Leadership Studies</OPTION>
-<OPTION VALUE="LIBR">Library</OPTION>
-<OPTION VALUE="LING">Linguistics</OPTION>
-<OPTION VALUE="MGMT">Management</OPTION>
-<OPTION VALUE="MIS">Management Information Systems</OPTION>
-<OPTION VALUE="MFGE">Manufacturing Engineering</OPTION>
-<OPTION VALUE="MACS">Marine & Coastal Science</OPTION>
-<OPTION VALUE="MKTG">Marketing</OPTION>
-<OPTION VALUE="MBA">Master of Business Admin</OPTION>
-<OPTION VALUE="MPAC">Master of Professional ACCT</OPTION>
-<OPTION VALUE="MSCI">Materials Science</OPTION>
-<OPTION VALUE="MATH">Mathematics</OPTION>
-<OPTION VALUE="M/CS">Mathematics/Computer Science</OPTION>
-<OPTION VALUE="LANG">Modern and Classical Language</OPTION>
-<OPTION VALUE="MDS">Multidisciplinary Studies</OPTION>
-<OPTION VALUE="MLE">Multilingual Education</OPTION>
-<OPTION VALUE="MUS">Music</OPTION>
-<OPTION VALUE="NURS">Nursing</OPTION>
-<OPTION VALUE="OPS">Operations Management</OPTION>
-<OPTION VALUE="PHIL">Philosophy</OPTION>
-<OPTION VALUE="PA">Physical Activity</OPTION>
-<OPTION VALUE="PE">Physical Education</OPTION>
-<OPTION VALUE="PEH">Physical Education and Health</OPTION>
-<OPTION VALUE="PHYS">Physics</OPTION>
-<OPTION VALUE="PLSC">Political Science</OPTION>
-<OPTION VALUE="PME">Polymer Materials Engineering</OPTION>
-<OPTION VALUE="PORT">Portuguese</OPTION>
-<OPTION VALUE="PSY">Psychology</OPTION>
-<OPTION VALUE="RECR">Recreation</OPTION>
-<OPTION VALUE="RC">Rehabilitation Counseling</OPTION>
-<OPTION VALUE="REL">Religion</OPTION>
-<OPTION VALUE="RUSS">Russian</OPTION>
-<OPTION VALUE="SALI">Salish Sea Studies</OPTION>
-<OPTION VALUE="SCED">Science Education</OPTION>
-<OPTION VALUE="SEC">Secondary Education</OPTION>
-<OPTION VALUE="SMNR">Seminar</OPTION>
-<OPTION VALUE="SOC">Sociology</OPTION>
-<OPTION VALUE="SPAN">Spanish</OPTION>
-<OPTION VALUE="SPED">Special Education</OPTION>
-<OPTION VALUE="SUST">Sustainability Studies</OPTION>
-<OPTION VALUE="TEOP">Teacher Education Outreach</OPTION>
-<OPTION VALUE="TESL">Teaching Eng/Second Language</OPTION>
-<OPTION VALUE="THTR">Theatre Arts</OPTION>
-<OPTION VALUE="UEPP">Urban & Envr Plan & Policy</OPTION>
-<OPTION VALUE="WGSS">Women, Gender & Sexuality Stdy</OPTION>
-                         </select>
- <input type="submit" value="Submit">
- <INPUT TYPE="reset" VALUE="Reset" onclick=reload_page()>
-</center>
-                 </p>
-<div align='left'><font face="Verdana" color=red>
-<strong>A *NEW* and improved class search tool, Browse Classes, is now available in the updated Web4U: <a href="https://registrar.wwu.edu/browse-classes">Browse Classes at WWU</a></strong>
-</font></div>
-<p><p>
-<div align='left'><font face="Verdana" color=red>
-<a href="https://sbo.wwu.edu/tuition-and-fee-schedule" target="_blank">Tuition and Fees </a>vary by course level, residency and location.  Please review your <a href="https://commerce.cashnet.com/cashnetg/static/epayment/wwupay/overview" target="_blank">student account</a> after completing registration.</font><p><p>
-
-<!--<font face="Verdana" color=red>
+ </script>
+ <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+ <html lang="en">
+  <head>
+   <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+   <link href="/local_adds/css/wwu_web_defaultapp.css" rel="stylesheet" type="text/css"/>
+   <link href="/local_adds/css/web_defaultprint.css" media="print" rel="stylesheet" type="text/css"/>
+   <title>
+    WWU TimeTable of Classes
+   </title>
+   <p>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+   </p>
+  </head>
+  <div class="pagetitlediv">
+   <table class="plaintable" summary="This table displays title and static header displays." width="100%">
+    <tr>
+     <td class="pldefault">
+      <h2>
+       WWU TimeTable of Classes
+      </h2>
+     </td>
+     <td class="pldefault">
+     </td>
+     <td class="pldefault">
+      <p class="rightaligntext">
+       <div class="staticheaders">
+       </div>
+      </p>
+     </td>
+    </tr>
+    <tr>
+     <td class="bg3" colspan="3" width="100%">
+      <img alt="Transparent Image" border="0" height="3" hspace="0" name="web_transparent" src="/wtlgifs/web_transparent.gif" title="Transparent Image" vspace="0" width="10"/>
+     </td>
+    </tr>
+   </table>
+   <a name="main_content">
+   </a>
+  </div>
+  <body>
+   <center>
+    <strong>
+     Term:
+    </strong>
+    <select id="term" name="term">
+     <option selected="" value="202420">
+      Spring 2024
+     </option>
+     <option value="All">
+      All Terms for Year
+     </option>
+     <option value="202430">
+      Summer 2024
+     </option>
+     <option value="202420">
+      Spring 2024
+     </option>
+     <option value="202410">
+      Winter 2024
+     </option>
+     <option value="202340">
+      Fall 2023
+     </option>
+     <option value="202330">
+      Summer 2023
+     </option>
+     <option value="202320">
+      Spring 2023
+     </option>
+     <option value="202310">
+      Winter 2023
+     </option>
+     <option value="202240">
+      Fall 2022
+     </option>
+     <option value="202230">
+      Summer 2022
+     </option>
+     <option value="202220">
+      Spring 2022
+     </option>
+     <option value="202210">
+      Winter 2022
+     </option>
+     <option value="202140">
+      Fall 2021
+     </option>
+     <option value="202130">
+      Summer 2021
+     </option>
+     <option value="202120">
+      Spring 2021
+     </option>
+     <option value="202110">
+      Winter 2021
+     </option>
+     <option value="202040">
+      Fall 2020
+     </option>
+     <option value="202030">
+      Summer 2020
+     </option>
+     <option value="202020">
+      Spring 2020
+     </option>
+     <option value="202010">
+      Winter 2020
+     </option>
+     <option value="201940">
+      Fall 2019
+     </option>
+     <option value="201930">
+      Summer 2019
+     </option>
+     <option value="201920">
+      Spring 2019
+     </option>
+     <option value="201910">
+      Winter 2019
+     </option>
+     <option value="201840">
+      Fall 2018
+     </option>
+     <option value="201830">
+      Summer 2018
+     </option>
+     <option value="201820">
+      Spring 2018
+     </option>
+     <option value="201810">
+      Winter 2018
+     </option>
+     <option value="201740">
+      Fall 2017
+     </option>
+     <option value="201730">
+      Summer 2017
+     </option>
+     <option value="201720">
+      Spring 2017
+     </option>
+     <option value="201710">
+      Winter 2017
+     </option>
+     <option value="201640">
+      Fall 2016
+     </option>
+     <option value="201630">
+      Summer 2016
+     </option>
+     <option value="201620">
+      Spring 2016
+     </option>
+     <option value="201610">
+      Winter 2016
+     </option>
+     <option value="201540">
+      Fall 2015
+     </option>
+     <option value="201530">
+      Summer 2015
+     </option>
+     <option value="201520">
+      Spring 2015
+     </option>
+     <option value="201510">
+      Winter 2015
+     </option>
+     <option value="201440">
+      Fall 2014
+     </option>
+     <option value="201430">
+      Summer 2014
+     </option>
+     <option value="201420">
+      Spring 2014
+     </option>
+     <option value="201410">
+      Winter 2014
+     </option>
+     <option value="201340">
+      Fall 2013
+     </option>
+     <option value="201330">
+      Summer 2013
+     </option>
+     <option value="201320">
+      Spring 2013
+     </option>
+     <option value="201310">
+      Winter 2013
+     </option>
+     <option value="201240">
+      Fall 2012
+     </option>
+     <option value="201230">
+      Summer 2012
+     </option>
+     <option value="201220">
+      Spring 2012
+     </option>
+     <option value="201210">
+      Winter 2012
+     </option>
+     <option value="201140">
+      Fall 2011
+     </option>
+     <option value="201130">
+      Summer 2011
+     </option>
+     <option value="201120">
+      Spring 2011
+     </option>
+     <option value="201110">
+      Winter 2011
+     </option>
+     <option value="201040">
+      Fall 2010
+     </option>
+     <option value="201030">
+      Summer 2010
+     </option>
+     <option value="201020">
+      Spring 2010
+     </option>
+     <option value="201010">
+      Winter 2010
+     </option>
+     <option value="200940">
+      Fall 2009
+     </option>
+     <option value="200930">
+      Summer 2009
+     </option>
+     <option value="200920">
+      Spring 2009
+     </option>
+     <option value="200910">
+      Winter 2009
+     </option>
+     <option value="200840">
+      Fall 2008
+     </option>
+     <option value="200830">
+      Summer 2008
+     </option>
+     <option value="200820">
+      Spring 2008
+     </option>
+     <option value="200810">
+      Winter 2008
+     </option>
+     <option value="200740">
+      Fall 2007
+     </option>
+     <option value="200730">
+      Summer 2007
+     </option>
+     <option value="200720">
+      Spring 2007
+     </option>
+     <option value="200710">
+      Winter 2007
+     </option>
+     <option value="200640">
+      Fall 2006
+     </option>
+     <option value="200630">
+      Summer 2006
+     </option>
+     <option value="200620">
+      Spring 2006
+     </option>
+     <option value="200610">
+      Winter 2006
+     </option>
+     <option value="200540">
+      Fall 2005
+     </option>
+     <option value="200530">
+      Summer 2005
+     </option>
+     <option value="200520">
+      Spring 2005
+     </option>
+     <option value="200510">
+      Winter 2005
+     </option>
+     <option value="200440">
+      Fall 2004
+     </option>
+     <option value="200430">
+      Summer 2004
+     </option>
+     <option value="200420">
+      Spring 2004
+     </option>
+     <option value="200410">
+      Winter 2004
+     </option>
+     <option value="200340">
+      Fall 2003
+     </option>
+    </select>
+    <input name="curr_yr" type="hidden" value="2324"/>
+    <strong>
+     Subject:
+    </strong>
+    <select id="subj" name="subj">
+     <option selected="" value="ACCT">
+      Accounting
+     </option>
+     <option value="ACCT">
+      Accounting
+     </option>
+     <option value="AHE">
+      Adult and Higher Ed
+     </option>
+     <option value="AMST">
+      American Cultural Studies
+     </option>
+     <option value="ASLC">
+      American Sign Lang &amp; Culture
+     </option>
+     <option value="ANTH">
+      Anthropology
+     </option>
+     <option value="ARAB">
+      Arabic
+     </option>
+     <option value="ART">
+      Art
+     </option>
+     <option value="A/HI">
+      Art History
+     </option>
+     <option value="AECI">
+      Arts Enterprise/Cult Innovatn
+     </option>
+     <option value="AUAP">
+      Asia University America Progrm
+     </option>
+     <option value="ASTR">
+      Astronomy
+     </option>
+     <option value="BNS">
+      Behavioral Neuroscience
+     </option>
+     <option value="BIOL">
+      Biology
+     </option>
+     <option value="BUS">
+      Business
+     </option>
+     <option value="C/AM">
+      Canadian/American Studies
+     </option>
+     <option value="CHEM">
+      Chemistry
+     </option>
+     <option value="CHIN">
+      Chinese
+     </option>
+     <option value="CLST">
+      Classical Studies
+     </option>
+     <option value="CD">
+      Coaching Development
+     </option>
+     <option value="CSEC">
+      Coll Sci &amp; Engr Collaboration
+     </option>
+     <option value="CSD">
+      Communication Sci &amp; Disorders
+     </option>
+     <option value="COMM">
+      Communication Studies
+     </option>
+     <option value="C2C">
+      Compass to Campus
+     </option>
+     <option value="CSCI">
+      Computer Science
+     </option>
+     <option value="CISS">
+      Computr &amp; Info Systms Security
+     </option>
+     <option value="DISA">
+      Critical Disability Studies
+     </option>
+     <option value="DNC">
+      Dance
+     </option>
+     <option value="DATA">
+      Data Science
+     </option>
+     <option value="DSCI">
+      Decision Sciences
+     </option>
+     <option value="DSGN">
+      Design
+     </option>
+     <option value="DIAD">
+      Disability and Advocacy
+     </option>
+     <option value="ECE">
+      Early Childhood Education
+     </option>
+     <option value="EAST">
+      East Asian Studies
+     </option>
+     <option value="ECON">
+      Economics
+     </option>
+     <option value="EDUC">
+      Education
+     </option>
+     <option value="EDAD">
+      Education Leadership
+     </option>
+     <option value="ESJ">
+      Education and Social Justice
+     </option>
+     <option value="EECE">
+      Electrical &amp; Computer Engineer
+     </option>
+     <option value="ELED">
+      Elementary Education
+     </option>
+     <option value="ENRG">
+      Energy
+     </option>
+     <option value="ENGR">
+      Engineering
+     </option>
+     <option value="ENG">
+      English
+     </option>
+     <option value="ENTR">
+      Entrepreneurship
+     </option>
+     <option value="ESCI">
+      Environmental Sciences
+     </option>
+     <option value="ENVS">
+      Environmental Studies
+     </option>
+     <option value="EUS">
+      Eurasian Studies
+     </option>
+     <option value="FAIR">
+      Fairhaven
+     </option>
+     <option value="FIN">
+      Finance
+     </option>
+     <option value="FREN">
+      French
+     </option>
+     <option value="GEOL">
+      Geology
+     </option>
+     <option value="GERM">
+      German
+     </option>
+     <option value="GLBL">
+      Global Studies
+     </option>
+     <option value="GRAD">
+      Graduate Studies
+     </option>
+     <option value="GREK">
+      Greek
+     </option>
+     <option value="HLED">
+      Health Education
+     </option>
+     <option value="HIST">
+      History
+     </option>
+     <option value="HGST">
+      Holocaust &amp; Genocide Studies
+     </option>
+     <option value="HNRS">
+      Honors
+     </option>
+     <option value="HRM">
+      Human Resource Management
+     </option>
+     <option value="HSP">
+      Human Services
+     </option>
+     <option value="HUMA">
+      Humanities
+     </option>
+     <option value="ID">
+      Industrial Design
+     </option>
+     <option value="I T">
+      Instructional Technology
+     </option>
+     <option value="IEP">
+      Intensive English Program
+     </option>
+     <option value="IBUS">
+      International Business
+     </option>
+     <option value="INTL">
+      International Studies
+     </option>
+     <option value="ITAL">
+      Italian
+     </option>
+     <option value="JAPN">
+      Japanese
+     </option>
+     <option value="JOUR">
+      Journalism
+     </option>
+     <option value="KIN">
+      Kinesiology
+     </option>
+     <option value="LAT">
+      Latin
+     </option>
+     <option value="LDST">
+      Leadership Studies
+     </option>
+     <option value="LIBR">
+      Library
+     </option>
+     <option value="LING">
+      Linguistics
+     </option>
+     <option value="MGMT">
+      Management
+     </option>
+     <option value="MIS">
+      Management Information Systems
+     </option>
+     <option value="MFGE">
+      Manufacturing Engineering
+     </option>
+     <option value="MACS">
+      Marine &amp; Coastal Science
+     </option>
+     <option value="MKTG">
+      Marketing
+     </option>
+     <option value="MBA">
+      Master of Business Admin
+     </option>
+     <option value="MPAC">
+      Master of Professional ACCT
+     </option>
+     <option value="MSCI">
+      Materials Science
+     </option>
+     <option value="MATH">
+      Mathematics
+     </option>
+     <option value="M/CS">
+      Mathematics/Computer Science
+     </option>
+     <option value="LANG">
+      Modern and Classical Language
+     </option>
+     <option value="MDS">
+      Multidisciplinary Studies
+     </option>
+     <option value="MLE">
+      Multilingual Education
+     </option>
+     <option value="MUS">
+      Music
+     </option>
+     <option value="NURS">
+      Nursing
+     </option>
+     <option value="OPS">
+      Operations Management
+     </option>
+     <option value="PHIL">
+      Philosophy
+     </option>
+     <option value="PA">
+      Physical Activity
+     </option>
+     <option value="PE">
+      Physical Education
+     </option>
+     <option value="PEH">
+      Physical Education and Health
+     </option>
+     <option value="PHYS">
+      Physics
+     </option>
+     <option value="PLSC">
+      Political Science
+     </option>
+     <option value="PME">
+      Polymer Materials Engineering
+     </option>
+     <option value="PORT">
+      Portuguese
+     </option>
+     <option value="PSY">
+      Psychology
+     </option>
+     <option value="RECR">
+      Recreation
+     </option>
+     <option value="RC">
+      Rehabilitation Counseling
+     </option>
+     <option value="REL">
+      Religion
+     </option>
+     <option value="RUSS">
+      Russian
+     </option>
+     <option value="SALI">
+      Salish Sea Studies
+     </option>
+     <option value="SCED">
+      Science Education
+     </option>
+     <option value="SEC">
+      Secondary Education
+     </option>
+     <option value="SMNR">
+      Seminar
+     </option>
+     <option value="SOC">
+      Sociology
+     </option>
+     <option value="SPAN">
+      Spanish
+     </option>
+     <option value="SPED">
+      Special Education
+     </option>
+     <option value="SUST">
+      Sustainability Studies
+     </option>
+     <option value="TEOP">
+      Teacher Education Outreach
+     </option>
+     <option value="TESL">
+      Teaching Eng/Second Language
+     </option>
+     <option value="THTR">
+      Theatre Arts
+     </option>
+     <option value="UEPP">
+      Urban &amp; Envr Plan &amp; Policy
+     </option>
+     <option value="WGSS">
+      Women, Gender &amp; Sexuality Stdy
+     </option>
+    </select>
+    <input type="submit" value="Submit"/>
+    <input onclick="reload_page()" type="reset" value="Reset"/>
+   </center>
+   <div align="left">
+    <font color="red" face="Verdana">
+     <strong>
+      A *NEW* and improved class search tool, Browse Classes, is now available in the updated Web4U:
+      <a href="https://registrar.wwu.edu/browse-classes">
+       Browse Classes at WWU
+      </a>
+     </strong>
+    </font>
+   </div>
+   <p>
+    <p>
+     <div align="left">
+      <font color="red" face="Verdana">
+       <a href="https://sbo.wwu.edu/tuition-and-fee-schedule" target="_blank">
+        Tuition and Fees
+       </a>
+       vary by course level, residency and location.  Please review your
+       <a href="https://commerce.cashnet.com/cashnetg/static/epayment/wwupay/overview" target="_blank">
+        student account
+       </a>
+       after completing registration.
+      </font>
+      <p>
+       <p>
+        <!--<font face="Verdana" color=red>
 <a href="https://summer.wwu.edu/cost-and-payment/" target="_blank">Summer Tuition and Fees </a>differ from the academic year.  Please review your <a href="https://commerce.cashnet.com/cashnetg/static/epayment/wwupay/overview" target="_blank">student account</a> after completing registration.</font><p><p></div>-->
-
-
-
-<br />
-<table width="100%"><tr><td class="fieldformatboldtext">
-ACCOUNTING
-</td></tr></table>
-<table width="100%"><tr><td class="fieldformattext" width="100%">
-Registration priority status given to declared CBE majors 
-during Phase I & II. 
-<br />
- 
-<br />
-Any student who registers for a class and fails to attend 
+        <br/>
+        <table width="100%">
+         <tr>
+          <td class="fieldformatboldtext">
+           ACCOUNTING
+          </td>
+         </tr>
+        </table>
+        <table width="100%">
+         <tr>
+          <td class="fieldformattext" width="100%">
+           Registration priority status given to declared CBE majors 
+during Phase I &amp; II.
+           <br/>
+           <br/>
+           Any student who registers for a class and fails to attend 
 the first meeting, may be required to drop the class.  See 
 Class Attendance under Registration Policies on Registrar's 
-Office homepage. 
-</td></tr></table>
-<br />
-<br />
-<table width="100%"><tr><td class="fieldformatboldtext" width="100%">
-ACCT 240
-<A HREF="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&one_subj=ACCT&sel_crse_strt=240&sel_subj=dummy&sel_levl=dummy&sel_schd=dummy&sel_coll=dummy&sel_divs=dummy&sel_dept=dummy&sel_attr=dummy">Financial Accounting</A>
-4cr
-</td></tr>
-</td></tr></table>
-<div id="mydiv">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtextbold">
-<td width="10%" >
-Term
-</td><td width="7%" >
-Crn
-</td><td width="6%" >
-Days
-</td><td width="12%" >
-Time
-</td><td width="12%" >
-Instructor
-</td><td width="8%" >
-Room
-</td><td width="12%" >
-Addl Fees
-</td><td width="4%" >
-Cap
-</td><td width="4%" >
-Enrl
-</td><td width="5%" >
-Avail
-</td><td width="8%" >
-Waitlist
-</td><td width="9%" >
-Restrictions
-</td><td width="9%" >
-Attributes
-</td></tr>
-</table>
-</div>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20001">20001</A>
-</td><td width="6%" align="left">
-MW
-</td><td width="12%" align="left">
-10:00-11:50 am
-</td><td width="12%" align="left">
-Dolar, Burak
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('ES')">ES 100</A>
-</td><td width="12%" align="left" >
-<font color="red">
-</font>
-</td><td class="fieldgreentext" width="4%" align="left">
-57
-</class></td><td class="fieldgreentext" width="4%" align="left">
-56
-</class></td><td class="fieldgreentext" width="5%" align="left">
-1
-</class></td><td class="fieldgreentext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20001">OV </A>
-</td><td width="10%" align="left">
-FTF
-</td></tr>
-</table>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20004">20004</A>
-</td><td width="6%" align="left">
-MW
-</td><td width="12%" align="left">
-02:00-03:50 pm
-</td><td width="12%" align="left">
-Singleton, Ron
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('PH')">PH 228</A>
-</td><td width="12%" align="left" >
-<font color="red">
-</font>
-</td><td class="fieldgreentext" width="4%" align="left">
-57
-</class></td><td class="fieldgreentext" width="4%" align="left">
-54
-</class></td><td class="fieldgreentext" width="5%" align="left">
-3
-</class></td><td class="fieldgreentext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20004">OV </A>
-</td><td width="10%" align="left">
-FTF
-</td></tr>
-</table>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20156">20156</A>
-</td><td width="6%" align="left">
-TR
-</td><td width="12%" align="left">
-02:00-03:50 pm
-</td><td width="12%" align="left">
-Chen, Hanmei
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('SL')">SL 140</A>
-</td><td width="12%" align="left" >
-<font color="red">
-</font>
-</td><td class="fieldgreentext" width="4%" align="left">
-57
-</class></td><td class="fieldgreentext" width="4%" align="left">
-56
-</class></td><td class="fieldgreentext" width="5%" align="left">
-1
-</class></td><td class="fieldgreentext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20156">OV </A>
-</td><td width="10%" align="left">
-FTF
-</td></tr>
-</table>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20348">20348</A>
-</td><td width="6%" align="left">
-TR
-</td><td width="12%" align="left">
-10:00-11:50 am
-</td><td width="12%" align="left">
-Hao, Yamin
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('AH')">AH 004</A>
-</td><td width="12%" align="left" >
-<font color="red">
-</font>
-</td><td class="fieldgreentext" width="4%" align="left">
-57
-</class></td><td class="fieldgreentext" width="4%" align="left">
-55
-</class></td><td class="fieldgreentext" width="5%" align="left">
-2
-</class></td><td class="fieldgreentext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20348">OV </A>
-</td><td width="10%" align="left">
-FTF
-</td></tr>
-</table>
-<br />
-<br />
-<table width="100%"><tr><td class="fieldformatboldtext" width="100%">
-ACCT 245
-<A HREF="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&one_subj=ACCT&sel_crse_strt=245&sel_subj=dummy&sel_levl=dummy&sel_schd=dummy&sel_coll=dummy&sel_divs=dummy&sel_dept=dummy&sel_attr=dummy">Managerial Accounting</A>
-4cr
-</td></tr>
-<tr><td class="fieldmediumtext" width="100%">
-ACCT 240 
-</td></tr>
-</td></tr></table>
-<div id="mydiv">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtextbold">
-<td width="10%" >
-Term
-</td><td width="7%" >
-Crn
-</td><td width="6%" >
-Days
-</td><td width="12%" >
-Time
-</td><td width="12%" >
-Instructor
-</td><td width="8%" >
-Room
-</td><td width="12%" >
-Addl Fees
-</td><td width="4%" >
-Cap
-</td><td width="4%" >
-Enrl
-</td><td width="5%" >
-Avail
-</td><td width="8%" >
-Waitlist
-</td><td width="9%" >
-Restrictions
-</td><td width="9%" >
-Attributes
-</td></tr>
-</table>
-</div>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20002">20002</A>
-</td><td width="6%" align="left">
-TR
-</td><td width="12%" align="left">
-10:00-11:50 am
-</td><td width="12%" align="left">
-Dales, Ryan
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('CF')">CF 120</A>
-</td><td width="12%" align="left" >
-<font color="red">
-</font>
-</td><td class="fieldgreentext" width="4%" align="left">
-57
-</class></td><td class="fieldgreentext" width="4%" align="left">
-56
-</class></td><td class="fieldgreentext" width="5%" align="left">
-1
-</class></td><td class="fieldgreentext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20002">OV PQ</A>
-</td><td width="10%" align="left">
-FTF
-</td></tr>
-</table>
-<table width="100%">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-*New Room 
-</tr></table>
-<table width="100%">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-**Was CF110 
-</tr></table>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20157">20157</A>
-</td><td width="6%" align="left">
-TR
-</td><td width="12%" align="left">
-12:00-01:50 pm
-</td><td width="12%" align="left">
-Mann, Ann Renee
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('CF')">CF 120</A>
-</td><td width="12%" align="left" >
-<font color="red">
-</font>
-</td><td class="fieldgreentext" width="4%" align="left">
-57
-</class></td><td class="fieldgreentext" width="4%" align="left">
-56
-</class></td><td class="fieldgreentext" width="5%" align="left">
-1
-</class></td><td class="fieldgreentext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20157">OV PQ</A>
-</td><td width="10%" align="left">
-FTF
-</td></tr>
-</table>
-<table width="100%">
-<tr class="fieldmediumtext">
-*New Time 
-</tr></table>
-<table width="100%">
-<tr class="fieldmediumtext">
-*New Room 
-</tr></table>
-<table width="100%">
-<tr class="fieldmediumtext">
-**Was MW 1000-1150 CF110 
-</tr></table>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20285">20285</A>
-</td><td width="6%" align="left">
-MW
-</td><td width="12%" align="left">
-12:00-01:50 pm
-</td><td width="12%" align="left">
-Dales, Ryan
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('ES')">ES 413</A>
-</td><td width="12%" align="left">
-<font color="red">
-</font>
-</td><td class="fieldredtext" width="4%" align="left">
-57
-</class></td><td class="fieldredtext" width="4%" align="left">
-57
-</class></td><td class="fieldredtext" width="5%" align="left">
-0
-</class></td><td class="fieldredtext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20285">OV PQ</A>
-</td><td width="10%" align="left">
-FTF
-</td></tr>
-</table>
-<table width="100%">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-*New Time 
-</tr></table>
-<table width="100%">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-**Was TR 1200-1350 
-</tr></table>
-<br />
-<br />
-<table width="100%"><tr><td class="fieldformatboldtext" width="100%">
-ACCT 321
-<A HREF="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&one_subj=ACCT&sel_crse_strt=321&sel_subj=dummy&sel_levl=dummy&sel_schd=dummy&sel_coll=dummy&sel_divs=dummy&sel_dept=dummy&sel_attr=dummy">Accounting Info Systems I</A>
-4cr
-</td></tr>
-<tr><td class="fieldmediumtext" width="100%">
-Majors only. ACCT 245, MIS 220 or equivalent skills 
-</td></tr>
-</td></tr></table>
-<div id="mydiv">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtextbold">
-<td width="10%" >
-Term
-</td><td width="7%" >
-Crn
-</td><td width="6%" >
-Days
-</td><td width="12%" >
-Time
-</td><td width="12%" >
-Instructor
-</td><td width="8%" >
-Room
-</td><td width="12%" >
-Addl Fees
-</td><td width="4%" >
-Cap
-</td><td width="4%" >
-Enrl
-</td><td width="5%" >
-Avail
-</td><td width="8%" >
-Waitlist
-</td><td width="9%" >
-Restrictions
-</td><td width="9%" >
-Attributes
-</td></tr>
-</table>
-</div>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=22100">22100</A>
-</td><td width="6%" align="left">
-MW
-</td><td width="12%" align="left">
-10:00-11:50 am
-</td><td width="12%" align="left">
-Drum, Dawna Marie
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('PH')">PH 210</A>
-</td><td width="12%" align="left" >
-<font color="red">
-</font>
-</td><td class="fieldgreentext" width="4%" align="left">
-35
-</class></td><td class="fieldgreentext" width="4%" align="left">
-25
-</class></td><td class="fieldgreentext" width="5%" align="left">
-10
-</class></td><td class="fieldgreentext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=22100">OV MJ </A>
-</td><td width="10%" align="left">
-FTF WP1
-</td></tr>
-</table>
-<br />
-<br />
-<table width="100%"><tr><td class="fieldformatboldtext" width="100%">
-ACCT 331
-<A HREF="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&one_subj=ACCT&sel_crse_strt=331&sel_subj=dummy&sel_levl=dummy&sel_schd=dummy&sel_coll=dummy&sel_divs=dummy&sel_dept=dummy&sel_attr=dummy">Cost Management</A>
-4cr
-</td></tr>
-<tr><td class="fieldmediumtext" width="100%">
-Majors only. ACCT 245, DSCI 205, MIS 220 or equivalent 
-</td></tr>
-<tr><td class="fieldmediumtext" width="100%">
-skills. 
-</td></tr>
-</td></tr></table>
-<div id="mydiv">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtextbold">
-<td width="10%" >
-Term
-</td><td width="7%" >
-Crn
-</td><td width="6%" >
-Days
-</td><td width="12%" >
-Time
-</td><td width="12%" >
-Instructor
-</td><td width="8%" >
-Room
-</td><td width="12%" >
-Addl Fees
-</td><td width="4%" >
-Cap
-</td><td width="4%" >
-Enrl
-</td><td width="5%" >
-Avail
-</td><td width="8%" >
-Waitlist
-</td><td width="9%" >
-Restrictions
-</td><td width="9%" >
-Attributes
-</td></tr>
-</table>
-</div>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20158">20158</A>
-</td><td width="6%" align="left">
-TR
-</td><td width="12%" align="left">
-02:00-03:50 pm
-</td><td width="12%" align="left">
-Dales, Ryan
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('ES')">ES 080</A>
-</td><td width="12%" align="left" >
-<font color="red">
-</font>
-</td><td class="fieldgreentext" width="4%" align="left">
-35
-</class></td><td class="fieldgreentext" width="4%" align="left">
-16
-</class></td><td class="fieldgreentext" width="5%" align="left">
-19
-</class></td><td class="fieldgreentext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20158">OV MJ </A>
-</td><td width="10%" align="left">
-CF FTF
-</td></tr>
-</table>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20236">20236</A>
-</td><td width="6%" align="left">
-TR
-</td><td width="12%" align="left">
-12:00-01:50 pm
-</td><td width="12%" align="left">
-Dales, Ryan
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('ES')">ES 080</A>
-</td><td width="12%" align="left" >
-<font color="red">
-</font>
-</td><td class="fieldgreentext" width="4%" align="left">
-35
-</class></td><td class="fieldgreentext" width="4%" align="left">
-32
-</class></td><td class="fieldgreentext" width="5%" align="left">
-3
-</class></td><td class="fieldgreentext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20236">OV MJ </A>
-</td><td width="10%" align="left">
-CF FTF
-</td></tr>
-</table>
-<br />
-<br />
-<table width="100%"><tr><td class="fieldformatboldtext" width="100%">
-ACCT 341
-<A HREF="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&one_subj=ACCT&sel_crse_strt=341&sel_subj=dummy&sel_levl=dummy&sel_schd=dummy&sel_coll=dummy&sel_divs=dummy&sel_dept=dummy&sel_attr=dummy">Intermed Acct Theory and Prac</A>
-4cr
-</td></tr>
-<tr><td class="fieldmediumtext" width="100%">
-Majors Only. ACCT 245 
-</td></tr>
-</td></tr></table>
-<div id="mydiv">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtextbold">
-<td width="10%" >
-Term
-</td><td width="7%" >
-Crn
-</td><td width="6%" >
-Days
-</td><td width="12%" >
-Time
-</td><td width="12%" >
-Instructor
-</td><td width="8%" >
-Room
-</td><td width="12%" >
-Addl Fees
-</td><td width="4%" >
-Cap
-</td><td width="4%" >
-Enrl
-</td><td width="5%" >
-Avail
-</td><td width="8%" >
-Waitlist
-</td><td width="9%" >
-Restrictions
-</td><td width="9%" >
-Attributes
-</td></tr>
-</table>
-</div>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20005">20005</A>
-</td><td width="6%" align="left">
-MW
-</td><td width="12%" align="left">
-12:00-01:50 pm
-</td><td width="12%" align="left">
-Li, Shuo
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('AW')">AW 205</A>
-</td><td width="12%" align="left" >
-<font color="red">
-</font>
-</td><td class="fieldgreentext" width="4%" align="left">
-35
-</class></td><td class="fieldgreentext" width="4%" align="left">
-33
-</class></td><td class="fieldgreentext" width="5%" align="left">
-2
-</class></td><td class="fieldgreentext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20005">OV MJ </A>
-</td><td width="10%" align="left">
-FTF
-</td></tr>
-</table>
-<br />
-<br />
-<table width="100%"><tr><td class="fieldformatboldtext" width="100%">
-ACCT 342
-<A HREF="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&one_subj=ACCT&sel_crse_strt=342&sel_subj=dummy&sel_levl=dummy&sel_schd=dummy&sel_coll=dummy&sel_divs=dummy&sel_dept=dummy&sel_attr=dummy">Intermed Theory & Practice II</A>
-4cr
-</td></tr>
-<tr><td class="fieldmediumtext" width="100%">
-Majors Only. ACCT 341 
-</td></tr>
-</td></tr></table>
-<div id="mydiv">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtextbold">
-<td width="10%" >
-Term
-</td><td width="7%" >
-Crn
-</td><td width="6%" >
-Days
-</td><td width="12%" >
-Time
-</td><td width="12%" >
-Instructor
-</td><td width="8%" >
-Room
-</td><td width="12%" >
-Addl Fees
-</td><td width="4%" >
-Cap
-</td><td width="4%" >
-Enrl
-</td><td width="5%" >
-Avail
-</td><td width="8%" >
-Waitlist
-</td><td width="9%" >
-Restrictions
-</td><td width="9%" >
-Attributes
-</td></tr>
-</table>
-</div>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20006">20006</A>
-</td><td width="6%" align="left">
-TR
-</td><td width="12%" align="left">
-10:00-11:50 am
-</td><td width="12%" align="left">
-Chen, Hanmei
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('AH')">AH 030</A>
-</td><td width="12%" align="left" >
-<font color="red">
-</font>
-</td><td class="fieldgreentext" width="4%" align="left">
-35
-</class></td><td class="fieldgreentext" width="4%" align="left">
-28
-</class></td><td class="fieldgreentext" width="5%" align="left">
-7
-</class></td><td class="fieldgreentext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20006">OV MJ PQ</A>
-</td><td width="10%" align="left">
-FTF
-</td></tr>
-</table>
-<br />
-<br />
-<table width="100%"><tr><td class="fieldformatboldtext" width="100%">
-ACCT 343
-<A HREF="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&one_subj=ACCT&sel_crse_strt=343&sel_subj=dummy&sel_levl=dummy&sel_schd=dummy&sel_coll=dummy&sel_divs=dummy&sel_dept=dummy&sel_attr=dummy">Intermed Acct III</A>
-4cr
-</td></tr>
-<tr><td class="fieldmediumtext" width="100%">
-Majors Only. ACCT 342 
-</td></tr>
-</td></tr></table>
-<div id="mydiv">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtextbold">
-<td width="10%" >
-Term
-</td><td width="7%" >
-Crn
-</td><td width="6%" >
-Days
-</td><td width="12%" >
-Time
-</td><td width="12%" >
-Instructor
-</td><td width="8%" >
-Room
-</td><td width="12%" >
-Addl Fees
-</td><td width="4%" >
-Cap
-</td><td width="4%" >
-Enrl
-</td><td width="5%" >
-Avail
-</td><td width="8%" >
-Waitlist
-</td><td width="9%" >
-Restrictions
-</td><td width="9%" >
-Attributes
-</td></tr>
-</table>
-</div>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20552">20552</A>
-</td><td width="6%" align="left">
-TR
-</td><td width="12%" align="left">
-10:00-11:50 am
-</td><td width="12%" align="left">
-Moore, Jared Allen
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('CV')">CV 104</A>
-</td><td width="12%" align="left">
-<font color="red">
-</font>
-</td><td class="fieldredtext" width="4%" align="left">
-35
-</class></td><td class="fieldredtext" width="4%" align="left">
-36
-</class></td><td class="fieldredtext" width="5%" align="left">
--1
-</class></td><td class="fieldredtext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20552">OV MJ PQ</A>
-</td><td width="10%" align="left">
-FTF WP1
-</td></tr>
-</table>
-<table width="100%">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-*New Room 
-</tr></table>
-<table width="100%">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-**Was IS244 
-</tr></table>
-<br />
-<br />
-<table width="100%"><tr><td class="fieldformatboldtext" width="100%">
-ACCT 375
-<A HREF="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&one_subj=ACCT&sel_crse_strt=375&sel_subj=dummy&sel_levl=dummy&sel_schd=dummy&sel_coll=dummy&sel_divs=dummy&sel_dept=dummy&sel_attr=dummy">Taxation and Business Decision</A>
-4cr
-</td></tr>
-<tr><td class="fieldmediumtext" width="100%">
-Majors only; ACCT 240. 
-</td></tr>
-</td></tr></table>
-<div id="mydiv">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtextbold">
-<td width="10%" >
-Term
-</td><td width="7%" >
-Crn
-</td><td width="6%" >
-Days
-</td><td width="12%" >
-Time
-</td><td width="12%" >
-Instructor
-</td><td width="8%" >
-Room
-</td><td width="12%" >
-Addl Fees
-</td><td width="4%" >
-Cap
-</td><td width="4%" >
-Enrl
-</td><td width="5%" >
-Avail
-</td><td width="8%" >
-Waitlist
-</td><td width="9%" >
-Restrictions
-</td><td width="9%" >
-Attributes
-</td></tr>
-</table>
-</div>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20007">20007</A>
-</td><td width="6%" align="left">
-TR
-</td><td width="12%" align="left">
-02:00-03:50 pm
-</td><td width="12%" align="left">
-Moore, Jared Allen
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('AW')">AW 205</A>
-</td><td width="12%" align="left" >
-<font color="red">
-</font>
-</td><td class="fieldgreentext" width="4%" align="left">
-35
-</class></td><td class="fieldgreentext" width="4%" align="left">
-21
-</class></td><td class="fieldgreentext" width="5%" align="left">
-14
-</class></td><td class="fieldgreentext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20007">OV MJ </A>
-</td><td width="10%" align="left">
-FTF WP1
-</td></tr>
-</table>
-<br />
-<br />
-<table width="100%"><tr><td class="fieldformatboldtext" width="100%">
-ACCT 422
-<A HREF="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&one_subj=ACCT&sel_crse_strt=422&sel_subj=dummy&sel_levl=dummy&sel_schd=dummy&sel_coll=dummy&sel_divs=dummy&sel_dept=dummy&sel_attr=dummy">Enterprise Systems Accountants</A>
-4cr
-</td></tr>
-<tr><td class="fieldmediumtext" width="100%">
-ACCT 321 
-</td></tr>
-</td></tr></table>
-<div id="mydiv">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtextbold">
-<td width="10%" >
-Term
-</td><td width="7%" >
-Crn
-</td><td width="6%" >
-Days
-</td><td width="12%" >
-Time
-</td><td width="12%" >
-Instructor
-</td><td width="8%" >
-Room
-</td><td width="12%" >
-Addl Fees
-</td><td width="4%" >
-Cap
-</td><td width="4%" >
-Enrl
-</td><td width="5%" >
-Avail
-</td><td width="8%" >
-Waitlist
-</td><td width="9%" >
-Restrictions
-</td><td width="9%" >
-Attributes
-</td></tr>
-</table>
-</div>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=23688">23688</A>
-</td><td width="6%" align="left">
-MW
-</td><td width="12%" align="left">
-08:00-09:50 am
-</td><td width="12%" align="left">
-Drum, Dawna Marie
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('PH')">PH 047</A>
-</td><td width="12%" align="left" >
-<font color="red">
-</font>
-</td><td class="fieldgreentext" width="4%" align="left">
-18
-</class></td><td class="fieldgreentext" width="4%" align="left">
-16
-</class></td><td class="fieldgreentext" width="5%" align="left">
-2
-</class></td><td class="fieldgreentext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=23688">OV MJ PQ</A>
-</td><td width="10%" align="left">
-FTF
-</td></tr>
-</table>
-<br />
-<br />
-<table width="100%"><tr><td class="fieldformatboldtext" width="100%">
-ACCT 447
-<A HREF="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&one_subj=ACCT&sel_crse_strt=447&sel_subj=dummy&sel_levl=dummy&sel_schd=dummy&sel_coll=dummy&sel_divs=dummy&sel_dept=dummy&sel_attr=dummy">Not-For-Profit Organizations</A>
-4cr
-</td></tr>
-<tr><td class="fieldmediumtext" width="100%">
-Majors Only. ACCT 343 or concurrent. 
-</td></tr>
-</td></tr></table>
-<div id="mydiv">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtextbold">
-<td width="10%" >
-Term
-</td><td width="7%" >
-Crn
-</td><td width="6%" >
-Days
-</td><td width="12%" >
-Time
-</td><td width="12%" >
-Instructor
-</td><td width="8%" >
-Room
-</td><td width="12%" >
-Addl Fees
-</td><td width="4%" >
-Cap
-</td><td width="4%" >
-Enrl
-</td><td width="5%" >
-Avail
-</td><td width="8%" >
-Waitlist
-</td><td width="9%" >
-Restrictions
-</td><td width="9%" >
-Attributes
-</td></tr>
-</table>
-</div>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=21230">21230</A>
-</td><td width="6%" align="left">
-TR
-</td><td width="12%" align="left">
-12:00-01:50 pm
-</td><td width="12%" align="left">
-Taylor, Audrey G.
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('AW')">AW 304</A>
-</td><td width="12%" align="left" >
-<font color="red">
-</font>
-</td><td class="fieldgreentext" width="4%" align="left">
-18
-</class></td><td class="fieldgreentext" width="4%" align="left">
-17
-</class></td><td class="fieldgreentext" width="5%" align="left">
-1
-</class></td><td class="fieldgreentext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=21230">OV MJ PQ</A>
-</td><td width="10%" align="left">
-FTF
-</td></tr>
-</table>
-<br />
-<br />
-<table width="100%"><tr><td class="fieldformatboldtext" width="100%">
-ACCT 451
-<A HREF="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&one_subj=ACCT&sel_crse_strt=451&sel_subj=dummy&sel_levl=dummy&sel_schd=dummy&sel_coll=dummy&sel_divs=dummy&sel_dept=dummy&sel_attr=dummy">International Accounting</A>
-4cr
-</td></tr>
-<tr><td class="fieldmediumtext" width="100%">
-Majors Only. ACCT 343 
-</td></tr>
-</td></tr></table>
-<div id="mydiv">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtextbold">
-<td width="10%" >
-Term
-</td><td width="7%" >
-Crn
-</td><td width="6%" >
-Days
-</td><td width="12%" >
-Time
-</td><td width="12%" >
-Instructor
-</td><td width="8%" >
-Room
-</td><td width="12%" >
-Addl Fees
-</td><td width="4%" >
-Cap
-</td><td width="4%" >
-Enrl
-</td><td width="5%" >
-Avail
-</td><td width="8%" >
-Waitlist
-</td><td width="9%" >
-Restrictions
-</td><td width="9%" >
-Attributes
-</td></tr>
-</table>
-</div>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=23689">23689</A>
-</td><td width="6%" align="left">
-MW
-</td><td width="12%" align="left">
-02:00-03:50 pm
-</td><td width="12%" align="left">
-Li, Shuo
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('CV')">CV 103</A>
-</td><td width="12%" align="left">
-<font color="red">
-</font>
-</td><td class="fieldredtext" width="4%" align="left">
-18
-</class></td><td class="fieldredtext" width="4%" align="left">
-18
-</class></td><td class="fieldredtext" width="5%" align="left">
-0
-</class></td><td class="fieldredtext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=23689">OV MJ PQ</A>
-</td><td width="10%" align="left">
-FTF
-</td></tr>
-</table>
-<br />
-<br />
-<table width="100%"><tr><td class="fieldformatboldtext" width="100%">
-ACCT 461
-<A HREF="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&one_subj=ACCT&sel_crse_strt=461&sel_subj=dummy&sel_levl=dummy&sel_schd=dummy&sel_coll=dummy&sel_divs=dummy&sel_dept=dummy&sel_attr=dummy">Auditing Theory & Practice</A>
-4cr
-</td></tr>
-<tr><td class="fieldmediumtext" width="100%">
-Majors Only. ACCT 321, ACCT 343 
-</td></tr>
-</td></tr></table>
-<div id="mydiv">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtextbold">
-<td width="10%" >
-Term
-</td><td width="7%" >
-Crn
-</td><td width="6%" >
-Days
-</td><td width="12%" >
-Time
-</td><td width="12%" >
-Instructor
-</td><td width="8%" >
-Room
-</td><td width="12%" >
-Addl Fees
-</td><td width="4%" >
-Cap
-</td><td width="4%" >
-Enrl
-</td><td width="5%" >
-Avail
-</td><td width="8%" >
-Waitlist
-</td><td width="9%" >
-Restrictions
-</td><td width="9%" >
-Attributes
-</td></tr>
-</table>
-</div>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20553">20553</A>
-</td><td width="6%" align="left">
-TR
-</td><td width="12%" align="left">
-02:00-03:50 pm
-</td><td width="12%" align="left">
-Hao, Yamin
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('IS')">IS 242</A>
-</td><td width="12%" align="left">
-<font color="red">
-</font>
-</td><td class="fieldredtext" width="4%" align="left">
-24
-</class></td><td class="fieldredtext" width="4%" align="left">
-24
-</class></td><td class="fieldredtext" width="5%" align="left">
-0
-</class></td><td class="fieldredtext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20553">OV MJ PQ</A>
-</td><td width="10%" align="left">
-FTF
-</td></tr>
-</table>
-<br />
-<br />
-<table width="100%"><tr><td class="fieldformatboldtext" width="100%">
-ACCT 466
-<A HREF="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&one_subj=ACCT&sel_crse_strt=466&sel_subj=dummy&sel_levl=dummy&sel_schd=dummy&sel_coll=dummy&sel_divs=dummy&sel_dept=dummy&sel_attr=dummy">Fraud Exam & Forensic Acctg</A>
-4cr
-</td></tr>
-<tr><td class="fieldmediumtext" width="100%">
-Majors only. ACCT 321, ACCT 343 and ACCT 461. 
-</td></tr>
-</td></tr></table>
-<div id="mydiv">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtextbold">
-<td width="10%" >
-Term
-</td><td width="7%" >
-Crn
-</td><td width="6%" >
-Days
-</td><td width="12%" >
-Time
-</td><td width="12%" >
-Instructor
-</td><td width="8%" >
-Room
-</td><td width="12%" >
-Addl Fees
-</td><td width="4%" >
-Cap
-</td><td width="4%" >
-Enrl
-</td><td width="5%" >
-Avail
-</td><td width="8%" >
-Waitlist
-</td><td width="9%" >
-Restrictions
-</td><td width="9%" >
-Attributes
-</td></tr>
-</table>
-</div>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=21656">21656</A>
-</td><td width="6%" align="left">
-TR
-</td><td width="12%" align="left">
-10:00-11:50 am
-</td><td width="12%" align="left">
-Liu, Zander
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('MH')">MH 013</A>
-</td><td width="12%" align="left" >
-<font color="red">
-</font>
-</td><td class="fieldgreentext" width="4%" align="left">
-18
-</class></td><td class="fieldgreentext" width="4%" align="left">
-11
-</class></td><td class="fieldgreentext" width="5%" align="left">
-7
-</class></td><td class="fieldgreentext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=21656">OV MJ PQ</A>
-</td><td width="10%" align="left">
-CF FTF
-</td></tr>
-</table>
-<br />
-<br />
-<table width="100%"><tr><td class="fieldformatboldtext" width="100%">
-ACCT 470
-<A HREF="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&one_subj=ACCT&sel_crse_strt=470&sel_subj=dummy&sel_levl=dummy&sel_schd=dummy&sel_coll=dummy&sel_divs=dummy&sel_dept=dummy&sel_attr=dummy">Law of Commcl Transactions I</A>
-4cr
-</td></tr>
-<tr><td class="fieldmediumtext" width="100%">
-Majors Only. MGMT 271 
-</td></tr>
-</td></tr></table>
-<div id="mydiv">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtextbold">
-<td width="10%" >
-Term
-</td><td width="7%" >
-Crn
-</td><td width="6%" >
-Days
-</td><td width="12%" >
-Time
-</td><td width="12%" >
-Instructor
-</td><td width="8%" >
-Room
-</td><td width="12%" >
-Addl Fees
-</td><td width="4%" >
-Cap
-</td><td width="4%" >
-Enrl
-</td><td width="5%" >
-Avail
-</td><td width="8%" >
-Waitlist
-</td><td width="9%" >
-Restrictions
-</td><td width="9%" >
-Attributes
-</td></tr>
-</table>
-</div>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20159">20159</A>
-</td><td width="6%" align="left">
-TR
-</td><td width="12%" align="left">
-04:00-05:50 pm
-</td><td width="12%" align="left">
-Majumdar, Rajeev D.
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('IS')">IS 244</A>
-</td><td width="12%" align="left" >
-<font color="red">
-</font>
-</td><td class="fieldgreentext" width="4%" align="left">
-30
-</class></td><td class="fieldgreentext" width="4%" align="left">
-10
-</class></td><td class="fieldgreentext" width="5%" align="left">
-20
-</class></td><td class="fieldgreentext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20159">OV MJ </A>
-</td><td width="10%" align="left">
-FTF WP1
-</td></tr>
-</table>
-<br />
-<br />
-<table width="100%"><tr><td class="fieldformatboldtext" width="100%">
-ACCT 475
-<A HREF="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&one_subj=ACCT&sel_crse_strt=475&sel_subj=dummy&sel_levl=dummy&sel_schd=dummy&sel_coll=dummy&sel_divs=dummy&sel_dept=dummy&sel_attr=dummy">Income Taxation II</A>
-4cr
-</td></tr>
-<tr><td class="fieldmediumtext" width="100%">
-Majors Only. ACCT 375 
-</td></tr>
-</td></tr></table>
-<div id="mydiv">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtextbold">
-<td width="10%" >
-Term
-</td><td width="7%" >
-Crn
-</td><td width="6%" >
-Days
-</td><td width="12%" >
-Time
-</td><td width="12%" >
-Instructor
-</td><td width="8%" >
-Room
-</td><td width="12%" >
-Addl Fees
-</td><td width="4%" >
-Cap
-</td><td width="4%" >
-Enrl
-</td><td width="5%" >
-Avail
-</td><td width="8%" >
-Waitlist
-</td><td width="9%" >
-Restrictions
-</td><td width="9%" >
-Attributes
-</td></tr>
-</table>
-</div>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=22365">22365</A>
-</td><td width="6%" align="left">
-MW
-</td><td width="12%" align="left">
-10:00-11:50 am
-</td><td width="12%" align="left">
-Singleton, Ron
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('AW')">AW 205</A>
-</td><td width="12%" align="left" >
-<font color="red">
-</font>
-</td><td class="fieldgreentext" width="4%" align="left">
-18
-</class></td><td class="fieldgreentext" width="4%" align="left">
-9
-</class></td><td class="fieldgreentext" width="5%" align="left">
-9
-</class></td><td class="fieldgreentext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=22365">OV MJ PQ</A>
-</td><td width="10%" align="left">
-FTF
-</td></tr>
-</table>
-<br />
-<br />
-<table width="100%"><tr><td class="fieldformatboldtext" width="100%">
-ACCT 490
-<A HREF="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&one_subj=ACCT&sel_crse_strt=490&sel_subj=dummy&sel_levl=dummy&sel_schd=dummy&sel_coll=dummy&sel_divs=dummy&sel_dept=dummy&sel_attr=dummy">Internship in Accounting</A>
-2cr
-</td></tr>
-<tr><td class="fieldmediumtext" width="100%">
-Majors Only. ACCT 341; minimum 2.75 GPA in 300/400-level 
-</td></tr>
-<tr><td class="fieldmediumtext" width="100%">
-accounting courses 
-</td></tr>
-</td></tr></table>
-<div id="mydiv">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtextbold">
-<td width="10%" >
-Term
-</td><td width="7%" >
-Crn
-</td><td width="6%" >
-Days
-</td><td width="12%" >
-Time
-</td><td width="12%" >
-Instructor
-</td><td width="8%" >
-Room
-</td><td width="12%" >
-Addl Fees
-</td><td width="4%" >
-Cap
-</td><td width="4%" >
-Enrl
-</td><td width="5%" >
-Avail
-</td><td width="8%" >
-Waitlist
-</td><td width="9%" >
-Restrictions
-</td><td width="9%" >
-Attributes
-</td></tr>
-</table>
-</div>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20373">20373</A>
-</td><td width="6%" align="left">
-TBD
-</td><td width="12%" align="left">
-TBD
-</td><td width="12%" align="left">
-Taylor, Audrey G.
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('PH')">PH OFC</A>
-</td><td width="12%" align="left" >
-<font color="red">
-</font>
-</td><td class="fieldgreentext" width="4%" align="left">
-10
-</class></td><td class="fieldgreentext" width="4%" align="left">
-0
-</class></td><td class="fieldgreentext" width="5%" align="left">
-10
-</class></td><td class="fieldgreentext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20373">OV MJ S/U </A>
-</td><td width="10%" align="left">
-FTF
-</td></tr>
-</table>
-<br />
-<br />
-<table width="100%"><tr><td class="fieldformatboldtext" width="100%">
-ACCT 490
-<A HREF="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&one_subj=ACCT&sel_crse_strt=490&sel_subj=dummy&sel_levl=dummy&sel_schd=dummy&sel_coll=dummy&sel_divs=dummy&sel_dept=dummy&sel_attr=dummy">Internship in Accounting</A>
-1cr
-</td></tr>
-<tr><td class="fieldmediumtext" width="100%">
-Majors Only. ACCT 341; minimum 2.75 GPA in 300/400-level 
-</td></tr>
-<tr><td class="fieldmediumtext" width="100%">
-accounting courses 
-</td></tr>
-</td></tr></table>
-<div id="mydiv">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtextbold">
-<td width="10%" >
-Term
-</td><td width="7%" >
-Crn
-</td><td width="6%" >
-Days
-</td><td width="12%" >
-Time
-</td><td width="12%" >
-Instructor
-</td><td width="8%" >
-Room
-</td><td width="12%" >
-Addl Fees
-</td><td width="4%" >
-Cap
-</td><td width="4%" >
-Enrl
-</td><td width="5%" >
-Avail
-</td><td width="8%" >
-Waitlist
-</td><td width="9%" >
-Restrictions
-</td><td width="9%" >
-Attributes
-</td></tr>
-</table>
-</div>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20284">20284</A>
-</td><td width="6%" align="left">
-TBD
-</td><td width="12%" align="left">
-TBD
-</td><td width="12%" align="left">
-Taylor, Audrey G.
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('PH')">PH OFC</A>
-</td><td width="12%" align="left" >
-<font color="red">
-</font>
-</td><td class="fieldgreentext" width="4%" align="left">
-10
-</class></td><td class="fieldgreentext" width="4%" align="left">
-0
-</class></td><td class="fieldgreentext" width="5%" align="left">
-10
-</class></td><td class="fieldgreentext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=20284">OV MJ S/U </A>
-</td><td width="10%" align="left">
-FTF
-</td></tr>
-</table>
-<br />
-<br />
-<table width="100%"><tr><td class="fieldformatboldtext" width="100%">
-ACCT 491
-<A HREF="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&one_subj=ACCT&sel_crse_strt=491&sel_subj=dummy&sel_levl=dummy&sel_schd=dummy&sel_coll=dummy&sel_divs=dummy&sel_dept=dummy&sel_attr=dummy">Accounting Internship</A>
-2 TO 4cr
-</td></tr>
-<tr><td class="fieldmediumtext" width="100%">
-ACCT 342 and instructor permission; Accounting, BS major 
-</td></tr>
-<tr><td class="fieldmediumtext" width="100%">
-status. 
-</td></tr>
-</td></tr></table>
-<div id="mydiv">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr class="fieldmediumtextbold">
-<td width="10%" >
-Term
-</td><td width="7%" >
-Crn
-</td><td width="6%" >
-Days
-</td><td width="12%" >
-Time
-</td><td width="12%" >
-Instructor
-</td><td width="8%" >
-Room
-</td><td width="12%" >
-Addl Fees
-</td><td width="4%" >
-Cap
-</td><td width="4%" >
-Enrl
-</td><td width="5%" >
-Avail
-</td><td width="8%" >
-Waitlist
-</td><td width="9%" >
-Restrictions
-</td><td width="9%" >
-Attributes
-</td></tr>
-</table>
-</div>
-<table width="100%" frame="hsides"  border="0" cellspacing="0" cellpadding="0">
-<tr bgcolor="#DCDCDC" class="fieldmediumtext">
-<td width="10%" align="left" >
-<font color="black">Spring 2024</font>
-</td><td width="7%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=23075">23075</A>
-</td><td width="6%" align="left">
-TBD
-</td><td width="12%" align="left">
-TBD
-</td><td width="12%" align="left">
-Smith, Steve
-</td><td width="8%" align="left">
-<A HREF="javascript:my_win('PH')">PH OFC</A>
-</td><td width="12%" align="left" >
-<font color="red">
-</font>
-</td><td class="fieldgreentext" width="4%" align="left">
-20
-</class></td><td class="fieldgreentext" width="4%" align="left">
-2
-</class></td><td class="fieldgreentext" width="5%" align="left">
-18
-</class></td><td class="fieldgreentext" width="8%" align="left">
- 
-</class></td><td width="10%" align="left">
-<A HREF="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&crn_in=23075">OV PQ</A>
-</td><td width="10%" align="left">
-FTF
-</td></tr>
-</table>
-<a name="key-data"></a>
-<br />
-<table width="100%">
-<tr class="fieldmediumboldtext"><td width="33%">ATTRIBUTES</td><td width="33%">&nbsp;</td><td width="33%">&nbsp;</td></tr>
-<tr class="fieldmediumboldtext"><td width="33%">&nbsp;</td><td width="33%">&nbsp;</td><td width="33%">&nbsp;</td></tr>
-<tr class="fieldmediumboldtext"><td width="33%">GUR</td><td width="33%">DELIVERY METHOD/SITE</td><td width="33%">OTHER</td></tr>
-<tr class="fieldmediumtext"><td width="33%">ACGM = GUR ACGM-A-Comparative Gender</td><td width="33%">ASNC = DELIVERY Online-Asynchronous<td width="33%">AFME = HistField-AFME-Africa&Mid East</td></tr>
-<tr class="fieldmediumtext"><td width="33%">ACOM = GUR ACOM-A-Communication</td><td width="33%">BNEX = WWU Location: Burien<td width="33%">ANCT = HistField-ANCT-Ancient</td></tr>
-<tr class="fieldmediumtext"><td width="33%">BCGM = GUR BCGM-B-Comparative Gender</td><td width="33%">BREX = WWU Location: Bremerton<td width="33%">ASIA = HistField-ASIA-East&South Asia</td></tr>
-<tr class="fieldmediumtext"><td width="33%">BCOM = GUR BCOM-B-Communication</td><td width="33%">DLEX = WWU Location: Distance Lrning<td width="33%">CF = CF Communication Focus</td></tr>
-<tr class="fieldmediumtext"><td width="33%">CCOM = GUR CCOM-C-Communication</td><td width="33%">EVEX = WWU Location: Everett<td width="33%">CF-E = CF-E Communication FocusECON</td></tr>
-<tr class="fieldmediumtext"><td width="33%">HUM = GUR HUM-Humanities</td><td width="33%">FTF = DELIVERY Face-to-Face<td width="33%">CMB1 = HistField-CMB1-CombReq600-1450</td></tr>
-<tr class="fieldmediumtext"><td width="33%">LSCI = GUR LSCI-NatSci wLab Component</td><td width="33%">HYBD = DELIVERY Hybrid<td width="33%">CMB2 = HistField-CMB2-CombReqSinc1450</td></tr>
-<tr class="fieldmediumtext"><td width="33%">QSR = GUR QSR-Quant&Symbolic Reason</td><td width="33%">KLEX = WWU Location: Kirkland<td width="33%">CPST = CPST - Capstone Course</td></tr>
-<tr class="fieldmediumtext"><td width="33%">SCI = GUR SCI-Natural Science</td><td width="33%">MIX = DELIVERY Online-Mixed<td width="33%">EUR = HistField-EUR-Europe</td></tr>
-<tr class="fieldmediumtext"><td width="33%">SSC = GUR SSC-Social Sciences</td><td width="33%">OL = DELIVERY Online<td width="33%">EUR1 = HistField-EUR1-Europe 600-1450</td></tr>
-<tr class="fieldmediumtext"><td width="33%"></td><td width="33%">PAEX = WWU Location: Pt Angeles<td width="33%">EUR2 = HistField-EUR2-EuropeSince1450</td></tr>
-<tr class="fieldmediumtext"><td width="33%"></td><td width="33%">PBEX = WWU Location: Poulsbo<td width="33%">FIG = FIG - First Yr InterestSeminar</td></tr>
-<tr class="fieldmediumtext"><td width="33%"></td><td width="33%">RTEX = WWU Location: Renton<td width="33%">FYE = FYE - First Year Experience</td></tr>
-<tr class="fieldmediumtext"><td width="33%"></td><td width="33%">SPL = SPL-Self-Paced (By Permission)<td width="33%">SL = SL - Service Learning</td></tr>
-<tr class="fieldmediumtext"><td width="33%"></td><td width="33%">SYNC = DELIVERY Online-Synchronous<td width="33%">SST = Self-Sustaining Tuition & Fees</td></tr>
-<tr class="fieldmediumtext"><td width="33%"></td><td width="33%"><td width="33%">TRVL = TRVL - Faculty Led Travel</td></tr>
-<tr class="fieldmediumtext"><td width="33%"></td><td width="33%"><td width="33%">US = HistField-US-United States</td></tr>
-<tr class="fieldmediumtext"><td width="33%"></td><td width="33%"><td width="33%">US1 = HistField-US1-US Before 1865</td></tr>
-<tr class="fieldmediumtext"><td width="33%"></td><td width="33%"><td width="33%">US2 = HistField-US2-US Since 1865</td></tr>
-<tr class="fieldmediumtext"><td width="33%"></td><td width="33%"><td width="33%">WHEM = HistField-WHEM-WstrnHemisphere</td></tr>
-<tr class="fieldmediumtext"><td width="33%"></td><td width="33%"><td width="33%">WP1 = WP1 Writing Proficiency 1 Pt</td></tr>
-<tr class="fieldmediumtext"><td width="33%"></td><td width="33%"><td width="33%">WP2 = WP2 Writing Proficiency 2 Pts</td></tr>
-<tr class="fieldmediumtext"><td width="33%"></td><td width="33%"><td width="33%">WP3 = WP3 Writing Proficiency 3 Pts</td></tr>
-</tr>
-<tr class="fieldmediumboldtext"><td width="33%">&nbsp;</td><td width="33%">&nbsp;</td><td width="33%">&nbsp;</td></tr>
-<tr class="fieldmediumboldtext"><td width="33%">RESTRICTIONS</td><td width="33%">&nbsp;</td><td width="33%">&nbsp;</td></tr>
-<tr class="fieldmediumboldtext"><td width="33%">&nbsp;</td><td width="33%">&nbsp;</td><td width="33%">&nbsp;</td></tr>
-<tr class="fieldmediumboldtext"><td width="33%">COLLEGE</td><td width="33%">CLASS</td><td width="33%">OTHER</td></tr>
-<tr class="fieldmediumtext"><td width="33%">BU = Coll of Business and Economics</td><td width="33%">FR = Freshmen<td width="33%">IP = S/U Grading including IP Grade</td></tr>
-<tr class="fieldmediumtext"><td width="33%">CE = Continuing Community Education</td><td width="33%">SO = Sophomore<td width="33%">MJ = Declared Major</td></tr>
-<tr class="fieldmediumtext"><td width="33%">ED = Woodring College of Education</td><td width="33%">JR = Junior<td width="33%">OV = Override code reqd</td></tr>
-<tr class="fieldmediumtext"><td width="33%">EN = College of the Environment</td><td width="33%">SR = Senior<td width="33%">PQ = Pre-Requisite reqd</td></tr>
-<tr class="fieldmediumtext"><td width="33%">FA = Fairhaven Coll of Interdisc St</td><td width="33%">PB = Post Bac<td width="33%">PR = Indep. Study Permit</td></tr>
-<tr class="fieldmediumtext"><td width="33%">FI = Coll/Fine and Performing Arts</td><td width="33%">PM = Post Masters<td width="33%">SU = S/U Grading</td></tr>
-<tr class="fieldmediumtext"><td width="33%">HS = Humanities and Social Sciences</td><td width="33%">GR = Masters<td width="33%"></td></tr>
-<tr class="fieldmediumtext"><td width="33%">HU = Huxley Coll of the Environment</td><td width="33%"><td width="33%"></td></tr>
-<tr class="fieldmediumtext"><td width="33%">SE = College Science & Engineering</td><td width="33%"><td width="33%"></td></tr>
-</tr>
-<tr class="fieldmediumboldtext"><td width="33%">&nbsp;</td><td width="33%">&nbsp;</td><td width="33%">&nbsp;</td></tr>
-</table>
-</tr><tr>
-<div class="pagefooterlinks">
-<A HREF="http://www.wwu.edu/registrar/calendars/index.shtml" accesskey="C" onClick="popup = window.open('http://www.wwu.edu/registrar/calendars/index.shtml', 'PopupPage','height=600,width=800,scrollbars=yes,resizable=yes'); return false" target="_blank" onMouseOver="window.status='';  return true" onMouseOut="window.status=''; return true"onFocus="window.status='';  return true" onBlur="window.status=''; return true"  class="submenulinktext2">Dates and Deadlines</A>
-::
-<A HREF=" http://www.wwu.edu/registrar/registration/policies/index.shtml" accesskey="P" onClick="popup = window.open(' http://www.wwu.edu/registrar/registration/policies/index.shtml', 'PopupPage','height=600,width=800,scrollbars=yes,resizable=yes'); return false" target="_blank" onMouseOver="window.status='';  return true" onMouseOut="window.status=''; return true"onFocus="window.status='';  return true" onBlur="window.status=''; return true"  class="submenulinktext2">Registration Policies and Procedures</A>
-::
-<A HREF="http://www.wwu.edu/registrar/calendars/finals_sched.shtml" accesskey="E" onClick="popup = window.open('http://www.wwu.edu/registrar/calendars/finals_sched.shtml', 'PopupPage','height=600,width=800,scrollbars=yes,resizable=yes'); return false" target="_blank" onMouseOver="window.status='';  return true" onMouseOut="window.status=''; return true"onFocus="window.status='';  return true" onBlur="window.status=''; return true"  class="submenulinktext2">Final Exam Schedule</A>
-<br />
-<A HREF="http://www.wwu.edu/registrar/registration/registration_schedule.shtml" accesskey="R" onClick="popup = window.open('http://www.wwu.edu/registrar/registration/registration_schedule.shtml', 'PopupPage','height=600,width=800,scrollbars=yes,resizable=yes'); return false" target="_blank" onMouseOver="window.status='';  return true" onMouseOut="window.status=''; return true"onFocus="window.status='';  return true" onBlur="window.status=''; return true"  class="submenulinktext2">Registration Schedule</A>
-::
-<A HREF="http://www.wwu.edu/depts/registrar/index.shtml" accesskey="O" onClick="popup = window.open('http://www.wwu.edu/depts/registrar/index.shtml', 'PopupPage','height=600,width=800,scrollbars=yes,resizable=yes'); return false" target="_blank" onMouseOver="window.status='';  return true" onMouseOut="window.status=''; return true"onFocus="window.status='';  return true" onBlur="window.status=''; return true"  class="submenulinktext2">Registrars Office</A>
-::
-<A HREF="http://figs.wwu.edu/" accesskey="F" onClick="popup = window.open('http://figs.wwu.edu/', 'PopupPage','height=600,width=800,scrollbars=yes,resizable=yes'); return false" target="_blank" onMouseOver="window.status='';  return true" onMouseOut="window.status=''; return true"onFocus="window.status='';  return true" onBlur="window.status=''; return true"  class="submenulinktext2">First-year Interest Groups</A>
-</div>
-</BODY>
+Office homepage.
+          </td>
+         </tr>
+        </table>
+        <br/>
+        <br/>
+        <table width="100%">
+         <tr>
+          <td class="fieldformatboldtext" width="100%">
+           ACCT 240
+           <a href="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&amp;one_subj=ACCT&amp;sel_crse_strt=240&amp;sel_subj=dummy&amp;sel_levl=dummy&amp;sel_schd=dummy&amp;sel_coll=dummy&amp;sel_divs=dummy&amp;sel_dept=dummy&amp;sel_attr=dummy">
+            Financial Accounting
+           </a>
+           4cr
+          </td>
+         </tr>
+        </table>
+        <div id="mydiv">
+         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr class="fieldmediumtextbold">
+           <td width="10%">
+            Term
+           </td>
+           <td width="7%">
+            Crn
+           </td>
+           <td width="6%">
+            Days
+           </td>
+           <td width="12%">
+            Time
+           </td>
+           <td width="12%">
+            Instructor
+           </td>
+           <td width="8%">
+            Room
+           </td>
+           <td width="12%">
+            Addl Fees
+           </td>
+           <td width="4%">
+            Cap
+           </td>
+           <td width="4%">
+            Enrl
+           </td>
+           <td width="5%">
+            Avail
+           </td>
+           <td width="8%">
+            Waitlist
+           </td>
+           <td width="9%">
+            Restrictions
+           </td>
+           <td width="9%">
+            Attributes
+           </td>
+          </tr>
+         </table>
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20001">
+            20001
+           </a>
+          </td>
+          <td align="left" width="6%">
+           MW
+          </td>
+          <td align="left" width="12%">
+           10:00-11:50 am
+          </td>
+          <td align="left" width="12%">
+           Dolar, Burak
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('ES')">
+            ES 100
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           57
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           56
+          </td>
+          <td align="left" class="fieldgreentext" width="5%">
+           1
+          </td>
+          <td align="left" class="fieldgreentext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20001">
+            OV
+           </a>
+          </td>
+          <td align="left" width="10%">
+           FTF
+          </td>
+         </tr>
+        </table>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20004">
+            20004
+           </a>
+          </td>
+          <td align="left" width="6%">
+           MW
+          </td>
+          <td align="left" width="12%">
+           02:00-03:50 pm
+          </td>
+          <td align="left" width="12%">
+           Singleton, Ron
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('PH')">
+            PH 228
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           57
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           53
+          </td>
+          <td align="left" class="fieldgreentext" width="5%">
+           4
+          </td>
+          <td align="left" class="fieldgreentext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20004">
+            OV
+           </a>
+          </td>
+          <td align="left" width="10%">
+           FTF
+          </td>
+         </tr>
+        </table>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20156">
+            20156
+           </a>
+          </td>
+          <td align="left" width="6%">
+           TR
+          </td>
+          <td align="left" width="12%">
+           02:00-03:50 pm
+          </td>
+          <td align="left" width="12%">
+           Chen, Hanmei
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('SL')">
+            SL 140
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           57
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           56
+          </td>
+          <td align="left" class="fieldgreentext" width="5%">
+           1
+          </td>
+          <td align="left" class="fieldgreentext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20156">
+            OV
+           </a>
+          </td>
+          <td align="left" width="10%">
+           FTF
+          </td>
+         </tr>
+        </table>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20348">
+            20348
+           </a>
+          </td>
+          <td align="left" width="6%">
+           TR
+          </td>
+          <td align="left" width="12%">
+           10:00-11:50 am
+          </td>
+          <td align="left" width="12%">
+           Hao, Yamin
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('AH')">
+            AH 004
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           57
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           55
+          </td>
+          <td align="left" class="fieldgreentext" width="5%">
+           2
+          </td>
+          <td align="left" class="fieldgreentext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20348">
+            OV
+           </a>
+          </td>
+          <td align="left" width="10%">
+           FTF
+          </td>
+         </tr>
+        </table>
+        <br/>
+        <br/>
+        <table width="100%">
+         <tr>
+          <td class="fieldformatboldtext" width="100%">
+           ACCT 245
+           <a href="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&amp;one_subj=ACCT&amp;sel_crse_strt=245&amp;sel_subj=dummy&amp;sel_levl=dummy&amp;sel_schd=dummy&amp;sel_coll=dummy&amp;sel_divs=dummy&amp;sel_dept=dummy&amp;sel_attr=dummy">
+            Managerial Accounting
+           </a>
+           4cr
+          </td>
+         </tr>
+         <tr>
+          <td class="fieldmediumtext" width="100%">
+           ACCT 240
+          </td>
+         </tr>
+        </table>
+        <div id="mydiv">
+         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr class="fieldmediumtextbold">
+           <td width="10%">
+            Term
+           </td>
+           <td width="7%">
+            Crn
+           </td>
+           <td width="6%">
+            Days
+           </td>
+           <td width="12%">
+            Time
+           </td>
+           <td width="12%">
+            Instructor
+           </td>
+           <td width="8%">
+            Room
+           </td>
+           <td width="12%">
+            Addl Fees
+           </td>
+           <td width="4%">
+            Cap
+           </td>
+           <td width="4%">
+            Enrl
+           </td>
+           <td width="5%">
+            Avail
+           </td>
+           <td width="8%">
+            Waitlist
+           </td>
+           <td width="9%">
+            Restrictions
+           </td>
+           <td width="9%">
+            Attributes
+           </td>
+          </tr>
+         </table>
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20002">
+            20002
+           </a>
+          </td>
+          <td align="left" width="6%">
+           TR
+          </td>
+          <td align="left" width="12%">
+           10:00-11:50 am
+          </td>
+          <td align="left" width="12%">
+           Dales, Ryan
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('CF')">
+            CF 120
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           57
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           56
+          </td>
+          <td align="left" class="fieldgreentext" width="5%">
+           1
+          </td>
+          <td align="left" class="fieldgreentext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20002">
+            OV PQ
+           </a>
+          </td>
+          <td align="left" width="10%">
+           FTF
+          </td>
+         </tr>
+        </table>
+        <table width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          *New Room
+         </tr>
+        </table>
+        <table width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          **Was CF110
+         </tr>
+        </table>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20157">
+            20157
+           </a>
+          </td>
+          <td align="left" width="6%">
+           TR
+          </td>
+          <td align="left" width="12%">
+           12:00-01:50 pm
+          </td>
+          <td align="left" width="12%">
+           Mann, Ann Renee
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('CF')">
+            CF 120
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           57
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           55
+          </td>
+          <td align="left" class="fieldgreentext" width="5%">
+           2
+          </td>
+          <td align="left" class="fieldgreentext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20157">
+            OV PQ
+           </a>
+          </td>
+          <td align="left" width="10%">
+           FTF
+          </td>
+         </tr>
+        </table>
+        <table width="100%">
+         <tr class="fieldmediumtext">
+          *New Time
+         </tr>
+        </table>
+        <table width="100%">
+         <tr class="fieldmediumtext">
+          *New Room
+         </tr>
+        </table>
+        <table width="100%">
+         <tr class="fieldmediumtext">
+          **Was MW 1000-1150 CF110
+         </tr>
+        </table>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20285">
+            20285
+           </a>
+          </td>
+          <td align="left" width="6%">
+           MW
+          </td>
+          <td align="left" width="12%">
+           12:00-01:50 pm
+          </td>
+          <td align="left" width="12%">
+           Dales, Ryan
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('ES')">
+            ES 413
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldredtext" width="4%">
+           57
+          </td>
+          <td align="left" class="fieldredtext" width="4%">
+           57
+          </td>
+          <td align="left" class="fieldredtext" width="5%">
+           0
+          </td>
+          <td align="left" class="fieldredtext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20285">
+            OV PQ
+           </a>
+          </td>
+          <td align="left" width="10%">
+           FTF
+          </td>
+         </tr>
+        </table>
+        <table width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          *New Time
+         </tr>
+        </table>
+        <table width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          **Was TR 1200-1350
+         </tr>
+        </table>
+        <br/>
+        <br/>
+        <table width="100%">
+         <tr>
+          <td class="fieldformatboldtext" width="100%">
+           ACCT 321
+           <a href="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&amp;one_subj=ACCT&amp;sel_crse_strt=321&amp;sel_subj=dummy&amp;sel_levl=dummy&amp;sel_schd=dummy&amp;sel_coll=dummy&amp;sel_divs=dummy&amp;sel_dept=dummy&amp;sel_attr=dummy">
+            Accounting Info Systems I
+           </a>
+           4cr
+          </td>
+         </tr>
+         <tr>
+          <td class="fieldmediumtext" width="100%">
+           Majors only. ACCT 245, MIS 220 or equivalent skills
+          </td>
+         </tr>
+        </table>
+        <div id="mydiv">
+         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr class="fieldmediumtextbold">
+           <td width="10%">
+            Term
+           </td>
+           <td width="7%">
+            Crn
+           </td>
+           <td width="6%">
+            Days
+           </td>
+           <td width="12%">
+            Time
+           </td>
+           <td width="12%">
+            Instructor
+           </td>
+           <td width="8%">
+            Room
+           </td>
+           <td width="12%">
+            Addl Fees
+           </td>
+           <td width="4%">
+            Cap
+           </td>
+           <td width="4%">
+            Enrl
+           </td>
+           <td width="5%">
+            Avail
+           </td>
+           <td width="8%">
+            Waitlist
+           </td>
+           <td width="9%">
+            Restrictions
+           </td>
+           <td width="9%">
+            Attributes
+           </td>
+          </tr>
+         </table>
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=22100">
+            22100
+           </a>
+          </td>
+          <td align="left" width="6%">
+           MW
+          </td>
+          <td align="left" width="12%">
+           10:00-11:50 am
+          </td>
+          <td align="left" width="12%">
+           Drum, Dawna Marie
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('PH')">
+            PH 210
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           35
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           25
+          </td>
+          <td align="left" class="fieldgreentext" width="5%">
+           10
+          </td>
+          <td align="left" class="fieldgreentext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=22100">
+            OV MJ
+           </a>
+          </td>
+          <td align="left" width="10%">
+           FTF WP1
+          </td>
+         </tr>
+        </table>
+        <br/>
+        <br/>
+        <table width="100%">
+         <tr>
+          <td class="fieldformatboldtext" width="100%">
+           ACCT 331
+           <a href="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&amp;one_subj=ACCT&amp;sel_crse_strt=331&amp;sel_subj=dummy&amp;sel_levl=dummy&amp;sel_schd=dummy&amp;sel_coll=dummy&amp;sel_divs=dummy&amp;sel_dept=dummy&amp;sel_attr=dummy">
+            Cost Management
+           </a>
+           4cr
+          </td>
+         </tr>
+         <tr>
+          <td class="fieldmediumtext" width="100%">
+           Majors only. ACCT 245, DSCI 205, MIS 220 or equivalent
+          </td>
+         </tr>
+         <tr>
+          <td class="fieldmediumtext" width="100%">
+           skills.
+          </td>
+         </tr>
+        </table>
+        <div id="mydiv">
+         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr class="fieldmediumtextbold">
+           <td width="10%">
+            Term
+           </td>
+           <td width="7%">
+            Crn
+           </td>
+           <td width="6%">
+            Days
+           </td>
+           <td width="12%">
+            Time
+           </td>
+           <td width="12%">
+            Instructor
+           </td>
+           <td width="8%">
+            Room
+           </td>
+           <td width="12%">
+            Addl Fees
+           </td>
+           <td width="4%">
+            Cap
+           </td>
+           <td width="4%">
+            Enrl
+           </td>
+           <td width="5%">
+            Avail
+           </td>
+           <td width="8%">
+            Waitlist
+           </td>
+           <td width="9%">
+            Restrictions
+           </td>
+           <td width="9%">
+            Attributes
+           </td>
+          </tr>
+         </table>
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20158">
+            20158
+           </a>
+          </td>
+          <td align="left" width="6%">
+           TR
+          </td>
+          <td align="left" width="12%">
+           02:00-03:50 pm
+          </td>
+          <td align="left" width="12%">
+           Dales, Ryan
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('ES')">
+            ES 080
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           35
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           16
+          </td>
+          <td align="left" class="fieldgreentext" width="5%">
+           19
+          </td>
+          <td align="left" class="fieldgreentext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20158">
+            OV MJ
+           </a>
+          </td>
+          <td align="left" width="10%">
+           CF FTF
+          </td>
+         </tr>
+        </table>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20236">
+            20236
+           </a>
+          </td>
+          <td align="left" width="6%">
+           TR
+          </td>
+          <td align="left" width="12%">
+           12:00-01:50 pm
+          </td>
+          <td align="left" width="12%">
+           Dales, Ryan
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('ES')">
+            ES 080
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           35
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           32
+          </td>
+          <td align="left" class="fieldgreentext" width="5%">
+           3
+          </td>
+          <td align="left" class="fieldgreentext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20236">
+            OV MJ
+           </a>
+          </td>
+          <td align="left" width="10%">
+           CF FTF
+          </td>
+         </tr>
+        </table>
+        <br/>
+        <br/>
+        <table width="100%">
+         <tr>
+          <td class="fieldformatboldtext" width="100%">
+           ACCT 341
+           <a href="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&amp;one_subj=ACCT&amp;sel_crse_strt=341&amp;sel_subj=dummy&amp;sel_levl=dummy&amp;sel_schd=dummy&amp;sel_coll=dummy&amp;sel_divs=dummy&amp;sel_dept=dummy&amp;sel_attr=dummy">
+            Intermed Acct Theory and Prac
+           </a>
+           4cr
+          </td>
+         </tr>
+         <tr>
+          <td class="fieldmediumtext" width="100%">
+           Majors Only. ACCT 245
+          </td>
+         </tr>
+        </table>
+        <div id="mydiv">
+         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr class="fieldmediumtextbold">
+           <td width="10%">
+            Term
+           </td>
+           <td width="7%">
+            Crn
+           </td>
+           <td width="6%">
+            Days
+           </td>
+           <td width="12%">
+            Time
+           </td>
+           <td width="12%">
+            Instructor
+           </td>
+           <td width="8%">
+            Room
+           </td>
+           <td width="12%">
+            Addl Fees
+           </td>
+           <td width="4%">
+            Cap
+           </td>
+           <td width="4%">
+            Enrl
+           </td>
+           <td width="5%">
+            Avail
+           </td>
+           <td width="8%">
+            Waitlist
+           </td>
+           <td width="9%">
+            Restrictions
+           </td>
+           <td width="9%">
+            Attributes
+           </td>
+          </tr>
+         </table>
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20005">
+            20005
+           </a>
+          </td>
+          <td align="left" width="6%">
+           MW
+          </td>
+          <td align="left" width="12%">
+           12:00-01:50 pm
+          </td>
+          <td align="left" width="12%">
+           Li, Shuo
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('AW')">
+            AW 205
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           35
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           33
+          </td>
+          <td align="left" class="fieldgreentext" width="5%">
+           2
+          </td>
+          <td align="left" class="fieldgreentext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20005">
+            OV MJ
+           </a>
+          </td>
+          <td align="left" width="10%">
+           FTF
+          </td>
+         </tr>
+        </table>
+        <br/>
+        <br/>
+        <table width="100%">
+         <tr>
+          <td class="fieldformatboldtext" width="100%">
+           ACCT 342
+           <a href="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&amp;one_subj=ACCT&amp;sel_crse_strt=342&amp;sel_subj=dummy&amp;sel_levl=dummy&amp;sel_schd=dummy&amp;sel_coll=dummy&amp;sel_divs=dummy&amp;sel_dept=dummy&amp;sel_attr=dummy">
+            Intermed Theory &amp; Practice II
+           </a>
+           4cr
+          </td>
+         </tr>
+         <tr>
+          <td class="fieldmediumtext" width="100%">
+           Majors Only. ACCT 341
+          </td>
+         </tr>
+        </table>
+        <div id="mydiv">
+         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr class="fieldmediumtextbold">
+           <td width="10%">
+            Term
+           </td>
+           <td width="7%">
+            Crn
+           </td>
+           <td width="6%">
+            Days
+           </td>
+           <td width="12%">
+            Time
+           </td>
+           <td width="12%">
+            Instructor
+           </td>
+           <td width="8%">
+            Room
+           </td>
+           <td width="12%">
+            Addl Fees
+           </td>
+           <td width="4%">
+            Cap
+           </td>
+           <td width="4%">
+            Enrl
+           </td>
+           <td width="5%">
+            Avail
+           </td>
+           <td width="8%">
+            Waitlist
+           </td>
+           <td width="9%">
+            Restrictions
+           </td>
+           <td width="9%">
+            Attributes
+           </td>
+          </tr>
+         </table>
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20006">
+            20006
+           </a>
+          </td>
+          <td align="left" width="6%">
+           TR
+          </td>
+          <td align="left" width="12%">
+           10:00-11:50 am
+          </td>
+          <td align="left" width="12%">
+           Chen, Hanmei
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('AH')">
+            AH 030
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           35
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           28
+          </td>
+          <td align="left" class="fieldgreentext" width="5%">
+           7
+          </td>
+          <td align="left" class="fieldgreentext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20006">
+            OV MJ PQ
+           </a>
+          </td>
+          <td align="left" width="10%">
+           FTF
+          </td>
+         </tr>
+        </table>
+        <br/>
+        <br/>
+        <table width="100%">
+         <tr>
+          <td class="fieldformatboldtext" width="100%">
+           ACCT 343
+           <a href="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&amp;one_subj=ACCT&amp;sel_crse_strt=343&amp;sel_subj=dummy&amp;sel_levl=dummy&amp;sel_schd=dummy&amp;sel_coll=dummy&amp;sel_divs=dummy&amp;sel_dept=dummy&amp;sel_attr=dummy">
+            Intermed Acct III
+           </a>
+           4cr
+          </td>
+         </tr>
+         <tr>
+          <td class="fieldmediumtext" width="100%">
+           Majors Only. ACCT 342
+          </td>
+         </tr>
+        </table>
+        <div id="mydiv">
+         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr class="fieldmediumtextbold">
+           <td width="10%">
+            Term
+           </td>
+           <td width="7%">
+            Crn
+           </td>
+           <td width="6%">
+            Days
+           </td>
+           <td width="12%">
+            Time
+           </td>
+           <td width="12%">
+            Instructor
+           </td>
+           <td width="8%">
+            Room
+           </td>
+           <td width="12%">
+            Addl Fees
+           </td>
+           <td width="4%">
+            Cap
+           </td>
+           <td width="4%">
+            Enrl
+           </td>
+           <td width="5%">
+            Avail
+           </td>
+           <td width="8%">
+            Waitlist
+           </td>
+           <td width="9%">
+            Restrictions
+           </td>
+           <td width="9%">
+            Attributes
+           </td>
+          </tr>
+         </table>
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20552">
+            20552
+           </a>
+          </td>
+          <td align="left" width="6%">
+           TR
+          </td>
+          <td align="left" width="12%">
+           10:00-11:50 am
+          </td>
+          <td align="left" width="12%">
+           Moore, Jared Allen
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('CV')">
+            CV 104
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldredtext" width="4%">
+           35
+          </td>
+          <td align="left" class="fieldredtext" width="4%">
+           36
+          </td>
+          <td align="left" class="fieldredtext" width="5%">
+           -1
+          </td>
+          <td align="left" class="fieldredtext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20552">
+            OV MJ PQ
+           </a>
+          </td>
+          <td align="left" width="10%">
+           FTF WP1
+          </td>
+         </tr>
+        </table>
+        <table width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          *New Room
+         </tr>
+        </table>
+        <table width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          **Was IS244
+         </tr>
+        </table>
+        <br/>
+        <br/>
+        <table width="100%">
+         <tr>
+          <td class="fieldformatboldtext" width="100%">
+           ACCT 375
+           <a href="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&amp;one_subj=ACCT&amp;sel_crse_strt=375&amp;sel_subj=dummy&amp;sel_levl=dummy&amp;sel_schd=dummy&amp;sel_coll=dummy&amp;sel_divs=dummy&amp;sel_dept=dummy&amp;sel_attr=dummy">
+            Taxation and Business Decision
+           </a>
+           4cr
+          </td>
+         </tr>
+         <tr>
+          <td class="fieldmediumtext" width="100%">
+           Majors only; ACCT 240.
+          </td>
+         </tr>
+        </table>
+        <div id="mydiv">
+         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr class="fieldmediumtextbold">
+           <td width="10%">
+            Term
+           </td>
+           <td width="7%">
+            Crn
+           </td>
+           <td width="6%">
+            Days
+           </td>
+           <td width="12%">
+            Time
+           </td>
+           <td width="12%">
+            Instructor
+           </td>
+           <td width="8%">
+            Room
+           </td>
+           <td width="12%">
+            Addl Fees
+           </td>
+           <td width="4%">
+            Cap
+           </td>
+           <td width="4%">
+            Enrl
+           </td>
+           <td width="5%">
+            Avail
+           </td>
+           <td width="8%">
+            Waitlist
+           </td>
+           <td width="9%">
+            Restrictions
+           </td>
+           <td width="9%">
+            Attributes
+           </td>
+          </tr>
+         </table>
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20007">
+            20007
+           </a>
+          </td>
+          <td align="left" width="6%">
+           TR
+          </td>
+          <td align="left" width="12%">
+           02:00-03:50 pm
+          </td>
+          <td align="left" width="12%">
+           Moore, Jared Allen
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('AW')">
+            AW 205
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           35
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           21
+          </td>
+          <td align="left" class="fieldgreentext" width="5%">
+           14
+          </td>
+          <td align="left" class="fieldgreentext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20007">
+            OV MJ
+           </a>
+          </td>
+          <td align="left" width="10%">
+           FTF WP1
+          </td>
+         </tr>
+        </table>
+        <br/>
+        <br/>
+        <table width="100%">
+         <tr>
+          <td class="fieldformatboldtext" width="100%">
+           ACCT 422
+           <a href="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&amp;one_subj=ACCT&amp;sel_crse_strt=422&amp;sel_subj=dummy&amp;sel_levl=dummy&amp;sel_schd=dummy&amp;sel_coll=dummy&amp;sel_divs=dummy&amp;sel_dept=dummy&amp;sel_attr=dummy">
+            Enterprise Systems Accountants
+           </a>
+           4cr
+          </td>
+         </tr>
+         <tr>
+          <td class="fieldmediumtext" width="100%">
+           ACCT 321
+          </td>
+         </tr>
+        </table>
+        <div id="mydiv">
+         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr class="fieldmediumtextbold">
+           <td width="10%">
+            Term
+           </td>
+           <td width="7%">
+            Crn
+           </td>
+           <td width="6%">
+            Days
+           </td>
+           <td width="12%">
+            Time
+           </td>
+           <td width="12%">
+            Instructor
+           </td>
+           <td width="8%">
+            Room
+           </td>
+           <td width="12%">
+            Addl Fees
+           </td>
+           <td width="4%">
+            Cap
+           </td>
+           <td width="4%">
+            Enrl
+           </td>
+           <td width="5%">
+            Avail
+           </td>
+           <td width="8%">
+            Waitlist
+           </td>
+           <td width="9%">
+            Restrictions
+           </td>
+           <td width="9%">
+            Attributes
+           </td>
+          </tr>
+         </table>
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=23688">
+            23688
+           </a>
+          </td>
+          <td align="left" width="6%">
+           MW
+          </td>
+          <td align="left" width="12%">
+           08:00-09:50 am
+          </td>
+          <td align="left" width="12%">
+           Drum, Dawna Marie
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('PH')">
+            PH 047
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           18
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           16
+          </td>
+          <td align="left" class="fieldgreentext" width="5%">
+           2
+          </td>
+          <td align="left" class="fieldgreentext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=23688">
+            OV MJ PQ
+           </a>
+          </td>
+          <td align="left" width="10%">
+           FTF
+          </td>
+         </tr>
+        </table>
+        <br/>
+        <br/>
+        <table width="100%">
+         <tr>
+          <td class="fieldformatboldtext" width="100%">
+           ACCT 447
+           <a href="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&amp;one_subj=ACCT&amp;sel_crse_strt=447&amp;sel_subj=dummy&amp;sel_levl=dummy&amp;sel_schd=dummy&amp;sel_coll=dummy&amp;sel_divs=dummy&amp;sel_dept=dummy&amp;sel_attr=dummy">
+            Not-For-Profit Organizations
+           </a>
+           4cr
+          </td>
+         </tr>
+         <tr>
+          <td class="fieldmediumtext" width="100%">
+           Majors Only. ACCT 343 or concurrent.
+          </td>
+         </tr>
+        </table>
+        <div id="mydiv">
+         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr class="fieldmediumtextbold">
+           <td width="10%">
+            Term
+           </td>
+           <td width="7%">
+            Crn
+           </td>
+           <td width="6%">
+            Days
+           </td>
+           <td width="12%">
+            Time
+           </td>
+           <td width="12%">
+            Instructor
+           </td>
+           <td width="8%">
+            Room
+           </td>
+           <td width="12%">
+            Addl Fees
+           </td>
+           <td width="4%">
+            Cap
+           </td>
+           <td width="4%">
+            Enrl
+           </td>
+           <td width="5%">
+            Avail
+           </td>
+           <td width="8%">
+            Waitlist
+           </td>
+           <td width="9%">
+            Restrictions
+           </td>
+           <td width="9%">
+            Attributes
+           </td>
+          </tr>
+         </table>
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=21230">
+            21230
+           </a>
+          </td>
+          <td align="left" width="6%">
+           TR
+          </td>
+          <td align="left" width="12%">
+           12:00-01:50 pm
+          </td>
+          <td align="left" width="12%">
+           Taylor, Audrey G.
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('AW')">
+            AW 304
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           18
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           17
+          </td>
+          <td align="left" class="fieldgreentext" width="5%">
+           1
+          </td>
+          <td align="left" class="fieldgreentext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=21230">
+            OV MJ PQ
+           </a>
+          </td>
+          <td align="left" width="10%">
+           FTF
+          </td>
+         </tr>
+        </table>
+        <br/>
+        <br/>
+        <table width="100%">
+         <tr>
+          <td class="fieldformatboldtext" width="100%">
+           ACCT 451
+           <a href="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&amp;one_subj=ACCT&amp;sel_crse_strt=451&amp;sel_subj=dummy&amp;sel_levl=dummy&amp;sel_schd=dummy&amp;sel_coll=dummy&amp;sel_divs=dummy&amp;sel_dept=dummy&amp;sel_attr=dummy">
+            International Accounting
+           </a>
+           4cr
+          </td>
+         </tr>
+         <tr>
+          <td class="fieldmediumtext" width="100%">
+           Majors Only. ACCT 343
+          </td>
+         </tr>
+        </table>
+        <div id="mydiv">
+         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr class="fieldmediumtextbold">
+           <td width="10%">
+            Term
+           </td>
+           <td width="7%">
+            Crn
+           </td>
+           <td width="6%">
+            Days
+           </td>
+           <td width="12%">
+            Time
+           </td>
+           <td width="12%">
+            Instructor
+           </td>
+           <td width="8%">
+            Room
+           </td>
+           <td width="12%">
+            Addl Fees
+           </td>
+           <td width="4%">
+            Cap
+           </td>
+           <td width="4%">
+            Enrl
+           </td>
+           <td width="5%">
+            Avail
+           </td>
+           <td width="8%">
+            Waitlist
+           </td>
+           <td width="9%">
+            Restrictions
+           </td>
+           <td width="9%">
+            Attributes
+           </td>
+          </tr>
+         </table>
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=23689">
+            23689
+           </a>
+          </td>
+          <td align="left" width="6%">
+           MW
+          </td>
+          <td align="left" width="12%">
+           02:00-03:50 pm
+          </td>
+          <td align="left" width="12%">
+           Li, Shuo
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('CV')">
+            CV 103
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldredtext" width="4%">
+           18
+          </td>
+          <td align="left" class="fieldredtext" width="4%">
+           18
+          </td>
+          <td align="left" class="fieldredtext" width="5%">
+           0
+          </td>
+          <td align="left" class="fieldredtext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=23689">
+            OV MJ PQ
+           </a>
+          </td>
+          <td align="left" width="10%">
+           FTF
+          </td>
+         </tr>
+        </table>
+        <br/>
+        <br/>
+        <table width="100%">
+         <tr>
+          <td class="fieldformatboldtext" width="100%">
+           ACCT 461
+           <a href="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&amp;one_subj=ACCT&amp;sel_crse_strt=461&amp;sel_subj=dummy&amp;sel_levl=dummy&amp;sel_schd=dummy&amp;sel_coll=dummy&amp;sel_divs=dummy&amp;sel_dept=dummy&amp;sel_attr=dummy">
+            Auditing Theory &amp; Practice
+           </a>
+           4cr
+          </td>
+         </tr>
+         <tr>
+          <td class="fieldmediumtext" width="100%">
+           Majors Only. ACCT 321, ACCT 343
+          </td>
+         </tr>
+        </table>
+        <div id="mydiv">
+         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr class="fieldmediumtextbold">
+           <td width="10%">
+            Term
+           </td>
+           <td width="7%">
+            Crn
+           </td>
+           <td width="6%">
+            Days
+           </td>
+           <td width="12%">
+            Time
+           </td>
+           <td width="12%">
+            Instructor
+           </td>
+           <td width="8%">
+            Room
+           </td>
+           <td width="12%">
+            Addl Fees
+           </td>
+           <td width="4%">
+            Cap
+           </td>
+           <td width="4%">
+            Enrl
+           </td>
+           <td width="5%">
+            Avail
+           </td>
+           <td width="8%">
+            Waitlist
+           </td>
+           <td width="9%">
+            Restrictions
+           </td>
+           <td width="9%">
+            Attributes
+           </td>
+          </tr>
+         </table>
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20553">
+            20553
+           </a>
+          </td>
+          <td align="left" width="6%">
+           TR
+          </td>
+          <td align="left" width="12%">
+           02:00-03:50 pm
+          </td>
+          <td align="left" width="12%">
+           Hao, Yamin
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('IS')">
+            IS 242
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldredtext" width="4%">
+           24
+          </td>
+          <td align="left" class="fieldredtext" width="4%">
+           24
+          </td>
+          <td align="left" class="fieldredtext" width="5%">
+           0
+          </td>
+          <td align="left" class="fieldredtext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20553">
+            OV MJ PQ
+           </a>
+          </td>
+          <td align="left" width="10%">
+           FTF
+          </td>
+         </tr>
+        </table>
+        <br/>
+        <br/>
+        <table width="100%">
+         <tr>
+          <td class="fieldformatboldtext" width="100%">
+           ACCT 466
+           <a href="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&amp;one_subj=ACCT&amp;sel_crse_strt=466&amp;sel_subj=dummy&amp;sel_levl=dummy&amp;sel_schd=dummy&amp;sel_coll=dummy&amp;sel_divs=dummy&amp;sel_dept=dummy&amp;sel_attr=dummy">
+            Fraud Exam &amp; Forensic Acctg
+           </a>
+           4cr
+          </td>
+         </tr>
+         <tr>
+          <td class="fieldmediumtext" width="100%">
+           Majors only. ACCT 321, ACCT 343 and ACCT 461.
+          </td>
+         </tr>
+        </table>
+        <div id="mydiv">
+         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr class="fieldmediumtextbold">
+           <td width="10%">
+            Term
+           </td>
+           <td width="7%">
+            Crn
+           </td>
+           <td width="6%">
+            Days
+           </td>
+           <td width="12%">
+            Time
+           </td>
+           <td width="12%">
+            Instructor
+           </td>
+           <td width="8%">
+            Room
+           </td>
+           <td width="12%">
+            Addl Fees
+           </td>
+           <td width="4%">
+            Cap
+           </td>
+           <td width="4%">
+            Enrl
+           </td>
+           <td width="5%">
+            Avail
+           </td>
+           <td width="8%">
+            Waitlist
+           </td>
+           <td width="9%">
+            Restrictions
+           </td>
+           <td width="9%">
+            Attributes
+           </td>
+          </tr>
+         </table>
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=21656">
+            21656
+           </a>
+          </td>
+          <td align="left" width="6%">
+           TR
+          </td>
+          <td align="left" width="12%">
+           10:00-11:50 am
+          </td>
+          <td align="left" width="12%">
+           Liu, Zander
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('MH')">
+            MH 013
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           18
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           11
+          </td>
+          <td align="left" class="fieldgreentext" width="5%">
+           7
+          </td>
+          <td align="left" class="fieldgreentext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=21656">
+            OV MJ PQ
+           </a>
+          </td>
+          <td align="left" width="10%">
+           CF FTF
+          </td>
+         </tr>
+        </table>
+        <br/>
+        <br/>
+        <table width="100%">
+         <tr>
+          <td class="fieldformatboldtext" width="100%">
+           ACCT 470
+           <a href="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&amp;one_subj=ACCT&amp;sel_crse_strt=470&amp;sel_subj=dummy&amp;sel_levl=dummy&amp;sel_schd=dummy&amp;sel_coll=dummy&amp;sel_divs=dummy&amp;sel_dept=dummy&amp;sel_attr=dummy">
+            Law of Commcl Transactions I
+           </a>
+           4cr
+          </td>
+         </tr>
+         <tr>
+          <td class="fieldmediumtext" width="100%">
+           Majors Only. MGMT 271
+          </td>
+         </tr>
+        </table>
+        <div id="mydiv">
+         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr class="fieldmediumtextbold">
+           <td width="10%">
+            Term
+           </td>
+           <td width="7%">
+            Crn
+           </td>
+           <td width="6%">
+            Days
+           </td>
+           <td width="12%">
+            Time
+           </td>
+           <td width="12%">
+            Instructor
+           </td>
+           <td width="8%">
+            Room
+           </td>
+           <td width="12%">
+            Addl Fees
+           </td>
+           <td width="4%">
+            Cap
+           </td>
+           <td width="4%">
+            Enrl
+           </td>
+           <td width="5%">
+            Avail
+           </td>
+           <td width="8%">
+            Waitlist
+           </td>
+           <td width="9%">
+            Restrictions
+           </td>
+           <td width="9%">
+            Attributes
+           </td>
+          </tr>
+         </table>
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20159">
+            20159
+           </a>
+          </td>
+          <td align="left" width="6%">
+           TR
+          </td>
+          <td align="left" width="12%">
+           04:00-05:50 pm
+          </td>
+          <td align="left" width="12%">
+           Majumdar, Rajeev D.
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('IS')">
+            IS 244
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           30
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           10
+          </td>
+          <td align="left" class="fieldgreentext" width="5%">
+           20
+          </td>
+          <td align="left" class="fieldgreentext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20159">
+            OV MJ
+           </a>
+          </td>
+          <td align="left" width="10%">
+           FTF WP1
+          </td>
+         </tr>
+        </table>
+        <br/>
+        <br/>
+        <table width="100%">
+         <tr>
+          <td class="fieldformatboldtext" width="100%">
+           ACCT 475
+           <a href="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&amp;one_subj=ACCT&amp;sel_crse_strt=475&amp;sel_subj=dummy&amp;sel_levl=dummy&amp;sel_schd=dummy&amp;sel_coll=dummy&amp;sel_divs=dummy&amp;sel_dept=dummy&amp;sel_attr=dummy">
+            Income Taxation II
+           </a>
+           4cr
+          </td>
+         </tr>
+         <tr>
+          <td class="fieldmediumtext" width="100%">
+           Majors Only. ACCT 375
+          </td>
+         </tr>
+        </table>
+        <div id="mydiv">
+         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr class="fieldmediumtextbold">
+           <td width="10%">
+            Term
+           </td>
+           <td width="7%">
+            Crn
+           </td>
+           <td width="6%">
+            Days
+           </td>
+           <td width="12%">
+            Time
+           </td>
+           <td width="12%">
+            Instructor
+           </td>
+           <td width="8%">
+            Room
+           </td>
+           <td width="12%">
+            Addl Fees
+           </td>
+           <td width="4%">
+            Cap
+           </td>
+           <td width="4%">
+            Enrl
+           </td>
+           <td width="5%">
+            Avail
+           </td>
+           <td width="8%">
+            Waitlist
+           </td>
+           <td width="9%">
+            Restrictions
+           </td>
+           <td width="9%">
+            Attributes
+           </td>
+          </tr>
+         </table>
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=22365">
+            22365
+           </a>
+          </td>
+          <td align="left" width="6%">
+           MW
+          </td>
+          <td align="left" width="12%">
+           10:00-11:50 am
+          </td>
+          <td align="left" width="12%">
+           Singleton, Ron
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('AW')">
+            AW 205
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           18
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           9
+          </td>
+          <td align="left" class="fieldgreentext" width="5%">
+           9
+          </td>
+          <td align="left" class="fieldgreentext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=22365">
+            OV MJ PQ
+           </a>
+          </td>
+          <td align="left" width="10%">
+           FTF
+          </td>
+         </tr>
+        </table>
+        <br/>
+        <br/>
+        <table width="100%">
+         <tr>
+          <td class="fieldformatboldtext" width="100%">
+           ACCT 490
+           <a href="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&amp;one_subj=ACCT&amp;sel_crse_strt=490&amp;sel_subj=dummy&amp;sel_levl=dummy&amp;sel_schd=dummy&amp;sel_coll=dummy&amp;sel_divs=dummy&amp;sel_dept=dummy&amp;sel_attr=dummy">
+            Internship in Accounting
+           </a>
+           2cr
+          </td>
+         </tr>
+         <tr>
+          <td class="fieldmediumtext" width="100%">
+           Majors Only. ACCT 341; minimum 2.75 GPA in 300/400-level
+          </td>
+         </tr>
+         <tr>
+          <td class="fieldmediumtext" width="100%">
+           accounting courses
+          </td>
+         </tr>
+        </table>
+        <div id="mydiv">
+         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr class="fieldmediumtextbold">
+           <td width="10%">
+            Term
+           </td>
+           <td width="7%">
+            Crn
+           </td>
+           <td width="6%">
+            Days
+           </td>
+           <td width="12%">
+            Time
+           </td>
+           <td width="12%">
+            Instructor
+           </td>
+           <td width="8%">
+            Room
+           </td>
+           <td width="12%">
+            Addl Fees
+           </td>
+           <td width="4%">
+            Cap
+           </td>
+           <td width="4%">
+            Enrl
+           </td>
+           <td width="5%">
+            Avail
+           </td>
+           <td width="8%">
+            Waitlist
+           </td>
+           <td width="9%">
+            Restrictions
+           </td>
+           <td width="9%">
+            Attributes
+           </td>
+          </tr>
+         </table>
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20373">
+            20373
+           </a>
+          </td>
+          <td align="left" width="6%">
+           TBD
+          </td>
+          <td align="left" width="12%">
+           TBD
+          </td>
+          <td align="left" width="12%">
+           Taylor, Audrey G.
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('PH')">
+            PH OFC
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           10
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           0
+          </td>
+          <td align="left" class="fieldgreentext" width="5%">
+           10
+          </td>
+          <td align="left" class="fieldgreentext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20373">
+            OV MJ S/U
+           </a>
+          </td>
+          <td align="left" width="10%">
+           FTF
+          </td>
+         </tr>
+        </table>
+        <br/>
+        <br/>
+        <table width="100%">
+         <tr>
+          <td class="fieldformatboldtext" width="100%">
+           ACCT 490
+           <a href="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&amp;one_subj=ACCT&amp;sel_crse_strt=490&amp;sel_subj=dummy&amp;sel_levl=dummy&amp;sel_schd=dummy&amp;sel_coll=dummy&amp;sel_divs=dummy&amp;sel_dept=dummy&amp;sel_attr=dummy">
+            Internship in Accounting
+           </a>
+           1cr
+          </td>
+         </tr>
+         <tr>
+          <td class="fieldmediumtext" width="100%">
+           Majors Only. ACCT 341; minimum 2.75 GPA in 300/400-level
+          </td>
+         </tr>
+         <tr>
+          <td class="fieldmediumtext" width="100%">
+           accounting courses
+          </td>
+         </tr>
+        </table>
+        <div id="mydiv">
+         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr class="fieldmediumtextbold">
+           <td width="10%">
+            Term
+           </td>
+           <td width="7%">
+            Crn
+           </td>
+           <td width="6%">
+            Days
+           </td>
+           <td width="12%">
+            Time
+           </td>
+           <td width="12%">
+            Instructor
+           </td>
+           <td width="8%">
+            Room
+           </td>
+           <td width="12%">
+            Addl Fees
+           </td>
+           <td width="4%">
+            Cap
+           </td>
+           <td width="4%">
+            Enrl
+           </td>
+           <td width="5%">
+            Avail
+           </td>
+           <td width="8%">
+            Waitlist
+           </td>
+           <td width="9%">
+            Restrictions
+           </td>
+           <td width="9%">
+            Attributes
+           </td>
+          </tr>
+         </table>
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20284">
+            20284
+           </a>
+          </td>
+          <td align="left" width="6%">
+           TBD
+          </td>
+          <td align="left" width="12%">
+           TBD
+          </td>
+          <td align="left" width="12%">
+           Taylor, Audrey G.
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('PH')">
+            PH OFC
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           10
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           0
+          </td>
+          <td align="left" class="fieldgreentext" width="5%">
+           10
+          </td>
+          <td align="left" class="fieldgreentext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=20284">
+            OV MJ S/U
+           </a>
+          </td>
+          <td align="left" width="10%">
+           FTF
+          </td>
+         </tr>
+        </table>
+        <br/>
+        <br/>
+        <table width="100%">
+         <tr>
+          <td class="fieldformatboldtext" width="100%">
+           ACCT 491
+           <a href="/pls/wwis/bwckctlg.p_display_courses?term_in=202420&amp;one_subj=ACCT&amp;sel_crse_strt=491&amp;sel_subj=dummy&amp;sel_levl=dummy&amp;sel_schd=dummy&amp;sel_coll=dummy&amp;sel_divs=dummy&amp;sel_dept=dummy&amp;sel_attr=dummy">
+            Accounting Internship
+           </a>
+           2 TO 4cr
+          </td>
+         </tr>
+         <tr>
+          <td class="fieldmediumtext" width="100%">
+           ACCT 342 and instructor permission; Accounting, BS major
+          </td>
+         </tr>
+         <tr>
+          <td class="fieldmediumtext" width="100%">
+           status.
+          </td>
+         </tr>
+        </table>
+        <div id="mydiv">
+         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr class="fieldmediumtextbold">
+           <td width="10%">
+            Term
+           </td>
+           <td width="7%">
+            Crn
+           </td>
+           <td width="6%">
+            Days
+           </td>
+           <td width="12%">
+            Time
+           </td>
+           <td width="12%">
+            Instructor
+           </td>
+           <td width="8%">
+            Room
+           </td>
+           <td width="12%">
+            Addl Fees
+           </td>
+           <td width="4%">
+            Cap
+           </td>
+           <td width="4%">
+            Enrl
+           </td>
+           <td width="5%">
+            Avail
+           </td>
+           <td width="8%">
+            Waitlist
+           </td>
+           <td width="9%">
+            Restrictions
+           </td>
+           <td width="9%">
+            Attributes
+           </td>
+          </tr>
+         </table>
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0" frame="hsides" width="100%">
+         <tr bgcolor="#DCDCDC" class="fieldmediumtext">
+          <td align="left" width="10%">
+           <font color="black">
+            Spring 2024
+           </font>
+          </td>
+          <td align="left" width="7%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=23075">
+            23075
+           </a>
+          </td>
+          <td align="left" width="6%">
+           TBD
+          </td>
+          <td align="left" width="12%">
+           TBD
+          </td>
+          <td align="left" width="12%">
+           Smith, Steve
+          </td>
+          <td align="left" width="8%">
+           <a href="javascript:my_win('PH')">
+            PH OFC
+           </a>
+          </td>
+          <td align="left" width="12%">
+           <font color="red">
+           </font>
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           20
+          </td>
+          <td align="left" class="fieldgreentext" width="4%">
+           2
+          </td>
+          <td align="left" class="fieldgreentext" width="5%">
+           18
+          </td>
+          <td align="left" class="fieldgreentext" width="8%">
+          </td>
+          <td align="left" width="10%">
+           <a href="/pls/wwis/bwckschd.p_disp_detail_sched?term_in=202420&amp;crn_in=23075">
+            OV PQ
+           </a>
+          </td>
+          <td align="left" width="10%">
+           FTF
+          </td>
+         </tr>
+        </table>
+        <a name="key-data">
+        </a>
+        <br/>
+        <table width="100%">
+         <tr class="fieldmediumboldtext">
+          <td width="33%">
+           ATTRIBUTES
+          </td>
+          <td width="33%">
+          </td>
+          <td width="33%">
+          </td>
+         </tr>
+         <tr class="fieldmediumboldtext">
+          <td width="33%">
+          </td>
+          <td width="33%">
+          </td>
+          <td width="33%">
+          </td>
+         </tr>
+         <tr class="fieldmediumboldtext">
+          <td width="33%">
+           GUR
+          </td>
+          <td width="33%">
+           DELIVERY METHOD/SITE
+          </td>
+          <td width="33%">
+           OTHER
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+           ACGM = GUR ACGM-A-Comparative Gender
+          </td>
+          <td width="33%">
+           ASNC = DELIVERY Online-Asynchronous
+           <td width="33%">
+            AFME = HistField-AFME-Africa&amp;Mid East
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+           ACOM = GUR ACOM-A-Communication
+          </td>
+          <td width="33%">
+           BNEX = WWU Location: Burien
+           <td width="33%">
+            ANCT = HistField-ANCT-Ancient
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+           BCGM = GUR BCGM-B-Comparative Gender
+          </td>
+          <td width="33%">
+           BREX = WWU Location: Bremerton
+           <td width="33%">
+            ASIA = HistField-ASIA-East&amp;South Asia
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+           BCOM = GUR BCOM-B-Communication
+          </td>
+          <td width="33%">
+           DLEX = WWU Location: Distance Lrning
+           <td width="33%">
+            CF = CF Communication Focus
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+           CCOM = GUR CCOM-C-Communication
+          </td>
+          <td width="33%">
+           EVEX = WWU Location: Everett
+           <td width="33%">
+            CF-E = CF-E Communication FocusECON
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+           HUM = GUR HUM-Humanities
+          </td>
+          <td width="33%">
+           FTF = DELIVERY Face-to-Face
+           <td width="33%">
+            CMB1 = HistField-CMB1-CombReq600-1450
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+           LSCI = GUR LSCI-NatSci wLab Component
+          </td>
+          <td width="33%">
+           HYBD = DELIVERY Hybrid
+           <td width="33%">
+            CMB2 = HistField-CMB2-CombReqSinc1450
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+           QSR = GUR QSR-Quant&amp;Symbolic Reason
+          </td>
+          <td width="33%">
+           KLEX = WWU Location: Kirkland
+           <td width="33%">
+            CPST = CPST - Capstone Course
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+           SCI = GUR SCI-Natural Science
+          </td>
+          <td width="33%">
+           MIX = DELIVERY Online-Mixed
+           <td width="33%">
+            EUR = HistField-EUR-Europe
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+           SSC = GUR SSC-Social Sciences
+          </td>
+          <td width="33%">
+           OL = DELIVERY Online
+           <td width="33%">
+            EUR1 = HistField-EUR1-Europe 600-1450
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+          </td>
+          <td width="33%">
+           PAEX = WWU Location: Pt Angeles
+           <td width="33%">
+            EUR2 = HistField-EUR2-EuropeSince1450
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+          </td>
+          <td width="33%">
+           PBEX = WWU Location: Poulsbo
+           <td width="33%">
+            FIG = FIG - First Yr InterestSeminar
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+          </td>
+          <td width="33%">
+           RTEX = WWU Location: Renton
+           <td width="33%">
+            FYE = FYE - First Year Experience
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+          </td>
+          <td width="33%">
+           SPL = SPL-Self-Paced (By Permission)
+           <td width="33%">
+            SL = SL - Service Learning
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+          </td>
+          <td width="33%">
+           SYNC = DELIVERY Online-Synchronous
+           <td width="33%">
+            SST = Self-Sustaining Tuition &amp; Fees
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+          </td>
+          <td width="33%">
+           <td width="33%">
+            TRVL = TRVL - Faculty Led Travel
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+          </td>
+          <td width="33%">
+           <td width="33%">
+            US = HistField-US-United States
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+          </td>
+          <td width="33%">
+           <td width="33%">
+            US1 = HistField-US1-US Before 1865
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+          </td>
+          <td width="33%">
+           <td width="33%">
+            US2 = HistField-US2-US Since 1865
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+          </td>
+          <td width="33%">
+           <td width="33%">
+            WHEM = HistField-WHEM-WstrnHemisphere
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+          </td>
+          <td width="33%">
+           <td width="33%">
+            WP1 = WP1 Writing Proficiency 1 Pt
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+          </td>
+          <td width="33%">
+           <td width="33%">
+            WP2 = WP2 Writing Proficiency 2 Pts
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+          </td>
+          <td width="33%">
+           <td width="33%">
+            WP3 = WP3 Writing Proficiency 3 Pts
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumboldtext">
+          <td width="33%">
+          </td>
+          <td width="33%">
+          </td>
+          <td width="33%">
+          </td>
+         </tr>
+         <tr class="fieldmediumboldtext">
+          <td width="33%">
+           RESTRICTIONS
+          </td>
+          <td width="33%">
+          </td>
+          <td width="33%">
+          </td>
+         </tr>
+         <tr class="fieldmediumboldtext">
+          <td width="33%">
+          </td>
+          <td width="33%">
+          </td>
+          <td width="33%">
+          </td>
+         </tr>
+         <tr class="fieldmediumboldtext">
+          <td width="33%">
+           COLLEGE
+          </td>
+          <td width="33%">
+           CLASS
+          </td>
+          <td width="33%">
+           OTHER
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+           BU = Coll of Business and Economics
+          </td>
+          <td width="33%">
+           FR = Freshmen
+           <td width="33%">
+            IP = S/U Grading including IP Grade
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+           CE = Continuing Community Education
+          </td>
+          <td width="33%">
+           SO = Sophomore
+           <td width="33%">
+            MJ = Declared Major
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+           ED = Woodring College of Education
+          </td>
+          <td width="33%">
+           JR = Junior
+           <td width="33%">
+            OV = Override code reqd
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+           EN = College of the Environment
+          </td>
+          <td width="33%">
+           SR = Senior
+           <td width="33%">
+            PQ = Pre-Requisite reqd
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+           FA = Fairhaven Coll of Interdisc St
+          </td>
+          <td width="33%">
+           PB = Post Bac
+           <td width="33%">
+            PR = Indep. Study Permit
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+           FI = Coll/Fine and Performing Arts
+          </td>
+          <td width="33%">
+           PM = Post Masters
+           <td width="33%">
+            SU = S/U Grading
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+           HS = Humanities and Social Sciences
+          </td>
+          <td width="33%">
+           GR = Masters
+           <td width="33%">
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+           HU = Huxley Coll of the Environment
+          </td>
+          <td width="33%">
+           <td width="33%">
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumtext">
+          <td width="33%">
+           SE = College Science &amp; Engineering
+          </td>
+          <td width="33%">
+           <td width="33%">
+           </td>
+          </td>
+         </tr>
+         <tr class="fieldmediumboldtext">
+          <td width="33%">
+          </td>
+          <td width="33%">
+          </td>
+          <td width="33%">
+          </td>
+         </tr>
+        </table>
+        <tr>
+         <div class="pagefooterlinks">
+          <a accesskey="C" class="submenulinktext2" href="http://www.wwu.edu/registrar/calendars/index.shtml" onblur="window.status=''; return true" onclick="popup = window.open('http://www.wwu.edu/registrar/calendars/index.shtml', 'PopupPage','height=600,width=800,scrollbars=yes,resizable=yes'); return false" onfocus="window.status='';  return true" onmouseout="window.status=''; return true" onmouseover="window.status='';  return true" target="_blank">
+           Dates and Deadlines
+          </a>
+          ::
+          <a accesskey="P" class="submenulinktext2" href=" http://www.wwu.edu/registrar/registration/policies/index.shtml" onblur="window.status=''; return true" onclick="popup = window.open(' http://www.wwu.edu/registrar/registration/policies/index.shtml', 'PopupPage','height=600,width=800,scrollbars=yes,resizable=yes'); return false" onfocus="window.status='';  return true" onmouseout="window.status=''; return true" onmouseover="window.status='';  return true" target="_blank">
+           Registration Policies and Procedures
+          </a>
+          ::
+          <a accesskey="E" class="submenulinktext2" href="http://www.wwu.edu/registrar/calendars/finals_sched.shtml" onblur="window.status=''; return true" onclick="popup = window.open('http://www.wwu.edu/registrar/calendars/finals_sched.shtml', 'PopupPage','height=600,width=800,scrollbars=yes,resizable=yes'); return false" onfocus="window.status='';  return true" onmouseout="window.status=''; return true" onmouseover="window.status='';  return true" target="_blank">
+           Final Exam Schedule
+          </a>
+          <br/>
+          <a accesskey="R" class="submenulinktext2" href="http://www.wwu.edu/registrar/registration/registration_schedule.shtml" onblur="window.status=''; return true" onclick="popup = window.open('http://www.wwu.edu/registrar/registration/registration_schedule.shtml', 'PopupPage','height=600,width=800,scrollbars=yes,resizable=yes'); return false" onfocus="window.status='';  return true" onmouseout="window.status=''; return true" onmouseover="window.status='';  return true" target="_blank">
+           Registration Schedule
+          </a>
+          ::
+          <a accesskey="O" class="submenulinktext2" href="http://www.wwu.edu/depts/registrar/index.shtml" onblur="window.status=''; return true" onclick="popup = window.open('http://www.wwu.edu/depts/registrar/index.shtml', 'PopupPage','height=600,width=800,scrollbars=yes,resizable=yes'); return false" onfocus="window.status='';  return true" onmouseout="window.status=''; return true" onmouseover="window.status='';  return true" target="_blank">
+           Registrars Office
+          </a>
+          ::
+          <a accesskey="F" class="submenulinktext2" href="http://figs.wwu.edu/" onblur="window.status=''; return true" onclick="popup = window.open('http://figs.wwu.edu/', 'PopupPage','height=600,width=800,scrollbars=yes,resizable=yes'); return false" onfocus="window.status='';  return true" onmouseout="window.status=''; return true" onmouseover="window.status='';  return true" target="_blank">
+           First-year Interest Groups
+          </a>
+         </div>
+        </tr>
+       </p>
+      </p>
+     </div>
+    </p>
+   </p>
+  </body>
+ </html>
+</form>

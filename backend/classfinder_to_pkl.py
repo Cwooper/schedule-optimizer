@@ -69,21 +69,24 @@ def _fetch_courses_from_url(subject: str, subject_file: str) -> list['Course']:
 
     courses = []
     soup = BeautifulSoup(r.text, 'html.parser')
+    with open(subject_file, 'w', encoding='utf-8') as f:
+        f.write(soup.prettify())
+        print(f"Wrote {subject_file} from response.text")
     # Find all td elements with class "fieldformatboldtext"
-    course_elements = soup.find_all("td", class_="fieldformatboldtext")
-
-    for course in course_elements:
-        # Extracting name, title, credits, and prerequisites
-        lines = course.get_text().split("\n")
-        name = lines[0].strip()
-        title = lines[1].strip()
-        credits = lines[2].strip()
-        prerequisites = "\n".join(lines[3:]).strip()  # Combine remaining lines for prerequisites
-        print("Name:", name)
-        print("Title:", title)
-        print("Credits:", credits)
-        print("Prerequisites:", prerequisites)
-        print()
+    # course_elements = soup.find_all("td", class_="fieldformatboldtext")
+    # 
+    # for course in course_elements:
+    #     # Extracting name, title, credits, and prerequisites
+    #     lines = course.get_text().split("\n")
+    #     name = lines[0].strip()
+    #     title = lines[1].strip()
+    #     credits = lines[2].strip()
+    #     prerequisites = "\n".join(lines[3:]).strip()  # Combine remaining lines for prerequisites
+    #     print("Name:", name)
+    #     print("Title:", title)
+    #     print("Credits:", credits)
+    #     print("Prerequisites:", prerequisites)
+    #     print()
 
 def _file_to_courses(lines: list[str]) -> list['Course']:
     courses = []
@@ -115,9 +118,9 @@ def fetch_courses(subject: str) -> list['Course']:
 def main():
     subjects = fetch_subjects_list()
     print(subjects)
-    courses = []
+    # courses = []
     #for subject in subjects:
-    fetch_courses(subjects[0])
+    fetch_courses(subjects[23])
     # courses.extend(fetch_courses(subjects[0]))
 
 if __name__ == "__main__":
