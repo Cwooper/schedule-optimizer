@@ -1,0 +1,25 @@
+2024-04-15T16:59:28.419187
+[
+    {
+        "subject": "LIBR 341",
+        "course_credits": "1",
+        "crn": "23860",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": "N/A",
+        "lab_start_time": "N/A",
+        "lab_end_time": "N/A",
+        "instructor": "Stephan, Elizabeth",
+        "room": "WL OFC",
+        "lab_room": "ONLINE ASNC",
+        "addl_fees": "",
+        "cap": "25",
+        "enrl": "3",
+        "avail": "22",
+        "waitlist": "",
+        "restrictions": "OV S/U",
+        "attributes": "HYBD",
+        "prerequisites": ""
+    }
+]
