@@ -54,9 +54,5 @@ def generate_schedules(courses: list['Course'], min_schedule_size=2, max_schedul
 
     # Find all conflicts between the courses, and return all possible schedules
     conflicts = all_conflicts(courses)
-    for conflict in conflicts:
-        print(f"({conflict[0].subject}, {conflict[1].subject})")
     schedules = all_schedules(courses, conflicts, min_schedule_size, max_schedule_size)
-    for schedule in schedules:
-        print(schedule, end="\n\n")
     return schedules
