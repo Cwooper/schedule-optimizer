@@ -1,0 +1,47 @@
+2024-04-15T16:59:34.733701
+[
+    {
+        "subject": "TEOP 494",
+        "course_credits": "1 TO 16",
+        "crn": "23625",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Perzigian, Aaron",
+        "room": "MH OFC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "25",
+        "enrl": "13",
+        "avail": "12",
+        "waitlist": "",
+        "restrictions": "OV ED IP",
+        "attributes": "FTF",
+        "prerequisites": "Must have been admitted to Woodring College of Education and to a Teacher Education Outreach Program; completed all requirements for the Education for Inclusive Environments, BAE."
+    },
+    {
+        "subject": "TEOP 494",
+        "course_credits": "1 TO 16",
+        "crn": "23913",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Perzigian, Aaron",
+        "room": "MH OFC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "25",
+        "enrl": "11",
+        "avail": "14",
+        "waitlist": "",
+        "restrictions": "OV IP",
+        "attributes": "FTF",
+        "prerequisites": "Must have been admitted to Woodring College of Education and to a Teacher Education Outreach Program; completed all requirements for the Education for Inclusive Environments, BAE."
+    }
+]
