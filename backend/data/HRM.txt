@@ -1,0 +1,25 @@
+2024-04-15T16:59:26.542901
+[
+    {
+        "subject": "HRM 322",
+        "course_credits": "4",
+        "crn": "20624",
+        "days": "TR",
+        "start_time": "0800",
+        "end_time": "0950",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Weston, Jane E.",
+        "room": "PH 108",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "35",
+        "enrl": "14",
+        "avail": "21",
+        "waitlist": "",
+        "restrictions": "OV MJ PQ",
+        "attributes": "FTF WP1",
+        "prerequisites": "Majors Only. MGMT 271, MGMT 311."
+    }
+]
