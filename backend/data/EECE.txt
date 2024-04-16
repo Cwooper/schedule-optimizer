@@ -1,4 +1,4 @@
-2024-04-15T16:59:22.828330
+2024-04-15T23:56:25.568550
 [
     {
         "subject": "EECE 111",
@@ -228,8 +228,8 @@
         "start_time": "0900",
         "end_time": "0950",
         "lab_days": "M",
-        "lab_start_time": "2300",
-        "lab_end_time": "2450",
+        "lab_start_time": "1100",
+        "lab_end_time": "1250",
         "instructor": "Ramasubramanian, Bhaskar",
         "room": "ET 304",
         "lab_room": "ET 331",
@@ -382,8 +382,8 @@
         "start_time": "1300",
         "end_time": "1350",
         "lab_days": "F",
-        "lab_start_time": "2300",
-        "lab_end_time": "2450",
+        "lab_start_time": "1100",
+        "lab_end_time": "1250",
         "instructor": "Ramasubramanian, Bhaskar",
         "room": "ET 321",
         "lab_room": "ET 338",

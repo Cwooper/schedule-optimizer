@@ -1,4 +1,4 @@
-2024-04-15T16:59:32.256431
+2024-04-15T23:56:42.531821
 [
     {
         "subject": "PHYS 102",
@@ -841,8 +841,8 @@
         "course_credits": "3",
         "crn": "20129",
         "days": "MWF",
-        "start_time": "2400",
-        "end_time": "2450",
+        "start_time": "1200",
+        "end_time": "1250",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
@@ -866,8 +866,8 @@
         "start_time": "1600",
         "end_time": "1715",
         "lab_days": "T",
-        "lab_start_time": "2200",
-        "lab_end_time": "2450",
+        "lab_start_time": "1000",
+        "lab_end_time": "1250",
         "instructor": "From, Milton",
         "room": "CF 224",
         "lab_room": "CF 010",
@@ -888,8 +888,8 @@
         "start_time": "1600",
         "end_time": "1715",
         "lab_days": "R",
-        "lab_start_time": "2200",
-        "lab_end_time": "2450",
+        "lab_start_time": "1000",
+        "lab_end_time": "1250",
         "instructor": "From, Milton",
         "room": "CF 224",
         "lab_room": "CF 010",

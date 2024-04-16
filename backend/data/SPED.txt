@@ -1,4 +1,4 @@
-2024-04-15T16:59:34.542404
+2024-04-15T23:56:48.144490
 [
     {
         "subject": "SPED 303",
@@ -162,8 +162,8 @@
         "start_time": "1300",
         "end_time": "1520",
         "lab_days": "R",
-        "lab_start_time": "2000",
-        "lab_end_time": "2450",
+        "lab_start_time": "0800",
+        "lab_end_time": "1250",
         "instructor": "Stickley, Beth A.",
         "room": "CF 231",
         "lab_room": "MH OFC",
