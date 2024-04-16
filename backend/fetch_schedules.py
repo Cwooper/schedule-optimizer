@@ -35,6 +35,9 @@ def _get_schedules(course_names: list[str], minimum_size=2, maximum_size=5) -> l
         # Filter DataFrame based on course name
         matching_rows = df[df['subject'] == course_name]
         course_dicts = matching_rows.to_dict(orient='records')
+        if len(course_dicts) == 0:
+            print(f"Course not offered this term: {course_name}")
+            continue
         for course_dict in course_dicts:
             courses.append(Course(**course_dict))
 
@@ -54,7 +57,8 @@ def main():
     
     course_names = sys.argv[1:]
     schedules = _get_schedules(course_names)
-    print(schedules)
+    for schedule in schedules:
+        print(schedule, end="\n\n")
     schedules = weigh_schedules(course_names)
     
 if __name__ == "__main__":
