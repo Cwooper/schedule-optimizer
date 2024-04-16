@@ -7,15 +7,15 @@ from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 
 # Custom course object
-from course import Course
+from Course import Course
 
 MAX_SUBJECT_WAIT =  30      # Days
 MAX_COURSE_WAIT =   2       # Days
 
 time_pattern = r'\d{2}:\d{2}-\d{2}:\d{2} (am|pm)'
 
-term = 202420
-year = 2324
+term = 202420       # Change later as user input
+year = 2324         # Change later as user input
 
 current_directory = os.path.dirname(os.path.realpath(__file__))
 data_directory = os.path.join(current_directory, 'data')
@@ -35,17 +35,14 @@ def convert_times(times: str):
     end_time = time_start_end[1].replace(":", "")   # "0150"
 
     # Convert times to military time
+    # Unforuntately, this has to pick a 'lesser evil' because one 'pm'
+    # on the end time is ambiguous
     if am_pm == "pm":
-        if start_time < end_time:
-            # Convert to and from int for time conversions
-            start_time = int(start_time)
-            start_time += 1200
-            start_time = str(start_time)
-
-        # Convert to and from int for time conversions
-        end_time = int(end_time)                    # "0150"
-        end_time += 1200
-        end_time = str(end_time)                    # "1350"
+        if int(end_time) < 1200:
+            end_time = str(int(end_time) + 1200)
+        # If a class starts starts before 8, it must be a pm
+        if int(start_time) < 800:
+            start_time = str(int(start_time) + 1200)
     
     return start_time, end_time                     # "0900", "1350"
 
@@ -242,7 +239,7 @@ def _courses_to_file(subject_file: str, courses: list['Course']):
         file.write(current_datetime + '\n')
         file.write(courses_json)
     
-    print(f"Succesfully saved courses into {subject_file}")
+    print(f"Successfully saved courses into {subject_file}")
 
 # Fetches courses from url if they're not stored in a file
 def _fetch_courses_from_url(subject: str, subject_file: str) -> list['Course']:
@@ -284,12 +281,17 @@ def fetch_courses(subject: str) -> list['Course']:
                 return _file_to_courses(subject_file)
     else:
         return _fetch_courses_from_url(subject, subject_file)
-    
+
+# Turns a list of courses into a pickle file from a pandas dataframe
 def courses_to_pickle(courses: list['Course']):
     course_dicts = [course.to_dict() for course in courses]
     df = pd.DataFrame(course_dicts)
     df.to_pickle(pickle_file)
     print(f"Successfully turned courses into a pickle at {pickle_file}")
+
+# Updates a specific course
+def update_subject_if_needed(subject: str):
+    fetch_courses(subject)
 
 def main():
     subjects = fetch_subjects_list()
@@ -299,11 +301,11 @@ def main():
         new_courses = fetch_courses(subject)
         print(f"{subject}: Found {len(new_courses)} courses")
         courses.extend(new_courses)
-
+    
     print(f"Found {len(courses)} courses")
-
+    
     courses_to_pickle(courses)
-    print("Program ran succesffully!")
+    print("Program ran successfully!")
 
 if __name__ == "__main__":
     main()

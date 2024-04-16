@@ -1,4 +1,4 @@
-2024-04-15T16:59:33.840785
+2024-04-15T23:56:46.739578
 [
     {
         "subject": "SEC 400",
@@ -93,8 +93,8 @@
         "course_credits": "4",
         "crn": "21478",
         "days": "TR",
-        "start_time": "2300",
-        "end_time": "2450",
+        "start_time": "1100",
+        "end_time": "1250",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
@@ -423,8 +423,8 @@
         "course_credits": "2",
         "crn": "22174",
         "days": "R",
-        "start_time": "2300",
-        "end_time": "2450",
+        "start_time": "1100",
+        "end_time": "1250",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,

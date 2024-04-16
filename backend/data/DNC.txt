@@ -1,4 +1,4 @@
-2024-04-15T16:59:21.483902
+2024-04-15T23:56:22.775879
 [
     {
         "subject": "DNC 113",
@@ -27,8 +27,8 @@
         "course_credits": "3",
         "crn": "20477",
         "days": "TR",
-        "start_time": "2300",
-        "end_time": "2450",
+        "start_time": "1100",
+        "end_time": "1250",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
@@ -137,8 +137,8 @@
         "course_credits": "3",
         "crn": "20480",
         "days": "TR",
-        "start_time": "2300",
-        "end_time": "2450",
+        "start_time": "1100",
+        "end_time": "1250",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
