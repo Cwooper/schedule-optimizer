@@ -3,16 +3,18 @@
 # Custom functions and objects
 from Course import Course
 from Schedule import Schedule
-from generate_schedules import generate_schedules
+from schedule_generator import generate_schedules
 
 import re
 import os
-import sys
+import argparse
 import pandas as pd
-import matplotlib.pyplot as plt
+
+SUGGESTED_MINIMUM = 2
+SUGGESTED_MAXIMUM = 4
+term = 202420       # TODO
 
 course_name_pattern = r'[A-Z\/ ]{2,4} \d{3}[A-Z]?'
-term = 202420
 
 current_directory = os.path.dirname(os.path.realpath(__file__))
 data_directory = os.path.join(current_directory, 'data')
@@ -48,18 +50,41 @@ def _get_schedules(course_names: list[str], minimum_size=2, maximum_size=5) -> l
 def weigh_schedules(schedules: list['Schedule']) -> list['Schedule']:
     ...
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="Weigh schedules with optional minimum and maximum values")
+    parser.add_argument("courses", nargs="+", help="List of course names")
+    parser.add_argument("--minimum", type=int, default=None, help="Minimum size of schedules")
+    parser.add_argument("--maximum", type=int, default=None, help="Maximum size of schedules")
+    return parser.parse_args()
+
+# Timer function for finding how long it takes for execution
+# import time
+# def timer(func, *args, **kwargs):
+#     start_time = time.time()
+#     result = func(*args, **kwargs)
+#     end_time = time.time()
+#     execution_time = end_time - start_time
+#     return result, execution_time
 
 # Run main for custom use, otherwise use weigh_schedules
 def main():
-    if len(sys.argv) < 2:
-        print("Usage: python3 weigh_schedules.py \"<course1>\" \"<course2>\" ...")
-        return
+    args = parse_args()
+    course_names = args.courses
+    minimum_size = args.minimum if args.minimum else SUGGESTED_MINIMUM
+    maximum_size = args.maximum if args.maximum else SUGGESTED_MAXIMUM
     
-    course_names = sys.argv[1:]
-    schedules = _get_schedules(course_names)
+    if not course_names:
+        print("Please provide at least one course name.")
+        return
+
+
+    schedules = _get_schedules(course_names, minimum_size=minimum_size, maximum_size=maximum_size)
     for schedule in schedules:
         print(schedule, end="\n\n")
-    schedules = weigh_schedules(course_names)
+    # schedules = weigh_schedules(course_names) # TODO
+
+    # schedules, exec_time = timer(_get_schedules, course_names, minimum_size=minimum_size, maximum_size=maximum_size)
+    # print(f"exec time: {exec_time} seconds")
     
 if __name__ == "__main__":
     main()

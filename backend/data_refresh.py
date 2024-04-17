@@ -14,8 +14,8 @@ MAX_COURSE_WAIT =   2       # Days
 
 time_pattern = r'\d{2}:\d{2}-\d{2}:\d{2} (am|pm)'
 
-term = 202420       # Change later as user input
-year = 2324         # Change later as user input
+term = 202420       # TODO Change later as user input
+year = 2324         # TODO Change later as user input
 
 current_directory = os.path.dirname(os.path.realpath(__file__))
 data_directory = os.path.join(current_directory, 'data')
@@ -40,8 +40,9 @@ def convert_times(times: str):
     if am_pm == "pm":
         if int(end_time) < 1200:
             end_time = str(int(end_time) + 1200)
-        # If a class starts starts before 8, it must be a pm
-        if int(start_time) < 800:
+        # If a class starts starts before 8, it must be a pm, unless
+        # it's bigger than the end_time when making it a pm # TODO untested
+        if int(start_time) < 800 and int(start_time) + 1200 < int(end_time):
             start_time = str(int(start_time) + 1200)
     
     return start_time, end_time                     # "0900", "1350"

@@ -4,8 +4,10 @@ from Course import Course
 from Schedule import Schedule
 from itertools import combinations
 
-MINIMUM = 1
-MAXIMUM = 10
+HARD_MINIMUM = 1
+HARD_MAXIMUM = 5
+SUGGESTED_MINIMUM = 2
+SUGGESTED_MAXIMUM = 4
 
 def all_conflicts(courses: list[Course]):
     conflicts = []
@@ -19,7 +21,7 @@ def all_conflicts(courses: list[Course]):
 def all_schedules(courses, conflicts, min_schedule_size, max_schedule_size) -> list['Schedule']:
     course_combinations = []
     # For every permutation size
-    for size in range(1, max_schedule_size + 1):
+    for size in range(min_schedule_size, max_schedule_size + 1):
         # Iterate through every combination in permutations
         for course_combination in combinations(courses, size):
             valid_schedule = True
@@ -31,22 +33,21 @@ def all_schedules(courses, conflicts, min_schedule_size, max_schedule_size) -> l
                     break
 
             # Add it to all schedules if it is valid
-            if valid_schedule and len(course_combination) >= min_schedule_size:
-                course_combinations.append(course_combination)
+            if valid_schedule:
+                course_combinations.append(Schedule(list(course_combination)))
 
-    schedules = []
-    for combination in course_combinations:
-        schedules.append(Schedule(list(combination)))
-    return schedules
+    return course_combinations
 
 # Return all possible schedules from a list of courses
-def generate_schedules(courses: list['Course'], min_schedule_size=2, max_schedule_size=5) -> list[Schedule]:
+def generate_schedules(courses: list['Course'], 
+                       min_schedule_size=SUGGESTED_MINIMUM,
+                       max_schedule_size=SUGGESTED_MAXIMUM) -> list[Schedule]:
     """ Generate schedules based on a list of courses. """
     # Handle possible bounds errors
-    if min_schedule_size < MINIMUM:
-        min_schedule_size = MINIMUM
-    if max_schedule_size > MAXIMUM:
-        max_schedule_size = MAXIMUM
+    if min_schedule_size < HARD_MINIMUM:
+        min_schedule_size = HARD_MINIMUM
+    if max_schedule_size > HARD_MAXIMUM:
+        max_schedule_size = HARD_MAXIMUM
     if min_schedule_size > max_schedule_size:
         min_schedule_size = max_schedule_size
     if len(courses) < min_schedule_size:
