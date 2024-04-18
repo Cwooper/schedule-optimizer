@@ -1,4 +1,4 @@
-2024-04-15T16:59:19.936739
+2024-04-15T23:56:20.233610
 [
     {
         "subject": "CHEM 201",
@@ -71,11 +71,11 @@
         "course_credits": "3",
         "crn": "20862",
         "days": "MWF",
-        "start_time": "2400",
-        "end_time": "2450",
+        "start_time": "1200",
+        "end_time": "1250",
         "lab_days": "F",
-        "lab_start_time": "2200",
-        "lab_end_time": "2450",
+        "lab_start_time": "1000",
+        "lab_end_time": "1250",
         "instructor": "Murphy, Amanda Ruth",
         "room": "SL 130",
         "lab_room": "CB 310",
@@ -423,8 +423,8 @@
         "course_credits": "3",
         "crn": "23436",
         "days": "MWF",
-        "start_time": "2400",
-        "end_time": "2450",
+        "start_time": "1200",
+        "end_time": "1250",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
@@ -841,8 +841,8 @@
         "course_credits": "3",
         "crn": "23437",
         "days": "MWF",
-        "start_time": "2400",
-        "end_time": "2450",
+        "start_time": "1200",
+        "end_time": "1250",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,

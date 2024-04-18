@@ -1,4 +1,4 @@
-2024-04-15T16:59:35.053061
+2024-04-15T23:56:49.233489
 [
     {
         "subject": "THTR 101",
@@ -159,11 +159,11 @@
         "course_credits": "1",
         "crn": "21291",
         "days": "T",
-        "start_time": "2400",
-        "end_time": "2450",
+        "start_time": "1200",
+        "end_time": "1250",
         "lab_days": "T",
-        "lab_start_time": "2400",
-        "lab_end_time": "2450",
+        "lab_start_time": "1200",
+        "lab_end_time": "1250",
         "instructor": "Anderson, Rachel Sophia",
         "room": "PA 399",
         "lab_room": "PA 399",

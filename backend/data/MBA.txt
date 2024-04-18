@@ -1,4 +1,4 @@
-2024-04-15T16:59:29.444599
+2024-04-15T23:56:37.914986
 [
     {
         "subject": "MBA 503",
@@ -74,7 +74,7 @@
         "start_time": "1800",
         "end_time": "1950",
         "lab_days": "T",
-        "lab_start_time": "2000",
+        "lab_start_time": "0800",
         "lab_end_time": "2150",
         "instructor": "Samant, Shantala",
         "room": "PH 104",
@@ -115,7 +115,7 @@
         "course_credits": "4",
         "crn": "23405",
         "days": "R",
-        "start_time": "2000",
+        "start_time": "0800",
         "end_time": "2150",
         "lab_days": "T",
         "lab_start_time": "1800",

@@ -1,4 +1,4 @@
-2024-04-15T16:59:21.268522
+2024-04-15T23:56:22.253486
 [
     {
         "subject": "CISS 346",
@@ -159,7 +159,7 @@
         "course_credits": "4",
         "crn": "23077",
         "days": "MW",
-        "start_time": "2000",
+        "start_time": "0800",
         "end_time": "2150",
         "lab_days": null,
         "lab_start_time": null,

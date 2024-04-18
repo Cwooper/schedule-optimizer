@@ -1,4 +1,4 @@
-2024-04-15T16:59:24.563316
+2024-04-15T23:56:28.226648
 [
     {
         "subject": "ENVS 203",
@@ -272,8 +272,8 @@
         "start_time": "1000",
         "end_time": "1120",
         "lab_days": "TR",
-        "lab_start_time": "2400",
-        "lab_end_time": "2450",
+        "lab_start_time": "1200",
+        "lab_end_time": "1250",
         "instructor": "Laso, Francisco J.",
         "room": "CF 115",
         "lab_room": "AH 016",
@@ -514,8 +514,8 @@
         "start_time": "1200",
         "end_time": "1350",
         "lab_days": "R",
-        "lab_start_time": "2400",
-        "lab_end_time": "2450",
+        "lab_start_time": "1200",
+        "lab_end_time": "1250",
         "instructor": "Albertson, Zander E.",
         "room": "AH 219",
         "lab_room": "AH 219",
@@ -907,8 +907,8 @@
         "course_credits": "4",
         "crn": "20788",
         "days": "MTWRF",
-        "start_time": "2400",
-        "end_time": "2450",
+        "start_time": "1200",
+        "end_time": "1250",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
