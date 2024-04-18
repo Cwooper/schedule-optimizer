@@ -1,12 +1,12 @@
-2024-04-15T16:59:21.999460
+2024-04-15T23:56:23.970912
 [
     {
         "subject": "ECE 436",
         "course_credits": "3",
         "crn": "21124",
         "days": "T",
-        "start_time": "2200",
-        "end_time": "2450",
+        "start_time": "1000",
+        "end_time": "1250",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,

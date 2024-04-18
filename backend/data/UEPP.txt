@@ -1,4 +1,4 @@
-2024-04-15T16:59:35.292072
+2024-04-15T23:56:49.601763
 [
     {
         "subject": "UEPP 202",
@@ -203,8 +203,8 @@
         "course_credits": "3",
         "crn": "22622",
         "days": "MW",
-        "start_time": "2300",
-        "end_time": "2420",
+        "start_time": "1100",
+        "end_time": "1220",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,

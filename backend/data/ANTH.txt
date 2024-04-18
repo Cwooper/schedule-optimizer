@@ -1,12 +1,12 @@
-2024-04-15T16:51:46.044699
+2024-04-15T23:56:17.016672
 [
     {
         "subject": "ANTH 102",
         "course_credits": "5",
         "crn": "20428",
         "days": "MWF",
-        "start_time": "2330",
-        "end_time": "2450",
+        "start_time": "1130",
+        "end_time": "1250",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
@@ -115,8 +115,8 @@
         "course_credits": "5",
         "crn": "20526",
         "days": "MWF",
-        "start_time": "2330",
-        "end_time": "2450",
+        "start_time": "1130",
+        "end_time": "1250",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
@@ -1017,8 +1017,8 @@
         "course_credits": "1",
         "crn": "22774",
         "days": "T",
-        "start_time": "2400",
-        "end_time": "2450",
+        "start_time": "1200",
+        "end_time": "1250",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,

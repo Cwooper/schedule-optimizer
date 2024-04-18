@@ -1,4 +1,4 @@
-2024-04-15T16:59:29.213815
+2024-04-15T23:56:37.415606
 [
     {
         "subject": "MACS 111",
@@ -93,8 +93,8 @@
         "course_credits": "1",
         "crn": "22956",
         "days": "M",
-        "start_time": "2400",
-        "end_time": "2450",
+        "start_time": "1200",
+        "end_time": "1250",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
@@ -118,8 +118,8 @@
         "start_time": "1000",
         "end_time": "1115",
         "lab_days": "W",
-        "lab_start_time": "2100",
-        "lab_end_time": "2450",
+        "lab_start_time": "0900",
+        "lab_end_time": "1250",
         "instructor": "Sobocinski, Kathryn Louise",
         "room": "IS 410",
         "lab_room": "IS 410",

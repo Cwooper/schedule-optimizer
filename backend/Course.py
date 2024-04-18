@@ -1,3 +1,4 @@
+# Course.py
 # Course object
 
 class Course:
@@ -67,6 +68,9 @@ class Course:
     def conflicts(self, other: 'Course') -> bool:
         # Two courses confilict if they have the same subject
         if self.subject == other.subject:
+            return True
+        # Don't include TBD or N/A courses in schedules to save runtime
+        elif self.days in ("TBD", "N/A") or other.days in ("TBD", "N/A"):
             return True
         # Compare self days with the others days
         for day in self.days:

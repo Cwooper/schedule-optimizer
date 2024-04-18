@@ -1,4 +1,4 @@
-2024-04-15T16:59:33.122510
+2024-04-15T23:56:44.071129
 [
     {
         "subject": "RECR 261",
@@ -115,8 +115,8 @@
         "course_credits": "3",
         "crn": "20098",
         "days": "TR",
-        "start_time": "2330",
-        "end_time": "2445",
+        "start_time": "1130",
+        "end_time": "1245",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
@@ -137,8 +137,8 @@
         "course_credits": "3",
         "crn": "20645",
         "days": "MW",
-        "start_time": "2330",
-        "end_time": "2445",
+        "start_time": "1130",
+        "end_time": "1245",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
@@ -159,8 +159,8 @@
         "course_credits": "2",
         "crn": "23664",
         "days": "T",
-        "start_time": "2400",
-        "end_time": "2450",
+        "start_time": "1200",
+        "end_time": "1250",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,

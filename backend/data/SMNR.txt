@@ -1,4 +1,4 @@
-2024-04-15T16:59:33.936747
+2024-04-15T23:56:47.005568
 [
     {
         "subject": "SMNR 201",
@@ -115,8 +115,8 @@
         "course_credits": "2",
         "crn": "23712",
         "days": "TR",
-        "start_time": "2400",
-        "end_time": "2450",
+        "start_time": "1200",
+        "end_time": "1250",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
