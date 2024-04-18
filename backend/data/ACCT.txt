@@ -1,4 +1,4 @@
-2024-04-15T16:48:54.332044
+2024-04-15T23:56:15.918654
 [
     {
         "subject": "ACCT 240",
@@ -467,8 +467,8 @@
         "course_credits": "2",
         "crn": "20373",
         "days": "TBD",
-        "start_time": null,
-        "end_time": null,
+        "start_time": "TBD",
+        "end_time": "TBD",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
@@ -489,8 +489,8 @@
         "course_credits": "1",
         "crn": "20284",
         "days": "TBD",
-        "start_time": null,
-        "end_time": null,
+        "start_time": "TBD",
+        "end_time": "TBD",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
@@ -511,8 +511,8 @@
         "course_credits": "2 TO 4",
         "crn": "23075",
         "days": "TBD",
-        "start_time": null,
-        "end_time": null,
+        "start_time": "TBD",
+        "end_time": "TBD",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,

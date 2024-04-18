@@ -1,12 +1,12 @@
-2024-04-15T16:59:25.876642
+2024-04-15T23:56:30.744764
 [
     {
         "subject": "GREK 103",
         "course_credits": "5",
         "crn": "20458",
         "days": "MWF",
-        "start_time": "2330",
-        "end_time": "2450",
+        "start_time": "1130",
+        "end_time": "1250",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
