@@ -64,47 +64,44 @@ class Course:
             "attributes": self.attributes,
             "prerequisites": self.prerequisites
         }
-
+    
     def conflicts(self, other: 'Course') -> bool:
         # Two courses confilict if they have the same subject
         if self.subject == other.subject:
             return True
         # Don't include TBD or N/A courses in schedules to save runtime
-        elif self.days in ("TBD", "N/A") or other.days in ("TBD", "N/A"):
+        if self.days in ("TBD", "N/A") or other.days in ("TBD", "N/A"):
             return True
         # Compare self days with the others days
         for day in self.days:
             if day in other.days:
-                if (((self.start_time >= other.start_time) and 
-                     (self.start_time <= other.end_time)) or
-                     ((self.end_time >= other.start_time) and 
-                      (self.end_time <= other.end_time))):
+                if (_time_conflict(self.start_time, self.end_time,
+                                   other.start_time, other.end_time)):
                     return True
         # Compare self's lab with other's days
         if self.lab_days:
             for day in self.lab_days:
                 if day in other.days:
-                    if (((self.lab_start_time >= other.start_time) and 
-                         (self.lab_start_time <= other.end_time)) or
-                        ((self.lab_end_time >= other.start_time) and 
-                         (self.lab_end_time <= other.end_time))):
+                    if (_time_conflict(self.lab_start_time, self.lab_end_time,
+                                       other.start_time, other.end_time)):
                         return True
         # Compare other's lab with self's days
         if other.lab_days:
             for day in other.lab_days:
                 if day in self.days:
-                    if (((self.start_time >= other.lab_start_time) and 
-                         (self.start_time <= other.lab_end_time)) or
-                        ((self.end_time >= other.lab_start_time) and 
-                         (self.end_time <= other.lab_end_time))):
+                    if (_time_conflict(self.start_time, self.end_time,
+                                    other.lab_start_time, other.lab_end_time)):
                         return True
         # Compare lab times between both labs
         if self.lab_days and other.lab_days:
             for day in self.lab_days:
                 if day in other.lab_days:
-                    if (((self.lab_start_time >= other.lab_start_time) and 
-                         (self.lab_start_time <= other.lab_end_time)) or
-                        ((self.lab_end_time >= other.lab_start_time) and 
-                         (self.lab_end_time <= other.lab_end_time))):
+                    if (_time_conflict(self.lab_start_time, self.lab_end_time,
+                                    other.lab_start_time, other.lab_end_time)):
                         return True
         return False
+
+# Time conflict helper method
+def _time_conflict(start1, end1, start2, end2):
+    return (((start1 >= start2) and (start1 <= end2)) or
+            ((end1 >= start2) and (end1 <= end2)))
