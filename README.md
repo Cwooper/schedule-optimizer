@@ -48,7 +48,8 @@ Django should handle all requests for course schedules.
 
 Possible future additions (probably WWU only):
 - [ ] past WWU data for courses (passing rate, total people taking it, etc.)
-- [x] automatic class finder scraping for less input (only input some classes)
+- [ ] automatic class finder scraping for less input (only input some classes)
+    - [x] Currently Working, however, it's hardcoded and non-customizable at the moment 
 - [ ] web scrape rate my professor rating, WTA, and difficulty as weights for schedule crafter model
 - [x] store the web scraped data in a database for as little CPU usage as possible
 - [ ] future class scheduler per quarter based on pre-requisites
