@@ -1,0 +1,47 @@
+2024-04-26T16:32:27.636101
+[
+    {
+        "subject": "SALI 490",
+        "course_credits": "1",
+        "crn": "12115",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Baker, Mary Tuti",
+        "room": "CA 101",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "15",
+        "enrl": "4",
+        "avail": "11",
+        "waitlist": "",
+        "restrictions": "OV S/U",
+        "attributes": "FTF",
+        "prerequisites": ""
+    },
+    {
+        "subject": "SALI 490",
+        "course_credits": "1",
+        "crn": "14076",
+        "days": "R",
+        "start_time": "1630",
+        "end_time": "1720",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Elliser, Cindy Rogers",
+        "room": "AW 204",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "20",
+        "enrl": "13",
+        "avail": "7",
+        "waitlist": "",
+        "restrictions": "OV S/U",
+        "attributes": "FTF",
+        "prerequisites": ""
+    }
+]

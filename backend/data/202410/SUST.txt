@@ -1,0 +1,25 @@
+2024-04-26T16:32:36.394352
+[
+    {
+        "subject": "SUST 116",
+        "course_credits": "3",
+        "crn": "13213",
+        "days": "TR",
+        "start_time": "1400",
+        "end_time": "1520",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "MacIntyre Witt, Jill Marie",
+        "room": "AH 219",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "20",
+        "enrl": "18",
+        "avail": "2",
+        "waitlist": "",
+        "restrictions": "OV",
+        "attributes": "FTF",
+        "prerequisites": ""
+    }
+]

@@ -1,0 +1,47 @@
+2024-04-26T16:22:03.861425
+[
+    {
+        "subject": "LAT 102",
+        "course_credits": "5",
+        "crn": "13502",
+        "days": "MWF",
+        "start_time": "1000",
+        "end_time": "1120",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Engelsing, Eduardo Marcant",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "30",
+        "enrl": "0",
+        "avail": "30",
+        "waitlist": "",
+        "restrictions": "OV PQ",
+        "attributes": "FTF",
+        "prerequisites": "LAT 101"
+    },
+    {
+        "subject": "LAT 202",
+        "course_credits": "5",
+        "crn": "13504",
+        "days": "MWF",
+        "start_time": "1000",
+        "end_time": "1120",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Engelsing, Eduardo Marcant",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "10",
+        "enrl": "0",
+        "avail": "10",
+        "waitlist": "",
+        "restrictions": "OV PQ",
+        "attributes": "FTF HUM",
+        "prerequisites": "LAT 201"
+    }
+]

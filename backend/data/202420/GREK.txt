@@ -1,0 +1,47 @@
+2024-04-26T16:28:56.833376
+[
+    {
+        "subject": "GREK 103",
+        "course_credits": "5",
+        "crn": "20458",
+        "days": "MWF",
+        "start_time": "1130",
+        "end_time": "1250",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Stayskal, Byron",
+        "room": "BH 110",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "25",
+        "enrl": "14",
+        "avail": "11",
+        "waitlist": "",
+        "restrictions": "OV PQ",
+        "attributes": "BCOM FTF",
+        "prerequisites": "GREK 102"
+    },
+    {
+        "subject": "GREK 203",
+        "course_credits": "5",
+        "crn": "22814",
+        "days": "MWF",
+        "start_time": "0830",
+        "end_time": "0950",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Krause, Miller Stanley",
+        "room": "MH 114",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "25",
+        "enrl": "4",
+        "avail": "21",
+        "waitlist": "",
+        "restrictions": "OV PQ",
+        "attributes": "FTF",
+        "prerequisites": "GREK 202."
+    }
+]

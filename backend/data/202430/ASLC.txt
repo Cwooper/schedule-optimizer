@@ -1,0 +1,47 @@
+2024-04-26T16:25:33.024331
+[
+    {
+        "subject": "ASLC 101",
+        "course_credits": "5",
+        "crn": "30815",
+        "days": "M",
+        "start_time": "1300",
+        "end_time": "1520",
+        "lab_days": "N/A",
+        "lab_start_time": "N/A",
+        "lab_end_time": "N/A",
+        "instructor": "Boyd, Linda Sue",
+        "room": "MH 154",
+        "lab_room": "ONLINE ASNC",
+        "addl_fees": "",
+        "cap": "30",
+        "enrl": "0",
+        "avail": "30",
+        "waitlist": "",
+        "restrictions": "",
+        "attributes": "ACGM HYBD",
+        "prerequisites": ""
+    },
+    {
+        "subject": "ASLC 102",
+        "course_credits": "5",
+        "crn": "30816",
+        "days": "M",
+        "start_time": "1630",
+        "end_time": "1850",
+        "lab_days": "N/A",
+        "lab_start_time": "N/A",
+        "lab_end_time": "N/A",
+        "instructor": "Boyd, Linda Sue",
+        "room": "MH 154",
+        "lab_room": "ONLINE ASNC",
+        "addl_fees": "",
+        "cap": "30",
+        "enrl": "0",
+        "avail": "30",
+        "waitlist": "",
+        "restrictions": "PQ",
+        "attributes": "HYBD",
+        "prerequisites": "ASLC 101 or instructor permission."
+    }
+]

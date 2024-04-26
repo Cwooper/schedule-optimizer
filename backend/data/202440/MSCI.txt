@@ -1,0 +1,47 @@
+2024-04-26T16:24:44.879393
+[
+    {
+        "subject": "MSCI 201",
+        "course_credits": "4",
+        "crn": "40499",
+        "days": "MW",
+        "start_time": "1200",
+        "end_time": "1350",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Staff",
+        "room": "ET 106",
+        "lab_room": null,
+        "addl_fees": "Flat Fee $47.00",
+        "cap": "5",
+        "enrl": "0",
+        "avail": "5",
+        "waitlist": "",
+        "restrictions": "MJ PQ",
+        "attributes": "FTF",
+        "prerequisites": "CHEM 161 or CHEM 175; MATH 124 and PHYS 161 or concurrent or MATH 157 and PHYS 114 or concurrent."
+    },
+    {
+        "subject": "MSCI 325",
+        "course_credits": "3",
+        "crn": "43993",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Rider, David Allen",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "12",
+        "enrl": "0",
+        "avail": "12",
+        "waitlist": "",
+        "restrictions": "PQ",
+        "attributes": "FTF",
+        "prerequisites": "CHEM 163 or CHEM 175; MSCI 201 or ENGR 170; PHYS 116 or PHYS 163 or concurrent."
+    }
+]

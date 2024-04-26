@@ -1,0 +1,47 @@
+2024-04-26T16:24:49.891280
+[
+    {
+        "subject": "MDS 410",
+        "course_credits": "4",
+        "crn": "42348",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Walker, Wendy Colleen",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "10",
+        "enrl": "0",
+        "avail": "10",
+        "waitlist": "",
+        "restrictions": "OV",
+        "attributes": "SPL WP3",
+        "prerequisites": "Multidisciplinary Studies majors only."
+    },
+    {
+        "subject": "MDS 471",
+        "course_credits": "5 TO 10",
+        "crn": "41113",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Walker, Wendy Colleen",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "Per/Cr $298.00",
+        "cap": "10",
+        "enrl": "0",
+        "avail": "10",
+        "waitlist": "",
+        "restrictions": "OV MJ S/U",
+        "attributes": "FTF SST",
+        "prerequisites": "Multidisciplinary Studies majors only; permission of instructor."
+    }
+]

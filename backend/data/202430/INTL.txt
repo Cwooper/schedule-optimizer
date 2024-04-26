@@ -1,0 +1,47 @@
+2024-04-26T16:26:47.635993
+[
+    {
+        "subject": "INTL 201",
+        "course_credits": "5",
+        "crn": "30827",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Lippman, Leah Niobe",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "10",
+        "enrl": "0",
+        "avail": "10",
+        "waitlist": "",
+        "restrictions": "",
+        "attributes": "ACGM ASNC OL",
+        "prerequisites": ""
+    },
+    {
+        "subject": "INTL 338",
+        "course_credits": "5",
+        "crn": "30826",
+        "days": "MWF",
+        "start_time": "1000",
+        "end_time": "1220",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Akinrinade, Babafemi A.",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "9",
+        "enrl": "0",
+        "avail": "9",
+        "waitlist": "",
+        "restrictions": "OV PQ",
+        "attributes": "FTF HUM",
+        "prerequisites": "FAIR 201A or ENG 101 or INTL 201."
+    }
+]

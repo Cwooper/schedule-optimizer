@@ -1,0 +1,47 @@
+2024-04-26T16:27:03.162779
+[
+    {
+        "subject": "MACS 494",
+        "course_credits": "1 TO 10",
+        "crn": "30626",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Dimond, James Longfellow",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "10",
+        "enrl": "0",
+        "avail": "10",
+        "waitlist": "",
+        "restrictions": "OV",
+        "attributes": "FTF",
+        "prerequisites": "Instructor permission."
+    },
+    {
+        "subject": "MACS 495",
+        "course_credits": "1 TO 10",
+        "crn": "30555",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Dimond, James Longfellow",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "10",
+        "enrl": "0",
+        "avail": "10",
+        "waitlist": "",
+        "restrictions": "OV",
+        "attributes": "FTF",
+        "prerequisites": "Instructor permission."
+    }
+]

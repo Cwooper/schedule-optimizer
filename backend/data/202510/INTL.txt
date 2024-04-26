@@ -1,0 +1,25 @@
+2024-04-26T16:21:57.469782
+[
+    {
+        "subject": "INTL 201",
+        "course_credits": "5",
+        "crn": "10930",
+        "days": "TR",
+        "start_time": "1000",
+        "end_time": "1150",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Lippman, Leah Niobe",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "40",
+        "enrl": "0",
+        "avail": "40",
+        "waitlist": "",
+        "restrictions": "",
+        "attributes": "ACGM FTF",
+        "prerequisites": ""
+    }
+]

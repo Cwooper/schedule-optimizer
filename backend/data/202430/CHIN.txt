@@ -1,0 +1,47 @@
+2024-04-26T16:25:48.781186
+[
+    {
+        "subject": "CHIN 237",
+        "course_credits": "15",
+        "crn": "30581",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": "TBD",
+        "lab_start_time": "TBD",
+        "lab_end_time": "TBD",
+        "instructor": "Liu, Claudia",
+        "room": "TBA",
+        "lab_room": "TBA",
+        "addl_fees": "Flat Fee $1557.40",
+        "cap": "20",
+        "enrl": "0",
+        "avail": "20",
+        "waitlist": "",
+        "restrictions": "OV",
+        "attributes": "FTF TRVL",
+        "prerequisites": "CHIN 103 or equivalent."
+    },
+    {
+        "subject": "CHIN 337",
+        "course_credits": "15",
+        "crn": "30582",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": "TBD",
+        "lab_start_time": "TBD",
+        "lab_end_time": "TBD",
+        "instructor": "Liu, Claudia",
+        "room": "TBA",
+        "lab_room": "TBA",
+        "addl_fees": "Flat Fee $1557.40",
+        "cap": "20",
+        "enrl": "0",
+        "avail": "20",
+        "waitlist": "",
+        "restrictions": "OV",
+        "attributes": "FTF TRVL",
+        "prerequisites": ""
+    }
+]

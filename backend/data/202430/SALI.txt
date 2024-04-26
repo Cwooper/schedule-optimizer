@@ -1,0 +1,25 @@
+2024-04-26T16:27:34.438302
+[
+    {
+        "subject": "SALI 201",
+        "course_credits": "4",
+        "crn": "30394",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Hatch, Marco Brandon Allen",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "35",
+        "enrl": "0",
+        "avail": "35",
+        "waitlist": "",
+        "restrictions": "",
+        "attributes": "ASNC BCGM OL",
+        "prerequisites": "Optional co-requisite: SALI 202."
+    }
+]
