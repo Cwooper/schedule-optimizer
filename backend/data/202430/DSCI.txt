@@ -1,0 +1,47 @@
+2024-04-26T16:26:03.243995
+[
+    {
+        "subject": "DSCI 205",
+        "course_credits": "4",
+        "crn": "30932",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Morgans, Brian Lee",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "30",
+        "enrl": "0",
+        "avail": "30",
+        "waitlist": "",
+        "restrictions": "PQ",
+        "attributes": "ASNC OL",
+        "prerequisites": "MATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score."
+    },
+    {
+        "subject": "DSCI 305",
+        "course_credits": "4",
+        "crn": "30933",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Kim, Ilhyung",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "45",
+        "enrl": "0",
+        "avail": "45",
+        "waitlist": "",
+        "restrictions": "PQ",
+        "attributes": "ASNC OL",
+        "prerequisites": "MATH 157 or MATH 124 or MATH 138; and DSCI 205."
+    }
+]

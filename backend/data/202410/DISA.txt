@@ -1,0 +1,47 @@
+2024-04-26T16:30:48.885004
+[
+    {
+        "subject": "DISA 330",
+        "course_credits": "5",
+        "crn": "13823",
+        "days": "TR",
+        "start_time": "1400",
+        "end_time": "1550",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Chmielewski, Kristen Elizabeth",
+        "room": "CF 226",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "40",
+        "enrl": "39",
+        "avail": "1",
+        "waitlist": "",
+        "restrictions": "OV PQ",
+        "attributes": "BCGM FTF",
+        "prerequisites": "ENG 101 or equivalent."
+    },
+    {
+        "subject": "DISA 350",
+        "course_credits": "5",
+        "crn": "13822",
+        "days": "TR",
+        "start_time": "1000",
+        "end_time": "1150",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Kuntz, Pam",
+        "room": "MH 235",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "30",
+        "enrl": "14",
+        "avail": "16",
+        "waitlist": "",
+        "restrictions": "OV PQ",
+        "attributes": "FTF",
+        "prerequisites": "ENG 101 or equivalent."
+    }
+]

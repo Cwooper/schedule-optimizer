@@ -12,16 +12,28 @@ import pandas as pd
 
 SUGGESTED_MINIMUM = 2
 SUGGESTED_MAXIMUM = 4
-term = 202420       # TODO
 
 course_name_pattern = r'[A-Z\/ ]{2,4} \d{3}[A-Z]?'
 
 current_directory = os.path.dirname(os.path.realpath(__file__))
 data_directory = os.path.join(current_directory, 'data')
-pickle_file = os.path.join(data_directory, str(term) + ".pkl")
+
+usage = """
+Usage: python3 get_schedules.py <"course1" "course2" ...> <--term term> [--minimum num] [--maximum num]
+
+Description:
+    Retrieve schedules for the specified courses.
+
+Arguments:
+    <"course1" "course2" ...>   List of course codes (enclosed in double quotes) to retrieve schedules for.
+    <--term term>               Specify the term for which schedules should be retrieved.
+    [--minimum num]             (Optional) Specify the minimum number of schedules to retrieve.
+    [--maximum num]             (Optional) Specify the maximum number of schedules to retrieve.
+"""
+
 
 # Return a list of schedules based on the course names
-def _get_schedules(course_names: list[str], minimum_size=2, maximum_size=5) -> list['Schedule']:
+def _get_schedules(course_names: list[str], term, minimum_size=2, maximum_size=5) -> list['Schedule']:
     cleaned_course_names = []
     # Clean and verify course names
     for course_name in course_names:
@@ -32,6 +44,8 @@ def _get_schedules(course_names: list[str], minimum_size=2, maximum_size=5) -> l
             print(f"Invalid Course Name: {course_name}")
     
     courses = []
+
+    pickle_file = os.path.join(data_directory, term, term + '.pkl')
     df = pd.read_pickle(pickle_file)
     for course_name in cleaned_course_names:
         # Filter DataFrame based on course name
@@ -53,6 +67,7 @@ def weigh_schedules(schedules: list['Schedule']) -> list['Schedule']:
 def parse_args():
     parser = argparse.ArgumentParser(description="Weigh schedules with optional minimum and maximum values")
     parser.add_argument("courses", nargs="+", help="List of course names")
+    parser.add_argument("--term", type=str, default=None, help="Term to schedule")
     parser.add_argument("--minimum", type=int, default=None, help="Minimum size of schedules")
     parser.add_argument("--maximum", type=int, default=None, help="Maximum size of schedules")
     return parser.parse_args()
@@ -69,21 +84,26 @@ def parse_args():
 # Run main for custom use, otherwise use weigh_schedules
 def main():
     args = parse_args()
+    term = args.term
     course_names = args.courses
     minimum_size = args.minimum if args.minimum else SUGGESTED_MINIMUM
     maximum_size = args.maximum if args.maximum else SUGGESTED_MAXIMUM
     
+    if not term:
+        print(usage)
     if not course_names:
         print("Please provide at least one course name.")
         return
 
+    if len(course_names) <= minimum_size:
+        print("Please input more courses than your minimum.")
 
-    schedules = _get_schedules(course_names, minimum_size=minimum_size, maximum_size=maximum_size)
+    schedules = _get_schedules(course_names, term, minimum_size=minimum_size, maximum_size=maximum_size)
     for schedule in schedules:
         print(schedule, end="\n\n")
     # schedules = weigh_schedules(course_names) # TODO
 
-    # schedules, exec_time = timer(_get_schedules, course_names, minimum_size=minimum_size, maximum_size=maximum_size)
+    # schedules, exec_time = timer(_get_schedules, course_names, term, minimum_size=minimum_size, maximum_size=maximum_size)
     # print(f"exec time: {exec_time} seconds")
     
 if __name__ == "__main__":

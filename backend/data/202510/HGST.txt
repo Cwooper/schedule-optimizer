@@ -1,0 +1,47 @@
+2024-04-26T16:21:46.339024
+[
+    {
+        "subject": "HGST 301",
+        "course_credits": "5",
+        "crn": "12258",
+        "days": "MW",
+        "start_time": "1500",
+        "end_time": "1720",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Staff",
+        "room": "FA 340",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "5",
+        "enrl": "0",
+        "avail": "5",
+        "waitlist": "",
+        "restrictions": "OV JR SO SR",
+        "attributes": "FTF",
+        "prerequisites": "Sophomore status."
+    },
+    {
+        "subject": "HGST 302",
+        "course_credits": "5",
+        "crn": "13933",
+        "days": "MW",
+        "start_time": "1200",
+        "end_time": "1420",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Akinrinade, Babafemi A.",
+        "room": "FA 326",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "5",
+        "enrl": "0",
+        "avail": "5",
+        "waitlist": "",
+        "restrictions": "JR SO SR",
+        "attributes": "FTF",
+        "prerequisites": "Sophomore status."
+    }
+]

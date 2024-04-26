@@ -1,0 +1,47 @@
+2024-04-26T16:23:14.801560
+[
+    {
+        "subject": "ASTR 103",
+        "course_credits": "4",
+        "crn": "41574",
+        "days": "MTWR",
+        "start_time": "1400",
+        "end_time": "1450",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Covey, Kevin R.",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "142",
+        "enrl": "0",
+        "avail": "142",
+        "waitlist": "",
+        "restrictions": "",
+        "attributes": "FTF SCI",
+        "prerequisites": ""
+    },
+    {
+        "subject": "ASTR 315",
+        "course_credits": "3",
+        "crn": "40275",
+        "days": "MW",
+        "start_time": "1400",
+        "end_time": "1515",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Rice, Melissa Susanne",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "45",
+        "enrl": "0",
+        "avail": "45",
+        "waitlist": "",
+        "restrictions": "PQ",
+        "attributes": "FTF WP1",
+        "prerequisites": "PHYS 161, PHYS 162 and PHYS 163; or instructor permission."
+    }
+]

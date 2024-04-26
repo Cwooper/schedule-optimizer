@@ -1,0 +1,25 @@
+2024-04-26T16:26:16.424538
+[
+    {
+        "subject": "ENRG 380",
+        "course_credits": "4",
+        "crn": "30418",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Sheikh, Imran Anees",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "15",
+        "enrl": "0",
+        "avail": "15",
+        "waitlist": "",
+        "restrictions": "PQ",
+        "attributes": "ASNC OL",
+        "prerequisites": "CHEM 161 and MATH 114."
+    }
+]

@@ -1,0 +1,25 @@
+2024-04-26T16:20:27.613054
+[
+    {
+        "subject": "SUST 471",
+        "course_credits": "3",
+        "crn": "22510",
+        "days": "MW",
+        "start_time": "1400",
+        "end_time": "1520",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Wang, Grace A.",
+        "room": "ES 318",
+        "lab_room": null,
+        "addl_fees": "Flat Fee $15.00",
+        "cap": "6",
+        "enrl": "0",
+        "avail": "6",
+        "waitlist": "",
+        "restrictions": "PQ",
+        "attributes": "FTF",
+        "prerequisites": "One course from: SUST 116, UEPP 116, UEPP 202, or UEPP 261; or instructor permission."
+    }
+]

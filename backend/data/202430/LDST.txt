@@ -1,0 +1,47 @@
+2024-04-26T16:26:54.968853
+[
+    {
+        "subject": "LDST 341",
+        "course_credits": "1 TO 6",
+        "crn": "30866",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Diaz, Holly Diane",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "15",
+        "enrl": "0",
+        "avail": "15",
+        "waitlist": "",
+        "restrictions": "",
+        "attributes": "ASNC OL",
+        "prerequisites": "Sophomore, junior or senior status and instructor permission."
+    },
+    {
+        "subject": "LDST 416",
+        "course_credits": "4",
+        "crn": "30864",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Wandke, Daman Lee Michael",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "20",
+        "enrl": "0",
+        "avail": "20",
+        "waitlist": "",
+        "restrictions": "PQ",
+        "attributes": "ASNC OL",
+        "prerequisites": "LDST 101 or instructor permission."
+    }
+]
