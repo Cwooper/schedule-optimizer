@@ -1,0 +1,47 @@
+2024-04-26T16:22:45.952522
+[
+    {
+        "subject": "SALI 390",
+        "course_credits": "4",
+        "crn": "13868",
+        "days": "TR",
+        "start_time": "1200",
+        "end_time": "1350",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Baker, Mary Tuti",
+        "room": "CA 101",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "10",
+        "enrl": "0",
+        "avail": "10",
+        "waitlist": "",
+        "restrictions": "OV PQ",
+        "attributes": "FTF",
+        "prerequisites": "SALI 201 or instructor permission."
+    },
+    {
+        "subject": "SALI 495",
+        "course_credits": "1 TO 5",
+        "crn": "13867",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Elliser, Cindy Rogers",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "5",
+        "enrl": "0",
+        "avail": "5",
+        "waitlist": "",
+        "restrictions": "OV MJ S/U",
+        "attributes": "FTF",
+        "prerequisites": "Salish Sea Studies Minor status"
+    }
+]

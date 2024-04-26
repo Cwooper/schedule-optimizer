@@ -1,0 +1,25 @@
+2024-04-26T16:25:59.670617
+[
+    {
+        "subject": "DISA 330",
+        "course_credits": "5",
+        "crn": "30656",
+        "days": "MTWR",
+        "start_time": "1000",
+        "end_time": "1150",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Tilland-Stafford, Anika Oceana",
+        "room": "ONLINE SYNC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "30",
+        "enrl": "0",
+        "avail": "30",
+        "waitlist": "",
+        "restrictions": "PQ",
+        "attributes": "BCGM OL SYNC",
+        "prerequisites": "ENG 101 or equivalent."
+    }
+]

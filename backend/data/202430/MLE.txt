@@ -1,0 +1,25 @@
+2024-04-26T16:27:14.025057
+[
+    {
+        "subject": "MLE 441",
+        "course_credits": "5",
+        "crn": "30613",
+        "days": "M",
+        "start_time": "0900",
+        "end_time": "1250",
+        "lab_days": "N/A",
+        "lab_start_time": "N/A",
+        "lab_end_time": "N/A",
+        "instructor": "Ruiz Guerrero, Margarita Guadalupe",
+        "room": "ONLINE SYNC",
+        "lab_room": "ONLINE ASNC",
+        "addl_fees": "",
+        "cap": "25",
+        "enrl": "0",
+        "avail": "25",
+        "waitlist": "",
+        "restrictions": "",
+        "attributes": "MIX OL",
+        "prerequisites": ""
+    }
+]

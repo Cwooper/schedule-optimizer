@@ -1,0 +1,47 @@
+2024-04-26T16:30:26.379167
+[
+    {
+        "subject": "AECI 302",
+        "course_credits": "4",
+        "crn": "11545",
+        "days": "MW",
+        "start_time": "1600",
+        "end_time": "1750",
+        "lab_days": "MW",
+        "lab_start_time": "1600",
+        "lab_end_time": "1750",
+        "instructor": "Mayer, Aric Arnold",
+        "room": "CF 314",
+        "lab_room": "CF 314",
+        "addl_fees": "Flat Fee $92.50",
+        "cap": "30",
+        "enrl": "13",
+        "avail": "17",
+        "waitlist": "",
+        "restrictions": "OV",
+        "attributes": "FTF",
+        "prerequisites": "CFPA major or departmental approval; AECI 301."
+    },
+    {
+        "subject": "AECI 406",
+        "course_credits": "4",
+        "crn": "11548",
+        "days": "MW",
+        "start_time": "1400",
+        "end_time": "1550",
+        "lab_days": "MW",
+        "lab_start_time": "1400",
+        "lab_end_time": "1550",
+        "instructor": "Mayer, Aric Arnold",
+        "room": "CF 314",
+        "lab_room": "CF 314",
+        "addl_fees": "Flat Fee $14.00",
+        "cap": "25",
+        "enrl": "18",
+        "avail": "7",
+        "waitlist": "",
+        "restrictions": "OV",
+        "attributes": "FTF",
+        "prerequisites": "CFPA major or departmental approval; AECI 405."
+    }
+]

@@ -1,0 +1,47 @@
+2024-04-26T16:26:00.873801
+[
+    {
+        "subject": "DNC 231",
+        "course_credits": "3",
+        "crn": "30143",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Haines, Susan Elizabeth",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "25",
+        "enrl": "0",
+        "avail": "25",
+        "waitlist": "",
+        "restrictions": "",
+        "attributes": "ASNC CCOM OL",
+        "prerequisites": ""
+    },
+    {
+        "subject": "DNC 232",
+        "course_credits": "3",
+        "crn": "30153",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Kuntz, Pam",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "25",
+        "enrl": "0",
+        "avail": "25",
+        "waitlist": "",
+        "restrictions": "",
+        "attributes": "ACGM ASNC OL",
+        "prerequisites": ""
+    }
+]

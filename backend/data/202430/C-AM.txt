@@ -1,0 +1,47 @@
+2024-04-26T16:25:46.335303
+[
+    {
+        "subject": "C/AM 200",
+        "course_credits": "5",
+        "crn": "30350",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Rossiter, David",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "25",
+        "enrl": "0",
+        "avail": "25",
+        "waitlist": "",
+        "restrictions": "",
+        "attributes": "ASNC OL SSC",
+        "prerequisites": ""
+    },
+    {
+        "subject": "C/AM 355",
+        "course_credits": "4",
+        "crn": "30967",
+        "days": "TR",
+        "start_time": "1000",
+        "end_time": "1120",
+        "lab_days": "N/A",
+        "lab_start_time": "N/A",
+        "lab_end_time": "N/A",
+        "instructor": "Moscato, Derek Ronald",
+        "room": "ONLINE SYNC",
+        "lab_room": "ONLINE ASNC",
+        "addl_fees": "",
+        "cap": "5",
+        "enrl": "0",
+        "avail": "5",
+        "waitlist": "",
+        "restrictions": "PQ",
+        "attributes": "MIX OL",
+        "prerequisites": "JOUR 190 or ENG 101 or C/AM 200"
+    }
+]
