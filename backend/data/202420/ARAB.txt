@@ -1,0 +1,47 @@
+2024-04-26T16:27:56.297112
+[
+    {
+        "subject": "ARAB 103",
+        "course_credits": "5",
+        "crn": "20514",
+        "days": "MWF",
+        "start_time": "1300",
+        "end_time": "1420",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Hussein Abdelbaki, Tamer",
+        "room": "MH 103",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "25",
+        "enrl": "7",
+        "avail": "18",
+        "waitlist": "",
+        "restrictions": "OV PQ",
+        "attributes": "BCOM FTF",
+        "prerequisites": "ARAB 102."
+    },
+    {
+        "subject": "ARAB 203",
+        "course_credits": "5",
+        "crn": "20532",
+        "days": "MWF",
+        "start_time": "1430",
+        "end_time": "1550",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Hussein Abdelbaki, Tamer",
+        "room": "MH 103",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "25",
+        "enrl": "4",
+        "avail": "21",
+        "waitlist": "",
+        "restrictions": "OV",
+        "attributes": "ACGM FTF",
+        "prerequisites": "ARAB 202"
+    }
+]

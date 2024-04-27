@@ -1,0 +1,25 @@
+2024-04-26T16:32:26.456555
+[
+    {
+        "subject": "RUSS 202",
+        "course_credits": "5",
+        "crn": "13628",
+        "days": "MWF",
+        "start_time": "1130",
+        "end_time": "1250",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Vajda, Edward J.",
+        "room": "MH 156",
+        "lab_room": null,
+        "addl_fees": "Flat Fee $5.00",
+        "cap": "27",
+        "enrl": "19",
+        "avail": "8",
+        "waitlist": "",
+        "restrictions": "OV",
+        "attributes": "FTF HUM",
+        "prerequisites": "RUSS 201"
+    }
+]

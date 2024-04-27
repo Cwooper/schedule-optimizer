@@ -1,0 +1,25 @@
+2024-04-26T16:26:44.084565
+[
+    {
+        "subject": "I T 442",
+        "course_credits": "3",
+        "crn": "30371",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Lemmer, Jaime Small",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "Flat Fee $6.74",
+        "cap": "15",
+        "enrl": "0",
+        "avail": "15",
+        "waitlist": "",
+        "restrictions": "PQ",
+        "attributes": "ASNC OL",
+        "prerequisites": "IT 344"
+    }
+]

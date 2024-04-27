@@ -1,0 +1,25 @@
+2024-04-26T16:19:19.802366
+[
+    {
+        "subject": "HGST 302",
+        "course_credits": "5",
+        "crn": "21988",
+        "days": "TR",
+        "start_time": "1400",
+        "end_time": "1550",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Anderson Paul, Rachel Ann",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "5",
+        "enrl": "0",
+        "avail": "5",
+        "waitlist": "",
+        "restrictions": "JR SO SR",
+        "attributes": "FTF",
+        "prerequisites": "Sophomore status."
+    }
+]

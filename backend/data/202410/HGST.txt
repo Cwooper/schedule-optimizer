@@ -1,0 +1,25 @@
+2024-04-26T16:31:28.187383
+[
+    {
+        "subject": "HGST 301",
+        "course_credits": "5",
+        "crn": "12709",
+        "days": "MW",
+        "start_time": "1500",
+        "end_time": "1720",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Akinrinade, Babafemi A.",
+        "room": "FA 340",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "5",
+        "enrl": "5",
+        "avail": "0",
+        "waitlist": "",
+        "restrictions": "OV JR SO SR",
+        "attributes": "FTF",
+        "prerequisites": "Sophomore status."
+    }
+]

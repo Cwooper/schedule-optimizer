@@ -1,0 +1,25 @@
+2024-04-26T16:27:29.707262
+[
+    {
+        "subject": "RECR 472",
+        "course_credits": "12",
+        "crn": "30123",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": "TBD",
+        "lab_start_time": "TBD",
+        "lab_end_time": "TBD",
+        "instructor": "Burtz, Randall Tyler",
+        "room": "TBA",
+        "lab_room": "TBA",
+        "addl_fees": "",
+        "cap": "60",
+        "enrl": "0",
+        "avail": "60",
+        "waitlist": "",
+        "restrictions": "MJ S/U",
+        "attributes": "FTF",
+        "prerequisites": "Phase II Recreation Majors"
+    }
+]

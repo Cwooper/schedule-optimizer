@@ -1,0 +1,25 @@
+2024-04-26T16:22:44.742667
+[
+    {
+        "subject": "RUSS 110",
+        "course_credits": "5",
+        "crn": "13495",
+        "days": "MWF",
+        "start_time": "1130",
+        "end_time": "1250",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Vajda, Edward J.",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "Flat Fee $5.00",
+        "cap": "45",
+        "enrl": "0",
+        "avail": "45",
+        "waitlist": "",
+        "restrictions": "OV",
+        "attributes": "FTF",
+        "prerequisites": ""
+    }
+]

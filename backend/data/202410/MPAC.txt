@@ -1,0 +1,25 @@
+2024-04-26T16:31:58.081614
+[
+    {
+        "subject": "MPAC 590",
+        "course_credits": "16",
+        "crn": "11108",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Taylor, Audrey G.",
+        "room": "PH OFC",
+        "lab_room": null,
+        "addl_fees": "Per/Cr $25.00",
+        "cap": "10",
+        "enrl": "6",
+        "avail": "4",
+        "waitlist": "",
+        "restrictions": "OV GR GR PB PM MJ S/U",
+        "attributes": "FTF",
+        "prerequisites": "Approval of the Internship Coordinator."
+    }
+]
