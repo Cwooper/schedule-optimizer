@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selected Classes</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style></style>
+  </head>
+  <body>
+    <div class="headercontainer">
+      <header>
+        <h1>Selected Classes</h1>
+      </header>
+    </div>
+    <div id="classesContainer">
+      <div class="container">
+        <ul class="task-list" id="selectedClassesList"></ul>
+      </div>
+    </div>
+    <button id="backButton">Back to Main Page</button>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const selectedClassesList = document.getElementById(
+          "selectedClassesList"
+        );
+        const backButton = document.getElementById("backButton");
+
+        // Display selected classes from localStorage
+        displaySelectedClasses();
+
+        // Add event listener to the back button
+        backButton.addEventListener("click", function () {
+          const urlParams = new URLSearchParams(window.location.search);
+          const classesParam = urlParams.get("classes");
+          const url = "index.html?classes=" + encodeURIComponent(classesParam);
+          window.location.href = url;
+        });
+
+        function displaySelectedClasses() {
+          const classesParam = localStorage.getItem("selectedClasses");
+          if (classesParam) {
+            const classes = classesParam.split(",");
+            classes.forEach(function (classInfo) {
+              const [className, section] = classInfo.split(" ");
+              const li = document.createElement("li");
+              li.textContent = `${className} - Section ${section}`;
+              selectedClassesList.appendChild(li);
+            });
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

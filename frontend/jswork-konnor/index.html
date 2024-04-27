@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class List Maker</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="hello.week.min.css" rel="stylesheet" />
+    <link href="hello.week.theme.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>Class List Maker</h1>
+    <div class="container">
+      <div class="flex-container">
+        <select id="classSelect"></select>
+        <input
+          type="text"
+          id="sectionNumber"
+          placeholder="Enter Section Number" />
+        <button onclick="addClass()">Add Class</button>
+      </div>
+      <div class="flex-container">
+        <ul id="classList"></ul>
+        <button onclick="generateJSON()">Submit</button>
+      </div>
+    </div>
+
+    <div class="calendar-container">
+      <div id="calendar"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+    <script type="module" src="hello.week.esm.js"></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>
