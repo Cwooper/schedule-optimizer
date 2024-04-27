@@ -7,7 +7,8 @@ class Course:
                  lab_start_time=None, lab_end_time=None,  instructor=None,
                  room=None,           lab_room=None,      addl_fees=None, 
                  cap=None, enrl=None, avail=None,         waitlist=None,
-                 restrictions=None,   attributes=None,    prerequisites=None):
+                 restrictions=None,   attributes=None,    prerequisites=None,
+                 gpa=None):
         self.subject = subject
         self.course_credits = course_credits
         self.crn = crn
@@ -28,6 +29,7 @@ class Course:
         self.restrictions = restrictions
         self.attributes = attributes
         self.prerequisites = prerequisites
+        self.gpa = gpa
 
     def __repr__(self):
         return (
@@ -38,7 +40,8 @@ class Course:
             f"instructor={self.instructor}, room={self.room}, addl_fees={self.addl_fees}, "
             f"cap={self.cap}, enrl={self.enrl}, avail={self.avail}, "
             f"waitlist={self.waitlist}, restrictions={self.restrictions}, "
-            f"attributes={self.attributes}, prerequisites={self.prerequisites})"
+            f"attributes={self.attributes}, prerequisites={self.prerequisites}, "
+            f"gpa={self.gpa})"
         )
 
     def to_dict(self):
@@ -62,7 +65,8 @@ class Course:
             "waitlist": self.waitlist,
             "restrictions": self.restrictions,
             "attributes": self.attributes,
-            "prerequisites": self.prerequisites
+            "prerequisites": self.prerequisites,
+            "gpa": self.gpa
         }
     
     def conflicts(self, other: 'Course') -> bool:
