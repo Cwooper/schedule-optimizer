@@ -10,25 +10,30 @@ File hierarchy:
 project root
 ├── LICENSE
 ├── README.md
-├── backend
-│   ├── Course.py                   # Course object
-│   ├── Schedule.py                 # Schedule object
-│   ├── data
-│   │   ├── 202420.pkl              # Pickle with all course data compiled
-│   │   ├── ... all subjects.txt    # Each subjects courses
-│   │   └── subjects.txt            # List of subjects
-│   ├── data_refresh.py             # Remakes the pickle (if-needed)
-│   ├── get_schedules.py            # Local version of what the server should do
-│   └── schedule_generator.py       # Generates all possible schedules
-└── frontend
-    ├── package.json
-    └── src
-        └── PrettyWebsiteStuff
-            ├── displayClasses.html
-            ├── index.html
-            ├── script.js
-            ├── styles.css
-            └── subjects.txt
+├── Course.py                # Course Object
+├── Schedule.py              # Schedule Object
+├── app					     # Web App Eventually
+├── data
+│   ├── 202410				 # Term
+│   │   ├── 202410.pkl		 # Courses .pkl
+│   │   ├── A-HI.txt         # Web Scraped Courses
+│   │   ├── ACCT.txt
+│   │   ├── ...
+│   │   ├── UEPP.txt
+│   │   └── WGSS.txt
+│   ├── 202420
+│   │   ├── 202420.pkl
+│   │   ├── A-HI.txt
+│   │   ├── ACCT.txt
+│   │   ├── ...
+│   │   ├── UEPP.txt
+│   │   └── WGSS.txt
+│   ├── ...
+│   ├── subjects.txt
+│   └── terms.txt
+├── data_refresh.py		     # Refresh Courses through web scraping
+├── get_schedules.py		 # Find non-conflicting on user input
+└── schedule_generator.py	 # Generate Schedules
 ```
 User → Frontend → API Requests → Django Backend
 
