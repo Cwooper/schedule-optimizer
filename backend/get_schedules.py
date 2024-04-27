@@ -58,6 +58,10 @@ def _get_schedules(course_names: list[str], term, minimum_size=2, maximum_size=5
             courses.append(Course(**course_dict))
 
     schedules = generate_schedules(courses, min_schedule_size=minimum_size, max_schedule_size=maximum_size)
+    for schedule in schedules:
+        schedule.weigh_self()
+
+    schedules.sort(key=lambda schedule: schedule.score)
     return schedules
 
 # Weigh each schedule and return the list of the schedules with scores and weights
@@ -101,11 +105,6 @@ def main():
     
     schedules = _get_schedules(course_names, term, minimum_size=minimum_size, maximum_size=maximum_size)
 
-    # schedules = weigh_schedules(course_names) # TODO
-
-    # schedules, exec_time = timer(_get_schedules, course_names, term, minimum_size=minimum_size, maximum_size=maximum_size)
-    # print(f"exec time: {exec_time} seconds")
-    
     for schedule in schedules:
         schedule.weigh_self()
         print(schedule, end="\n\n")
