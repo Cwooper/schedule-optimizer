@@ -10,13 +10,13 @@ File hierarchy:
 project root
 ├── LICENSE
 ├── README.md
-├── Course.py                # Course Object
-├── Schedule.py              # Schedule Object
-├── app					     # Web App Eventually
+├── Course.py               # Course Object
+├── Schedule.py             # Schedule Object
+├── app                     # Web App Eventually
 ├── data
-│   ├── 202410				 # Term
-│   │   ├── 202410.pkl		 # Courses .pkl
-│   │   ├── A-HI.txt         # Web Scraped Courses
+│   ├── 202410              # Term
+│   │   ├── 202410.pkl      # Courses .pkl
+│   │   ├── A-HI.txt        # Web Scraped Courses
 │   │   ├── ACCT.txt
 │   │   ├── ...
 │   │   ├── UEPP.txt
@@ -31,9 +31,9 @@ project root
 │   ├── ...
 │   ├── subjects.txt
 │   └── terms.txt
-├── data_refresh.py		     # Refresh Courses through web scraping
-├── get_schedules.py		 # Find non-conflicting on user input
-└── schedule_generator.py	 # Generate Schedules
+├── data_refresh.py         # Refresh Courses through web scraping
+├── get_schedules.py        # Find non-conflicting on user input
+└── schedule_generator.py   # Generate Schedules
 ```
 User → Frontend → API Requests → Django Backend
 
@@ -54,7 +54,7 @@ Django should handle all requests for course schedules.
     - [x] class finder webscraping
     - [x] store webscraped data as a `.pkl` file per term
     - [ ] automatic webscraping
-    - [ ] automatically finding available terms from now, into the future
+    - [x] automatically finding available terms from now, into the future
 - [ ] past WWU data for courses (passing rate, total people taking it, etc.)
     - [x] obtain gpa rate
     - [ ] apply `gpa` attribute to `Course` object
