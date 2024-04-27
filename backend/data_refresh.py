@@ -1,5 +1,6 @@
 import os
 import re
+import time
 import json
 import requests
 import pandas as pd
@@ -11,16 +12,14 @@ from Course import Course
 
 MAX_SUBJECT_WAIT =  30      # Days
 MAX_COURSE_WAIT =   2       # Days
+MAX_TERM_WAIT =     10      # Days
 
 time_pattern = r'\d{2}:\d{2}-\d{2}:\d{2} (am|pm)'
-
-term = 202420       # TODO Change later as user input
-year = 2324         # TODO Change later as user input
 
 current_directory = os.path.dirname(os.path.realpath(__file__))
 data_directory = os.path.join(current_directory, 'data')
 subjects_file = os.path.join(data_directory, 'subjects.txt')
-pickle_file = os.path.join(data_directory, str(term) + ".pkl")
+terms_file = os.path.join(data_directory, 'terms.txt')
 
 
 url = 'https://web4u.banner.wwu.edu/pls/wwis/wwskcfnd.TimeTable'
@@ -174,6 +173,8 @@ def _get_courses(course_tables):
         courses.append(last_course)
     return courses
 
+
+######################### Fetching Subjects and Terms #########################
 # Fetches all subjects list from classfinder url
 def _fetch_subjects_from_url() -> list:
     # Fetch from server if MAX_SUBJECT_WAIT since last update
@@ -216,6 +217,49 @@ def fetch_subjects_list() -> list:
     else:
         return _fetch_subjects_from_url()
 
+# Fetches and returns terms list from classfinder url
+def _fetch_terms_from_url() -> list:
+    # Fetch from server if MAX_TERM_WAIT since last update
+    print(f"Longer than {MAX_TERM_WAIT} days since last update, "
+          f"fetching from server.")
+    r = requests.get(url)
+
+    if r.status_code != 200:
+        print(f"Error: status code {r.status_code} accessing {url}")
+        exit(1)
+
+    # Find the select term element and store them into a terms list
+    soup = BeautifulSoup(r.text, 'html.parser')
+    select_element = soup.find('select', id='term')
+    terms = [option['value'] for option in select_element.find_all('option')]
+
+    # Format terms into file for later use
+    with open(terms_file, 'w') as file:
+        file.write(datetime.now().isoformat() + '\n')
+        for term in terms:
+            file.write(term + '\n')
+
+    print("Successfully fetched from server.")
+    return terms
+
+
+def fetch_terms_list() -> list:
+    # Check if terms file exists and is newer MAX_TERM_WAIT
+    if os.path.exists(terms_file):
+        with open(terms_file, 'r') as file:
+            lines = file.read().split('\n')
+            file_time = datetime.fromisoformat(lines[0])
+            max_wait = timedelta(days=MAX_TERM_WAIT)
+
+            if datetime.now() - file_time < max_wait:
+                print(f"Shorter than {MAX_TERM_WAIT} days since last "
+                      f"update, retrieving terms file.")
+                # Cut off the timestamp and newline at the end
+                return lines[1:-1]
+    else:
+        return _fetch_terms_from_url()
+
+############################## Fetching Courses ###############################
 # Finds the course file text and returns a list of Courses
 def _file_to_courses(subject_file: str) -> list['Course']:
     courses = []
@@ -229,6 +273,7 @@ def _file_to_courses(subject_file: str) -> list['Course']:
         course_dicts = json.loads(page_text)
         for course_dict in course_dicts:
             courses.append(Course(**course_dict))
+        print(f"Turned {subject_file} to courses list.")
         return courses
 
 # Creates a courses file
@@ -243,7 +288,8 @@ def _courses_to_file(subject_file: str, courses: list['Course']):
     print(f"Successfully saved courses into {subject_file}")
 
 # Fetches courses from url if they're not stored in a file
-def _fetch_courses_from_url(subject: str, subject_file: str) -> list['Course']:
+def _fetch_courses_from_url(subject: str, term: str, year: str,
+                            subject_file: str) -> list['Course']:
     payload = {
         'term': term, 
         'curr_yr': year,
@@ -265,10 +311,11 @@ def _fetch_courses_from_url(subject: str, subject_file: str) -> list['Course']:
     return courses
 
 # Returns a list of courses provided by one subject
-def fetch_courses(subject: str) -> list['Course']:
-    # Check if subjects file exists and is newer than one day
+def fetch_courses(subject: str, term: str, year: str) -> list['Course']:
+    # Check if course file exists and is newer than one day
     cleaned_subject = subject.replace('/', '-')
-    subject_file = os.path.join(data_directory, cleaned_subject + '.txt')
+    term_directory = os.path.join(data_directory, term)
+    subject_file = os.path.join(term_directory, cleaned_subject + '.txt')
 
     if os.path.exists(subject_file):
         with open(subject_file, 'r') as file:
@@ -278,35 +325,71 @@ def fetch_courses(subject: str) -> list['Course']:
 
             if datetime.now() - file_time < max_wait:
                 print(f"Shorter than {MAX_COURSE_WAIT} days since last "
-                      f"update, retrieving subjects file.")
+                      f"update, retrieving course file.")
                 return _file_to_courses(subject_file)
     else:
-        return _fetch_courses_from_url(subject, subject_file)
+        return _fetch_courses_from_url(subject, term, year, subject_file)
 
 # Turns a list of courses into a pickle file from a pandas dataframe
-def courses_to_pickle(courses: list['Course']):
+def courses_to_pickle(courses: list['Course'], term: str):
+    pickle_file = os.path.join(data_directory, term, term + '.pkl')
+    
     course_dicts = [course.to_dict() for course in courses]
     df = pd.DataFrame(course_dicts)
+
     df.to_pickle(pickle_file)
     print(f"Successfully turned courses into a pickle at {pickle_file}")
 
-# Updates a specific course
-def update_subject_if_needed(subject: str):
-    fetch_courses(subject)
+# Filter only modern terms, return the year as well
+def filter_terms(terms_list: list[str]):
+    time_now = datetime.now()
+    current_term = str(time_now.year) + '00'
+    filtered_terms = [term for term in terms_list if term >= current_term]
+    if 'All' in filtered_terms:
+        filtered_terms.remove('All')
 
+    largest_term = max(filtered_terms)  # Example: 202520
+    year_high = largest_term[2:4]       # 25
+    year_low = str(int(year_high) - 1)  # 24
+    year = year_low + year_high         # 2425
+
+    return filtered_terms, year
+
+# Updates a specific course, only used externally
+def update_subject_if_needed(subject: str, term: str, year: str):
+    fetch_courses(subject, term, year)
+
+# This will webscrape and update ALL courses for all current and future terms
+# Please use update_subject_if_needed in other methods in most use
 def main():
+    # Create data directory if it doesn't exist
+    if not os.path.exists(data_directory):
+        print(f"Created data directory at {data_directory}")
+        os.makedirs(data_directory)
+
     subjects = fetch_subjects_list()
+    unfiltered_terms = fetch_terms_list()
+    terms, year = filter_terms(unfiltered_terms)
+
     print(f"Found {len(subjects)} subjects")
-    courses = []
-    for subject in subjects:
-        new_courses = fetch_courses(subject)
-        print(f"{subject}: Found {len(new_courses)} courses")
-        courses.extend(new_courses)
-    
-    print(f"Found {len(courses)} courses")
-    
-    courses_to_pickle(courses)
-    print("Program ran successfully!")
+    print(f"Current terms: {terms}")
+
+    for term in terms:
+        term_directory = os.path.join(data_directory, term)
+        if not os.path.exists(term_directory):
+            print(f"Created term directory at {term_directory}")
+            os.makedirs(term_directory)
+
+        courses = []
+        for subject in subjects:
+            new_courses = fetch_courses(subject, term, year)
+            print(f"{subject}: Found {len(new_courses)} courses")
+            courses.extend(new_courses)
+        
+        print(f"Found {len(courses)} courses")
+        
+        courses_to_pickle(courses, term)
+        print("Program ran successfully!")
 
 if __name__ == "__main__":
     main()

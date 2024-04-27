@@ -1,0 +1,25 @@
+2024-04-26T16:27:12.839061
+[
+    {
+        "subject": "MDS 471",
+        "course_credits": "5 TO 10",
+        "crn": "30270",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Walker, Wendy Colleen",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "12",
+        "enrl": "0",
+        "avail": "12",
+        "waitlist": "",
+        "restrictions": "OV MJ S/U",
+        "attributes": "FTF",
+        "prerequisites": "Multidisciplinary Studies majors only; permission of instructor."
+    }
+]

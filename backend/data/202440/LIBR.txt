@@ -1,0 +1,47 @@
+2024-04-26T16:24:33.640690
+[
+    {
+        "subject": "LIBR 300",
+        "course_credits": "1 TO 15",
+        "crn": "42403",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Staff",
+        "room": "WL OFC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "5",
+        "enrl": "0",
+        "avail": "5",
+        "waitlist": "",
+        "restrictions": "PR",
+        "attributes": "FTF",
+        "prerequisites": ""
+    },
+    {
+        "subject": "LIBR 400",
+        "course_credits": "1 TO 15",
+        "crn": "44163",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Staff",
+        "room": "WL OFC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "5",
+        "enrl": "0",
+        "avail": "5",
+        "waitlist": "",
+        "restrictions": "PR",
+        "attributes": "FTF",
+        "prerequisites": ""
+    }
+]

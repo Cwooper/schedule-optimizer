@@ -1,0 +1,47 @@
+2024-04-26T16:26:15.238758
+[
+    {
+        "subject": "ELED 464",
+        "course_credits": "4",
+        "crn": "30614",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Ferreras-Stone, Jessica D.",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "25",
+        "enrl": "0",
+        "avail": "25",
+        "waitlist": "",
+        "restrictions": "",
+        "attributes": "ASNC OL",
+        "prerequisites": ""
+    },
+    {
+        "subject": "ELED 691",
+        "course_credits": "3",
+        "crn": "30982",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Coskie, Tracy Lynn",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "3",
+        "enrl": "0",
+        "avail": "3",
+        "waitlist": "",
+        "restrictions": "GR GR PB PM S/U",
+        "attributes": "ASNC FTF OL",
+        "prerequisites": "Student's graduate committee/program advisor approval."
+    }
+]

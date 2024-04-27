@@ -1,0 +1,47 @@
+2024-04-26T16:19:06.199016
+[
+    {
+        "subject": "EUS 210",
+        "course_credits": "5",
+        "crn": "21196",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Staff",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "Per/Cr $298.00",
+        "cap": "25",
+        "enrl": "0",
+        "avail": "25",
+        "waitlist": "",
+        "restrictions": "",
+        "attributes": "ACGM ASNC OL SST",
+        "prerequisites": ""
+    },
+    {
+        "subject": "EUS 450",
+        "course_credits": "5",
+        "crn": "23158",
+        "days": "MWF",
+        "start_time": "1300",
+        "end_time": "1420",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Vajda, Edward J.",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "30",
+        "enrl": "0",
+        "avail": "30",
+        "waitlist": "",
+        "restrictions": "OV",
+        "attributes": "FTF",
+        "prerequisites": "EUS 201 or EUS 210 or instructor permission."
+    }
+]
