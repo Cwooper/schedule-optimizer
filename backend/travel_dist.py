@@ -1,6 +1,9 @@
 # travel_dist.py
+# Built-in objects
+# TODO remove this as an object and move it into Schedule
 from Schedule import Schedule
 from Course import Course
+
 import re
 import dijkstra # pip3 install dijkstra | 
 
@@ -65,6 +68,7 @@ def get_distance(start, end):
 
     graph = dijkstra.Graph()
 
+    # graph edge, start bldg, end bldg, feet between
     graph.add_edge("SV", "AW", 425)
     graph.add_edge("SV", "PH", 780)
     graph.add_edge("AW", "PH", 510)
@@ -104,7 +108,7 @@ def get_distance(start, end):
 
     dist = all_dist.get_path(end)
 
-    minutes = dist / 285    # Average walk speed is 285 Feet per minute
+    minutes = dist / 285    # Average walk speed is 285 feet per minute
 
     return minutes
 
