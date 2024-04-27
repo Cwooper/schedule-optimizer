@@ -273,6 +273,7 @@ def _file_to_courses(subject_file: str) -> list['Course']:
         course_dicts = json.loads(page_text)
         for course_dict in course_dicts:
             courses.append(Course(**course_dict))
+        print(f"Turned {subject_file} to courses list.")
         return courses
 
 # Creates a courses file
@@ -311,7 +312,7 @@ def _fetch_courses_from_url(subject: str, term: str, year: str,
 
 # Returns a list of courses provided by one subject
 def fetch_courses(subject: str, term: str, year: str) -> list['Course']:
-    # Check if subjects file exists and is newer than one day
+    # Check if course file exists and is newer than one day
     cleaned_subject = subject.replace('/', '-')
     term_directory = os.path.join(data_directory, term)
     subject_file = os.path.join(term_directory, cleaned_subject + '.txt')
@@ -324,7 +325,7 @@ def fetch_courses(subject: str, term: str, year: str) -> list['Course']:
 
             if datetime.now() - file_time < max_wait:
                 print(f"Shorter than {MAX_COURSE_WAIT} days since last "
-                      f"update, retrieving subjects file.")
+                      f"update, retrieving course file.")
                 return _file_to_courses(subject_file)
     else:
         return _fetch_courses_from_url(subject, term, year, subject_file)
@@ -384,7 +385,6 @@ def main():
             new_courses = fetch_courses(subject, term, year)
             print(f"{subject}: Found {len(new_courses)} courses")
             courses.extend(new_courses)
-            time.sleep(1)
         
         print(f"Found {len(courses)} courses")
         
