@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WWU Class Optimizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="frontend/src/PrettyWebsiteStuff/StyleSheets" />
+  </head>
+  <body>
+    <div class="headercontainer">
+      <header>
+        <nav class="navbar">
+          <div class="logo">WWU Optamize</div>
+          <ul class="menu">
+            <li><a href="schedule-builder.html">Schedule Builder</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+
+    <div id="classesContainer">
+      <div class="container">
+        <div class="task-list" id="taskList">
+          <!-- Classes will be added here -->
+        </div>
+        <div class="add-task">
+          <select id="classInput">
+            <option value="" selected disabled>Select a class...</option>
+          </select>
+          <input
+            type="number"
+            id="sectionInput"
+            placeholder="Enter section..." />
+          <button id="addClassBtn" onclick="addTask()">Add Class</button>
+          <button id="viewClassesBtn">View Classes</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
