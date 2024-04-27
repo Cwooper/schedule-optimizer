@@ -91,13 +91,14 @@ def main():
     
     if not term:
         print(usage)
+        return
     if not course_names:
         print("Please provide at least one course name.")
         return
-
-    if len(course_names) <= minimum_size:
+    if len(course_names) < minimum_size:
         print("Please input more courses than your minimum.")
-
+        return 
+    
     schedules = _get_schedules(course_names, term, minimum_size=minimum_size, maximum_size=maximum_size)
     for schedule in schedules:
         print(schedule, end="\n\n")

@@ -51,7 +51,7 @@ def generate_schedules(courses: list['Course'],
     if min_schedule_size > max_schedule_size:
         min_schedule_size = max_schedule_size
     if len(courses) < min_schedule_size:
-        print(f"Cannot generate schedules with {len(courses)}")
+        print(f"Cannot generate schedules with {len(courses)} courses.")
 
     # Find all conflicts between the courses, and return all possible schedules
     conflicts = all_conflicts(courses)
