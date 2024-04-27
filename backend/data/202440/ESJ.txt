@@ -1,0 +1,25 @@
+2024-04-26T16:23:48.328249
+[
+    {
+        "subject": "ESJ 411",
+        "course_credits": "4",
+        "crn": "42121",
+        "days": "MW",
+        "start_time": "1200",
+        "end_time": "1350",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Staff",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "25",
+        "enrl": "0",
+        "avail": "25",
+        "waitlist": "",
+        "restrictions": "MJ PQ",
+        "attributes": "FTF",
+        "prerequisites": "FAIR 304A; declaration of Education and Social Justice Minor or instructor permission."
+    }
+]

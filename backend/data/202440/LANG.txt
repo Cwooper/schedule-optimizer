@@ -1,0 +1,25 @@
+2024-04-26T16:24:48.697391
+[
+    {
+        "subject": "LANG 410",
+        "course_credits": "5",
+        "crn": "43568",
+        "days": "TR",
+        "start_time": "0800",
+        "end_time": "1010",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Bernardo-Hinesley, S",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "25",
+        "enrl": "0",
+        "avail": "25",
+        "waitlist": "",
+        "restrictions": "OV S/U",
+        "attributes": "FTF",
+        "prerequisites": "10 credits in one world language beyond second year; Grade of B or better in LING 201 or instructor permission."
+    }
+]

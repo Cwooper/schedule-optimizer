@@ -1,0 +1,47 @@
+2024-04-26T16:27:32.076186
+[
+    {
+        "subject": "REL 332",
+        "course_credits": "5",
+        "crn": "30841",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Folk, Holly",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "20",
+        "enrl": "0",
+        "avail": "20",
+        "waitlist": "",
+        "restrictions": "JR SR",
+        "attributes": "ACGM ASNC OL",
+        "prerequisites": "Junior or senior status; or instructor permission."
+    },
+    {
+        "subject": "REL 345",
+        "course_credits": "5",
+        "crn": "30414",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Slouber, Michael",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "20",
+        "enrl": "0",
+        "avail": "20",
+        "waitlist": "",
+        "restrictions": "JR SR",
+        "attributes": "ACGM ASNC OL",
+        "prerequisites": "Junior or senior status; or instructor permission."
+    }
+]

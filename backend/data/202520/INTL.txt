@@ -1,0 +1,25 @@
+2024-04-26T16:19:30.905728
+[
+    {
+        "subject": "INTL 437",
+        "course_credits": "15",
+        "crn": "22562",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Staff",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "Per/Cr $298.00",
+        "cap": "15",
+        "enrl": "0",
+        "avail": "15",
+        "waitlist": "",
+        "restrictions": "OV",
+        "attributes": "FTF SST TRVL",
+        "prerequisites": ""
+    }
+]
