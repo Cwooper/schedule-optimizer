@@ -100,12 +100,15 @@ def main():
         return 
     
     schedules = _get_schedules(course_names, term, minimum_size=minimum_size, maximum_size=maximum_size)
-    for schedule in schedules:
-        print(schedule, end="\n\n")
+
     # schedules = weigh_schedules(course_names) # TODO
 
     # schedules, exec_time = timer(_get_schedules, course_names, term, minimum_size=minimum_size, maximum_size=maximum_size)
     # print(f"exec time: {exec_time} seconds")
     
+    for schedule in schedules:
+        schedule.weigh_self()
+        print(schedule, end="\n\n")
+
 if __name__ == "__main__":
     main()
