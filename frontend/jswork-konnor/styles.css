@@ -1,0 +1,37 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex-container {
+    display: flex;
+    gap: 10px;
+}
+
+#classSelect,
+#sectionNumber {
+    flex: 1;
+    margin-right: 10px;
+}
+
+button {
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.calendar-container {
+    margin-top: 20px;
+    width: 80%; /* Adjust the width as needed */
+    margin: auto; /* Center the calendar */
+}
+
+#calendar {
+    max-width: 100%;
+    height: 400px; /* Set the desired height */
+    border: 1px solid #ccc; /* Add a border for clarity */
+}
