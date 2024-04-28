@@ -71,8 +71,8 @@ class Schedule:
         elif end_time > 960: # 1600 in mins from midnight
             return 0.0
         else:
-            gap_score = (960 - end_time) / 2.0
-            return round(gap_score, ROUND)
+            end_score = (960 - end_time) / 120.0 # Between 1400 and 1600
+            return round(end_score, ROUND)
         
     def _weigh_gaps(self):
         end_time = max(int(course.end_time) for course in self.courses)
@@ -126,9 +126,8 @@ class Schedule:
             "gap_score": gap_score
         }
         self.score = round(score, ROUND)
-                    
-                    
 
+# Returns minutes since midnight
 def to_mins(time: str) -> int:
     time = int(time)
     return (time // 100) * 60 + (time % 100)
