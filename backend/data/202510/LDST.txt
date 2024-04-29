@@ -1,4 +1,4 @@
-2024-04-26T16:22:05.226336
+2024-04-29T12:48:10.720401
 [
     {
         "subject": "LDST 101",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LDST 101",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LDST 101",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LDST 101",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LDST 240",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LDST 301",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "FTF SSC",
-        "prerequisites": "Junior or senior status\u00a0or instructor permission."
+        "prerequisites": "Junior or senior status\u00a0or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "LDST 340",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "LDST 240 or instructor permission."
+        "prerequisites": "LDST 240 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "LDST 341",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Sophomore, junior or senior status and instructor permission."
+        "prerequisites": "Sophomore, junior or senior status and instructor permission.",
+        "gpa": null
     },
     {
         "subject": "LDST 416",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "LDST 101 or instructor permission."
+        "prerequisites": "LDST 101 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "LDST 450",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "LDST 101 and instructor permission."
+        "prerequisites": "LDST 101 and instructor permission.",
+        "gpa": null
     },
     {
         "subject": "LDST 451",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "LDST 450 and instructor permission."
+        "prerequisites": "LDST 450 and instructor permission.",
+        "gpa": null
     },
     {
         "subject": "LDST 452",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "LDST 450"
+        "prerequisites": "LDST 450",
+        "gpa": null
     },
     {
         "subject": "LDST 453",
@@ -284,6 +296,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "LDST 452 and instructor permission."
+        "prerequisites": "LDST 452 and instructor permission.",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:27:04.389760
+2024-04-29T12:48:43.499737
 [
     {
         "subject": "MKTG 380",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "ACCT 240; and ECON 206 or HNRS 209."
+        "prerequisites": "ACCT 240; and ECON 206 or HNRS 209.",
+        "gpa": null
     },
     {
         "subject": "MKTG 381",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
         "attributes": "FTF WP2",
-        "prerequisites": "Majors Only. MKTG 380; co-requisite MKTG 382."
+        "prerequisites": "Majors Only. MKTG 380; co-requisite MKTG 382.",
+        "gpa": null
     },
     {
         "subject": "MKTG 382",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "Majors Only. MKTG 380; co-requisite MKTG 381."
+        "prerequisites": "Majors Only. MKTG 380; co-requisite MKTG 381.",
+        "gpa": null
     },
     {
         "subject": "MKTG 471",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "JR SR PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. MKTG 380."
+        "prerequisites": "Majors Only. MKTG 380.",
+        "gpa": null
     },
     {
         "subject": "MKTG 480",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. MKTG 381, MKTG 382. Permission of instructor."
+        "prerequisites": "Majors Only. MKTG 381, MKTG 382. Permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "MKTG 483",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "CF FTF",
-        "prerequisites": "Majors Only. MKTG 381, MKTG 382"
+        "prerequisites": "Majors Only. MKTG 381, MKTG 382",
+        "gpa": null
     },
     {
         "subject": "MKTG 489",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors only; MKTG 381; MKTG 382; and two 400-level marketing courses (excluding MKTG 480 and MKTG 490)."
+        "prerequisites": "Majors only; MKTG 381; MKTG 382; and two 400-level marketing courses (excluding MKTG 480 and MKTG 490).",
+        "gpa": null
     },
     {
         "subject": "MKTG 490",
@@ -174,6 +181,7 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. MKTG 381 and MKTG 382. Permission of instructor."
+        "prerequisites": "Majors Only. MKTG 381 and MKTG 382. Permission of instructor.",
+        "gpa": null
     }
 ]

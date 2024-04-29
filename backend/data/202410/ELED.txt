@@ -1,4 +1,4 @@
-2024-04-26T16:31:04.938678
+2024-04-29T12:49:10.201465
 [
     {
         "subject": "ELED 305",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ELED 310",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM OL SL SYNC",
-        "prerequisites": "Admission to Elementary Education Professional Program."
+        "prerequisites": "Admission to Elementary Education Professional Program.",
+        "gpa": null
     },
     {
         "subject": "ELED 311",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "OL SYNC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ELED 311",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "OL SYNC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ELED 401",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ELED 460"
+        "prerequisites": "ELED 460",
+        "gpa": null
     },
     {
         "subject": "ELED 405",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ELED 460"
+        "prerequisites": "ELED 460",
+        "gpa": null
     },
     {
         "subject": "ELED 412",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "OL SYNC",
-        "prerequisites": "ELED 310"
+        "prerequisites": "ELED 310",
+        "gpa": null
     },
     {
         "subject": "ELED 424",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV ED",
         "attributes": "ASNC OL",
-        "prerequisites": "SPED 420"
+        "prerequisites": "SPED 420",
+        "gpa": null
     },
     {
         "subject": "ELED 427",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ELED 460",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV EDUG",
         "attributes": "FTF",
-        "prerequisites": "Admission to the elementary professional program."
+        "prerequisites": "Admission to the elementary professional program.",
+        "gpa": null
     },
     {
         "subject": "ELED 471",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "ELED 427"
+        "prerequisites": "ELED 427",
+        "gpa": null
     },
     {
         "subject": "ELED 480",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MLE 431 or MLE 441 (or other linguistics course by approval) for ELED students; ECE 380 for ECE majors; SPED 420 or ECE 391 for ECSE majors."
+        "prerequisites": "MLE 431 or MLE 441 (or other linguistics course by approval) for ELED students; ECE 380 for ECE majors; SPED 420 or ECE 391 for ECSE majors.",
+        "gpa": null
     },
     {
         "subject": "ELED 480",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MLE 431 or MLE 441 (or other linguistics course by approval) for ELED students; ECE 380 for ECE majors; SPED 420 or ECE 391 for ECSE majors."
+        "prerequisites": "MLE 431 or MLE 441 (or other linguistics course by approval) for ELED students; ECE 380 for ECE majors; SPED 420 or ECE 391 for ECSE majors.",
+        "gpa": null
     },
     {
         "subject": "ELED 481",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "ELED 480"
+        "prerequisites": "ELED 480",
+        "gpa": null
     },
     {
         "subject": "ELED 481",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "ELED 480"
+        "prerequisites": "ELED 480",
+        "gpa": null
     },
     {
         "subject": "ELED 486",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ELED 456 or instructor permission."
+        "prerequisites": "ELED 456 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ELED 494",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ IP",
         "attributes": "FTF",
-        "prerequisites": "Completion of all coursework in a Woodring Teacher Education Program leading to an Elementary Education Endorsement."
+        "prerequisites": "Completion of all coursework in a Woodring Teacher Education Program leading to an Elementary Education Endorsement.",
+        "gpa": null
     },
     {
         "subject": "ELED 494",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ IP",
         "attributes": "FTF",
-        "prerequisites": "Completion of all coursework in a Woodring Teacher Education Program leading to an Elementary Education Endorsement."
+        "prerequisites": "Completion of all coursework in a Woodring Teacher Education Program leading to an Elementary Education Endorsement.",
+        "gpa": null
     },
     {
         "subject": "ELED 494",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "OV IP",
         "attributes": "FTF",
-        "prerequisites": "Completion of all coursework in a Woodring Teacher Education Program leading to an Elementary Education Endorsement."
+        "prerequisites": "Completion of all coursework in a Woodring Teacher Education Program leading to an Elementary Education Endorsement.",
+        "gpa": null
     },
     {
         "subject": "ELED 518",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM",
         "attributes": "ASNC OL",
-        "prerequisites": "Graduate status or permission of instructor."
+        "prerequisites": "Graduate status or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "ELED 691",
@@ -460,6 +480,7 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM S/U",
         "attributes": "HYBD",
-        "prerequisites": "Student's graduate committee/program advisor approval."
+        "prerequisites": "Student's graduate committee/program advisor approval.",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:24:20.225981
+2024-04-29T12:48:27.122688
 [
     {
         "subject": "ID 110",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
-        "prerequisites": "Industrial Design pre-majors during Phase I registration; Non-majors II registration."
+        "prerequisites": "Industrial Design pre-majors during Phase I registration; Non-majors II registration.",
+        "gpa": null
     },
     {
         "subject": "ID 120",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
-        "prerequisites": "Industrial Design pre-majors during Phase I registration; Non-majors Phase II registration."
+        "prerequisites": "Industrial Design pre-majors during Phase I registration; Non-majors Phase II registration.",
+        "gpa": null
     },
     {
         "subject": "ID 210",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
-        "prerequisites": "ID pre-major Phase I registration."
+        "prerequisites": "ID pre-major Phase I registration.",
+        "gpa": null
     },
     {
         "subject": "ID 210",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
-        "prerequisites": "ID pre-major Phase I registration."
+        "prerequisites": "ID pre-major Phase I registration.",
+        "gpa": null
     },
     {
         "subject": "ID 300",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ID 310",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ID 110 or ART 110 or permission of instructor."
+        "prerequisites": "ID 110 or ART 110 or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "ID 330",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ID 230 and ID 320."
+        "prerequisites": "ID 230 and ID 320.",
+        "gpa": null
     },
     {
         "subject": "ID 350",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
-        "prerequisites": "Acceptance into Industrial Design program."
+        "prerequisites": "Acceptance into Industrial Design program.",
+        "gpa": null
     },
     {
         "subject": "ID 400",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ID 410",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ID 370"
+        "prerequisites": "ID 370",
+        "gpa": null
     },
     {
         "subject": "ID 440",
@@ -240,6 +250,7 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ID 370 or permission of instructor."
+        "prerequisites": "ID 370 or permission of instructor.",
+        "gpa": null
     }
 ]

@@ -1,25 +1,2 @@
-2024-04-26T16:26:08.057813
-[
-    {
-        "subject": "EAST 430",
-        "course_credits": "4",
-        "crn": "30599",
-        "days": "TBD",
-        "start_time": "TBD",
-        "end_time": "TBD",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Tomasi, Massimiliano",
-        "room": "TBA",
-        "lab_room": null,
-        "addl_fees": "Flat Fee $3301.36",
-        "cap": "14",
-        "enrl": "0",
-        "avail": "14",
-        "waitlist": "",
-        "restrictions": "OV PQ",
-        "attributes": "FTF TRVL",
-        "prerequisites": "EAST 201 and EAST 202; or HIST 280 and HIST 281; or JAPN 203; or instructor permission."
-    }
-]
+2024-04-29T12:48:38.127280
+[]

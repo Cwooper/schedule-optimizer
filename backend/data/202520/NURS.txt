@@ -1,4 +1,4 @@
-2024-04-26T16:20:00.381272
+2024-04-29T12:47:58.262868
 [
     {
         "subject": "NURS 401",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "Admission to the RN-to-BSN program."
+        "prerequisites": "Admission to the RN-to-BSN program.",
+        "gpa": null
     },
     {
         "subject": "NURS 401",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "Admission to the RN-to-BSN program."
+        "prerequisites": "Admission to the RN-to-BSN program.",
+        "gpa": null
     },
     {
         "subject": "NURS 422",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "HYBD",
-        "prerequisites": "NURS 402; co-requisite: NURS 423."
+        "prerequisites": "NURS 402; co-requisite: NURS 423.",
+        "gpa": null
     },
     {
         "subject": "NURS 422",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "HYBD",
-        "prerequisites": "NURS 402; co-requisite: NURS 423."
+        "prerequisites": "NURS 402; co-requisite: NURS 423.",
+        "gpa": null
     },
     {
         "subject": "NURS 423",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "NURS 402; co-requisite: NURS 422."
+        "prerequisites": "NURS 402; co-requisite: NURS 422.",
+        "gpa": null
     },
     {
         "subject": "NURS 423",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "NURS 402; co-requisite: NURS 422."
+        "prerequisites": "NURS 402; co-requisite: NURS 422.",
+        "gpa": null
     },
     {
         "subject": "NURS 423",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "NURS 402; co-requisite: NURS 422."
+        "prerequisites": "NURS 402; co-requisite: NURS 422.",
+        "gpa": null
     },
     {
         "subject": "NURS 432",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "BCGM HYBD",
-        "prerequisites": "NURS 412; co-requisiste: NURS 433."
+        "prerequisites": "NURS 412; co-requisiste: NURS 433.",
+        "gpa": null
     },
     {
         "subject": "NURS 432",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "BCGM HYBD",
-        "prerequisites": "NURS 412; co-requisiste: NURS 433."
+        "prerequisites": "NURS 412; co-requisiste: NURS 433.",
+        "gpa": null
     },
     {
         "subject": "NURS 433",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "NURS 412; co-requisite: NURS 432."
+        "prerequisites": "NURS 412; co-requisite: NURS 432.",
+        "gpa": null
     },
     {
         "subject": "NURS 433",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "NURS 412; co-requisite: NURS 432."
+        "prerequisites": "NURS 412; co-requisite: NURS 432.",
+        "gpa": null
     },
     {
         "subject": "NURS 433",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "NURS 412; co-requisite: NURS 432."
+        "prerequisites": "NURS 412; co-requisite: NURS 432.",
+        "gpa": null
     },
     {
         "subject": "NURS 530",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM PQ",
         "attributes": "HYBD",
-        "prerequisites": "NURS 520 and NURS 521; co-requisite: NURS 531."
+        "prerequisites": "NURS 520 and NURS 521; co-requisite: NURS 531.",
+        "gpa": null
     },
     {
         "subject": "NURS 531",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "NURS 520 and NURS 521; co-requisite: NURS 530."
+        "prerequisites": "NURS 520 and NURS 521; co-requisite: NURS 530.",
+        "gpa": null
     },
     {
         "subject": "NURS 531",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "NURS 520 and NURS 521; co-requisite: NURS 530."
+        "prerequisites": "NURS 520 and NURS 521; co-requisite: NURS 530.",
+        "gpa": null
     },
     {
         "subject": "NURS 532",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "GR PB PM",
         "attributes": "HYBD",
-        "prerequisites": "Admission to the MSN in Nursing Education Program"
+        "prerequisites": "Admission to the MSN in Nursing Education Program",
+        "gpa": null
     },
     {
         "subject": "NURS 534",
@@ -372,6 +388,7 @@
         "waitlist": "",
         "restrictions": "GR PB PM",
         "attributes": "HYBD",
-        "prerequisites": "Admission to the MSN Leadership & Administration Program"
+        "prerequisites": "Admission to the MSN Leadership & Administration Program",
+        "gpa": null
     }
 ]

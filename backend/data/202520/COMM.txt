@@ -1,4 +1,4 @@
-2024-04-26T16:18:36.156077
+2024-04-29T12:47:48.085026
 [
     {
         "subject": "COMM 101",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 101",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 101",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 101",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 101",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 101",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 101",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 220",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 220",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 224",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 225",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 235",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 235",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 235",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 235",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 235",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 235",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 240",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 240",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 260",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 318",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "FTF",
-        "prerequisites": "Junior status."
+        "prerequisites": "Junior status.",
+        "gpa": null
     },
     {
         "subject": "COMM 319",
@@ -482,7 +503,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 325",
@@ -504,7 +526,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status"
+        "prerequisites": "Sophomore status",
+        "gpa": null
     },
     {
         "subject": "COMM 325",
@@ -526,7 +549,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status"
+        "prerequisites": "Sophomore status",
+        "gpa": null
     },
     {
         "subject": "COMM 327",
@@ -548,7 +572,8 @@
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "FTF",
-        "prerequisites": "Junior status"
+        "prerequisites": "Junior status",
+        "gpa": null
     },
     {
         "subject": "COMM 342",
@@ -570,7 +595,8 @@
         "waitlist": "",
         "restrictions": "S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "COMM 240 or JOUR 190 or COMM 260."
+        "prerequisites": "COMM 240 or JOUR 190 or COMM 260.",
+        "gpa": null
     },
     {
         "subject": "COMM 350",
@@ -592,7 +618,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 398",
@@ -614,7 +641,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
-        "prerequisites": "Departmental majors only"
+        "prerequisites": "Departmental majors only",
+        "gpa": null
     },
     {
         "subject": "COMM 398",
@@ -636,7 +664,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
-        "prerequisites": "Departmental majors only"
+        "prerequisites": "Departmental majors only",
+        "gpa": null
     },
     {
         "subject": "COMM 416",
@@ -658,7 +687,8 @@
         "waitlist": "",
         "restrictions": "JR SR PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "Junior status and COMM 398 or instructor permission."
+        "prerequisites": "Junior status and COMM 398 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "COMM 420",
@@ -680,7 +710,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "COMM 398 or permission of instructor."
+        "prerequisites": "COMM 398 or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "COMM 425",
@@ -702,7 +733,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "COMM 325 and COMM 398 or permission of instructor."
+        "prerequisites": "COMM 325 and COMM 398 or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "COMM 427",
@@ -724,7 +756,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "COMM 327 and COMM 398 or permission of instructor."
+        "prerequisites": "COMM 327 and COMM 398 or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "COMM 428",
@@ -746,7 +779,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SL WP1",
-        "prerequisites": "COMM 228 and COMM 398 or instructor permission."
+        "prerequisites": "COMM 228 and COMM 398 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "COMM 435",
@@ -768,7 +802,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "COMM 230 or major status or instructor permission."
+        "prerequisites": "COMM 230 or major status or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "COMM 498",
@@ -790,7 +825,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "COMM 398 or permission of instructor."
+        "prerequisites": "COMM 398 or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "COMM 498",
@@ -812,6 +848,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "COMM 398 or permission of instructor."
+        "prerequisites": "COMM 398 or permission of instructor.",
+        "gpa": null
     }
 ]

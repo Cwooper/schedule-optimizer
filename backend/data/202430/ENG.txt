@@ -1,4 +1,4 @@
-2024-04-26T16:26:18.860242
+2024-04-29T12:48:38.973414
 [
     {
         "subject": "ENG 202",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCOM FTF",
-        "prerequisites": "ENG 101."
+        "prerequisites": "ENG 101.",
+        "gpa": null
     },
     {
         "subject": "ENG 301",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL WP3",
-        "prerequisites": "ENG 101; junior status; or instructor permission."
+        "prerequisites": "ENG 101; junior status; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ENG 302",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL WP3",
-        "prerequisites": "ENG 101; junior standing."
+        "prerequisites": "ENG 101; junior standing.",
+        "gpa": null
     },
     {
         "subject": "ENG 302",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL WP3",
-        "prerequisites": "ENG 101; junior standing."
+        "prerequisites": "ENG 101; junior standing.",
+        "gpa": null
     },
     {
         "subject": "ENG 310",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "MIX OL",
-        "prerequisites": "ENG 202"
+        "prerequisites": "ENG 202",
+        "gpa": null
     },
     {
         "subject": "ENG 311",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "MIX OL",
-        "prerequisites": "ENG 202"
+        "prerequisites": "ENG 202",
+        "gpa": null
     },
     {
         "subject": "ENG 313",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "ENG 202"
+        "prerequisites": "ENG 202",
+        "gpa": null
     },
     {
         "subject": "ENG 320",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "MIX OL",
-        "prerequisites": "ENG 101."
+        "prerequisites": "ENG 101.",
+        "gpa": null
     },
     {
         "subject": "ENG 321",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "MIX OL",
-        "prerequisites": "ENG 101."
+        "prerequisites": "ENG 101.",
+        "gpa": null
     },
     {
         "subject": "ENG 347",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "ENG 202 or instructor permission."
+        "prerequisites": "ENG 202 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ENG 347",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "ENG 202 or instructor permission."
+        "prerequisites": "ENG 202 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ENG 350",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ENG 101"
+        "prerequisites": "ENG 101",
+        "gpa": null
     },
     {
         "subject": "ENG 350",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "MIX OL",
-        "prerequisites": "ENG 101"
+        "prerequisites": "ENG 101",
+        "gpa": null
     },
     {
         "subject": "ENG 351",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "MIX OL",
-        "prerequisites": "ENG 350."
+        "prerequisites": "ENG 350.",
+        "gpa": null
     },
     {
         "subject": "ENG 353",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "MIX OL",
-        "prerequisites": "ENG 350."
+        "prerequisites": "ENG 350.",
+        "gpa": null
     },
     {
         "subject": "ENG 364",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "MIX OL",
-        "prerequisites": "ENG 101"
+        "prerequisites": "ENG 101",
+        "gpa": null
     },
     {
         "subject": "ENG 364",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "MIX OL",
-        "prerequisites": "ENG 101"
+        "prerequisites": "ENG 101",
+        "gpa": null
     },
     {
         "subject": "ENG 406",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "MIX OL WP3",
-        "prerequisites": "ENG 313 or ENG 314; two courses from: ENG 307-347, ENG 364 or ENG 371."
+        "prerequisites": "ENG 313 or ENG 314; two courses from: ENG 307-347, ENG 364 or ENG 371.",
+        "gpa": null
     },
     {
         "subject": "ENG 410",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "ENG 202; plus three from: ENG 307, ENG 308, ENG 309, ENG 310, ENG 311, ENG 313, ENG 314, ENG 317, ENG 318, ENG 319, ENG 320, ENG 321, ENG 331, ENG 333, ENG 334, ENG 335, ENG 336, ENG 338, ENG 339, ENG 341, ENG 342, ENG 343, ENG 347, ENG 364, ENG 371."
+        "prerequisites": "ENG 202; plus three from: ENG 307, ENG 308, ENG 309, ENG 310, ENG 311, ENG 313, ENG 314, ENG 317, ENG 318, ENG 319, ENG 320, ENG 321, ENG 331, ENG 333, ENG 334, ENG 335, ENG 336, ENG 338, ENG 339, ENG 341, ENG 342, ENG 343, ENG 347, ENG 364, ENG 371.",
+        "gpa": null
     },
     {
         "subject": "ENG 459",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ENG 351, ENG 353 or ENG 354"
+        "prerequisites": "ENG 351, ENG 353 or ENG 354",
+        "gpa": null
     },
     {
         "subject": "ENG 690",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENG 699",
@@ -482,6 +503,7 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

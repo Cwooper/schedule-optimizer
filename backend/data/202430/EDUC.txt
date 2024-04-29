@@ -1,4 +1,4 @@
-2024-04-26T16:26:10.459482
+2024-04-29T12:48:38.292902
 [
     {
         "subject": "EDUC 309",
@@ -20,6 +20,7 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC BCOM OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:28:07.544119
+2024-04-29T12:48:48.791929
 [
     {
         "subject": "C/AM 302",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "One course from: C/AM 200, C/AM 277, HIST 277, C/AM 331, ENVS 331, PLSC 250, or C/AM 406; or instructor permission."
+        "prerequisites": "One course from: C/AM 200, C/AM 277, HIST 277, C/AM 331, ENVS 331, PLSC 250, or C/AM 406; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "C/AM 302",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "One course from: C/AM 200, C/AM 277, HIST 277, C/AM 331, ENVS 331, PLSC 250, or C/AM 406; or instructor permission."
+        "prerequisites": "One course from: C/AM 200, C/AM 277, HIST 277, C/AM 331, ENVS 331, PLSC 250, or C/AM 406; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "C/AM 369",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCGM FTF",
-        "prerequisites": "One course from: ENVS 204, UEPP 261, UEPP 270, SALI 270, C/AM 331, ENVS 331, or UEPP 343; or instructor permission."
+        "prerequisites": "One course from: ENVS 204, UEPP 261, UEPP 270, SALI 270, C/AM 331, ENVS 331, or UEPP 343; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "C/AM 400",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "C/AM 401",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "C/AM 200; C/AM 277 or HIST 277; C/AM 331 or ENVS 331; Junior status."
+        "prerequisites": "C/AM 200; C/AM 277 or HIST 277; C/AM 331 or ENVS 331; Junior status.",
+        "gpa": null
     },
     {
         "subject": "C/AM 402",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "C/AM 401"
+        "prerequisites": "C/AM 401",
+        "gpa": null
     },
     {
         "subject": "C/AM 406",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PLSC 250, PLSC 291 or instructor permission."
+        "prerequisites": "PLSC 250, PLSC 291 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "C/AM 442",
@@ -174,6 +181,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "One from: ENVS 305, C/AM 331, ENVS 331, HIST 391 or instructor permission."
+        "prerequisites": "One from: ENVS 305, C/AM 331, ENVS 331, HIST 391 or instructor permission.",
+        "gpa": null
     }
 ]

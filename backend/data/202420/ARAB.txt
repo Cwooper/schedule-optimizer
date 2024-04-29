@@ -1,4 +1,4 @@
-2024-04-26T16:27:56.297112
+2024-04-29T12:48:47.624584
 [
     {
         "subject": "ARAB 103",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCOM FTF",
-        "prerequisites": "ARAB 102."
+        "prerequisites": "ARAB 102.",
+        "gpa": null
     },
     {
         "subject": "ARAB 203",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM FTF",
-        "prerequisites": "ARAB 202"
+        "prerequisites": "ARAB 202",
+        "gpa": null
     }
 ]

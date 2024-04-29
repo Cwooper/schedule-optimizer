@@ -1,4 +1,4 @@
-2024-04-26T16:20:38.759723
+2024-04-29T12:48:02.113734
 [
     {
         "subject": "ASLC 101",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM HYBD",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ASLC 101",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM HYBD",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ASLC 101",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM HYBD",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ASLC 102",
@@ -86,6 +89,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "HYBD",
-        "prerequisites": "ASLC 101 or instructor permission."
+        "prerequisites": "ASLC 101 or instructor permission.",
+        "gpa": null
     }
 ]

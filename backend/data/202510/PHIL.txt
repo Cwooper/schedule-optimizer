@@ -1,4 +1,4 @@
-2024-04-26T16:22:29.645916
+2024-04-29T12:48:14.708449
 [
     {
         "subject": "PHIL 112",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 112",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 113",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 113",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 114",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 114",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 115",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 120",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 120",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 201",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF QSR",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 202",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "PHIL 201"
+        "prerequisites": "PHIL 201",
+        "gpa": null
     },
     {
         "subject": "PHIL 320",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF HUM",
-        "prerequisites": "PHIL 112 or PHIL 115 or HNRS 201."
+        "prerequisites": "PHIL 112 or PHIL 115 or HNRS 201.",
+        "gpa": null
     },
     {
         "subject": "PHIL 350",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF HUM",
-        "prerequisites": "Any one Philosophy course or HNRS 201."
+        "prerequisites": "Any one Philosophy course or HNRS 201.",
+        "gpa": null
     },
     {
         "subject": "PHIL 367",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "PHIL 113 or PHIL 114 or HNRS 201."
+        "prerequisites": "PHIL 113 or PHIL 114 or HNRS 201.",
+        "gpa": null
     },
     {
         "subject": "PHIL 430",
@@ -328,6 +342,7 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "PHIL 330"
+        "prerequisites": "PHIL 330",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:23:01.227985
+2024-04-29T12:48:18.118957
 [
     {
         "subject": "WGSS 211",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 211",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 211",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM OL SYNC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 212",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 212",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 213",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM OL SYNC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 213",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 317",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "WGSS 211 or WGSS 212 or WGSS 213."
+        "prerequisites": "WGSS 211 or WGSS 212 or WGSS 213.",
+        "gpa": null
     },
     {
         "subject": "WGSS 320",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ACGM FTF",
-        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission."
+        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "WGSS 335",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCGM FTF WP2",
-        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213"
+        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213",
+        "gpa": null
     },
     {
         "subject": "WGSS 344",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "WGSS 211 or WGSS 212 or WGSS 213."
+        "prerequisites": "WGSS 211 or WGSS 212 or WGSS 213.",
+        "gpa": null
     },
     {
         "subject": "WGSS 356",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "One 100- or 200-level course in HIST or WGSS 211."
+        "prerequisites": "One 100- or 200-level course in HIST or WGSS 211.",
+        "gpa": null
     },
     {
         "subject": "WGSS 358",
@@ -284,6 +296,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "HIST 104 or WGSS 211."
+        "prerequisites": "HIST 104 or WGSS 211.",
+        "gpa": null
     }
 ]

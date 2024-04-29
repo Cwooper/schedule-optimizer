@@ -1,4 +1,4 @@
-2024-04-26T16:28:20.055423
+2024-04-29T12:48:50.138333
 [
     {
         "subject": "CISS 346",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "CISS 247 or CSCI 247."
+        "prerequisites": "CISS 247 or CSCI 247.",
+        "gpa": null
     },
     {
         "subject": "CISS 346",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "HYBD PBEX WP1",
-        "prerequisites": "CISS 247 or CSCI 247."
+        "prerequisites": "CISS 247 or CSCI 247.",
+        "gpa": null
     },
     {
         "subject": "CISS 346",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF KLEX",
-        "prerequisites": "CISS 247 or CSCI 247."
+        "prerequisites": "CISS 247 or CSCI 247.",
+        "gpa": null
     },
     {
         "subject": "CISS 346",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "CISS 247 or CSCI 247."
+        "prerequisites": "CISS 247 or CSCI 247.",
+        "gpa": null
     },
     {
         "subject": "CISS 361",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "CSCI 140 or CSCI 141 or MIS 320."
+        "prerequisites": "CSCI 140 or CSCI 141 or MIS 320.",
+        "gpa": null
     },
     {
         "subject": "CISS 461",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "OL SYNC",
-        "prerequisites": "CISS 247 and CISS 301."
+        "prerequisites": "CISS 247 and CISS 301.",
+        "gpa": null
     },
     {
         "subject": "CISS 461",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV XBS-CISS MJ PQ",
         "attributes": "OL PBEX SYNC",
-        "prerequisites": "CISS 247 and CISS 301."
+        "prerequisites": "CISS 247 and CISS 301.",
+        "gpa": null
     },
     {
         "subject": "CISS 461",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF KLEX",
-        "prerequisites": "CISS 247 and CISS 301."
+        "prerequisites": "CISS 247 and CISS 301.",
+        "gpa": null
     },
     {
         "subject": "CISS 471",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV XBS-CISS MJ",
         "attributes": "FTF PBEX",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "CISS 473",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV SR MJ",
         "attributes": "FTF",
-        "prerequisites": "Senior status."
+        "prerequisites": "Senior status.",
+        "gpa": null
     },
     {
         "subject": "CISS 493",
@@ -240,6 +250,7 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "HYBD PBEX",
-        "prerequisites": "CISS 492."
+        "prerequisites": "CISS 492.",
+        "gpa": null
     }
 ]

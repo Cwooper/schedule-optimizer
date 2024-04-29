@@ -1,4 +1,4 @@
-2024-04-26T16:20:16.553319
+2024-04-29T12:47:59.969175
 [
     {
         "subject": "REL 231",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "REL 233",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "REL 234",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "REL 290",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "REL 300",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "PR",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "REL 332",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "ACGM FTF",
-        "prerequisites": "Junior or senior status; or instructor permission."
+        "prerequisites": "Junior or senior status; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "REL 336",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "FTF HUM",
-        "prerequisites": "Junior or senior status; or instructor permission."
+        "prerequisites": "Junior or senior status; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "REL 345",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "ACGM FTF",
-        "prerequisites": "Junior or senior status; or instructor permission."
+        "prerequisites": "Junior or senior status; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "REL 380",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "ACGM FTF",
-        "prerequisites": "Junior or senior status; or instructor permission."
+        "prerequisites": "Junior or senior status; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "REL 400",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "PR",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "REL 424",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "HUMA 302 or instructor permission."
+        "prerequisites": "HUMA 302 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "REL 490",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "HUMA 302 or instructor permission."
+        "prerequisites": "HUMA 302 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "REL 498",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Instructor permission; senior status; HUMA 302; and one course from: HUMA 421, HUMA 422, HUMA 423, HUMA 425, HUMA 490, REL 424, REL 428, REL 490."
+        "prerequisites": "Instructor permission; senior status; HUMA 302; and one course from: HUMA 421, HUMA 422, HUMA 423, HUMA 425, HUMA 490, REL 424, REL 428, REL 490.",
+        "gpa": null
     },
     {
         "subject": "REL 499",
@@ -306,6 +319,7 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Instructor permission; senior status; REL 498."
+        "prerequisites": "Instructor permission; senior status; REL 498.",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:31:48.101522
+2024-04-29T12:49:14.913756
 [
     {
         "subject": "LIBR 201",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "CCOM FTF",
-        "prerequisites": "ENG 101 or equivalent."
+        "prerequisites": "ENG 101 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "LIBR 300",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LIBR 320",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LIBR 341",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "HYBD",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LIBR 400",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LIBR 403",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Junior or Senior status or permission of instructor."
+        "prerequisites": "Junior or Senior status or permission of instructor.",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:32:42.646404
+2024-04-29T12:49:20.917150
 [
     {
         "subject": "WGSS 211",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 211",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM OL SYNC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 212",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 212",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 213",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM OL SYNC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 213",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM OL SYNC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 320",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCGM FTF WP3",
-        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission."
+        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "WGSS 320",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCGM FTF",
-        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission."
+        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "WGSS 320",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCGM FTF",
-        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission."
+        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "WGSS 320",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCGM FTF",
-        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission."
+        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "WGSS 350",
@@ -240,6 +250,7 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF WP3",
-        "prerequisites": "Sophomore status."
+        "prerequisites": "Sophomore status.",
+        "gpa": null
     }
 ]

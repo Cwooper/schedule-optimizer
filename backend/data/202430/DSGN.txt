@@ -1,4 +1,4 @@
-2024-04-26T16:26:04.487837
+2024-04-29T12:48:37.880937
 [
     {
         "subject": "DSGN 211",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC HUM OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DSGN 249",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DSGN 310",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DSGN 355",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DSGN 390",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "Pre-reqs vary; depend on topic offered. See Classfinder/Timetable for specific details."
+        "prerequisites": "Pre-reqs vary; depend on topic offered. See Classfinder/Timetable for specific details.",
+        "gpa": null
     },
     {
         "subject": "DSGN 390",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "Pre-reqs vary; depend on topic offered. See Classfinder/Timetable for specific details."
+        "prerequisites": "Pre-reqs vary; depend on topic offered. See Classfinder/Timetable for specific details.",
+        "gpa": null
     },
     {
         "subject": "DSGN 489",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "DSGN 341, DSGN 372 and DSGN 382; major status."
+        "prerequisites": "DSGN 341, DSGN 372 and DSGN 382; major status.",
+        "gpa": null
     },
     {
         "subject": "DSGN 489",
@@ -174,6 +181,7 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "DSGN 341, DSGN 372 and DSGN 382; major status."
+        "prerequisites": "DSGN 341, DSGN 372 and DSGN 382; major status.",
+        "gpa": null
     }
 ]

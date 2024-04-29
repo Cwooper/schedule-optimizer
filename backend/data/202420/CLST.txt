@@ -1,4 +1,4 @@
-2024-04-26T16:28:11.238927
+2024-04-29T12:48:49.195043
 [
     {
         "subject": "CLST 350",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "CLST 370",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "CLST 450",
@@ -64,6 +66,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "CLST 350 or CLST 360 or CLST 370 or HUMA 121 or ENG 281."
+        "prerequisites": "CLST 350 or CLST 360 or CLST 370 or HUMA 121 or ENG 281.",
+        "gpa": null
     }
 ]

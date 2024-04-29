@@ -1,4 +1,4 @@
-2024-04-26T16:23:39.967536
+2024-04-29T12:48:21.952437
 [
     {
         "subject": "DIAD 205",
@@ -11,7 +11,7 @@
         "lab_start_time": "N/A",
         "lab_end_time": "N/A",
         "instructor": "Wandke, Daman Lee Michael",
-        "room": "TBA",
+        "room": "MH 239",
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "30",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM HYBD",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DIAD 205",
@@ -33,7 +34,7 @@
         "lab_start_time": "N/A",
         "lab_end_time": "N/A",
         "instructor": "Wandke, Daman Lee Michael",
-        "room": "TBA",
+        "room": "MH 239",
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "30",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM HYBD",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DIAD 205",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC BCGM OL SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DIAD 205",
@@ -77,7 +80,7 @@
         "lab_start_time": "N/A",
         "lab_end_time": "N/A",
         "instructor": "Wandke, Daman Lee Michael",
-        "room": "TBA",
+        "room": "MH 239",
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "30",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM HYBD",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DIAD 442",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Admission to the Disability and Advocacy, BAE or instructor permission."
+        "prerequisites": "Admission to the Disability and Advocacy, BAE or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "DIAD 495",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Admission to the Disability and Advocacy, BAE or instructor permission."
+        "prerequisites": "Admission to the Disability and Advocacy, BAE or instructor permission.",
+        "gpa": null
     }
 ]

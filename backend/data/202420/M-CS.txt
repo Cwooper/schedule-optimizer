@@ -1,4 +1,4 @@
-2024-04-26T16:29:34.224652
+2024-04-29T12:48:58.918461
 [
     {
         "subject": "M/CS 335",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "MATH 204; and one of CSCI 140 or CSCI 141 or MATH 307."
+        "prerequisites": "MATH 204; and one of CSCI 140 or CSCI 141 or MATH 307.",
+        "gpa": null
     },
     {
         "subject": "M/CS 375",
@@ -37,12 +38,13 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "18",
-        "avail": "17",
+        "enrl": "17",
+        "avail": "18",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "MATH 204; CSCI 140 or CSCI 141 or MATH 307."
+        "prerequisites": "MATH 204; CSCI 140 or CSCI 141 or MATH 307.",
+        "gpa": null
     },
     {
         "subject": "M/CS 435",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "MATH 204; MATH 224; MATH 331; CSCI 140 or CSCI 141 or MATH 307."
+        "prerequisites": "MATH 204; MATH 224; MATH 331; CSCI 140 or CSCI 141 or MATH 307.",
+        "gpa": null
     },
     {
         "subject": "M/CS 475",
@@ -86,6 +89,7 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "MATH 224, M/CS 375"
+        "prerequisites": "MATH 224, M/CS 375",
+        "gpa": null
     }
 ]

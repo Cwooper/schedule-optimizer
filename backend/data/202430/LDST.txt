@@ -1,4 +1,4 @@
-2024-04-26T16:26:54.968853
+2024-04-29T12:48:42.892462
 [
     {
         "subject": "LDST 341",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL",
-        "prerequisites": "Sophomore, junior or senior status and instructor permission."
+        "prerequisites": "Sophomore, junior or senior status and instructor permission.",
+        "gpa": null
     },
     {
         "subject": "LDST 416",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "LDST 101 or instructor permission."
+        "prerequisites": "LDST 101 or instructor permission.",
+        "gpa": null
     }
 ]

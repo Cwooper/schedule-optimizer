@@ -1,4 +1,4 @@
-2024-04-26T16:25:14.327551
+2024-04-29T12:48:33.099887
 [
     {
         "subject": "SCED 201",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF LSCI",
-        "prerequisites": "MATH 111 or MATH 112 or college intermediate algebra course with a C or better or a suitable math assessment score."
+        "prerequisites": "MATH 111 or MATH 112 or college intermediate algebra course with a C or better or a suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "SCED 201",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF LSCI",
-        "prerequisites": "MATH 111 or MATH 112 or college intermediate algebra course with a C or better or a suitable math assessment score."
+        "prerequisites": "MATH 111 or MATH 112 or college intermediate algebra course with a C or better or a suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "SCED 203",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF LSCI",
-        "prerequisites": "SCED 201 or instructor permission."
+        "prerequisites": "SCED 201 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SCED 205",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Du, Hanxiang",
-        "room": "TBA",
+        "room": "SL OFC",
         "lab_room": null,
         "addl_fees": "",
         "cap": "24",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "CSCI 141"
+        "prerequisites": "CSCI 141",
+        "gpa": null
     },
     {
         "subject": "SCED 370",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF WP3",
-        "prerequisites": "Completion of science GUR courses or concurrent if also registered for final science GUR and completion of 90 credits or instructor permission."
+        "prerequisites": "Completion of science GUR courses or concurrent if also registered for final science GUR and completion of 90 credits or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SCED 480",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "Completion of Natural Science GURs, including SCED 201 (SCED 202, SCED 203, and SCED 204 are highly desired GURs); ELED 305 or SPED 420 with concurrency."
+        "prerequisites": "Completion of Natural Science GURs, including SCED 201 (SCED 202, SCED 203, and SCED 204 are highly desired GURs); ELED 305 or SPED 420 with concurrency.",
+        "gpa": null
     },
     {
         "subject": "SCED 480",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "ED MJ",
         "attributes": "FTF",
-        "prerequisites": "Completion of Natural Science GURs, including SCED 201 (SCED 202, SCED 203, and SCED 204 are highly desired GURs); ELED 305 or SPED 420 with concurrency."
+        "prerequisites": "Completion of Natural Science GURs, including SCED 201 (SCED 202, SCED 203, and SCED 204 are highly desired GURs); ELED 305 or SPED 420 with concurrency.",
+        "gpa": null
     },
     {
         "subject": "SCED 481",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "Completion of\u00a0science GUR courses or concurrent if also registered for final science GUR or instructor permission."
+        "prerequisites": "Completion of\u00a0science GUR courses or concurrent if also registered for final science GUR or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SCED 490",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "ED PQ",
         "attributes": "FTF",
-        "prerequisites": "SCED 480"
+        "prerequisites": "SCED 480",
+        "gpa": null
     },
     {
         "subject": "SCED 490",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "ED PQ",
         "attributes": "FTF",
-        "prerequisites": "SCED 480"
+        "prerequisites": "SCED 480",
+        "gpa": null
     },
     {
         "subject": "SCED 492",
@@ -240,6 +250,7 @@
         "waitlist": "",
         "restrictions": "ED PQ",
         "attributes": "FTF",
-        "prerequisites": "SCED 480 and SCED 490 for General Science majors; or permission of instructor for Secondary Science majors."
+        "prerequisites": "SCED 480 and SCED 490 for General Science majors; or permission of instructor for Secondary Science majors.",
+        "gpa": null
     }
 ]

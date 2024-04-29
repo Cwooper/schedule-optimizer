@@ -1,4 +1,4 @@
-2024-04-26T16:25:51.140583
+2024-04-29T12:48:36.808096
 [
     {
         "subject": "CD 280",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
-        "prerequisites": "Permission of instructor."
+        "prerequisites": "Permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "CD 281",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
-        "prerequisites": "Permission of instructor."
+        "prerequisites": "Permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "CD 281",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
-        "prerequisites": "Permission of instructor."
+        "prerequisites": "Permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "CD 281",
@@ -86,6 +89,7 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
-        "prerequisites": "Permission of instructor."
+        "prerequisites": "Permission of instructor.",
+        "gpa": null
     }
 ]

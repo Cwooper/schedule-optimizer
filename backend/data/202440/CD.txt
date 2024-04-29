@@ -1,4 +1,4 @@
-2024-04-26T16:23:24.917982
+2024-04-29T12:48:20.438272
 [
     {
         "subject": "CD 381",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Dominguez, Tony",
-        "room": "TBA",
+        "room": "CV 264",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
@@ -20,6 +20,7 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "Permission of instructor."
+        "prerequisites": "Permission of instructor.",
+        "gpa": null
     }
 ]

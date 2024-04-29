@@ -1,4 +1,4 @@
-2024-04-26T16:23:56.102527
+2024-04-29T12:48:23.474687
 [
     {
         "subject": "ENTR 246",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Weber, Meg",
-        "room": "TBA",
+        "room": "OM 580",
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENTR 346",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Weber, Meg",
-        "room": "TBA",
+        "room": "OM 580",
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ENTR 246 or instructor permission."
+        "prerequisites": "ENTR 246 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ENTR 398",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "AW",
+        "room": "ES 080",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENTR 446",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "AW",
+        "room": "BH 108",
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
@@ -86,6 +89,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ENTR 346 or instructor permission."
+        "prerequisites": "ENTR 346 or instructor permission.",
+        "gpa": null
     }
 ]

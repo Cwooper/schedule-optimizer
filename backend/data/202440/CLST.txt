@@ -1,4 +1,4 @@
-2024-04-26T16:23:23.739041
+2024-04-29T12:48:20.351347
 [
     {
         "subject": "CLST 350",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Stayskal, Byron",
-        "room": "TBA",
+        "room": "MH 138",
         "lab_room": null,
         "addl_fees": "",
         "cap": "150",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "CLST 370",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Krause, Miller Stanley",
-        "room": "TBA",
+        "room": "FR 101",
         "lab_room": null,
         "addl_fees": "",
         "cap": "150",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

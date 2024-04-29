@@ -1,4 +1,4 @@
-2024-04-26T16:27:29.707262
+2024-04-29T12:48:45.446336
 [
     {
         "subject": "RECR 472",
@@ -20,6 +20,7 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Phase II Recreation Majors"
+        "prerequisites": "Phase II Recreation Majors",
+        "gpa": null
     }
 ]

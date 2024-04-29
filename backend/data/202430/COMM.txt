@@ -1,4 +1,4 @@
-2024-04-26T16:25:54.852146
+2024-04-29T12:48:37.179091
 [
     {
         "subject": "COMM 220",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC HUM OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 230",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC HUM OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 235",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC BCOM OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 240",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 260",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC BCGM OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 303",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "MIX OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 325",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR",
         "attributes": "ASNC OL",
-        "prerequisites": "Sophomore status"
+        "prerequisites": "Sophomore status",
+        "gpa": null
     },
     {
         "subject": "COMM 331",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "COMM 101 or COMM 235 or instructor permission."
+        "prerequisites": "COMM 101 or COMM 235 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "COMM 350",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "COMM 398",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "ASNC OL",
-        "prerequisites": "Departmental majors only"
+        "prerequisites": "Departmental majors only",
+        "gpa": null
     },
     {
         "subject": "COMM 430",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL WP1",
-        "prerequisites": "COMM 230 or COMM major status or instructor permission."
+        "prerequisites": "COMM 230 or COMM major status or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "COMM 498",
@@ -262,6 +273,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "MIX OL WP1",
-        "prerequisites": "COMM 398 or permission of instructor."
+        "prerequisites": "COMM 398 or permission of instructor.",
+        "gpa": null
     }
 ]

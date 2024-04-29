@@ -1,4 +1,4 @@
-2024-04-26T16:21:14.846988
+2024-04-29T12:48:05.542219
 [
     {
         "subject": "ECE 391",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ECE 390 and ECE 431."
+        "prerequisites": "ECE 390 and ECE 431.",
+        "gpa": null
     },
     {
         "subject": "ECE 430",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ECE 391"
+        "prerequisites": "ECE 391",
+        "gpa": null
     },
     {
         "subject": "ECE 435",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ",
         "attributes": "FTF",
-        "prerequisites": "Admission to Early Childhood Education Program or Early Childhood Special Education Program; or instructor permission."
+        "prerequisites": "Admission to Early Childhood Education Program or Early Childhood Special Education Program; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ECE 438",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ",
         "attributes": "FTF",
-        "prerequisites": "Admission to Early Childhood Education Program or Early Childhood Special Education Program; or instructor permission."
+        "prerequisites": "Admission to Early Childhood Education Program or Early Childhood Special Education Program; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ECE 471",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "ELED 425 and ELED 470; Co-requisite: ECE 496."
+        "prerequisites": "ELED 425 and ELED 470; Co-requisite: ECE 496.",
+        "gpa": null
     },
     {
         "subject": "ECE 496",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "OV ED MJ IP PQ",
         "attributes": "FTF",
-        "prerequisites": "ELED 425 and ELED 470."
+        "prerequisites": "ELED 425 and ELED 470.",
+        "gpa": null
     }
 ]

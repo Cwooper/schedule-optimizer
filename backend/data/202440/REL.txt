@@ -1,4 +1,4 @@
-2024-04-26T16:25:10.706762
+2024-04-29T12:48:32.803896
 [
     {
         "subject": "REL 231",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Frost, Carrie Frederick",
-        "room": "TBA",
+        "room": "BH 415",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "REL 231",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Frost, Carrie Frederick",
-        "room": "TBA",
+        "room": "BH 415",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FIG FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "REL 283",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Folk, Holly",
-        "room": "TBA",
+        "room": "BH 419",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "REL 283",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Folk, Holly",
-        "room": "TBA",
+        "room": "BH 419",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FIG FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "REL 290",
@@ -99,7 +103,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Carotenuto, Gianna M.",
-        "room": "TBA",
+        "room": "VU 552",
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "REL 290",
@@ -121,7 +126,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Moore, Tom",
-        "room": "TBA",
+        "room": "BH 419",
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "REL 290",
@@ -143,7 +149,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Frost, Carrie Frederick",
-        "room": "TBA",
+        "room": "BH 419",
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "REL 300",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "REL 331",
@@ -187,7 +195,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Folk, Holly",
-        "room": "TBA",
+        "room": "MH 231",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "BCGM FTF",
-        "prerequisites": "Junior or senior status; or instructor permission."
+        "prerequisites": "Junior or senior status; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "REL 334",
@@ -209,7 +218,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Picus, Daniel",
-        "room": "TBA",
+        "room": "BH 417",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "ACGM FTF",
-        "prerequisites": "Junior or senior status; or instructor permission."
+        "prerequisites": "Junior or senior status; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "REL 400",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "REL 426",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "EAST 302 or HUMA 302 or instructor permission."
+        "prerequisites": "EAST 302 or HUMA 302 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "REL 498",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Instructor permission; senior status; HUMA 302; and one course from: HUMA 421, HUMA 422, HUMA 423, HUMA 425, HUMA 490, REL 424, REL 428, REL 490."
+        "prerequisites": "Instructor permission; senior status; HUMA 302; and one course from: HUMA 421, HUMA 422, HUMA 423, HUMA 425, HUMA 490, REL 424, REL 428, REL 490.",
+        "gpa": null
     },
     {
         "subject": "REL 499",
@@ -306,6 +319,7 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Instructor permission; senior status; REL 498."
+        "prerequisites": "Instructor permission; senior status; REL 498.",
+        "gpa": null
     }
 ]

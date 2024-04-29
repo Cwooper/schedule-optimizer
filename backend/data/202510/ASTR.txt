@@ -1,4 +1,4 @@
-2024-04-26T16:20:47.461910
+2024-04-29T12:48:02.922358
 [
     {
         "subject": "ASTR 103",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SCI",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ASTR 300",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ASTR 316",
@@ -64,6 +66,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "ASTR 315; PHYS 161, PHYS 162 and PHYS 163; or instructor permission."
+        "prerequisites": "ASTR 315; PHYS 161, PHYS 162 and PHYS 163; or instructor permission.",
+        "gpa": null
     }
 ]

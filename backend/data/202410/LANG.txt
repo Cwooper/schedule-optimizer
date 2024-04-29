@@ -1,4 +1,4 @@
-2024-04-26T16:32:03.289609
+2024-04-29T12:49:16.475506
 [
     {
         "subject": "LANG 420",
@@ -20,6 +20,7 @@
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "LANG 410."
+        "prerequisites": "LANG 410.",
+        "gpa": null
     }
 ]

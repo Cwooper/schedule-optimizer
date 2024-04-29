@@ -1,4 +1,4 @@
-2024-04-26T16:20:27.613054
+2024-04-29T12:48:01.048291
 [
     {
         "subject": "SUST 471",
@@ -20,6 +20,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "One course from: SUST 116, UEPP 116, UEPP 202, or UEPP 261; or instructor permission."
+        "prerequisites": "One course from: SUST 116, UEPP 116, UEPP 202, or UEPP 261; or instructor permission.",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:24:33.640690
+2024-04-29T12:48:28.450421
 [
     {
         "subject": "LIBR 300",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "PR",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LIBR 400",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "PR",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

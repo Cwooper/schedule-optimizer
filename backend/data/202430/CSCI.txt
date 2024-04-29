@@ -1,4 +1,4 @@
-2024-04-26T16:25:57.299322
+2024-04-29T12:48:37.375233
 [
     {
         "subject": "CSCI 103",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "OL QSR SYNC",
-        "prerequisites": "basic computer literacy, use of keyboard and mouse"
+        "prerequisites": "basic computer literacy, use of keyboard and mouse",
+        "gpa": null
     },
     {
         "subject": "CSCI 145",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF QSR",
-        "prerequisites": "CSCI 141 or equivalent; any of: MATH 115, MATH 118, MATH 124 or suitable math assessment score."
+        "prerequisites": "CSCI 141 or equivalent; any of: MATH 115, MATH 118, MATH 124 or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "CSCI 241",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL SYNC",
-        "prerequisites": "CSCI 145; MATH 124 or MATH 157."
+        "prerequisites": "CSCI 145; MATH 124 or MATH 157.",
+        "gpa": null
     },
     {
         "subject": "CSCI 247",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "CSCI 145."
+        "prerequisites": "CSCI 145.",
+        "gpa": null
     },
     {
         "subject": "CSCI 301",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "CSCI 145."
+        "prerequisites": "CSCI 145.",
+        "gpa": null
     },
     {
         "subject": "CSCI 321",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "OL SYNC",
-        "prerequisites": "CSCI 241."
+        "prerequisites": "CSCI 241.",
+        "gpa": null
     },
     {
         "subject": "CSCI 345",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "CSCI 241"
+        "prerequisites": "CSCI 241",
+        "gpa": null
     },
     {
         "subject": "CSCI 347",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "CSCI 247 and CSCI 241"
+        "prerequisites": "CSCI 247 and CSCI 241",
+        "gpa": null
     },
     {
         "subject": "CSCI 367",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "CSCI 241 and CSCI 347."
+        "prerequisites": "CSCI 241 and CSCI 347.",
+        "gpa": null
     },
     {
         "subject": "CSCI 405",
@@ -218,6 +227,7 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "OL SYNC",
-        "prerequisites": "CSCI 305"
+        "prerequisites": "CSCI 305",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:19:19.802366
+2024-04-29T12:47:52.765804
 [
     {
         "subject": "HGST 302",
@@ -20,6 +20,7 @@
         "waitlist": "",
         "restrictions": "JR SO SR",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status."
+        "prerequisites": "Sophomore status.",
+        "gpa": null
     }
 ]

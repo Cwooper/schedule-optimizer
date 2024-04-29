@@ -1,4 +1,4 @@
-2024-04-26T16:25:53.597907
+2024-04-29T12:48:37.060618
 [
     {
         "subject": "CSD 210",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "CSD 251",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "CSD 460",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "CSD 354 and CSD 361."
+        "prerequisites": "CSD 354 and CSD 361.",
+        "gpa": null
     },
     {
         "subject": "CSD 462",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "CSD 371 and CSD 372."
+        "prerequisites": "CSD 371 and CSD 372.",
+        "gpa": null
     },
     {
         "subject": "CSD 463",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "CSD 371"
+        "prerequisites": "CSD 371",
+        "gpa": null
     },
     {
         "subject": "CSD 501",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "GR PB PM",
         "attributes": "FTF",
-        "prerequisites": "Communication Sciences and Disorders graduate status."
+        "prerequisites": "Communication Sciences and Disorders graduate status.",
+        "gpa": null
     },
     {
         "subject": "CSD 504",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "GR PB PM S/U",
         "attributes": "FTF",
-        "prerequisites": "Admission to the Clinical doctorate in Audiology (AuD) program."
+        "prerequisites": "Admission to the Clinical doctorate in Audiology (AuD) program.",
+        "gpa": null
     },
     {
         "subject": "CSD 506",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "GR PB PM",
         "attributes": "FTF",
-        "prerequisites": "Admission to the Clinical doctorate in Audiology (Aud) program."
+        "prerequisites": "Admission to the Clinical doctorate in Audiology (Aud) program.",
+        "gpa": null
     },
     {
         "subject": "CSD 558",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM S/U",
         "attributes": "FTF",
-        "prerequisites": "SLP graduate program status."
+        "prerequisites": "SLP graduate program status.",
+        "gpa": null
     },
     {
         "subject": "CSD 564",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "CSD 463; permission of instructor, and a minimum of 25 hours of documented speech-language pathology/audiology and rehabilitation observation."
+        "prerequisites": "CSD 463; permission of instructor, and a minimum of 25 hours of documented speech-language pathology/audiology and rehabilitation observation.",
+        "gpa": null
     },
     {
         "subject": "CSD 568",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM S/U",
         "attributes": "FTF",
-        "prerequisites": "CSD 371, CSD 462 or permission of instructor; to be taken in sequence; and a minimum of 25 hours of documented speech-language pathology/audiology and rehabilitation observations."
+        "prerequisites": "CSD 371, CSD 462 or permission of instructor; to be taken in sequence; and a minimum of 25 hours of documented speech-language pathology/audiology and rehabilitation observations.",
+        "gpa": null
     },
     {
         "subject": "CSD 592",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
         "attributes": "FTF",
-        "prerequisites": "Graduate status or instructor approval."
+        "prerequisites": "Graduate status or instructor approval.",
+        "gpa": null
     },
     {
         "subject": "CSD 598",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM S/U",
         "attributes": "FTF",
-        "prerequisites": "Second-year graduate status; completion of plan of study; instructor permission; B in last clinic and a minimum of 200 clinic hours; enroll in clinic the quarter prior to internship and have all administrative and clinical records current."
+        "prerequisites": "Second-year graduate status; completion of plan of study; instructor permission; B in last clinic and a minimum of 200 clinic hours; enroll in clinic the quarter prior to internship and have all administrative and clinical records current.",
+        "gpa": null
     },
     {
         "subject": "CSD 690",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV GR MJ",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "CSD 692",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "CSD 505"
+        "prerequisites": "CSD 505",
+        "gpa": null
     },
     {
         "subject": "CSD 699",
@@ -350,6 +365,7 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

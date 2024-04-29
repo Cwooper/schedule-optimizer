@@ -1,4 +1,4 @@
-2024-04-26T16:24:02.768107
+2024-04-29T12:48:24.322737
 [
     {
         "subject": "FIN 215",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "McClain, Lee",
-        "room": "TBA",
+        "room": "SL 110",
         "lab_room": null,
         "addl_fees": "",
         "cap": "90",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "FIN 215",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SSC SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "FIN 216",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Joyce, Ben",
-        "room": "TBA",
+        "room": "AW 304",
         "lab_room": null,
         "addl_fees": "",
         "cap": "55",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF QSR",
-        "prerequisites": "Cannot be taken after or concurrent with FIN 440."
+        "prerequisites": "Cannot be taken after or concurrent with FIN 440.",
+        "gpa": null
     },
     {
         "subject": "FIN 216",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Benson, Earl Dean",
-        "room": "TBA",
+        "room": "ES 413",
         "lab_room": null,
         "addl_fees": "",
         "cap": "55",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF QSR",
-        "prerequisites": "Cannot be taken after or concurrent with FIN 440."
+        "prerequisites": "Cannot be taken after or concurrent with FIN 440.",
+        "gpa": null
     },
     {
         "subject": "FIN 341",
@@ -99,7 +103,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Kong, Sophie",
-        "room": "TBA",
+        "room": "PH 244",
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR PQ",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent."
+        "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "FIN 341",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR PQ",
         "attributes": "ASNC OL SST",
-        "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent."
+        "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "FIN 341",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR PQ",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent."
+        "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "FIN 345",
@@ -165,7 +172,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Wonder, Nicholas Xerxes",
-        "room": "TBA",
+        "room": "AW 203",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. MGMT 271, FIN 341"
+        "prerequisites": "Majors Only. MGMT 271, FIN 341",
+        "gpa": null
     },
     {
         "subject": "FIN 440",
@@ -187,7 +195,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "LaBorde, Pamela M.",
-        "room": "TBA",
+        "room": "ES 413",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "Majors Only. FIN 341"
+        "prerequisites": "Majors Only. FIN 341",
+        "gpa": null
     },
     {
         "subject": "FIN 441",
@@ -209,7 +218,7 @@
         "lab_start_time": "1430",
         "lab_end_time": "1550",
         "instructor": "Wonder, Nicholas Xerxes",
-        "room": "TBA",
+        "room": "CF 224",
         "lab_room": "AH 005",
         "addl_fees": "",
         "cap": "30",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "Majors Only. FIN 341."
+        "prerequisites": "Majors Only. FIN 341.",
+        "gpa": null
     },
     {
         "subject": "FIN 442",
@@ -231,7 +241,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Wehrly, Eric William",
-        "room": "TBA",
+        "room": "AW 203",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. FIN 341 and FIN 441."
+        "prerequisites": "Majors Only. FIN 341 and FIN 441.",
+        "gpa": null
     },
     {
         "subject": "FIN 444",
@@ -253,7 +264,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Martin, Darius Daniel",
-        "room": "TBA",
+        "room": "ES 080",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "Majors Only. FIN 341"
+        "prerequisites": "Majors Only. FIN 341",
+        "gpa": null
     },
     {
         "subject": "FIN 449",
@@ -275,7 +287,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Wehrly, Eric William",
-        "room": "TBA",
+        "room": "AW 203",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
         "attributes": "CF FTF",
-        "prerequisites": "Majors only; FIN 440; FIN 441; FIN 444; DSCI 305 or ECON 375."
+        "prerequisites": "Majors only; FIN 440; FIN 441; FIN 444; DSCI 305 or ECON 375.",
+        "gpa": null
     },
     {
         "subject": "FIN 450",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors only; FIN 341."
+        "prerequisites": "Majors only; FIN 341.",
+        "gpa": null
     },
     {
         "subject": "FIN 460",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR MJ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. FIN 341, FIN 440. Permission of instructor."
+        "prerequisites": "Majors Only. FIN 341, FIN 440. Permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "FIN 490",
@@ -350,6 +365,7 @@
         "waitlist": "",
         "restrictions": "OV JR SR MJ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. Permission of instructor."
+        "prerequisites": "Majors Only. Permission of instructor.",
+        "gpa": null
     }
 ]

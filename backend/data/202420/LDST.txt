@@ -1,4 +1,4 @@
-2024-04-26T16:29:19.242456
+2024-04-29T12:48:57.417499
 [
     {
         "subject": "LDST 101",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LDST 101",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LDST 101",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LDST 101",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LDST 201",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LDST 240",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Override required."
+        "prerequisites": "Override required.",
+        "gpa": null
     },
     {
         "subject": "LDST 340",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "LDST 240 or LDST 297 or instructor permission."
+        "prerequisites": "LDST 240 or LDST 297 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "LDST 341",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Sophomore, junior or senior status and instructor permission."
+        "prerequisites": "Sophomore, junior or senior status and instructor permission.",
+        "gpa": null
     },
     {
         "subject": "LDST 408",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "LDST 101 or instructor permission."
+        "prerequisites": "LDST 101 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "LDST 416",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "LDST 101 or instructor permission."
+        "prerequisites": "LDST 101 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "LDST 450",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "LDST 101 and instructor permission."
+        "prerequisites": "LDST 101 and instructor permission.",
+        "gpa": null
     },
     {
         "subject": "LDST 451",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "LDST 450 and instructor permission."
+        "prerequisites": "LDST 450 and instructor permission.",
+        "gpa": null
     },
     {
         "subject": "LDST 452",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "LDST 450"
+        "prerequisites": "LDST 450",
+        "gpa": null
     },
     {
         "subject": "LDST 495",
@@ -306,6 +319,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "Instructor's permission; Completion of LDST 101 with a minimum grade of B; 20 credits toward the Minor in Leadership Studies."
+        "prerequisites": "Instructor's permission; Completion of LDST 101 with a minimum grade of B; 20 credits toward the Minor in Leadership Studies.",
+        "gpa": null
     }
 ]

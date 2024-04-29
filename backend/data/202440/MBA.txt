@@ -1,4 +1,4 @@
-2024-04-26T16:24:42.466982
+2024-04-29T12:48:29.343827
 [
     {
         "subject": "MBA 502",
@@ -11,8 +11,8 @@
         "lab_start_time": "0800",
         "lab_end_time": "2150",
         "instructor": "Hodges, Hart",
-        "room": "TBA",
-        "lab_room": "TBA",
+        "room": "PH 104",
+        "lab_room": "PH 104",
         "addl_fees": "Per/Cr $25.00",
         "cap": "30",
         "enrl": "0",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
         "attributes": "FTF",
-        "prerequisites": "Admitted graduate student within College of Business and Economics."
+        "prerequisites": "Admitted graduate student within College of Business and Economics.",
+        "gpa": null
     },
     {
         "subject": "MBA 504",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
         "attributes": "FTF",
-        "prerequisites": "Admission to the MBA program."
+        "prerequisites": "Admission to the MBA program.",
+        "gpa": null
     },
     {
         "subject": "MBA 506",
@@ -55,8 +57,8 @@
         "lab_start_time": "1800",
         "lab_end_time": "1950",
         "instructor": "Li, Jiexun",
-        "room": "TBA",
-        "lab_room": "TBA",
+        "room": "PH 104",
+        "lab_room": "PH 104",
         "addl_fees": "Per/Cr $25.00",
         "cap": "20",
         "enrl": "0",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
         "attributes": "FTF",
-        "prerequisites": "Admitted graduate student within College of Business and Economics."
+        "prerequisites": "Admitted graduate student within College of Business and Economics.",
+        "gpa": null
     },
     {
         "subject": "MBA 507",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
         "attributes": "FTF",
-        "prerequisites": "Admitted graduate student within College of Business and Economics."
+        "prerequisites": "Admitted graduate student within College of Business and Economics.",
+        "gpa": null
     },
     {
         "subject": "MBA 510",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
         "attributes": "FTF",
-        "prerequisites": "Admitted graduate student within College of Business and Economics."
+        "prerequisites": "Admitted graduate student within College of Business and Economics.",
+        "gpa": null
     },
     {
         "subject": "MBA 591",
@@ -121,7 +126,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Kim, Jongwook",
-        "room": "TBA",
+        "room": "AH 012",
         "lab_room": null,
         "addl_fees": "Per/Cr $25.00",
         "cap": "20",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MBA 595 or concurrent."
+        "prerequisites": "MBA 595 or concurrent.",
+        "gpa": null
     },
     {
         "subject": "MBA 599",
@@ -152,6 +158,7 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MBA 598"
+        "prerequisites": "MBA 598",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:26:44.084565
+2024-04-29T12:48:41.055119
 [
     {
         "subject": "I T 442",
@@ -20,6 +20,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "IT 344"
+        "prerequisites": "IT 344",
+        "gpa": null
     }
 ]

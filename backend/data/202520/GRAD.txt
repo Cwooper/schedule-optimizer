@@ -1,4 +1,4 @@
-2024-04-26T16:19:14.920285
+2024-04-29T12:47:52.323673
 [
     {
         "subject": "GRAD 699",
@@ -20,6 +20,7 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

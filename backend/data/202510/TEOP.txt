@@ -1,4 +1,4 @@
-2024-04-26T16:22:56.055015
+2024-04-29T12:48:17.546760
 [
     {
         "subject": "TEOP 494",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV ED IP",
         "attributes": "FTF",
-        "prerequisites": "Must have been admitted to Woodring College of Education and to a Teacher Education Outreach Program; completed all requirements for the Education for Inclusive Environments, BAE."
+        "prerequisites": "Must have been admitted to Woodring College of Education and to a Teacher Education Outreach Program; completed all requirements for the Education for Inclusive Environments, BAE.",
+        "gpa": null
     },
     {
         "subject": "TEOP 494",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "OV ED IP",
         "attributes": "FTF",
-        "prerequisites": "Must have been admitted to Woodring College of Education and to a Teacher Education Outreach Program; completed all requirements for the Education for Inclusive Environments, BAE."
+        "prerequisites": "Must have been admitted to Woodring College of Education and to a Teacher Education Outreach Program; completed all requirements for the Education for Inclusive Environments, BAE.",
+        "gpa": null
     }
 ]

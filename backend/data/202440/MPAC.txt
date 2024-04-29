@@ -1,4 +1,4 @@
-2024-04-26T16:24:43.677098
+2024-04-29T12:48:29.458753
 [
     {
         "subject": "MPAC 521",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ACCT 321 or equivalent."
+        "prerequisites": "ACCT 321 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "MPAC 535",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Taylor, Audrey G.",
-        "room": "TBA",
+        "room": "ES 313",
         "lab_room": null,
         "addl_fees": "Per/Cr $25.00",
         "cap": "5",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ACCT 331 or equivalent."
+        "prerequisites": "ACCT 331 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "MPAC 541",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Chen, Hanmei",
-        "room": "TBA",
+        "room": "CF 025",
         "lab_room": null,
         "addl_fees": "Per/Cr $25.00",
         "cap": "5",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ACCT 343 or equivalent."
+        "prerequisites": "ACCT 343 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "MPAC 564",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Admittance into the MPAC program and in final year of coursework."
+        "prerequisites": "Admittance into the MPAC program and in final year of coursework.",
+        "gpa": null
     },
     {
         "subject": "MPAC 585",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ACCT 343 or equivalent."
+        "prerequisites": "ACCT 343 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "MPAC 595",
@@ -121,7 +126,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Liu, Zander",
-        "room": "TBA",
+        "room": "PH 244",
         "lab_room": null,
         "addl_fees": "Per/Cr $25.00",
         "cap": "10",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
         "attributes": "FTF",
-        "prerequisites": "Graduate (MPAC) status."
+        "prerequisites": "Graduate (MPAC) status.",
+        "gpa": null
     }
 ]

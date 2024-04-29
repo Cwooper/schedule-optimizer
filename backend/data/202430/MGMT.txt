@@ -1,4 +1,4 @@
-2024-04-26T16:26:58.521565
+2024-04-29T12:48:43.132058
 [
     {
         "subject": "MGMT 311",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR",
         "attributes": "ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "MGMT 490",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF WP1",
-        "prerequisites": "Majors Only."
+        "prerequisites": "Majors Only.",
+        "gpa": null
     },
     {
         "subject": "MGMT 495",
@@ -64,6 +66,7 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "OL SYNC",
-        "prerequisites": "Majors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321."
+        "prerequisites": "Majors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321.",
+        "gpa": null
     }
 ]

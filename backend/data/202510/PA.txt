@@ -1,4 +1,4 @@
-2024-04-26T16:22:30.890059
+2024-04-29T12:48:14.917343
 [
     {
         "subject": "PA 104",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Kinesiology majors only."
+        "prerequisites": "Kinesiology majors only.",
+        "gpa": null
     },
     {
         "subject": "PA 104",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Kinesiology majors only."
+        "prerequisites": "Kinesiology majors only.",
+        "gpa": null
     },
     {
         "subject": "PA 104",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Kinesiology majors only."
+        "prerequisites": "Kinesiology majors only.",
+        "gpa": null
     },
     {
         "subject": "PA 104",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Kinesiology majors only."
+        "prerequisites": "Kinesiology majors only.",
+        "gpa": null
     },
     {
         "subject": "PA 107",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Kinesiology majors only."
+        "prerequisites": "Kinesiology majors only.",
+        "gpa": null
     },
     {
         "subject": "PA 108",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Kinesiology majors only."
+        "prerequisites": "Kinesiology majors only.",
+        "gpa": null
     },
     {
         "subject": "PA 108",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Kinesiology majors only."
+        "prerequisites": "Kinesiology majors only.",
+        "gpa": null
     },
     {
         "subject": "PA 108",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Kinesiology majors only."
+        "prerequisites": "Kinesiology majors only.",
+        "gpa": null
     },
     {
         "subject": "PA 109",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Kinesiology majors only."
+        "prerequisites": "Kinesiology majors only.",
+        "gpa": null
     },
     {
         "subject": "PA 109",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Kinesiology majors only."
+        "prerequisites": "Kinesiology majors only.",
+        "gpa": null
     },
     {
         "subject": "PA 110",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PA 111",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Kinesiology majors only."
+        "prerequisites": "Kinesiology majors only.",
+        "gpa": null
     },
     {
         "subject": "PA 111",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Kinesiology majors only."
+        "prerequisites": "Kinesiology majors only.",
+        "gpa": null
     },
     {
         "subject": "PA 119",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Kinesiology majors only."
+        "prerequisites": "Kinesiology majors only.",
+        "gpa": null
     },
     {
         "subject": "PA 132",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Kinesiology majors only."
+        "prerequisites": "Kinesiology majors only.",
+        "gpa": null
     },
     {
         "subject": "PA 132",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Kinesiology majors only."
+        "prerequisites": "Kinesiology majors only.",
+        "gpa": null
     },
     {
         "subject": "PA 134",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Kinesiology majors only."
+        "prerequisites": "Kinesiology majors only.",
+        "gpa": null
     },
     {
         "subject": "PA 134",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Kinesiology majors only."
+        "prerequisites": "Kinesiology majors only.",
+        "gpa": null
     },
     {
         "subject": "PA 134",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Kinesiology majors only."
+        "prerequisites": "Kinesiology majors only.",
+        "gpa": null
     },
     {
         "subject": "PA 139",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PA 145",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Court or cross-training shoes are required. Kinesiology majors only."
+        "prerequisites": "Court or cross-training shoes are required. Kinesiology majors only.",
+        "gpa": null
     },
     {
         "subject": "PA 145",
@@ -482,7 +503,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Court or cross-training shoes are required. Kinesiology majors only."
+        "prerequisites": "Court or cross-training shoes are required. Kinesiology majors only.",
+        "gpa": null
     },
     {
         "subject": "PA 152",
@@ -504,7 +526,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Kinesiology majors only."
+        "prerequisites": "Kinesiology majors only.",
+        "gpa": null
     },
     {
         "subject": "PA 168",
@@ -526,6 +549,7 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Kinesiology majors only."
+        "prerequisites": "Kinesiology majors only.",
+        "gpa": null
     }
 ]

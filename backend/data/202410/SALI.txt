@@ -1,4 +1,4 @@
-2024-04-26T16:32:27.636101
+2024-04-29T12:49:19.376758
 [
     {
         "subject": "SALI 490",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SALI 490",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

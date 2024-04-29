@@ -1,4 +1,4 @@
-2024-04-26T16:22:28.396602
+2024-04-29T12:48:14.599816
 [
     {
         "subject": "OPS 360",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "DSCI 205, ACCT 245, C- or better; spreadsheet competency"
+        "prerequisites": "DSCI 205, ACCT 245, C- or better; spreadsheet competency",
+        "gpa": null
     },
     {
         "subject": "OPS 360",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "DSCI 205, ACCT 245, C- or better; spreadsheet competency"
+        "prerequisites": "DSCI 205, ACCT 245, C- or better; spreadsheet competency",
+        "gpa": null
     },
     {
         "subject": "OPS 360",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "ASNC OL PBEX",
-        "prerequisites": "DSCI 205, ACCT 245, C- or better; spreadsheet competency"
+        "prerequisites": "DSCI 205, ACCT 245, C- or better; spreadsheet competency",
+        "gpa": null
     },
     {
         "subject": "OPS 360",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "DSCI 205, ACCT 245, C- or better; spreadsheet competency"
+        "prerequisites": "DSCI 205, ACCT 245, C- or better; spreadsheet competency",
+        "gpa": null
     },
     {
         "subject": "OPS 460",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "OPS 360 or MFGE 341; major restricted."
+        "prerequisites": "OPS 360 or MFGE 341; major restricted.",
+        "gpa": null
     },
     {
         "subject": "OPS 461",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "OPS 360 or MFGE 341; major restricted."
+        "prerequisites": "OPS 360 or MFGE 341; major restricted.",
+        "gpa": null
     },
     {
         "subject": "OPS 461",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "OPS 360 or MFGE 341; major restricted."
+        "prerequisites": "OPS 360 or MFGE 341; major restricted.",
+        "gpa": null
     },
     {
         "subject": "OPS 462",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors only. OPS 360; MIS 320 or ACCT 321."
+        "prerequisites": "Majors only. OPS 360; MIS 320 or ACCT 321.",
+        "gpa": null
     },
     {
         "subject": "OPS 463",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "OPS 360 or MFGE 341; major restricted."
+        "prerequisites": "OPS 360 or MFGE 341; major restricted.",
+        "gpa": null
     },
     {
         "subject": "OPS 464",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "OPS 360 and permission of instructor; first-time enrollment restricted to manufacturing and supply chain management students with foundation or full major status; second-time enrollment restricted to manufacturing and supply chain management students with full major status."
+        "prerequisites": "OPS 360 and permission of instructor; first-time enrollment restricted to manufacturing and supply chain management students with foundation or full major status; second-time enrollment restricted to manufacturing and supply chain management students with full major status.",
+        "gpa": null
     },
     {
         "subject": "OPS 468",
@@ -240,6 +250,7 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "CF FTF WP1",
-        "prerequisites": "OPS 360 or MFGE 341; major restricted."
+        "prerequisites": "OPS 360 or MFGE 341; major restricted.",
+        "gpa": null
     }
 ]

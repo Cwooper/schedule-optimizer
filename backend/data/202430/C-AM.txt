@@ -1,4 +1,4 @@
-2024-04-26T16:25:46.335303
+2024-04-29T12:48:36.445857
 [
     {
         "subject": "C/AM 200",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "C/AM 355",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "MIX OL",
-        "prerequisites": "JOUR 190 or ENG 101 or C/AM 200"
+        "prerequisites": "JOUR 190 or ENG 101 or C/AM 200",
+        "gpa": null
     }
 ]

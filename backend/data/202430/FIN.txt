@@ -1,4 +1,4 @@
-2024-04-26T16:26:26.233652
+2024-04-29T12:48:39.646464
 [
     {
         "subject": "FIN 215",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "FIN 216",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL QSR",
-        "prerequisites": "Cannot be taken after or concurrent with FIN 440."
+        "prerequisites": "Cannot be taken after or concurrent with FIN 440.",
+        "gpa": null
     },
     {
         "subject": "FIN 341",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent."
+        "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "FIN 444",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "Majors Only. FIN 341"
+        "prerequisites": "Majors Only. FIN 341",
+        "gpa": null
     },
     {
         "subject": "FIN 460",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. FIN 341, FIN 440. Permission of instructor."
+        "prerequisites": "Majors Only. FIN 341, FIN 440. Permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "FIN 490",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. Permission of instructor."
+        "prerequisites": "Majors Only. Permission of instructor.",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:24:31.217358
+2024-04-29T12:48:28.227979
 [
     {
         "subject": "LAT 101",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Engelsing, Eduardo Marcant",
-        "room": "TBA",
+        "room": "BH 319",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LAT 101",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Engelsing, Eduardo Marcant",
-        "room": "TBA",
+        "room": "BH 319",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LAT 201",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Engelsing, Eduardo Marcant",
-        "room": "TBA",
+        "room": "BH 319",
         "lab_room": null,
         "addl_fees": "",
         "cap": "10",
@@ -64,6 +66,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCOM FTF",
-        "prerequisites": "LAT 103 or two years of high school Latin"
+        "prerequisites": "LAT 103 or two years of high school Latin",
+        "gpa": null
     }
 ]

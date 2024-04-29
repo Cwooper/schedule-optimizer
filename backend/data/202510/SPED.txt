@@ -1,4 +1,4 @@
-2024-04-26T16:22:53.663685
+2024-04-29T12:48:17.385527
 [
     {
         "subject": "SPED 303",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV ED",
         "attributes": "HYBD",
-        "prerequisites": "Admission to a Special Education program or instructor permission."
+        "prerequisites": "Admission to a Special Education program or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SPED 310",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF WP3",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SPED 310",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV ED",
         "attributes": "BCGM FTF WP3",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SPED 364",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "ED MJ",
         "attributes": "FTF",
-        "prerequisites": "Admission to the Woodring College of Education."
+        "prerequisites": "Admission to the Woodring College of Education.",
+        "gpa": null
     },
     {
         "subject": "SPED 420",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Admission to Woodring College of Education or permission of instructor and concurrent enrollment in SPED 440 and SPED 460."
+        "prerequisites": "Admission to Woodring College of Education or permission of instructor and concurrent enrollment in SPED 440 and SPED 460.",
+        "gpa": null
     },
     {
         "subject": "SPED 440",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Admission to Woodring College of Education; SPED 420 and SPED 460 concurrent."
+        "prerequisites": "Admission to Woodring College of Education; SPED 420 and SPED 460 concurrent.",
+        "gpa": null
     },
     {
         "subject": "SPED 441",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV ED S/U",
         "attributes": "FTF",
-        "prerequisites": "One course from educational psychology or foundations area, or permission of instructor."
+        "prerequisites": "One course from educational psychology or foundations area, or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "SPED 443",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "SPED 360 or SPED 364; or permission of instructor."
+        "prerequisites": "SPED 360 or SPED 364; or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "SPED 446",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SPED 452",
@@ -218,15 +227,16 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Admission to Woodring College of Education; instructor permission; override required."
+        "prerequisites": "Admission to Woodring College of Education; instructor permission; override required.",
+        "gpa": null
     },
     {
         "subject": "SPED 457",
         "course_credits": "5",
         "crn": "12924",
         "days": "TR",
-        "start_time": "1400",
-        "end_time": "1550",
+        "start_time": "1500",
+        "end_time": "1650",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Admisssion to Woodring College of Education teacher education major or instructor permission."
+        "prerequisites": "Admisssion to Woodring College of Education teacher education major or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SPED 460",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "SPED 457; co-requisites: SPED 420, SPED 440; or instructor permission."
+        "prerequisites": "SPED 457; co-requisites: SPED 420, SPED 440; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SPED 462",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV ED",
         "attributes": "FTF",
-        "prerequisites": "Admission to a Special Education major or Department permission."
+        "prerequisites": "Admission to a Special Education major or Department permission.",
+        "gpa": null
     },
     {
         "subject": "SPED 463",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "SPED 303, SPED 420 or SPED 457;\u00a0or instructor permission."
+        "prerequisites": "SPED 303, SPED 420 or SPED 457;\u00a0or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SPED 465",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "SPED 420 and SPED 457; or instructor permission."
+        "prerequisites": "SPED 420 and SPED 457; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SPED 469",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "OV ED",
         "attributes": "FTF",
-        "prerequisites": "Admission to a Special Education major or Department permission."
+        "prerequisites": "Admission to a Special Education major or Department permission.",
+        "gpa": null
     },
     {
         "subject": "SPED 479",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "OV ED PQ",
         "attributes": "FTF",
-        "prerequisites": "ASLC 101 and admission to a Special Education major or department permission."
+        "prerequisites": "ASLC 101 and admission to a Special Education major or department permission.",
+        "gpa": null
     },
     {
         "subject": "SPED 480",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "SPED 479 or concurrent and admission to a Special Education major or department permission."
+        "prerequisites": "SPED 479 or concurrent and admission to a Special Education major or department permission.",
+        "gpa": null
     },
     {
         "subject": "SPED 487",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "OV ED",
         "attributes": "FTF",
-        "prerequisites": "Admission to a Special Education major or department permission."
+        "prerequisites": "Admission to a Special Education major or department permission.",
+        "gpa": null
     },
     {
         "subject": "SPED 488",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "OV ED",
         "attributes": "FTF",
-        "prerequisites": "Admission to a Special Education major or department permission."
+        "prerequisites": "Admission to a Special Education major or department permission.",
+        "gpa": null
     },
     {
         "subject": "SPED 489",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "OV ED",
         "attributes": "FTF",
-        "prerequisites": "Admission to a Special Education major or department permission."
+        "prerequisites": "Admission to a Special Education major or department permission.",
+        "gpa": null
     },
     {
         "subject": "SPED 494",
@@ -482,7 +503,8 @@
         "waitlist": "",
         "restrictions": "OV ED IP",
         "attributes": "FTF",
-        "prerequisites": "Admission to a Woodring Teacher Education Program and permission of the department."
+        "prerequisites": "Admission to a Woodring Teacher Education Program and permission of the department.",
+        "gpa": null
     },
     {
         "subject": "SPED 496",
@@ -504,7 +526,8 @@
         "waitlist": "",
         "restrictions": "OV ED IP",
         "attributes": "FTF",
-        "prerequisites": "Recommendation for supervised teaching."
+        "prerequisites": "Recommendation for supervised teaching.",
+        "gpa": null
     },
     {
         "subject": "SPED 498",
@@ -526,7 +549,8 @@
         "waitlist": "",
         "restrictions": "OV ED IP",
         "attributes": "FTF",
-        "prerequisites": "Recommendation for supervised teaching."
+        "prerequisites": "Recommendation for supervised teaching.",
+        "gpa": null
     },
     {
         "subject": "SPED 499",
@@ -548,6 +572,7 @@
         "waitlist": "",
         "restrictions": "OV ED IP",
         "attributes": "FTF",
-        "prerequisites": "Recommendation for supervised teaching."
+        "prerequisites": "Recommendation for supervised teaching.",
+        "gpa": null
     }
 ]

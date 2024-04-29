@@ -1,4 +1,4 @@
-2024-04-26T16:22:06.420009
+2024-04-29T12:48:11.879503
 [
     {
         "subject": "LIBR 201",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "CCOM FTF",
-        "prerequisites": "ENG 101 or equivalent."
+        "prerequisites": "ENG 101 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "LIBR 300",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PR",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LIBR 341",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LIBR 400",
@@ -86,6 +89,7 @@
         "waitlist": "",
         "restrictions": "PR",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

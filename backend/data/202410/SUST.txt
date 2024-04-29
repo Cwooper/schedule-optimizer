@@ -1,4 +1,4 @@
-2024-04-26T16:32:36.394352
+2024-04-29T12:49:20.274627
 [
     {
         "subject": "SUST 116",
@@ -20,6 +20,7 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:31:18.163511
+2024-04-29T12:49:11.978154
 [
     {
         "subject": "FREN 102",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "FREN 101"
+        "prerequisites": "FREN 101",
+        "gpa": null
     },
     {
         "subject": "FREN 102",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "FREN 101"
+        "prerequisites": "FREN 101",
+        "gpa": null
     },
     {
         "subject": "FREN 202",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF HUM",
-        "prerequisites": "FREN 201 or equivalent"
+        "prerequisites": "FREN 201 or equivalent",
+        "gpa": null
     },
     {
         "subject": "FREN 202",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF HUM",
-        "prerequisites": "FREN 201 or equivalent"
+        "prerequisites": "FREN 201 or equivalent",
+        "gpa": null
     },
     {
         "subject": "FREN 331",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "FREN 301 or instructor permission."
+        "prerequisites": "FREN 301 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "FREN 341",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "FREN 301; FREN 340 recommended"
+        "prerequisites": "FREN 301; FREN 340 recommended",
+        "gpa": null
     },
     {
         "subject": "FREN 425",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Written permission and two upper-division French courses."
+        "prerequisites": "Written permission and two upper-division French courses.",
+        "gpa": null
     },
     {
         "subject": "FREN 460",
@@ -174,6 +181,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "FREN 401 and one of FREN 340, FREN 341 or FREN 342."
+        "prerequisites": "FREN 401 and one of FREN 340, FREN 341 or FREN 342.",
+        "gpa": null
     }
 ]

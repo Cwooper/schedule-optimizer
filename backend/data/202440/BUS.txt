@@ -1,4 +1,4 @@
-2024-04-26T16:23:18.627564
+2024-04-29T12:48:19.804183
 [
     {
         "subject": "BUS 310",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Widden, Morgan",
-        "room": "TBA",
+        "room": "PH 104",
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "Major or pre-major status."
+        "prerequisites": "Major or pre-major status.",
+        "gpa": null
     },
     {
         "subject": "BUS 310",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Widden, Morgan",
-        "room": "TBA",
+        "room": "BI 234",
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "Major or pre-major status."
+        "prerequisites": "Major or pre-major status.",
+        "gpa": null
     },
     {
         "subject": "BUS 310",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Widden, Morgan",
-        "room": "TBA",
+        "room": "HH 345",
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "Major or pre-major status."
+        "prerequisites": "Major or pre-major status.",
+        "gpa": null
     },
     {
         "subject": "BUS 410",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Widden, Morgan",
-        "room": "TBA",
+        "room": "PH 104",
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
@@ -86,6 +89,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "BUS 310"
+        "prerequisites": "BUS 310",
+        "gpa": null
     }
 ]
