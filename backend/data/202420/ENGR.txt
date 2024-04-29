@@ -1,4 +1,4 @@
-2024-04-26T16:28:39.696644
+2024-04-29T12:48:52.034552
 [
     {
         "subject": "ENGR 101",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENGR 104",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENGR 115",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ENGR 101"
+        "prerequisites": "ENGR 101",
+        "gpa": null
     },
     {
         "subject": "ENGR 115",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ENGR 101"
+        "prerequisites": "ENGR 101",
+        "gpa": null
     },
     {
         "subject": "ENGR 225",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ENGR 170; ENGR 214; MATH 125"
+        "prerequisites": "ENGR 170; ENGR 214; MATH 125",
+        "gpa": null
     },
     {
         "subject": "ENGR 295",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Enrollment limited to ENGD majors and pre-majors."
+        "prerequisites": "Enrollment limited to ENGD majors and pre-majors.",
+        "gpa": null
     },
     {
         "subject": "ENGR 352",
@@ -152,6 +158,7 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ENGR 351; MATH 204; CSCI 140 or CSCI 141 or MFGE 340."
+        "prerequisites": "ENGR 351; MATH 204; CSCI 140 or CSCI 141 or MFGE 340.",
+        "gpa": null
     }
 ]

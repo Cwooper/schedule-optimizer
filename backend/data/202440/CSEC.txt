@@ -1,4 +1,4 @@
-2024-04-26T16:23:26.100533
+2024-04-29T12:48:20.518005
 [
     {
         "subject": "CSEC 121",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "Students must be admitted to the Select Science Student program."
+        "prerequisites": "Students must be admitted to the Select Science Student program.",
+        "gpa": null
     },
     {
         "subject": "CSEC 121",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "Students must be admitted to the Select Science Student program."
+        "prerequisites": "Students must be admitted to the Select Science Student program.",
+        "gpa": null
     },
     {
         "subject": "CSEC 121",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "Students must be admitted to the Select Science Student program."
+        "prerequisites": "Students must be admitted to the Select Science Student program.",
+        "gpa": null
     },
     {
         "subject": "CSEC 121",
@@ -86,6 +89,7 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "Students must be admitted to the Select Science Student program."
+        "prerequisites": "Students must be admitted to the Select Science Student program.",
+        "gpa": null
     }
 ]

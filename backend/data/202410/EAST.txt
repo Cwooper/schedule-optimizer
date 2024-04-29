@@ -1,4 +1,4 @@
-2024-04-26T16:30:57.543572
+2024-04-29T12:49:08.440986
 [
     {
         "subject": "EAST 201",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM ANCT ASIA CMB1 FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EAST 202",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM ASIA CMB2 FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EAST 271",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EAST 367",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "EAST 201 or EAST 202 or CHIN 103 or HUMA 277 or permission of instructor."
+        "prerequisites": "EAST 201 or EAST 202 or CHIN 103 or HUMA 277 or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "EAST 368",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "EAST 201 or EAST 202 or HUMA 275 or permission of instructor."
+        "prerequisites": "EAST 201 or EAST 202 or HUMA 275 or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "EAST 411",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF WP3",
-        "prerequisites": "Any 300-level or equivalent Art History course."
+        "prerequisites": "Any 300-level or equivalent Art History course.",
+        "gpa": null
     }
 ]

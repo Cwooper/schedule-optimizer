@@ -1,4 +1,4 @@
-2024-04-26T16:19:17.301628
+2024-04-29T12:47:52.499503
 [
     {
         "subject": "HLED 345",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "BIOL 101 or BIOL 205"
+        "prerequisites": "BIOL 101 or BIOL 205",
+        "gpa": null
     },
     {
         "subject": "HLED 409",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "HLED 401"
+        "prerequisites": "HLED 401",
+        "gpa": null
     },
     {
         "subject": "HLED 435",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "HLED 401"
+        "prerequisites": "HLED 401",
+        "gpa": null
     },
     {
         "subject": "HLED 440",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "HLED 401"
+        "prerequisites": "HLED 401",
+        "gpa": null
     },
     {
         "subject": "HLED 449",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "HLED 401"
+        "prerequisites": "HLED 401",
+        "gpa": null
     },
     {
         "subject": "HLED 455",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "ED",
         "attributes": "FTF",
-        "prerequisites": "Admission to Woodring College of Education."
+        "prerequisites": "Admission to Woodring College of Education.",
+        "gpa": null
     }
 ]

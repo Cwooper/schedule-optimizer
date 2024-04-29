@@ -1,4 +1,4 @@
-2024-04-26T16:27:34.438302
+2024-04-29T12:48:45.766926
 [
     {
         "subject": "SALI 201",
@@ -20,6 +20,7 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC BCGM OL",
-        "prerequisites": "Optional co-requisite: SALI 202."
+        "prerequisites": "Optional co-requisite: SALI 202.",
+        "gpa": null
     }
 ]

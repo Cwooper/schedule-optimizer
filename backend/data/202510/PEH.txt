@@ -1,4 +1,4 @@
-2024-04-26T16:22:33.467806
+2024-04-29T12:48:15.360646
 [
     {
         "subject": "PEH 341",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "PEH 340; major status."
+        "prerequisites": "PEH 340; major status.",
+        "gpa": null
     },
     {
         "subject": "PEH 342",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "PEH 340"
+        "prerequisites": "PEH 340",
+        "gpa": null
     },
     {
         "subject": "PEH 441",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "PEH 440P"
+        "prerequisites": "PEH 440P",
+        "gpa": null
     },
     {
         "subject": "PEH 441P",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "PEH 440P"
+        "prerequisites": "PEH 440P",
+        "gpa": null
     },
     {
         "subject": "PEH 442P",
@@ -108,6 +112,7 @@
         "waitlist": "",
         "restrictions": "MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "PEH 341P"
+        "prerequisites": "PEH 341P",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:26:22.579591
+2024-04-29T12:48:39.341506
 [
     {
         "subject": "ENVS 115",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENVS 201",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL QSR",
-        "prerequisites": "MATH 112 with a C- or better or suitable math assessment score."
+        "prerequisites": "MATH 112 with a C- or better or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "ENVS 203",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF LSCI",
-        "prerequisites": "Minimum of one university-level natural science GUR."
+        "prerequisites": "Minimum of one university-level natural science GUR.",
+        "gpa": null
     },
     {
         "subject": "ENVS 203",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC LSCI OL",
-        "prerequisites": "Minimum of one university-level natural science GUR."
+        "prerequisites": "Minimum of one university-level natural science GUR.",
+        "gpa": null
     },
     {
         "subject": "ENVS 320",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENVS 327",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ENVS 203 or GEOL 211."
+        "prerequisites": "ENVS 203 or GEOL 211.",
+        "gpa": null
     },
     {
         "subject": "ENVS 332",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "ENVS 203 or ENVS 204 or instructor permission."
+        "prerequisites": "ENVS 203 or ENVS 204 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ENVS 368",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF TRVL",
-        "prerequisites": "Instructor permission."
+        "prerequisites": "Instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ENVS 423",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "ENVS 419 or ENVS 420 or instructor permission."
+        "prerequisites": "ENVS 419 or ENVS 420 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ENVS 426",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "ENVS 326 or instructor permission."
+        "prerequisites": "ENVS 326 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ENVS 437",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF TRVL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENVS 498B",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENVS 498B",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "FTF PBEX",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENVS 498B",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "EVEX FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENVS 699",
@@ -328,6 +342,7 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

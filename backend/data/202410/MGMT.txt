@@ -1,4 +1,4 @@
-2024-04-26T16:31:50.635344
+2024-04-29T12:49:15.189333
 [
     {
         "subject": "MGMT 271",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",
-        "prerequisites": "only one of MGMT 271, PLSC 311, or FAIR 311B may be taken for GUR credit."
+        "prerequisites": "only one of MGMT 271, PLSC 311, or FAIR 311B may be taken for GUR credit.",
+        "gpa": null
     },
     {
         "subject": "MGMT 271",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",
-        "prerequisites": "only one of MGMT 271, PLSC 311, or FAIR 311B may be taken for GUR credit."
+        "prerequisites": "only one of MGMT 271, PLSC 311, or FAIR 311B may be taken for GUR credit.",
+        "gpa": null
     },
     {
         "subject": "MGMT 271",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",
-        "prerequisites": "only one of MGMT 271, PLSC 311, or FAIR 311B may be taken for GUR credit."
+        "prerequisites": "only one of MGMT 271, PLSC 311, or FAIR 311B may be taken for GUR credit.",
+        "gpa": null
     },
     {
         "subject": "MGMT 311",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "HYBD",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "MGMT 311",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "HYBD",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "MGMT 311",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "MGMT 311",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "MGMT 313",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "CF FTF",
-        "prerequisites": "Majors Only. MGMT 311"
+        "prerequisites": "Majors Only. MGMT 311",
+        "gpa": null
     },
     {
         "subject": "MGMT 315",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "MGMT 319",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "ENG 101 or equivalent"
+        "prerequisites": "ENG 101 or equivalent",
+        "gpa": null
     },
     {
         "subject": "MGMT 319",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF PBEX WP3",
-        "prerequisites": "ENG 101 or equivalent"
+        "prerequisites": "ENG 101 or equivalent",
+        "gpa": null
     },
     {
         "subject": "MGMT 382",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors only. MGMT 271."
+        "prerequisites": "Majors only. MGMT 271.",
+        "gpa": null
     },
     {
         "subject": "MGMT 382",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors only. MGMT 271."
+        "prerequisites": "Majors only. MGMT 271.",
+        "gpa": null
     },
     {
         "subject": "MGMT 401",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "Majors Only. MGMT 313"
+        "prerequisites": "Majors Only. MGMT 313",
+        "gpa": null
     },
     {
         "subject": "MGMT 405",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MGMT 313."
+        "prerequisites": "MGMT 313.",
+        "gpa": null
     },
     {
         "subject": "MGMT 414",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP2",
-        "prerequisites": "Majors Only. OPS 461; MGMT 313."
+        "prerequisites": "Majors Only. OPS 461; MGMT 313.",
+        "gpa": null
     },
     {
         "subject": "MGMT 490",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF WP1",
-        "prerequisites": "Majors Only."
+        "prerequisites": "Majors Only.",
+        "gpa": null
     },
     {
         "subject": "MGMT 491",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "Majors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321."
+        "prerequisites": "Majors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321.",
+        "gpa": null
     },
     {
         "subject": "MGMT 495",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321."
+        "prerequisites": "Majors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321.",
+        "gpa": null
     },
     {
         "subject": "MGMT 495",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321."
+        "prerequisites": "Majors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321.",
+        "gpa": null
     },
     {
         "subject": "MGMT 495",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321."
+        "prerequisites": "Majors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321.",
+        "gpa": null
     },
     {
         "subject": "MGMT 495",
@@ -482,6 +503,7 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321."
+        "prerequisites": "Majors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321.",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:27:48.903043
+2024-04-29T12:48:46.916696
 [
     {
         "subject": "WGSS 213",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 320",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC BCGM OL",
-        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission."
+        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.",
+        "gpa": null
     }
 ]

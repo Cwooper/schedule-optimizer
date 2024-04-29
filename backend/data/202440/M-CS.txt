@@ -1,4 +1,4 @@
-2024-04-26T16:24:47.481811
+2024-04-29T12:48:29.953772
 [
     {
         "subject": "M/CS 335",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Deeney, Megan",
-        "room": "TBA",
+        "room": "BH 106",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "MATH 204; and one of CSCI 140 or CSCI 141 or MATH 307."
+        "prerequisites": "MATH 204; and one of CSCI 140 or CSCI 141 or MATH 307.",
+        "gpa": null
     },
     {
         "subject": "M/CS 375",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Ypma, Tjalling Johannes",
-        "room": "TBA",
+        "room": "OM 580",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "MATH 204; CSCI 140 or CSCI 141 or MATH 307."
+        "prerequisites": "MATH 204; CSCI 140 or CSCI 141 or MATH 307.",
+        "gpa": null
     },
     {
         "subject": "M/CS 478",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Sarkar, Amites",
-        "room": "TBA",
+        "room": "BH 106",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -64,6 +66,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "MATH 204, MATH 341, and one of the following: CSCI 140, CSCI 141, MATH 307."
+        "prerequisites": "MATH 204, MATH 341, and one of the following: CSCI 140, CSCI 141, MATH 307.",
+        "gpa": null
     }
 ]

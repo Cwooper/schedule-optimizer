@@ -1,4 +1,4 @@
-2024-04-26T16:26:05.680058
+2024-04-29T12:48:37.961822
 [
     {
         "subject": "DIAD 205",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC BCGM OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DIAD 495",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Admission to the Disability and Advocacy, BAE or instructor permission."
+        "prerequisites": "Admission to the Disability and Advocacy, BAE or instructor permission.",
+        "gpa": null
     }
 ]

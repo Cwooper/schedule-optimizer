@@ -1,4 +1,4 @@
-2024-04-26T16:27:24.864457
+2024-04-29T12:48:45.036942
 [
     {
         "subject": "PLSC 250",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PLSC 261",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC HUM OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PLSC 271",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PLSC 347",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "PLSC 250 or equivalent"
+        "prerequisites": "PLSC 250 or equivalent",
+        "gpa": null
     },
     {
         "subject": "PLSC 396",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "PLSC 261 or PLSC 271 or PLSC 291; or instructor permission."
+        "prerequisites": "PLSC 261 or PLSC 271 or PLSC 291; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "PLSC 397U",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "PLSC 250 or instructor permission."
+        "prerequisites": "PLSC 250 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "PLSC 398",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "PLSC 250."
+        "prerequisites": "PLSC 250.",
+        "gpa": null
     },
     {
         "subject": "PLSC 444",
@@ -174,6 +181,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "Two courses in appropriate field in discipline"
+        "prerequisites": "Two courses in appropriate field in discipline",
+        "gpa": null
     }
 ]

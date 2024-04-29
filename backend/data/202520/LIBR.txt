@@ -1,4 +1,4 @@
-2024-04-26T16:19:39.571316
+2024-04-29T12:47:54.668461
 [
     {
         "subject": "LIBR 325",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LIBR 341",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LIBR 400",
@@ -64,6 +66,7 @@
         "waitlist": "",
         "restrictions": "PR",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

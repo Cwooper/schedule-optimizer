@@ -1,4 +1,4 @@
-2024-04-26T16:20:33.886623
+2024-04-29T12:48:01.716515
 [
     {
         "subject": "WGSS 211",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 211",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM OL SYNC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 211",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 211",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 212",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 212",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 213",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 314",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ACGM FTF",
-        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or five credits of 300-level Women, Gender, and Sexuality Studies."
+        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or five credits of 300-level Women, Gender, and Sexuality Studies.",
+        "gpa": null
     },
     {
         "subject": "WGSS 320",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCGM FTF",
-        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission."
+        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "WGSS 320",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCGM FTF",
-        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission."
+        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "WGSS 348",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "WGSS 211, WGSS 212, or\u00a0WGSS 213"
+        "prerequisites": "WGSS 211, WGSS 212, or\u00a0WGSS 213",
+        "gpa": null
     },
     {
         "subject": "WGSS 350",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status."
+        "prerequisites": "Sophomore status.",
+        "gpa": null
     },
     {
         "subject": "WGSS 363",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "HYBD OL SYNC",
-        "prerequisites": "WGSS 211 or WGSS 212 or WGSS 213."
+        "prerequisites": "WGSS 211 or WGSS 212 or WGSS 213.",
+        "gpa": null
     },
     {
         "subject": "WGSS 450",
@@ -306,6 +319,7 @@
         "waitlist": "",
         "restrictions": "SR MJ",
         "attributes": "CPST FTF WP3",
-        "prerequisites": "Senior status in WGSS major or minor; or instructor permission."
+        "prerequisites": "Senior status in WGSS major or minor; or instructor permission.",
+        "gpa": null
     }
 ]

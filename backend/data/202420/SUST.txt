@@ -1,4 +1,4 @@
-2024-04-26T16:30:08.640982
+2024-04-29T12:49:02.877334
 [
     {
         "subject": "SUST 408",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "LDST 101 or instructor permission."
+        "prerequisites": "LDST 101 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SUST 471",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "One course from: SUST 116, UEPP 116, UEPP 202, or UEPP 261; or instructor permission."
+        "prerequisites": "One course from: SUST 116, UEPP 116, UEPP 202, or UEPP 261; or instructor permission.",
+        "gpa": null
     }
 ]

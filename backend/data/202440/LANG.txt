@@ -1,4 +1,4 @@
-2024-04-26T16:24:48.697391
+2024-04-29T12:48:30.036455
 [
     {
         "subject": "LANG 410",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Bernardo-Hinesley, S",
-        "room": "TBA",
+        "room": "BH 112",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -20,6 +20,7 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "10 credits in one world language beyond second year; Grade of B or better in LING 201 or instructor permission."
+        "prerequisites": "10 credits in one world language beyond second year; Grade of B or better in LING 201 or instructor permission.",
+        "gpa": null
     }
 ]

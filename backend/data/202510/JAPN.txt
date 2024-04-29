@@ -1,4 +1,4 @@
-2024-04-26T16:21:59.967085
+2024-04-29T12:48:10.143561
 [
     {
         "subject": "JAPN 102",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "JAPN 101"
+        "prerequisites": "JAPN 101",
+        "gpa": null
     },
     {
         "subject": "JAPN 102",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "JAPN 101"
+        "prerequisites": "JAPN 101",
+        "gpa": null
     },
     {
         "subject": "JAPN 102",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "JAPN 101"
+        "prerequisites": "JAPN 101",
+        "gpa": null
     },
     {
         "subject": "JAPN 102",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "JAPN 101"
+        "prerequisites": "JAPN 101",
+        "gpa": null
     },
     {
         "subject": "JAPN 202",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "ACGM FTF",
-        "prerequisites": "JAPN 201."
+        "prerequisites": "JAPN 201.",
+        "gpa": null
     },
     {
         "subject": "JAPN 202",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "ACGM FTF",
-        "prerequisites": "JAPN 201."
+        "prerequisites": "JAPN 201.",
+        "gpa": null
     },
     {
         "subject": "JAPN 202",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "ACGM FTF",
-        "prerequisites": "JAPN 201."
+        "prerequisites": "JAPN 201.",
+        "gpa": null
     },
     {
         "subject": "JAPN 302",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "ACGM FTF",
-        "prerequisites": "JAPN 301."
+        "prerequisites": "JAPN 301.",
+        "gpa": null
     },
     {
         "subject": "JAPN 302",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "ACGM FTF",
-        "prerequisites": "JAPN 301."
+        "prerequisites": "JAPN 301.",
+        "gpa": null
     },
     {
         "subject": "JAPN 314",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "JAPN 301 or instructor permission."
+        "prerequisites": "JAPN 301 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "JAPN 402",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "B- in JAPN 303 or instructor permission."
+        "prerequisites": "B- in JAPN 303 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "JAPN 425",
@@ -262,6 +273,7 @@
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "Written permission of department; JAPN 303 with B or better."
+        "prerequisites": "Written permission of department; JAPN 303 with B or better.",
+        "gpa": null
     }
 ]

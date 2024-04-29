@@ -1,4 +1,4 @@
-2024-04-26T16:23:35.027908
+2024-04-29T12:48:21.518496
 [
     {
         "subject": "DNC 100",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DNC 111",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DNC 121",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "Audition or level placement and instructor permission."
+        "prerequisites": "Audition or level placement and instructor permission.",
+        "gpa": null
     },
     {
         "subject": "DNC 211",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Audition or level placement and instructor permission. DNC 111, DNC 112, DNC 113 recommended."
+        "prerequisites": "Audition or level placement and instructor permission. DNC 111, DNC 112, DNC 113 recommended.",
+        "gpa": null
     },
     {
         "subject": "DNC 221",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Audition or level placement and instructor permission. DNC 121, DNC 122, DNC 123 recommended."
+        "prerequisites": "Audition or level placement and instructor permission. DNC 121, DNC 122, DNC 123 recommended.",
+        "gpa": null
     },
     {
         "subject": "DNC 232",
@@ -121,7 +126,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Kuntz, Pam",
-        "room": "TBA",
+        "room": "AW 304",
         "lab_room": null,
         "addl_fees": "Flat Fee $25.00",
         "cap": "50",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DNC 242",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Dance majors and Dance minors only."
+        "prerequisites": "Dance majors and Dance minors only.",
+        "gpa": null
     },
     {
         "subject": "DNC 257",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "being cast in a faculty-directed production"
+        "prerequisites": "being cast in a faculty-directed production",
+        "gpa": null
     },
     {
         "subject": "DNC 311",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Audition or level placement and instructor permission. DNC 211, DNC 212, DNC 213 recommended."
+        "prerequisites": "Audition or level placement and instructor permission. DNC 211, DNC 212, DNC 213 recommended.",
+        "gpa": null
     },
     {
         "subject": "DNC 321",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Audition or level placement and instructor permission. DNC 221, DNC 222, DNC 223, DNC 339 recommended."
+        "prerequisites": "Audition or level placement and instructor permission. DNC 221, DNC 222, DNC 223, DNC 339 recommended.",
+        "gpa": null
     },
     {
         "subject": "DNC 332",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC HUM OL SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DNC 397J",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SST",
-        "prerequisites": "DNC 339 or PA 111 or PE 111."
+        "prerequisites": "DNC 339 or PA 111 or PE 111.",
+        "gpa": null
     },
     {
         "subject": "DNC 403",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DNC 421",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Audition or level placement and instructor permission. DNC 321, DNC 322, DNC 323 recommended."
+        "prerequisites": "Audition or level placement and instructor permission. DNC 321, DNC 322, DNC 323 recommended.",
+        "gpa": null
     },
     {
         "subject": "DNC 442",
@@ -328,6 +342,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "DNC 342, placement in advanced level technique classes and instructor permission."
+        "prerequisites": "DNC 342, placement in advanced level technique classes and instructor permission.",
+        "gpa": null
     }
 ]

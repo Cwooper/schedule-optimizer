@@ -1,4 +1,4 @@
-2024-04-26T16:24:34.880355
+2024-04-29T12:48:28.567532
 [
     {
         "subject": "LING 101",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Denham, Kristin E.",
-        "room": "TBA",
+        "room": "WL 164F",
         "lab_room": null,
         "addl_fees": "",
         "cap": "75",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LING 201",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "FR 101",
         "lab_room": null,
         "addl_fees": "",
         "cap": "125",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LING 201",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Dawson, Virginia",
-        "room": "TBA",
+        "room": "FR 201",
         "lab_room": null,
         "addl_fees": "",
         "cap": "150",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LING 201",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "FR 101",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LING 204",
@@ -99,7 +103,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Mata, R.",
-        "room": "TBA",
+        "room": "WL 164F",
         "lab_room": null,
         "addl_fees": "",
         "cap": "75",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LING 207",
@@ -121,7 +126,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Jantzen, McNeel Gordon",
-        "room": "TBA",
+        "room": "VU 552",
         "lab_room": null,
         "addl_fees": "",
         "cap": "75",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SCI",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LING 301",
@@ -143,7 +149,7 @@
         "lab_start_time": "1000",
         "lab_end_time": "1150",
         "instructor": "Sandoval, Jordan Beth",
-        "room": "TBA",
+        "room": "ES 070",
         "lab_room": "MH 021",
         "addl_fees": "",
         "cap": "25",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF LSCI",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LING 304",
@@ -165,7 +172,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Bernardo-Hinesley, S",
-        "room": "TBA",
+        "room": "MH 015",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "LING 201 or LING 204 or ANTH 247 or instructor permission."
+        "prerequisites": "LING 201 or LING 204 or ANTH 247 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "LING 310",
@@ -187,7 +195,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Sandoval, Jordan Beth",
-        "room": "TBA",
+        "room": "ES 070",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "LING 201 or\u00a0ANTH 247\u00a0or HNRS\u00a0217."
+        "prerequisites": "LING 201 or\u00a0ANTH 247\u00a0or HNRS\u00a0217.",
+        "gpa": null
     },
     {
         "subject": "LING 311",
@@ -209,7 +218,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "MH 017",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "LING 305, LING 310, or instructor permission."
+        "prerequisites": "LING 305, LING 310, or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "LING 315",
@@ -231,7 +241,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Jantzen, McNeel Gordon",
-        "room": "TBA",
+        "room": "MH 011",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP2",
-        "prerequisites": "LING 305 or instructor permission."
+        "prerequisites": "LING 305 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "LING 321",
@@ -253,7 +264,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "BH 173",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "LING 310"
+        "prerequisites": "LING 310",
+        "gpa": null
     },
     {
         "subject": "LING 403",
@@ -275,7 +287,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Vajda, Edward J.",
-        "room": "TBA",
+        "room": "BH 173",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "LING 310"
+        "prerequisites": "LING 310",
+        "gpa": null
     },
     {
         "subject": "LING 411",
@@ -297,7 +310,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "BH 111",
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
@@ -306,6 +319,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "LING 311; one course from: LING 204, LING 207 or ANTH 347."
+        "prerequisites": "LING 311; one course from: LING 204, LING 207 or ANTH 347.",
+        "gpa": null
     }
 ]

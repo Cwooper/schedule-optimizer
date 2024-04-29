@@ -1,4 +1,4 @@
-2024-04-26T16:20:35.165284
+2024-04-29T12:48:01.852566
 [
     {
         "subject": "ACCT 240",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ACCT 240",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ACCT 240",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ACCT 240",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ACCT 245",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ACCT 240"
+        "prerequisites": "ACCT 240",
+        "gpa": null
     },
     {
         "subject": "ACCT 245",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ACCT 240"
+        "prerequisites": "ACCT 240",
+        "gpa": null
     },
     {
         "subject": "ACCT 245",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ACCT 240"
+        "prerequisites": "ACCT 240",
+        "gpa": null
     },
     {
         "subject": "ACCT 321",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF WP1",
-        "prerequisites": "Majors only. ACCT 245, MIS 220 or equivalent skills"
+        "prerequisites": "Majors only. ACCT 245, MIS 220 or equivalent skills",
+        "gpa": null
     },
     {
         "subject": "ACCT 331",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "CF FTF",
-        "prerequisites": "Majors only. ACCT 245, DSCI 205, MIS 220 or equivalent skills."
+        "prerequisites": "Majors only. ACCT 245, DSCI 205, MIS 220 or equivalent skills.",
+        "gpa": null
     },
     {
         "subject": "ACCT 341",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. ACCT 245"
+        "prerequisites": "Majors Only. ACCT 245",
+        "gpa": null
     },
     {
         "subject": "ACCT 342",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. ACCT 341"
+        "prerequisites": "Majors Only. ACCT 341",
+        "gpa": null
     },
     {
         "subject": "ACCT 342",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. ACCT 341"
+        "prerequisites": "Majors Only. ACCT 341",
+        "gpa": null
     },
     {
         "subject": "ACCT 343",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "Majors Only. ACCT 342"
+        "prerequisites": "Majors Only. ACCT 342",
+        "gpa": null
     },
     {
         "subject": "ACCT 375",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF WP1",
-        "prerequisites": "Majors only; ACCT 240."
+        "prerequisites": "Majors only; ACCT 240.",
+        "gpa": null
     },
     {
         "subject": "ACCT 421",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "CF FTF",
-        "prerequisites": "Majors only; ACCT 321."
+        "prerequisites": "Majors only; ACCT 321.",
+        "gpa": null
     },
     {
         "subject": "ACCT 444",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors only. ACCT 343."
+        "prerequisites": "Majors only. ACCT 343.",
+        "gpa": null
     },
     {
         "subject": "ACCT 461",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. ACCT 321, ACCT 343"
+        "prerequisites": "Majors Only. ACCT 321, ACCT 343",
+        "gpa": null
     },
     {
         "subject": "ACCT 470",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF WP1",
-        "prerequisites": "Majors Only. MGMT 271"
+        "prerequisites": "Majors Only. MGMT 271",
+        "gpa": null
     },
     {
         "subject": "ACCT 475",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. ACCT 375"
+        "prerequisites": "Majors Only. ACCT 375",
+        "gpa": null
     },
     {
         "subject": "ACCT 490",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. ACCT 341; minimum 2.75 GPA in 300/400-level accounting courses"
+        "prerequisites": "Majors Only. ACCT 341; minimum 2.75 GPA in 300/400-level accounting courses",
+        "gpa": null
     },
     {
         "subject": "ACCT 490",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. ACCT 341; minimum 2.75 GPA in 300/400-level accounting courses"
+        "prerequisites": "Majors Only. ACCT 341; minimum 2.75 GPA in 300/400-level accounting courses",
+        "gpa": null
     },
     {
         "subject": "ACCT 491",
@@ -482,6 +503,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "ACCT 342 and instructor permission; Accounting, BS major status."
+        "prerequisites": "ACCT 342 and instructor permission; Accounting, BS major status.",
+        "gpa": null
     }
 ]

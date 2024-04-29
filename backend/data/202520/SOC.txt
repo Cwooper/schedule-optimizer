@@ -1,4 +1,4 @@
-2024-04-26T16:20:23.901794
+2024-04-29T12:48:00.676032
 [
     {
         "subject": "SOC 260",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SOC 268",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SOC 269",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SOC 302",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission."
+        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SOC 302",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission."
+        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SOC 304",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF QSR",
-        "prerequisites": "MATH 107 or MATH 112 or equivalent; And any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission."
+        "prerequisites": "MATH 107 or MATH 112 or equivalent; And any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SOC 304",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF QSR",
-        "prerequisites": "MATH 107 or MATH 112 or equivalent; And any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission."
+        "prerequisites": "MATH 107 or MATH 112 or equivalent; And any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SOC 304",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF QSR",
-        "prerequisites": "MATH 107 or MATH 112 or equivalent; And any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission."
+        "prerequisites": "MATH 107 or MATH 112 or equivalent; And any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SOC 306",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission."
+        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SOC 306",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission."
+        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SOC 326",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL SST",
-        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission."
+        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SOC 330",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission."
+        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SOC 338",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission."
+        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SOC 339",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "ASNC BCGM OL SST",
-        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, WGSS 211, WGSS 212, WGSS 213, or HNRS 252; or instructor permission."
+        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, WGSS 211, WGSS 212, WGSS 213, or HNRS 252; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SOC 340",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission."
+        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SOC 347",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission."
+        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SOC 352",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission."
+        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SOC 354",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252, or instructor permission."
+        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252, or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SOC 356",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission."
+        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SOC 366",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ACGM ASNC OL SST",
-        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission."
+        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SOC 371",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "SOC 302 and SOC 306"
+        "prerequisites": "SOC 302 and SOC 306",
+        "gpa": null
     },
     {
         "subject": "SOC 372",
@@ -482,7 +503,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission."
+        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SOC 385",
@@ -504,7 +526,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Any one course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271 or instructor permission."
+        "prerequisites": "Any one course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SOC 426",
@@ -526,7 +549,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "CPST FTF WP1",
-        "prerequisites": "SOC 302; SOC 304 or PSY 306; SOC 306; and SOC 320."
+        "prerequisites": "SOC 302; SOC 304 or PSY 306; SOC 306; and SOC 320.",
+        "gpa": null
     },
     {
         "subject": "SOC 460",
@@ -548,7 +572,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "CPST FTF WP1",
-        "prerequisites": "SOC 302; SOC 304 or PSY 306; and SOC 306."
+        "prerequisites": "SOC 302; SOC 304 or PSY 306; and SOC 306.",
+        "gpa": null
     },
     {
         "subject": "SOC 469",
@@ -570,7 +595,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "CPST FTF WP1",
-        "prerequisites": "SOC 302; SOC 304 or PSY 306; and SOC 306."
+        "prerequisites": "SOC 302; SOC 304 or PSY 306; and SOC 306.",
+        "gpa": null
     },
     {
         "subject": "SOC 480",
@@ -592,7 +618,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Permission of instructor."
+        "prerequisites": "Permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "SOC 480",
@@ -614,7 +641,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Permission of instructor."
+        "prerequisites": "Permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "SOC 480",
@@ -636,7 +664,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Permission of instructor."
+        "prerequisites": "Permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "SOC 480",
@@ -658,7 +687,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Permission of instructor."
+        "prerequisites": "Permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "SOC 481",
@@ -680,7 +710,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SOC 492",
@@ -702,7 +733,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "CPST FTF WP1",
-        "prerequisites": "SOC 302; and SOC 304 or SOC 215; and SOC 306 or or SOC 210. 5 credits of SOC 400 taken with student's senior thesis faculty advisor before and in preparation for senior thesis."
+        "prerequisites": "SOC 302; and SOC 304 or SOC 215; and SOC 306 or or SOC 210. 5 credits of SOC 400 taken with student's senior thesis faculty advisor before and in preparation for senior thesis.",
+        "gpa": null
     },
     {
         "subject": "SOC 497F",
@@ -724,7 +756,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "CPST FTF WP1",
-        "prerequisites": "SOC 302; SOC 304 or PSY 302; SOC 306 or PSY 301; and SOC 341 or instructor permission."
+        "prerequisites": "SOC 302; SOC 304 or PSY 302; SOC 306 or PSY 301; and SOC 341 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SOC 497M",
@@ -746,6 +779,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "CPST FTF WP1",
-        "prerequisites": "SOC 302, SOC 304, and SOC 306."
+        "prerequisites": "SOC 302, SOC 304, and SOC 306.",
+        "gpa": null
     }
 ]

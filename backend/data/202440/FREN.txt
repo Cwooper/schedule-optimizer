@@ -1,4 +1,4 @@
-2024-04-26T16:24:03.979714
+2024-04-29T12:48:24.441783
 [
     {
         "subject": "FREN 101",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Radoiu, Anthony Nicolas",
-        "room": "TBA",
+        "room": "HU 108",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "30",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "FREN 101",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Smith, Lindsey Leigh",
-        "room": "TBA",
+        "room": "MH 105",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "30",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "FREN 101",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Hanania, Cecile",
-        "room": "TBA",
+        "room": "MH 135",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "30",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "FREN 201",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "MH 015",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "25",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCOM FTF",
-        "prerequisites": "FREN 103 or FREN 104 or equivalent"
+        "prerequisites": "FREN 103 or FREN 104 or equivalent",
+        "gpa": null
     },
     {
         "subject": "FREN 201",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCOM FTF",
-        "prerequisites": "FREN 103 or FREN 104 or equivalent"
+        "prerequisites": "FREN 103 or FREN 104 or equivalent",
+        "gpa": null
     },
     {
         "subject": "FREN 301",
@@ -121,7 +126,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Radoiu, Anthony Nicolas",
-        "room": "TBA",
+        "room": "HU 108",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -129,8 +134,9 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "BCOM FTF",
-        "prerequisites": "FREN 203 or instructor permission."
+        "attributes": "BCOM FTF WP2",
+        "prerequisites": "FREN 203 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "FREN 301",
@@ -143,7 +149,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Smith, Lindsey Leigh",
-        "room": "TBA",
+        "room": "MH 105",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -151,8 +157,9 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "BCOM FTF",
-        "prerequisites": "FREN 203 or instructor permission."
+        "attributes": "BCOM FTF WP2",
+        "prerequisites": "FREN 203 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "FREN 314",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "FREN 203 or instructor permission."
+        "prerequisites": "FREN 203 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "FREN 401",
@@ -187,7 +195,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Hanania, Cecile",
-        "room": "TBA",
+        "room": "MH 135",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -195,8 +203,9 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF",
-        "prerequisites": "FREN 301 and one course from: FREN 340, FREN 341, FREN 342."
+        "attributes": "FTF WP3",
+        "prerequisites": "FREN 301 and one course from: FREN 340, FREN 341, FREN 342.",
+        "gpa": null
     },
     {
         "subject": "FREN 425",
@@ -218,6 +227,7 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Written permission and two upper-division French courses."
+        "prerequisites": "Written permission and two upper-division French courses.",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:21:06.341926
+2024-04-29T12:48:04.802661
 [
     {
         "subject": "CISS 301",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "CSCI 145"
+        "prerequisites": "CSCI 145",
+        "gpa": null
     },
     {
         "subject": "CISS 301",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "XBS-CISS MJ PQ",
         "attributes": "HYBD PBEX",
-        "prerequisites": "CSCI 145"
+        "prerequisites": "CSCI 145",
+        "gpa": null
     },
     {
         "subject": "CISS 301",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF KLEX",
-        "prerequisites": "CSCI 145"
+        "prerequisites": "CSCI 145",
+        "gpa": null
     },
     {
         "subject": "CISS 346",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "CISS 247 or CSCI 247."
+        "prerequisites": "CISS 247 or CSCI 247.",
+        "gpa": null
     },
     {
         "subject": "CISS 360",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "XBS-CISS MJ PQ",
         "attributes": "HYBD PBEX",
-        "prerequisites": "CISS 247"
+        "prerequisites": "CISS 247",
+        "gpa": null
     },
     {
         "subject": "CISS 360",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "HYBD",
-        "prerequisites": "CISS 247"
+        "prerequisites": "CISS 247",
+        "gpa": null
     },
     {
         "subject": "CISS 360",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF KLEX",
-        "prerequisites": "CISS 247"
+        "prerequisites": "CISS 247",
+        "gpa": null
     },
     {
         "subject": "CISS 361",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "HYBD PBEX",
-        "prerequisites": "CSCI 140 or CSCI 141 or MIS 320."
+        "prerequisites": "CSCI 140 or CSCI 141 or MIS 320.",
+        "gpa": null
     },
     {
         "subject": "CISS 469",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "HYBD",
-        "prerequisites": "CISS 360"
+        "prerequisites": "CISS 360",
+        "gpa": null
     },
     {
         "subject": "CISS 469",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "HYBD PBEX",
-        "prerequisites": "CISS 360"
+        "prerequisites": "CISS 360",
+        "gpa": null
     },
     {
         "subject": "CISS 471",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "CISS 492",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "HYBD PBEX",
-        "prerequisites": "CISS 491."
+        "prerequisites": "CISS 491.",
+        "gpa": null
     },
     {
         "subject": "CISS 492",
@@ -284,6 +296,7 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "HYBD KLEX",
-        "prerequisites": "CISS 491."
+        "prerequisites": "CISS 491.",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:26:57.340009
+2024-04-29T12:48:43.044782
 [
     {
         "subject": "LING 201",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "LING 207",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SCI",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

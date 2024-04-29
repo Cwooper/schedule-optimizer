@@ -1,4 +1,4 @@
-2024-04-26T16:28:34.699980
+2024-04-29T12:48:51.456626
 [
     {
         "subject": "ESJ 397",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Conditional admissions to Woodring College of Education through the Maestros Para el Pueblo program; or instructor or department chair permission."
+        "prerequisites": "Conditional admissions to Woodring College of Education through the Maestros Para el Pueblo program; or instructor or department chair permission.",
+        "gpa": null
     },
     {
         "subject": "ESJ 411",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "AMST 301 or FAIR 366E; declaration of Education and Social Justice minor; or instructor permission."
+        "prerequisites": "AMST 301 or FAIR 366E; declaration of Education and Social Justice minor; or instructor permission.",
+        "gpa": null
     }
 ]

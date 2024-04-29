@@ -1,4 +1,4 @@
-2024-04-26T16:29:29.181752
+2024-04-29T12:48:58.361567
 [
     {
         "subject": "MBA 503",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ",
         "attributes": "FTF",
-        "prerequisites": "Admitted graduate student within College of Business and Economics."
+        "prerequisites": "Admitted graduate student within College of Business and Economics.",
+        "gpa": null
     },
     {
         "subject": "MBA 532",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Admitted graduate student within College of Business and Economics; MBA 509."
+        "prerequisites": "Admitted graduate student within College of Business and Economics; MBA 509.",
+        "gpa": null
     },
     {
         "subject": "MBA 541",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MBA 505 and MBA 511."
+        "prerequisites": "MBA 505 and MBA 511.",
+        "gpa": null
     },
     {
         "subject": "MBA 591",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MBA 595 or concurrent."
+        "prerequisites": "MBA 595 or concurrent.",
+        "gpa": null
     },
     {
         "subject": "MBA 595",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ",
         "attributes": "FTF",
-        "prerequisites": "Admitted graduate student within College of Business and Economics."
+        "prerequisites": "Admitted graduate student within College of Business and Economics.",
+        "gpa": null
     },
     {
         "subject": "MBA 598",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ",
         "attributes": "FTF",
-        "prerequisites": "Admitted graduate student within College of Business and Economics."
+        "prerequisites": "Admitted graduate student within College of Business and Economics.",
+        "gpa": null
     }
 ]

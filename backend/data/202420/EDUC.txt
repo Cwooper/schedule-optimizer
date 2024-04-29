@@ -1,4 +1,4 @@
-2024-04-26T16:28:32.258667
+2024-04-29T12:48:51.218639
 [
     {
         "subject": "EDUC 109",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV FR",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EDUC 109",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EDUC 309",
@@ -59,12 +61,13 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00",
         "cap": "20",
-        "enrl": "19",
-        "avail": "1",
+        "enrl": "18",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ASNC BCOM OL SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EDUC 309",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ASNC BCOM OL SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EDUC 465",
@@ -108,6 +112,7 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "OL SYNC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

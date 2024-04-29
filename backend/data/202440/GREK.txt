@@ -1,4 +1,4 @@
-2024-04-26T16:24:10.250730
+2024-04-29T12:48:25.146803
 [
     {
         "subject": "GREK 101",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Krause, Miller Stanley",
-        "room": "TBA",
+        "room": "MH 114",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "GREK 101",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Krause, Miller Stanley",
-        "room": "TBA",
+        "room": "MH 231",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "GREK 201",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Stayskal, Byron",
-        "room": "TBA",
+        "room": "CV 265",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -64,6 +66,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCOM FTF",
-        "prerequisites": "GREK 103 or equivalent"
+        "prerequisites": "GREK 103 or equivalent",
+        "gpa": null
     }
 ]

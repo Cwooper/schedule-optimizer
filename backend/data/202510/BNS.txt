@@ -1,4 +1,4 @@
-2024-04-26T16:20:48.657498
+2024-04-29T12:48:03.017670
 [
     {
         "subject": "BNS 302",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP2",
-        "prerequisites": "BNS 301 and declared Behavioral Neuroscience Major; or instructor permission."
+        "prerequisites": "BNS 301 and declared Behavioral Neuroscience Major; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "BNS 305",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "BIOL 205, BNS 301, CHEM 162 and PSY 220; or instructor permission."
+        "prerequisites": "BIOL 205, BNS 301, CHEM 162 and PSY 220; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "BNS 328",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "BIOL 205, BNS 301, CHEM 163 and PSY 220; or instructor permission."
+        "prerequisites": "BIOL 205, BNS 301, CHEM 163 and PSY 220; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "BNS 328",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "BIOL 205, BNS 301, CHEM 163 and PSY 220; or instructor permission."
+        "prerequisites": "BIOL 205, BNS 301, CHEM 163 and PSY 220; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "BNS 400",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "PR",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "BNS 401",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP2",
-        "prerequisites": "BNS 302; BNS 306 or concurrent; and one course from: PSY 319, PSY 321, PSY 322, PSY 323 or PSY 324; or instructor permission."
+        "prerequisites": "BNS 302; BNS 306 or concurrent; and one course from: PSY 319, PSY 321, PSY 322, PSY 323 or PSY 324; or instructor permission.",
+        "gpa": null
     }
 ]

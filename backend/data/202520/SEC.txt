@@ -1,4 +1,4 @@
-2024-04-26T16:20:21.416442
+2024-04-29T12:48:00.419725
 [
     {
         "subject": "SEC 400",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "PR ED",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SEC 411",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "ED",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SEC 411",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "ED",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SEC 411",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "ED",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SEC 425",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "ED",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SEC 425",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "ED",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SEC 426",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "ED",
         "attributes": "FTF",
-        "prerequisites": "SEC 431 or SEC 533 or permission of instructor."
+        "prerequisites": "SEC 431 or SEC 533 or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "SEC 431",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "ED PQ",
         "attributes": "FTF",
-        "prerequisites": "SEC 410 and SEC 430 (or equivalent)."
+        "prerequisites": "SEC 410 and SEC 430 (or equivalent).",
+        "gpa": null
     },
     {
         "subject": "SEC 431",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "ED PQ",
         "attributes": "FTF",
-        "prerequisites": "SEC 410 and SEC 430 (or equivalent)."
+        "prerequisites": "SEC 410 and SEC 430 (or equivalent).",
+        "gpa": null
     },
     {
         "subject": "SEC 432",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "ED",
         "attributes": "FTF",
-        "prerequisites": "SEC 430 and SEC 431."
+        "prerequisites": "SEC 430 and SEC 431.",
+        "gpa": null
     },
     {
         "subject": "SEC 432",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "ED",
         "attributes": "FTF",
-        "prerequisites": "SEC 430 and SEC 431."
+        "prerequisites": "SEC 430 and SEC 431.",
+        "gpa": null
     },
     {
         "subject": "SEC 433",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "ED S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SEC 435",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "ED S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SEC 436",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "ED S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SEC 495",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV ED IP",
         "attributes": "FTF",
-        "prerequisites": "recommended for supervised teaching"
+        "prerequisites": "recommended for supervised teaching",
+        "gpa": null
     },
     {
         "subject": "SEC 513",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "GR ED GR PB PM",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SEC 514",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "ED GR PB PM S/U",
         "attributes": "FTF",
-        "prerequisites": "Admission to MIT program."
+        "prerequisites": "Admission to MIT program.",
+        "gpa": null
     },
     {
         "subject": "SEC 525",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "GR ED GR PB PM",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SEC 531",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "GR ED GR PB PM",
         "attributes": "FTF",
-        "prerequisites": "Program advisor permission."
+        "prerequisites": "Program advisor permission.",
+        "gpa": null
     },
     {
         "subject": "SEC 532",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "GR ED GR PB PM",
         "attributes": "FTF",
-        "prerequisites": "Admission to Secondary MIT or instructor permission."
+        "prerequisites": "Admission to Secondary MIT or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SEC 534",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "GR ED GR PB PM PQ",
         "attributes": "FTF",
-        "prerequisites": "SEC 533."
+        "prerequisites": "SEC 533.",
+        "gpa": null
     },
     {
         "subject": "SEC 692",
@@ -482,7 +503,8 @@
         "waitlist": "",
         "restrictions": "ED GR PB PM S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "SEC 501."
+        "prerequisites": "SEC 501.",
+        "gpa": null
     },
     {
         "subject": "SEC 693",
@@ -504,7 +526,8 @@
         "waitlist": "",
         "restrictions": "ED GR PB PM S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "SEC 501."
+        "prerequisites": "SEC 501.",
+        "gpa": null
     },
     {
         "subject": "SEC 699",
@@ -526,6 +549,7 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

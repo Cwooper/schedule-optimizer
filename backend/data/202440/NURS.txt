@@ -1,4 +1,4 @@
-2024-04-26T16:24:54.257528
+2024-04-29T12:48:31.029083
 [
     {
         "subject": "NURS 301",
@@ -11,7 +11,7 @@
         "lab_start_time": "N/A",
         "lab_end_time": "N/A",
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "MH 156",
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "30",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "BCOM HYBD",
-        "prerequisites": "ENG 101 and admission to the RN-to-BSN program or permission of instructor."
+        "prerequisites": "ENG 101 and admission to the RN-to-BSN program or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "NURS 301",
@@ -33,7 +34,7 @@
         "lab_start_time": "N/A",
         "lab_end_time": "N/A",
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "MH 156",
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "30",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "BCOM HYBD",
-        "prerequisites": "ENG 101 and admission to the RN-to-BSN program or permission of instructor."
+        "prerequisites": "ENG 101 and admission to the RN-to-BSN program or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "NURS 305",
@@ -55,7 +57,7 @@
         "lab_start_time": "N/A",
         "lab_end_time": "N/A",
         "instructor": "Nixon, Devyn N.",
-        "room": "TBA",
+        "room": "MH 156",
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "30",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "HUM HYBD",
-        "prerequisites": "Admission to the RN-to-BSN program or permission of instructor."
+        "prerequisites": "Admission to the RN-to-BSN program or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "NURS 305",
@@ -77,7 +80,7 @@
         "lab_start_time": "N/A",
         "lab_end_time": "N/A",
         "instructor": "Nixon, Devyn N.",
-        "room": "TBA",
+        "room": "MH 156",
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "30",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "HUM HYBD",
-        "prerequisites": "Admission to the RN-to-BSN program or permission of instructor."
+        "prerequisites": "Admission to the RN-to-BSN program or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "NURS 307",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "Admission to the RN-to-BSN program or permission of instructor."
+        "prerequisites": "Admission to the RN-to-BSN program or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "NURS 307",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "Admission to the RN-to-BSN program or permission of instructor."
+        "prerequisites": "Admission to the RN-to-BSN program or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "NURS 401",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "Admission to the RN-to-BSN program."
+        "prerequisites": "Admission to the RN-to-BSN program.",
+        "gpa": null
     },
     {
         "subject": "NURS 401",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "Admission to the RN-to-BSN program."
+        "prerequisites": "Admission to the RN-to-BSN program.",
+        "gpa": null
     },
     {
         "subject": "NURS 510",
@@ -187,7 +195,7 @@
         "lab_start_time": "N/A",
         "lab_end_time": "N/A",
         "instructor": "Espina, Christine Renee",
-        "room": "TBA",
+        "room": "MH 156",
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "30",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM",
         "attributes": "HYBD",
-        "prerequisites": "Admission to the MSN Program; co-requisite: NURS 511."
+        "prerequisites": "Admission to the MSN Program; co-requisite: NURS 511.",
+        "gpa": null
     },
     {
         "subject": "NURS 511",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM S/U",
         "attributes": "FTF",
-        "prerequisites": "Admission to the MSN Program; co-requisite: NURS 510."
+        "prerequisites": "Admission to the MSN Program; co-requisite: NURS 510.",
+        "gpa": null
     },
     {
         "subject": "NURS 511",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM S/U",
         "attributes": "FTF",
-        "prerequisites": "Admission to the MSN Program; co-requisite: NURS 510."
+        "prerequisites": "Admission to the MSN Program; co-requisite: NURS 510.",
+        "gpa": null
     },
     {
         "subject": "NURS 512",
@@ -253,7 +264,7 @@
         "lab_start_time": "N/A",
         "lab_end_time": "N/A",
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "MH 156",
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "30",
@@ -262,6 +273,7 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM",
         "attributes": "HYBD",
-        "prerequisites": "Admission to the MSN program"
+        "prerequisites": "Admission to the MSN program",
+        "gpa": null
     }
 ]

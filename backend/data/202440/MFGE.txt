@@ -1,4 +1,4 @@
-2024-04-26T16:24:38.686609
+2024-04-29T12:48:28.939415
 [
     {
         "subject": "MFGE 231",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ENGR 170 or ID 380; MFGE 261 or concurrent or ID 330 or concurrent."
+        "prerequisites": "ENGR 170 or ID 380; MFGE 261 or concurrent or ID 330 or concurrent.",
+        "gpa": null
     },
     {
         "subject": "MFGE 231",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ENGR 170 or ID 380; MFGE 261 or concurrent or ID 330 or concurrent."
+        "prerequisites": "ENGR 170 or ID 380; MFGE 261 or concurrent or ID 330 or concurrent.",
+        "gpa": null
     },
     {
         "subject": "MFGE 231",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ENGR 170 or ID 380; MFGE 261 or concurrent or ID 330 or concurrent."
+        "prerequisites": "ENGR 170 or ID 380; MFGE 261 or concurrent or ID 330 or concurrent.",
+        "gpa": null
     },
     {
         "subject": "MFGE 300",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "MFGE 332",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MFGE 231 and MFGE 261"
+        "prerequisites": "MFGE 231 and MFGE 261",
+        "gpa": null
     },
     {
         "subject": "MFGE 332",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MFGE 231 and MFGE 261"
+        "prerequisites": "MFGE 231 and MFGE 261",
+        "gpa": null
     },
     {
         "subject": "MFGE 332",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MFGE 231 and MFGE 261"
+        "prerequisites": "MFGE 231 and MFGE 261",
+        "gpa": null
     },
     {
         "subject": "MFGE 341",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MATH 345"
+        "prerequisites": "MATH 345",
+        "gpa": null
     },
     {
         "subject": "MFGE 400",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "MFGE 453",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "PHYS 163; ENGR 352; MFGE 463 or concurrent."
+        "prerequisites": "PHYS 163; ENGR 352; MFGE 463 or concurrent.",
+        "gpa": null
     },
     {
         "subject": "MFGE 453",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "PHYS 163; ENGR 352; MFGE 463 or concurrent."
+        "prerequisites": "PHYS 163; ENGR 352; MFGE 463 or concurrent.",
+        "gpa": null
     },
     {
         "subject": "MFGE 463",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MFGE 332; MFGE 333; MFGE 381"
+        "prerequisites": "MFGE 332; MFGE 333; MFGE 381",
+        "gpa": null
     },
     {
         "subject": "MFGE 463",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MFGE 332; MFGE 333; MFGE 381"
+        "prerequisites": "MFGE 332; MFGE 333; MFGE 381",
+        "gpa": null
     },
     {
         "subject": "MFGE 491",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "ENG 101; MFGE 333; MFGE 381."
+        "prerequisites": "ENG 101; MFGE 333; MFGE 381.",
+        "gpa": null
     },
     {
         "subject": "MFGE 495",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MFGE 332, MFGE 341 or MFGE 250."
+        "prerequisites": "MFGE 332, MFGE 341 or MFGE 250.",
+        "gpa": null
     },
     {
         "subject": "MFGE 495",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MFGE 332, MFGE 341 or MFGE 250."
+        "prerequisites": "MFGE 332, MFGE 341 or MFGE 250.",
+        "gpa": null
     },
     {
         "subject": "MFGE 495",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MFGE 332, MFGE 341 or MFGE 250."
+        "prerequisites": "MFGE 332, MFGE 341 or MFGE 250.",
+        "gpa": null
     },
     {
         "subject": "MFGE 495",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MFGE 332, MFGE 341 or MFGE 250."
+        "prerequisites": "MFGE 332, MFGE 341 or MFGE 250.",
+        "gpa": null
     },
     {
         "subject": "MFGE 495",
@@ -416,6 +434,7 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MFGE 332, MFGE 341 or MFGE 250."
+        "prerequisites": "MFGE 332, MFGE 341 or MFGE 250.",
+        "gpa": null
     }
 ]

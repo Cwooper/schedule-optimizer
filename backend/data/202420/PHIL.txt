@@ -1,4 +1,4 @@
-2024-04-26T16:29:43.338505
+2024-04-29T12:49:00.242792
 [
     {
         "subject": "PHIL 107",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCOM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 107",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCOM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 112",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 112",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 113",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 113",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 114",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 114",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 115",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 201",
@@ -213,12 +222,13 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "106",
-        "enrl": "59",
-        "avail": "47",
+        "enrl": "58",
+        "avail": "48",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF QSR",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 368",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PHIL 366 or PHIL 367."
+        "prerequisites": "PHIL 366 or PHIL 367.",
+        "gpa": null
     },
     {
         "subject": "PHIL 410",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PHIL 310"
+        "prerequisites": "PHIL 310",
+        "gpa": null
     },
     {
         "subject": "PHIL 417",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF WP3",
-        "prerequisites": "3 upper-division PHIL courses"
+        "prerequisites": "3 upper-division PHIL courses",
+        "gpa": null
     },
     {
         "subject": "PHIL 420",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PHIL 320"
+        "prerequisites": "PHIL 320",
+        "gpa": null
     },
     {
         "subject": "PHIL 425",
@@ -328,6 +342,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PHIL 114."
+        "prerequisites": "PHIL 114.",
+        "gpa": null
     }
 ]

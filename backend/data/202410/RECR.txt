@@ -1,4 +1,4 @@
-2024-04-26T16:32:22.865251
+2024-04-29T12:49:18.984748
 [
     {
         "subject": "RECR 201",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV JR SO SR",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "RECR 360",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Phase I Recreation majors."
+        "prerequisites": "Phase I Recreation majors.",
+        "gpa": null
     },
     {
         "subject": "RECR 360",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Phase I Recreation majors."
+        "prerequisites": "Phase I Recreation majors.",
+        "gpa": null
     },
     {
         "subject": "RECR 370",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV JR SO SR",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status"
+        "prerequisites": "Sophomore status",
+        "gpa": null
     },
     {
         "subject": "RECR 372",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Phase I Recreation majors or permission of instructor."
+        "prerequisites": "Phase I Recreation majors or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "RECR 377",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV JR SO SR",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status"
+        "prerequisites": "Sophomore status",
+        "gpa": null
     },
     {
         "subject": "RECR 378",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Phase I Recreation majors or permission of instructor."
+        "prerequisites": "Phase I Recreation majors or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "RECR 378",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Phase I Recreation majors or permission of instructor."
+        "prerequisites": "Phase I Recreation majors or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "RECR 379",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status"
+        "prerequisites": "Sophomore status",
+        "gpa": null
     },
     {
         "subject": "RECR 380",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Sophomore or Junior status"
+        "prerequisites": "Sophomore or Junior status",
+        "gpa": null
     },
     {
         "subject": "RECR 397D",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "RECR 397C"
+        "prerequisites": "RECR 397C",
+        "gpa": null
     },
     {
         "subject": "RECR 473",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Phase II Recreation majors or instructor permission."
+        "prerequisites": "Phase II Recreation majors or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "RECR 473",
@@ -284,6 +296,7 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Phase II Recreation majors or instructor permission."
+        "prerequisites": "Phase II Recreation majors or instructor permission.",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:21:39.018193
+2024-04-29T12:48:08.353251
 [
     {
         "subject": "GERM 102",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "GERM 101 or equivalent"
+        "prerequisites": "GERM 101 or equivalent",
+        "gpa": null
     },
     {
         "subject": "GERM 102",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "GERM 101 or equivalent"
+        "prerequisites": "GERM 101 or equivalent",
+        "gpa": null
     },
     {
         "subject": "GERM 202",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF HUM",
-        "prerequisites": "GERM 201 or instructor permission."
+        "prerequisites": "GERM 201 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "GERM 202",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF HUM",
-        "prerequisites": "GERM 201 or instructor permission."
+        "prerequisites": "GERM 201 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "GERM 302",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF HUM",
-        "prerequisites": "GERM 301 or instructor permission."
+        "prerequisites": "GERM 301 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "GERM 340",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "GERM 301"
+        "prerequisites": "GERM 301",
+        "gpa": null
     },
     {
         "subject": "GERM 402",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "GERM 302 or instructor permission; recommended take to GERM 401 first."
+        "prerequisites": "GERM 302 or instructor permission; recommended take to GERM 401 first.",
+        "gpa": null
     },
     {
         "subject": "GERM 425",
@@ -174,6 +181,7 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "6 credits upper-division German; written department permission."
+        "prerequisites": "6 credits upper-division German; written department permission.",
+        "gpa": null
     }
 ]

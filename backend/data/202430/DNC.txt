@@ -1,4 +1,4 @@
-2024-04-26T16:26:00.873801
+2024-04-29T12:48:37.612281
 [
     {
         "subject": "DNC 231",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC CCOM OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DNC 232",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

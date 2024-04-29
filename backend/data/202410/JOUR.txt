@@ -1,4 +1,4 @@
-2024-04-26T16:31:42.957868
+2024-04-29T12:49:14.367504
 [
     {
         "subject": "JOUR 106",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "JOUR 106",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "JOUR 190",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "JOUR 190",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ASNC OL SSC SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "JOUR 207",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCOM FTF",
-        "prerequisites": "basic word processing skills required"
+        "prerequisites": "basic word processing skills required",
+        "gpa": null
     },
     {
         "subject": "JOUR 207",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCOM FTF",
-        "prerequisites": "basic word processing skills required"
+        "prerequisites": "basic word processing skills required",
+        "gpa": null
     },
     {
         "subject": "JOUR 207",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCOM FTF",
-        "prerequisites": "basic word processing skills required"
+        "prerequisites": "basic word processing skills required",
+        "gpa": null
     },
     {
         "subject": "JOUR 207",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCOM FTF",
-        "prerequisites": "basic word processing skills required"
+        "prerequisites": "basic word processing skills required",
+        "gpa": null
     },
     {
         "subject": "JOUR 207",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCOM FTF",
-        "prerequisites": "basic word processing skills required"
+        "prerequisites": "basic word processing skills required",
+        "gpa": null
     },
     {
         "subject": "JOUR 214",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status; JOUR 207."
+        "prerequisites": "Sophomore status; JOUR 207.",
+        "gpa": null
     },
     {
         "subject": "JOUR 305",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "JOUR 207; basic knowledge of photography."
+        "prerequisites": "JOUR 207; basic knowledge of photography.",
+        "gpa": null
     },
     {
         "subject": "JOUR 307",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "B- or better in JOUR 207 or instructor permission"
+        "prerequisites": "B- or better in JOUR 207 or instructor permission",
+        "gpa": null
     },
     {
         "subject": "JOUR 307",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "B- or better in JOUR 207 or instructor permission"
+        "prerequisites": "B- or better in JOUR 207 or instructor permission",
+        "gpa": null
     },
     {
         "subject": "JOUR 309",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "JOUR 207; JOUR 307 or JOUR 380."
+        "prerequisites": "JOUR 207; JOUR 307 or JOUR 380.",
+        "gpa": null
     },
     {
         "subject": "JOUR 314",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "Junior status; JOUR 207; JOUR 214; JOUR 307 or JOUR 380."
+        "prerequisites": "Junior status; JOUR 207; JOUR 214; JOUR 307 or JOUR 380.",
+        "gpa": null
     },
     {
         "subject": "JOUR 321",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "JOUR 207; one newspaper staff course. May not be taken concurrently with JOUR 404."
+        "prerequisites": "JOUR 207; one newspaper staff course. May not be taken concurrently with JOUR 404.",
+        "gpa": null
     },
     {
         "subject": "JOUR 330",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "OV JR SO SR PQ",
         "attributes": "FTF",
-        "prerequisites": "JOUR 207  or ENG 101 or permission of instructor."
+        "prerequisites": "JOUR 207  or ENG 101 or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "JOUR 340",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR",
         "attributes": "FTF HUM",
-        "prerequisites": "junior standing"
+        "prerequisites": "junior standing",
+        "gpa": null
     },
     {
         "subject": "JOUR 350",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR",
         "attributes": "FTF",
-        "prerequisites": "Junior status."
+        "prerequisites": "Junior status.",
+        "gpa": null
     },
     {
         "subject": "JOUR 351",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "JOUR 207"
+        "prerequisites": "JOUR 207",
+        "gpa": null
     },
     {
         "subject": "JOUR 351",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "JOUR 207"
+        "prerequisites": "JOUR 207",
+        "gpa": null
     },
     {
         "subject": "JOUR 370",
@@ -482,7 +503,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "JOUR 305, JOUR 307 and JOUR 309. May not be taken concurrently with JOUR 346."
+        "prerequisites": "JOUR 305, JOUR 307 and JOUR 309. May not be taken concurrently with JOUR 346.",
+        "gpa": null
     },
     {
         "subject": "JOUR 404",
@@ -504,7 +526,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Major status and JOUR 307 or JOUR 380. May not be taken concurrently with JOUR 321 and 421."
+        "prerequisites": "Major status and JOUR 307 or JOUR 380. May not be taken concurrently with JOUR 321 and 421.",
+        "gpa": null
     },
     {
         "subject": "JOUR 407",
@@ -526,7 +549,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "JOUR 207; JOUR 330; JOUR 380. Major status. May not be taken concurrently with JOUR 440."
+        "prerequisites": "JOUR 207; JOUR 330; JOUR 380. Major status. May not be taken concurrently with JOUR 440.",
+        "gpa": null
     },
     {
         "subject": "JOUR 414",
@@ -548,7 +572,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "JOUR 207; JOUR 307 or JOUR 380; JOUR 314."
+        "prerequisites": "JOUR 207; JOUR 307 or JOUR 380; JOUR 314.",
+        "gpa": null
     },
     {
         "subject": "JOUR 415",
@@ -570,7 +595,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "JOUR 207; JOUR 307 or JOUR 380; one newspaper staff course, and permission of instructor."
+        "prerequisites": "JOUR 207; JOUR 307 or JOUR 380; one newspaper staff course, and permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "JOUR 421",
@@ -592,7 +618,8 @@
         "waitlist": "",
         "restrictions": "OV SR PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "Senior status; JOUR 207; JOUR 307 or JOUR 380; and one newspaper staff course. May not be taken concurrently with JOUR 404."
+        "prerequisites": "Senior status; JOUR 207; JOUR 307 or JOUR 380; and one newspaper staff course. May not be taken concurrently with JOUR 404.",
+        "gpa": null
     },
     {
         "subject": "JOUR 422",
@@ -614,7 +641,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "JOUR 207; JOUR 307 or JOUR 380; one periodical staff course, and permission of instructor."
+        "prerequisites": "JOUR 207; JOUR 307 or JOUR 380; one periodical staff course, and permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "JOUR 430",
@@ -636,7 +664,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "For the news/editorial sequence: Jour 207, JOUR 307, JOUR 309, JOUR 350, JOUR 351, two newspaper staff courses and major status. For the public relations sequence: JOUR 207, JOUR 309, JOUR 330, JOUR 350, JOUR 351, JOUR 380, one newspaper staff course and major status. For the visual journalism sequence: JOUR 207, JOUR 305, JOUR 307, JOUR 309, JOUR 346, JOUR 350, JOUR 351, one newspaper staff course and major status. For the environmental journalism sequence: JOUR 207, JOUR 307, JOUR 309, JOUR 350, one newspaper staff course and major status."
+        "prerequisites": "For the news/editorial sequence: Jour 207, JOUR 307, JOUR 309, JOUR 350, JOUR 351, two newspaper staff courses and major status. For the public relations sequence: JOUR 207, JOUR 309, JOUR 330, JOUR 350, JOUR 351, JOUR 380, one newspaper staff course and major status. For the visual journalism sequence: JOUR 207, JOUR 305, JOUR 307, JOUR 309, JOUR 346, JOUR 350, JOUR 351, one newspaper staff course and major status. For the environmental journalism sequence: JOUR 207, JOUR 307, JOUR 309, JOUR 350, one newspaper staff course and major status.",
+        "gpa": null
     },
     {
         "subject": "JOUR 480",
@@ -658,6 +687,7 @@
         "waitlist": "",
         "restrictions": "OV SR MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "JOUR 350 and JOUR 351; and major status."
+        "prerequisites": "JOUR 350 and JOUR 351; and major status.",
+        "gpa": null
     }
 ]

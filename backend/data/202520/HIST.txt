@@ -1,4 +1,4 @@
-2024-04-26T16:19:18.633556
+2024-04-29T12:47:52.671776
 [
     {
         "subject": "HIST 103",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM US US1",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HIST 104",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM US US2",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HIST 111",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "AFME ANCT EUR FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HIST 112",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "EUR EUR1 FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HIST 123",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "CMB2 FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HIST 197C",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HIST 220",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM ANCT ASIA CMB1 CMB2 FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HIST 263",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF US US2",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HIST 280",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM ANCT ASIA CMB1 FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HIST 287",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM AFME CMB1 CMB2 FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HIST 301",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
-        "prerequisites": "History or History/Social Studies major or instructor permission."
+        "prerequisites": "History or History/Social Studies major or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "HIST 301",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
-        "prerequisites": "History or History/Social Studies major or instructor permission."
+        "prerequisites": "History or History/Social Studies major or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "HIST 312",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ANCT EUR FTF",
-        "prerequisites": "HIST 111 or HIST 121 or HIST 151 or HUMA 121 or permission of instructor."
+        "prerequisites": "HIST 111 or HIST 121 or HIST 151 or HUMA 121 or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "HIST 327",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR",
         "attributes": "CMB2 FTF WHEM",
-        "prerequisites": "Sophomore status or instructor permission."
+        "prerequisites": "Sophomore status or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "HIST 333",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "EUR EUR2 FTF",
-        "prerequisites": "HIST 113 or HIST 123 or HUMA 123."
+        "prerequisites": "HIST 113 or HIST 123 or HUMA 123.",
+        "gpa": null
     },
     {
         "subject": "HIST 381",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "AFME CMB2 EUR EUR2 FTF",
-        "prerequisites": "HIST 232 or HIST 233."
+        "prerequisites": "HIST 232 or HIST 233.",
+        "gpa": null
     },
     {
         "subject": "HIST 382",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "AFME FTF US US2",
-        "prerequisites": "One course from: HIST 288, HIST 383, HIST 384, HIST 406, HIST 407, HIST 408; or instructor permission."
+        "prerequisites": "One course from: HIST 288, HIST 383, HIST 384, HIST 406, HIST 407, HIST 408; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "HIST 390",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "FTF US US1 US2 WHEM",
-        "prerequisites": "junior standing"
+        "prerequisites": "junior standing",
+        "gpa": null
     },
     {
         "subject": "HIST 391",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF US",
-        "prerequisites": "sophomore standing"
+        "prerequisites": "sophomore standing",
+        "gpa": null
     },
     {
         "subject": "HIST 412",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "GR JR PB PM SR PQ",
         "attributes": "ANCT FTF",
-        "prerequisites": "Junior status and one from: HIST 111, HIST 121, HIST 151, HIST 310, HIST 311, HIST 312, HIST 313, HUMA 121 or instructor permission."
+        "prerequisites": "Junior status and one from: HIST 111, HIST 121, HIST 151, HIST 310, HIST 311, HIST 312, HIST 313, HUMA 121 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "HIST 451",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "JR SR PQ",
         "attributes": "FTF US US1 US2",
-        "prerequisites": "Any 100-level history course;\u00a0junior or senior\u00a0status."
+        "prerequisites": "Any 100-level history course;\u00a0junior or senior\u00a0status.",
+        "gpa": null
     },
     {
         "subject": "HIST 461",
@@ -482,7 +503,8 @@
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "FTF US US2",
-        "prerequisites": "HIST 104; junior standing"
+        "prerequisites": "HIST 104; junior standing",
+        "gpa": null
     },
     {
         "subject": "HIST 490",
@@ -504,7 +526,8 @@
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "AFME ASIA CMB2 EUR EUR2 FTF",
-        "prerequisites": "Junior or senior status. Recommended: any 100, 200, 300, 400 level History courses."
+        "prerequisites": "Junior or senior status. Recommended: any 100, 200, 300, 400 level History courses.",
+        "gpa": null
     },
     {
         "subject": "HIST 490",
@@ -526,7 +549,8 @@
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "FTF US US2",
-        "prerequisites": "Junior or senior status. Recommended: any 100, 200, 300, 400 level History courses."
+        "prerequisites": "Junior or senior status. Recommended: any 100, 200, 300, 400 level History courses.",
+        "gpa": null
     },
     {
         "subject": "HIST 499",
@@ -548,7 +572,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "One upper-division HIST course in field of topic and\u00a0HIST 301; or instructor permission."
+        "prerequisites": "One upper-division HIST course in field of topic and\u00a0HIST 301; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "HIST 499",
@@ -570,7 +595,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "One upper-division HIST course in field of topic and\u00a0HIST 301; or instructor permission."
+        "prerequisites": "One upper-division HIST course in field of topic and\u00a0HIST 301; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "HIST 499",
@@ -592,7 +618,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "One upper-division HIST course in field of topic and\u00a0HIST 301; or instructor permission."
+        "prerequisites": "One upper-division HIST course in field of topic and\u00a0HIST 301; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "HIST 499",
@@ -614,7 +641,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "One upper-division HIST course in field of topic and\u00a0HIST 301; or instructor permission."
+        "prerequisites": "One upper-division HIST course in field of topic and\u00a0HIST 301; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "HIST 515",
@@ -636,7 +664,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM",
         "attributes": "FTF",
-        "prerequisites": "One upper level course in medieval history or instructor permission."
+        "prerequisites": "One upper level course in medieval history or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "HIST 560",
@@ -658,7 +687,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM",
         "attributes": "FTF",
-        "prerequisites": "Graduate status."
+        "prerequisites": "Graduate status.",
+        "gpa": null
     },
     {
         "subject": "HIST 690",
@@ -680,7 +710,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM",
         "attributes": "FTF",
-        "prerequisites": "Graduate status."
+        "prerequisites": "Graduate status.",
+        "gpa": null
     },
     {
         "subject": "HIST 699",
@@ -702,6 +733,7 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

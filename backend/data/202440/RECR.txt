@@ -1,4 +1,4 @@
-2024-04-26T16:25:08.265873
+2024-04-29T12:48:32.581425
 [
     {
         "subject": "RECR 201",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "RECR 311",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Poynter, Lindsay Ann",
-        "room": "TBA",
+        "room": "MH 015",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV JR SO SR S/U",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status"
+        "prerequisites": "Sophomore status",
+        "gpa": null
     },
     {
         "subject": "RECR 375",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status"
+        "prerequisites": "Sophomore status",
+        "gpa": null
     },
     {
         "subject": "RECR 376",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Chmielewski, Kristen Elizabeth",
-        "room": "TBA",
+        "room": "CV 265",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status"
+        "prerequisites": "Sophomore status",
+        "gpa": null
     },
     {
         "subject": "RECR 421",
@@ -99,7 +103,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Chmielewski, Kristen Elizabeth",
-        "room": "TBA",
+        "room": "HH 153",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
-        "prerequisites": "Junior or Senior status"
+        "prerequisites": "Junior or Senior status",
+        "gpa": null
     },
     {
         "subject": "RECR 444",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
-        "prerequisites": "Phase III Recreation majors or permission of Instructor."
+        "prerequisites": "Phase III Recreation majors or permission of Instructor.",
+        "gpa": null
     },
     {
         "subject": "RECR 450",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
-        "prerequisites": "Phase III Recreation majors or permission of Instructor."
+        "prerequisites": "Phase III Recreation majors or permission of Instructor.",
+        "gpa": null
     },
     {
         "subject": "RECR 470",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
-        "prerequisites": "Junior status"
+        "prerequisites": "Junior status",
+        "gpa": null
     },
     {
         "subject": "RECR 475",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
-        "prerequisites": "Junior status"
+        "prerequisites": "Junior status",
+        "gpa": null
     },
     {
         "subject": "RECR 479",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "Junior or senior status."
+        "prerequisites": "Junior or senior status.",
+        "gpa": null
     },
     {
         "subject": "RECR 480",
@@ -231,7 +241,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Goodnow, Jasmine Marie",
-        "room": "TBA",
+        "room": "BH 173",
         "lab_room": null,
         "addl_fees": "Flat Fee $105.00",
         "cap": "15",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF WP3",
-        "prerequisites": "Phase III Recreation majors."
+        "prerequisites": "Phase III Recreation majors.",
+        "gpa": null
     },
     {
         "subject": "RECR 480",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF WP3",
-        "prerequisites": "Phase III Recreation majors."
+        "prerequisites": "Phase III Recreation majors.",
+        "gpa": null
     },
     {
         "subject": "RECR 480",
@@ -275,7 +287,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "D'Eloia, Melissa Hough",
-        "room": "TBA",
+        "room": "BH 110",
         "lab_room": null,
         "addl_fees": "Flat Fee $105.00",
         "cap": "15",
@@ -284,6 +296,7 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF WP3",
-        "prerequisites": "Phase III Recreation majors."
+        "prerequisites": "Phase III Recreation majors.",
+        "gpa": null
     }
 ]

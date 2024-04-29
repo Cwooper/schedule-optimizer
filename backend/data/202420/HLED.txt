@@ -1,4 +1,4 @@
-2024-04-26T16:28:58.053127
+2024-04-29T12:48:55.353257
 [
     {
         "subject": "HLED 150",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HLED 210",
@@ -37,12 +38,13 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "47",
-        "avail": "3",
+        "enrl": "46",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HLED 350",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "BIOL 101 or BIOL 205 or CHEM 115 or CHEM 161."
+        "prerequisites": "BIOL 101 or BIOL 205 or CHEM 115 or CHEM 161.",
+        "gpa": null
     },
     {
         "subject": "HLED 409",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "HLED 405"
+        "prerequisites": "HLED 405",
+        "gpa": null
     },
     {
         "subject": "HLED 435",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "HLED 425"
+        "prerequisites": "HLED 425",
+        "gpa": null
     },
     {
         "subject": "HLED 440",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "HLED 430"
+        "prerequisites": "HLED 430",
+        "gpa": null
     },
     {
         "subject": "HLED 449",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "HLED 445"
+        "prerequisites": "HLED 445",
+        "gpa": null
     },
     {
         "subject": "HLED 455",
@@ -174,6 +181,7 @@
         "waitlist": "",
         "restrictions": "OV ED MJ",
         "attributes": "FTF",
-        "prerequisites": "Admission to Woodring College of Education."
+        "prerequisites": "Admission to Woodring College of Education.",
+        "gpa": null
     }
 ]

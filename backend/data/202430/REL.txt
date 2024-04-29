@@ -1,4 +1,4 @@
-2024-04-26T16:27:32.076186
+2024-04-29T12:48:45.613757
 [
     {
         "subject": "REL 332",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "ACGM ASNC OL",
-        "prerequisites": "Junior or senior status; or instructor permission."
+        "prerequisites": "Junior or senior status; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "REL 345",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "ACGM ASNC OL",
-        "prerequisites": "Junior or senior status; or instructor permission."
+        "prerequisites": "Junior or senior status; or instructor permission.",
+        "gpa": null
     }
 ]

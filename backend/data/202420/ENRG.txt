@@ -1,4 +1,4 @@
-2024-04-26T16:28:38.493961
+2024-04-29T12:48:51.926471
 [
     {
         "subject": "ENRG 101",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SCI",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENRG 310",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MATH 125, CHEM 161 and PHYS 161; or instructor permission."
+        "prerequisites": "MATH 125, CHEM 161 and PHYS 161; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ENRG 322",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "One course from: ENRG 360, ESCI 360, ENRG 380 or ESCI 380 or concurrent; or instructor permission."
+        "prerequisites": "One course from: ENRG 360, ESCI 360, ENRG 380 or ESCI 380 or concurrent; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ENRG 344",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "PLSC 250 or MGMT 271 or ENVS 305."
+        "prerequisites": "PLSC 250 or MGMT 271 or ENVS 305.",
+        "gpa": null
     },
     {
         "subject": "ENRG 350",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "PLSC 250 or MGMT 271 or ENVS 305."
+        "prerequisites": "PLSC 250 or MGMT 271 or ENVS 305.",
+        "gpa": null
     },
     {
         "subject": "ENRG 378",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "EECE 372 or ENRG 372."
+        "prerequisites": "EECE 372 or ENRG 372.",
+        "gpa": null
     },
     {
         "subject": "ENRG 384",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202."
+        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202.",
+        "gpa": null
     },
     {
         "subject": "ENRG 391",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENRG 420",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "CHEM 163 and ENRG 320."
+        "prerequisites": "CHEM 163 and ENRG 320.",
+        "gpa": null
     },
     {
         "subject": "ENRG 421",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ENRG 420 or concurrent."
+        "prerequisites": "ENRG 420 or concurrent.",
+        "gpa": null
     },
     {
         "subject": "ENRG 430",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "One course from: ENRG 320, ENRG 330, GEOL 330, ENRG 380 or ESCI 380; CHEM 161; PHYS 114 or PHYS 161; or instructor permission."
+        "prerequisites": "One course from: ENRG 320, ENRG 330, GEOL 330, ENRG 380 or ESCI 380; CHEM 161; PHYS 114 or PHYS 161; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ENRG 449",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ENRG 350 or UEPP 350 or instructor permission."
+        "prerequisites": "ENRG 350 or UEPP 350 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ENRG 461",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "ENRG 360 or ESCI 360; MATH 124 or MATH 157; or instructor permission."
+        "prerequisites": "ENRG 360 or ESCI 360; MATH 124 or MATH 157; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ENRG 464",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ENRG 360 or ESCI 360; MATH 125."
+        "prerequisites": "ENRG 360 or ESCI 360; MATH 125.",
+        "gpa": null
     },
     {
         "subject": "ENRG 475",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MATH 124 or MATH 157; PHYS 115 or PHYS 162; and one of the following: ENRG 101, ENRG 320, ENRG 360, ESCI 360, ENRG 380 or ESCI 380; or instructor permission."
+        "prerequisites": "MATH 124 or MATH 157; PHYS 115 or PHYS 162; and one of the following: ENRG 101, ENRG 320, ENRG 360, ESCI 360, ENRG 380 or ESCI 380; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ENRG 480",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP2",
-        "prerequisites": "ESCI 380 or ESCI 329 or ENRG 380."
+        "prerequisites": "ESCI 380 or ESCI 329 or ENRG 380.",
+        "gpa": null
     },
     {
         "subject": "ENRG 488",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ENRG 384 or ENRG 386 or ECON 384 or ECON 386; ENRG 101 or ENRG 320 or ENRG 380 or ESCI 380; or instructor permission."
+        "prerequisites": "ENRG 384 or ENRG 386 or ECON 384 or ECON 386; ENRG 101 or ENRG 320 or ENRG 380 or ESCI 380; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ENRG 498",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Instructor permission"
+        "prerequisites": "Instructor permission",
+        "gpa": null
     },
     {
         "subject": "ENRG 549",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM",
         "attributes": "FTF",
-        "prerequisites": "Graduate status. A background course in energy technology is expected. An introductory course in energy policy is helpful. Some familiarity with reading and evaluating gray and peer-reviewed literature is required."
+        "prerequisites": "Graduate status. A background course in energy technology is expected. An introductory course in energy policy is helpful. Some familiarity with reading and evaluating gray and peer-reviewed literature is required.",
+        "gpa": null
     },
     {
         "subject": "ENRG 575",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM",
         "attributes": "FTF",
-        "prerequisites": "Graduate status."
+        "prerequisites": "Graduate status.",
+        "gpa": null
     },
     {
         "subject": "ENRG 588",
@@ -460,6 +480,7 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM",
         "attributes": "FTF",
-        "prerequisites": "Graduate status. Some familiarity with energy economics, and energy laws and units, as well as basic Excel (or equivalent) proficiency is expected."
+        "prerequisites": "Graduate status. Some familiarity with energy economics, and energy laws and units, as well as basic Excel (or equivalent) proficiency is expected.",
+        "gpa": null
     }
 ]

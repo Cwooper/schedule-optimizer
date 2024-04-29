@@ -1,4 +1,4 @@
-2024-04-26T16:23:37.468481
+2024-04-29T12:48:21.725923
 [
     {
         "subject": "DSCI 205",
@@ -12,7 +12,7 @@
         "lab_end_time": "0950",
         "instructor": "Zhang, George",
         "room": "ONLINE SYNC",
-        "lab_room": "TBA",
+        "lab_room": "CF 120",
         "addl_fees": "",
         "cap": "90",
         "enrl": "0",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "HYBD",
-        "prerequisites": "MATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score."
+        "prerequisites": "MATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "DSCI 205",
@@ -34,7 +35,7 @@
         "lab_end_time": "1120",
         "instructor": "Zhang, George",
         "room": "ONLINE SYNC",
-        "lab_room": "TBA",
+        "lab_room": "CF 120",
         "addl_fees": "",
         "cap": "90",
         "enrl": "0",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "HYBD",
-        "prerequisites": "MATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score."
+        "prerequisites": "MATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "DSCI 207",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL QSR",
-        "prerequisites": "MATH 112 with a C- or better or a college precalculus course with a C+ or better or suitable math assessment score."
+        "prerequisites": "MATH 112 with a C- or better or a college precalculus course with a C+ or better or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "DSCI 305",
@@ -77,7 +80,7 @@
         "lab_start_time": "1430",
         "lab_end_time": "1550",
         "instructor": "Morgans, Brian Lee",
-        "room": "TBA",
+        "room": "CV 104",
         "lab_room": "AW 306",
         "addl_fees": "",
         "cap": "56",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MATH 157 or MATH 124 or MATH 138; and DSCI 205."
+        "prerequisites": "MATH 157 or MATH 124 or MATH 138; and DSCI 205.",
+        "gpa": null
     },
     {
         "subject": "DSCI 305",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR MJ PQ",
         "attributes": "ASNC OL PBEX",
-        "prerequisites": "MATH 157 or MATH 124 or MATH 138; and DSCI 205."
+        "prerequisites": "MATH 157 or MATH 124 or MATH 138; and DSCI 205.",
+        "gpa": null
     },
     {
         "subject": "DSCI 305",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "MATH 157 or MATH 124 or MATH 138; and DSCI 205."
+        "prerequisites": "MATH 157 or MATH 124 or MATH 138; and DSCI 205.",
+        "gpa": null
     }
 ]

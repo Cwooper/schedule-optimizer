@@ -1,4 +1,4 @@
-2024-04-26T16:23:11.267714
+2024-04-29T12:48:19.071190
 [
     {
         "subject": "A/HI 211",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Berzal de Dios, Jimena Ines",
-        "room": "TBA",
+        "room": "FI 238",
         "lab_room": null,
         "addl_fees": "Flat Fee $1.00",
         "cap": "50",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "A/HI 241",
@@ -33,16 +34,17 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Witkowski, Jacqueline",
-        "room": "TBA",
+        "room": "MH 138",
         "lab_room": null,
-        "addl_fees": "",
+        "addl_fees": "Flat Fee $2.10",
         "cap": "140",
         "enrl": "0",
         "avail": "140",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "A/HI 270",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Sapin, Julia Elizabeth",
-        "room": "TBA",
+        "room": "MH 138",
         "lab_room": null,
         "addl_fees": "Flat Fee $1.50",
         "cap": "185",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "A/HI 275",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ENG 101 and any A/HI or equivalent 200-level course."
+        "prerequisites": "ENG 101 and any A/HI or equivalent 200-level course.",
+        "gpa": null
     },
     {
         "subject": "A/HI 300",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "A/HI 302",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "A/HI 302",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "A/HI 302",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "A/HI 305",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Museum Studies Minors only; 6 credits in Art or Art History; instructor permission."
+        "prerequisites": "Museum Studies Minors only; 6 credits in Art or Art History; instructor permission.",
+        "gpa": null
     },
     {
         "subject": "A/HI 306",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "24 credits in Art History and written permission of instructor."
+        "prerequisites": "24 credits in Art History and written permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "A/HI 330",
@@ -231,7 +241,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Berzal de Dios, Jimena Ines",
-        "room": "TBA",
+        "room": "FI 238",
         "lab_room": null,
         "addl_fees": "Flat Fee $1.00",
         "cap": "36",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "Any A/HI or equivalent 200-level course."
+        "prerequisites": "Any A/HI or equivalent 200-level course.",
+        "gpa": null
     },
     {
         "subject": "A/HI 381",
@@ -253,7 +264,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Kerman, Monique Michelle Fowler Paul",
-        "room": "TBA",
+        "room": "FI 238",
         "lab_room": null,
         "addl_fees": "Flat Fee $14.40",
         "cap": "36",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "Any A/HI or equivalent 200-level course."
+        "prerequisites": "Any A/HI or equivalent 200-level course.",
+        "gpa": null
     },
     {
         "subject": "A/HI 400",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "A/HI 450",
@@ -305,8 +318,9 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
-        "prerequisites": "Any A/HI or equivalent 300-level course."
+        "attributes": "FTF",
+        "prerequisites": "Any A/HI or equivalent 300-level course.",
+        "gpa": null
     },
     {
         "subject": "A/HI 491",
@@ -328,6 +342,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "Any A/HI or equivalent 300-level course."
+        "prerequisites": "Any A/HI or equivalent 300-level course.",
+        "gpa": null
     }
 ]

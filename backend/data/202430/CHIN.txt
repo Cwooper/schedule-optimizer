@@ -1,4 +1,4 @@
-2024-04-26T16:25:48.781186
+2024-04-29T12:48:36.642734
 [
     {
         "subject": "CHIN 237",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF TRVL",
-        "prerequisites": "CHIN 103 or equivalent."
+        "prerequisites": "CHIN 103 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "CHIN 337",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF TRVL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

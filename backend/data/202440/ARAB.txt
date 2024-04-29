@@ -1,4 +1,4 @@
-2024-04-26T16:23:08.660204
+2024-04-29T12:48:18.804278
 [
     {
         "subject": "ARAB 101",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Hussein Abdelbaki, Tamer",
-        "room": "TBA",
+        "room": "MH 011",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ARAB 101",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Hussein Abdelbaki, Tamer",
-        "room": "TBA",
+        "room": "MH 011",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ARAB 201",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Hussein Abdelbaki, Tamer",
-        "room": "TBA",
+        "room": "MH 011",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -64,6 +66,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCOM FTF",
-        "prerequisites": "ARAB 103"
+        "prerequisites": "ARAB 103",
+        "gpa": null
     }
 ]

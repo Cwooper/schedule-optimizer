@@ -1,4 +1,4 @@
-2024-04-26T16:20:14.111294
+2024-04-29T12:47:59.745705
 [
     {
         "subject": "RECR 210",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "RECR 261",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "RECR 201."
+        "prerequisites": "RECR 201.",
+        "gpa": null
     },
     {
         "subject": "RECR 261",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "RECR 201."
+        "prerequisites": "RECR 201.",
+        "gpa": null
     },
     {
         "subject": "RECR 261",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "RECR 201."
+        "prerequisites": "RECR 201.",
+        "gpa": null
     },
     {
         "subject": "RECR 271",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "RECR 272",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "RECR 274",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "RECR 279",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "RECR 312",
@@ -196,6 +204,7 @@
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "RECR 311"
+        "prerequisites": "RECR 311",
+        "gpa": null
     }
 ]

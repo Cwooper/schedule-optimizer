@@ -1,4 +1,4 @@
-2024-04-26T16:24:06.683918
+2024-04-29T12:48:24.900971
 [
     {
         "subject": "GERM 101",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Winter, Julie Marie",
-        "room": "TBA",
+        "room": "MH 114",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "30",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "GERM 101",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "AW 403",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "30",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "GERM 201",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Winter, Julie Marie",
-        "room": "TBA",
+        "room": "MH 114",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "30",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCOM FTF",
-        "prerequisites": "GERM 103 or instructor permission."
+        "prerequisites": "GERM 103 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "GERM 201",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Fiero, Petra S.",
-        "room": "TBA",
+        "room": "MH 231",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "30",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCOM FTF",
-        "prerequisites": "GERM 103 or instructor permission."
+        "prerequisites": "GERM 103 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "GERM 301",
@@ -99,7 +103,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Partsch, Cornelius",
-        "room": "TBA",
+        "room": "BH 114",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF HUM",
-        "prerequisites": "GERM 203 or instructor permission."
+        "prerequisites": "GERM 203 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "GERM 401",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "GERM 302 or instructor permission."
+        "prerequisites": "GERM 302 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "GERM 425",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "6 credits upper-division German; written department permission."
+        "prerequisites": "6 credits upper-division German; written department permission.",
+        "gpa": null
     },
     {
         "subject": "GERM 432",
@@ -165,7 +172,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Partsch, Cornelius",
-        "room": "TBA",
+        "room": "MH 017",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "20",
@@ -174,6 +181,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "GERM 340"
+        "prerequisites": "GERM 340",
+        "gpa": null
     }
 ]

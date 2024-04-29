@@ -1,4 +1,4 @@
-2024-04-26T16:20:25.148955
+2024-04-29T12:48:00.802477
 [
     {
         "subject": "SPAN 103",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCOM FTF",
-        "prerequisites": "SPAN 102 or a score of 150-199 on the Spanish Placement Test."
+        "prerequisites": "SPAN 102 or a score of 150-199 on the Spanish Placement Test.",
+        "gpa": null
     },
     {
         "subject": "SPAN 103",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCOM FTF",
-        "prerequisites": "SPAN 102 or a score of 150-199 on the Spanish Placement Test."
+        "prerequisites": "SPAN 102 or a score of 150-199 on the Spanish Placement Test.",
+        "gpa": null
     },
     {
         "subject": "SPAN 104",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCOM FTF",
-        "prerequisites": "Two years of high school Spanish recommended."
+        "prerequisites": "Two years of high school Spanish recommended.",
+        "gpa": null
     },
     {
         "subject": "SPAN 202",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": "SPAN 201."
+        "prerequisites": "SPAN 201.",
+        "gpa": null
     },
     {
         "subject": "SPAN 202",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": "SPAN 201."
+        "prerequisites": "SPAN 201.",
+        "gpa": null
     },
     {
         "subject": "SPAN 203",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF HUM",
-        "prerequisites": "SPAN 202."
+        "prerequisites": "SPAN 202.",
+        "gpa": null
     },
     {
         "subject": "SPAN 203",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF HUM",
-        "prerequisites": "SPAN 202."
+        "prerequisites": "SPAN 202.",
+        "gpa": null
     },
     {
         "subject": "SPAN 203",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF HUM",
-        "prerequisites": "SPAN 202."
+        "prerequisites": "SPAN 202.",
+        "gpa": null
     },
     {
         "subject": "SPAN 302",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF HUM",
-        "prerequisites": "SPAN 301."
+        "prerequisites": "SPAN 301.",
+        "gpa": null
     },
     {
         "subject": "SPAN 302",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF HUM",
-        "prerequisites": "SPAN 301."
+        "prerequisites": "SPAN 301.",
+        "gpa": null
     },
     {
         "subject": "SPAN 302",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF HUM",
-        "prerequisites": "SPAN 301."
+        "prerequisites": "SPAN 301.",
+        "gpa": null
     },
     {
         "subject": "SPAN 305",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "SPAN 203 or instructor permission."
+        "prerequisites": "SPAN 203 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SPAN 332",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "SPAN 301 or instructor permission."
+        "prerequisites": "SPAN 301 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SPAN 332",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "SPAN 301 or instructor permission."
+        "prerequisites": "SPAN 301 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SPAN 340",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "SPAN 302 or instructor permission."
+        "prerequisites": "SPAN 302 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SPAN 352",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "SPAN 340."
+        "prerequisites": "SPAN 340.",
+        "gpa": null
     },
     {
         "subject": "SPAN 401",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "SPAN 302 or instructor permission; majors only."
+        "prerequisites": "SPAN 302 or instructor permission; majors only.",
+        "gpa": null
     },
     {
         "subject": "SPAN 425",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Permission of department and two courses in upper- division Spanish."
+        "prerequisites": "Permission of department and two courses in upper- division Spanish.",
+        "gpa": null
     },
     {
         "subject": "SPAN 440",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "SPAN 302 and LING 201, or SPAN 314, or SPAN 404; or instructor permission."
+        "prerequisites": "SPAN 302 and LING 201, or SPAN 314, or SPAN 404; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SPAN 450",
@@ -438,6 +457,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "SPAN 351 or SPAN 352."
+        "prerequisites": "SPAN 351 or SPAN 352.",
+        "gpa": null
     }
 ]

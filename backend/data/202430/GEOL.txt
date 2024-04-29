@@ -1,4 +1,4 @@
-2024-04-26T16:26:28.643479
+2024-04-29T12:48:39.896552
 [
     {
         "subject": "GEOL 101",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC LSCI OL",
-        "prerequisites": "MATH 107 or MATH 112 with concurrency or higher or suitable math assessment score."
+        "prerequisites": "MATH 107 or MATH 112 with concurrency or higher or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "GEOL 103",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SCI",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "GEOL 337",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF TRVL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "GEOL 409",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "GEOL 212; GEOL 318; GEOL 406; GEOL 415; Co-req GEOL 410. Concurrent or successive enrollment in GEOL 410 required."
+        "prerequisites": "GEOL 212; GEOL 318; GEOL 406; GEOL 415; Co-req GEOL 410. Concurrent or successive enrollment in GEOL 410 required.",
+        "gpa": null
     },
     {
         "subject": "GEOL 410",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF TRVL",
-        "prerequisites": "Co-requisite: GEOL 409"
+        "prerequisites": "Co-requisite: GEOL 409",
+        "gpa": null
     },
     {
         "subject": "GEOL 490",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV SR",
         "attributes": "FTF",
-        "prerequisites": "senior standing"
+        "prerequisites": "senior standing",
+        "gpa": null
     },
     {
         "subject": "GEOL 497A",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "GEOL 212; GEOL 318; GEOL 406; GEOL 415; Co-requisite: GEOL 497B and GEOL 497C."
+        "prerequisites": "GEOL 212; GEOL 318; GEOL 406; GEOL 415; Co-requisite: GEOL 497B and GEOL 497C.",
+        "gpa": null
     },
     {
         "subject": "GEOL 497B",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "GEOL 212; GEOL 318; GEOL 406; GEOL 415; Co-requisite: GEOL 497A and GEOL 497C."
+        "prerequisites": "GEOL 212; GEOL 318; GEOL 406; GEOL 415; Co-requisite: GEOL 497A and GEOL 497C.",
+        "gpa": null
     },
     {
         "subject": "GEOL 497C",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "GEOL 212; GEOL 318; GEOL 406; GEOL 415; Co-requisite: GEOL 497A and GEOL 497B."
+        "prerequisites": "GEOL 212; GEOL 318; GEOL 406; GEOL 415; Co-requisite: GEOL 497A and GEOL 497B.",
+        "gpa": null
     },
     {
         "subject": "GEOL 690",
@@ -218,6 +227,7 @@
         "waitlist": "",
         "restrictions": "OV GR",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

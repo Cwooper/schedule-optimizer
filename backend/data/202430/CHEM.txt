@@ -1,4 +1,4 @@
-2024-04-26T16:25:47.585429
+2024-04-29T12:48:36.549641
 [
     {
         "subject": "CHEM 161",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF LSCI",
-        "prerequisites": "MATH 114 or suitable math assessment score."
+        "prerequisites": "MATH 114 or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "CHEM 162",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF LSCI",
-        "prerequisites": "CHEM 161."
+        "prerequisites": "CHEM 161.",
+        "gpa": null
     },
     {
         "subject": "CHEM 163",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF LSCI",
-        "prerequisites": "CHEM 162."
+        "prerequisites": "CHEM 162.",
+        "gpa": null
     },
     {
         "subject": "CHEM 251",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF LSCI",
-        "prerequisites": "CHEM 161 or CHEM 175."
+        "prerequisites": "CHEM 161 or CHEM 175.",
+        "gpa": null
     },
     {
         "subject": "CHEM 351",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "CHEM 163 or CHEM 225 or concurrent."
+        "prerequisites": "CHEM 163 or CHEM 225 or concurrent.",
+        "gpa": null
     },
     {
         "subject": "CHEM 352",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "CHEM 351"
+        "prerequisites": "CHEM 351",
+        "gpa": null
     },
     {
         "subject": "CHEM 354",
@@ -152,6 +158,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "CHEM 352 or concurrent"
+        "prerequisites": "CHEM 352 or concurrent",
+        "gpa": null
     }
 ]

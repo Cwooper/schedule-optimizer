@@ -1,4 +1,4 @@
-2024-04-26T16:31:06.187865
+2024-04-29T12:49:10.324868
 [
     {
         "subject": "ENRG 101",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SCI",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENRG 300",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENRG 320",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MATH 125\u00a0and CHEM 161;\u00a0PHYS 114\u00a0or PHYS 161."
+        "prerequisites": "MATH 125\u00a0and CHEM 161;\u00a0PHYS 114\u00a0or PHYS 161.",
+        "gpa": null
     },
     {
         "subject": "ENRG 345",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ANTH 201 or ENRG 340."
+        "prerequisites": "ANTH 201 or ENRG 340.",
+        "gpa": null
     },
     {
         "subject": "ENRG 374",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "EECE 320; EECE 372 or ENRG 372."
+        "prerequisites": "EECE 320; EECE 372 or ENRG 372.",
+        "gpa": null
     },
     {
         "subject": "ENRG 380",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "CHEM 161 and MATH 114."
+        "prerequisites": "CHEM 161 and MATH 114.",
+        "gpa": null
     },
     {
         "subject": "ENRG 391",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENRG 400",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENRG 459",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "ENRG 350 or UEPP 350 or instructor permission."
+        "prerequisites": "ENRG 350 or UEPP 350 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ENRG 461",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ENRG 360 or ESCI 360; MATH 124 or MATH 157; or instructor permission."
+        "prerequisites": "ENRG 360 or ESCI 360; MATH 124 or MATH 157; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ENRG 482",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "PHYS 114 or PHYS 161; ENRG 320 or ENRG 380 or ESCI 380 or ESCI 325 or ENVS 327."
+        "prerequisites": "PHYS 114 or PHYS 161; ENRG 320 or ENRG 380 or ESCI 380 or ESCI 325 or ENVS 327.",
+        "gpa": null
     },
     {
         "subject": "ENRG 490",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM SR MJ",
         "attributes": "FTF WP3",
-        "prerequisites": "Senior status; Energy Policy and Management, Energy Science and Technology, and Business and Sustainability: Energy Concentration majors only."
+        "prerequisites": "Senior status; Energy Policy and Management, Energy Science and Technology, and Business and Sustainability: Energy Concentration majors only.",
+        "gpa": null
     },
     {
         "subject": "ENRG 495",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Declared Energy Policy and Management, BA, student."
+        "prerequisites": "Declared Energy Policy and Management, BA, student.",
+        "gpa": null
     },
     {
         "subject": "ENRG 498",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Instructor permission"
+        "prerequisites": "Instructor permission",
+        "gpa": null
     },
     {
         "subject": "ENRG 559",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM",
         "attributes": "FTF",
-        "prerequisites": "Graduate status. Background in energy technology, energy economics, and introductory energy policy are expected. Some familiarity with reading and evaluating gray and peer-reviewed literature is required."
+        "prerequisites": "Graduate status. Background in energy technology, energy economics, and introductory energy policy are expected. Some familiarity with reading and evaluating gray and peer-reviewed literature is required.",
+        "gpa": null
     },
     {
         "subject": "ENRG 561",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM",
         "attributes": "FTF",
-        "prerequisites": "Graduate status. Familiarity with building energy systems is helpful."
+        "prerequisites": "Graduate status. Familiarity with building energy systems is helpful.",
+        "gpa": null
     },
     {
         "subject": "ENRG 582",
@@ -372,6 +388,7 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM",
         "attributes": "FTF",
-        "prerequisites": "Graduate level status. One college level course in physics and one college level course in energy studies or ecology."
+        "prerequisites": "Graduate level status. One college level course in physics and one college level course in energy studies or ecology.",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:20:30.008606
+2024-04-29T12:48:01.224353
 [
     {
         "subject": "TESL 340",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SST",
-        "prerequisites": "Admission to the TESOL program or instructor permission."
+        "prerequisites": "Admission to the TESOL program or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "TESL 350",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "HYBD",
-        "prerequisites": "Instructor permission."
+        "prerequisites": "Instructor permission.",
+        "gpa": null
     },
     {
         "subject": "TESL 350",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "HYBD",
-        "prerequisites": "Instructor permission."
+        "prerequisites": "Instructor permission.",
+        "gpa": null
     },
     {
         "subject": "TESL 350",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "ASNC OL SST",
-        "prerequisites": "Instructor permission."
+        "prerequisites": "Instructor permission.",
+        "gpa": null
     },
     {
         "subject": "TESL 450",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "ASNC OL SST",
-        "prerequisites": "Admission to the TESOL program or instructor permission."
+        "prerequisites": "Admission to the TESOL program or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "TESL 451",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "S/U PQ",
         "attributes": "ASNC OL SST",
-        "prerequisites": "TESL 441 or concurrent; or instructor permission."
+        "prerequisites": "TESL 441 or concurrent; or instructor permission.",
+        "gpa": null
     }
 ]

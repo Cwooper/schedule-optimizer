@@ -1,4 +1,4 @@
-2024-04-26T16:24:00.220308
+2024-04-29T12:48:24.034486
 [
     {
         "subject": "EUS 201",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Vajda, Edward J.",
-        "room": "TBA",
+        "room": "FR 101",
         "lab_room": null,
         "addl_fees": "",
         "cap": "140",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EUS 210",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM ASNC OL SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:26:34.577121
+2024-04-29T12:48:40.334386
 [
     {
         "subject": "HLED 210",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HLED 345",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "BIOL 101 or BIOL 205"
+        "prerequisites": "BIOL 101 or BIOL 205",
+        "gpa": null
     },
     {
         "subject": "HLED 350",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "BIOL 101 or BIOL 205 or CHEM 115 or CHEM 161."
+        "prerequisites": "BIOL 101 or BIOL 205 or CHEM 115 or CHEM 161.",
+        "gpa": null
     },
     {
         "subject": "HLED 455",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "ASNC OL",
-        "prerequisites": "Admission to Woodring College of Education."
+        "prerequisites": "Admission to Woodring College of Education.",
+        "gpa": null
     },
     {
         "subject": "HLED 470",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "HLED 430 and proof of malpractice insurance."
+        "prerequisites": "HLED 430 and proof of malpractice insurance.",
+        "gpa": null
     },
     {
         "subject": "HLED 470",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "HLED 430 and proof of malpractice insurance."
+        "prerequisites": "HLED 430 and proof of malpractice insurance.",
+        "gpa": null
     },
     {
         "subject": "HLED 470",
@@ -152,6 +158,7 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "HLED 430 and proof of malpractice insurance."
+        "prerequisites": "HLED 430 and proof of malpractice insurance.",
+        "gpa": null
     }
 ]

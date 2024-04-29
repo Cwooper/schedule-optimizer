@@ -1,4 +1,4 @@
-2024-04-26T16:22:37.315298
+2024-04-29T12:48:15.798348
 [
     {
         "subject": "PME 295",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "ENGR 170 and ENGR 214"
+        "prerequisites": "ENGR 170 and ENGR 214",
+        "gpa": null
     },
     {
         "subject": "PME 295",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "ENGR 170 and ENGR 214"
+        "prerequisites": "ENGR 170 and ENGR 214",
+        "gpa": null
     },
     {
         "subject": "PME 295",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "ENGR 170 and ENGR 214"
+        "prerequisites": "ENGR 170 and ENGR 214",
+        "gpa": null
     },
     {
         "subject": "PME 295",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "ENGR 170 and ENGR 214"
+        "prerequisites": "ENGR 170 and ENGR 214",
+        "gpa": null
     },
     {
         "subject": "PME 342",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MFGE 341"
+        "prerequisites": "MFGE 341",
+        "gpa": null
     },
     {
         "subject": "PME 372",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "PME 371"
+        "prerequisites": "PME 371",
+        "gpa": null
     },
     {
         "subject": "PME 395",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PME 371 or concurrent."
+        "prerequisites": "PME 371 or concurrent.",
+        "gpa": null
     },
     {
         "subject": "PME 395",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PME 371 or concurrent."
+        "prerequisites": "PME 371 or concurrent.",
+        "gpa": null
     },
     {
         "subject": "PME 395",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PME 371 or concurrent."
+        "prerequisites": "PME 371 or concurrent.",
+        "gpa": null
     },
     {
         "subject": "PME 395",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PME 371 or concurrent."
+        "prerequisites": "PME 371 or concurrent.",
+        "gpa": null
     },
     {
         "subject": "PME 397A",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "PME 371 or ID 380."
+        "prerequisites": "PME 371 or ID 380.",
+        "gpa": null
     },
     {
         "subject": "PME 400",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "PR",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PME 431",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "PME 342 and PME 471"
+        "prerequisites": "PME 342 and PME 471",
+        "gpa": null
     },
     {
         "subject": "PME 431",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "PME 342 and PME 471"
+        "prerequisites": "PME 342 and PME 471",
+        "gpa": null
     },
     {
         "subject": "PME 431",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "PME 342 and PME 471"
+        "prerequisites": "PME 342 and PME 471",
+        "gpa": null
     },
     {
         "subject": "PME 492",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP2",
-        "prerequisites": "PME 342; PME 471; PME 491."
+        "prerequisites": "PME 342; PME 471; PME 491.",
+        "gpa": null
     },
     {
         "subject": "PME 495",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PME 371"
+        "prerequisites": "PME 371",
+        "gpa": null
     },
     {
         "subject": "PME 495",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PME 371"
+        "prerequisites": "PME 371",
+        "gpa": null
     },
     {
         "subject": "PME 495",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PME 371"
+        "prerequisites": "PME 371",
+        "gpa": null
     },
     {
         "subject": "PME 495",
@@ -438,6 +457,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PME 371"
+        "prerequisites": "PME 371",
+        "gpa": null
     }
 ]

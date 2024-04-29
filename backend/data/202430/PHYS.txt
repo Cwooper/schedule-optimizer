@@ -1,4 +1,4 @@
-2024-04-26T16:27:23.641568
+2024-04-29T12:48:44.920107
 [
     {
         "subject": "PHYS 114",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SCI",
-        "prerequisites": "MATH 115 or MATH 118 or suitable math assessment score."
+        "prerequisites": "MATH 115 or MATH 118 or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "PHYS 161",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF LSCI",
-        "prerequisites": "MATH 124 or concurrent OR MATH 134 or concurrent OR MATH 138 or concurrent."
+        "prerequisites": "MATH 124 or concurrent OR MATH 134 or concurrent OR MATH 138 or concurrent.",
+        "gpa": null
     },
     {
         "subject": "PHYS 162",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF LSCI",
-        "prerequisites": "PHYS 161; MATH 124 and MATH 125 or MATH 134 and MATH 135 or concurrent, or MATH 138."
+        "prerequisites": "PHYS 161; MATH 124 and MATH 125 or MATH 134 and MATH 135 or concurrent, or MATH 138.",
+        "gpa": null
     },
     {
         "subject": "PHYS 163",
@@ -86,6 +89,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF LSCI",
-        "prerequisites": "PHYS 162; MATH 124 and MATH 125 or MATH 134 and MATH 135 or MATH 138"
+        "prerequisites": "PHYS 162; MATH 124 and MATH 125 or MATH 134 and MATH 135 or MATH 138",
+        "gpa": null
     }
 ]

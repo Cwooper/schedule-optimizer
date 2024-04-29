@@ -1,4 +1,4 @@
-2024-04-26T16:21:07.536847
+2024-04-29T12:48:04.887868
 [
     {
         "subject": "DISA 330",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCGM FTF",
-        "prerequisites": "ENG 101 or equivalent."
+        "prerequisites": "ENG 101 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "DISA 330",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC BCGM OL SST",
-        "prerequisites": "ENG 101 or equivalent."
+        "prerequisites": "ENG 101 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "DISA 350",
@@ -64,6 +66,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ENG 101 or equivalent."
+        "prerequisites": "ENG 101 or equivalent.",
+        "gpa": null
     }
 ]

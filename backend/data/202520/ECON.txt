@@ -1,4 +1,4 @@
-2024-04-26T16:18:50.925793
+2024-04-29T12:47:49.520607
 [
     {
         "subject": "ECON 101",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ECON 206",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SSC",
-        "prerequisites": "MATH 112 or equivalent or suitable math assessment score."
+        "prerequisites": "MATH 112 or equivalent or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "ECON 206",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SSC",
-        "prerequisites": "MATH 112 or equivalent or suitable math assessment score."
+        "prerequisites": "MATH 112 or equivalent or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "ECON 206",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SSC",
-        "prerequisites": "MATH 112 or equivalent or suitable math assessment score."
+        "prerequisites": "MATH 112 or equivalent or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "ECON 206",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SSC",
-        "prerequisites": "MATH 112 or equivalent or suitable math assessment score."
+        "prerequisites": "MATH 112 or equivalent or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "ECON 206",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SSC",
-        "prerequisites": "MATH 112 or equivalent or suitable math assessment score."
+        "prerequisites": "MATH 112 or equivalent or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "ECON 207",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SSC",
-        "prerequisites": "ECON 206 or HNRS 209 or ECON 446 or ECON 101; MATH 112 or equivalent or suitable math assessment score."
+        "prerequisites": "ECON 206 or HNRS 209 or ECON 446 or ECON 101; MATH 112 or equivalent or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "ECON 207",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SSC",
-        "prerequisites": "ECON 206 or HNRS 209 or ECON 446 or ECON 101; MATH 112 or equivalent or suitable math assessment score."
+        "prerequisites": "ECON 206 or HNRS 209 or ECON 446 or ECON 101; MATH 112 or equivalent or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "ECON 207",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SSC",
-        "prerequisites": "ECON 206 or HNRS 209 or ECON 446 or ECON 101; MATH 112 or equivalent or suitable math assessment score."
+        "prerequisites": "ECON 206 or HNRS 209 or ECON 446 or ECON 101; MATH 112 or equivalent or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "ECON 207",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SSC",
-        "prerequisites": "ECON 206 or HNRS 209 or ECON 446 or ECON 101; MATH 112 or equivalent or suitable math assessment score."
+        "prerequisites": "ECON 206 or HNRS 209 or ECON 446 or ECON 101; MATH 112 or equivalent or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "ECON 300",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "PR",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ECON 303",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "ECON 206 and ECON 207; or ECON 207 and HNRS 209; or HNRS 202; or HNRS 254."
+        "prerequisites": "ECON 206 and ECON 207; or ECON 207 and HNRS 209; or HNRS 202; or HNRS 254.",
+        "gpa": null
     },
     {
         "subject": "ECON 306",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202; MATH 124 or MATH 157 or equivalent."
+        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202; MATH 124 or MATH 157 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "ECON 307",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 207 or HNRS 254 or HNRS 202; MATH 124 or MATH 157 or equivalent."
+        "prerequisites": "ECON 207 or HNRS 254 or HNRS 202; MATH 124 or MATH 157 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "ECON 310",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 254; or HNRS 202."
+        "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 254; or HNRS 202.",
+        "gpa": null
     },
     {
         "subject": "ECON 311",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 202; or HNRS 254."
+        "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 202; or HNRS 254.",
+        "gpa": null
     },
     {
         "subject": "ECON 333",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202."
+        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202.",
+        "gpa": null
     },
     {
         "subject": "ECON 340",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "CF-E FTF",
-        "prerequisites": "ECON 101 or ECON 206 or HNRS 209 or HNRS 254 or HNRS 202."
+        "prerequisites": "ECON 101 or ECON 206 or HNRS 209 or HNRS 254 or HNRS 202.",
+        "gpa": null
     },
     {
         "subject": "ECON 360",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "CF-E FTF",
-        "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 202; or HNRS 254."
+        "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 202; or HNRS 254.",
+        "gpa": null
     },
     {
         "subject": "ECON 361",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "ECON 101 or ECON 206 or HNRS 209."
+        "prerequisites": "ECON 101 or ECON 206 or HNRS 209.",
+        "gpa": null
     },
     {
         "subject": "ECON 366",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or instructor permission."
+        "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ECON 375",
@@ -482,7 +503,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 206 and ECON 207 or HNRS 209 and ECON 207; MATH 240 or MATH 341 or DSCI 205; MATH 124 or MATH 157 or equivalent."
+        "prerequisites": "ECON 206 and ECON 207 or HNRS 209 and ECON 207; MATH 240 or MATH 341 or DSCI 205; MATH 124 or MATH 157 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "ECON 383",
@@ -504,7 +526,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202."
+        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202.",
+        "gpa": null
     },
     {
         "subject": "ECON 384",
@@ -526,7 +549,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202."
+        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202.",
+        "gpa": null
     },
     {
         "subject": "ECON 385",
@@ -548,7 +572,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "CF-E FTF WP1",
-        "prerequisites": "ECON 206 or ECON 207; HNRS 209 or ECON 207; or HNRS 202; or HNRS 254."
+        "prerequisites": "ECON 206 or ECON 207; HNRS 209 or ECON 207; or HNRS 202; or HNRS 254.",
+        "gpa": null
     },
     {
         "subject": "ECON 386",
@@ -570,7 +595,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 206 or HNRS 209."
+        "prerequisites": "ECON 206 or HNRS 209.",
+        "gpa": null
     },
     {
         "subject": "ECON 389",
@@ -592,7 +618,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 202; or HNRS 254."
+        "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 202; or HNRS 254.",
+        "gpa": null
     },
     {
         "subject": "ECON 400",
@@ -614,7 +641,8 @@
         "waitlist": "",
         "restrictions": "PR",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ECON 407",
@@ -636,7 +664,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "CF-E FTF WP1",
-        "prerequisites": "ECON 306; ECON 307; ECON 375 or MATH 342 or MATH 442."
+        "prerequisites": "ECON 306; ECON 307; ECON 375 or MATH 342 or MATH 442.",
+        "gpa": null
     },
     {
         "subject": "ECON 410",
@@ -658,7 +687,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF WP1",
-        "prerequisites": "ECON 306 or ECON 309 or equivalent."
+        "prerequisites": "ECON 306 or ECON 309 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "ECON 442",
@@ -680,7 +710,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "ECON 306 or ECON 309"
+        "prerequisites": "ECON 306 or ECON 309",
+        "gpa": null
     },
     {
         "subject": "ECON 447",
@@ -702,7 +733,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 206 or HNRS 209 or ECON 446 plus teaching experience or current or expected enrollment in teacher education program."
+        "prerequisites": "ECON 206 or HNRS 209 or ECON 446 plus teaching experience or current or expected enrollment in teacher education program.",
+        "gpa": null
     },
     {
         "subject": "ECON 470",
@@ -724,7 +756,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "ECON 306 or ECON 307; ECON 375 or MATH 342"
+        "prerequisites": "ECON 306 or ECON 307; ECON 375 or MATH 342",
+        "gpa": null
     },
     {
         "subject": "ECON 482",
@@ -746,7 +779,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "ECON 383 or equivalent"
+        "prerequisites": "ECON 383 or equivalent",
+        "gpa": null
     },
     {
         "subject": "ECON 491",
@@ -768,6 +802,7 @@
         "waitlist": "",
         "restrictions": "SR MJ",
         "attributes": "CF-E FTF WP2",
-        "prerequisites": "senior standing; economics/political science combined major, or economics major/ political science minor, or permission of instructor."
+        "prerequisites": "senior standing; economics/political science combined major, or economics major/ political science minor, or permission of instructor.",
+        "gpa": null
     }
 ]

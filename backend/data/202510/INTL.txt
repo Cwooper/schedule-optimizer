@@ -1,4 +1,4 @@
-2024-04-26T16:21:57.469782
+2024-04-29T12:48:09.965084
 [
     {
         "subject": "INTL 201",
@@ -20,6 +20,7 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]
