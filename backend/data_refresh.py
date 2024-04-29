@@ -14,7 +14,7 @@ MAX_SUBJECT_WAIT =  30      # Days
 MAX_COURSE_WAIT =   2       # Days
 MAX_TERM_WAIT =     10      # Days
 
-time_pattern = r'\d{2}:\d{2}-\d{2}:\d{2} (am|pm)'
+time_pattern = re.compile(r'\d{2}:\d{2}-\d{2}:\d{2} (am|pm)')
 
 current_directory = os.path.dirname(os.path.realpath(__file__))
 data_directory = os.path.join(current_directory, 'data')
