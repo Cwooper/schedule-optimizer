@@ -60,10 +60,11 @@ Django should handle all requests for course schedules.
     - [ ] apply `gpa` attribute to `Course` object
 - [ ] determine the "best" `Schedule` based on weights
     - [ ] add gpa weight
-    - [ ] add `start_time` weight
-    - [ ] add `end_time` weight
-    - [ ] add `time_gap` weight
+    - [x] add `start_time` weight
+    - [x] add `end_time` weight
+    - [x] add `time_gap` weight
     - [ ] add `uniqueness` weight (so that all schedules all don't look the same)
+    - [ ] add `class_distance` weight (Dijkstra's)
 - [ ] provided automatic weights on the frontend
     - [ ] add customizability to weights on frontend
 - [ ] display the schedules in an easily readable format (maybe a library)
