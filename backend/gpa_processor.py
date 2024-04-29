@@ -1,9 +1,12 @@
 # gpa_processor.py
 
 import os
+import re
 import pandas as pd
 from Course import Course
 from data_refresh import fetch_terms_list, filter_terms
+
+code_pattern = re.compile(r'(.*?)\s\d+')
 
 current_directory = os.path.dirname(os.path.realpath(__file__))
 data_directory = os.path.join(current_directory, 'data')
@@ -21,25 +24,46 @@ def excel_to_pickle():
     df.to_pickle(gpa_pickle_file)
     print(f"Created {gpa_pickle_file}.")
 
+def calculate_gpa(row, gpa_df) -> int:
+    code_match = re.match(code_pattern, row['subject'])
+    code = None
+    if code_match:
+        code = code_match.group(1)
+
+    instructor = row['instructor']
+
+    first_name = None
+    last_name = None
+
+    if ', ' in instructor:
+        names = instructor.split(', ')
+        last_names_str = names[0].strip()
+        first_names_str = names[1].strip()
+
+        last_names_list = last_names_str.split(' ')
+        first_names_list = first_names_str.split(' ')
+
+        first_name = first_names_list[:1]
+        last_name = last_names_list[-1:]
+    
+    
+    
+    return 0.0
+
 def main():
     if not os.path.exists(gpa_pickle_file):
         excel_to_pickle()
     gpa_df = pd.read_pickle(gpa_pickle_file)
     terms, year = filter_terms(fetch_terms_list())
 
+    # Iterate over every term folder in data dir
     for term in terms:
         term_directory = os.path.join(data_directory, term)
         term_pkl = os.path.join(term_directory, term + '.pkl')
         term_df = pd.read_pickle(term_pkl)
 
-        # courses = []
-        # course_dicts = term_df.to_dict(orient='records')
-        # if len(course_dicts) == 0:
-        #     print("Error: empty dataframe")
-        #     continue
-        # 
-        # for course_dict in course_dicts:
-        #     courses.append(Course(**course_dicts))
+        # Calculate the gpa for every row
+        term_df['gpa'] = term_df.apply(calculate_gpa, axis=1, gpa_df=gpa_df)
 
         print(term_df)
 
