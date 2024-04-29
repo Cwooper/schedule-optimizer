@@ -1,4 +1,4 @@
-2024-04-26T16:26:40.522346
+2024-04-29T12:48:40.817793
 [
     {
         "subject": "HSP 430",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HSP 440",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "HSP 435."
+        "prerequisites": "HSP 435.",
+        "gpa": null
     },
     {
         "subject": "HSP 453",
@@ -64,6 +66,7 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "ASNC OL",
-        "prerequisites": "Admission to major."
+        "prerequisites": "Admission to major.",
+        "gpa": null
     }
 ]

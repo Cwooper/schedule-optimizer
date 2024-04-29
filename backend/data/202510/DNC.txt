@@ -1,4 +1,4 @@
-2024-04-26T16:21:08.786432
+2024-04-29T12:48:05.002358
 [
     {
         "subject": "DNC 112",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "DNC 111 or instructor permission."
+        "prerequisites": "DNC 111 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "DNC 200",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "DNC 100 or permission of instructor."
+        "prerequisites": "DNC 100 or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "DNC 212",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Audition or level placement and instructor permission. DNC 211 recommended."
+        "prerequisites": "Audition or level placement and instructor permission. DNC 211 recommended.",
+        "gpa": null
     },
     {
         "subject": "DNC 222",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Audition or level placement and instructor permission. DNC 221 recommended."
+        "prerequisites": "Audition or level placement and instructor permission. DNC 221 recommended.",
+        "gpa": null
     },
     {
         "subject": "DNC 231",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "CCOM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DNC 232",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM ASNC OL SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DNC 257",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "being cast in a faculty-directed production"
+        "prerequisites": "being cast in a faculty-directed production",
+        "gpa": null
     },
     {
         "subject": "DNC 312",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Audition or level placement and instructor permission. DNC 311 recommended."
+        "prerequisites": "Audition or level placement and instructor permission. DNC 311 recommended.",
+        "gpa": null
     },
     {
         "subject": "DNC 322",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Audition or level placement and instructor permission. DNC 321, DNC 339 recommended."
+        "prerequisites": "Audition or level placement and instructor permission. DNC 321, DNC 339 recommended.",
+        "gpa": null
     },
     {
         "subject": "DNC 339",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "DNC 121, DNC 122, DNC 123 or permission of instructor."
+        "prerequisites": "DNC 121, DNC 122, DNC 123 or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "DNC 357",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DNC 398",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
-        "prerequisites": "Admission to a teacher education program leading to an elementary endorsement."
+        "prerequisites": "Admission to a teacher education program leading to an elementary endorsement.",
+        "gpa": null
     },
     {
         "subject": "DNC 422",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Audition or level placement and instructor permission. DNC 421 recommended."
+        "prerequisites": "Audition or level placement and instructor permission. DNC 421 recommended.",
+        "gpa": null
     },
     {
         "subject": "DNC 433",
@@ -306,6 +319,7 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "Permission of instructor."
+        "prerequisites": "Permission of instructor.",
+        "gpa": null
     }
 ]

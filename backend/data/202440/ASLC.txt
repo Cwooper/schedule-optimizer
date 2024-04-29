@@ -1,4 +1,4 @@
-2024-04-26T16:23:06.106499
+2024-04-29T12:48:18.518370
 [
     {
         "subject": "ASLC 101",
@@ -11,7 +11,7 @@
         "lab_start_time": "N/A",
         "lab_end_time": "N/A",
         "instructor": "Boyd, Linda Sue",
-        "room": "TBA",
+        "room": "AW 304",
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "25",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM HYBD",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ASLC 101",
@@ -33,7 +34,7 @@
         "lab_start_time": "N/A",
         "lab_end_time": "N/A",
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "AW 304",
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "25",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM HYBD",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ASLC 101",
@@ -55,7 +57,7 @@
         "lab_start_time": "N/A",
         "lab_end_time": "N/A",
         "instructor": "Boyd, Linda Sue",
-        "room": "TBA",
+        "room": "MH 152",
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "25",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM HYBD",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ASLC 101",
@@ -77,7 +80,7 @@
         "lab_start_time": "N/A",
         "lab_end_time": "N/A",
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "MH 152",
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "25",
@@ -86,6 +89,7 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM HYBD",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

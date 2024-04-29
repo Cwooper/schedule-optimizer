@@ -1,4 +1,4 @@
-2024-04-26T16:30:25.193274
+2024-04-29T12:49:05.354326
 [
     {
         "subject": "A/HI 212",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "A/HI 241",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "A/HI 271",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "A/HI 300",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "A/HI 302",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "A/HI 302",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "A/HI 302",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "A/HI 302",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "A/HI 302",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "A/HI 305",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "6 credits in Art or Art History; instructor permission; meet Western Gallery intern selection criteria."
+        "prerequisites": "6 credits in Art or Art History; instructor permission; meet Western Gallery intern selection criteria.",
+        "gpa": null
     },
     {
         "subject": "A/HI 306",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "24 credits in Art History and written permission of instructor."
+        "prerequisites": "24 credits in Art History and written permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "A/HI 330",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "Any A/HI or equivalent 200-level course."
+        "prerequisites": "Any A/HI or equivalent 200-level course.",
+        "gpa": null
     },
     {
         "subject": "A/HI 375",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "A/HI 275, art history majors only."
+        "prerequisites": "A/HI 275, art history majors only.",
+        "gpa": null
     },
     {
         "subject": "A/HI 385",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "Any A/HI or equivalent 200-level course."
+        "prerequisites": "Any A/HI or equivalent 200-level course.",
+        "gpa": null
     },
     {
         "subject": "A/HI 388",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Minor status in Museum Studies, or instructor permission."
+        "prerequisites": "Minor status in Museum Studies, or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "A/HI 400",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "A/HI 411",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "Any A/HI or equivalent 300-level course."
+        "prerequisites": "Any A/HI or equivalent 300-level course.",
+        "gpa": null
     },
     {
         "subject": "A/HI 416",
@@ -394,6 +411,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "Any A/HI or equivalent 300-level course."
+        "prerequisites": "Any A/HI or equivalent 300-level course.",
+        "gpa": null
     }
 ]

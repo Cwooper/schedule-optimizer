@@ -1,4 +1,4 @@
-2024-04-26T16:25:37.973234
+2024-04-29T12:48:35.833226
 [
     {
         "subject": "A/HI 210",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "A/HI 270",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "A/HI 302",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "A/HI 306",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "24 credits in Art History and written permission of instructor."
+        "prerequisites": "24 credits in Art History and written permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "A/HI 372",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "Any A/HI or equivalent 200-level course."
+        "prerequisites": "Any A/HI or equivalent 200-level course.",
+        "gpa": null
     },
     {
         "subject": "A/HI 451",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL WP3",
-        "prerequisites": "Any A/HI or equivalent 300-level course."
+        "prerequisites": "Any A/HI or equivalent 300-level course.",
+        "gpa": null
     }
 ]

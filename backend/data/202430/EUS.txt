@@ -1,4 +1,4 @@
-2024-04-26T16:26:23.767810
+2024-04-29T12:48:39.434618
 [
     {
         "subject": "EUS 201",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC BCGM OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EUS 210",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

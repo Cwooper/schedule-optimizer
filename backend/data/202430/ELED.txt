@@ -1,4 +1,4 @@
-2024-04-26T16:26:15.238758
+2024-04-29T12:48:38.640899
 [
     {
         "subject": "ELED 464",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ELED 691",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM S/U",
         "attributes": "ASNC FTF OL",
-        "prerequisites": "Student's graduate committee/program advisor approval."
+        "prerequisites": "Student's graduate committee/program advisor approval.",
+        "gpa": null
     }
 ]

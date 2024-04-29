@@ -1,4 +1,4 @@
-2024-04-26T16:24:19.016390
+2024-04-29T12:48:27.017674
 [
     {
         "subject": "HUMA 110",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Prichard, Tony Alan",
-        "room": "TBA",
+        "room": "BH 415",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HUMA 110",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Prichard, Tony Alan",
-        "room": "TBA",
+        "room": "BH 415",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HUMA 121",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Picus, Daniel",
-        "room": "TBA",
+        "room": "BH 415",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HUMA 121",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Picus, Daniel",
-        "room": "TBA",
+        "room": "BH 415",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HUMA 271",
@@ -99,7 +103,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Slouber, Michael",
-        "room": "TBA",
+        "room": "HU 103",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HUMA 271",
@@ -121,7 +126,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Slouber, Michael",
-        "room": "TBA",
+        "room": "HU 103",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FIG FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HUMA 277",
@@ -143,7 +149,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Pearce, Scott A.",
-        "room": "TBA",
+        "room": "HU 103",
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HUMA 278",
@@ -165,7 +172,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Zabihi-Moghaddam, Siyamak",
-        "room": "TBA",
+        "room": "HU 102",
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HUMA 300",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HUMA 321",
@@ -209,7 +218,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Lynn, Kimberly",
-        "room": "TBA",
+        "room": "MH 231",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": "One HUMA or REL course or HIST 112 or HNRS 104; or instructor permission."
+        "prerequisites": "One HUMA or REL course or HIST 112 or HNRS 104; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "HUMA 325",
@@ -231,7 +241,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Gogrof, Andrea E.",
-        "room": "TBA",
+        "room": "BH 419",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "FTF HUM",
-        "prerequisites": "Junior or senior status; or instructor permission."
+        "prerequisites": "Junior or senior status; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "HUMA 360",
@@ -253,7 +264,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Pearce, Scott A.",
-        "room": "TBA",
+        "room": "HU 108",
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "ACGM FTF",
-        "prerequisites": "Junior or senior status; or instructor permission."
+        "prerequisites": "Junior or senior status; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "HUMA 400",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HUMA 422",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "HUMA 302 or instructor permission."
+        "prerequisites": "HUMA 302 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "HUMA 498",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Instructor permission; senior status; HUMA 302; and one course from: HUMA 421, HUMA 423, HUMA 425, HUMA 490, REL 424, REL 428, REL 490."
+        "prerequisites": "Instructor permission; senior status; HUMA 302; and one course from: HUMA 421, HUMA 423, HUMA 425, HUMA 490, REL 424, REL 428, REL 490.",
+        "gpa": null
     },
     {
         "subject": "HUMA 499",
@@ -350,6 +365,7 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Instructor permission; senior status; HUMA 498."
+        "prerequisites": "Instructor permission; senior status; HUMA 498.",
+        "gpa": null
     }
 ]

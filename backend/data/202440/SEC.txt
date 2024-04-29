@@ -1,4 +1,4 @@
-2024-04-26T16:25:15.618705
+2024-04-29T12:48:33.238835
 [
     {
         "subject": "SEC 303",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Larson, Bruce Edward",
-        "room": "TBA",
+        "room": "MH 105",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "ED",
         "attributes": "FTF",
-        "prerequisites": "Admission to Woodring College of Education or permission of department chair."
+        "prerequisites": "Admission to Woodring College of Education or permission of department chair.",
+        "gpa": null
     },
     {
         "subject": "SEC 303",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Pyscher, Tracey Michelle",
-        "room": "TBA",
+        "room": "HU 107",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "ED",
         "attributes": "FTF",
-        "prerequisites": "Admission to Woodring College of Education or permission of department chair."
+        "prerequisites": "Admission to Woodring College of Education or permission of department chair.",
+        "gpa": null
     },
     {
         "subject": "SEC 303",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Pyscher, Tracey Michelle",
-        "room": "TBA",
+        "room": "HU 107",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "ED",
         "attributes": "FTF",
-        "prerequisites": "Admission to Woodring College of Education or permission of department chair."
+        "prerequisites": "Admission to Woodring College of Education or permission of department chair.",
+        "gpa": null
     },
     {
         "subject": "SEC 310",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Prichard, Shirley",
-        "room": "TBA",
+        "room": "MH 156",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "ED",
         "attributes": "FTF",
-        "prerequisites": "Admission to Woodring College of Education or permission of instructor or department chair."
+        "prerequisites": "Admission to Woodring College of Education or permission of instructor or department chair.",
+        "gpa": null
     },
     {
         "subject": "SEC 310",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "ED",
         "attributes": "FTF",
-        "prerequisites": "Admission to Woodring College of Education or permission of instructor or department chair."
+        "prerequisites": "Admission to Woodring College of Education or permission of instructor or department chair.",
+        "gpa": null
     },
     {
         "subject": "SEC 400",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV ED",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SEC 410",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "ED",
         "attributes": "FTF",
-        "prerequisites": "Admission to Secondary Education."
+        "prerequisites": "Admission to Secondary Education.",
+        "gpa": null
     },
     {
         "subject": "SEC 410",
@@ -165,7 +172,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Pollock, Laurie",
-        "room": "TBA",
+        "room": "HU 101",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "ED",
         "attributes": "FTF",
-        "prerequisites": "Admission to Secondary Education."
+        "prerequisites": "Admission to Secondary Education.",
+        "gpa": null
     },
     {
         "subject": "SEC 425",
@@ -187,7 +195,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Ozdogu, Devin Kazim",
-        "room": "TBA",
+        "room": "MH 103",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "ED",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SEC 430",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "ED",
         "attributes": "FTF",
-        "prerequisites": "Admission to Secondary Education, co-req: SEC 410."
+        "prerequisites": "Admission to Secondary Education, co-req: SEC 410.",
+        "gpa": null
     },
     {
         "subject": "SEC 430",
@@ -231,7 +241,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Pollock, Laurie",
-        "room": "TBA",
+        "room": "HU 101",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "ED",
         "attributes": "FTF",
-        "prerequisites": "Admission to Secondary Education, co-req: SEC 410."
+        "prerequisites": "Admission to Secondary Education, co-req: SEC 410.",
+        "gpa": null
     },
     {
         "subject": "SEC 432",
@@ -253,7 +264,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "MH 015",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "ED",
         "attributes": "FTF",
-        "prerequisites": "SEC 430 and SEC 431."
+        "prerequisites": "SEC 430 and SEC 431.",
+        "gpa": null
     },
     {
         "subject": "SEC 433",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "ED S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SEC 436",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "ED S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SEC 495",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "ED IP",
         "attributes": "FTF",
-        "prerequisites": "recommended for supervised teaching"
+        "prerequisites": "recommended for supervised teaching",
+        "gpa": null
     },
     {
         "subject": "SEC 501",
@@ -341,7 +356,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Longoria, A",
-        "room": "TBA",
+        "room": "MH 038",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "GR ED GR PB PM PQ",
         "attributes": "FTF",
-        "prerequisites": "SEC 531 or permission of instructor."
+        "prerequisites": "SEC 531 or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "SEC 512",
@@ -363,7 +379,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Durias, Joshua",
-        "room": "TBA",
+        "room": "MH 038",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "GR ED GR PB PM",
         "attributes": "FTF",
-        "prerequisites": "Admit to Secondary MIT or instructor permission"
+        "prerequisites": "Admit to Secondary MIT or instructor permission",
+        "gpa": null
     },
     {
         "subject": "SEC 513",
@@ -385,7 +402,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Tauzel, Brian",
-        "room": "TBA",
+        "room": "MH 154",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "GR ED GR PB PM",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SEC 514",
@@ -407,7 +425,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Tauzel, Brian",
-        "room": "TBA",
+        "room": "MH 139",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "ED GR PB PM S/U",
         "attributes": "FTF",
-        "prerequisites": "Admission to MIT program."
+        "prerequisites": "Admission to MIT program.",
+        "gpa": null
     },
     {
         "subject": "SEC 515",
@@ -429,7 +448,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Ware, Molly Noelle",
-        "room": "TBA",
+        "room": "MH 013",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "ED GR PB PM S/U",
         "attributes": "FTF",
-        "prerequisites": "Admission to MIT program."
+        "prerequisites": "Admission to MIT program.",
+        "gpa": null
     },
     {
         "subject": "SEC 531",
@@ -451,7 +471,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Larson, Bruce Edward",
-        "room": "TBA",
+        "room": "CV 264",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "GR ED GR PB PM",
         "attributes": "FTF",
-        "prerequisites": "Program advisor permission."
+        "prerequisites": "Program advisor permission.",
+        "gpa": null
     },
     {
         "subject": "SEC 532",
@@ -473,7 +494,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Tauzel, Brian",
-        "room": "TBA",
+        "room": "MH 139",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -482,7 +503,8 @@
         "waitlist": "",
         "restrictions": "GR ED GR PB PM",
         "attributes": "FTF",
-        "prerequisites": "Admission to Secondary MIT or instructor permission."
+        "prerequisites": "Admission to Secondary MIT or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SEC 533",
@@ -495,7 +517,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Ware, Molly Noelle",
-        "room": "TBA",
+        "room": "MH 013",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -504,7 +526,8 @@
         "waitlist": "",
         "restrictions": "GR ED GR PB PM PQ",
         "attributes": "FTF",
-        "prerequisites": "SEC 532."
+        "prerequisites": "SEC 532.",
+        "gpa": null
     },
     {
         "subject": "SEC 534",
@@ -517,7 +540,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Ware, Molly Noelle",
-        "room": "TBA",
+        "room": "MH 231",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -526,7 +549,8 @@
         "waitlist": "",
         "restrictions": "GR ED GR PB PM PQ",
         "attributes": "FTF",
-        "prerequisites": "SEC 533."
+        "prerequisites": "SEC 533.",
+        "gpa": null
     },
     {
         "subject": "SEC 595",
@@ -548,7 +572,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM IP",
         "attributes": "FTF",
-        "prerequisites": "department permission"
+        "prerequisites": "department permission",
+        "gpa": null
     },
     {
         "subject": "SEC 693",
@@ -561,7 +586,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Ware, Molly Noelle",
-        "room": "TBA",
+        "room": "MH 103",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -570,7 +595,8 @@
         "waitlist": "",
         "restrictions": "ED GR PB PM S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "SEC 501."
+        "prerequisites": "SEC 501.",
+        "gpa": null
     },
     {
         "subject": "SEC 699",
@@ -592,6 +618,7 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

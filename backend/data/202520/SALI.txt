@@ -1,4 +1,4 @@
-2024-04-26T16:20:18.942570
+2024-04-29T12:48:00.149637
 [
     {
         "subject": "SALI 201",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "BCGM FTF",
-        "prerequisites": "Optional co-requisite: SALI 202."
+        "prerequisites": "Optional co-requisite: SALI 202.",
+        "gpa": null
     },
     {
         "subject": "SALI 202",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "Co-requisite: SALI 201; or instructor permission."
+        "prerequisites": "Co-requisite: SALI 201; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SALI 490",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SALI 495",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Salish Sea Studies Minor status"
+        "prerequisites": "Salish Sea Studies Minor status",
+        "gpa": null
     },
     {
         "subject": "SALI 496",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "SALI 201"
+        "prerequisites": "SALI 201",
+        "gpa": null
     },
     {
         "subject": "SALI 590",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

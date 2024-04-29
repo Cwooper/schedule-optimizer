@@ -1,4 +1,4 @@
-2024-04-26T16:30:52.530397
+2024-04-29T12:49:08.001032
 [
     {
         "subject": "DSCI 205",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "HYBD",
-        "prerequisites": "MATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score."
+        "prerequisites": "MATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "DSCI 205",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "HYBD",
-        "prerequisites": "MATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score."
+        "prerequisites": "MATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "DSCI 305",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "MATH 157 or MATH 124 or MATH 138; and DSCI 205."
+        "prerequisites": "MATH 157 or MATH 124 or MATH 138; and DSCI 205.",
+        "gpa": null
     },
     {
         "subject": "DSCI 305",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "MATH 157 or MATH 124 or MATH 138; and DSCI 205."
+        "prerequisites": "MATH 157 or MATH 124 or MATH 138; and DSCI 205.",
+        "gpa": null
     },
     {
         "subject": "DSCI 407",
@@ -108,6 +112,7 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors only. DSCI 305 or ECON 375."
+        "prerequisites": "Majors only. DSCI 305 or ECON 375.",
+        "gpa": null
     }
 ]

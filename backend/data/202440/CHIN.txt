@@ -1,4 +1,4 @@
-2024-04-26T16:23:22.544138
+2024-04-29T12:48:20.269352
 [
     {
         "subject": "CHIN 101",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Liu, Claudia",
-        "room": "TBA",
+        "room": "IS 242",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "22",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "CHIN 101",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Li, Xiaomeng",
-        "room": "TBA",
+        "room": "HU 102",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "22",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "CHIN 201",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Su, Wenling",
-        "room": "TBA",
+        "room": "BH 111",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "20",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCOM FTF",
-        "prerequisites": "CHIN 103 or equivalent"
+        "prerequisites": "CHIN 103 or equivalent",
+        "gpa": null
     },
     {
         "subject": "CHIN 301",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Li, Xiaomeng",
-        "room": "TBA",
+        "room": "BH 173",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ACGM FTF",
-        "prerequisites": "CHIN 203"
+        "prerequisites": "CHIN 203",
+        "gpa": null
     },
     {
         "subject": "CHIN 401",
@@ -99,7 +103,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Su, Wenling",
-        "room": "TBA",
+        "room": "BH 108",
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
@@ -107,8 +111,9 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF",
-        "prerequisites": "CHIN 302 or instructor permission."
+        "attributes": "FTF WP1",
+        "prerequisites": "CHIN 302 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "CHIN 425",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "CHIN 301; CHIN 314; and instructor permission."
+        "prerequisites": "CHIN 301; CHIN 314; and instructor permission.",
+        "gpa": null
     }
 ]

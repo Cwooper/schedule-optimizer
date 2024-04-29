@@ -1,4 +1,4 @@
-2024-04-26T16:23:48.328249
+2024-04-29T12:48:22.568687
 [
     {
         "subject": "ESJ 411",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "HU 107",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -20,6 +20,7 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "FAIR 304A; declaration of Education and Social Justice Minor or instructor permission."
+        "prerequisites": "FAIR 304A; declaration of Education and Social Justice Minor or instructor permission.",
+        "gpa": null
     }
 ]

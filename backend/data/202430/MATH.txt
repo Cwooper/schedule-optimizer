@@ -1,4 +1,4 @@
-2024-04-26T16:27:09.294823
+2024-04-29T12:48:43.889837
 [
     {
         "subject": "MATH 099",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "OL SYNC",
-        "prerequisites": "NOTE: This course will fulfill 5 credits towards financial aid and veterans benefits requirements only. No credit will be allowed toward the graduation requirement of 180 credits."
+        "prerequisites": "NOTE: This course will fulfill 5 credits towards financial aid and veterans benefits requirements only. No credit will be allowed toward the graduation requirement of 180 credits.",
+        "gpa": null
     },
     {
         "subject": "MATH 107",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL QSR",
-        "prerequisites": "MATH 99 or MATH 112 or college intermediate algebra course with a C- or better or suitable math assessment score."
+        "prerequisites": "MATH 99 or MATH 112 or college intermediate algebra course with a C- or better or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "MATH 108",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL QSR",
-        "prerequisites": "MATH 99 or MATH 112 or college intermediate algebra course with a C- or better or suitable math assessment score."
+        "prerequisites": "MATH 99 or MATH 112 or college intermediate algebra course with a C- or better or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "MATH 111",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "MATH 99 or college intermediate algebra course with a C- or better or suitable math assessment score."
+        "prerequisites": "MATH 99 or college intermediate algebra course with a C- or better or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "MATH 112",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL QSR SYNC",
-        "prerequisites": "MATH 99 or college intermediate algebra course with a C- or better or suitable math assessment score. Note: Neither MATH 106, MATH 107 nor MATH 108 is an acceptable prerequisite for this course."
+        "prerequisites": "MATH 99 or college intermediate algebra course with a C- or better or suitable math assessment score. Note: Neither MATH 106, MATH 107 nor MATH 108 is an acceptable prerequisite for this course.",
+        "gpa": null
     },
     {
         "subject": "MATH 114",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL QSR",
-        "prerequisites": "MATH 112 with a C- or better or suitable math assessment score."
+        "prerequisites": "MATH 112 with a C- or better or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "MATH 114",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL QSR SYNC",
-        "prerequisites": "MATH 112 with a C- or better or suitable math assessment score."
+        "prerequisites": "MATH 112 with a C- or better or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "MATH 115",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL QSR SYNC",
-        "prerequisites": "MATH 114 with a C- or better at Western"
+        "prerequisites": "MATH 114 with a C- or better at Western",
+        "gpa": null
     },
     {
         "subject": "MATH 124",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF QSR",
-        "prerequisites": "MATH 115 or MATH 118 with a C- or better or a grade of 2.3 or higher in a culminating college precalculus course or suitable math assessment score."
+        "prerequisites": "MATH 115 or MATH 118 with a C- or better or a grade of 2.3 or higher in a culminating college precalculus course or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "MATH 125",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "MATH 124 or MATH 134."
+        "prerequisites": "MATH 124 or MATH 134.",
+        "gpa": null
     },
     {
         "subject": "MATH 157",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL QSR SYNC",
-        "prerequisites": "MATH 156 or MATH 114 or MATH 118 or grade of 2.3 or higher in a college precalculus course or suitable math assessment score."
+        "prerequisites": "MATH 156 or MATH 114 or MATH 118 or grade of 2.3 or higher in a college precalculus course or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "MATH 204",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL SYNC",
-        "prerequisites": "MATH 125 or MATH 135; MATH 224 recommended"
+        "prerequisites": "MATH 125 or MATH 135; MATH 224 recommended",
+        "gpa": null
     },
     {
         "subject": "MATH 224",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL SYNC",
-        "prerequisites": "MATH 125 or MATH 135, or MATH 138"
+        "prerequisites": "MATH 125 or MATH 135, or MATH 138",
+        "gpa": null
     },
     {
         "subject": "MATH 226",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL SYNC",
-        "prerequisites": "MATH 125, MATH 135 or MATH 138"
+        "prerequisites": "MATH 125, MATH 135 or MATH 138",
+        "gpa": null
     },
     {
         "subject": "MATH 240",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF QSR",
-        "prerequisites": "MATH 112 with a C- or better or a college precalculus course with a C+ or better or suitable math assessment score."
+        "prerequisites": "MATH 112 with a C- or better or a college precalculus course with a C+ or better or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "MATH 304",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL SYNC",
-        "prerequisites": "MATH 204, MATH 224"
+        "prerequisites": "MATH 204, MATH 224",
+        "gpa": null
     },
     {
         "subject": "MATH 309",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL",
-        "prerequisites": "MATH 125"
+        "prerequisites": "MATH 125",
+        "gpa": null
     },
     {
         "subject": "MATH 312",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "OL SYNC",
-        "prerequisites": "MATH 226; MATH 302 or MATH 309.  Restricted to majors and minors during Registration Phase 1."
+        "prerequisites": "MATH 226; MATH 302 or MATH 309.  Restricted to majors and minors during Registration Phase 1.",
+        "gpa": null
     },
     {
         "subject": "MATH 331",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "Math 204; Math 224 recommended or concurrent."
+        "prerequisites": "Math 204; Math 224 recommended or concurrent.",
+        "gpa": null
     },
     {
         "subject": "MATH 341",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL SYNC",
-        "prerequisites": "MATH 125 or MATH 135 or MATH 138"
+        "prerequisites": "MATH 125 or MATH 135 or MATH 138",
+        "gpa": null
     },
     {
         "subject": "MATH 381",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL QSR SYNC",
-        "prerequisites": "MATH 111 or MATH 112 or college intermediate algebra course with a C or better or suitable math assessment score; a C or better in one of ELED 305, ELED 372, SPED 420, ECE 391; prerequisites must have been met within the last 5 years."
+        "prerequisites": "MATH 111 or MATH 112 or college intermediate algebra course with a C or better or suitable math assessment score; a C or better in one of ELED 305, ELED 372, SPED 420, ECE 391; prerequisites must have been met within the last 5 years.",
+        "gpa": null
     },
     {
         "subject": "MATH 383",
@@ -482,7 +503,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL SYNC",
-        "prerequisites": "MATH 382 with a C or better at WWU"
+        "prerequisites": "MATH 382 with a C or better at WWU",
+        "gpa": null
     },
     {
         "subject": "MATH 419",
@@ -504,7 +526,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF WP3",
-        "prerequisites": "12 credits upper-division math"
+        "prerequisites": "12 credits upper-division math",
+        "gpa": null
     },
     {
         "subject": "MATH 432",
@@ -526,6 +549,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "MATH 226; and one of the following pairs: MATH 204 and MATH 331; or MATH 203 and MATH 303."
+        "prerequisites": "MATH 226; and one of the following pairs: MATH 204 and MATH 331; or MATH 203 and MATH 303.",
+        "gpa": null
     }
 ]

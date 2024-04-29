@@ -1,4 +1,4 @@
-2024-04-26T16:31:34.413473
+2024-04-29T12:49:13.594746
 [
     {
         "subject": "ID 110",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Industrial Design pre-majors during Phase I registration; Non-majors II registration."
+        "prerequisites": "Industrial Design pre-majors during Phase I registration; Non-majors II registration.",
+        "gpa": null
     },
     {
         "subject": "ID 220",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ID 120 and ID 210."
+        "prerequisites": "ID 120 and ID 210.",
+        "gpa": null
     },
     {
         "subject": "ID 300",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ID 320",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ID 110 or ID 310 or DSGN 213."
+        "prerequisites": "ID 110 or ID 310 or DSGN 213.",
+        "gpa": null
     },
     {
         "subject": "ID 340",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "ID 310 and acceptance into Industrial Design Program."
+        "prerequisites": "ID 310 and acceptance into Industrial Design Program.",
+        "gpa": null
     },
     {
         "subject": "ID 360",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ID 350"
+        "prerequisites": "ID 350",
+        "gpa": null
     },
     {
         "subject": "ID 380",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ENGR 115 and acceptance into Industrial Design Program."
+        "prerequisites": "ENGR 115 and acceptance into Industrial Design Program.",
+        "gpa": null
     },
     {
         "subject": "ID 400",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ID 420",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ID 410"
+        "prerequisites": "ID 410",
+        "gpa": null
     },
     {
         "subject": "ID 440",
@@ -218,6 +227,7 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ID 370 or permission of instructor."
+        "prerequisites": "ID 370 or permission of instructor.",
+        "gpa": null
     }
 ]

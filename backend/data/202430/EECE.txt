@@ -1,4 +1,4 @@
-2024-04-26T16:26:14.046459
+2024-04-29T12:48:38.558329
 [
     {
         "subject": "EECE 111",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "MATH 125; PHYS 162."
+        "prerequisites": "MATH 125; PHYS 162.",
+        "gpa": null
     },
     {
         "subject": "EECE 495",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:21:25.954747
+2024-04-29T12:48:06.568785
 [
     {
         "subject": "ENGR 101",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENGR 115",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ENGR 101"
+        "prerequisites": "ENGR 101",
+        "gpa": null
     },
     {
         "subject": "ENGR 115",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ENGR 101"
+        "prerequisites": "ENGR 101",
+        "gpa": null
     },
     {
         "subject": "ENGR 115",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ENGR 101"
+        "prerequisites": "ENGR 101",
+        "gpa": null
     },
     {
         "subject": "ENGR 115",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ENGR 101"
+        "prerequisites": "ENGR 101",
+        "gpa": null
     },
     {
         "subject": "ENGR 170",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "CHEM 161 or CHEM 175; (MATH 124 and PHYS 161, or concurrent) or (MATH 157 and PHYS 114, or concurrent)"
+        "prerequisites": "CHEM 161 or CHEM 175; (MATH 124 and PHYS 161, or concurrent) or (MATH 157 and PHYS 114, or concurrent)",
+        "gpa": null
     },
     {
         "subject": "ENGR 214",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MATH 124; MATH 125 or concurrent; MATH 204 recommended; and PHYS 161"
+        "prerequisites": "MATH 124; MATH 125 or concurrent; MATH 204 recommended; and PHYS 161",
+        "gpa": null
     },
     {
         "subject": "ENGR 225",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ENGR 170; ENGR 214; MATH 125"
+        "prerequisites": "ENGR 170; ENGR 214; MATH 125",
+        "gpa": null
     },
     {
         "subject": "ENGR 295",
@@ -196,6 +204,7 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Enrollment limited to ENGD majors and pre-majors."
+        "prerequisites": "Enrollment limited to ENGD majors and pre-majors.",
+        "gpa": null
     }
 ]

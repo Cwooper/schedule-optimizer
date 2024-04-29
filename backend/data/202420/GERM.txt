@@ -1,4 +1,4 @@
-2024-04-26T16:28:53.264241
+2024-04-29T12:48:53.950624
 [
     {
         "subject": "GERM 103",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCOM FTF",
-        "prerequisites": "GERM 102 or equivalent"
+        "prerequisites": "GERM 102 or equivalent",
+        "gpa": null
     },
     {
         "subject": "GERM 103",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCOM FTF",
-        "prerequisites": "GERM 102 or equivalent"
+        "prerequisites": "GERM 102 or equivalent",
+        "gpa": null
     },
     {
         "subject": "GERM 203",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF HUM",
-        "prerequisites": "GERM 202 or instructor permission."
+        "prerequisites": "GERM 202 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "GERM 203",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF HUM",
-        "prerequisites": "GERM 202 or instructor permission."
+        "prerequisites": "GERM 202 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "GERM 306",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "GERM 302."
+        "prerequisites": "GERM 302.",
+        "gpa": null
     },
     {
         "subject": "GERM 330",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "GERM 302 or instructor permission."
+        "prerequisites": "GERM 302 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "GERM 425",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "6 credits upper-division German; written department permission."
+        "prerequisites": "6 credits upper-division German; written department permission.",
+        "gpa": null
     },
     {
         "subject": "GERM 450",
@@ -174,6 +181,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "GERM 302, GERM 340 and GERM 401."
+        "prerequisites": "GERM 302, GERM 340 and GERM 401.",
+        "gpa": null
     }
 ]

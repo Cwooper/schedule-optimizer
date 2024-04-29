@@ -1,4 +1,4 @@
-2024-04-26T16:27:16.463010
+2024-04-29T12:48:44.414733
 [
     {
         "subject": "NURS 307",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "Admission to the RN-to-BSN program or permission of instructor."
+        "prerequisites": "Admission to the RN-to-BSN program or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "NURS 307",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "Admission to the RN-to-BSN program or permission of instructor."
+        "prerequisites": "Admission to the RN-to-BSN program or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "NURS 401",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "Admission to the RN-to-BSN program."
+        "prerequisites": "Admission to the RN-to-BSN program.",
+        "gpa": null
     },
     {
         "subject": "NURS 401",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "Admission to the RN-to-BSN program."
+        "prerequisites": "Admission to the RN-to-BSN program.",
+        "gpa": null
     },
     {
         "subject": "NURS 442",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "NURS 422; co-requisite: NURS 443."
+        "prerequisites": "NURS 422; co-requisite: NURS 443.",
+        "gpa": null
     },
     {
         "subject": "NURS 442",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "NURS 422; co-requisite: NURS 443."
+        "prerequisites": "NURS 422; co-requisite: NURS 443.",
+        "gpa": null
     },
     {
         "subject": "NURS 443",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Co-requisite: NURS 442."
+        "prerequisites": "Co-requisite: NURS 442.",
+        "gpa": null
     },
     {
         "subject": "NURS 443",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Co-requisite: NURS 442."
+        "prerequisites": "Co-requisite: NURS 442.",
+        "gpa": null
     },
     {
         "subject": "NURS 443",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Co-requisite: NURS 442."
+        "prerequisites": "Co-requisite: NURS 442.",
+        "gpa": null
     },
     {
         "subject": "NURS 452",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "ACGM ASNC OL",
-        "prerequisites": "NURS 432 or permission of instructor."
+        "prerequisites": "NURS 432 or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "NURS 452",
@@ -240,6 +250,7 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "ACGM ASNC OL",
-        "prerequisites": "NURS 432 or permission of instructor."
+        "prerequisites": "NURS 432 or permission of instructor.",
+        "gpa": null
     }
 ]

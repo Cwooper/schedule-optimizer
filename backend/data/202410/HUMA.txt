@@ -1,4 +1,4 @@
-2024-04-26T16:31:33.198053
+2024-04-29T12:49:13.487009
 [
     {
         "subject": "HUMA 110",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HUMA 122",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HUMA 123",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HUMA 275",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HUMA 277",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HUMA 278",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HUMA 300",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HUMA 323",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR",
         "attributes": "FTF HUM",
-        "prerequisites": "Junior or senior status; or instructor permission."
+        "prerequisites": "Junior or senior status; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "HUMA 390",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR",
         "attributes": "FTF HUM",
-        "prerequisites": "Junior or senior status; or instructor permission."
+        "prerequisites": "Junior or senior status; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "HUMA 400",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HUMA 498",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Instructor permission; senior status; HUMA 302; and one course from: HUMA 421, HUMA 423, HUMA 425, HUMA 490, REL 424, REL 428, REL 490."
+        "prerequisites": "Instructor permission; senior status; HUMA 302; and one course from: HUMA 421, HUMA 423, HUMA 425, HUMA 490, REL 424, REL 428, REL 490.",
+        "gpa": null
     },
     {
         "subject": "HUMA 499",
@@ -262,6 +273,7 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Instructor permission; senior status; HUMA 498."
+        "prerequisites": "Instructor permission; senior status; HUMA 498.",
+        "gpa": null
     }
 ]

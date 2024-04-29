@@ -1,4 +1,4 @@
-2024-04-26T16:27:46.489258
+2024-04-29T12:48:46.705532
 [
     {
         "subject": "THTR 368",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "THTR 260, THTR 261, acceptance into THTR 360."
+        "prerequisites": "THTR 260, THTR 261, acceptance into THTR 360.",
+        "gpa": null
     },
     {
         "subject": "THTR 385",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "THTR 216"
+        "prerequisites": "THTR 216",
+        "gpa": null
     },
     {
         "subject": "THTR 397M",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "THTR 216"
+        "prerequisites": "THTR 216",
+        "gpa": null
     },
     {
         "subject": "THTR 428",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL SYNC",
-        "prerequisites": "THTR 228."
+        "prerequisites": "THTR 228.",
+        "gpa": null
     },
     {
         "subject": "THTR 495",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR S/U",
         "attributes": "FTF",
-        "prerequisites": "Junior status or above and permission of Chair."
+        "prerequisites": "Junior status or above and permission of Chair.",
+        "gpa": null
     },
     {
         "subject": "THTR 496",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Instructor permission."
+        "prerequisites": "Instructor permission.",
+        "gpa": null
     }
 ]

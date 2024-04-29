@@ -1,4 +1,4 @@
-2024-04-26T16:25:34.304235
+2024-04-29T12:48:35.535053
 [
     {
         "subject": "ANTH 102",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ANTH 104",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC BCGM OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ANTH 201",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ANTH 215",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC LSCI OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ANTH 301",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "ANTH 201 or HNRS 203."
+        "prerequisites": "ANTH 201 or HNRS 203.",
+        "gpa": null
     },
     {
         "subject": "ANTH 312",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "ANTH 210 or equivalent and permission of instructor."
+        "prerequisites": "ANTH 210 or equivalent and permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "ANTH 335",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "ASNC OL QSR",
-        "prerequisites": "ANTH 201 or HNRS 203 or ANTH 210 or ANTH 215."
+        "prerequisites": "ANTH 201 or HNRS 203 or ANTH 210 or ANTH 215.",
+        "gpa": null
     },
     {
         "subject": "ANTH 350",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ANTH 215; One from: ANTH 201, ANTH 210, HNRS 203."
+        "prerequisites": "ANTH 215; One from: ANTH 201, ANTH 210, HNRS 203.",
+        "gpa": null
     },
     {
         "subject": "ANTH 353",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC BCGM OL",
-        "prerequisites": "ANTH 201 or HNRS 203."
+        "prerequisites": "ANTH 201 or HNRS 203.",
+        "gpa": null
     },
     {
         "subject": "ANTH 361",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC BCGM OL",
-        "prerequisites": "ANTH 201 or HNRS 203."
+        "prerequisites": "ANTH 201 or HNRS 203.",
+        "gpa": null
     },
     {
         "subject": "ANTH 424",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "ANTH 201 or HNRS 203, and junior standing or instructor permission."
+        "prerequisites": "ANTH 201 or HNRS 203, and junior standing or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ANTH 469",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "ASNC OL",
-        "prerequisites": "permission of instructor."
+        "prerequisites": "permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "ANTH 470",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "ANTH 301 and junior or senior, or permission of faculty liaison."
+        "prerequisites": "ANTH 301 and junior or senior, or permission of faculty liaison.",
+        "gpa": null
     },
     {
         "subject": "ANTH 496",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV SR MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "Senior status in anthropology."
+        "prerequisites": "Senior status in anthropology.",
+        "gpa": null
     },
     {
         "subject": "ANTH 496",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV SR MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "Senior status in anthropology."
+        "prerequisites": "Senior status in anthropology.",
+        "gpa": null
     },
     {
         "subject": "ANTH 496",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "OV SR MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "Senior status in anthropology."
+        "prerequisites": "Senior status in anthropology.",
+        "gpa": null
     },
     {
         "subject": "ANTH 496",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "OV SR MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "Senior status in anthropology."
+        "prerequisites": "Senior status in anthropology.",
+        "gpa": null
     },
     {
         "subject": "ANTH 496",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "OV SR MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "Senior status in anthropology."
+        "prerequisites": "Senior status in anthropology.",
+        "gpa": null
     },
     {
         "subject": "ANTH 690",
@@ -416,6 +434,7 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "formal advancement to candidacy for MA in Anthropology"
+        "prerequisites": "formal advancement to candidacy for MA in Anthropology",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:30:01.025065
+2024-04-29T12:49:02.088970
 [
     {
         "subject": "SCED 201",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF LSCI",
-        "prerequisites": "MATH 111 or MATH 112 or college intermediate algebra course with a C or better or a suitable math assessment score."
+        "prerequisites": "MATH 111 or MATH 112 or college intermediate algebra course with a C or better or a suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "SCED 201",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF LSCI",
-        "prerequisites": "MATH 111 or MATH 112 or college intermediate algebra course with a C or better or a suitable math assessment score."
+        "prerequisites": "MATH 111 or MATH 112 or college intermediate algebra course with a C or better or a suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "SCED 202",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF LSCI",
-        "prerequisites": "SCED 201 or instructor permission."
+        "prerequisites": "SCED 201 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SCED 203",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF LSCI",
-        "prerequisites": "SCED 201 or instructor permission."
+        "prerequisites": "SCED 201 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SCED 297B",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SCED 370",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF WP3",
-        "prerequisites": "Completion of science GURs and completion 90 credits or permission of instructor."
+        "prerequisites": "Completion of science GURs and completion 90 credits or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "SCED 425",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "SCED 205"
+        "prerequisites": "SCED 205",
+        "gpa": null
     },
     {
         "subject": "SCED 435",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "SCED 205; co-requisite: SCED 425;\u00a0Fingerprinting Clearance/BBP & Sexual Harassment Workshop; admission to Woodring College of Education."
+        "prerequisites": "SCED 205; co-requisite: SCED 425;\u00a0Fingerprinting Clearance/BBP & Sexual Harassment Workshop; admission to Woodring College of Education.",
+        "gpa": null
     },
     {
         "subject": "SCED 480",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Completion of Natural Science GURs, including SCED 201 or permission of instructor; SCED 202, SCED 203, and SCED 204 are highly desired GURs; ELED 370 or ELED 372 or SPED 420."
+        "prerequisites": "Completion of Natural Science GURs, including SCED 201 or permission of instructor; SCED 202, SCED 203, and SCED 204 are highly desired GURs; ELED 370 or ELED 372 or SPED 420.",
+        "gpa": null
     },
     {
         "subject": "SCED 480",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Completion of Natural Science GURs, including SCED 201 or permission of instructor; SCED 202, SCED 203, and SCED 204 are highly desired GURs; ELED 370 or ELED 372 or SPED 420."
+        "prerequisites": "Completion of Natural Science GURs, including SCED 201 or permission of instructor; SCED 202, SCED 203, and SCED 204 are highly desired GURs; ELED 370 or ELED 372 or SPED 420.",
+        "gpa": null
     },
     {
         "subject": "SCED 490",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV ED PQ",
         "attributes": "FTF",
-        "prerequisites": "SCED 480"
+        "prerequisites": "SCED 480",
+        "gpa": null
     },
     {
         "subject": "SCED 490",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV ED PQ",
         "attributes": "FTF",
-        "prerequisites": "SCED 480"
+        "prerequisites": "SCED 480",
+        "gpa": null
     },
     {
         "subject": "SCED 491",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV ED PQ",
         "attributes": "FTF",
-        "prerequisites": "Admission to the secondary teaching program and a major or concentration in natural sciences; SEC 431 or SEC 532; SCED 481."
+        "prerequisites": "Admission to the secondary teaching program and a major or concentration in natural sciences; SEC 431 or SEC 532; SCED 481.",
+        "gpa": null
     },
     {
         "subject": "SCED 492",
@@ -306,6 +319,7 @@
         "waitlist": "",
         "restrictions": "OV ED PQ",
         "attributes": "FTF",
-        "prerequisites": "SCED 480 and SCED 490 for General Science majors; or permission of instructor for Secondary Science majors."
+        "prerequisites": "SCED 480 and SCED 490 for General Science majors; or permission of instructor for Secondary Science majors.",
+        "gpa": null
     }
 ]

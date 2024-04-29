@@ -1,4 +1,4 @@
-2024-04-26T16:31:56.899511
+2024-04-29T12:49:15.830311
 [
     {
         "subject": "MBA 505",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ",
         "attributes": "FTF",
-        "prerequisites": "Admitted graduate student within College of Business and Economics."
+        "prerequisites": "Admitted graduate student within College of Business and Economics.",
+        "gpa": null
     },
     {
         "subject": "MBA 506",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ",
         "attributes": "FTF",
-        "prerequisites": "Admitted graduate student within College of Business and Economics."
+        "prerequisites": "Admitted graduate student within College of Business and Economics.",
+        "gpa": null
     },
     {
         "subject": "MBA 509",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ",
         "attributes": "FTF",
-        "prerequisites": "Admitted graduate student within College of Business and Economics."
+        "prerequisites": "Admitted graduate student within College of Business and Economics.",
+        "gpa": null
     },
     {
         "subject": "MBA 541",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MBA 505 and MBA 511."
+        "prerequisites": "MBA 505 and MBA 511.",
+        "gpa": null
     },
     {
         "subject": "MBA 595",
@@ -108,6 +112,7 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ",
         "attributes": "FTF",
-        "prerequisites": "Admitted graduate student within College of Business and Economics."
+        "prerequisites": "Admitted graduate student within College of Business and Economics.",
+        "gpa": null
     }
 ]

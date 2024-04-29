@@ -1,4 +1,4 @@
-2024-04-26T16:19:37.142878
+2024-04-29T12:47:54.471960
 [
     {
         "subject": "LAT 103",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCOM FTF",
-        "prerequisites": "LAT 102"
+        "prerequisites": "LAT 102",
+        "gpa": null
     },
     {
         "subject": "LAT 203",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF HUM",
-        "prerequisites": "LAT 202 or equivalent."
+        "prerequisites": "LAT 202 or equivalent.",
+        "gpa": null
     }
 ]

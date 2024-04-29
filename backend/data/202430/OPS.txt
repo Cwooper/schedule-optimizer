@@ -1,4 +1,4 @@
-2024-04-26T16:27:17.650618
+2024-04-29T12:48:44.499200
 [
     {
         "subject": "OPS 360",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "DSCI 205, ACCT 245, C- or better; spreadsheet competency"
+        "prerequisites": "DSCI 205, ACCT 245, C- or better; spreadsheet competency",
+        "gpa": null
     },
     {
         "subject": "OPS 461",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "OPS 360 or MFGE 341; major restricted."
+        "prerequisites": "OPS 360 or MFGE 341; major restricted.",
+        "gpa": null
     },
     {
         "subject": "OPS 464",
@@ -64,6 +66,7 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "ASNC OL WP3",
-        "prerequisites": "OPS 360 and permission of instructor; first-time enrollment restricted to manufacturing and supply chain management students with foundation or full major status; second-time enrollment restricted to manufacturing and supply chain management students with full major status."
+        "prerequisites": "OPS 360 and permission of instructor; first-time enrollment restricted to manufacturing and supply chain management students with foundation or full major status; second-time enrollment restricted to manufacturing and supply chain management students with full major status.",
+        "gpa": null
     }
 ]

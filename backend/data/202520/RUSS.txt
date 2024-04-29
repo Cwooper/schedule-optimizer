@@ -1,4 +1,4 @@
-2024-04-26T16:20:17.727682
+2024-04-29T12:48:00.054529
 [
     {
         "subject": "RUSS 120",
@@ -20,6 +20,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCOM FTF",
-        "prerequisites": "RUSS 110"
+        "prerequisites": "RUSS 110",
+        "gpa": null
     }
 ]

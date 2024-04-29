@@ -1,4 +1,4 @@
-2024-04-26T16:28:17.436219
+2024-04-29T12:48:49.779160
 [
     {
         "subject": "C2C 201",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "C2C 201",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "C2C 202",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF SL",
-        "prerequisites": "C2C 201 or EDUC 201 or EDUC 297A or C2C 203."
+        "prerequisites": "C2C 201 or EDUC 201 or EDUC 297A or C2C 203.",
+        "gpa": null
     },
     {
         "subject": "C2C 202",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF SL",
-        "prerequisites": "C2C 201 or EDUC 201 or EDUC 297A or C2C 203."
+        "prerequisites": "C2C 201 or EDUC 201 or EDUC 297A or C2C 203.",
+        "gpa": null
     },
     {
         "subject": "C2C 203",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM FTF SL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "C2C 203",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM FTF SL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

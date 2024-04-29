@@ -1,4 +1,4 @@
-2024-04-26T16:29:20.448456
+2024-04-29T12:48:57.503964
 [
     {
         "subject": "LIBR 341",
@@ -20,6 +20,7 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "HYBD",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:26:51.247343
+2024-04-29T12:48:42.621071
 [
     {
         "subject": "JOUR 190",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "JOUR 305",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "JOUR 207; basic knowledge of photography."
+        "prerequisites": "JOUR 207; basic knowledge of photography.",
+        "gpa": null
     },
     {
         "subject": "JOUR 340",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "ASNC HUM OL",
-        "prerequisites": "junior standing"
+        "prerequisites": "junior standing",
+        "gpa": null
     },
     {
         "subject": "JOUR 355",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "MIX OL",
-        "prerequisites": "JOUR 190 or ENG 101 or C/AM 200"
+        "prerequisites": "JOUR 190 or ENG 101 or C/AM 200",
+        "gpa": null
     },
     {
         "subject": "JOUR 430",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "For the news/editorial sequence: Jour 207, JOUR 307, JOUR 309, JOUR 350, JOUR 351, two newspaper staff courses and major status. For the public relations sequence: JOUR 207, JOUR 309, JOUR 330, JOUR 350, JOUR 351, JOUR 380, one newspaper staff course and major status. For the visual journalism sequence: JOUR 207, JOUR 305, JOUR 307, JOUR 309, JOUR 346, JOUR 350, JOUR 351, one newspaper staff course and major status. For the environmental journalism sequence: JOUR 207, JOUR 307, JOUR 309, JOUR 350, one newspaper staff course and major status."
+        "prerequisites": "For the news/editorial sequence: Jour 207, JOUR 307, JOUR 309, JOUR 350, JOUR 351, two newspaper staff courses and major status. For the public relations sequence: JOUR 207, JOUR 309, JOUR 330, JOUR 350, JOUR 351, JOUR 380, one newspaper staff course and major status. For the visual journalism sequence: JOUR 207, JOUR 305, JOUR 307, JOUR 309, JOUR 346, JOUR 350, JOUR 351, one newspaper staff course and major status. For the environmental journalism sequence: JOUR 207, JOUR 307, JOUR 309, JOUR 350, one newspaper staff course and major status.",
+        "gpa": null
     },
     {
         "subject": "JOUR 430",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "For the news/editorial sequence: Jour 207, JOUR 307, JOUR 309, JOUR 350, JOUR 351, two newspaper staff courses and major status. For the public relations sequence: JOUR 207, JOUR 309, JOUR 330, JOUR 350, JOUR 351, JOUR 380, one newspaper staff course and major status. For the visual journalism sequence: JOUR 207, JOUR 305, JOUR 307, JOUR 309, JOUR 346, JOUR 350, JOUR 351, one newspaper staff course and major status. For the environmental journalism sequence: JOUR 207, JOUR 307, JOUR 309, JOUR 350, one newspaper staff course and major status."
+        "prerequisites": "For the news/editorial sequence: Jour 207, JOUR 307, JOUR 309, JOUR 350, JOUR 351, two newspaper staff courses and major status. For the public relations sequence: JOUR 207, JOUR 309, JOUR 330, JOUR 350, JOUR 351, JOUR 380, one newspaper staff course and major status. For the visual journalism sequence: JOUR 207, JOUR 305, JOUR 307, JOUR 309, JOUR 346, JOUR 350, JOUR 351, one newspaper staff course and major status. For the environmental journalism sequence: JOUR 207, JOUR 307, JOUR 309, JOUR 350, one newspaper staff course and major status.",
+        "gpa": null
     },
     {
         "subject": "JOUR 430",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "For the news/editorial sequence: Jour 207, JOUR 307, JOUR 309, JOUR 350, JOUR 351, two newspaper staff courses and major status. For the public relations sequence: JOUR 207, JOUR 309, JOUR 330, JOUR 350, JOUR 351, JOUR 380, one newspaper staff course and major status. For the visual journalism sequence: JOUR 207, JOUR 305, JOUR 307, JOUR 309, JOUR 346, JOUR 350, JOUR 351, one newspaper staff course and major status. For the environmental journalism sequence: JOUR 207, JOUR 307, JOUR 309, JOUR 350, one newspaper staff course and major status."
+        "prerequisites": "For the news/editorial sequence: Jour 207, JOUR 307, JOUR 309, JOUR 350, JOUR 351, two newspaper staff courses and major status. For the public relations sequence: JOUR 207, JOUR 309, JOUR 330, JOUR 350, JOUR 351, JOUR 380, one newspaper staff course and major status. For the visual journalism sequence: JOUR 207, JOUR 305, JOUR 307, JOUR 309, JOUR 346, JOUR 350, JOUR 351, one newspaper staff course and major status. For the environmental journalism sequence: JOUR 207, JOUR 307, JOUR 309, JOUR 350, one newspaper staff course and major status.",
+        "gpa": null
     },
     {
         "subject": "JOUR 480",
@@ -174,6 +181,7 @@
         "waitlist": "",
         "restrictions": "SR MJ PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "JOUR 350 and JOUR 351; and major status."
+        "prerequisites": "JOUR 350 and JOUR 351; and major status.",
+        "gpa": null
     }
 ]

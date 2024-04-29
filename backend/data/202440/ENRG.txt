@@ -1,4 +1,4 @@
-2024-04-26T16:23:52.109885
+2024-04-29T12:48:22.968838
 [
     {
         "subject": "ENRG 101",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Barnhart, Charles Joseph",
-        "room": "TBA",
+        "room": "BH 109",
         "lab_room": null,
         "addl_fees": "",
         "cap": "75",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SCI",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENRG 101",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Barnhart, Charles Joseph",
-        "room": "TBA",
+        "room": "BH 109",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF SCI",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENRG 350",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Glosser, Deborah",
-        "room": "TBA",
+        "room": "ES 080",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "One course from: PLSC 250, UEPP 261, MGMT 271 or ENVS 305."
+        "prerequisites": "One course from: PLSC 250, UEPP 261, MGMT 271 or ENVS 305.",
+        "gpa": null
     },
     {
         "subject": "ENRG 352",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status or above; or instructor permission."
+        "prerequisites": "Sophomore status or above; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ENRG 360",
@@ -99,7 +103,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Goel, Nipun",
-        "room": "TBA",
+        "room": "BI 212",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ENRG 101 or ENRG 380 or ESCI 380 or instructor permission; MATH 115 or suitable math assessment score."
+        "prerequisites": "ENRG 101 or ENRG 380 or ESCI 380 or instructor permission; MATH 115 or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "ENRG 372",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "EECE 210."
+        "prerequisites": "EECE 210.",
+        "gpa": null
     },
     {
         "subject": "ENRG 372",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "EECE 210."
+        "prerequisites": "EECE 210.",
+        "gpa": null
     },
     {
         "subject": "ENRG 380",
@@ -165,7 +172,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "ES 072",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "CHEM 161 and MATH 114; or instructor permission."
+        "prerequisites": "CHEM 161 and MATH 114; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ENRG 384",
@@ -187,7 +195,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Dorsey-Palmateer, Reid Matthew",
-        "room": "TBA",
+        "room": "ES 313",
         "lab_room": null,
         "addl_fees": "",
         "cap": "17",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202."
+        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202.",
+        "gpa": null
     },
     {
         "subject": "ENRG 391",
@@ -209,7 +218,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Collins, Shawn Michael",
-        "room": "TBA",
+        "room": "AH 014",
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENRG 466",
@@ -231,7 +241,7 @@
         "lab_start_time": "1300",
         "lab_end_time": "1650",
         "instructor": "Barnhart, Charles Joseph",
-        "room": "TBA",
+        "room": "ES 070",
         "lab_room": "CF 024",
         "addl_fees": "",
         "cap": "15",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "MATH 124; PHYS 161 or CHEM 161; ESCI 380 or ENRG 380."
+        "prerequisites": "MATH 124; PHYS 161 or CHEM 161; ESCI 380 or ENRG 380.",
+        "gpa": null
     },
     {
         "subject": "ENRG 484",
@@ -253,7 +264,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Dorsey-Palmateer, Reid Matthew",
-        "room": "TBA",
+        "room": "ES 313",
         "lab_room": null,
         "addl_fees": "",
         "cap": "17",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "One from: ENRG 384, ECON 384, ENRG 386 or ECON 386;  and one from: DSCI 305, ECON 375, ENRG 322, ESCI 340 or BIOL 340."
+        "prerequisites": "One from: ENRG 384, ECON 384, ENRG 386 or ECON 386;  and one from: DSCI 305, ECON 375, ENRG 322, ESCI 340 or BIOL 340.",
+        "gpa": null
     },
     {
         "subject": "ENRG 486",
@@ -275,7 +287,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Sifuentes, Froylan",
-        "room": "TBA",
+        "room": "ES 072",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "One course from: DSCI 305, ECON 375, ENRG 322, ESCI 340 or BIOL 340; One course from: ENRG 386, ECON 386, ENRG 384 or ECON 384; One course from: ENRG 320, ENRG 380, ESCI 380 or ENRG 475."
+        "prerequisites": "One course from: DSCI 305, ECON 375, ENRG 322, ESCI 340 or BIOL 340; One course from: ENRG 386, ECON 386, ENRG 384 or ECON 384; One course from: ENRG 320, ENRG 380, ESCI 380 or ENRG 475.",
+        "gpa": null
     },
     {
         "subject": "ENRG 586",
@@ -297,7 +310,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Sifuentes, Froylan",
-        "room": "TBA",
+        "room": "ES 072",
         "lab_room": null,
         "addl_fees": "",
         "cap": "5",
@@ -306,6 +319,7 @@
         "waitlist": "",
         "restrictions": "GR PB PM",
         "attributes": "FTF",
-        "prerequisites": "Background courses in energy technology, energy economics and statistics are expected. Familiarity with Excel (or equivalent) is necessary."
+        "prerequisites": "Background courses in energy technology, energy economics and statistics are expected. Familiarity with Excel (or equivalent) is necessary.",
+        "gpa": null
     }
 ]

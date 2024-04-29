@@ -1,4 +1,4 @@
-2024-04-26T16:22:27.160691
+2024-04-29T12:48:14.488926
 [
     {
         "subject": "NURS 307",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "Admission to the RN-to-BSN program or permission of instructor."
+        "prerequisites": "Admission to the RN-to-BSN program or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "NURS 307",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "Admission to the RN-to-BSN program or permission of instructor."
+        "prerequisites": "Admission to the RN-to-BSN program or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "NURS 401",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "Admission to the RN-to-BSN program."
+        "prerequisites": "Admission to the RN-to-BSN program.",
+        "gpa": null
     },
     {
         "subject": "NURS 401",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "Admission to the RN-to-BSN program."
+        "prerequisites": "Admission to the RN-to-BSN program.",
+        "gpa": null
     },
     {
         "subject": "NURS 402",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "HYBD WP3",
-        "prerequisites": "NURS 301; co-requisite: NURS 403."
+        "prerequisites": "NURS 301; co-requisite: NURS 403.",
+        "gpa": null
     },
     {
         "subject": "NURS 402",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "HYBD WP3",
-        "prerequisites": "NURS 301; co-requisite: NURS 403."
+        "prerequisites": "NURS 301; co-requisite: NURS 403.",
+        "gpa": null
     },
     {
         "subject": "NURS 403",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "NURS 301; co-req: NURS 402."
+        "prerequisites": "NURS 301; co-req: NURS 402.",
+        "gpa": null
     },
     {
         "subject": "NURS 403",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "NURS 301; co-req: NURS 402."
+        "prerequisites": "NURS 301; co-req: NURS 402.",
+        "gpa": null
     },
     {
         "subject": "NURS 403",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "NURS 301; co-req: NURS 402."
+        "prerequisites": "NURS 301; co-req: NURS 402.",
+        "gpa": null
     },
     {
         "subject": "NURS 412",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "HYBD SSC",
-        "prerequisites": "Admission to the RN-to-BSN program."
+        "prerequisites": "Admission to the RN-to-BSN program.",
+        "gpa": null
     },
     {
         "subject": "NURS 412",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "HYBD SSC",
-        "prerequisites": "Admission to the RN-to-BSN program."
+        "prerequisites": "Admission to the RN-to-BSN program.",
+        "gpa": null
     },
     {
         "subject": "NURS 520",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM PQ",
         "attributes": "HYBD",
-        "prerequisites": "NURS 510 and NURS 511; co-requisite: NURS 521."
+        "prerequisites": "NURS 510 and NURS 511; co-requisite: NURS 521.",
+        "gpa": null
     },
     {
         "subject": "NURS 521",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "NURS 510 and NURS 511; co-requisite: NURS 520."
+        "prerequisites": "NURS 510 and NURS 511; co-requisite: NURS 520.",
+        "gpa": null
     },
     {
         "subject": "NURS 521",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "NURS 510 and NURS 511; co-requisite: NURS 520."
+        "prerequisites": "NURS 510 and NURS 511; co-requisite: NURS 520.",
+        "gpa": null
     },
     {
         "subject": "NURS 522",
@@ -328,6 +342,7 @@
         "waitlist": "",
         "restrictions": "GR PB PM",
         "attributes": "HYBD",
-        "prerequisites": "Admission to the MSN program"
+        "prerequisites": "Admission to the MSN program",
+        "gpa": null
     }
 ]

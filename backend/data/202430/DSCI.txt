@@ -1,4 +1,4 @@
-2024-04-26T16:26:03.243995
+2024-04-29T12:48:37.781374
 [
     {
         "subject": "DSCI 205",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "MATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score."
+        "prerequisites": "MATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "DSCI 305",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "MATH 157 or MATH 124 or MATH 138; and DSCI 205."
+        "prerequisites": "MATH 157 or MATH 124 or MATH 138; and DSCI 205.",
+        "gpa": null
     }
 ]

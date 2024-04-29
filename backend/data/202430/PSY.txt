@@ -1,4 +1,4 @@
-2024-04-26T16:27:28.501628
+2024-04-29T12:48:45.363803
 [
     {
         "subject": "PSY 116",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PSY 116",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PSY 119",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC BCGM OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PSY 220",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "PSY 101"
+        "prerequisites": "PSY 101",
+        "gpa": null
     },
     {
         "subject": "PSY 230",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "PSY 101."
+        "prerequisites": "PSY 101.",
+        "gpa": null
     },
     {
         "subject": "PSY 240",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL SYNC",
-        "prerequisites": "PSY 101"
+        "prerequisites": "PSY 101",
+        "gpa": null
     },
     {
         "subject": "PSY 250",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "PSY 101"
+        "prerequisites": "PSY 101",
+        "gpa": null
     },
     {
         "subject": "PSY 278",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PSY 310",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "PSY 210; PSY 220; and PSY 305 or BNS 301."
+        "prerequisites": "PSY 210; PSY 220; and PSY 305 or BNS 301.",
+        "gpa": null
     },
     {
         "subject": "PSY 323",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "PSY 220; PSY 305 or BNS 301; or instructor permission. Available to Sport Psychology majors and minors with instructor permission."
+        "prerequisites": "PSY 220; PSY 305 or BNS 301; or instructor permission. Available to Sport Psychology majors and minors with instructor permission.",
+        "gpa": null
     },
     {
         "subject": "PSY 334",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "PSY 230; PSY 305 or BNS 301. Available to Sport Psychology majors and minors with instructor permission."
+        "prerequisites": "PSY 230; PSY 305 or BNS 301. Available to Sport Psychology majors and minors with instructor permission.",
+        "gpa": null
     },
     {
         "subject": "PSY 335",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "PSY 230 and PSY 305. Available to Sport Psychology majors and minors with instructor permission."
+        "prerequisites": "PSY 230 and PSY 305. Available to Sport Psychology majors and minors with instructor permission.",
+        "gpa": null
     },
     {
         "subject": "PSY 346",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "PSY 240 and PSY 305"
+        "prerequisites": "PSY 240 and PSY 305",
+        "gpa": null
     },
     {
         "subject": "PSY 354",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "PSY 230, PSY 250 and PSY 305."
+        "prerequisites": "PSY 230, PSY 250 and PSY 305.",
+        "gpa": null
     },
     {
         "subject": "PSY 359",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "PSY 250 and PSY 305"
+        "prerequisites": "PSY 250 and PSY 305",
+        "gpa": null
     },
     {
         "subject": "PSY 376",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "PSY 240, PSY 250 and PSY 305."
+        "prerequisites": "PSY 240, PSY 250 and PSY 305.",
+        "gpa": null
     },
     {
         "subject": "PSY 411",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP2",
-        "prerequisites": "PSY 307; and one course from: PSY 310, PSY 311, PSY 315, PSY 318, PSY 319 or PSY 320."
+        "prerequisites": "PSY 307; and one course from: PSY 310, PSY 311, PSY 315, PSY 318, PSY 319 or PSY 320.",
+        "gpa": null
     },
     {
         "subject": "PSY 430",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL WP2",
-        "prerequisites": "PSY 307; and one course from: PSY 334, PSY 335, PSY 336 or PSY 338."
+        "prerequisites": "PSY 307; and one course from: PSY 334, PSY 335, PSY 336 or PSY 338.",
+        "gpa": null
     },
     {
         "subject": "PSY 441",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP2",
-        "prerequisites": "PSY 307; and one course from: PSY 341, PSY 342, PSY 343, PSY 344, PSY 345 or PSY 346."
+        "prerequisites": "PSY 307; and one course from: PSY 341, PSY 342, PSY 343, PSY 344, PSY 345 or PSY 346.",
+        "gpa": null
     },
     {
         "subject": "PSY 451",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL SYNC WP2",
-        "prerequisites": "PSY 307; and one course from PSY 351, PSY 354 or PSY 359."
+        "prerequisites": "PSY 307; and one course from PSY 351, PSY 354 or PSY 359.",
+        "gpa": null
     },
     {
         "subject": "PSY 451",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL SYNC WP2",
-        "prerequisites": "PSY 307; and one course from PSY 351, PSY 354 or PSY 359."
+        "prerequisites": "PSY 307; and one course from PSY 351, PSY 354 or PSY 359.",
+        "gpa": null
     },
     {
         "subject": "PSY 582",
@@ -482,7 +503,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM S/U",
         "attributes": "FTF",
-        "prerequisites": "instructor permission"
+        "prerequisites": "instructor permission",
+        "gpa": null
     },
     {
         "subject": "PSY 670",
@@ -504,7 +526,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM S/U",
         "attributes": "FTF",
-        "prerequisites": "Admission to MS Clinical Mental Health Counseling program or MEd School Counseling program."
+        "prerequisites": "Admission to MS Clinical Mental Health Counseling program or MEd School Counseling program.",
+        "gpa": null
     },
     {
         "subject": "PSY 690",
@@ -526,7 +549,8 @@
         "waitlist": "",
         "restrictions": "OV GR S/U",
         "attributes": "FTF",
-        "prerequisites": "advancement to candidacy"
+        "prerequisites": "advancement to candidacy",
+        "gpa": null
     },
     {
         "subject": "PSY 699",
@@ -548,6 +572,7 @@
         "waitlist": "",
         "restrictions": "OV GR",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

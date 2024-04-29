@@ -1,4 +1,4 @@
-2024-04-26T16:20:55.232046
+2024-04-29T12:48:03.817308
 [
     {
         "subject": "CHIN 102",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "CHIN 101 or equivalent"
+        "prerequisites": "CHIN 101 or equivalent",
+        "gpa": null
     },
     {
         "subject": "CHIN 102",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "CHIN 101 or equivalent"
+        "prerequisites": "CHIN 101 or equivalent",
+        "gpa": null
     },
     {
         "subject": "CHIN 202",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ACGM FTF",
-        "prerequisites": "CHIN 201 or equivalent"
+        "prerequisites": "CHIN 201 or equivalent",
+        "gpa": null
     },
     {
         "subject": "CHIN 280",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "CHIN 101"
+        "prerequisites": "CHIN 101",
+        "gpa": null
     },
     {
         "subject": "CHIN 302",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ACGM FTF",
-        "prerequisites": "CHIN 301"
+        "prerequisites": "CHIN 301",
+        "gpa": null
     },
     {
         "subject": "CHIN 402",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "CHIN 301 or LING 310 or instructor permission"
+        "prerequisites": "CHIN 301 or LING 310 or instructor permission",
+        "gpa": null
     },
     {
         "subject": "CHIN 425",
@@ -152,6 +158,7 @@
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "CHIN 301; CHIN 314; and instructor permission."
+        "prerequisites": "CHIN 301; CHIN 314; and instructor permission.",
+        "gpa": null
     }
 ]

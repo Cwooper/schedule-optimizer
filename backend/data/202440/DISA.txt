@@ -1,4 +1,4 @@
-2024-04-26T16:23:33.782924
+2024-04-29T12:48:21.400440
 [
     {
         "subject": "DISA 330",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC BCGM OL SST",
-        "prerequisites": "ENG 101 or equivalent."
+        "prerequisites": "ENG 101 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "DISA 330",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "MH 235",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCGM FTF",
-        "prerequisites": "ENG 101 or equivalent."
+        "prerequisites": "ENG 101 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "DISA 350",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "ENG 101 or equivalent."
+        "prerequisites": "ENG 101 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "DISA 450",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Lucchesi, Andrew John",
-        "room": "TBA",
+        "room": "BH 110",
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
@@ -86,6 +89,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "ENG 101 or equivalent; DISA 330; DISA 350."
+        "prerequisites": "ENG 101 or equivalent; DISA 330; DISA 350.",
+        "gpa": null
     }
 ]

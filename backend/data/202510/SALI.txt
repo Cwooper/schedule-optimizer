@@ -1,4 +1,4 @@
-2024-04-26T16:22:45.952522
+2024-04-29T12:48:16.614332
 [
     {
         "subject": "SALI 390",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "SALI 201 or instructor permission."
+        "prerequisites": "SALI 201 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SALI 495",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Salish Sea Studies Minor status"
+        "prerequisites": "Salish Sea Studies Minor status",
+        "gpa": null
     }
 ]

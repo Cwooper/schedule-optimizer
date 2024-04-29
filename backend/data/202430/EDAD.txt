@@ -1,4 +1,4 @@
-2024-04-26T16:26:11.666393
+2024-04-29T12:48:38.383628
 [
     {
         "subject": "EDAD 536",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "GR PB PM MJ",
         "attributes": "DLEX OL SYNC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EDAD 541",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
         "attributes": "DLEX OL SYNC",
-        "prerequisites": "Graduate status or permission of instructor."
+        "prerequisites": "Graduate status or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "EDAD 650",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "GR PB PM MJ",
         "attributes": "EVEX FTF",
-        "prerequisites": "Admission to Doctor of Education."
+        "prerequisites": "Admission to Doctor of Education.",
+        "gpa": null
     },
     {
         "subject": "EDAD 650",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "GR PB PM",
         "attributes": "DLEX OL SYNC",
-        "prerequisites": "Admission to Doctor of Education."
+        "prerequisites": "Admission to Doctor of Education.",
+        "gpa": null
     },
     {
         "subject": "EDAD 658",
@@ -108,6 +112,7 @@
         "waitlist": "",
         "restrictions": "GR PB PM PQ",
         "attributes": "EVEX FTF",
-        "prerequisites": "Admission to Doctor of Education; EDAD 650."
+        "prerequisites": "Admission to Doctor of Education; EDAD 650.",
+        "gpa": null
     }
 ]

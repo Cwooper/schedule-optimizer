@@ -1,4 +1,4 @@
-2024-04-26T16:21:19.765433
+2024-04-29T12:48:05.976975
 [
     {
         "subject": "EDAD 502",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "GR PB PM",
         "attributes": "HYBD",
-        "prerequisites": "Graduate status."
+        "prerequisites": "Graduate status.",
+        "gpa": null
     },
     {
         "subject": "EDAD 548",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM",
         "attributes": "DLEX OL SYNC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EDAD 548",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
         "attributes": "DLEX OL SYNC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EDAD 550",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM",
         "attributes": "HYBD",
-        "prerequisites": "Graduate status"
+        "prerequisites": "Graduate status",
+        "gpa": null
     },
     {
         "subject": "EDAD 552",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
         "attributes": "DLEX OL SYNC",
-        "prerequisites": "Graduate status"
+        "prerequisites": "Graduate status",
+        "gpa": null
     },
     {
         "subject": "EDAD 552",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM",
         "attributes": "HYBD",
-        "prerequisites": "Graduate status"
+        "prerequisites": "Graduate status",
+        "gpa": null
     },
     {
         "subject": "EDAD 592",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM S/U",
         "attributes": "FTF",
-        "prerequisites": "Permission of instructor."
+        "prerequisites": "Permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "EDAD 592",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ S/U",
         "attributes": "DLEX FTF",
-        "prerequisites": "Permission of instructor."
+        "prerequisites": "Permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "EDAD 644",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
         "attributes": "EVEX OL SYNC",
-        "prerequisites": "Master's degree; admission to superintendent program."
+        "prerequisites": "Master's degree; admission to superintendent program.",
+        "gpa": null
     },
     {
         "subject": "EDAD 654",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "GR PB PM MJ",
         "attributes": "EVEX OL SYNC",
-        "prerequisites": "Admission to Doctor of Education."
+        "prerequisites": "Admission to Doctor of Education.",
+        "gpa": null
     },
     {
         "subject": "EDAD 662",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "EVEX OL SYNC",
-        "prerequisites": "Admission to Doctor of Education."
+        "prerequisites": "Admission to Doctor of Education.",
+        "gpa": null
     },
     {
         "subject": "EDAD 670",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "GR PB PM S/U",
         "attributes": "EVEX OL SYNC",
-        "prerequisites": "Admission to Doctor of Education."
+        "prerequisites": "Admission to Doctor of Education.",
+        "gpa": null
     },
     {
         "subject": "EDAD 692",
@@ -284,6 +296,7 @@
         "waitlist": "",
         "restrictions": "GR PB PM S/U",
         "attributes": "EVEX FTF",
-        "prerequisites": "Master's degree and written permission of instructor."
+        "prerequisites": "Master's degree and written permission of instructor.",
+        "gpa": null
     }
 ]

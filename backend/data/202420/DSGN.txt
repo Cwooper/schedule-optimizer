@@ -1,4 +1,4 @@
-2024-04-26T16:28:26.150016
+2024-04-29T12:48:50.670447
 [
     {
         "subject": "DSGN 300",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DSGN 312",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "DSGN 211 and one from A/HI 240, A/HI 241; or DSGN 211, DSGN 213, DSGN 230. Major status."
+        "prerequisites": "DSGN 211 and one from A/HI 240, A/HI 241; or DSGN 211, DSGN 213, DSGN 230. Major status.",
+        "gpa": null
     },
     {
         "subject": "DSGN 341",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "DSGN 340, DSGN 360 and DSGN 361 or concurrent; or DSGN 340, DSGN 371 and DSGN 382. Major status."
+        "prerequisites": "DSGN 340, DSGN 360 and DSGN 361 or concurrent; or DSGN 340, DSGN 371 and DSGN 382. Major status.",
+        "gpa": null
     },
     {
         "subject": "DSGN 341",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "DSGN 340, DSGN 360 and DSGN 361 or concurrent; or DSGN 340, DSGN 371 and DSGN 382. Major status."
+        "prerequisites": "DSGN 340, DSGN 360 and DSGN 361 or concurrent; or DSGN 340, DSGN 371 and DSGN 382. Major status.",
+        "gpa": null
     },
     {
         "subject": "DSGN 351",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "DSGN 213 and DSGN 230; or DSGN 330 or concurrent. Major status."
+        "prerequisites": "DSGN 213 and DSGN 230; or DSGN 330 or concurrent. Major status.",
+        "gpa": null
     },
     {
         "subject": "DSGN 351",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "DSGN 213 and DSGN 230; or DSGN 330 or concurrent. Major status."
+        "prerequisites": "DSGN 213 and DSGN 230; or DSGN 330 or concurrent. Major status.",
+        "gpa": null
     },
     {
         "subject": "DSGN 357",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DSGN 362",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "DSGN 213, DSGN 230 and major status."
+        "prerequisites": "DSGN 213, DSGN 230 and major status.",
+        "gpa": null
     },
     {
         "subject": "DSGN 362",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "DSGN 213, DSGN 230 and major status."
+        "prerequisites": "DSGN 213, DSGN 230 and major status.",
+        "gpa": null
     },
     {
         "subject": "DSGN 368",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DSGN 372",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "DSGN 340, DSGN 371, DSGN 382 and major status."
+        "prerequisites": "DSGN 340, DSGN 371, DSGN 382 and major status.",
+        "gpa": null
     },
     {
         "subject": "DSGN 372",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "DSGN 340, DSGN 371, DSGN 382 and major status."
+        "prerequisites": "DSGN 340, DSGN 371, DSGN 382 and major status.",
+        "gpa": null
     },
     {
         "subject": "DSGN 390",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV UG FR JR SO SR MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Pre-reqs vary; depend on topic offered. See Classfinder/Timetable for specific details."
+        "prerequisites": "Pre-reqs vary; depend on topic offered. See Classfinder/Timetable for specific details.",
+        "gpa": null
     },
     {
         "subject": "DSGN 400",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DSGN 480",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "BFA status."
+        "prerequisites": "BFA status.",
+        "gpa": null
     },
     {
         "subject": "DSGN 481",
@@ -350,6 +365,7 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "DSGN 341, DSGN 372, DSGN 382 and major status."
+        "prerequisites": "DSGN 341, DSGN 372, DSGN 382 and major status.",
+        "gpa": null
     }
 ]

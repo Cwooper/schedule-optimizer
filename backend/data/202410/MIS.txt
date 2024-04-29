@@ -1,4 +1,4 @@
-2024-04-26T16:31:51.873609
+2024-04-29T12:49:15.307122
 [
     {
         "subject": "MIS 220",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "HYBD",
-        "prerequisites": "Pre-major, major or minor in business; or pre-major or major in economics."
+        "prerequisites": "Pre-major, major or minor in business; or pre-major or major in economics.",
+        "gpa": null
     },
     {
         "subject": "MIS 220",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "Pre-major, major or minor in business; or pre-major or major in economics."
+        "prerequisites": "Pre-major, major or minor in business; or pre-major or major in economics.",
+        "gpa": null
     },
     {
         "subject": "MIS 320",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "HYBD",
-        "prerequisites": "MIS 220 or equivalent"
+        "prerequisites": "MIS 220 or equivalent",
+        "gpa": null
     },
     {
         "subject": "MIS 320",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "HYBD",
-        "prerequisites": "MIS 220 or equivalent"
+        "prerequisites": "MIS 220 or equivalent",
+        "gpa": null
     },
     {
         "subject": "MIS 320",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "HYBD",
-        "prerequisites": "MIS 220 or equivalent"
+        "prerequisites": "MIS 220 or equivalent",
+        "gpa": null
     },
     {
         "subject": "MIS 320",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "HYBD",
-        "prerequisites": "MIS 220 or equivalent"
+        "prerequisites": "MIS 220 or equivalent",
+        "gpa": null
     },
     {
         "subject": "MIS 321",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "CF FTF WP1",
-        "prerequisites": "Majors Only. MIS 320 or ACCT 321, C- or better"
+        "prerequisites": "Majors Only. MIS 320 or ACCT 321, C- or better",
+        "gpa": null
     },
     {
         "subject": "MIS 322",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. MIS 320 or ACCT 321; pre/coreq: MIS 321; C- or better"
+        "prerequisites": "Majors Only. MIS 320 or ACCT 321; pre/coreq: MIS 321; C- or better",
+        "gpa": null
     },
     {
         "subject": "MIS 421",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors only. MIS 321 and MISS 322."
+        "prerequisites": "Majors only. MIS 321 and MISS 322.",
+        "gpa": null
     },
     {
         "subject": "MIS 434",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors only. DSCI 305 or ECON 375."
+        "prerequisites": "Majors only. DSCI 305 or ECON 375.",
+        "gpa": null
     },
     {
         "subject": "MIS 435",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors only. MIS 320 or ACCT 321."
+        "prerequisites": "Majors only. MIS 320 or ACCT 321.",
+        "gpa": null
     },
     {
         "subject": "MIS 495",
@@ -262,6 +273,7 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "Majors Only. MIS 321; pre/corequisite: one 400-level MIS elective; C- or better"
+        "prerequisites": "Majors Only. MIS 321; pre/corequisite: one 400-level MIS elective; C- or better",
+        "gpa": null
     }
 ]

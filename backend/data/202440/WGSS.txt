@@ -1,4 +1,4 @@
-2024-04-26T16:25:28.242935
+2024-04-29T12:48:34.620333
 [
     {
         "subject": "WGSS 211",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Rogers-Thibou, Shurla",
-        "room": "TBA",
+        "room": "OM 483",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 211",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Giffen, Allison A.",
-        "room": "TBA",
+        "room": "OM 585",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 211",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "MH 103",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 212",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Martindale, Lori Marie",
-        "room": "TBA",
+        "room": "MH 103",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 212",
@@ -99,7 +103,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Zaidi, Batool",
-        "room": "TBA",
+        "room": "MH 105",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 212",
@@ -121,7 +126,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Schwartz-DuPre, Rae Lynn",
-        "room": "TBA",
+        "room": "MH 135",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 213",
@@ -143,7 +149,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Colen, Elizabeth Jane",
-        "room": "TBA",
+        "room": "MH 105",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 213",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM OL SYNC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "WGSS 320",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCGM OL SYNC",
-        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission."
+        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "WGSS 339",
@@ -209,7 +218,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Lois, Jen",
-        "room": "TBA",
+        "room": "CV 264",
         "lab_room": null,
         "addl_fees": "",
         "cap": "5",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCGM FTF",
-        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, WGSS 211, WGSS 212, WGSS 213, or HNRS 252; or instructor permission."
+        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, WGSS 211, WGSS 212, WGSS 213, or HNRS 252; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "WGSS 350",
@@ -231,7 +241,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Martindale, Lori Marie",
-        "room": "TBA",
+        "room": "MH 103",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status."
+        "prerequisites": "Sophomore status.",
+        "gpa": null
     },
     {
         "subject": "WGSS 372",
@@ -253,7 +264,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Erickson, Mary P A",
-        "room": "TBA",
+        "room": "CF 231",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCGM FTF",
-        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213"
+        "prerequisites": "WGSS 211, WGSS 212, or WGSS 213",
+        "gpa": null
     },
     {
         "subject": "WGSS 450",
@@ -275,7 +287,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Cerretti, Josh",
-        "room": "TBA",
+        "room": "BH 173",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -284,6 +296,7 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "CPST FTF WP3",
-        "prerequisites": "Senior status in WGSS major or minor; or instructor permission."
+        "prerequisites": "Senior status in WGSS major or minor; or instructor permission.",
+        "gpa": null
     }
 ]

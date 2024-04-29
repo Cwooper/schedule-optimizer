@@ -1,4 +1,4 @@
-2024-04-26T16:30:51.332445
+2024-04-29T12:49:07.899475
 [
     {
         "subject": "DATA 311",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "CSCI 141; One course from: MATH 112, MATH 114, MATH 115, MATH 118, MATH 124, MATH 125, MATH 134, MATH 135, MATH 156 or suitable math assessment score."
+        "prerequisites": "CSCI 141; One course from: MATH 112, MATH 114, MATH 115, MATH 118, MATH 124, MATH 125, MATH 134, MATH 135, MATH 156 or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "DATA 471",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "CSCI 241; MATH 204; MATH 224; and MATH 341."
+        "prerequisites": "CSCI 241; MATH 204; MATH 224; and MATH 341.",
+        "gpa": null
     },
     {
         "subject": "DATA 471",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "CSCI 241; MATH 204; MATH 224; and MATH 341."
+        "prerequisites": "CSCI 241; MATH 204; MATH 224; and MATH 341.",
+        "gpa": null
     },
     {
         "subject": "DATA 490",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Major status and instructor permission."
+        "prerequisites": "Major status and instructor permission.",
+        "gpa": null
     },
     {
         "subject": "DATA 491",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Department permission."
+        "prerequisites": "Department permission.",
+        "gpa": null
     },
     {
         "subject": "DATA 492",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "DATA 491"
+        "prerequisites": "DATA 491",
+        "gpa": null
     },
     {
         "subject": "DATA 493",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "DATA 492"
+        "prerequisites": "DATA 492",
+        "gpa": null
     },
     {
         "subject": "DATA 571",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Graduate status; MATH 204; MATH 224; and MATH 341; or instructor permission."
+        "prerequisites": "Graduate status; MATH 204; MATH 224; and MATH 341; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "DATA 571",
@@ -196,6 +204,7 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Graduate status; MATH 204; MATH 224; and MATH 341; or instructor permission."
+        "prerequisites": "Graduate status; MATH 204; MATH 224; and MATH 341; or instructor permission.",
+        "gpa": null
     }
 ]

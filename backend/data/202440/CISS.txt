@@ -1,4 +1,4 @@
-2024-04-26T16:23:32.590771
+2024-04-29T12:48:21.301859
 [
     {
         "subject": "CISS 247",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF KLEX",
-        "prerequisites": "CSCI 145"
+        "prerequisites": "CSCI 145",
+        "gpa": null
     },
     {
         "subject": "CISS 247",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "HYBD PBEX",
-        "prerequisites": "CSCI 145"
+        "prerequisites": "CSCI 145",
+        "gpa": null
     },
     {
         "subject": "CISS 247",
@@ -55,7 +57,7 @@
         "lab_start_time": "1200",
         "lab_end_time": "1350",
         "instructor": "Koepp, Michael James",
-        "room": "TBA",
+        "room": "CF 225",
         "lab_room": "CF 162",
         "addl_fees": "Per/Cr $20.25",
         "cap": "25",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "CSCI 145"
+        "prerequisites": "CSCI 145",
+        "gpa": null
     },
     {
         "subject": "CISS 340",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "ES 418",
         "lab_room": null,
         "addl_fees": "Per/Cr $20.25",
         "cap": "35",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "CISS 340",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "OL PBEX SYNC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "CISS 340",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF KLEX",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "CISS 346",
@@ -143,7 +149,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Huang, Fuqun",
-        "room": "TBA",
+        "room": "CF 105",
         "lab_room": null,
         "addl_fees": "Per/Cr $20.25",
         "cap": "35",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "CISS 247 or CSCI 247."
+        "prerequisites": "CISS 247 or CSCI 247.",
+        "gpa": null
     },
     {
         "subject": "CISS 346",
@@ -165,7 +172,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "ES 413",
         "lab_room": null,
         "addl_fees": "Per/Cr $20.25",
         "cap": "35",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "CISS 247 or CSCI 247."
+        "prerequisites": "CISS 247 or CSCI 247.",
+        "gpa": null
     },
     {
         "subject": "CISS 346",
@@ -187,7 +195,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "CF 314",
         "lab_room": null,
         "addl_fees": "Per/Cr $20.25",
         "cap": "35",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "CISS 247 or CSCI 247."
+        "prerequisites": "CISS 247 or CSCI 247.",
+        "gpa": null
     },
     {
         "subject": "CISS 470",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "HYBD PBEX",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "CISS 470",
@@ -231,7 +241,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Fretheim, Erik Jon",
-        "room": "TBA",
+        "room": "ES 413",
         "lab_room": null,
         "addl_fees": "Per/Cr $20.25",
         "cap": "35",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "CISS 470",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF KLEX",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "CISS 478",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "HYBD KLEX",
-        "prerequisites": "CISS 301"
+        "prerequisites": "CISS 301",
+        "gpa": null
     },
     {
         "subject": "CISS 491",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "SR MJ",
         "attributes": "HYBD PBEX",
-        "prerequisites": "Senior status."
+        "prerequisites": "Senior status.",
+        "gpa": null
     },
     {
         "subject": "CISS 491",
@@ -328,6 +342,7 @@
         "waitlist": "",
         "restrictions": "SR MJ",
         "attributes": "HYBD KLEX",
-        "prerequisites": "Senior status."
+        "prerequisites": "Senior status.",
+        "gpa": null
     }
 ]

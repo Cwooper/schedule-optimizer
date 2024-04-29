@@ -1,4 +1,4 @@
-2024-04-26T16:21:40.203002
+2024-04-29T12:48:08.440245
 [
     {
         "subject": "GLBL 201",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "GLBL 340",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "FAIR 203A or FAIR 334C or instructor permission."
+        "prerequisites": "FAIR 203A or FAIR 334C or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "GLBL 398",
@@ -64,6 +66,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "GLBL 201 or instructor permission."
+        "prerequisites": "GLBL 201 or instructor permission.",
+        "gpa": null
     }
 ]

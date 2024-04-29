@@ -1,4 +1,4 @@
-2024-04-26T16:27:14.025057
+2024-04-29T12:48:44.213418
 [
     {
         "subject": "MLE 441",
@@ -20,6 +20,7 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "MIX OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

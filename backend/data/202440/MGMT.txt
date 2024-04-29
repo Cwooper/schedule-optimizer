@@ -1,4 +1,4 @@
-2024-04-26T16:24:36.196741
+2024-04-29T12:48:28.697630
 [
     {
         "subject": "MGMT 202",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Enrollment in CBE Distinguished Scholars Program"
+        "prerequisites": "Enrollment in CBE Distinguished Scholars Program",
+        "gpa": null
     },
     {
         "subject": "MGMT 271",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Davidson, Nolan Forrest",
-        "room": "TBA",
+        "room": "HH 345",
         "lab_room": null,
         "addl_fees": "",
         "cap": "80",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SSC",
-        "prerequisites": "Only one of MGMT 271, PLSC 311, or FAIR 311B may be taken for GUR credit."
+        "prerequisites": "Only one of MGMT 271, PLSC 311, or FAIR 311B may be taken for GUR credit.",
+        "gpa": null
     },
     {
         "subject": "MGMT 271",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Castle, Ryan C.",
-        "room": "TBA",
+        "room": "AH 004",
         "lab_room": null,
         "addl_fees": "",
         "cap": "80",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SSC",
-        "prerequisites": "Only one of MGMT 271, PLSC 311, or FAIR 311B may be taken for GUR credit."
+        "prerequisites": "Only one of MGMT 271, PLSC 311, or FAIR 311B may be taken for GUR credit.",
+        "gpa": null
     },
     {
         "subject": "MGMT 271",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Castle, Ryan C.",
-        "room": "TBA",
+        "room": "AH 004",
         "lab_room": null,
         "addl_fees": "",
         "cap": "80",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SSC",
-        "prerequisites": "Only one of MGMT 271, PLSC 311, or FAIR 311B may be taken for GUR credit."
+        "prerequisites": "Only one of MGMT 271, PLSC 311, or FAIR 311B may be taken for GUR credit.",
+        "gpa": null
     },
     {
         "subject": "MGMT 311",
@@ -99,8 +103,8 @@
         "lab_start_time": "1400",
         "lab_end_time": "1450",
         "instructor": "Freeman, Sabrina Karen",
-        "room": "TBA",
-        "lab_room": "TBA",
+        "room": "CF 105",
+        "lab_room": "CF 314",
         "addl_fees": "",
         "cap": "25",
         "enrl": "0",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "MGMT 311",
@@ -121,8 +126,8 @@
         "lab_start_time": "1500",
         "lab_end_time": "1550",
         "instructor": "Freeman, Sabrina Karen",
-        "room": "TBA",
-        "lab_room": "TBA",
+        "room": "CF 105",
+        "lab_room": "CF 314",
         "addl_fees": "",
         "cap": "25",
         "enrl": "0",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "MGMT 311",
@@ -143,7 +149,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Kanov, Jason",
-        "room": "TBA",
+        "room": "PH 146",
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "MGMT 311",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "MGMT 313",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "CF FTF",
-        "prerequisites": "Majors Only. MGMT 311"
+        "prerequisites": "Majors Only. MGMT 311",
+        "gpa": null
     },
     {
         "subject": "MGMT 315",
@@ -209,7 +218,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Bane, Carissa Marie",
-        "room": "TBA",
+        "room": "IS 310",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "MGMT 319",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "ENG 101 or equivalent"
+        "prerequisites": "ENG 101 or equivalent",
+        "gpa": null
     },
     {
         "subject": "MGMT 319",
@@ -253,7 +264,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Walker, Lucas Caleb",
-        "room": "TBA",
+        "room": "AW 302",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "ENG 101 or equivalent"
+        "prerequisites": "ENG 101 or equivalent",
+        "gpa": null
     },
     {
         "subject": "MGMT 382",
@@ -275,7 +287,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Wilkens, Drew",
-        "room": "TBA",
+        "room": "CF 225",
         "lab_room": null,
         "addl_fees": "",
         "cap": "40",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors only. MGMT 271."
+        "prerequisites": "Majors only. MGMT 271.",
+        "gpa": null
     },
     {
         "subject": "MGMT 382",
@@ -297,7 +310,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Davidson, Nolan Forrest",
-        "room": "TBA",
+        "room": "ES 070",
         "lab_room": null,
         "addl_fees": "",
         "cap": "40",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors only. MGMT 271."
+        "prerequisites": "Majors only. MGMT 271.",
+        "gpa": null
     },
     {
         "subject": "MGMT 401",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF WP1",
-        "prerequisites": "Majors only."
+        "prerequisites": "Majors only.",
+        "gpa": null
     },
     {
         "subject": "MGMT 413",
@@ -341,7 +356,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Daniels, Lori",
-        "room": "TBA",
+        "room": "AH 012",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "CF FTF SL",
-        "prerequisites": "Majors Only. MGMT 313."
+        "prerequisites": "Majors Only. MGMT 313.",
+        "gpa": null
     },
     {
         "subject": "MGMT 414",
@@ -363,7 +379,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Tyran, Kristi",
-        "room": "TBA",
+        "room": "AW 302",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP2",
-        "prerequisites": "Majors Only. OPS 461; MGMT 313."
+        "prerequisites": "Majors Only. OPS 461; MGMT 313.",
+        "gpa": null
     },
     {
         "subject": "MGMT 414",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF PBEX WP2",
-        "prerequisites": "Majors Only. OPS 461; MGMT 313."
+        "prerequisites": "Majors Only. OPS 461; MGMT 313.",
+        "gpa": null
     },
     {
         "subject": "MGMT 481",
@@ -407,7 +425,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Tyran, Kristi",
-        "room": "TBA",
+        "room": "AW 302",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors only."
+        "prerequisites": "Majors only.",
+        "gpa": null
     },
     {
         "subject": "MGMT 490",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only."
+        "prerequisites": "Majors Only.",
+        "gpa": null
     },
     {
         "subject": "MGMT 495",
@@ -451,7 +471,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Nordin, David",
-        "room": "TBA",
+        "room": "CF 226",
         "lab_room": null,
         "addl_fees": "",
         "cap": "40",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321."
+        "prerequisites": "Majors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321.",
+        "gpa": null
     },
     {
         "subject": "MGMT 495",
@@ -473,7 +494,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Nordin, David",
-        "room": "TBA",
+        "room": "CF 226",
         "lab_room": null,
         "addl_fees": "",
         "cap": "40",
@@ -482,7 +503,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321."
+        "prerequisites": "Majors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321.",
+        "gpa": null
     },
     {
         "subject": "MGMT 495",
@@ -495,7 +517,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Kim, Jongwook",
-        "room": "TBA",
+        "room": "ES 080",
         "lab_room": null,
         "addl_fees": "",
         "cap": "40",
@@ -504,6 +526,7 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321."
+        "prerequisites": "Majors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321.",
+        "gpa": null
     }
 ]

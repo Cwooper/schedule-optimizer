@@ -1,4 +1,4 @@
-2024-04-26T16:29:37.790035
+2024-04-29T12:48:59.179378
 [
     {
         "subject": "MLE 441",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "HYBD",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "MLE 441",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "HYBD",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "MLE 442",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "MLE 441 or program director permission."
+        "prerequisites": "MLE 441 or program director permission.",
+        "gpa": null
     },
     {
         "subject": "MLE 443",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "MLE 442"
+        "prerequisites": "MLE 442",
+        "gpa": null
     },
     {
         "subject": "MLE 444",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "Admitted to teacher education program and MLE 443."
+        "prerequisites": "Admitted to teacher education program and MLE 443.",
+        "gpa": null
     },
     {
         "subject": "MLE 445",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "MLE 444"
+        "prerequisites": "MLE 444",
+        "gpa": null
     }
 ]

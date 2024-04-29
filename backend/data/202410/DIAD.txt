@@ -1,4 +1,4 @@
-2024-04-26T16:30:55.046084
+2024-04-29T12:49:08.241503
 [
     {
         "subject": "DIAD 205",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM HYBD",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DIAD 205",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM HYBD",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DIAD 205",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ASNC BCGM OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DIAD 205",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ASNC BCGM OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "DIAD 442",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Admission to the Disability and Advocacy, BAE or instructor permission."
+        "prerequisites": "Admission to the Disability and Advocacy, BAE or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "DIAD 495",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Admission to the Disability and Advocacy, BAE or instructor permission."
+        "prerequisites": "Admission to the Disability and Advocacy, BAE or instructor permission.",
+        "gpa": null
     }
 ]

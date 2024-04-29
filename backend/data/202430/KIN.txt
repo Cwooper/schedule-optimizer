@@ -1,4 +1,4 @@
-2024-04-26T16:26:52.566016
+2024-04-29T12:48:42.731565
 [
     {
         "subject": "KIN 312",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "BIOL 348, junior status."
+        "prerequisites": "BIOL 348, junior status.",
+        "gpa": null
     },
     {
         "subject": "KIN 409",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "KIN 306; or permission of instructor."
+        "prerequisites": "KIN 306; or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "KIN 416",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "KIN 312 or concurrent."
+        "prerequisites": "KIN 312 or concurrent.",
+        "gpa": null
     },
     {
         "subject": "KIN 422",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "SR MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "KIN 306 or PEH 443P; Senior status."
+        "prerequisites": "KIN 306 or PEH 443P; Senior status.",
+        "gpa": null
     },
     {
         "subject": "KIN 472",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "BIOL 348 and KIN 306; First Aid/CPR certification, proof of malpractice insurance; and instructor permission."
+        "prerequisites": "BIOL 348 and KIN 306; First Aid/CPR certification, proof of malpractice insurance; and instructor permission.",
+        "gpa": null
     },
     {
         "subject": "KIN 491",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "BIOL 348 and KIN 306; First Aid/CPR certification, proof of malpractice insurance; and instructor permission."
+        "prerequisites": "BIOL 348 and KIN 306; First Aid/CPR certification, proof of malpractice insurance; and instructor permission.",
+        "gpa": null
     },
     {
         "subject": "KIN 492",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "BIOL 348 and KIN 306; First Aid/CPR certification, proof of malpractice insurance; and instructor permission."
+        "prerequisites": "BIOL 348 and KIN 306; First Aid/CPR certification, proof of malpractice insurance; and instructor permission.",
+        "gpa": null
     },
     {
         "subject": "KIN 494",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Permission of instructor; a minimum grade of B in the course for which the student will be a teaching assistant."
+        "prerequisites": "Permission of instructor; a minimum grade of B in the course for which the student will be a teaching assistant.",
+        "gpa": null
     },
     {
         "subject": "KIN 494",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Permission of instructor; a minimum grade of B in the course for which the student will be a teaching assistant."
+        "prerequisites": "Permission of instructor; a minimum grade of B in the course for which the student will be a teaching assistant.",
+        "gpa": null
     },
     {
         "subject": "KIN 552",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "KIN 421 with concurrency; KIN 541 and KIN 551."
+        "prerequisites": "KIN 421 with concurrency; KIN 541 and KIN 551.",
+        "gpa": null
     },
     {
         "subject": "KIN 690",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "KIN 520, topic approval form submitted, and instructor permission."
+        "prerequisites": "KIN 520, topic approval form submitted, and instructor permission.",
+        "gpa": null
     },
     {
         "subject": "KIN 699",
@@ -262,6 +273,7 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

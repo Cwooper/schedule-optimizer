@@ -1,4 +1,4 @@
-2024-04-26T16:29:49.882742
+2024-04-29T12:49:01.028493
 [
     {
         "subject": "PLSC 101",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PLSC 250",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PLSC 250",
@@ -59,12 +61,13 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "39",
-        "avail": "11",
+        "enrl": "38",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PLSC 261",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PLSC 261",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PLSC 271",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PLSC 291",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PLSC 300",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PLSC 302",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PLSC 101 or PLSC 291"
+        "prerequisites": "PLSC 101 or PLSC 291",
+        "gpa": null
     },
     {
         "subject": "PLSC 315",
@@ -213,12 +222,13 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "18",
-        "avail": "12",
+        "enrl": "17",
+        "avail": "13",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF WP2",
-        "prerequisites": "PLSC 250 or PLSC 271"
+        "prerequisites": "PLSC 250 or PLSC 271",
+        "gpa": null
     },
     {
         "subject": "PLSC 321",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PLSC 345",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PLSC 101 or PLSC 250"
+        "prerequisites": "PLSC 101 or PLSC 250",
+        "gpa": null
     },
     {
         "subject": "PLSC 346",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "ACGM FTF",
-        "prerequisites": "PLSC 250"
+        "prerequisites": "PLSC 250",
+        "gpa": null
     },
     {
         "subject": "PLSC 361",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "HIST 111 or HUMA 121 or PLSC 261 or equivalent."
+        "prerequisites": "HIST 111 or HUMA 121 or PLSC 261 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "PLSC 366",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF WP3",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PLSC 370",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PLSC 271 or PLSC 291 or IBUS 370"
+        "prerequisites": "PLSC 271 or PLSC 291 or IBUS 370",
+        "gpa": null
     },
     {
         "subject": "PLSC 383",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PLSC 101 or PLSC 250 or PLSC 271 or PLSC 291"
+        "prerequisites": "PLSC 101 or PLSC 250 or PLSC 271 or PLSC 291",
+        "gpa": null
     },
     {
         "subject": "PLSC 385",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PLSC 271 or PLSC 291."
+        "prerequisites": "PLSC 271 or PLSC 291.",
+        "gpa": null
     },
     {
         "subject": "PLSC 395",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PLSC 261 or PLSC 271 or PLSC 291; or instructor permission."
+        "prerequisites": "PLSC 261 or PLSC 271 or PLSC 291; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "PLSC 397E",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PLSC 250."
+        "prerequisites": "PLSC 250.",
+        "gpa": null
     },
     {
         "subject": "PLSC 397H",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PLSC 250 or instructor permission."
+        "prerequisites": "PLSC 250 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "PLSC 399",
@@ -482,7 +503,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF WP2",
-        "prerequisites": "PLSC 271 or PLSC 291."
+        "prerequisites": "PLSC 271 or PLSC 291.",
+        "gpa": null
     },
     {
         "subject": "PLSC 400",
@@ -504,7 +526,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PLSC 406",
@@ -526,7 +549,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PLSC 250, PLSC 291 or instructor permission"
+        "prerequisites": "PLSC 250, PLSC 291 or instructor permission",
+        "gpa": null
     },
     {
         "subject": "PLSC 431",
@@ -548,7 +572,8 @@
         "waitlist": "",
         "restrictions": "OV SR MJ",
         "attributes": "FTF WP3",
-        "prerequisites": "Senior status in political science and 30 credits in political science."
+        "prerequisites": "Senior status in political science and 30 credits in political science.",
+        "gpa": null
     },
     {
         "subject": "PLSC 432",
@@ -570,7 +595,8 @@
         "waitlist": "",
         "restrictions": "OV SR MJ",
         "attributes": "FTF WP3",
-        "prerequisites": "Senior status in political science and 30 credits in political science."
+        "prerequisites": "Senior status in political science and 30 credits in political science.",
+        "gpa": null
     },
     {
         "subject": "PLSC 436",
@@ -592,7 +618,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "One upper-division course in political science or instructor permission."
+        "prerequisites": "One upper-division course in political science or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "PLSC 444",
@@ -614,7 +641,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "Two courses in appropriate field in discipline"
+        "prerequisites": "Two courses in appropriate field in discipline",
+        "gpa": null
     },
     {
         "subject": "PLSC 447",
@@ -636,7 +664,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Two from: PLSC 250, PLSC 261, PLSC 271, PLSC 291 plus 10 upper-division credits in political science."
+        "prerequisites": "Two from: PLSC 250, PLSC 261, PLSC 271, PLSC 291 plus 10 upper-division credits in political science.",
+        "gpa": null
     },
     {
         "subject": "PLSC 448",
@@ -658,7 +687,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Instructor permission."
+        "prerequisites": "Instructor permission.",
+        "gpa": null
     },
     {
         "subject": "PLSC 462",
@@ -680,7 +710,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PLSC 261 or HIST 113; and ECON 206 or HNRS 209 or ECON 207 or equivalent."
+        "prerequisites": "PLSC 261 or HIST 113; and ECON 206 or HNRS 209 or ECON 207 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "PLSC 467",
@@ -702,7 +733,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PLSC 250, PLSC 311, plus one additional upper-division course in law or political theory."
+        "prerequisites": "PLSC 250, PLSC 311, plus one additional upper-division course in law or political theory.",
+        "gpa": null
     },
     {
         "subject": "PLSC 469",
@@ -724,7 +756,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PLSC 261 or any 400-level political theory course"
+        "prerequisites": "PLSC 261 or any 400-level political theory course",
+        "gpa": null
     },
     {
         "subject": "PLSC 491",
@@ -746,7 +779,8 @@
         "waitlist": "",
         "restrictions": "OV SR",
         "attributes": "CF-E FTF WP3",
-        "prerequisites": "senior standing political science/economics combined major or political science major/economics minor"
+        "prerequisites": "senior standing political science/economics combined major or political science major/economics minor",
+        "gpa": null
     },
     {
         "subject": "PLSC 496",
@@ -768,6 +802,7 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

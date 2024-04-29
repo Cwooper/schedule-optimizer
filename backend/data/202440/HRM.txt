@@ -1,4 +1,4 @@
-2024-04-26T16:24:16.458913
+2024-04-29T12:48:26.769723
 [
     {
         "subject": "HRM 322",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "Majors Only. MGMT 271, MGMT 311."
+        "prerequisites": "Majors Only. MGMT 271, MGMT 311.",
+        "gpa": null
     },
     {
         "subject": "HRM 422",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF PBEX WP3",
-        "prerequisites": "MGMT 271 and MGMT 311"
+        "prerequisites": "MGMT 271 and MGMT 311",
+        "gpa": null
     },
     {
         "subject": "HRM 425",
@@ -64,6 +66,7 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF PBEX",
-        "prerequisites": "Majors Only. HRM 322 or HRM 422."
+        "prerequisites": "Majors Only. HRM 322 or HRM 422.",
+        "gpa": null
     }
 ]

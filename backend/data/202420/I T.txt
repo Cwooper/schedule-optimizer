@@ -1,4 +1,4 @@
-2024-04-26T16:29:08.113240
+2024-04-29T12:48:56.332946
 [
     {
         "subject": "I T 344",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "I T 344",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "I T 344",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "I T 344",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "I T 442",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "HYBD",
-        "prerequisites": "IT 344"
+        "prerequisites": "IT 344",
+        "gpa": null
     },
     {
         "subject": "I T 442",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "IT 344"
+        "prerequisites": "IT 344",
+        "gpa": null
     },
     {
         "subject": "I T 442",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "IT 344"
+        "prerequisites": "IT 344",
+        "gpa": null
     },
     {
         "subject": "I T 443",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "IT 344"
+        "prerequisites": "IT 344",
+        "gpa": null
     },
     {
         "subject": "I T 444",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV ED",
         "attributes": "ASNC OL",
-        "prerequisites": "IT 344."
+        "prerequisites": "IT 344.",
+        "gpa": null
     },
     {
         "subject": "I T 444",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV ED",
         "attributes": "ASNC OL",
-        "prerequisites": "IT 344."
+        "prerequisites": "IT 344.",
+        "gpa": null
     },
     {
         "subject": "I T 535",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM PQ",
         "attributes": "OL SYNC",
-        "prerequisites": "IT 530 or instructor permission."
+        "prerequisites": "IT 530 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "I T 544",
@@ -262,6 +273,7 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM",
         "attributes": "FTF",
-        "prerequisites": "Graduate status or permission of instructor."
+        "prerequisites": "Graduate status or permission of instructor.",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:31:30.678736
+2024-04-29T12:49:13.204349
 [
     {
         "subject": "HRM 322",
@@ -20,6 +20,7 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "Majors Only. MGMT 271, MGMT 311."
+        "prerequisites": "Majors Only. MGMT 271, MGMT 311.",
+        "gpa": null
     }
 ]

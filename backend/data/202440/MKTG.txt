@@ -1,4 +1,4 @@
-2024-04-26T16:24:41.238864
+2024-04-29T12:48:29.243178
 [
     {
         "subject": "MKTG 380",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Safavi, Farrokh",
-        "room": "TBA",
+        "room": "PH 228",
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR PQ",
         "attributes": "FTF",
-        "prerequisites": "ACCT 240; and ECON 206 or HNRS 209."
+        "prerequisites": "ACCT 240; and ECON 206 or HNRS 209.",
+        "gpa": null
     },
     {
         "subject": "MKTG 380",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "ACCT 240; and ECON 206 or HNRS 209."
+        "prerequisites": "ACCT 240; and ECON 206 or HNRS 209.",
+        "gpa": null
     },
     {
         "subject": "MKTG 380",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "ACCT 240; and ECON 206 or HNRS 209."
+        "prerequisites": "ACCT 240; and ECON 206 or HNRS 209.",
+        "gpa": null
     },
     {
         "subject": "MKTG 380",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staton, Mark Gambrell",
-        "room": "TBA",
+        "room": "PH 104",
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR PQ",
         "attributes": "FTF",
-        "prerequisites": "ACCT 240; and ECON 206 or HNRS 209."
+        "prerequisites": "ACCT 240; and ECON 206 or HNRS 209.",
+        "gpa": null
     },
     {
         "subject": "MKTG 381",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR MJ PQ",
         "attributes": "FTF WP2",
-        "prerequisites": "Majors Only. MKTG 380; co-requisite MKTG 382."
+        "prerequisites": "Majors Only. MKTG 380; co-requisite MKTG 382.",
+        "gpa": null
     },
     {
         "subject": "MKTG 382",
@@ -121,7 +126,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Armstrong Soule, Cat",
-        "room": "TBA",
+        "room": "PH 244",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "Majors Only. MKTG 380; co-requisite MKTG 381."
+        "prerequisites": "Majors Only. MKTG 380; co-requisite MKTG 381.",
+        "gpa": null
     },
     {
         "subject": "MKTG 384",
@@ -143,7 +149,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Baskentli, Sara",
-        "room": "TBA",
+        "room": "CF 225",
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "CF FTF",
-        "prerequisites": "MKTG 380. For Declared Business and Sustainability majors only. (CBE majors take MKTG 474)."
+        "prerequisites": "MKTG 380. For Declared Business and Sustainability majors only. (CBE majors take MKTG 474).",
+        "gpa": null
     },
     {
         "subject": "MKTG 474",
@@ -165,7 +172,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "CF 225",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
         "attributes": "CF FTF",
-        "prerequisites": "Majors only. MKTG 381 and MKTG 382."
+        "prerequisites": "Majors only. MKTG 381 and MKTG 382.",
+        "gpa": null
     },
     {
         "subject": "MKTG 475",
@@ -187,7 +195,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Sekhon, Tejvir Singh",
-        "room": "TBA",
+        "room": "AW 205",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MKTG 380, MKTG 381, MKTG 382"
+        "prerequisites": "MKTG 380, MKTG 381, MKTG 382",
+        "gpa": null
     },
     {
         "subject": "MKTG 476",
@@ -209,7 +218,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staton, Mark Gambrell",
-        "room": "TBA",
+        "room": "CF 225",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MKTG 381 and MKTG 382."
+        "prerequisites": "MKTG 381 and MKTG 382.",
+        "gpa": null
     },
     {
         "subject": "MKTG 480",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. MKTG 381, MKTG 382. Permission of instructor."
+        "prerequisites": "Majors Only. MKTG 381, MKTG 382. Permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "MKTG 481",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. MKTG 381; MKTG 382; DSCI 305 or concurrent."
+        "prerequisites": "Majors Only. MKTG 381; MKTG 382; DSCI 305 or concurrent.",
+        "gpa": null
     },
     {
         "subject": "MKTG 483",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
         "attributes": "CF FTF",
-        "prerequisites": "Majors Only. MKTG 381, MKTG 382"
+        "prerequisites": "Majors Only. MKTG 381, MKTG 382",
+        "gpa": null
     },
     {
         "subject": "MKTG 485",
@@ -297,7 +310,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Purdy, Daniel LaRaine",
-        "room": "TBA",
+        "room": "AW 308",
         "lab_room": null,
         "addl_fees": "",
         "cap": "10",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MKTG 483 and instructor permission."
+        "prerequisites": "MKTG 483 and instructor permission.",
+        "gpa": null
     },
     {
         "subject": "MKTG 486",
@@ -319,7 +333,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Safavi, Farrokh",
-        "room": "TBA",
+        "room": "PH 228",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
         "attributes": "CF FTF",
-        "prerequisites": "Majors Only. MKTG 380"
+        "prerequisites": "Majors Only. MKTG 380",
+        "gpa": null
     },
     {
         "subject": "MKTG 489",
@@ -341,7 +356,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Sekhon, Tejvir Singh",
-        "room": "TBA",
+        "room": "AW 205",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors only; MKTG 381; MKTG 382; and two 400-level marketing courses (excluding MKTG 480 and MKTG 490)."
+        "prerequisites": "Majors only; MKTG 381; MKTG 382; and two 400-level marketing courses (excluding MKTG 480 and MKTG 490).",
+        "gpa": null
     },
     {
         "subject": "MKTG 490",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. MKTG 381 and MKTG 382. Permission of instructor."
+        "prerequisites": "Majors Only. MKTG 381 and MKTG 382. Permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "MKTG 499",
@@ -385,7 +402,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Armstrong Soule, Cat",
-        "room": "TBA",
+        "room": "PH 244",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -394,6 +411,7 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "CF FTF",
-        "prerequisites": "Major only; MKTG 381 and MKTG 382."
+        "prerequisites": "Major only; MKTG 381 and MKTG 382.",
+        "gpa": null
     }
 ]

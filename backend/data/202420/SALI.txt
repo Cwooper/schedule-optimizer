@@ -1,4 +1,4 @@
-2024-04-26T16:29:59.796351
+2024-04-29T12:49:01.972984
 [
     {
         "subject": "SALI 201",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM FTF",
-        "prerequisites": "Optional co-requisite: SALI 202."
+        "prerequisites": "Optional co-requisite: SALI 202.",
+        "gpa": null
     },
     {
         "subject": "SALI 202",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Co-requisite: SALI 201; or instructor permission."
+        "prerequisites": "Co-requisite: SALI 201; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SALI 390",
@@ -64,6 +66,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "SALI 201 or instructor permission."
+        "prerequisites": "SALI 201 or instructor permission.",
+        "gpa": null
     }
 ]

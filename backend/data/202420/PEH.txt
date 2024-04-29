@@ -1,4 +1,4 @@
-2024-04-26T16:29:47.119688
+2024-04-29T12:49:00.676114
 [
     {
         "subject": "PEH 341P",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "PEH 341 or concurrent."
+        "prerequisites": "PEH 341 or concurrent.",
+        "gpa": null
     },
     {
         "subject": "PEH 442P",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "PEH 341P"
+        "prerequisites": "PEH 341P",
+        "gpa": null
     },
     {
         "subject": "PEH 443P",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "PEH 341"
+        "prerequisites": "PEH 341",
+        "gpa": null
     },
     {
         "subject": "PEH 444P",
@@ -86,6 +89,7 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "PEH 440 and PEH 440P."
+        "prerequisites": "PEH 440 and PEH 440P.",
+        "gpa": null
     }
 ]

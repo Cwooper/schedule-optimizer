@@ -1,4 +1,4 @@
-2024-04-26T16:26:35.794434
+2024-04-29T12:48:40.438106
 [
     {
         "subject": "HIST 364",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL US US1 US2",
-        "prerequisites": "Sophomore, junior, or senior status."
+        "prerequisites": "Sophomore, junior, or senior status.",
+        "gpa": null
     },
     {
         "subject": "HIST 390",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "EUR EUR2 MIX OL",
-        "prerequisites": "junior standing"
+        "prerequisites": "junior standing",
+        "gpa": null
     },
     {
         "subject": "HIST 391",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL US",
-        "prerequisites": "sophomore standing"
+        "prerequisites": "sophomore standing",
+        "gpa": null
     },
     {
         "subject": "HIST 494",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "HIST 393 or instructor permission."
+        "prerequisites": "HIST 393 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "HIST 690",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Graduate status."
+        "prerequisites": "Graduate status.",
+        "gpa": null
     },
     {
         "subject": "HIST 699",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "OV GR",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

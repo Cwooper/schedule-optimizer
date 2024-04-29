@@ -1,4 +1,4 @@
-2024-04-26T16:27:52.612013
+2024-04-29T12:48:47.265293
 [
     {
         "subject": "AMST 204",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM OL SYNC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "AMST 242",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM OL SYNC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "AMST 301",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM FTF",
-        "prerequisites": "Introductory-level course: HIST, SOC, ANTH or equivalent;"
+        "prerequisites": "Introductory-level course: HIST, SOC, ANTH or equivalent;",
+        "gpa": null
     },
     {
         "subject": "AMST 301",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM OL SYNC",
-        "prerequisites": "Introductory-level course: HIST, SOC, ANTH or equivalent;"
+        "prerequisites": "Introductory-level course: HIST, SOC, ANTH or equivalent;",
+        "gpa": null
     },
     {
         "subject": "AMST 314",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "AMST 203 or AMST 301"
+        "prerequisites": "AMST 203 or AMST 301",
+        "gpa": null
     },
     {
         "subject": "AMST 318",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "AMST 252 or AMST 301; or instructor permission."
+        "prerequisites": "AMST 252 or AMST 301; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "AMST 397D",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "AMST 397I",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "AMST 202 or AMST 301 or equivalent; or instructor permission"
+        "prerequisites": "AMST 202 or AMST 301 or equivalent; or instructor permission",
+        "gpa": null
     },
     {
         "subject": "AMST 410",
@@ -196,6 +204,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "One of: AMST 242, AMST 301 or AMST 317 or instructor permission."
+        "prerequisites": "One of: AMST 242, AMST 301 or AMST 317 or instructor permission.",
+        "gpa": null
     }
 ]

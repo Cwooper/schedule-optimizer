@@ -1,4 +1,4 @@
-2024-04-26T16:23:12.443011
+2024-04-29T12:48:19.157049
 [
     {
         "subject": "AECI 301",
@@ -11,8 +11,8 @@
         "lab_start_time": "1600",
         "lab_end_time": "1750",
         "instructor": "Mayer, Aric Arnold",
-        "room": "TBA",
-        "lab_room": "TBA",
+        "room": "MH 056",
+        "lab_room": "MH 056",
         "addl_fees": "Flat Fee $61.50",
         "cap": "30",
         "enrl": "0",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "CFPA major or departmental approval; junior status; and acceptance into the AECI minor."
+        "prerequisites": "CFPA major or departmental approval; junior status; and acceptance into the AECI minor.",
+        "gpa": null
     },
     {
         "subject": "AECI 405",
@@ -33,8 +34,8 @@
         "lab_start_time": "1400",
         "lab_end_time": "1550",
         "instructor": "Mayer, Aric Arnold",
-        "room": "TBA",
-        "lab_room": "TBA",
+        "room": "MH 056",
+        "lab_room": "MH 056",
         "addl_fees": "Flat Fee $12.50",
         "cap": "20",
         "enrl": "0",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "CFPA major or departmental approval; AECI 303."
+        "prerequisites": "CFPA major or departmental approval; AECI 303.",
+        "gpa": null
     }
 ]

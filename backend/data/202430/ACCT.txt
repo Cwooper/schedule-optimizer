@@ -1,4 +1,4 @@
-2024-04-26T16:25:29.449254
+2024-04-29T12:48:35.115234
 [
     {
         "subject": "ACCT 240",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ACCT 245",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "ACCT 240"
+        "prerequisites": "ACCT 240",
+        "gpa": null
     },
     {
         "subject": "ACCT 470",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "OL SYNC WP1",
-        "prerequisites": "Majors Only. MGMT 271"
+        "prerequisites": "Majors Only. MGMT 271",
+        "gpa": null
     },
     {
         "subject": "ACCT 490",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. ACCT 341; minimum 2.75 GPA in 300/400-level accounting courses"
+        "prerequisites": "Majors Only. ACCT 341; minimum 2.75 GPA in 300/400-level accounting courses",
+        "gpa": null
     },
     {
         "subject": "ACCT 490",
@@ -108,6 +112,7 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. ACCT 341; minimum 2.75 GPA in 300/400-level accounting courses"
+        "prerequisites": "Majors Only. ACCT 341; minimum 2.75 GPA in 300/400-level accounting courses",
+        "gpa": null
     }
 ]

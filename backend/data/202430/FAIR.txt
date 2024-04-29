@@ -1,4 +1,4 @@
-2024-04-26T16:26:25.020842
+2024-04-29T12:48:39.548326
 [
     {
         "subject": "FAIR 235D",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "FAIR 257V",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "HYBD",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "FAIR 323G",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
-        "prerequisites": "FAIR 222G or FAIR 222H, creative writing course, or instructor permission."
+        "prerequisites": "FAIR 222G or FAIR 222H, creative writing course, or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "FAIR 334S",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "S/U PQ",
         "attributes": "FTF HUM",
-        "prerequisites": "FAIR 201A or ENG 101 or INTL 201."
+        "prerequisites": "FAIR 201A or ENG 101 or INTL 201.",
+        "gpa": null
     },
     {
         "subject": "FAIR 336B",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "OL SYNC",
-        "prerequisites": "FAIR 203A or equivalent"
+        "prerequisites": "FAIR 203A or equivalent",
+        "gpa": null
     },
     {
         "subject": "FAIR 336B",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "MIX OL",
-        "prerequisites": "FAIR 203A or equivalent"
+        "prerequisites": "FAIR 203A or equivalent",
+        "gpa": null
     },
     {
         "subject": "FAIR 336N",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "MIX OL",
-        "prerequisites": "FAIR 206a or equivalent"
+        "prerequisites": "FAIR 206a or equivalent",
+        "gpa": null
     },
     {
         "subject": "FAIR 387K",
@@ -174,6 +181,7 @@
         "waitlist": "",
         "restrictions": "FA S/U",
         "attributes": "OL SYNC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

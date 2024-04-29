@@ -1,4 +1,4 @@
-2024-04-26T16:31:31.952388
+2024-04-29T12:49:13.378211
 [
     {
         "subject": "HSP 301",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Admission to major, or permission of Human Services Program."
+        "prerequisites": "Admission to major, or permission of Human Services Program.",
+        "gpa": null
     },
     {
         "subject": "HSP 306",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Admission to major."
+        "prerequisites": "Admission to major.",
+        "gpa": null
     },
     {
         "subject": "HSP 325",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "HSP 301."
+        "prerequisites": "HSP 301.",
+        "gpa": null
     },
     {
         "subject": "HSP 355",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Admission to major or Education and Social Justice Minor."
+        "prerequisites": "Admission to major or Education and Social Justice Minor.",
+        "gpa": null
     },
     {
         "subject": "HSP 371",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "ASNC EVEX OL",
-        "prerequisites": "Admission to the major or program approval."
+        "prerequisites": "Admission to the major or program approval.",
+        "gpa": null
     },
     {
         "subject": "HSP 371",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "ASNC OL",
-        "prerequisites": "Admission to the major or program approval."
+        "prerequisites": "Admission to the major or program approval.",
+        "gpa": null
     },
     {
         "subject": "HSP 371",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "ASNC DLEX OL",
-        "prerequisites": "Admission to the major or program approval."
+        "prerequisites": "Admission to the major or program approval.",
+        "gpa": null
     },
     {
         "subject": "HSP 371",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "ASNC OL",
-        "prerequisites": "Admission to the major or program approval."
+        "prerequisites": "Admission to the major or program approval.",
+        "gpa": null
     },
     {
         "subject": "HSP 371",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "ASNC EVEX OL",
-        "prerequisites": "Admission to the major or program approval."
+        "prerequisites": "Admission to the major or program approval.",
+        "gpa": null
     },
     {
         "subject": "HSP 371",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "ASNC DLEX OL",
-        "prerequisites": "Admission to the major or program approval."
+        "prerequisites": "Admission to the major or program approval.",
+        "gpa": null
     },
     {
         "subject": "HSP 385",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV XBA-HS MJ",
         "attributes": "ASNC DLEX OL WP3",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HSP 404",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "HYBD",
-        "prerequisites": "HSP 355 or ESJ 411 or EDUC 411 or instructor permission."
+        "prerequisites": "HSP 355 or ESJ 411 or EDUC 411 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "HSP 406",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "HSP 355 or ESJ 411 or EDUC 411 or instructor permission."
+        "prerequisites": "HSP 355 or ESJ 411 or EDUC 411 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "HSP 406",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "ASNC DLEX OL",
-        "prerequisites": "HSP 355 or ESJ 411 or EDUC 411 or instructor permission."
+        "prerequisites": "HSP 355 or ESJ 411 or EDUC 411 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "HSP 420",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "HSP 306 and HSP 435."
+        "prerequisites": "HSP 306 and HSP 435.",
+        "gpa": null
     },
     {
         "subject": "HSP 430",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "OV XBA-HS MJ S/U",
         "attributes": "ASNC EVEX OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HSP 430",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "OV XBA-HS SR MJ S/U",
         "attributes": "ASNC DLEX OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HSP 430",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HSP 435",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "HSP 301; HSP 306 or concurrent."
+        "prerequisites": "HSP 301; HSP 306 or concurrent.",
+        "gpa": null
     },
     {
         "subject": "HSP 435",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "ASNC DLEX OL",
-        "prerequisites": "HSP 301; HSP 306 or concurrent."
+        "prerequisites": "HSP 301; HSP 306 or concurrent.",
+        "gpa": null
     },
     {
         "subject": "HSP 440",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "HSP 435."
+        "prerequisites": "HSP 435.",
+        "gpa": null
     },
     {
         "subject": "HSP 440",
@@ -482,7 +503,8 @@
         "waitlist": "",
         "restrictions": "OV XBA-HS MJ S/U PQ",
         "attributes": "ASNC EVEX OL",
-        "prerequisites": "HSP 435."
+        "prerequisites": "HSP 435.",
+        "gpa": null
     },
     {
         "subject": "HSP 440",
@@ -504,7 +526,8 @@
         "waitlist": "",
         "restrictions": "OV XBA-HS MJ S/U PQ",
         "attributes": "ASNC DLEX OL",
-        "prerequisites": "HSP 435."
+        "prerequisites": "HSP 435.",
+        "gpa": null
     },
     {
         "subject": "HSP 440",
@@ -526,7 +549,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "HSP 435."
+        "prerequisites": "HSP 435.",
+        "gpa": null
     },
     {
         "subject": "HSP 452",
@@ -548,7 +572,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "ASNC DLEX OL",
-        "prerequisites": "Admission to major."
+        "prerequisites": "Admission to major.",
+        "gpa": null
     },
     {
         "subject": "HSP 452",
@@ -570,7 +595,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "ASNC EVEX OL",
-        "prerequisites": "Admission to major."
+        "prerequisites": "Admission to major.",
+        "gpa": null
     },
     {
         "subject": "HSP 452",
@@ -592,7 +618,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "ASNC OL",
-        "prerequisites": "Admission to major."
+        "prerequisites": "Admission to major.",
+        "gpa": null
     },
     {
         "subject": "HSP 454",
@@ -614,7 +641,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Admission to major."
+        "prerequisites": "Admission to major.",
+        "gpa": null
     },
     {
         "subject": "HSP 457",
@@ -636,7 +664,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "ASNC EVEX OL",
-        "prerequisites": "Admission to major."
+        "prerequisites": "Admission to major.",
+        "gpa": null
     },
     {
         "subject": "HSP 457",
@@ -658,7 +687,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "ASNC DLEX OL",
-        "prerequisites": "Admission to major."
+        "prerequisites": "Admission to major.",
+        "gpa": null
     },
     {
         "subject": "HSP 457",
@@ -680,7 +710,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "ASNC OL",
-        "prerequisites": "Admission to major."
+        "prerequisites": "Admission to major.",
+        "gpa": null
     },
     {
         "subject": "HSP 485",
@@ -702,7 +733,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "HSP 385"
+        "prerequisites": "HSP 385",
+        "gpa": null
     },
     {
         "subject": "HSP 485",
@@ -724,7 +756,8 @@
         "waitlist": "",
         "restrictions": "OV XBA-HS MJ PQ",
         "attributes": "ASNC DLEX OL",
-        "prerequisites": "HSP 385"
+        "prerequisites": "HSP 385",
+        "gpa": null
     },
     {
         "subject": "HSP 485",
@@ -746,6 +779,7 @@
         "waitlist": "",
         "restrictions": "OV XBA-HS MJ PQ",
         "attributes": "EVEX HYBD",
-        "prerequisites": "HSP 385"
+        "prerequisites": "HSP 385",
+        "gpa": null
     }
 ]

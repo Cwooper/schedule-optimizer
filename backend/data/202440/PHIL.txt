@@ -1,4 +1,4 @@
-2024-04-26T16:24:56.743862
+2024-04-29T12:48:31.280059
 [
     {
         "subject": "PHIL 112",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Howard-Snyder, Frances",
-        "room": "TBA",
+        "room": "BH 419",
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 112",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Howard-Snyder, Frances",
-        "room": "TBA",
+        "room": "BH 419",
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 113",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Hudson, Hud",
-        "room": "TBA",
+        "room": "BH 217",
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 113",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Hudson, Hud",
-        "room": "TBA",
+        "room": "BH 217",
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 114",
@@ -99,7 +103,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Whitcomb, Dennis Porter",
-        "room": "TBA",
+        "room": "HU 103",
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 114",
@@ -121,7 +126,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Whitcomb, Dennis Porter",
-        "room": "TBA",
+        "room": "HU 110",
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 115",
@@ -143,7 +149,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Lee, Christian Ryan",
-        "room": "TBA",
+        "room": "MH 038",
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 115",
@@ -165,7 +172,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Lee, Christian Ryan",
-        "room": "TBA",
+        "room": "BH 225",
         "lab_room": null,
         "addl_fees": "",
         "cap": "21",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 115",
@@ -187,7 +195,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Lee, Christian Ryan",
-        "room": "TBA",
+        "room": "BH 225",
         "lab_room": null,
         "addl_fees": "",
         "cap": "24",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "FR",
         "attributes": "FIG FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 120",
@@ -209,7 +218,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Tognazzini, Neal Abram",
-        "room": "TBA",
+        "room": "MH 235",
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 120",
@@ -231,7 +241,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Tognazzini, Neal Abram",
-        "room": "TBA",
+        "room": "MH 235",
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 201",
@@ -253,7 +264,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Lee, Christian Ryan",
-        "room": "TBA",
+        "room": "MH 152",
         "lab_room": null,
         "addl_fees": "",
         "cap": "106",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF QSR",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PHIL 310",
@@ -275,7 +287,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Whitcomb, Dennis Porter",
-        "room": "TBA",
+        "room": "OM 585",
         "lab_room": null,
         "addl_fees": "",
         "cap": "40",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "PHIL 113 or PHIL 114 or HNRS 201."
+        "prerequisites": "PHIL 113 or PHIL 114 or HNRS 201.",
+        "gpa": null
     },
     {
         "subject": "PHIL 330",
@@ -297,7 +310,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Wasserman, Ryan Jon",
-        "room": "TBA",
+        "room": "BH 415",
         "lab_room": null,
         "addl_fees": "",
         "cap": "40",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "PHIL 113 or PHIL 114 or HNRS 201."
+        "prerequisites": "PHIL 113 or PHIL 114 or HNRS 201.",
+        "gpa": null
     },
     {
         "subject": "PHIL 397A",
@@ -319,7 +333,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Howard-Snyder, Frances",
-        "room": "TBA",
+        "room": "MH 139",
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
-        "prerequisites": "Any Philosophy class or HNRS 201"
+        "prerequisites": "Any Philosophy class or HNRS 201",
+        "gpa": null
     },
     {
         "subject": "PHIL 417",
@@ -341,7 +356,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Hudson, Hud",
-        "room": "TBA",
+        "room": "BH 110",
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
@@ -350,6 +365,7 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF WP3",
-        "prerequisites": "3 upper-division PHIL courses"
+        "prerequisites": "3 upper-division PHIL courses",
+        "gpa": null
     }
 ]

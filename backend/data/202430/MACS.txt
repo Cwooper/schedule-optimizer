@@ -1,4 +1,4 @@
-2024-04-26T16:27:03.162779
+2024-04-29T12:48:43.394897
 [
     {
         "subject": "MACS 494",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Instructor permission."
+        "prerequisites": "Instructor permission.",
+        "gpa": null
     },
     {
         "subject": "MACS 495",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Instructor permission."
+        "prerequisites": "Instructor permission.",
+        "gpa": null
     }
 ]

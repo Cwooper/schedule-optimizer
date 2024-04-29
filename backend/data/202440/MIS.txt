@@ -1,4 +1,4 @@
-2024-04-26T16:24:37.425757
+2024-04-29T12:48:28.808585
 [
     {
         "subject": "MIS 220",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Tyran, Craig Kenneth",
-        "room": "TBA",
+        "room": "AW 306",
         "lab_room": null,
         "addl_fees": "",
         "cap": "58",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Pre-major, major or minor in business; or pre-major or major in economics."
+        "prerequisites": "Pre-major, major or minor in business; or pre-major or major in economics.",
+        "gpa": null
     },
     {
         "subject": "MIS 220",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Tyran, Craig Kenneth",
-        "room": "TBA",
+        "room": "AW 306",
         "lab_room": null,
         "addl_fees": "",
         "cap": "58",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Pre-major, major or minor in business; or pre-major or major in economics."
+        "prerequisites": "Pre-major, major or minor in business; or pre-major or major in economics.",
+        "gpa": null
     },
     {
         "subject": "MIS 320",
@@ -55,7 +57,7 @@
         "lab_start_time": "1000",
         "lab_end_time": "1120",
         "instructor": "McClain, Lee",
-        "room": "TBA",
+        "room": "AW 210",
         "lab_room": "PH 210",
         "addl_fees": "",
         "cap": "45",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MIS 220 or equivalent"
+        "prerequisites": "MIS 220 or equivalent",
+        "gpa": null
     },
     {
         "subject": "MIS 320",
@@ -77,7 +80,7 @@
         "lab_start_time": "1000",
         "lab_end_time": "1120",
         "instructor": "McClain, Lee",
-        "room": "TBA",
+        "room": "AW 210",
         "lab_room": "PH 210B",
         "addl_fees": "",
         "cap": "45",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MIS 220 or equivalent"
+        "prerequisites": "MIS 220 or equivalent",
+        "gpa": null
     },
     {
         "subject": "MIS 321",
@@ -99,7 +103,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Tyran, Craig Kenneth",
-        "room": "TBA",
+        "room": "ES 080",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR MJ PQ",
         "attributes": "CF FTF WP1",
-        "prerequisites": "Majors Only. MIS 320 or ACCT 321, C- or better"
+        "prerequisites": "Majors Only. MIS 320 or ACCT 321, C- or better",
+        "gpa": null
     },
     {
         "subject": "MIS 322",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "JR SO SR MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. MIS 320 or ACCT 321; pre/coreq: MIS 321; C- or better"
+        "prerequisites": "Majors Only. MIS 320 or ACCT 321; pre/coreq: MIS 321; C- or better",
+        "gpa": null
     },
     {
         "subject": "MIS 421",
@@ -143,8 +149,8 @@
         "lab_start_time": "1000",
         "lab_end_time": "1150",
         "instructor": "Meucci, Michela L.",
-        "room": "PH 210B",
-        "lab_room": "PH 210B",
+        "room": "PH 047",
+        "lab_room": "PH 047",
         "addl_fees": "",
         "cap": "25",
         "enrl": "0",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors only. MIS 321 and MISS 322."
+        "prerequisites": "Majors only. MIS 321 and MISS 322.",
+        "gpa": null
     },
     {
         "subject": "MIS 422",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors only. MIS 320 or ACCT 321."
+        "prerequisites": "Majors only. MIS 320 or ACCT 321.",
+        "gpa": null
     },
     {
         "subject": "MIS 433",
@@ -187,7 +195,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Li, Jiexun",
-        "room": "TBA",
+        "room": "ES 072",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MIS 320 or ACCT 321"
+        "prerequisites": "MIS 320 or ACCT 321",
+        "gpa": null
     },
     {
         "subject": "MIS 434",
@@ -209,7 +218,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "AH 018",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -218,6 +227,7 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors only. DSCI 305 or ECON 375."
+        "prerequisites": "Majors only. DSCI 305 or ECON 375.",
+        "gpa": null
     }
 ]

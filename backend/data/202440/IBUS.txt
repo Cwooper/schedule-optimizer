@@ -1,4 +1,4 @@
-2024-04-26T16:24:23.821115
+2024-04-29T12:48:27.422330
 [
     {
         "subject": "IBUS 370",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Powell, Skylar",
-        "room": "TBA",
+        "room": "MH 103",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status."
+        "prerequisites": "Sophomore status.",
+        "gpa": null
     },
     {
         "subject": "IBUS 370",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Chen, Shih-Fen",
-        "room": "TBA",
+        "room": "AW 406",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status."
+        "prerequisites": "Sophomore status.",
+        "gpa": null
     },
     {
         "subject": "IBUS 372",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Powell, Skylar",
-        "room": "TBA",
+        "room": "MH 103",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "IBUS 370 or MGMT 313 or full major status in College of Business and Economics. Students in other majors may request instructor permission."
+        "prerequisites": "IBUS 370 or MGMT 313 or full major status in College of Business and Economics. Students in other majors may request instructor permission.",
+        "gpa": null
     },
     {
         "subject": "IBUS 470",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "CF FTF WP1",
-        "prerequisites": "Majors only; IBUS 370."
+        "prerequisites": "Majors only; IBUS 370.",
+        "gpa": null
     },
     {
         "subject": "IBUS 473",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "CF FTF",
-        "prerequisites": "Majors and International Business Minors Only. IBUS 370 or MKTG 486."
+        "prerequisites": "Majors and International Business Minors Only. IBUS 370 or MKTG 486.",
+        "gpa": null
     },
     {
         "subject": "IBUS 475",
@@ -121,7 +126,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Samant, Shantala",
-        "room": "TBA",
+        "room": "BI 212",
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "IBUS 370 or instructor permission."
+        "prerequisites": "IBUS 370 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "IBUS 490",
@@ -152,6 +158,7 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Majors only."
+        "prerequisites": "Majors only.",
+        "gpa": null
     }
 ]

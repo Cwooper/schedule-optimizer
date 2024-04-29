@@ -1,4 +1,4 @@
-2024-04-26T16:21:43.779347
+2024-04-29T12:48:08.705094
 [
     {
         "subject": "HLED 202",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HLED 335",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HLED 415",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "HLED 401"
+        "prerequisites": "HLED 401",
+        "gpa": null
     },
     {
         "subject": "HLED 425",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "HLED 401"
+        "prerequisites": "HLED 401",
+        "gpa": null
     },
     {
         "subject": "HLED 430",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "HLED 401"
+        "prerequisites": "HLED 401",
+        "gpa": null
     },
     {
         "subject": "HLED 445",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "HLED 401"
+        "prerequisites": "HLED 401",
+        "gpa": null
     },
     {
         "subject": "HLED 455",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "ED MJ",
         "attributes": "FTF",
-        "prerequisites": "Admission to Woodring College of Education."
+        "prerequisites": "Admission to Woodring College of Education.",
+        "gpa": null
     },
     {
         "subject": "HLED 481",
@@ -174,6 +181,7 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
-        "prerequisites": "Admission into the AHEC Scholars Program."
+        "prerequisites": "Admission into the AHEC Scholars Program.",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:27:41.642549
+2024-04-29T12:48:46.343181
 [
     {
         "subject": "SPED 310",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC BCGM OL WP3",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SPED 441",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "One course from educational psychology or foundations area, or permission of instructor."
+        "prerequisites": "One course from educational psychology or foundations area, or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "SPED 457",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV ED",
         "attributes": "ASNC OL",
-        "prerequisites": "Admisssion to Woodring College of Education teacher education major or instructor permission."
+        "prerequisites": "Admisssion to Woodring College of Education teacher education major or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SPED 480",
@@ -86,6 +89,7 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "SPED 479 and admission to a Special Education major or department permission."
+        "prerequisites": "SPED 479 and admission to a Special Education major or department permission.",
+        "gpa": null
     }
 ]

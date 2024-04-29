@@ -1,4 +1,4 @@
-2024-04-26T16:30:18.932778
+2024-04-29T12:49:03.923600
 [
     {
         "subject": "AMST 205",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "AMST 252",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "AMST 301",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM FTF",
-        "prerequisites": "Introductory-level course: HIST, SOC, ANTH or equivalent;"
+        "prerequisites": "Introductory-level course: HIST, SOC, ANTH or equivalent;",
+        "gpa": null
     },
     {
         "subject": "AMST 301",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM OL SYNC",
-        "prerequisites": "Introductory-level course: HIST, SOC, ANTH or equivalent;"
+        "prerequisites": "Introductory-level course: HIST, SOC, ANTH or equivalent;",
+        "gpa": null
     },
     {
         "subject": "AMST 315",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "AMST 202 or HIST 275."
+        "prerequisites": "AMST 202 or HIST 275.",
+        "gpa": null
     },
     {
         "subject": "AMST 316",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "OL SYNC",
-        "prerequisites": "AMST 204 or AMST 301."
+        "prerequisites": "AMST 204 or AMST 301.",
+        "gpa": null
     },
     {
         "subject": "AMST 317",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "AMST 242; and AMST 301; or instructor permission."
+        "prerequisites": "AMST 242; and AMST 301; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "AMST 499",
@@ -174,6 +181,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "AMST 301; senior status; or instructor approval."
+        "prerequisites": "AMST 301; senior status; or instructor approval.",
+        "gpa": null
     }
 ]

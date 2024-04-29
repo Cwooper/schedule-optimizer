@@ -1,4 +1,4 @@
-2024-04-26T16:23:03.737060
+2024-04-29T12:48:18.348042
 [
     {
         "subject": "AHE 518",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "GR GR MJ",
         "attributes": "HYBD",
-        "prerequisites": "Admission to the AHE program or permission of instructor."
+        "prerequisites": "Admission to the AHE program or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "AHE 576",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "GR GR MJ",
         "attributes": "HYBD",
-        "prerequisites": "Admission to the AHE program or permission of instructor."
+        "prerequisites": "Admission to the AHE program or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "AHE 581",
@@ -64,6 +66,7 @@
         "waitlist": "",
         "restrictions": "GR GR MJ",
         "attributes": "HYBD",
-        "prerequisites": "Admission to the AHE program or permission of instructor."
+        "prerequisites": "Admission to the AHE program or permission of instructor.",
+        "gpa": null
     }
 ]

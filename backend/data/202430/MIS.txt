@@ -1,4 +1,4 @@
-2024-04-26T16:26:59.724552
+2024-04-29T12:48:43.219128
 [
     {
         "subject": "MIS 220",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "ASNC OL",
-        "prerequisites": "Pre-major, major or minor in business; or pre-major or major in economics."
+        "prerequisites": "Pre-major, major or minor in business; or pre-major or major in economics.",
+        "gpa": null
     },
     {
         "subject": "MIS 320",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "MIS 220 or equivalent"
+        "prerequisites": "MIS 220 or equivalent",
+        "gpa": null
     },
     {
         "subject": "MIS 422",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "Majors only. MIS 320 or ACCT 321."
+        "prerequisites": "Majors only. MIS 320 or ACCT 321.",
+        "gpa": null
     },
     {
         "subject": "MIS 435",
@@ -86,6 +89,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "Majors only. MIS 320 or ACCT 321."
+        "prerequisites": "Majors only. MIS 320 or ACCT 321.",
+        "gpa": null
     }
 ]

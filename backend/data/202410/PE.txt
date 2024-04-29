@@ -1,4 +1,4 @@
-2024-04-26T16:32:13.887958
+2024-04-29T12:49:18.017545
 [
     {
         "subject": "PE 101",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 101",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 101",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 104",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 104",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 104",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 104",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 107",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 108",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 108",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 108",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 109",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 109",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 110",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 111",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 111",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 115",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "ASNC OL SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 119",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 132",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 132",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 134",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 134",
@@ -482,7 +503,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 134",
@@ -504,7 +526,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 139",
@@ -526,7 +549,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 145",
@@ -548,7 +572,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": "Court or cross-training shoes are required."
+        "prerequisites": "Court or cross-training shoes are required.",
+        "gpa": null
     },
     {
         "subject": "PE 145",
@@ -570,7 +595,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": "Court or cross-training shoes are required."
+        "prerequisites": "Court or cross-training shoes are required.",
+        "gpa": null
     },
     {
         "subject": "PE 152",
@@ -592,7 +618,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 168",
@@ -614,7 +641,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "PE 181",
@@ -636,7 +664,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Instructor permission."
+        "prerequisites": "Instructor permission.",
+        "gpa": null
     },
     {
         "subject": "PE 181",
@@ -658,7 +687,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Instructor permission."
+        "prerequisites": "Instructor permission.",
+        "gpa": null
     },
     {
         "subject": "PE 183",
@@ -680,7 +710,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Instructor permission."
+        "prerequisites": "Instructor permission.",
+        "gpa": null
     },
     {
         "subject": "PE 190",
@@ -702,7 +733,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Instructor permission."
+        "prerequisites": "Instructor permission.",
+        "gpa": null
     },
     {
         "subject": "PE 192",
@@ -724,7 +756,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Instructor permission."
+        "prerequisites": "Instructor permission.",
+        "gpa": null
     },
     {
         "subject": "PE 194",
@@ -746,7 +779,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Instructor permission."
+        "prerequisites": "Instructor permission.",
+        "gpa": null
     },
     {
         "subject": "PE 345",
@@ -768,7 +802,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ",
         "attributes": "FTF",
-        "prerequisites": "Admission to Woodring College of Education."
+        "prerequisites": "Admission to Woodring College of Education.",
+        "gpa": null
     },
     {
         "subject": "PE 345",
@@ -790,7 +825,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ",
         "attributes": "FTF",
-        "prerequisites": "Admission to Woodring College of Education."
+        "prerequisites": "Admission to Woodring College of Education.",
+        "gpa": null
     },
     {
         "subject": "PE 345",
@@ -812,6 +848,7 @@
         "waitlist": "",
         "restrictions": "OV ED",
         "attributes": "FTF",
-        "prerequisites": "Admission to Woodring College of Education."
+        "prerequisites": "Admission to Woodring College of Education.",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:25:36.746211
+2024-04-29T12:48:35.732548
 [
     {
         "subject": "ART 109",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC HUM OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ART 111",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "If a student becomes an art major this course can fulfill the requirement for ART 110."
+        "prerequisites": "If a student becomes an art major this course can fulfill the requirement for ART 110.",
+        "gpa": null
     },
     {
         "subject": "ART 140",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ART 160",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ART 170",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ART 280",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ART 109; ART 110 or ID 110; ART 120 or ID 120; ART 230 or concurrent."
+        "prerequisites": "ART 109; ART 110 or ID 110; ART 120 or ID 120; ART 230 or concurrent.",
+        "gpa": null
     },
     {
         "subject": "ART 302",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ART 316",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "ART 109, ART 110, ART 120 and ART 230 are recommended; instructor permission."
+        "prerequisites": "ART 109, ART 110, ART 120 and ART 230 are recommended; instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ART 322",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ART 303 or concurrent; ART 320."
+        "prerequisites": "ART 303 or concurrent; ART 320.",
+        "gpa": null
     },
     {
         "subject": "ART 355",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ART 350 or instructor permission."
+        "prerequisites": "ART 350 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ART 397M",
@@ -240,6 +250,7 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

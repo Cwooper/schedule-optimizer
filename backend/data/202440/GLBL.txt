@@ -1,4 +1,4 @@
-2024-04-26T16:24:07.856610
+2024-04-29T12:48:24.979789
 [
     {
         "subject": "GLBL 201",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Lippman, Leah Niobe",
-        "room": "TBA",
+        "room": "MH 239",
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "GLBL 201",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Lippman, Leah Niobe",
-        "room": "TBA",
+        "room": "MH 231",
         "lab_room": null,
         "addl_fees": "",
         "cap": "40",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "GLBL 201",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Lippman, Leah Niobe",
-        "room": "TBA",
+        "room": "MH 239",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -64,6 +66,7 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FIG FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

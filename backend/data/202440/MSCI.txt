@@ -1,4 +1,4 @@
-2024-04-26T16:24:44.879393
+2024-04-29T12:48:29.543456
 [
     {
         "subject": "MSCI 201",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "CHEM 161 or CHEM 175; MATH 124 and PHYS 161 or concurrent or MATH 157 and PHYS 114 or concurrent."
+        "prerequisites": "CHEM 161 or CHEM 175; MATH 124 and PHYS 161 or concurrent or MATH 157 and PHYS 114 or concurrent.",
+        "gpa": null
     },
     {
         "subject": "MSCI 325",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "CHEM 163 or CHEM 175; MSCI 201 or ENGR 170; PHYS 116 or PHYS 163 or concurrent."
+        "prerequisites": "CHEM 163 or CHEM 175; MSCI 201 or ENGR 170; PHYS 116 or PHYS 163 or concurrent.",
+        "gpa": null
     }
 ]

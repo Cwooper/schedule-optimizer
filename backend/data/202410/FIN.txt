@@ -1,4 +1,4 @@
-2024-04-26T16:31:16.939266
+2024-04-29T12:49:11.877752
 [
     {
         "subject": "FIN 215",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "FIN 215",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ASNC OL SSC SST",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "FIN 216",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF QSR",
-        "prerequisites": "Cannot be taken after or concurrent with FIN 440."
+        "prerequisites": "Cannot be taken after or concurrent with FIN 440.",
+        "gpa": null
     },
     {
         "subject": "FIN 216",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ASNC OL QSR SST",
-        "prerequisites": "Cannot be taken after or concurrent with FIN 440."
+        "prerequisites": "Cannot be taken after or concurrent with FIN 440.",
+        "gpa": null
     },
     {
         "subject": "FIN 341",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV JR SO SR PQ",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent."
+        "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "FIN 341",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV JR SO SR PQ",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent."
+        "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "FIN 341",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV JR SO SR PQ",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent."
+        "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "FIN 341",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV JR SO SR PQ",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent."
+        "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "FIN 341",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV JR SO SR PQ",
         "attributes": "HYBD PBEX",
-        "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent."
+        "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "FIN 341",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "MIX OL",
-        "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent."
+        "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "FIN 440",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "Majors Only. FIN 341"
+        "prerequisites": "Majors Only. FIN 341",
+        "gpa": null
     },
     {
         "subject": "FIN 441",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "Majors Only. FIN 341."
+        "prerequisites": "Majors Only. FIN 341.",
+        "gpa": null
     },
     {
         "subject": "FIN 444",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "Majors Only. FIN 341"
+        "prerequisites": "Majors Only. FIN 341",
+        "gpa": null
     },
     {
         "subject": "FIN 446",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. FIN 440."
+        "prerequisites": "Majors Only. FIN 440.",
+        "gpa": null
     },
     {
         "subject": "FIN 449",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
         "attributes": "CF FTF",
-        "prerequisites": "Majors only; FIN 440; FIN 441; FIN 444; DSCI 305 or ECON 375."
+        "prerequisites": "Majors only; FIN 440; FIN 441; FIN 444; DSCI 305 or ECON 375.",
+        "gpa": null
     },
     {
         "subject": "FIN 456",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. FIN 345"
+        "prerequisites": "Majors Only. FIN 345",
+        "gpa": null
     },
     {
         "subject": "FIN 460",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR MJ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. FIN 341, FIN 440. Permission of instructor."
+        "prerequisites": "Majors Only. FIN 341, FIN 440. Permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "FIN 490",
@@ -394,6 +411,7 @@
         "waitlist": "",
         "restrictions": "OV JR SR MJ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. Permission of instructor."
+        "prerequisites": "Majors Only. Permission of instructor.",
+        "gpa": null
     }
 ]

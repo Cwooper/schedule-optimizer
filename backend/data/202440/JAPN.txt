@@ -1,4 +1,4 @@
-2024-04-26T16:24:27.403420
+2024-04-29T12:48:27.702386
 [
     {
         "subject": "JAPN 101",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Deguchi, Masanori",
-        "room": "TBA",
+        "room": "MH 112",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "22",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "JAPN 101",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Deguchi, Masanori",
-        "room": "TBA",
+        "room": "MH 017",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "22",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "JAPN 101",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Walker, Tyler",
-        "room": "TBA",
+        "room": "MH 015",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "22",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "JAPN 101",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Fukuyama, Minori",
-        "room": "TBA",
+        "room": "MH 112",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "22",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "JAPN 101",
@@ -99,7 +103,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Negishi, Makoto",
-        "room": "TBA",
+        "room": "MH 139",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "22",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "JAPN 201",
@@ -121,7 +126,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Kusakabe, Madoka",
-        "room": "TBA",
+        "room": "MH 112",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "25",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCOM FTF",
-        "prerequisites": "JAPN 103."
+        "prerequisites": "JAPN 103.",
+        "gpa": null
     },
     {
         "subject": "JAPN 201",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCOM FTF",
-        "prerequisites": "JAPN 103."
+        "prerequisites": "JAPN 103.",
+        "gpa": null
     },
     {
         "subject": "JAPN 201",
@@ -165,7 +172,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Negishi, Makoto",
-        "room": "TBA",
+        "room": "MH 139",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "25",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCOM FTF",
-        "prerequisites": "JAPN 103."
+        "prerequisites": "JAPN 103.",
+        "gpa": null
     },
     {
         "subject": "JAPN 301",
@@ -187,7 +195,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Kusakabe, Madoka",
-        "room": "TBA",
+        "room": "MH 139",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "ACGM FTF",
-        "prerequisites": "JAPN 203."
+        "prerequisites": "JAPN 203.",
+        "gpa": null
     },
     {
         "subject": "JAPN 301",
@@ -209,7 +218,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Kusakabe, Madoka",
-        "room": "TBA",
+        "room": "MH 112",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "ACGM FTF",
-        "prerequisites": "JAPN 203."
+        "prerequisites": "JAPN 203.",
+        "gpa": null
     },
     {
         "subject": "JAPN 403",
@@ -231,7 +241,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Walker, Tyler",
-        "room": "TBA",
+        "room": "MH 231",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -239,8 +249,9 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF",
-        "prerequisites": "B- in JAPN 303 or instructor permission."
+        "attributes": "FTF WP3",
+        "prerequisites": "B- in JAPN 303 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "JAPN 425",
@@ -262,6 +273,7 @@
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "Written permission of department; JAPN 303 with B or better."
+        "prerequisites": "Written permission of department; JAPN 303 with B or better.",
+        "gpa": null
     }
 ]

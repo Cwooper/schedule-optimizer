@@ -1,4 +1,4 @@
-2024-04-26T16:29:42.107204
+2024-04-29T12:49:00.124863
 [
     {
         "subject": "OPS 360",
@@ -15,12 +15,13 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "65",
-        "enrl": "63",
-        "avail": "2",
+        "enrl": "62",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "DSCI 205, ACCT 245, C- or better; spreadsheet competency"
+        "prerequisites": "DSCI 205, ACCT 245, C- or better; spreadsheet competency",
+        "gpa": null
     },
     {
         "subject": "OPS 360",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "DSCI 205, ACCT 245, C- or better; spreadsheet competency"
+        "prerequisites": "DSCI 205, ACCT 245, C- or better; spreadsheet competency",
+        "gpa": null
     },
     {
         "subject": "OPS 455",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "OPS 360; majors restricted."
+        "prerequisites": "OPS 360; majors restricted.",
+        "gpa": null
     },
     {
         "subject": "OPS 455",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "OPS 360; majors restricted."
+        "prerequisites": "OPS 360; majors restricted.",
+        "gpa": null
     },
     {
         "subject": "OPS 460",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "OPS 360 or MFGE 341; major restricted."
+        "prerequisites": "OPS 360 or MFGE 341; major restricted.",
+        "gpa": null
     },
     {
         "subject": "OPS 461",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "OPS 360 or MFGE 341; major restricted."
+        "prerequisites": "OPS 360 or MFGE 341; major restricted.",
+        "gpa": null
     },
     {
         "subject": "OPS 461",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "OPS 360 or MFGE 341; major restricted."
+        "prerequisites": "OPS 360 or MFGE 341; major restricted.",
+        "gpa": null
     },
     {
         "subject": "OPS 463",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "OPS 360 or MFGE 341; major restricted."
+        "prerequisites": "OPS 360 or MFGE 341; major restricted.",
+        "gpa": null
     },
     {
         "subject": "OPS 464",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "OPS 360 and permission of instructor; first-time enrollment restricted to manufacturing and supply chain management students with foundation or full major status; second-time enrollment restricted to manufacturing and supply chain management students with full major status."
+        "prerequisites": "OPS 360 and permission of instructor; first-time enrollment restricted to manufacturing and supply chain management students with foundation or full major status; second-time enrollment restricted to manufacturing and supply chain management students with full major status.",
+        "gpa": null
     },
     {
         "subject": "OPS 466",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "OPS 360 or MFGE 341; major restricted."
+        "prerequisites": "OPS 360 or MFGE 341; major restricted.",
+        "gpa": null
     },
     {
         "subject": "OPS 467",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors only. OPS 360."
+        "prerequisites": "Majors only. OPS 360.",
+        "gpa": null
     },
     {
         "subject": "OPS 468",
@@ -262,6 +273,7 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "CF FTF WP1",
-        "prerequisites": "OPS 360 or MFGE 341; major restricted."
+        "prerequisites": "OPS 360 or MFGE 341; major restricted.",
+        "gpa": null
     }
 ]

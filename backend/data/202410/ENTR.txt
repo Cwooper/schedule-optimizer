@@ -1,4 +1,4 @@
-2024-04-26T16:31:10.113511
+2024-04-29T12:49:10.865312
 [
     {
         "subject": "ENTR 246",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ENTR 398",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

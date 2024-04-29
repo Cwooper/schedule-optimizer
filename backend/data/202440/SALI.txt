@@ -1,4 +1,4 @@
-2024-04-26T16:25:13.091510
+2024-04-29T12:48:32.990688
 [
     {
         "subject": "SALI 201",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "HH 345",
         "lab_room": null,
         "addl_fees": "Flat Fee $20.00",
         "cap": "20",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "BCGM FTF",
-        "prerequisites": "Optional co-requisite: SALI 202."
+        "prerequisites": "Optional co-requisite: SALI 202.",
+        "gpa": null
     },
     {
         "subject": "SALI 201",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "HH 345",
         "lab_room": null,
         "addl_fees": "Flat Fee $20.00",
         "cap": "20",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FIG FTF",
-        "prerequisites": "Optional co-requisite: SALI 202."
+        "prerequisites": "Optional co-requisite: SALI 202.",
+        "gpa": null
     },
     {
         "subject": "SALI 202",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "Co-requisite: SALI 201; or instructor permission."
+        "prerequisites": "Co-requisite: SALI 201; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "SALI 490",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SALI 495",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Salish Sea Studies Minor status"
+        "prerequisites": "Salish Sea Studies Minor status",
+        "gpa": null
     },
     {
         "subject": "SALI 496",
@@ -121,7 +126,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Elliser, Cindy Rogers",
-        "room": "TBA",
+        "room": "HH 345",
         "lab_room": null,
         "addl_fees": "",
         "cap": "2",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "SALI 201"
+        "prerequisites": "SALI 201",
+        "gpa": null
     }
 ]

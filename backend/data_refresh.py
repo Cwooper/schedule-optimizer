@@ -214,8 +214,7 @@ def fetch_subjects_list() -> list:
                       f"update, retrieving subjects file.")
                 # Cut off the timestamp and newline at the end
                 return lines[1:-1]
-    else:
-        return _fetch_subjects_from_url()
+    return _fetch_subjects_from_url()
 
 # Fetches and returns terms list from classfinder url
 def _fetch_terms_from_url() -> list:
@@ -256,8 +255,7 @@ def fetch_terms_list() -> list:
                       f"update, retrieving terms file.")
                 # Cut off the timestamp and newline at the end
                 return lines[1:-1]
-    else:
-        return _fetch_terms_from_url()
+    return _fetch_terms_from_url()
 
 ############################## Fetching Courses ###############################
 # Finds the course file text and returns a list of Courses
@@ -305,6 +303,7 @@ def _fetch_courses_from_url(subject: str, term: str, year: str,
     course_tables = _get_course_tables(soup.find_all("table"))
 
     courses = _get_courses(course_tables)
+
     # Write the course to a file for later use
     _courses_to_file(subject_file, courses)
 
@@ -327,8 +326,7 @@ def fetch_courses(subject: str, term: str, year: str) -> list['Course']:
                 print(f"Shorter than {MAX_COURSE_WAIT} days since last "
                       f"update, retrieving course file.")
                 return _file_to_courses(subject_file)
-    else:
-        return _fetch_courses_from_url(subject, term, year, subject_file)
+    return _fetch_courses_from_url(subject, term, year, subject_file)
 
 # Turns a list of courses into a pickle file from a pandas dataframe
 def courses_to_pickle(courses: list['Course'], term: str):
@@ -383,8 +381,9 @@ def main():
         courses = []
         for subject in subjects:
             new_courses = fetch_courses(subject, term, year)
-            print(f"{subject}: Found {len(new_courses)} courses")
-            courses.extend(new_courses)
+            if new_courses:
+                print(f"{subject}: Found {len(new_courses)} courses")
+                courses.extend(new_courses)
         
         print(f"Found {len(courses)} courses")
         

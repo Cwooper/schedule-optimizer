@@ -1,4 +1,4 @@
-2024-04-26T16:23:42.182353
+2024-04-29T12:48:22.040883
 [
     {
         "subject": "ECE 380",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Strachan, Steph",
-        "room": "TBA",
+        "room": "OM 483",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "ECE 391"
+        "prerequisites": "ECE 391",
+        "gpa": null
     },
     {
         "subject": "ECE 390",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Fincham, Emmanuelle",
-        "room": "TBA",
+        "room": "CV 104",
         "lab_room": null,
         "addl_fees": "Flat Fee $4.50",
         "cap": "25",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ",
         "attributes": "FTF",
-        "prerequisites": "Admission to Early Childhood Education Program or Early Childhood Special Education Program; or instructor permission."
+        "prerequisites": "Admission to Early Childhood Education Program or Early Childhood Special Education Program; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ECE 431",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Ruiz Guerrero, Margarita Guadalupe",
-        "room": "TBA",
+        "room": "MH 013",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ",
         "attributes": "FTF",
-        "prerequisites": "Admission to Early Childhood Education Program or Early Childhood Special Education Program; or instructor permission."
+        "prerequisites": "Admission to Early Childhood Education Program or Early Childhood Special Education Program; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ECE 434",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Jin, Meilan",
-        "room": "TBA",
+        "room": "BH 104",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -86,6 +89,7 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ECE 391 and ECE 438."
+        "prerequisites": "ECE 391 and ECE 438.",
+        "gpa": null
     }
 ]

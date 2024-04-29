@@ -1,4 +1,4 @@
-2024-04-26T16:25:16.929435
+2024-04-29T12:48:33.396199
 [
     {
         "subject": "SMNR 101",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Senger, Lucas G.",
-        "room": "TBA",
+        "room": "MH 011",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 101",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Collins, Shawn Michael",
-        "room": "TBA",
+        "room": "OM 580",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 101",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "MacIntyre Witt, Jill Marie",
-        "room": "TBA",
+        "room": "CV 265",
         "lab_room": null,
         "addl_fees": "",
         "cap": "24",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 101",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Senger, Lucas G.",
-        "room": "TBA",
+        "room": "MH 011",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 101",
@@ -99,7 +103,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Goosmann, Breann",
-        "room": "TBA",
+        "room": "ES 418",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "FR",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 101",
@@ -121,7 +126,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Joseph, Brandon Clifford",
-        "room": "TBA",
+        "room": "IS 310",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 101",
@@ -143,7 +149,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "MacIntyre Witt, Jill Marie",
-        "room": "TBA",
+        "room": "CV 103",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 101",
@@ -165,7 +172,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Albertson, Zander E.",
-        "room": "TBA",
+        "room": "AH 018",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 101",
@@ -187,7 +195,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Ten Eyck, Toby",
-        "room": "TBA",
+        "room": "MH 011",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 101",
@@ -209,7 +218,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Goosmann, Breann",
-        "room": "TBA",
+        "room": "BH 104",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 101",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 101",
@@ -253,7 +264,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Martinez, Mia Justine",
-        "room": "TBA",
+        "room": "OM 483",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 101",
@@ -275,7 +287,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Rogers-Thibou, Shurla",
-        "room": "TBA",
+        "room": "BH 221",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 101",
@@ -297,7 +310,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "MacIntyre Witt, Jill Marie",
-        "room": "TBA",
+        "room": "CV 265",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 101",
@@ -319,7 +333,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Weber, Meg",
-        "room": "TBA",
+        "room": "MH 011",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 101",
@@ -341,7 +356,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Holladay, Kaden Tobias",
-        "room": "TBA",
+        "room": "BH 104",
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 101",
@@ -363,7 +379,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Hardman, Pam",
-        "room": "TBA",
+        "room": "BH 151",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 101",
@@ -385,7 +402,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Tauzel, Brian",
-        "room": "TBA",
+        "room": "MH 154",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 101",
@@ -407,7 +425,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Vohs, Rosemary Amanda Scott",
-        "room": "TBA",
+        "room": "OM 482",
         "lab_room": null,
         "addl_fees": "",
         "cap": "24",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 101",
@@ -429,7 +448,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Tennessen, Travis Peter",
-        "room": "TBA",
+        "room": "OM 585",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 101",
@@ -451,7 +471,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Carotenuto, Gianna M.",
-        "room": "TBA",
+        "room": "HU 101",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 101",
@@ -482,7 +503,8 @@
         "waitlist": "",
         "restrictions": "FR",
         "attributes": "FIG FTF",
-        "prerequisites": "First-year students only."
+        "prerequisites": "First-year students only.",
+        "gpa": null
     },
     {
         "subject": "SMNR 201",
@@ -495,7 +517,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Sasaki, Bryce",
-        "room": "TBA",
+        "room": "MH 154",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -504,7 +526,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SMNR 201",
@@ -517,7 +540,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Senger, Lucas G.",
-        "room": "TBA",
+        "room": "OM 580",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -526,7 +549,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SMNR 201",
@@ -539,7 +563,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Senger, Lucas G.",
-        "room": "TBA",
+        "room": "MH 154",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -548,7 +572,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SMNR 201",
@@ -561,7 +586,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Senger, Lucas G.",
-        "room": "TBA",
+        "room": "MH 154",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -570,7 +595,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SMNR 201",
@@ -583,7 +609,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Senger, Lucas G.",
-        "room": "TBA",
+        "room": "OM 580",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -592,7 +618,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SMNR 201",
@@ -605,7 +632,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Blick, Andrew Michael",
-        "room": "TBA",
+        "room": "CV 264",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -614,7 +641,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "SMNR 201",
@@ -627,7 +655,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Wuhr, Cameron Ali",
-        "room": "TBA",
+        "room": "MH 113",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -636,6 +664,7 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

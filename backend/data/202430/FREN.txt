@@ -1,4 +1,4 @@
-2024-04-26T16:26:27.421200
+2024-04-29T12:48:39.782744
 [
     {
         "subject": "FREN 101",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "MIX OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "FREN 102",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "MIX OL",
-        "prerequisites": "FREN 101"
+        "prerequisites": "FREN 101",
+        "gpa": null
     },
     {
         "subject": "FREN 103",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCOM MIX OL",
-        "prerequisites": "FREN 102"
+        "prerequisites": "FREN 102",
+        "gpa": null
     },
     {
         "subject": "FREN 201",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCOM MIX OL",
-        "prerequisites": "FREN 103 or FREN 104 or equivalent"
+        "prerequisites": "FREN 103 or FREN 104 or equivalent",
+        "gpa": null
     },
     {
         "subject": "FREN 202",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "HUM MIX OL",
-        "prerequisites": "FREN 201 or equivalent"
+        "prerequisites": "FREN 201 or equivalent",
+        "gpa": null
     },
     {
         "subject": "FREN 203",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "HUM MIX OL",
-        "prerequisites": "FREN 202 or equivalent"
+        "prerequisites": "FREN 202 or equivalent",
+        "gpa": null
     }
 ]

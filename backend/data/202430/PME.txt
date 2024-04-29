@@ -1,4 +1,4 @@
-2024-04-26T16:27:26.063821
+2024-04-29T12:48:45.127891
 [
     {
         "subject": "PME 495",
@@ -20,6 +20,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "PME 371"
+        "prerequisites": "PME 371",
+        "gpa": null
     }
 ]

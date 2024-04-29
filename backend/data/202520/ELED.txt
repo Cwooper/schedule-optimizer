@@ -1,4 +1,4 @@
-2024-04-26T16:18:57.037014
+2024-04-29T12:47:50.115402
 [
     {
         "subject": "ELED 305",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ELED 310",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "ED MJ",
         "attributes": "BCGM OL SL SYNC",
-        "prerequisites": "Admission to Elementary Education Professional Program."
+        "prerequisites": "Admission to Elementary Education Professional Program.",
+        "gpa": null
     },
     {
         "subject": "ELED 310",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ",
         "attributes": "BCGM FTF SL",
-        "prerequisites": "Admission to Elementary Education Professional Program."
+        "prerequisites": "Admission to Elementary Education Professional Program.",
+        "gpa": null
     },
     {
         "subject": "ELED 311",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "OL SYNC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ELED 311",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "OL SYNC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ELED 405",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ELED 460"
+        "prerequisites": "ELED 460",
+        "gpa": null
     },
     {
         "subject": "ELED 412",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "ELED 310"
+        "prerequisites": "ELED 310",
+        "gpa": null
     },
     {
         "subject": "ELED 424",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV ED",
         "attributes": "FTF",
-        "prerequisites": "SPED 420"
+        "prerequisites": "SPED 420",
+        "gpa": null
     },
     {
         "subject": "ELED 426",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ",
         "attributes": "MIX OL",
-        "prerequisites": "SPED 420"
+        "prerequisites": "SPED 420",
+        "gpa": null
     },
     {
         "subject": "ELED 427",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ELED 460",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
-        "prerequisites": "Admission to the elementary professional program."
+        "prerequisites": "Admission to the elementary professional program.",
+        "gpa": null
     },
     {
         "subject": "ELED 471",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "ELED 427"
+        "prerequisites": "ELED 427",
+        "gpa": null
     },
     {
         "subject": "ELED 480",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ELED 460 for ELED students; ECE 380 for ECE majors; SPED 420 or ECE 391 for ECSE majors."
+        "prerequisites": "ELED 460 for ELED students; ECE 380 for ECE majors; SPED 420 or ECE 391 for ECSE majors.",
+        "gpa": null
     },
     {
         "subject": "ELED 480",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ELED 460 for ELED students; ECE 380 for ECE majors; SPED 420 or ECE 391 for ECSE majors."
+        "prerequisites": "ELED 460 for ELED students; ECE 380 for ECE majors; SPED 420 or ECE 391 for ECSE majors.",
+        "gpa": null
     },
     {
         "subject": "ELED 481",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "ELED 480"
+        "prerequisites": "ELED 480",
+        "gpa": null
     },
     {
         "subject": "ELED 486",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ELED 456 or instructor permission."
+        "prerequisites": "ELED 456 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ELED 494",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "OV ED IP",
         "attributes": "FTF",
-        "prerequisites": "Completion of all coursework in a Woodring Teacher Education Program leading to an Elementary Education Endorsement."
+        "prerequisites": "Completion of all coursework in a Woodring Teacher Education Program leading to an Elementary Education Endorsement.",
+        "gpa": null
     },
     {
         "subject": "ELED 494",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "OV IP",
         "attributes": "FTF",
-        "prerequisites": "Completion of all coursework in a Woodring Teacher Education Program leading to an Elementary Education Endorsement."
+        "prerequisites": "Completion of all coursework in a Woodring Teacher Education Program leading to an Elementary Education Endorsement.",
+        "gpa": null
     },
     {
         "subject": "ELED 494",
@@ -416,6 +434,7 @@
         "waitlist": "",
         "restrictions": "OV IP",
         "attributes": "FTF",
-        "prerequisites": "Completion of all coursework in a Woodring Teacher Education Program leading to an Elementary Education Endorsement."
+        "prerequisites": "Completion of all coursework in a Woodring Teacher Education Program leading to an Elementary Education Endorsement.",
+        "gpa": null
     }
 ]

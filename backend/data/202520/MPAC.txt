@@ -1,4 +1,4 @@
-2024-04-26T16:19:49.571680
+2024-04-29T12:47:55.656040
 [
     {
         "subject": "MPAC 522",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "GR PB PM MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ACCT 321 or instructor permission."
+        "prerequisites": "ACCT 321 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "MPAC 547",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Graduate (MPAC) status. ACCT 343 or concurrent or equivalent"
+        "prerequisites": "Graduate (MPAC) status. ACCT 343 or concurrent or equivalent",
+        "gpa": null
     },
     {
         "subject": "MPAC 551",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ACCT 343 or equivalent."
+        "prerequisites": "ACCT 343 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "MPAC 564",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "GR PB PM MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Admittance into the MPAC program and in final year of coursework."
+        "prerequisites": "Admittance into the MPAC program and in final year of coursework.",
+        "gpa": null
     },
     {
         "subject": "MPAC 566",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Graduate (MPAC) status. ACCT 321 and ACCT 343; or or equivalent."
+        "prerequisites": "Graduate (MPAC) status. ACCT 321 and ACCT 343; or or equivalent.",
+        "gpa": null
     },
     {
         "subject": "MPAC 575",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "ACCT 375 or equivalent."
+        "prerequisites": "ACCT 375 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "MPAC 595",
@@ -152,6 +158,7 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
         "attributes": "FTF",
-        "prerequisites": "Graduate (MPAC) status."
+        "prerequisites": "Graduate (MPAC) status.",
+        "gpa": null
     }
 ]

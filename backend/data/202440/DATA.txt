@@ -1,4 +1,4 @@
-2024-04-26T16:23:36.267427
+2024-04-29T12:48:21.617444
 [
     {
         "subject": "DATA 311",
@@ -11,7 +11,7 @@
         "lab_start_time": "1200",
         "lab_end_time": "1350",
         "instructor": "Tuor, Aaron",
-        "room": "TBA",
+        "room": "CF 110",
         "lab_room": "CF 162",
         "addl_fees": "Per/Cr $20.25",
         "cap": "20",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "CSCI 141; One course from: MATH 112, MATH 114, MATH 115, MATH 118, MATH 124, MATH 125, MATH 134, MATH 135, MATH 156 or suitable math assessment score."
+        "prerequisites": "CSCI 141; One course from: MATH 112, MATH 114, MATH 115, MATH 118, MATH 124, MATH 125, MATH 134, MATH 135, MATH 156 or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "DATA 311",
@@ -33,7 +34,7 @@
         "lab_start_time": "0800",
         "lab_end_time": "0950",
         "instructor": "Tuor, Aaron",
-        "room": "TBA",
+        "room": "CF 110",
         "lab_room": "CF 162",
         "addl_fees": "Per/Cr $20.25",
         "cap": "20",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "CSCI 141; One course from: MATH 112, MATH 114, MATH 115, MATH 118, MATH 124, MATH 125, MATH 134, MATH 135, MATH 156 or suitable math assessment score."
+        "prerequisites": "CSCI 141; One course from: MATH 112, MATH 114, MATH 115, MATH 118, MATH 124, MATH 125, MATH 134, MATH 135, MATH 156 or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "DATA 471",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Hutchinson, Brian James",
-        "room": "TBA",
+        "room": "CF 314",
         "lab_room": null,
         "addl_fees": "Per/Cr $20.25",
         "cap": "25",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "CSCI 241; MATH 204; MATH 224; and MATH 341."
+        "prerequisites": "CSCI 241; MATH 204; MATH 224; and MATH 341.",
+        "gpa": null
     },
     {
         "subject": "DATA 490",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Major status and instructor permission."
+        "prerequisites": "Major status and instructor permission.",
+        "gpa": null
     },
     {
         "subject": "DATA 491",
@@ -99,7 +103,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Wolters, Piper Sophia",
-        "room": "TBA",
+        "room": "CF 115",
         "lab_room": null,
         "addl_fees": "Per/Cr $20.25",
         "cap": "12",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Department permission."
+        "prerequisites": "Department permission.",
+        "gpa": null
     },
     {
         "subject": "DATA 492",
@@ -121,7 +126,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Wolters, Piper Sophia",
-        "room": "TBA",
+        "room": "CF 115",
         "lab_room": null,
         "addl_fees": "Per/Cr $20.25",
         "cap": "12",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "DATA 491"
+        "prerequisites": "DATA 491",
+        "gpa": null
     },
     {
         "subject": "DATA 493",
@@ -143,7 +149,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Wolters, Piper Sophia",
-        "room": "TBA",
+        "room": "CF 115",
         "lab_room": null,
         "addl_fees": "Per/Cr $20.25",
         "cap": "12",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "DATA 492"
+        "prerequisites": "DATA 492",
+        "gpa": null
     },
     {
         "subject": "DATA 571",
@@ -165,7 +172,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Hutchinson, Brian James",
-        "room": "TBA",
+        "room": "CF 314",
         "lab_room": null,
         "addl_fees": "Per/Cr $20.25",
         "cap": "10",
@@ -174,6 +181,7 @@
         "waitlist": "",
         "restrictions": "GR PB PM MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Graduate status; MATH 204; MATH 224; and MATH 341; or instructor permission."
+        "prerequisites": "Graduate status; MATH 204; MATH 224; and MATH 341; or instructor permission.",
+        "gpa": null
     }
 ]

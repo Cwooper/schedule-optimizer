@@ -1,4 +1,4 @@
-2024-04-26T16:23:47.130548
+2024-04-29T12:48:22.489566
 [
     {
         "subject": "EDAD 501",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM",
         "attributes": "OL SYNC",
-        "prerequisites": "Graduate status or permission of instructor."
+        "prerequisites": "Graduate status or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "EDAD 512",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
         "attributes": "DLEX OL SYNC",
-        "prerequisites": "Graduate status or permission of instructor."
+        "prerequisites": "Graduate status or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "EDAD 512",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM",
         "attributes": "OL SYNC",
-        "prerequisites": "Graduate status or permission of instructor."
+        "prerequisites": "Graduate status or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "EDAD 553",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
         "attributes": "DLEX OL SYNC",
-        "prerequisites": "Graduate status"
+        "prerequisites": "Graduate status",
+        "gpa": null
     },
     {
         "subject": "EDAD 553",
@@ -99,7 +103,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Larsen, Donald Edward",
-        "room": "TBA",
+        "room": "MH 017",
         "lab_room": null,
         "addl_fees": "",
         "cap": "12",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM",
         "attributes": "HYBD",
-        "prerequisites": "Graduate status"
+        "prerequisites": "Graduate status",
+        "gpa": null
     },
     {
         "subject": "EDAD 592",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM S/U",
         "attributes": "FTF",
-        "prerequisites": "Permission of instructor."
+        "prerequisites": "Permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "EDAD 592",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ S/U",
         "attributes": "DLEX FTF",
-        "prerequisites": "Permission of instructor."
+        "prerequisites": "Permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "EDAD 640",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM",
         "attributes": "EVEX OL SYNC",
-        "prerequisites": "Master's degree; admission to superintendent program."
+        "prerequisites": "Master's degree; admission to superintendent program.",
+        "gpa": null
     },
     {
         "subject": "EDAD 652",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "GR PB PM MJ",
         "attributes": "EVEX OL SYNC",
-        "prerequisites": "Admission to Doctor of Education."
+        "prerequisites": "Admission to Doctor of Education.",
+        "gpa": null
     },
     {
         "subject": "EDAD 660",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "GR PB PM",
         "attributes": "EVEX OL SYNC",
-        "prerequisites": "Admission to Doctor of Education."
+        "prerequisites": "Admission to Doctor of Education.",
+        "gpa": null
     },
     {
         "subject": "EDAD 670",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM MJ S/U",
         "attributes": "EVEX OL SYNC",
-        "prerequisites": "Admission to Doctor of Education."
+        "prerequisites": "Admission to Doctor of Education.",
+        "gpa": null
     },
     {
         "subject": "EDAD 692",
@@ -262,6 +273,7 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM S/U",
         "attributes": "EVEX FTF",
-        "prerequisites": "Master's degree and written permission of instructor."
+        "prerequisites": "Master's degree and written permission of instructor.",
+        "gpa": null
     }
 ]

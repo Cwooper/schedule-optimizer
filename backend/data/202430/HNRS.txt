@@ -1,4 +1,4 @@
-2024-04-26T16:26:38.153665
+2024-04-29T12:48:40.648667
 [
     {
         "subject": "HNRS 105",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM FTF TRVL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HNRS 212",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF LSCI TRVL",
-        "prerequisites": "MATH 114 or concurrent or higher, or suitable math assessment score."
+        "prerequisites": "MATH 114 or concurrent or higher, or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "HNRS 217",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SSC",
-        "prerequisites": "Admission to the Honors College."
+        "prerequisites": "Admission to the Honors College.",
+        "gpa": null
     },
     {
         "subject": "HNRS 337",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF TRVL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HNRS 350",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "FTF WP3",
-        "prerequisites": "Admission to the Honors College."
+        "prerequisites": "Admission to the Honors College.",
+        "gpa": null
     },
     {
         "subject": "HNRS 490",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

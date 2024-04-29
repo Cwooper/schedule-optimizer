@@ -1,4 +1,4 @@
-2024-04-26T16:23:44.715266
+2024-04-29T12:48:22.279898
 [
     {
         "subject": "ECON 101",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Knabb, Shawn D.",
-        "room": "TBA",
+        "room": "FR 102",
         "lab_room": null,
         "addl_fees": "",
         "cap": "230",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ECON 101",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Knabb, Shawn D.",
-        "room": "TBA",
+        "room": "FR 102",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ECON 101",
@@ -55,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Knabb, Shawn D.",
-        "room": "TBA",
+        "room": "FR 102",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FIG FTF SSC",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ECON 206",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "PH 228",
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SSC",
-        "prerequisites": "MATH 112 or equivalent or suitable math assessment score."
+        "prerequisites": "MATH 112 or equivalent or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "ECON 206",
@@ -99,7 +103,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "PH 228",
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SSC",
-        "prerequisites": "MATH 112 or equivalent or suitable math assessment score."
+        "prerequisites": "MATH 112 or equivalent or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "ECON 206",
@@ -121,7 +126,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "PH 228",
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SSC",
-        "prerequisites": "MATH 112 or equivalent or suitable math assessment score."
+        "prerequisites": "MATH 112 or equivalent or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "ECON 206",
@@ -143,7 +149,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Oertel, Ronald R.",
-        "room": "TBA",
+        "room": "PH 104",
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SSC",
-        "prerequisites": "MATH 112 or equivalent or suitable math assessment score."
+        "prerequisites": "MATH 112 or equivalent or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "ECON 206",
@@ -165,7 +172,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Shewmake, Sharon Anne",
-        "room": "TBA",
+        "room": "AH 004",
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SSC",
-        "prerequisites": "MATH 112 or equivalent or suitable math assessment score."
+        "prerequisites": "MATH 112 or equivalent or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "ECON 207",
@@ -187,7 +195,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Martin, Darius Daniel",
-        "room": "TBA",
+        "room": "PH 146",
         "lab_room": null,
         "addl_fees": "",
         "cap": "65",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SSC",
-        "prerequisites": "ECON 206 or HNRS 209 or ECON 446 or ECON 101; MATH 112 or equivalent or suitable math assessment score."
+        "prerequisites": "ECON 206 or HNRS 209 or ECON 446 or ECON 101; MATH 112 or equivalent or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "ECON 207",
@@ -209,7 +218,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Miller, Michael",
-        "room": "TBA",
+        "room": "PH 104",
         "lab_room": null,
         "addl_fees": "",
         "cap": "65",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SSC",
-        "prerequisites": "ECON 206 or HNRS 209 or ECON 446 or ECON 101; MATH 112 or equivalent or suitable math assessment score."
+        "prerequisites": "ECON 206 or HNRS 209 or ECON 446 or ECON 101; MATH 112 or equivalent or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "ECON 207",
@@ -231,7 +241,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Miller, Michael",
-        "room": "TBA",
+        "room": "VU 552",
         "lab_room": null,
         "addl_fees": "",
         "cap": "65",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SSC",
-        "prerequisites": "ECON 206 or HNRS 209 or ECON 446 or ECON 101; MATH 112 or equivalent or suitable math assessment score."
+        "prerequisites": "ECON 206 or HNRS 209 or ECON 446 or ECON 101; MATH 112 or equivalent or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "ECON 300",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ECON 303",
@@ -275,7 +287,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Dupont, Brandon R.",
-        "room": "TBA",
+        "room": "CF 025",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "ECON 206 and ECON 207; or ECON 207 and HNRS 209; or HNRS 202; or HNRS 254."
+        "prerequisites": "ECON 206 and ECON 207; or ECON 207 and HNRS 209; or HNRS 202; or HNRS 254.",
+        "gpa": null
     },
     {
         "subject": "ECON 306",
@@ -297,7 +310,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Durham, Yvonne",
-        "room": "TBA",
+        "room": "CF 023",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202; MATH 124 or MATH 157 or equivalent."
+        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202; MATH 124 or MATH 157 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "ECON 306",
@@ -319,7 +333,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Durham, Yvonne",
-        "room": "TBA",
+        "room": "CF 023",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202; MATH 124 or MATH 157 or equivalent."
+        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202; MATH 124 or MATH 157 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "ECON 307",
@@ -341,7 +356,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Sirbu, Anca",
-        "room": "TBA",
+        "room": "CF 023",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 207 or HNRS 254 or HNRS 202; MATH 124 or MATH 157 or equivalent."
+        "prerequisites": "ECON 207 or HNRS 254 or HNRS 202; MATH 124 or MATH 157 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "ECON 310",
@@ -363,7 +379,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Oertel, Ronald R.",
-        "room": "TBA",
+        "room": "PH 104",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 254; or HNRS 202."
+        "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 254; or HNRS 202.",
+        "gpa": null
     },
     {
         "subject": "ECON 311",
@@ -385,7 +402,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Sula, Ozan",
-        "room": "TBA",
+        "room": "PH 244",
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 202; or HNRS 254."
+        "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 202; or HNRS 254.",
+        "gpa": null
     },
     {
         "subject": "ECON 315",
@@ -407,7 +425,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Hodges, Hart",
-        "room": "TBA",
+        "room": "AW 305",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP2",
-        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202."
+        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202.",
+        "gpa": null
     },
     {
         "subject": "ECON 317",
@@ -429,7 +448,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Dupont, Brandon R.",
-        "room": "TBA",
+        "room": "ES 413",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 202; or HNRS 254."
+        "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 202; or HNRS 254.",
+        "gpa": null
     },
     {
         "subject": "ECON 343",
@@ -451,7 +471,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Plakias, Zoe Theola",
-        "room": "TBA",
+        "room": "ES 072",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "CF-E FTF",
-        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202."
+        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202.",
+        "gpa": null
     },
     {
         "subject": "ECON 365",
@@ -473,7 +494,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Alden, Edward H.",
-        "room": "TBA",
+        "room": "CV 265",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -482,7 +503,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 202; or HNRS 254; or instructor permission."
+        "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 202; or HNRS 254; or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "ECON 375",
@@ -495,7 +517,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Oertel, Ronald R.",
-        "room": "TBA",
+        "room": "PH 104",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -504,7 +526,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 206 and ECON 207 or HNRS 209 and ECON 207; MATH 240 or MATH 341 or DSCI 205; MATH 124 or MATH 157 or equivalent."
+        "prerequisites": "ECON 206 and ECON 207 or HNRS 209 and ECON 207; MATH 240 or MATH 341 or DSCI 205; MATH 124 or MATH 157 or equivalent.",
+        "gpa": null
     },
     {
         "subject": "ECON 380",
@@ -517,7 +540,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Shewmake, Sharon Anne",
-        "room": "TBA",
+        "room": "PH 228",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -526,7 +549,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202."
+        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202.",
+        "gpa": null
     },
     {
         "subject": "ECON 383",
@@ -539,7 +563,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Shewmake, Sharon Anne",
-        "room": "TBA",
+        "room": "AW 405",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -548,7 +572,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202."
+        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202.",
+        "gpa": null
     },
     {
         "subject": "ECON 384",
@@ -561,7 +586,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Dorsey-Palmateer, Reid Matthew",
-        "room": "TBA",
+        "room": "ES 313",
         "lab_room": null,
         "addl_fees": "",
         "cap": "18",
@@ -570,7 +595,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202."
+        "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202.",
+        "gpa": null
     },
     {
         "subject": "ECON 400",
@@ -592,7 +618,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ECON 412",
@@ -605,7 +632,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Sirbu, Anca",
-        "room": "TBA",
+        "room": "CF 023",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
@@ -614,7 +641,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF WP1",
-        "prerequisites": "ECON 306 and ECON 310"
+        "prerequisites": "ECON 306 and ECON 310",
+        "gpa": null
     },
     {
         "subject": "ECON 463",
@@ -627,7 +655,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Sula, Ozan",
-        "room": "TBA",
+        "room": "SL 130",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
@@ -636,7 +664,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "CF-E FTF WP1",
-        "prerequisites": "ECON 307."
+        "prerequisites": "ECON 307.",
+        "gpa": null
     },
     {
         "subject": "ECON 482",
@@ -649,7 +678,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Plakias, Zoe Theola",
-        "room": "TBA",
+        "room": "ES 072",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -658,7 +687,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "ECON 383 or equivalent"
+        "prerequisites": "ECON 383 or equivalent",
+        "gpa": null
     },
     {
         "subject": "ECON 484",
@@ -671,7 +701,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Dorsey-Palmateer, Reid Matthew",
-        "room": "TBA",
+        "room": "ES 313",
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
@@ -680,6 +710,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "One from: ENRG 384, ECON 384, ENRG 386 or ECON 386; and one from: DSCI 305, ECON 375, ENRG 322, ESCI 340 or BIOL 340."
+        "prerequisites": "One from: ENRG 384, ECON 384, ENRG 386 or ECON 386; and one from: DSCI 305, ECON 375, ENRG 322, ESCI 340 or BIOL 340.",
+        "gpa": null
     }
 ]

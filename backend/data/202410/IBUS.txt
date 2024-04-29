@@ -1,4 +1,4 @@
-2024-04-26T16:31:38.066727
+2024-04-29T12:49:13.933688
 [
     {
         "subject": "IBUS 370",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status."
+        "prerequisites": "Sophomore status.",
+        "gpa": null
     },
     {
         "subject": "IBUS 370",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": "Sophomore status."
+        "prerequisites": "Sophomore status.",
+        "gpa": null
     },
     {
         "subject": "IBUS 470",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "CF FTF WP3",
-        "prerequisites": "Majors only; IBUS 370."
+        "prerequisites": "Majors only; IBUS 370.",
+        "gpa": null
     },
     {
         "subject": "IBUS 473",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "CF FTF",
-        "prerequisites": "Majors and International Business Minors Only. IBUS 370 or MKTG 486."
+        "prerequisites": "Majors and International Business Minors Only. IBUS 370 or MKTG 486.",
+        "gpa": null
     },
     {
         "subject": "IBUS 474",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. IBUS 370 or equivalent or permission of instructor."
+        "prerequisites": "Majors Only. IBUS 370 or equivalent or permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "IBUS 490",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": "Majors Only. Business administration students only."
+        "prerequisites": "Majors Only. Business administration students only.",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:23:29.929673
+2024-04-29T12:48:20.944740
 [
     {
         "subject": "C2C 201",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Cochran, Heather Michelle",
-        "room": "TBA",
+        "room": "MH 038",
         "lab_room": null,
         "addl_fees": "Flat Fee $24.74",
         "cap": "30",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "C2C 201",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Cochran, Heather Michelle",
-        "room": "TBA",
+        "room": "MH 114",
         "lab_room": null,
         "addl_fees": "Flat Fee $24.74",
         "cap": "30",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "C2C 202",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SL",
-        "prerequisites": "C2C 201"
+        "prerequisites": "C2C 201",
+        "gpa": null
     },
     {
         "subject": "C2C 203",
@@ -77,7 +80,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Burkhart, Michelle",
-        "room": "TBA",
+        "room": "FI 238",
         "lab_room": null,
         "addl_fees": "Flat Fee $24.74",
         "cap": "30",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF SL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "C2C 203",
@@ -99,7 +103,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Burkhart, Michelle",
-        "room": "TBA",
+        "room": "IS 244",
         "lab_room": null,
         "addl_fees": "Flat Fee $24.74",
         "cap": "30",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF SL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "C2C 203",
@@ -121,7 +126,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Burkhart, Michelle",
-        "room": "TBA",
+        "room": "IS 244",
         "lab_room": null,
         "addl_fees": "Flat Fee $24.74",
         "cap": "30",
@@ -130,6 +135,7 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF SL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

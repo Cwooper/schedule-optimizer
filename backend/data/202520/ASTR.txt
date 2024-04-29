@@ -1,4 +1,4 @@
-2024-04-26T16:18:21.364917
+2024-04-29T12:47:46.578545
 [
     {
         "subject": "ASTR 113",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF SCI",
-        "prerequisites": "MATH 107 or higher or suitable math assessment score."
+        "prerequisites": "MATH 107 or higher or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "ASTR 300",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ASTR 320",
@@ -64,6 +66,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "ASTR 316."
+        "prerequisites": "ASTR 316.",
+        "gpa": null
     }
 ]

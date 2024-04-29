@@ -1,4 +1,4 @@
-2024-04-26T16:31:29.473255
+2024-04-29T12:49:13.122925
 [
     {
         "subject": "HNRS 104",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HNRS 104",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HNRS 104",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HNRS 104",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HNRS 104",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HNRS 104",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HNRS 104",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HNRS 104",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HNRS 104",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HNRS 104",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HNRS 104",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HNRS 104",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HNRS 104",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HNRS 201",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "HNRS 203",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",
-        "prerequisites": "Admission to the Honors College."
+        "prerequisites": "Admission to the Honors College.",
+        "gpa": null
     },
     {
         "subject": "HNRS 209",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF SSC",
-        "prerequisites": "MATH 112 or higher or equivalent or suitable math assessment score."
+        "prerequisites": "MATH 112 or higher or equivalent or suitable math assessment score.",
+        "gpa": null
     },
     {
         "subject": "HNRS 215",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF LSCI",
-        "prerequisites": "Admission to the Honors College."
+        "prerequisites": "Admission to the Honors College.",
+        "gpa": null
     },
     {
         "subject": "HNRS 218",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM OL SYNC",
-        "prerequisites": "Admission to the Honors College. First-year Honors sequence."
+        "prerequisites": "Admission to the Honors College. First-year Honors sequence.",
+        "gpa": null
     },
     {
         "subject": "HNRS 220",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM FTF",
-        "prerequisites": "Admission to the Honors College."
+        "prerequisites": "Admission to the Honors College.",
+        "gpa": null
     },
     {
         "subject": "HNRS 350",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR",
         "attributes": "FTF",
-        "prerequisites": "Admission to the Honors College."
+        "prerequisites": "Admission to the Honors College.",
+        "gpa": null
     },
     {
         "subject": "HNRS 350",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR",
         "attributes": "FTF",
-        "prerequisites": "Admission to the Honors College."
+        "prerequisites": "Admission to the Honors College.",
+        "gpa": null
     },
     {
         "subject": "HNRS 350",
@@ -482,7 +503,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR",
         "attributes": "FTF",
-        "prerequisites": "Admission to the Honors College."
+        "prerequisites": "Admission to the Honors College.",
+        "gpa": null
     },
     {
         "subject": "HNRS 350",
@@ -504,7 +526,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR",
         "attributes": "FTF",
-        "prerequisites": "Admission to the Honors College."
+        "prerequisites": "Admission to the Honors College.",
+        "gpa": null
     },
     {
         "subject": "HNRS 350",
@@ -526,7 +549,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR",
         "attributes": "FTF WP1",
-        "prerequisites": "Admission to the Honors College."
+        "prerequisites": "Admission to the Honors College.",
+        "gpa": null
     },
     {
         "subject": "HNRS 350",
@@ -548,7 +572,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR",
         "attributes": "FTF WP1",
-        "prerequisites": "Admission to the Honors College."
+        "prerequisites": "Admission to the Honors College.",
+        "gpa": null
     },
     {
         "subject": "HNRS 350",
@@ -570,7 +595,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR",
         "attributes": "FTF",
-        "prerequisites": "Admission to the Honors College."
+        "prerequisites": "Admission to the Honors College.",
+        "gpa": null
     },
     {
         "subject": "HNRS 350",
@@ -592,7 +618,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR",
         "attributes": "FTF",
-        "prerequisites": "Admission to the Honors College."
+        "prerequisites": "Admission to the Honors College.",
+        "gpa": null
     },
     {
         "subject": "HNRS 350",
@@ -614,7 +641,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR",
         "attributes": "FTF",
-        "prerequisites": "Admission to the Honors College."
+        "prerequisites": "Admission to the Honors College.",
+        "gpa": null
     },
     {
         "subject": "HNRS 350",
@@ -636,7 +664,8 @@
         "waitlist": "",
         "restrictions": "OV JR SR",
         "attributes": "FTF WP3",
-        "prerequisites": "Admission to the Honors College."
+        "prerequisites": "Admission to the Honors College.",
+        "gpa": null
     },
     {
         "subject": "HNRS 390",
@@ -658,7 +687,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Admission to the Honor College."
+        "prerequisites": "Admission to the Honor College.",
+        "gpa": null
     },
     {
         "subject": "HNRS 390",
@@ -680,7 +710,8 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "OL SYNC",
-        "prerequisites": "Admission to the Honor College."
+        "prerequisites": "Admission to the Honor College.",
+        "gpa": null
     },
     {
         "subject": "HNRS 490",
@@ -702,6 +733,7 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

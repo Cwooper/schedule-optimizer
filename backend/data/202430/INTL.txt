@@ -1,4 +1,4 @@
-2024-04-26T16:26:47.635993
+2024-04-29T12:48:42.363484
 [
     {
         "subject": "INTL 201",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "INTL 338",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF HUM",
-        "prerequisites": "FAIR 201A or ENG 101 or INTL 201."
+        "prerequisites": "FAIR 201A or ENG 101 or INTL 201.",
+        "gpa": null
     }
 ]

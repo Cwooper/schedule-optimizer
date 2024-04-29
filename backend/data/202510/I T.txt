@@ -1,4 +1,4 @@
-2024-04-26T16:21:53.846682
+2024-04-29T12:48:09.675670
 [
     {
         "subject": "I T 344",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "I T 344",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "I T 344",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "I T 344",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "ASNC OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "I T 442",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "IT 344"
+        "prerequisites": "IT 344",
+        "gpa": null
     },
     {
         "subject": "I T 443",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "IT 344"
+        "prerequisites": "IT 344",
+        "gpa": null
     },
     {
         "subject": "I T 525",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "GR PB PM PQ",
         "attributes": "ASNC OL",
-        "prerequisites": "IT 520."
+        "prerequisites": "IT 520.",
+        "gpa": null
     },
     {
         "subject": "I T 544",
@@ -174,6 +181,7 @@
         "waitlist": "",
         "restrictions": "GR GR PB PM",
         "attributes": "FTF",
-        "prerequisites": "Graduate status or permission of instructor."
+        "prerequisites": "Graduate status or permission of instructor.",
+        "gpa": null
     }
 ]

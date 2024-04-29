@@ -1,4 +1,4 @@
-2024-04-26T16:29:56.152627
+2024-04-29T12:49:01.698157
 [
     {
         "subject": "RC 546",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ",
         "attributes": "ASNC EVEX OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "RC 577",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV GR PB PM",
         "attributes": "EVEX FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "RC 581",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ",
         "attributes": "EVEX MIX OL",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "RC 584",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ",
         "attributes": "EVEX FTF",
-        "prerequisites": "RC 583 or instructor permission."
+        "prerequisites": "RC 583 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "RC 584",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ",
         "attributes": "EVEX FTF",
-        "prerequisites": "RC 583 or instructor permission."
+        "prerequisites": "RC 583 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "RC 587",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ",
         "attributes": "EVEX FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "RC 592",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ S/U",
         "attributes": "EVEX FTF",
-        "prerequisites": "RC 591 and permission of instructor."
+        "prerequisites": "RC 591 and permission of instructor.",
+        "gpa": null
     },
     {
         "subject": "RC 592",
@@ -174,6 +181,7 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ S/U",
         "attributes": "EVEX FTF",
-        "prerequisites": "RC 591 and permission of instructor."
+        "prerequisites": "RC 591 and permission of instructor.",
+        "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-04-26T16:29:31.564986
+2024-04-29T12:48:58.548153
 [
     {
         "subject": "MSCI 101",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "OV FR",
         "attributes": "FTF SCI",
-        "prerequisites": "Freshman status or permission - FYE"
+        "prerequisites": "Freshman status or permission - FYE",
+        "gpa": null
     },
     {
         "subject": "MSCI 410",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "MSCI 340 or instructor permission."
+        "prerequisites": "MSCI 340 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "MSCI 491",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "MSCI 340 or instructor permission."
+        "prerequisites": "MSCI 340 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "MSCI 492",
@@ -86,6 +89,7 @@
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
-        "prerequisites": "MSCI 340 or instructor permission."
+        "prerequisites": "MSCI 340 or instructor permission.",
+        "gpa": null
     }
 ]

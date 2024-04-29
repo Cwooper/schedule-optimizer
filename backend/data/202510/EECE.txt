@@ -1,4 +1,4 @@
-2024-04-26T16:21:22.198012
+2024-04-29T12:48:06.213281
 [
     {
         "subject": "EECE 108",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Co-requisite: EECE 109 or instructor permission."
+        "prerequisites": "Co-requisite: EECE 109 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "EECE 109",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Co-requisite: EECE 108 or instructor permission."
+        "prerequisites": "Co-requisite: EECE 108 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "EECE 109",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Co-requisite: EECE 108 or instructor permission."
+        "prerequisites": "Co-requisite: EECE 108 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "EECE 220",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "EECE 210."
+        "prerequisites": "EECE 210.",
+        "gpa": null
     },
     {
         "subject": "EECE 220",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "EECE 210."
+        "prerequisites": "EECE 210.",
+        "gpa": null
     },
     {
         "subject": "EECE 244",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "EECE 233."
+        "prerequisites": "EECE 233.",
+        "gpa": null
     },
     {
         "subject": "EECE 244",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "EECE 233."
+        "prerequisites": "EECE 233.",
+        "gpa": null
     },
     {
         "subject": "EECE 300",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "PR",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EECE 360",
@@ -196,7 +204,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MATH 341 or MATH 345 or MATH 346 or EECE 346; EECE 311."
+        "prerequisites": "MATH 341 or MATH 345 or MATH 346 or EECE 346; EECE 311.",
+        "gpa": null
     },
     {
         "subject": "EECE 360",
@@ -218,7 +227,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "MATH 341 or MATH 345 or MATH 346 or EECE 346; EECE 311."
+        "prerequisites": "MATH 341 or MATH 345 or MATH 346 or EECE 346; EECE 311.",
+        "gpa": null
     },
     {
         "subject": "EECE 361",
@@ -240,7 +250,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "EECE 210; MATH 224; PHYS 163."
+        "prerequisites": "EECE 210; MATH 224; PHYS 163.",
+        "gpa": null
     },
     {
         "subject": "EECE 361",
@@ -262,7 +273,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "EECE 210; MATH 224; PHYS 163."
+        "prerequisites": "EECE 210; MATH 224; PHYS 163.",
+        "gpa": null
     },
     {
         "subject": "EECE 378",
@@ -284,7 +296,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "EECE 372 or ENRG 372."
+        "prerequisites": "EECE 372 or ENRG 372.",
+        "gpa": null
     },
     {
         "subject": "EECE 378",
@@ -306,7 +319,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "EECE 372 or ENRG 372."
+        "prerequisites": "EECE 372 or ENRG 372.",
+        "gpa": null
     },
     {
         "subject": "EECE 383",
@@ -328,7 +342,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "EECE 244; MATH 204; MATH 341 or MATH 345 or MATH 346 or ECEE 346."
+        "prerequisites": "EECE 244; MATH 204; MATH 341 or MATH 345 or MATH 346 or ECEE 346.",
+        "gpa": null
     },
     {
         "subject": "EECE 400",
@@ -350,7 +365,8 @@
         "waitlist": "",
         "restrictions": "PR",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EECE 403",
@@ -372,7 +388,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "EECE 402"
+        "prerequisites": "EECE 402",
+        "gpa": null
     },
     {
         "subject": "EECE 403",
@@ -394,7 +411,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "EECE 402"
+        "prerequisites": "EECE 402",
+        "gpa": null
     },
     {
         "subject": "EECE 403",
@@ -416,7 +434,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "EECE 402"
+        "prerequisites": "EECE 402",
+        "gpa": null
     },
     {
         "subject": "EECE 403",
@@ -438,7 +457,8 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "EECE 402"
+        "prerequisites": "EECE 402",
+        "gpa": null
     },
     {
         "subject": "EECE 433",
@@ -460,7 +480,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "EECE 311; EECE 344."
+        "prerequisites": "EECE 311; EECE 344.",
+        "gpa": null
     },
     {
         "subject": "EECE 444",
@@ -482,7 +503,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "EECE 344."
+        "prerequisites": "EECE 344.",
+        "gpa": null
     },
     {
         "subject": "EECE 444",
@@ -504,7 +526,8 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "EECE 344."
+        "prerequisites": "EECE 344.",
+        "gpa": null
     },
     {
         "subject": "EECE 495",
@@ -526,7 +549,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EECE 495",
@@ -548,7 +572,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EECE 495",
@@ -570,7 +595,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EECE 495",
@@ -592,7 +618,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EECE 495",
@@ -614,7 +641,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EECE 495",
@@ -636,7 +664,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EECE 495",
@@ -658,7 +687,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EECE 495",
@@ -680,7 +710,8 @@
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EECE 495",
@@ -702,7 +733,8 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "EECE 495",
@@ -724,6 +756,7 @@
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     }
 ]

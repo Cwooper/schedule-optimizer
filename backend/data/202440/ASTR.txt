@@ -1,4 +1,4 @@
-2024-04-26T16:23:14.801560
+2024-04-29T12:48:19.317224
 [
     {
         "subject": "ASTR 103",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Covey, Kevin R.",
-        "room": "TBA",
+        "room": "CF 115",
         "lab_room": null,
         "addl_fees": "",
         "cap": "142",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SCI",
-        "prerequisites": ""
+        "prerequisites": "",
+        "gpa": null
     },
     {
         "subject": "ASTR 315",
@@ -33,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Rice, Melissa Susanne",
-        "room": "TBA",
+        "room": "CF 226",
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
@@ -42,6 +43,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP1",
-        "prerequisites": "PHYS 161, PHYS 162 and PHYS 163; or instructor permission."
+        "prerequisites": "PHYS 161, PHYS 162 and PHYS 163; or instructor permission.",
+        "gpa": null
     }
 ]

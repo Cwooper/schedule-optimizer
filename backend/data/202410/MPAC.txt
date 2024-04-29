@@ -1,4 +1,4 @@
-2024-04-26T16:31:58.081614
+2024-04-29T12:49:15.908938
 [
     {
         "subject": "MPAC 590",
@@ -20,6 +20,7 @@
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ S/U",
         "attributes": "FTF",
-        "prerequisites": "Approval of the Internship Coordinator."
+        "prerequisites": "Approval of the Internship Coordinator.",
+        "gpa": null
     }
 ]

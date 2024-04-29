@@ -1,4 +1,4 @@
-2024-04-26T16:19:09.979328
+2024-04-29T12:47:51.789095
 [
     {
         "subject": "FREN 103",
@@ -20,7 +20,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCOM FTF",
-        "prerequisites": "FREN 102"
+        "prerequisites": "FREN 102",
+        "gpa": null
     },
     {
         "subject": "FREN 103",
@@ -42,7 +43,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCOM FTF",
-        "prerequisites": "FREN 102"
+        "prerequisites": "FREN 102",
+        "gpa": null
     },
     {
         "subject": "FREN 104",
@@ -64,7 +66,8 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM FTF",
-        "prerequisites": "FREN 103 or two years HS French or equivalent"
+        "prerequisites": "FREN 103 or two years HS French or equivalent",
+        "gpa": null
     },
     {
         "subject": "FREN 203",
@@ -86,7 +89,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF HUM",
-        "prerequisites": "FREN 202 or equivalent"
+        "prerequisites": "FREN 202 or equivalent",
+        "gpa": null
     },
     {
         "subject": "FREN 203",
@@ -108,7 +112,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF HUM",
-        "prerequisites": "FREN 202 or equivalent"
+        "prerequisites": "FREN 202 or equivalent",
+        "gpa": null
     },
     {
         "subject": "FREN 332",
@@ -130,7 +135,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "FREN 301"
+        "prerequisites": "FREN 301",
+        "gpa": null
     },
     {
         "subject": "FREN 342",
@@ -152,7 +158,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "FREN 301 or instructor permission."
+        "prerequisites": "FREN 301 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "FREN 385",
@@ -174,7 +181,8 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "FREN 301 or instructor permission."
+        "prerequisites": "FREN 301 or instructor permission.",
+        "gpa": null
     },
     {
         "subject": "FREN 425",
@@ -196,6 +204,7 @@
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
-        "prerequisites": "Written permission and two upper-division French courses."
+        "prerequisites": "Written permission and two upper-division French courses.",
+        "gpa": null
     }
 ]
