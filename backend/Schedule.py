@@ -21,6 +21,7 @@ class Schedule:
             lab_days = course.lab_days
             lab_start = course.lab_start_time
             lab_end = course.lab_end_time
+            gpa = course.gpa
             
             # Handling None values for lab related attributes
             lab_days_str = lab_start_str = lab_end_str = ""
@@ -31,7 +32,7 @@ class Schedule:
             if lab_end is not None:
                 lab_end_str = f"{lab_end:<4}"
 
-            course_string = f"{subject:<19} {crn:5} {instructor:<20} {days:<5} {start:<4} "\
+            course_string = f"{subject:<9} {round(gpa, ROUND):<6} {crn:5} {instructor:<25} {days:<5} {start:<4} "\
                             f"{end:<4} {lab_days_str:<5} {lab_start_str:<4} {lab_end_str:<4}\n"
             result += course_string
         
@@ -103,27 +104,28 @@ class Schedule:
             return round(gap_score, ROUND)
 
     def weigh_self(self):
-        # TODO add gpa_scoring after gpa_score
-        # gpa_score = self._weigh_gpa()
+        gpa_score = self._weigh_gpa()
         start_score = self._weigh_start()
         end_score = self._weigh_end()
         gap_score = self._weigh_gaps()
 
         START_WEIGHT = 1
-        # GPA_WEIGHT = 1
+        GPA_WEIGHT = 1
         END_WEIGHT = 1
         GAP_WEIGHT = 1
 
-        WEIGHT_TOTAL = START_WEIGHT + END_WEIGHT + GAP_WEIGHT
+        WEIGHT_TOTAL = START_WEIGHT + END_WEIGHT + GAP_WEIGHT + GPA_WEIGHT
 
         score =  (end_score * END_WEIGHT +
                   start_score * START_WEIGHT +
-                  gap_score * GAP_WEIGHT) / WEIGHT_TOTAL
+                  gap_score * GAP_WEIGHT +
+                  gpa_score * GPA_WEIGHT) / WEIGHT_TOTAL
         
         self.weights = {
             "start": start_score,
             "end": end_score,
-            "gap_score": gap_score
+            "gap": gap_score,
+            "gpa": gpa_score
         }
         self.score = round(score, ROUND)
 
