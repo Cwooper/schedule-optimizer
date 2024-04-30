@@ -59,7 +59,7 @@ Django should handle all requests for course schedules.
     - [x] obtain gpa rate
     - [ ] apply `gpa` attribute to `Course` object
 - [ ] determine the "best" `Schedule` based on weights
-    - [ ] add gpa weight
+    - [x] add gpa weight
     - [x] add `start_time` weight
     - [x] add `end_time` weight
     - [x] add `time_gap` weight
