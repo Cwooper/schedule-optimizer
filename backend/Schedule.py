@@ -1,7 +1,7 @@
 # Schedule.py
 # Schedule Object
 from Course import Course
-ROUND = 3
+ROUND = 2
 
 class Schedule:
     def __init__(self, courses: list['Course'], score=None, weights=None):
@@ -11,7 +11,7 @@ class Schedule:
 
     def __repr__(self):
         result = f"score={self.score} | weights={self.weights}\n"
-        result += "Subject   Credits CRN    Instructor                GPA    Days  Begin  End   Lab   Begin  End   Building\n"
+        result += "Subject   Credits CRN    Instructor                GPA   Days  Begin  End   Lab   Begin  End   Building\n"
         for course in self.courses:
             subject = course.subject
             course_credits = course.course_credits
@@ -35,7 +35,7 @@ class Schedule:
             if lab_end is not None:
                 lab_end_str = f"{lab_end:<4}"
 
-            course_string = f"{subject:<9} {course_credits:7} {crn:6} {instructor:<25} {round(gpa, ROUND):<6} {days:5} {start:6} "\
+            course_string = f"{subject:<9} {course_credits:7} {crn:6} {instructor:<25} {round(gpa, ROUND):<5} {days:5} {start:6} "\
                             f"{end:5} {lab_days_str:5} {lab_start_str:6} {lab_end_str:5} {room:6}\n"
             result += course_string
         
@@ -112,9 +112,9 @@ class Schedule:
         end_score = self._weigh_end()
         gap_score = self._weigh_gaps()
 
-        START_WEIGHT = 1
-        GPA_WEIGHT = 1
-        END_WEIGHT = 1
+        START_WEIGHT = 2
+        GPA_WEIGHT = 5
+        END_WEIGHT = 2
         GAP_WEIGHT = 1
 
         WEIGHT_TOTAL = START_WEIGHT + END_WEIGHT + GAP_WEIGHT + GPA_WEIGHT
