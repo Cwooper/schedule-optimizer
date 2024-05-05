@@ -51,7 +51,12 @@ def _get_schedules(course_names: list[str], term, minimum_size=2,
     courses = []
 
     pickle_file = os.path.join(data_directory, term, term + '.pkl')
-    df = pd.read_pickle(pickle_file)
+    try:
+        df = pd.read_pickle(pickle_file)
+    except Exception as e:
+        print(f"Error opening file: {pickle_file}")
+        print(f"Does the term {term} exist?")
+        exit(1)
     for course_name in cleaned_course_names:
         # Filter DataFrame based on course name
         matching_rows = df[df['subject'] == course_name]
@@ -102,8 +107,8 @@ def main():
     args = parse_args()
     term = args.term
     course_names = args.courses
-    minimum_size = args.minimum
-    maximum_size = args.maximum
+    minimum_size = args.minimum if args.minimum else SUGGESTED_MINIMUM
+    maximum_size = args.maximum if args.maximum else SUGGESTED_MAXIMUM
     force_include = args.force
 
     if not term:
@@ -119,6 +124,9 @@ def main():
     schedules = _get_schedules(course_names, term, minimum_size=minimum_size,
                                maximum_size=maximum_size, force_include=force_include)
 
+    if not schedules:
+        print("No schedules found with current selection.")
+    
     for schedule in schedules:
         print(schedule, end="\n\n")
 
