@@ -54,8 +54,8 @@ def _get_schedules(course_names: list[str], term, minimum_size=2,
     try:
         df = pd.read_pickle(pickle_file)
     except Exception as e:
-        print(f"Error opening file: {pickle_file}")
-        print(f"Does the term {term} exist?")
+        print(e)
+        print(f"\nDoes the term {term} exist?")
         exit(1)
     for course_name in cleaned_course_names:
         # Filter DataFrame based on course name
