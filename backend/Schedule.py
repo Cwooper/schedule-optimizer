@@ -11,8 +11,10 @@ class Schedule:
 
     def __repr__(self):
         result = f"score={self.score} | weights={self.weights}\n"
+        result += "Subject   Credits CRN    Instructor                GPA    Days  Begin  End   Lab   Begin  End   Building\n"
         for course in self.courses:
             subject = course.subject
+            course_credits = course.course_credits
             crn = course.crn
             instructor = course.instructor
             days = course.days
@@ -22,6 +24,7 @@ class Schedule:
             lab_start = course.lab_start_time
             lab_end = course.lab_end_time
             gpa = course.gpa
+            room = course.room
             
             # Handling None values for lab related attributes
             lab_days_str = lab_start_str = lab_end_str = ""
@@ -32,8 +35,8 @@ class Schedule:
             if lab_end is not None:
                 lab_end_str = f"{lab_end:<4}"
 
-            course_string = f"{subject:<9} {round(gpa, ROUND):<6} {crn:5} {instructor:<25} {days:<5} {start:<4} "\
-                            f"{end:<4} {lab_days_str:<5} {lab_start_str:<4} {lab_end_str:<4}\n"
+            course_string = f"{subject:<9} {course_credits:7} {crn:6} {instructor:<25} {round(gpa, ROUND):<6} {days:5} {start:6} "\
+                            f"{end:5} {lab_days_str:5} {lab_start_str:6} {lab_end_str:5} {room:6}\n"
             result += course_string
         
         return result
