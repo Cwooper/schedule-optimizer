@@ -1,4 +1,4 @@
-2024-04-29T12:48:48.691513
+2024-05-06T14:35:46.437638
 [
     {
         "subject": "BUS 310",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
-        "enrl": "48",
-        "avail": "12",
+        "enrl": "47",
+        "avail": "13",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",

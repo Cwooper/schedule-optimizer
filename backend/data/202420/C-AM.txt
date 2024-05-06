@@ -1,4 +1,4 @@
-2024-04-29T12:48:48.791929
+2024-05-06T14:35:46.569671
 [
     {
         "subject": "C/AM 302",
@@ -176,8 +176,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "5",
-        "enrl": "5",
-        "avail": "0",
+        "enrl": "4",
+        "avail": "1",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",

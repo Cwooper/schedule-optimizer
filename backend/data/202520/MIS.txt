@@ -1,4 +1,4 @@
-2024-04-29T12:47:55.053325
+2024-05-06T14:34:39.352020
 [
     {
         "subject": "MIS 220",
@@ -203,7 +203,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "ASNC OL",
+        "attributes": "ASNC OL PBEX",
         "prerequisites": "MIS 220 or equivalent",
         "gpa": null
     },

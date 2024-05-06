@@ -1,4 +1,4 @@
-2024-04-29T12:47:52.136897
+2024-05-06T14:34:36.017046
 [
     {
         "subject": "GERM 103",
@@ -10,7 +10,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Sebastian, Marianne",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
@@ -33,7 +33,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Sebastian, Marianne",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",

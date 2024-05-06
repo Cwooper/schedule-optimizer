@@ -1,4 +1,4 @@
-2024-04-29T12:48:29.243178
+2024-05-06T14:35:24.390458
 [
     {
         "subject": "MKTG 380",
@@ -18,7 +18,7 @@
         "enrl": "0",
         "avail": "60",
         "waitlist": "",
-        "restrictions": "JR SO SR PQ",
+        "restrictions": "JR SO SR MJ PQ",
         "attributes": "FTF",
         "prerequisites": "ACCT 240; and ECON 206 or HNRS 209.",
         "gpa": null
@@ -41,7 +41,7 @@
         "enrl": "0",
         "avail": "60",
         "waitlist": "",
-        "restrictions": "JR SO SR PQ",
+        "restrictions": "JR SO SR MJ PQ",
         "attributes": "ASNC OL",
         "prerequisites": "ACCT 240; and ECON 206 or HNRS 209.",
         "gpa": null
@@ -64,7 +64,7 @@
         "enrl": "0",
         "avail": "60",
         "waitlist": "",
-        "restrictions": "JR SO SR PQ",
+        "restrictions": "JR SO SR MJ PQ",
         "attributes": "ASNC OL",
         "prerequisites": "ACCT 240; and ECON 206 or HNRS 209.",
         "gpa": null
@@ -87,7 +87,7 @@
         "enrl": "0",
         "avail": "60",
         "waitlist": "",
-        "restrictions": "JR SO SR PQ",
+        "restrictions": "JR SO SR MJ PQ",
         "attributes": "FTF",
         "prerequisites": "ACCT 240; and ECON 206 or HNRS 209.",
         "gpa": null

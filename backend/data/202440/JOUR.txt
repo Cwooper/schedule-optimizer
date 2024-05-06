@@ -1,4 +1,4 @@
-2024-04-29T12:48:27.862724
+2024-05-06T14:35:22.468485
 [
     {
         "subject": "JOUR 106",
@@ -672,13 +672,13 @@
         "course_credits": "5",
         "crn": "40707",
         "days": "MW",
-        "start_time": "1000",
-        "end_time": "1150",
+        "start_time": "1600",
+        "end_time": "1750",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Moscato, Derek Ronald",
-        "room": "TBA",
+        "room": "CF 227",
         "lab_room": null,
         "addl_fees": "",
         "cap": "18",

@@ -1,4 +1,4 @@
-2024-04-29T12:48:39.548326
+2024-05-06T14:35:37.135759
 [
     {
         "subject": "FAIR 235D",
@@ -117,7 +117,7 @@
     },
     {
         "subject": "FAIR 336B",
-        "course_credits": "5",
+        "course_credits": "4",
         "crn": "30976",
         "days": "TR",
         "start_time": "1800",
@@ -179,7 +179,7 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "FA S/U",
+        "restrictions": "S/U",
         "attributes": "OL SYNC",
         "prerequisites": "",
         "gpa": null

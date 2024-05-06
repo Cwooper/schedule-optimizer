@@ -1,4 +1,4 @@
-2024-04-29T12:48:19.071190
+2024-05-06T14:35:11.998968
 [
     {
         "subject": "A/HI 211",
@@ -185,6 +185,29 @@
         "gpa": null
     },
     {
+        "subject": "A/HI 302",
+        "course_credits": "1 TO 3",
+        "crn": "44179",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Witkowski, Jacqueline",
+        "room": "FI OFC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "5",
+        "enrl": "0",
+        "avail": "5",
+        "waitlist": "",
+        "restrictions": "OV",
+        "attributes": "FTF",
+        "prerequisites": "",
+        "gpa": null
+    },
+    {
         "subject": "A/HI 305",
         "course_credits": "3",
         "crn": "40128",
@@ -217,7 +240,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Jaye, Cara E.",
+        "instructor": "Turner, Lisa Michelle",
         "room": "FI OFC",
         "lab_room": null,
         "addl_fees": "",

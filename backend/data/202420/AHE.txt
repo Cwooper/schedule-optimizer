@@ -1,4 +1,4 @@
-2024-04-29T12:48:47.160629
+2024-05-06T14:35:44.546261
 [
     {
         "subject": "AHE 375",
@@ -84,8 +84,8 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "25",
-        "enrl": "16",
-        "avail": "9",
+        "enrl": "15",
+        "avail": "10",
         "waitlist": "",
         "restrictions": "OV GR GR MJ",
         "attributes": "HYBD",

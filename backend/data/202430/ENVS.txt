@@ -1,4 +1,4 @@
-2024-04-29T12:48:39.341506
+2024-05-06T14:35:36.882285
 [
     {
         "subject": "ENVS 115",
@@ -102,7 +102,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Laso, Francisco J.",
+        "instructor": "Furness, Natalie Louise",
         "room": "ONLINE ASNC",
         "lab_room": null,
         "addl_fees": "Flat Fee $15.75",
@@ -110,7 +110,7 @@
         "enrl": "0",
         "avail": "50",
         "waitlist": "",
-        "restrictions": "MJ",
+        "restrictions": "",
         "attributes": "ASNC OL",
         "prerequisites": "",
         "gpa": null
@@ -202,7 +202,7 @@
         "enrl": "0",
         "avail": "25",
         "waitlist": "",
-        "restrictions": "MJ PQ",
+        "restrictions": "PQ",
         "attributes": "ASNC OL",
         "prerequisites": "ENVS 419 or ENVS 420 or instructor permission.",
         "gpa": null

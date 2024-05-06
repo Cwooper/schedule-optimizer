@@ -1,4 +1,4 @@
-2024-04-29T12:48:15.360646
+2024-05-06T14:35:06.024032
 [
     {
         "subject": "PEH 341",
@@ -37,9 +37,9 @@
         "room": "CV 272",
         "lab_room": "CV 280",
         "addl_fees": "Flat Fee $10.00",
-        "cap": "20",
+        "cap": "40",
         "enrl": "0",
-        "avail": "20",
+        "avail": "40",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",

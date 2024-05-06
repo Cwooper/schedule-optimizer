@@ -1,4 +1,4 @@
-2024-04-29T12:49:02.621848
+2024-05-06T14:36:02.004742
 [
     {
         "subject": "SPAN 103",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "30",
-        "enrl": "12",
-        "avail": "18",
+        "enrl": "11",
+        "avail": "19",
         "waitlist": "",
         "restrictions": "OV FR JR SO PQ",
         "attributes": "BCOM FTF",
@@ -153,8 +153,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "30",
-        "enrl": "4",
-        "avail": "26",
+        "enrl": "3",
+        "avail": "27",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
@@ -245,8 +245,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "19",
-        "avail": "6",
+        "enrl": "18",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF HUM",

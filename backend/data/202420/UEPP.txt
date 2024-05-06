@@ -1,4 +1,4 @@
-2024-04-29T12:49:03.453944
+2024-05-06T14:36:03.127621
 [
     {
         "subject": "UEPP 202",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "100",
-        "enrl": "95",
-        "avail": "5",
+        "enrl": "94",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "100",
-        "enrl": "97",
-        "avail": "3",
+        "enrl": "96",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ASNC OL SSC",
@@ -452,8 +452,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "9",
-        "enrl": "6",
-        "avail": "3",
+        "enrl": "5",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",

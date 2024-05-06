@@ -1,4 +1,4 @@
-2024-04-29T12:48:19.413297
+2024-05-06T14:35:12.350438
 [
     {
         "subject": "BNS 300",
@@ -149,7 +149,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Lambert, Jason",
-        "room": "TBA",
+        "room": "AI 442",
         "lab_room": null,
         "addl_fees": "Flat Fee $17.62",
         "cap": "15",

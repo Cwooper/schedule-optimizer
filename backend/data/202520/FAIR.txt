@@ -1,4 +1,4 @@
-2024-04-29T12:47:51.559684
+2024-05-06T14:34:35.219527
 [
     {
         "subject": "FAIR 101A",
@@ -596,29 +596,6 @@
         "restrictions": "S/U",
         "attributes": "FTF",
         "prerequisites": "FAIR 206a or equivalent",
-        "gpa": null
-    },
-    {
-        "subject": "FAIR 343U",
-        "course_credits": "4",
-        "crn": "23530",
-        "days": "WF",
-        "start_time": "0900",
-        "end_time": "1050",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Nichols, Scot",
-        "room": "FA 307",
-        "lab_room": null,
-        "addl_fees": "Flat Fee $15.47",
-        "cap": "18",
-        "enrl": "0",
-        "avail": "18",
-        "waitlist": "",
-        "restrictions": "S/U",
-        "attributes": "FTF",
-        "prerequisites": "FAIR 201A",
         "gpa": null
     },
     {

@@ -1,4 +1,4 @@
-2024-04-29T12:48:10.504002
+2024-05-06T14:35:01.987256
 [
     {
         "subject": "KIN 306",
@@ -323,6 +323,29 @@
         "gpa": null
     },
     {
+        "subject": "KIN 414",
+        "course_credits": "3",
+        "crn": "13974",
+        "days": "MWF",
+        "start_time": "1100",
+        "end_time": "1150",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Staff",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "Flat Fee $17.25",
+        "cap": "40",
+        "enrl": "0",
+        "avail": "40",
+        "waitlist": "",
+        "restrictions": "MJ PQ",
+        "attributes": "FTF",
+        "prerequisites": "KIN, PE or Community Health major status or permission of instructor; KIN 413, or concurrent.",
+        "gpa": null
+    },
+    {
         "subject": "KIN 415",
         "course_credits": "5",
         "crn": "11742",
@@ -454,29 +477,6 @@
         "cap": "40",
         "enrl": "0",
         "avail": "40",
-        "waitlist": "",
-        "restrictions": "MJ PQ",
-        "attributes": "FTF",
-        "prerequisites": "KIN 312 or concurrent.",
-        "gpa": null
-    },
-    {
-        "subject": "KIN 416",
-        "course_credits": "3",
-        "crn": "13108",
-        "days": "MWF",
-        "start_time": "0900",
-        "end_time": "0950",
-        "lab_days": "F",
-        "lab_start_time": "1300",
-        "lab_end_time": "1350",
-        "instructor": "Chalmers, Gordon R.",
-        "room": "TBA",
-        "lab_room": "CV 181",
-        "addl_fees": "Flat Fee $10.00",
-        "cap": "5",
-        "enrl": "0",
-        "avail": "5",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",

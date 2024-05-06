@@ -1,4 +1,4 @@
-2024-04-29T12:48:52.796822
+2024-05-06T14:35:51.223435
 [
     {
         "subject": "ESCI 101",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "400",
-        "enrl": "232",
-        "avail": "168",
+        "enrl": "230",
+        "avail": "170",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SCI",
@@ -935,8 +935,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "12",
-        "avail": "8",
+        "enrl": "11",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
         "attributes": "CPST FTF",

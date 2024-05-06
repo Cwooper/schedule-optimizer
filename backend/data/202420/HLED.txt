@@ -1,4 +1,4 @@
-2024-04-29T12:48:55.353257
+2024-05-06T14:35:52.999906
 [
     {
         "subject": "HLED 150",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "46",
-        "avail": "4",
+        "enrl": "44",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",

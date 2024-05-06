@@ -1,4 +1,4 @@
-2024-04-29T12:48:13.578420
+2024-05-06T14:35:04.304568
 [
     {
         "subject": "MLE 441",
@@ -93,29 +93,6 @@
         "gpa": null
     },
     {
-        "subject": "MLE 444",
-        "course_credits": "5",
-        "crn": "13887",
-        "days": "TBD",
-        "start_time": "TBD",
-        "end_time": "TBD",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Staff",
-        "room": "TBA",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "0",
-        "enrl": "0",
-        "avail": "0",
-        "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "FTF RTEX",
-        "prerequisites": "Admitted to teacher education program and MLE 443.",
-        "gpa": null
-    },
-    {
         "subject": "MLE 445",
         "course_credits": "5",
         "crn": "12797",
@@ -135,29 +112,6 @@
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
-        "prerequisites": "MLE 444",
-        "gpa": null
-    },
-    {
-        "subject": "MLE 445",
-        "course_credits": "5",
-        "crn": "13885",
-        "days": "R",
-        "start_time": "1700",
-        "end_time": "2100",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Staff",
-        "room": "Renton",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "16",
-        "enrl": "0",
-        "avail": "16",
-        "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "FTF RTEX",
         "prerequisites": "MLE 444",
         "gpa": null
     }

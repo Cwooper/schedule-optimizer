@@ -1,4 +1,4 @@
-2024-04-29T12:47:52.671776
+2024-05-06T14:34:36.585711
 [
     {
         "subject": "HIST 103",
@@ -466,7 +466,7 @@
         "crn": "23522",
         "days": "TR",
         "start_time": "1200",
-        "end_time": "1450",
+        "end_time": "1350",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,

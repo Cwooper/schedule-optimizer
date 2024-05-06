@@ -1,4 +1,4 @@
-2024-04-29T12:48:44.751969
+2024-05-06T14:35:41.532926
 [
     {
         "subject": "PE 104",
@@ -41,7 +41,7 @@
         "enrl": "0",
         "avail": "20",
         "waitlist": "",
-        "restrictions": "OV S/U",
+        "restrictions": "S/U",
         "attributes": "FTF",
         "prerequisites": "",
         "gpa": null
