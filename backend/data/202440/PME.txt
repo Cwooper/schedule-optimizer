@@ -1,4 +1,4 @@
-2024-04-29T12:48:32.129835
+2024-05-06T14:35:28.560805
 [
     {
         "subject": "PME 295",
@@ -228,6 +228,29 @@
         "restrictions": "PQ",
         "attributes": "FTF",
         "prerequisites": "PME 371 or concurrent.",
+        "gpa": null
+    },
+    {
+        "subject": "PME 397B",
+        "course_credits": "3",
+        "crn": "44177",
+        "days": "MWF",
+        "start_time": "1300",
+        "end_time": "1350",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Misasi, John Michail",
+        "room": "ET 107",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "24",
+        "enrl": "0",
+        "avail": "24",
+        "waitlist": "",
+        "restrictions": "MJ PQ",
+        "attributes": "FTF",
+        "prerequisites": "ENGR 170 or MSCI 201 or ID 380",
         "gpa": null
     },
     {

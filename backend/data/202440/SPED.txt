@@ -1,4 +1,4 @@
-2024-04-29T12:48:33.878012
+2024-05-06T14:35:30.621508
 [
     {
         "subject": "SPED 303",
@@ -74,13 +74,13 @@
         "course_credits": "4",
         "crn": "42483",
         "days": "MW",
-        "start_time": "1200",
-        "end_time": "1350",
+        "start_time": "0800",
+        "end_time": "0950",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Hoagland, Laura Jessica",
-        "room": "TBA",
+        "room": "MH 154",
         "lab_room": null,
         "addl_fees": "Flat Fee $16.17",
         "cap": "25",

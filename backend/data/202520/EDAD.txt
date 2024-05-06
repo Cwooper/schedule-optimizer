@@ -1,4 +1,4 @@
-2024-04-29T12:47:49.722279
+2024-05-06T14:34:32.743742
 [
     {
         "subject": "EDAD 503",
@@ -10,8 +10,8 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Clothier, Beth G.",
-        "room": "TBA",
+        "instructor": "Makoyiisaaminaa, Will",
+        "room": "ONLINE SYNC",
         "lab_room": null,
         "addl_fees": "",
         "cap": "12",
@@ -19,7 +19,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "GR PB PM",
-        "attributes": "HYBD",
+        "attributes": "OL SYNC",
         "prerequisites": "Graduate status.",
         "gpa": null
     },
@@ -57,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Bruce, Tim",
-        "room": "TBA",
+        "room": "ONLINE SYNC",
         "lab_room": null,
         "addl_fees": "",
         "cap": "12",
@@ -65,7 +65,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "GR GR PB PM",
-        "attributes": "HYBD",
+        "attributes": "OL SYNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -73,14 +73,14 @@
         "subject": "EDAD 548",
         "course_credits": "4",
         "crn": "22006",
-        "days": "R",
-        "start_time": "TBD",
-        "end_time": "TBD",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Larsen, Donald Edward",
-        "room": "TBA",
+        "room": "ONLINE ASNC",
         "lab_room": null,
         "addl_fees": "",
         "cap": "12",
@@ -88,7 +88,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "GR GR PB PM",
-        "attributes": "HYBD",
+        "attributes": "ASNC OL",
         "prerequisites": "",
         "gpa": null
     },

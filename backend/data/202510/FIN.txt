@@ -1,4 +1,4 @@
-2024-04-29T12:48:07.875043
+2024-05-06T14:34:58.239486
 [
     {
         "subject": "FIN 215",
@@ -110,7 +110,7 @@
         "enrl": "0",
         "avail": "45",
         "waitlist": "",
-        "restrictions": "JR SO SR PQ",
+        "restrictions": "JR SO SR MJ PQ",
         "attributes": "FTF",
         "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
         "gpa": null
@@ -133,7 +133,7 @@
         "enrl": "0",
         "avail": "45",
         "waitlist": "",
-        "restrictions": "JR SO SR PQ",
+        "restrictions": "JR SO SR MJ PQ",
         "attributes": "FTF",
         "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
         "gpa": null
@@ -156,7 +156,7 @@
         "enrl": "0",
         "avail": "45",
         "waitlist": "",
-        "restrictions": "JR SO SR PQ",
+        "restrictions": "JR SO SR MJ PQ",
         "attributes": "FTF",
         "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
         "gpa": null
@@ -168,12 +168,12 @@
         "days": "R",
         "start_time": "1200",
         "end_time": "1350",
-        "lab_days": "N/A",
-        "lab_start_time": "N/A",
-        "lab_end_time": "N/A",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
         "instructor": "McClain, Lee",
         "room": "Poulsbo - State Supported",
-        "lab_room": "ONLINE ASNC",
+        "lab_room": null,
         "addl_fees": "",
         "cap": "10",
         "enrl": "0",
@@ -202,7 +202,7 @@
         "enrl": "0",
         "avail": "15",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "MIX OL",
         "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
         "gpa": null

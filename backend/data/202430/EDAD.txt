@@ -1,4 +1,4 @@
-2024-04-29T12:48:38.383628
+2024-05-06T14:35:35.849743
 [
     {
         "subject": "EDAD 536",
@@ -56,7 +56,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Bruce, Tim",
+        "instructor": "Makoyiisaaminaa, Will",
         "room": "Everett EESP Extention",
         "lab_room": null,
         "addl_fees": "Per/Cr $426.00",
@@ -79,7 +79,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Bruce, Tim",
+        "instructor": "Makoyiisaaminaa, Will",
         "room": "Distance Learning",
         "lab_room": null,
         "addl_fees": "Per/Cr $426.00",

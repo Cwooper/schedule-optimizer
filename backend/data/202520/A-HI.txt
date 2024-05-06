@@ -1,4 +1,4 @@
-2024-04-29T12:47:46.292330
+2024-05-06T14:34:28.756051
 [
     {
         "subject": "A/HI 212",
@@ -194,7 +194,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Jaye, Cara E.",
+        "instructor": "Turner, Lisa Michelle",
         "room": "FI OFC",
         "lab_room": null,
         "addl_fees": "",

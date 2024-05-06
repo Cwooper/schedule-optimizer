@@ -1,17 +1,17 @@
-2024-04-29T12:48:32.581425
+2024-05-06T14:35:29.143679
 [
     {
         "subject": "RECR 201",
         "course_credits": "4",
         "crn": "40022",
-        "days": "MW",
+        "days": "TR",
         "start_time": "1000",
         "end_time": "1150",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Chmielewski, Kristen Elizabeth",
-        "room": "TBA",
+        "room": "MH 038",
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",

@@ -1,4 +1,4 @@
-2024-04-29T12:48:49.110941
+2024-05-06T14:35:47.027025
 [
     {
         "subject": "CHIN 103",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "22",
-        "enrl": "13",
-        "avail": "9",
+        "enrl": "12",
+        "avail": "10",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCOM FTF",

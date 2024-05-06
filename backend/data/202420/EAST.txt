@@ -1,4 +1,4 @@
-2024-04-29T12:48:50.967411
+2024-05-06T14:35:49.129487
 [
     {
         "subject": "EAST 201",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "24",
-        "enrl": "22",
-        "avail": "2",
+        "enrl": "21",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM ANCT ASIA CMB1 FTF",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "37",
-        "enrl": "32",
-        "avail": "5",
+        "enrl": "31",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM ASIA CMB2 FTF",

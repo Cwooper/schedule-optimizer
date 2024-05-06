@@ -1,4 +1,4 @@
-2024-04-29T12:48:14.599816
+2024-05-06T14:35:05.449824
 [
     {
         "subject": "OPS 360",
@@ -53,12 +53,12 @@
         "days": "N/A",
         "start_time": "N/A",
         "end_time": "N/A",
-        "lab_days": "N/A",
-        "lab_start_time": "N/A",
-        "lab_end_time": "N/A",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
         "instructor": "Springer, Mark C.",
         "room": "Poulsbo - State Supported",
-        "lab_room": "Poulsbo - State Supported",
+        "lab_room": null,
         "addl_fees": "",
         "cap": "4",
         "enrl": "0",

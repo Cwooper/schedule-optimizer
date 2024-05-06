@@ -1,4 +1,4 @@
-2024-04-29T12:48:06.328163
+2024-05-06T14:34:54.912306
 [
     {
         "subject": "ELED 305",
@@ -332,8 +332,8 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Barr, Kiersten Marie",
-        "room": "MH OFC",
+        "instructor": "Mc Lean Kesler, Christie A.",
+        "room": "ONLINE SYNC",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -341,7 +341,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
-        "attributes": "FTF",
+        "attributes": "OL SYNC",
         "prerequisites": "ELED 456 or instructor permission.",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-04-29T12:48:21.301859
+2024-05-06T14:35:14.691204
 [
     {
         "subject": "CISS 247",
@@ -290,12 +290,35 @@
         "room": "Kirkland-State Supported",
         "lab_room": null,
         "addl_fees": "Per/Cr $20.25",
+        "cap": "5",
+        "enrl": "0",
+        "avail": "5",
+        "waitlist": "",
+        "restrictions": "MJ PQ",
+        "attributes": "HYBD KLEX",
+        "prerequisites": "CISS 301",
+        "gpa": null
+    },
+    {
+        "subject": "CISS 478",
+        "course_credits": "4",
+        "crn": "44183",
+        "days": "TR",
+        "start_time": "1800",
+        "end_time": "1950",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Pavlichenko, Andrei",
+        "room": "ONLINE SYNC",
+        "lab_room": null,
+        "addl_fees": "Per/Cr $20.25",
         "cap": "10",
         "enrl": "0",
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "HYBD KLEX",
+        "attributes": "HYBD",
         "prerequisites": "CISS 301",
         "gpa": null
     },

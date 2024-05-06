@@ -1,4 +1,4 @@
-2024-04-29T12:47:55.745698
+2024-05-06T14:34:40.133709
 [
     {
         "subject": "MSCI 101",
@@ -27,10 +27,10 @@
         "subject": "MSCI 410",
         "course_credits": "4",
         "crn": "22759",
-        "days": "TR",
-        "start_time": "1200",
-        "end_time": "1250",
-        "lab_days": "T",
+        "days": "TF",
+        "start_time": "1400",
+        "end_time": "1450",
+        "lab_days": "R",
         "lab_start_time": "1300",
         "lab_end_time": "1650",
         "instructor": "Murphy, Amanda Ruth",

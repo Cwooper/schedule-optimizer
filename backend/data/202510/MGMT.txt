@@ -1,4 +1,4 @@
-2024-04-29T12:48:12.133664
+2024-05-06T14:35:02.592660
 [
     {
         "subject": "MGMT 201",
@@ -231,29 +231,6 @@
         "gpa": null
     },
     {
-        "subject": "MGMT 319",
-        "course_credits": "4",
-        "crn": "12546",
-        "days": "M",
-        "start_time": "1000",
-        "end_time": "1350",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Sampel, Pamela Jean",
-        "room": "Poulsbo - State Supported",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "25",
-        "enrl": "0",
-        "avail": "25",
-        "waitlist": "",
-        "restrictions": "MJ PQ",
-        "attributes": "FTF PBEX WP3",
-        "prerequisites": "ENG 101 or equivalent",
-        "gpa": null
-    },
-    {
         "subject": "MGMT 359",
         "course_credits": "4",
         "crn": "13849",
@@ -397,7 +374,7 @@
         "crn": "11802",
         "days": "M",
         "start_time": "1000",
-        "end_time": "1400",
+        "end_time": "1350",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,

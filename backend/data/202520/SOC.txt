@@ -1,4 +1,4 @@
-2024-04-29T12:48:00.676032
+2024-05-06T14:34:46.957298
 [
     {
         "subject": "SOC 260",
@@ -608,7 +608,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Anderson, Kristin Lee",
+        "instructor": "Feinberg, Seth L.",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
@@ -700,7 +700,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Anderson, Kristin Lee",
+        "instructor": "Feinberg, Seth L.",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
@@ -723,7 +723,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Anderson, Kristin Lee",
+        "instructor": "Feinberg, Seth L.",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",

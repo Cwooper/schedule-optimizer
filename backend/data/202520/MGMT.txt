@@ -1,4 +1,4 @@
-2024-04-29T12:47:54.935999
+2024-05-06T14:34:39.212657
 [
     {
         "subject": "MGMT 271",
@@ -162,29 +162,6 @@
         "gpa": null
     },
     {
-        "subject": "MGMT 313",
-        "course_credits": "4",
-        "crn": "22483",
-        "days": "TR",
-        "start_time": "1000",
-        "end_time": "1150",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Bedi, Akanksha",
-        "room": "Poulsbo - State Supported",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "25",
-        "enrl": "0",
-        "avail": "25",
-        "waitlist": "",
-        "restrictions": "XBA-BADM MJ PQ",
-        "attributes": "CF FTF PBEX",
-        "prerequisites": "Majors Only. MGMT 311",
-        "gpa": null
-    },
-    {
         "subject": "MGMT 315",
         "course_credits": "1",
         "crn": "23478",
@@ -313,36 +290,13 @@
         "room": "Poulsbo - State Supported",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "15",
-        "enrl": "0",
-        "avail": "15",
-        "waitlist": "",
-        "restrictions": "XBA-BADM MJ PQ",
-        "attributes": "FTF PBEX",
-        "prerequisites": "Majors only. MGMT 271.",
-        "gpa": null
-    },
-    {
-        "subject": "MGMT 401",
-        "course_credits": "4",
-        "crn": "21997",
-        "days": "M",
-        "start_time": "1000",
-        "end_time": "1350",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Sampel, Pamela Jean",
-        "room": "Poulsbo - State Supported",
-        "lab_room": null,
-        "addl_fees": "",
         "cap": "25",
         "enrl": "0",
         "avail": "25",
         "waitlist": "",
-        "restrictions": "MJ",
+        "restrictions": "XBA-BADM MJ PQ",
         "attributes": "FTF PBEX",
-        "prerequisites": "Majors only.",
+        "prerequisites": "Majors only. MGMT 271.",
         "gpa": null
     },
     {

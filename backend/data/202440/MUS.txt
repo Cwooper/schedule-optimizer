@@ -1,4 +1,4 @@
-2024-04-29T12:48:30.917064
+2024-05-06T14:35:26.701826
 [
     {
         "subject": "MUS 101",
@@ -4651,8 +4651,8 @@
         "course_credits": "2",
         "crn": "40099",
         "days": "F",
-        "start_time": "1100",
-        "end_time": "1150",
+        "start_time": "1000",
+        "end_time": "1050",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,

@@ -1,4 +1,4 @@
-2024-04-29T12:48:29.458753
+2024-05-06T14:35:24.594228
 [
     {
         "subject": "MPAC 521",
@@ -97,13 +97,13 @@
         "course_credits": "4",
         "crn": "42591",
         "days": "MW",
-        "start_time": "1000",
-        "end_time": "1150",
+        "start_time": "1600",
+        "end_time": "1750",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Singleton, Ron",
-        "room": "TBA",
+        "room": "PH 244",
         "lab_room": null,
         "addl_fees": "Per/Cr $25.00",
         "cap": "5",

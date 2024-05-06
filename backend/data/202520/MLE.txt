@@ -1,4 +1,4 @@
-2024-04-29T12:47:57.408743
+2024-05-06T14:34:40.850030
 [
     {
         "subject": "MLE 441",
@@ -112,29 +112,6 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
-        "prerequisites": "MLE 444",
-        "gpa": null
-    },
-    {
-        "subject": "MLE 445",
-        "course_credits": "5",
-        "crn": "23511",
-        "days": "TBD",
-        "start_time": "TBD",
-        "end_time": "TBD",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Staff",
-        "room": "TBA",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "16",
-        "enrl": "0",
-        "avail": "16",
-        "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "FTF RTEX",
         "prerequisites": "MLE 444",
         "gpa": null
     }

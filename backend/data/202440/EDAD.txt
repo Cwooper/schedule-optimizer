@@ -1,4 +1,4 @@
-2024-04-29T12:48:22.489566
+2024-05-06T14:35:15.991200
 [
     {
         "subject": "EDAD 501",
@@ -10,7 +10,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Clothier, Beth G.",
+        "instructor": "Makoyiisaaminaa, Will",
         "room": "ONLINE SYNC",
         "lab_room": null,
         "addl_fees": "",
@@ -50,7 +50,7 @@
         "subject": "EDAD 512",
         "course_credits": "5",
         "crn": "42130",
-        "days": "R",
+        "days": "T",
         "start_time": "1700",
         "end_time": "2050",
         "lab_days": null,
@@ -96,14 +96,14 @@
         "subject": "EDAD 553",
         "course_credits": "4",
         "crn": "40355",
-        "days": "T",
+        "days": "R",
         "start_time": "1700",
         "end_time": "2050",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Larsen, Donald Edward",
-        "room": "MH 017",
+        "room": "ONLINE SYNC",
         "lab_room": null,
         "addl_fees": "",
         "cap": "12",
@@ -111,7 +111,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "GR GR PB PM",
-        "attributes": "HYBD",
+        "attributes": "OL SYNC",
         "prerequisites": "Graduate status",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-04-29T12:48:53.088311
+2024-05-06T14:35:51.577298
 [
     {
         "subject": "ENVS 203",
@@ -38,8 +38,8 @@
         "lab_room": "HH 101",
         "addl_fees": "",
         "cap": "30",
-        "enrl": "29",
-        "avail": "1",
+        "enrl": "28",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF LSCI",

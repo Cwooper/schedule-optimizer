@@ -1,4 +1,4 @@
-2024-04-29T12:48:18.704622
+2024-05-06T14:35:11.545116
 [
     {
         "subject": "ANTH 102",
@@ -456,7 +456,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF",
+        "attributes": "FTF WP2",
         "prerequisites": "ANTH 215; One course from: ANTH 201, ANTH 210, HNRS 203.",
         "gpa": null
     },

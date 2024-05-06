@@ -1,4 +1,4 @@
-2024-04-29T12:48:49.501666
+2024-05-06T14:35:47.502780
 [
     {
         "subject": "CSD 251",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "150",
-        "enrl": "149",
-        "avail": "1",
+        "enrl": "148",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",

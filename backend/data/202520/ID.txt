@@ -1,4 +1,4 @@
-2024-04-29T12:47:53.384807
+2024-05-06T14:34:37.459900
 [
     {
         "subject": "ID 120",
@@ -113,29 +113,6 @@
         "restrictions": "PR",
         "attributes": "FTF",
         "prerequisites": "",
-        "gpa": null
-    },
-    {
-        "subject": "ID 320",
-        "course_credits": "4",
-        "crn": "21044",
-        "days": "TR",
-        "start_time": "1000",
-        "end_time": "1250",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Morris, Jason A.",
-        "room": "ET 262",
-        "lab_room": null,
-        "addl_fees": "Flat Fee $192.00",
-        "cap": "18",
-        "enrl": "0",
-        "avail": "18",
-        "waitlist": "",
-        "restrictions": "MJ PQ",
-        "attributes": "FTF",
-        "prerequisites": "ID 110 or ID 310 or DSGN 213.",
         "gpa": null
     },
     {

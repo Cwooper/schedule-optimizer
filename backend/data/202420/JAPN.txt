@@ -1,4 +1,4 @@
-2024-04-29T12:48:56.813311
+2024-05-06T14:35:54.774806
 [
     {
         "subject": "JAPN 103",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "25",
-        "enrl": "9",
-        "avail": "16",
+        "enrl": "8",
+        "avail": "17",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCOM FTF",

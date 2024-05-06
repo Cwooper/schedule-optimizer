@@ -1,4 +1,4 @@
-2024-04-29T12:48:19.905777
+2024-05-06T14:35:13.017817
 [
     {
         "subject": "C/AM 277",
@@ -52,12 +52,12 @@
         "crn": "42259",
         "days": "TR",
         "start_time": "1200",
-        "end_time": "1340",
+        "end_time": "1350",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Baker, Mary Tuti",
-        "room": "FA 300B",
+        "room": "FA 318",
         "lab_room": null,
         "addl_fees": "",
         "cap": "10",
@@ -140,7 +140,7 @@
     },
     {
         "subject": "C/AM 405",
-        "course_credits": "3 TO 5",
+        "course_credits": "4",
         "crn": "44121",
         "days": "TR",
         "start_time": "1400",

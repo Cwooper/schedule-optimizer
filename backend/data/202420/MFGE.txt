@@ -1,4 +1,4 @@
-2024-04-29T12:48:57.981919
+2024-05-06T14:35:56.140877
 [
     {
         "subject": "MFGE 231",
@@ -291,8 +291,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $167.00",
         "cap": "24",
-        "enrl": "25",
-        "avail": "-1",
+        "enrl": "24",
+        "avail": "0",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",

@@ -1,4 +1,4 @@
-2024-04-29T12:48:05.103187
+2024-05-06T14:34:53.436112
 [
     {
         "subject": "DATA 311",
@@ -159,29 +159,6 @@
         "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "DATA 492",
-        "gpa": null
-    },
-    {
-        "subject": "DATA 571",
-        "course_credits": "4",
-        "crn": "13023",
-        "days": "MTWF",
-        "start_time": "1200",
-        "end_time": "1250",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Hutchinson, Brian James",
-        "room": "TBA",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "15",
-        "enrl": "0",
-        "avail": "15",
-        "waitlist": "",
-        "restrictions": "GR PB PM MJ PQ",
-        "attributes": "FTF",
-        "prerequisites": "Graduate status; MATH 204; MATH 224; and MATH 341; or instructor permission.",
         "gpa": null
     }
 ]

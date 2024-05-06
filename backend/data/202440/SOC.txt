@@ -1,4 +1,4 @@
-2024-04-29T12:48:33.562065
+2024-05-06T14:35:30.315873
 [
     {
         "subject": "SOC 255",
@@ -225,7 +225,7 @@
         "enrl": "0",
         "avail": "24",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "FTF WP1",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -248,7 +248,7 @@
         "enrl": "0",
         "avail": "24",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "FTF WP1",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -271,7 +271,7 @@
         "enrl": "0",
         "avail": "28",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "FTF QSR",
         "prerequisites": "MATH 107 or MATH 112 or equivalent; And any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -294,7 +294,7 @@
         "enrl": "0",
         "avail": "28",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "FTF QSR",
         "prerequisites": "MATH 107 or MATH 112 or equivalent; And any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -317,7 +317,7 @@
         "enrl": "0",
         "avail": "24",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "FTF WP1",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -340,7 +340,7 @@
         "enrl": "0",
         "avail": "24",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "FTF WP1",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -363,7 +363,7 @@
         "enrl": "0",
         "avail": "20",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "SOC 304 or equivalent; and any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -432,7 +432,7 @@
         "enrl": "0",
         "avail": "25",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "BCGM FTF",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, WGSS 211, WGSS 212, WGSS 213, or HNRS 252; or instructor permission.",
         "gpa": null
@@ -501,7 +501,7 @@
         "enrl": "0",
         "avail": "30",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252, or instructor permission.",
         "gpa": null
@@ -547,7 +547,7 @@
         "enrl": "0",
         "avail": "30",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -570,31 +570,8 @@
         "enrl": "0",
         "avail": "30",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "BCGM FTF",
-        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
-        "gpa": null
-    },
-    {
-        "subject": "SOC 366",
-        "course_credits": "5",
-        "crn": "41823",
-        "days": "MWF",
-        "start_time": "1300",
-        "end_time": "1420",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Feinberg, Seth L.",
-        "room": "IS 310",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "30",
-        "enrl": "0",
-        "avail": "30",
-        "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "ACGM FTF",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
     },
@@ -616,7 +593,7 @@
         "enrl": "0",
         "avail": "30",
         "waitlist": "",
-        "restrictions": "MJ PQ",
+        "restrictions": "PQ",
         "attributes": "ASNC OL SST",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission; minority relations course preferred.",
         "gpa": null
@@ -685,7 +662,7 @@
         "enrl": "0",
         "avail": "30",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -708,7 +685,7 @@
         "enrl": "0",
         "avail": "30",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -769,7 +746,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Anderson, Kristin Lee",
+        "instructor": "Feinberg, Seth L.",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
@@ -907,7 +884,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Anderson, Kristin Lee",
+        "instructor": "Feinberg, Seth L.",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
@@ -930,7 +907,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Anderson, Kristin Lee",
+        "instructor": "Feinberg, Seth L.",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
@@ -939,7 +916,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "CPST FTF",
+        "attributes": "CPST FTF WP1",
         "prerequisites": "SOC 302; and SOC 304 or SOC 215; and SOC 306 or or SOC 210. 5 credits of SOC 400 taken with student's senior thesis faculty advisor before and in preparation for senior thesis.",
         "gpa": null
     }

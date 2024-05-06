@@ -1,4 +1,4 @@
-2024-04-29T12:48:20.844274
+2024-05-06T14:35:14.167498
 [
     {
         "subject": "COMM 101",
@@ -810,7 +810,7 @@
         "course_credits": "5",
         "crn": "43977",
         "days": "MW",
-        "start_time": "1600",
+        "start_time": "1800",
         "end_time": "1820",
         "lab_days": null,
         "lab_start_time": null,
@@ -948,13 +948,13 @@
         "course_credits": "5",
         "crn": "43980",
         "days": "MW",
-        "start_time": "1300",
-        "end_time": "1520",
+        "start_time": "1600",
+        "end_time": "1750",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Karlberg, Michael R.",
-        "room": "TBA",
+        "room": "CF 224",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",

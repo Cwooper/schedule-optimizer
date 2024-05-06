@@ -1,4 +1,4 @@
-2024-04-29T12:48:27.238539
+2024-05-06T14:35:21.769149
 [
     {
         "subject": "I T 344",
@@ -50,7 +50,7 @@
         "subject": "I T 344",
         "course_credits": "1",
         "crn": "40474",
-        "days": "W",
+        "days": "T",
         "start_time": "0900",
         "end_time": "0950",
         "lab_days": null,
@@ -87,7 +87,7 @@
         "enrl": "0",
         "avail": "25",
         "waitlist": "",
-        "restrictions": "ED S/U",
+        "restrictions": "OV ED S/U",
         "attributes": "FTF",
         "prerequisites": "",
         "gpa": null

@@ -1,4 +1,4 @@
-2024-04-29T12:48:21.725923
+2024-05-06T14:35:15.139439
 [
     {
         "subject": "DSCI 205",
@@ -99,12 +99,12 @@
         "days": "TBD",
         "start_time": "TBD",
         "end_time": "TBD",
-        "lab_days": "N/A",
-        "lab_start_time": "N/A",
-        "lab_end_time": "N/A",
-        "instructor": "Kim, Ilhyung",
+        "lab_days": "TBD",
+        "lab_start_time": "TBD",
+        "lab_end_time": "TBD",
+        "instructor": "Su, Sue",
         "room": "Poulsbo - State Supported",
-        "lab_room": "ONLINE ASNC",
+        "lab_room": "Poulsbo - State Supported",
         "addl_fees": "",
         "cap": "7",
         "enrl": "0",

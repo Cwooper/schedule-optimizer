@@ -1,4 +1,4 @@
-2024-04-29T12:48:31.589156
+2024-05-06T14:35:27.577339
 [
     {
         "subject": "PE 101",
@@ -893,6 +893,29 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "ED MJ",
+        "attributes": "FTF",
+        "prerequisites": "Admission to Woodring College of Education.",
+        "gpa": null
+    },
+    {
+        "subject": "PE 345",
+        "course_credits": "3",
+        "crn": "44181",
+        "days": "MWF",
+        "start_time": "1300",
+        "end_time": "1350",
+        "lab_days": "MWF",
+        "lab_start_time": "1300",
+        "lab_end_time": "1350",
+        "instructor": "Robey, Hillary May",
+        "room": "CV 272",
+        "lab_room": "CV 280",
+        "addl_fees": "Flat Fee $12.74",
+        "cap": "30",
+        "enrl": "0",
+        "avail": "30",
+        "waitlist": "",
+        "restrictions": "ED",
         "attributes": "FTF",
         "prerequisites": "Admission to Woodring College of Education.",
         "gpa": null

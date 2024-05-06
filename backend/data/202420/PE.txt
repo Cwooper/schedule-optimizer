@@ -1,4 +1,4 @@
-2024-04-29T12:49:00.579127
+2024-05-06T14:35:59.328357
 [
     {
         "subject": "PE 101",
@@ -866,8 +866,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "40",
-        "enrl": "6",
-        "avail": "34",
+        "enrl": "8",
+        "avail": "32",
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",

@@ -1,4 +1,4 @@
-2024-04-29T12:48:50.770756
+2024-05-06T14:35:48.941751
 [
     {
         "subject": "DIAD 205",
@@ -84,8 +84,8 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "30",
-        "enrl": "29",
-        "avail": "1",
+        "enrl": "28",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM HYBD",
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "2",
-        "avail": "23",
+        "enrl": "1",
+        "avail": "24",
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",

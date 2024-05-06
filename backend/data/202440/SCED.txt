@@ -1,4 +1,4 @@
-2024-04-29T12:48:33.099887
+2024-05-06T14:35:29.711476
 [
     {
         "subject": "SCED 201",
@@ -175,9 +175,9 @@
         "room": "SL 240S",
         "lab_room": null,
         "addl_fees": "Flat Fee $23.00",
-        "cap": "0",
+        "cap": "20",
         "enrl": "0",
-        "avail": "0",
+        "avail": "20",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",

@@ -1,4 +1,4 @@
-2024-04-29T12:48:18.255925
+2024-05-06T14:35:10.969068
 [
     {
         "subject": "ACCT 240",
@@ -310,7 +310,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Moore, Jared Allen",
-        "room": "IS 244",
+        "room": "HH 153",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -442,13 +442,13 @@
         "course_credits": "4",
         "crn": "42589",
         "days": "MW",
-        "start_time": "1000",
-        "end_time": "1150",
+        "start_time": "1600",
+        "end_time": "1750",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Singleton, Ron",
-        "room": "TBA",
+        "room": "PH 244",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",

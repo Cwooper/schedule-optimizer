@@ -1,4 +1,4 @@
-2024-04-29T12:48:35.732548
+2024-05-06T14:35:32.168691
 [
     {
         "subject": "ART 109",
@@ -113,29 +113,6 @@
         "restrictions": "",
         "attributes": "ASNC OL",
         "prerequisites": "",
-        "gpa": null
-    },
-    {
-        "subject": "ART 280",
-        "course_credits": "5",
-        "crn": "30873",
-        "days": "TR",
-        "start_time": "0900",
-        "end_time": "1150",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Kolbo, Scott Michael",
-        "room": "FI 211",
-        "lab_room": null,
-        "addl_fees": "Flat Fee $111.97",
-        "cap": "18",
-        "enrl": "0",
-        "avail": "18",
-        "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "FTF",
-        "prerequisites": "ART 109; ART 110 or ID 110; ART 120 or ID 120; ART 230 or concurrent.",
         "gpa": null
     },
     {

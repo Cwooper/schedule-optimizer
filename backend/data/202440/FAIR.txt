@@ -1,4 +1,4 @@
-2024-04-29T12:48:24.206129
+2024-05-06T14:35:18.842795
 [
     {
         "subject": "FAIR 101A",
@@ -41,7 +41,7 @@
         "enrl": "0",
         "avail": "15",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF",
         "prerequisites": "Admission to Fairhaven College",
         "gpa": null
@@ -64,7 +64,7 @@
         "enrl": "0",
         "avail": "15",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF",
         "prerequisites": "Admission to Fairhaven College",
         "gpa": null
@@ -87,7 +87,7 @@
         "enrl": "0",
         "avail": "15",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF",
         "prerequisites": "Admission to Fairhaven College",
         "gpa": null
@@ -110,7 +110,7 @@
         "enrl": "0",
         "avail": "15",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF",
         "prerequisites": "Admission to Fairhaven College",
         "gpa": null
@@ -133,7 +133,7 @@
         "enrl": "0",
         "avail": "15",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF",
         "prerequisites": "Admission to Fairhaven College",
         "gpa": null
@@ -156,7 +156,7 @@
         "enrl": "0",
         "avail": "15",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF",
         "prerequisites": "Admission to Fairhaven College",
         "gpa": null
@@ -202,7 +202,7 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF",
         "prerequisites": "Admission to Fairhaven College",
         "gpa": null
@@ -225,7 +225,7 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF",
         "prerequisites": "Admission to Fairhaven College",
         "gpa": null
@@ -235,13 +235,13 @@
         "course_credits": "5",
         "crn": "43817",
         "days": "TR",
-        "start_time": "1500",
-        "end_time": "1720",
+        "start_time": "0900",
+        "end_time": "1120",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Schwandt, Hilary Megan",
-        "room": "FA 314",
+        "room": "FA 318",
         "lab_room": null,
         "addl_fees": "Flat Fee $16.43",
         "cap": "18",
@@ -294,7 +294,7 @@
         "enrl": "0",
         "avail": "25",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "ACGM FTF",
         "prerequisites": "",
         "gpa": null
@@ -317,7 +317,7 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF",
         "prerequisites": "",
         "gpa": null
@@ -340,7 +340,7 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "BCGM FTF",
         "prerequisites": "",
         "gpa": null
@@ -386,7 +386,7 @@
         "enrl": "0",
         "avail": "25",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF",
         "prerequisites": "",
         "gpa": null
@@ -409,7 +409,7 @@
         "enrl": "0",
         "avail": "16",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF",
         "prerequisites": "",
         "gpa": null
@@ -432,7 +432,7 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF",
         "prerequisites": "",
         "gpa": null
@@ -478,7 +478,7 @@
         "enrl": "0",
         "avail": "30",
         "waitlist": "",
-        "restrictions": "S/U PQ",
+        "restrictions": "FA S/U PQ",
         "attributes": "FTF",
         "prerequisites": "FAIR 101A, FAIR 201A, FAIR 203A and FAIR 301A. Required of students in the Interdisciplinary Concentration.",
         "gpa": null
@@ -501,7 +501,7 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "MJ S/U",
         "attributes": "BCGM FTF",
         "prerequisites": "",
         "gpa": null
@@ -524,7 +524,7 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF SSC",
         "prerequisites": "FAIR 203A or Social Science GUR or permission of instructor.",
         "gpa": null
@@ -547,7 +547,7 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "FA MJ S/U PQ",
+        "restrictions": "MJ S/U",
         "attributes": "FTF",
         "prerequisites": "FAIR 304A or instructor permission.",
         "gpa": null
@@ -570,9 +570,32 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "S/U PQ",
+        "restrictions": "FA S/U PQ",
         "attributes": "FTF",
         "prerequisites": "FAIR 201A and FAIR 203A; or instructor permission.",
+        "gpa": null
+    },
+    {
+        "subject": "FAIR 323G",
+        "course_credits": "4",
+        "crn": "44182",
+        "days": "TR",
+        "start_time": "1230",
+        "end_time": "1450",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Friedland, Yanara",
+        "room": "FA 314",
+        "lab_room": null,
+        "addl_fees": "Flat Fee $7.51",
+        "cap": "18",
+        "enrl": "0",
+        "avail": "18",
+        "waitlist": "",
+        "restrictions": "FA S/U",
+        "attributes": "FTF",
+        "prerequisites": "FAIR 222G or FAIR 222H, creative writing course, or instructor permission.",
         "gpa": null
     },
     {
@@ -593,7 +616,7 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF",
         "prerequisites": "FAIR 202A or instructor permission.",
         "gpa": null
@@ -616,7 +639,7 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "S/U PQ",
+        "restrictions": "FA S/U PQ",
         "attributes": "FTF",
         "prerequisites": "FAIR 203a or instructor permission.",
         "gpa": null
@@ -639,7 +662,7 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF",
         "prerequisites": "FAIR 206a or equivalent",
         "gpa": null
@@ -648,21 +671,21 @@
         "subject": "FAIR 336V",
         "course_credits": "5",
         "crn": "43824",
-        "days": "M",
-        "start_time": "1500",
-        "end_time": "1620",
-        "lab_days": "F",
-        "lab_start_time": "1330",
-        "lab_end_time": "1620",
+        "days": "F",
+        "start_time": "0900",
+        "end_time": "1320",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
         "instructor": "Snyderman, Robert S.",
         "room": "FA 310",
-        "lab_room": "FA 310",
+        "lab_room": null,
         "addl_fees": "Flat Fee $17.17",
         "cap": "18",
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF",
         "prerequisites": "FAIR 202a or equivalent",
         "gpa": null
@@ -685,7 +708,7 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF",
         "prerequisites": "FAIR 201A",
         "gpa": null
@@ -708,7 +731,7 @@
         "enrl": "0",
         "avail": "10",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF",
         "prerequisites": "",
         "gpa": null
@@ -731,7 +754,7 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF",
         "prerequisites": "FAIR 202A or FAIR 270B or ENG 364; or instructor permission.",
         "gpa": null
@@ -754,7 +777,7 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "FA MJ S/U PQ",
+        "restrictions": "FA S/U PQ",
         "attributes": "FTF",
         "prerequisites": "FAIR 270H.",
         "gpa": null
@@ -777,7 +800,7 @@
         "enrl": "0",
         "avail": "12",
         "waitlist": "",
-        "restrictions": "FA MJ S/U PQ",
+        "restrictions": "FA S/U PQ",
         "attributes": "FTF",
         "prerequisites": "FAIR 370I or FAIR 370P",
         "gpa": null
@@ -800,7 +823,7 @@
         "enrl": "0",
         "avail": "12",
         "waitlist": "",
-        "restrictions": "OV FA MJ S/U",
+        "restrictions": "OV FA S/U",
         "attributes": "FTF",
         "prerequisites": "Instructor permission.",
         "gpa": null
@@ -823,32 +846,9 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "S/U PQ",
+        "restrictions": "FA S/U PQ",
         "attributes": "FTF",
         "prerequisites": "FAIR 270H with concurrency.",
-        "gpa": null
-    },
-    {
-        "subject": "FAIR 381G",
-        "course_credits": "5",
-        "crn": "43827",
-        "days": "TR",
-        "start_time": "1230",
-        "end_time": "1450",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Friedland, Yanara",
-        "room": "FA 314",
-        "lab_room": null,
-        "addl_fees": "Flat Fee $14.49",
-        "cap": "18",
-        "enrl": "0",
-        "avail": "18",
-        "waitlist": "",
-        "restrictions": "S/U",
-        "attributes": "FTF",
-        "prerequisites": "",
         "gpa": null
     },
     {
@@ -869,7 +869,7 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF",
         "prerequisites": "FAIR 201A or instructor permission.",
         "gpa": null
@@ -915,7 +915,7 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "S/U PQ",
+        "restrictions": "FA S/U PQ",
         "attributes": "FTF",
         "prerequisites": "FAIR 311B or PLSC 311 or permission of instructor.",
         "gpa": null
@@ -938,7 +938,7 @@
         "enrl": "0",
         "avail": "15",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF",
         "prerequisites": "FAIR 206A or equivalent, a course in biology or ecology, and upper level standing, or instructor's permission.",
         "gpa": null
@@ -961,7 +961,7 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "FA S/U",
         "attributes": "FTF",
         "prerequisites": "Any course in evolution or permission of instructor.",
         "gpa": null
@@ -984,7 +984,7 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "S/U PQ",
+        "restrictions": "FA S/U PQ",
         "attributes": "FTF",
         "prerequisites": "One course from: FAIR\u00a0203A, FAIR 242A, ETHN 201, WGSS 211, WGSS 212, or WGSS 213; or instructor permission.",
         "gpa": null

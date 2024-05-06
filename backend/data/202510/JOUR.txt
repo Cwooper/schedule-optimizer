@@ -1,4 +1,4 @@
-2024-04-29T12:48:10.294049
+2024-05-06T14:35:01.668755
 [
     {
         "subject": "JOUR 106",
@@ -448,7 +448,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Webb, Sheila M.",
-        "room": "TBA",
+        "room": "CF 202",
         "lab_room": null,
         "addl_fees": "",
         "cap": "18",

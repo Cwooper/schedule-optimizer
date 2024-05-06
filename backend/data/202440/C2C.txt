@@ -1,4 +1,4 @@
-2024-04-29T12:48:20.944740
+2024-05-06T14:35:14.262768
 [
     {
         "subject": "C2C 201",
@@ -51,13 +51,13 @@
         "course_credits": "3",
         "crn": "41344",
         "days": "MW",
-        "start_time": "1000",
-        "end_time": "1120",
+        "start_time": "1430",
+        "end_time": "1550",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Cochran, Heather Michelle",
-        "room": "TBA",
+        "room": "HH 353",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",

@@ -1,4 +1,4 @@
-2024-04-29T12:48:28.136319
+2024-05-06T14:35:23.126325
 [
     {
         "subject": "KIN 306",
@@ -267,9 +267,9 @@
         "room": "CV 103",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "33",
+        "cap": "7",
         "enrl": "0",
-        "avail": "33",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
@@ -290,9 +290,9 @@
         "room": "CV 103",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "7",
+        "cap": "33",
         "enrl": "0",
-        "avail": "7",
+        "avail": "33",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",

@@ -1,4 +1,4 @@
-2024-04-29T12:48:24.322737
+2024-05-06T14:35:18.966008
 [
     {
         "subject": "FIN 215",
@@ -110,7 +110,7 @@
         "enrl": "0",
         "avail": "45",
         "waitlist": "",
-        "restrictions": "JR SO SR PQ",
+        "restrictions": "JR SO SR MJ PQ",
         "attributes": "FTF",
         "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
         "gpa": null
@@ -133,8 +133,8 @@
         "enrl": "0",
         "avail": "25",
         "waitlist": "",
-        "restrictions": "JR SO SR PQ",
-        "attributes": "ASNC OL SST",
+        "restrictions": "JR SO SR MJ PQ",
+        "attributes": "ASNC OL QSR SST",
         "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
         "gpa": null
     },
@@ -149,14 +149,14 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Carabini, Christopher Eugene",
-        "room": "PH 109",
+        "room": "HH 253",
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
         "enrl": "0",
         "avail": "45",
         "waitlist": "",
-        "restrictions": "JR SO SR PQ",
+        "restrictions": "JR SO SR MJ PQ",
         "attributes": "FTF",
         "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
         "gpa": null

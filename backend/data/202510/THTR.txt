@@ -1,4 +1,4 @@
-2024-04-29T12:48:17.828516
+2024-05-06T14:35:10.446893
 [
     {
         "subject": "THTR 101",
@@ -37,9 +37,9 @@
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "16",
+        "cap": "18",
         "enrl": "0",
-        "avail": "16",
+        "avail": "18",
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",

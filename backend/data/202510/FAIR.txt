@@ -1,4 +1,4 @@
-2024-04-29T12:48:07.751179
+2024-05-06T14:34:58.101636
 [
     {
         "subject": "FAIR 101A",
@@ -478,7 +478,7 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "FA MJ S/U PQ",
+        "restrictions": "FA MJ S/U",
         "attributes": "FTF",
         "prerequisites": "FAIR 304A or instructor permission.",
         "gpa": null

@@ -1,4 +1,4 @@
-2024-04-29T12:48:55.753146
+2024-05-06T14:35:53.601378
 [
     {
         "subject": "HNRS 105",
@@ -521,8 +521,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "7",
-        "avail": "8",
+        "enrl": "6",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "OV JR SR",
         "attributes": "FTF WP3",
@@ -705,8 +705,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "102",
-        "enrl": "101",
-        "avail": "1",
+        "enrl": "102",
+        "avail": "0",
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",

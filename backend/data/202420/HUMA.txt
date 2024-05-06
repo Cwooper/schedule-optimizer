@@ -1,4 +1,4 @@
-2024-04-29T12:48:56.109814
+2024-05-06T14:35:54.026834
 [
     {
         "subject": "HUMA 121",
@@ -130,8 +130,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
-        "enrl": "43",
-        "avail": "2",
+        "enrl": "42",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",

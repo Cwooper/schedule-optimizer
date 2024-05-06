@@ -1,4 +1,4 @@
-2024-04-29T12:48:44.499200
+2024-05-06T14:35:41.280728
 [
     {
         "subject": "OPS 360",
@@ -50,14 +50,14 @@
         "subject": "OPS 464",
         "course_credits": "4",
         "crn": "30182",
-        "days": "N/A",
-        "start_time": "N/A",
-        "end_time": "N/A",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Springer, Mark C.",
-        "room": "ONLINE ASNC",
+        "room": "PH OFC",
         "lab_room": null,
         "addl_fees": "",
         "cap": "5",
@@ -65,7 +65,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "ASNC OL WP3",
+        "attributes": "FTF WP3",
         "prerequisites": "OPS 360 and permission of instructor; first-time enrollment restricted to manufacturing and supply chain management students with foundation or full major status; second-time enrollment restricted to manufacturing and supply chain management students with full major status.",
         "gpa": null
     }
