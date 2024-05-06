@@ -1,4 +1,4 @@
-# fetch_schedules.py
+# get_schedules.py
 
 # Custom functions and objects
 from Course import Course
@@ -19,7 +19,7 @@ current_directory = os.path.dirname(os.path.realpath(__file__))
 data_directory = os.path.join(current_directory, 'data')
 
 usage = """
-Usage: python3 get_schedules.py <"course1" "course2" ...> <--term term> [--minimum num] [--maximum num]
+Usage: python3 get_schedules.py <"course1" "course2" ...> <--term term> [--minimum num] [--maximum num] [--force "course1" "course2" ...]
 
 Description:
     Retrieve schedules for the specified courses.
@@ -29,11 +29,10 @@ Arguments:
     <--term term>               Specify the term for which schedules should be retrieved.
     [--minimum num]             (Optional) Specify the minimum number of schedules to retrieve.
     [--maximum num]             (Optional) Specify the maximum number of schedules to retrieve.
+    [--force "course1" "course2" ...] List of courses to force schedules for.
 """
 
-
-# Return a list of schedules based on the course names
-def _get_schedules(course_names: list[str], term, minimum_size=2, maximum_size=5) -> list['Schedule']:
+def clean_course_names(course_names):
     cleaned_course_names = []
     # Clean and verify course names
     for course_name in course_names:
@@ -43,10 +42,21 @@ def _get_schedules(course_names: list[str], term, minimum_size=2, maximum_size=5
         else:
             print(f"Invalid Course Name: {course_name}")
     
+    return cleaned_course_names
+
+# Return a list of schedules based on the course names
+def _get_schedules(course_names: list[str], term, minimum_size=2,
+                   maximum_size=5, force_include=None) -> list['Schedule']:
+    cleaned_course_names = clean_course_names(course_names)
     courses = []
 
     pickle_file = os.path.join(data_directory, term, term + '.pkl')
-    df = pd.read_pickle(pickle_file)
+    try:
+        df = pd.read_pickle(pickle_file)
+    except Exception as e:
+        print(e)
+        print(f"\nDoes the term {term} exist?")
+        exit(1)
     for course_name in cleaned_course_names:
         # Filter DataFrame based on course name
         matching_rows = df[df['subject'] == course_name]
@@ -57,16 +67,22 @@ def _get_schedules(course_names: list[str], term, minimum_size=2, maximum_size=5
         for course_dict in course_dicts:
             courses.append(Course(**course_dict))
 
-    schedules = generate_schedules(courses, min_schedule_size=minimum_size, max_schedule_size=maximum_size)
+    schedules = generate_schedules(courses, min_schedule_size=minimum_size,
+                                   max_schedule_size=maximum_size)
+
     for schedule in schedules:
         schedule.weigh_self()
 
+    # Remove all forced schedules
+    if force_include:
+        for schedule in schedules[:]:
+            for forced_course in force_include:
+                if forced_course not in [course.subject for course in schedule.courses]:
+                    schedules.remove(schedule)
+                    break
+
     schedules.sort(key=lambda schedule: schedule.score)
     return schedules
-
-# Weigh each schedule and return the list of the schedules with scores and weights
-def weigh_schedules(schedules: list['Schedule']) -> list['Schedule']:
-    ...
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Weigh schedules with optional minimum and maximum values")
@@ -74,6 +90,7 @@ def parse_args():
     parser.add_argument("--term", type=str, default=None, help="Term to schedule")
     parser.add_argument("--minimum", type=int, default=None, help="Minimum size of schedules")
     parser.add_argument("--maximum", type=int, default=None, help="Maximum size of schedules")
+    parser.add_argument("--force", nargs="+", default=None, help="List of courses to force include in schedules")
     return parser.parse_args()
 
 # Timer function for finding how long it takes for execution
@@ -92,7 +109,8 @@ def main():
     course_names = args.courses
     minimum_size = args.minimum if args.minimum else SUGGESTED_MINIMUM
     maximum_size = args.maximum if args.maximum else SUGGESTED_MAXIMUM
-    
+    force_include = args.force
+
     if not term:
         print(usage)
         return
@@ -103,10 +121,13 @@ def main():
         print("Please input more courses than your minimum.")
         return 
     
-    schedules = _get_schedules(course_names, term, minimum_size=minimum_size, maximum_size=maximum_size)
+    schedules = _get_schedules(course_names, term, minimum_size=minimum_size,
+                               maximum_size=maximum_size, force_include=force_include)
 
+    if not schedules:
+        print("No schedules found with current selection.")
+    
     for schedule in schedules:
-        schedule.weigh_self()
         print(schedule, end="\n\n")
 
 if __name__ == "__main__":

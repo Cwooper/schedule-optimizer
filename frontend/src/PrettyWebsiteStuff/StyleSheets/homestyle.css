@@ -1,150 +1,160 @@
 body {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 30px;
-    margin: 0;
-    padding: 20px;
-    background-color: transparent;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 30px;
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-top: 40px;
 }
 body, button, input, select, textarea {
-    font-weight: 30px;
-    font-family: 'Open Sans', sans-serif;
-    
-  }
-
-
-/* header information */
-
-  .headercontainer, header {
-    width: 100%;
-     /* Optional: adds a shadow for depth */
-     
-  }
-
-  header {
-    border-radius: 10px;
-    /* margin-bottom: 20px; Adds some space below the header */
-  }
+  font-weight: 30px;
+  font-family: 'Open Sans', sans-serif;
   
-  .navbar {
-    display: flex;
-    justify-content: flex-start; /* Aligns items to the left */
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #003399;
-    border-radius: 20px; /* Rounded corners for the navbar */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
-  
-  .logo {
-    flex-grow: 1; 
-    color: white;
-    /* Ensures the logo takes the available space pushing the menu items to the end */
-    /* Your existing logo styles */
-  }
-  
-  .menu {
-    list-style-type: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
-    /* Remove flex-grow if you want the menu items to stay together */
-  }
-  
-  .menu li {
-    padding: 0 1rem;
-    /* Your existing list item styles */
-  }
-  
-  .menu a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s;
-    /* Your existing anchor link styles */
-  }
-  
-  .menu a:hover {
-    color: #8c9095;
-    /* Your existing hover styles */
-  }
 
 
 
+.headercontainer, header {
+  background-color: transparent;
+  width: 100%;
+   
+}
 
+header {
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1.5rem 6rem;
+  background-color: #03396c;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
 
+.logo {
+  flex-grow: 1; 
+  color: white;
+}
+/* Removes underline on the logo link */
+a.logo {
+  text-decoration: none;
+}
+/* Styles the hover just like rest of the nav */
+a.logo:hover, a.logo:focus {
+color: #6497b1;
+}
 
+.menu {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
 
+.menu li {
+  padding: 0 1rem;
+}
 
+.menu a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
 
+.menu a:hover {
+  color: #6497b1;
+}
 
-
-
-
-/* This is the main box that holds the body of the page
-Holds text on the left and img on the right */
 .main-content {
-    display: flex;
-    justify-content: space-between;
-    padding: 40px;
-  }
+  padding: 60px 40px; 
+  display: flex;
+  justify-content: space-between;
+}
 
-  .leftcontainer {
-    flex: 1; /* This will make the left container flexible */
-    padding-right: 20px; /* Adds some space between the containers */
-  }
-  .leftcontainer h1 {
-    color: #2d3436; /* Choose a color that fits your design */
-    font-weight: 800; /* Makes the font bolder */
-    margin-bottom: 0.5em; /* Adds some space below the H1 */
-    font-size: 2.5em; /* Adjust size as needed */
-  }
-  
-  .leftcontainer p {
-    line-height: 1.8; 
-    color: #636e72; /* A slightly lighter shade for the paragraph text */
-    font-weight: 400; /* Lighter font-weight for the paragraph */
-    line-height: 1.6; /* Makes text more readable by adding more space between lines */
-    margin-bottom: 1em; /* Adds space below the paragraph */
-  }
-
-  .rightcontainer {
-    flex: 1; /* This will make the right container flexible */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .rightcontainer img {
-    max-width: 100%;
-    height: auto; /* This will maintain the aspect ratio of the image */
-  }  
+.leftcontainer {
+  flex: 0 1 60%;
+  padding-right: 20px;
+  display: flex;      
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 
+.leftcontainer h1 {
+  color: #011f4b; 
+  font-weight: 800; 
+  margin-bottom: 0.5em;
+  font-size: 2.5em; 
+}
+
+.leftcontainer p {
+  line-height: 1.8; 
+  color: #03396c; 
+  font-weight: 400;
+  line-height: 1.6; 
+  margin-bottom: 1em; 
+}
+
+.rightcontainer {
+  flex: 1; /* This will make the right container flexible */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive image styling */
+.rightcontainer img {
+width: 75%;      
+height: auto;       
+transition: transform 0.3s ease-in-out; 
+display: block;   
+margin: 0 auto;   
+border-radius: 15px; 
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect - Zoom in */
+.rightcontainer img:hover {
+transform: scale(1.2); 
+}
 
 
-  /* button styling  */
-  .schedule-btn {
-    background-color: #003399; /* Matching the navbar color */
-    color: white; /* Text color */
-    border: none; /* Remove default border */
-    padding: 1rem 2rem; /* Matching the navbar padding */
-    border-radius: 15px; /* Matching the navbar border-radius */
-    font-family: 'Open Sans', sans-serif; /* Keep the font consistent */
-    font-size: 0.9rem; /* Set the font size */
-    cursor: pointer; /* Change cursor to pointer on hover */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
-    text-transform: uppercase; /* Optional: transform text to uppercase */
-    font-weight: bold; /* Make the button text bold */
-    margin-top: 1rem; /* Space between the button and other elements */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), /* Shadow for depth */
-                 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Additional shadow for depth */
-    display: inline-block; /* Allows the button to respect padding and margins */
-  }
-  
-  .schedule-btn:hover {
-    background-color: #0051cc; /* Slightly lighter color on hover */
-  }
-  
-  
+
+
+
+/* button styling  */
+.schedule-btn {
+  margin-top: auto;
+  background-color: #005b96;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-transform: uppercase;
+  font-weight: bold; 
+  margin-top: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+               0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  display: inline-block; 
+}
+.button-wrapper {
+  align-self: flex-end;
+  width: 100%; 
+  display: flex;
+  justify-content: center;
+}
+
+.schedule-btn:hover {
+  background-color: #03396c; 
+}
+
+
 
