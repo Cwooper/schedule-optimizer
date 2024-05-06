@@ -1,4 +1,4 @@
-2024-04-29T12:48:21.187459
+2024-05-06T14:35:14.565370
 [
     {
         "subject": "CSCI 101",
@@ -907,7 +907,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Akter, Syeda Selina",
+        "instructor": "Harris, Kameron Decker",
         "room": "AW 304",
         "lab_room": null,
         "addl_fees": "Per/Cr $20.25",
@@ -925,13 +925,13 @@
         "course_credits": "4",
         "crn": "43591",
         "days": "MTWF",
-        "start_time": "1300",
-        "end_time": "1350",
+        "start_time": "1200",
+        "end_time": "1250",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Tan, See-Mong",
-        "room": "TBA",
+        "room": "CF 420",
         "lab_room": null,
         "addl_fees": "Per/Cr $20.25",
         "cap": "35",

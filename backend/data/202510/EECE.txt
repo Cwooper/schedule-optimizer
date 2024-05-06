@@ -1,4 +1,4 @@
-2024-04-29T12:48:06.213281
+2024-05-06T14:34:54.751083
 [
     {
         "subject": "EECE 108",
@@ -277,6 +277,29 @@
         "gpa": null
     },
     {
+        "subject": "EECE 362",
+        "course_credits": "4",
+        "crn": "13975",
+        "days": "MWF",
+        "start_time": "0900",
+        "end_time": "0950",
+        "lab_days": "F",
+        "lab_start_time": "1200",
+        "lab_end_time": "1350",
+        "instructor": "Khan, Junaid Ahmed",
+        "room": "ET 340",
+        "lab_room": "ET 340",
+        "addl_fees": "Flat Fee $155.00",
+        "cap": "30",
+        "enrl": "0",
+        "avail": "30",
+        "waitlist": "",
+        "restrictions": "MJ PQ",
+        "attributes": "FTF",
+        "prerequisites": "EECE 244",
+        "gpa": null
+    },
+    {
         "subject": "EECE 378",
         "course_credits": "4",
         "crn": "13399",
@@ -380,29 +403,6 @@
         "lab_end_time": null,
         "instructor": "Lund, John A.",
         "room": "ET 321",
-        "lab_room": null,
-        "addl_fees": "Flat Fee $155.00",
-        "cap": "18",
-        "enrl": "0",
-        "avail": "18",
-        "waitlist": "",
-        "restrictions": "OV PQ",
-        "attributes": "FTF",
-        "prerequisites": "EECE 402",
-        "gpa": null
-    },
-    {
-        "subject": "EECE 403",
-        "course_credits": "3",
-        "crn": "12779",
-        "days": "TR",
-        "start_time": "1500",
-        "end_time": "1620",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Khan, Junaid Ahmed",
-        "room": "ET 107",
         "lab_room": null,
         "addl_fees": "Flat Fee $155.00",
         "cap": "18",

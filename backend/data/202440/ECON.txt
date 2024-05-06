@@ -1,4 +1,4 @@
-2024-04-29T12:48:22.279898
+2024-05-06T14:35:15.753859
 [
     {
         "subject": "ECON 101",
@@ -596,6 +596,29 @@
         "restrictions": "PQ",
         "attributes": "FTF",
         "prerequisites": "ECON 206 or HNRS 209 or HNRS 254 or HNRS 202.",
+        "gpa": null
+    },
+    {
+        "subject": "ECON 389",
+        "course_credits": "4",
+        "crn": "41915",
+        "days": "MW",
+        "start_time": "1200",
+        "end_time": "1350",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Samant, Shantala",
+        "room": "BI 212",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "10",
+        "enrl": "0",
+        "avail": "10",
+        "waitlist": "",
+        "restrictions": "PQ",
+        "attributes": "FTF",
+        "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 202; or HNRS 254.",
         "gpa": null
     },
     {

@@ -1,4 +1,4 @@
-2024-04-29T12:47:48.406586
+2024-05-06T14:34:31.205698
 [
     {
         "subject": "CSCI 101",
@@ -588,29 +588,6 @@
         "instructor": "Tan, See-Mong",
         "room": "CF 164",
         "lab_room": "TBA",
-        "addl_fees": "Per/Cr $20.25",
-        "cap": "20",
-        "enrl": "0",
-        "avail": "20",
-        "waitlist": "",
-        "restrictions": "MJ PQ",
-        "attributes": "FTF",
-        "prerequisites": "CSCI 145.",
-        "gpa": null
-    },
-    {
-        "subject": "CSCI 301",
-        "course_credits": "5",
-        "crn": "21911",
-        "days": "MTWF",
-        "start_time": "1100",
-        "end_time": "1150",
-        "lab_days": "W",
-        "lab_start_time": "0800",
-        "lab_end_time": "0950",
-        "instructor": "Hao, Qiang",
-        "room": "TBA",
-        "lab_room": "CF 167",
         "addl_fees": "Per/Cr $20.25",
         "cap": "20",
         "enrl": "0",
@@ -1317,7 +1294,7 @@
         "crn": "22441",
         "days": "TR",
         "start_time": "1400",
-        "end_time": "1450",
+        "end_time": "1540",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,

@@ -1,4 +1,4 @@
-2024-04-29T12:48:49.779160
+2024-05-06T14:35:47.858307
 [
     {
         "subject": "C2C 201",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $24.74",
         "cap": "30",
-        "enrl": "19",
-        "avail": "11",
+        "enrl": "16",
+        "avail": "14",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SL",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "16",
-        "avail": "14",
+        "enrl": "15",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF SL",

@@ -1,4 +1,4 @@
-2024-04-29T12:48:49.195043
+2024-05-06T14:35:47.114497
 [
     {
         "subject": "CLST 350",
@@ -33,13 +33,13 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Engelsing, Eduardo Marcant",
+        "instructor": "Margaritis, Nicholas S.",
         "room": "FR 101",
         "lab_room": null,
         "addl_fees": "",
         "cap": "150",
-        "enrl": "71",
-        "avail": "79",
+        "enrl": "68",
+        "avail": "82",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",

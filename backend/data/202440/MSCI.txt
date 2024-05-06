@@ -1,4 +1,4 @@
-2024-04-29T12:48:29.543456
+2024-05-06T14:35:24.674051
 [
     {
         "subject": "MSCI 201",
@@ -27,9 +27,9 @@
         "subject": "MSCI 325",
         "course_credits": "3",
         "crn": "43993",
-        "days": "TBD",
-        "start_time": "TBD",
-        "end_time": "TBD",
+        "days": "MWF",
+        "start_time": "0900",
+        "end_time": "0950",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,

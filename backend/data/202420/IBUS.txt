@@ -1,4 +1,4 @@
-2024-04-29T12:48:56.537603
+2024-05-06T14:35:54.489961
 [
     {
         "subject": "IBUS 370",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "25",
-        "avail": "10",
+        "enrl": "24",
+        "avail": "11",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",

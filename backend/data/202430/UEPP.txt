@@ -1,4 +1,4 @@
-2024-04-29T12:48:46.834123
+2024-05-06T14:35:44.177121
 [
     {
         "subject": "UEPP 110",
@@ -24,29 +24,6 @@
         "gpa": null
     },
     {
-        "subject": "UEPP 202",
-        "course_credits": "3",
-        "crn": "30911",
-        "days": "N/A",
-        "start_time": "N/A",
-        "end_time": "N/A",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "MacIntyre Witt, Jill Marie",
-        "room": "ONLINE ASNC",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "40",
-        "enrl": "0",
-        "avail": "40",
-        "waitlist": "",
-        "restrictions": "",
-        "attributes": "ASNC OL SSC",
-        "prerequisites": "",
-        "gpa": null
-    },
-    {
         "subject": "UEPP 261",
         "course_credits": "3",
         "crn": "30621",
@@ -60,9 +37,9 @@
         "room": "ONLINE ASNC",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "25",
+        "cap": "30",
         "enrl": "0",
-        "avail": "25",
+        "avail": "30",
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SSC",

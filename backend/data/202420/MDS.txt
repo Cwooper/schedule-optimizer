@@ -1,4 +1,4 @@
-2024-04-29T12:48:59.081686
+2024-05-06T14:35:57.424375
 [
     {
         "subject": "MDS 410",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "10",
-        "enrl": "5",
-        "avail": "5",
+        "enrl": "6",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "SPL WP3",

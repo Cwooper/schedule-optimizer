@@ -1,4 +1,4 @@
-2024-04-29T12:48:25.426888
+2024-05-06T14:35:20.793292
 [
     {
         "subject": "HIST 103",
@@ -240,7 +240,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Burge, Katherine",
+        "instructor": "Garfinkle, Steven J.",
         "room": "BH 415",
         "lab_room": null,
         "addl_fees": "",
@@ -770,7 +770,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Seltz, Jennifer",
-        "room": "HH 353",
+        "room": "AW 203",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",

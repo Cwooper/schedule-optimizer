@@ -1,4 +1,4 @@
-2024-04-29T12:48:46.157430
+2024-05-06T14:35:43.308736
 [
     {
         "subject": "SOC 255",
@@ -37,10 +37,10 @@
         "room": "ONLINE ASNC",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "25",
+        "cap": "0",
         "enrl": "0",
-        "avail": "25",
-        "waitlist": "",
+        "avail": "0",
+        "waitlist": "WL",
         "restrictions": "PQ",
         "attributes": "ASNC OL QSR",
         "prerequisites": "MATH 107 or MATH 112 or equivalent; And any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271 or instructor permission.",
@@ -90,6 +90,29 @@
         "restrictions": "OV",
         "attributes": "FTF TRVL",
         "prerequisites": "",
+        "gpa": null
+    },
+    {
+        "subject": "SOC 339",
+        "course_credits": "5",
+        "crn": "30379",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Lois, Jen",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "25",
+        "enrl": "0",
+        "avail": "25",
+        "waitlist": "",
+        "restrictions": "PQ",
+        "attributes": "ASNC BCGM OL",
+        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, WGSS 211, WGSS 212 or WGSS 213; or instructor permission.",
         "gpa": null
     },
     {
@@ -264,7 +287,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Osborne, Melissa",
-        "room": "ES 072",
+        "room": "VU 552",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",

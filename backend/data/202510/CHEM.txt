@@ -1,4 +1,4 @@
-2024-04-29T12:48:03.714802
+2024-05-06T14:34:51.038880
 [
     {
         "subject": "CHEM 161",
@@ -1430,15 +1430,15 @@
         "subject": "CHEM 474",
         "course_credits": "5",
         "crn": "13547",
-        "days": "TR",
-        "start_time": "1300",
-        "end_time": "1650",
+        "days": "MW",
+        "start_time": "1200",
+        "end_time": "1550",
         "lab_days": "F",
         "lab_start_time": "1400",
         "lab_end_time": "1450",
         "instructor": "Amacher, Jeanine Faye",
-        "room": "TBA",
-        "lab_room": "IS 430",
+        "room": "IS 430",
+        "lab_room": "TBA",
         "addl_fees": "Flat Fee $120.00",
         "cap": "16",
         "enrl": "0",

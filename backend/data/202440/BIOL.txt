@@ -1,4 +1,4 @@
-2024-04-29T12:48:19.684768
+2024-05-06T14:35:12.815906
 [
     {
         "subject": "BIOL 101",
@@ -1063,13 +1063,13 @@
         "course_credits": "4",
         "crn": "40108",
         "days": "MWF",
-        "start_time": "1000",
-        "end_time": "1120",
+        "start_time": "0830",
+        "end_time": "0950",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Cooper, W. James",
-        "room": "TBA",
+        "room": "BI 212",
         "lab_room": null,
         "addl_fees": "",
         "cap": "40",

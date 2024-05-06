@@ -1,4 +1,4 @@
-2024-04-29T12:47:54.381635
+2024-05-06T14:34:38.618048
 [
     {
         "subject": "KIN 304",
@@ -487,7 +487,7 @@
         "subject": "KIN 422",
         "course_credits": "3",
         "crn": "21379",
-        "days": "MWF",
+        "days": "MW",
         "start_time": "1100",
         "end_time": "1215",
         "lab_days": null,
@@ -503,29 +503,6 @@
         "waitlist": "",
         "restrictions": "SR MJ PQ",
         "attributes": "FTF WP3",
-        "prerequisites": "KIN 306 or PEH 443P; Senior status.",
-        "gpa": null
-    },
-    {
-        "subject": "KIN 422",
-        "course_credits": "3",
-        "crn": "23018",
-        "days": "MWF",
-        "start_time": "1100",
-        "end_time": "1150",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Henrichs, Debbie",
-        "room": "TBA",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "25",
-        "enrl": "0",
-        "avail": "25",
-        "waitlist": "",
-        "restrictions": "SR MJ PQ",
-        "attributes": "FTF",
         "prerequisites": "KIN 306 or PEH 443P; Senior status.",
         "gpa": null
     },

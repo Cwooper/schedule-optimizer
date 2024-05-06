@@ -1,4 +1,4 @@
-2024-04-29T12:48:43.889837
+2024-05-06T14:35:40.648580
 [
     {
         "subject": "MATH 099",
@@ -60,9 +60,9 @@
         "room": "ONLINE ASNC",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "60",
+        "cap": "40",
         "enrl": "0",
-        "avail": "60",
+        "avail": "40",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL QSR",
@@ -336,9 +336,9 @@
         "room": "BH 227",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "55",
+        "cap": "30",
         "enrl": "0",
-        "avail": "55",
+        "avail": "30",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF QSR",

@@ -1,4 +1,4 @@
-2024-04-29T12:47:49.979297
+2024-05-06T14:34:32.973710
 [
     {
         "subject": "EECE 111",
@@ -194,7 +194,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Jiang, Xichen",
+        "instructor": "Khan, Junaid Ahmed",
         "room": "ET 321",
         "lab_room": null,
         "addl_fees": "",
@@ -417,29 +417,6 @@
     {
         "subject": "EECE 404",
         "course_credits": "3",
-        "crn": "22692",
-        "days": "TR",
-        "start_time": "1500",
-        "end_time": "1620",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Khan, Junaid Ahmed",
-        "room": "ET 106",
-        "lab_room": null,
-        "addl_fees": "Flat Fee $155.00",
-        "cap": "18",
-        "enrl": "0",
-        "avail": "18",
-        "waitlist": "",
-        "restrictions": "OV PQ",
-        "attributes": "FTF",
-        "prerequisites": "EECE 403",
-        "gpa": null
-    },
-    {
-        "subject": "EECE 404",
-        "course_credits": "3",
         "crn": "22693",
         "days": "TR",
         "start_time": "1500",
@@ -447,7 +424,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Radwan, Amr Ahmed Abdelsalam",
+        "instructor": "Jiang, Xichen",
         "room": "ET 333",
         "lab_room": null,
         "addl_fees": "Flat Fee $155.00",

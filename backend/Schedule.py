@@ -52,7 +52,10 @@ class Schedule:
         return round(gpa_score, ROUND)
     
     def _weigh_start(self):
-        start_time = min(int(course.start_time) for course in self.courses)
+        start_times = [int(course.start_time) for course in self.courses if course.start_time.isdigit()]
+        if not start_times:
+            return 0.5
+        start_time = min(start_times)
         start_time = to_mins(start_time)
 
         if start_time < 480 or start_time >= 780:  # Before 08:00 or after/equal to 13:00
@@ -67,7 +70,10 @@ class Schedule:
             return round(start_score, ROUND) 
         
     def _weigh_end(self):
-        end_time = max(int(course.end_time) for course in self.courses)
+        end_times = [int(course.end_time) for course in self.courses if course.end_time.isdigit()]
+        if not end_times:
+            return 0.5
+        end_time = max(end_times)
         end_time = to_mins(end_time)
         
         if end_time <= 840: # 1400 in mins from midnight
@@ -79,9 +85,15 @@ class Schedule:
             return round(end_score, ROUND)
         
     def _weigh_gaps(self):
-        end_time = max(int(course.end_time) for course in self.courses)
+        end_times = [int(course.end_time) for course in self.courses if course.end_time.isdigit()]
+        if not end_times:
+            return 0.5
+        end_time = max(end_times)
         end_time_mins = to_mins(end_time)
-        start_time = min(int(course.start_time) for course in self.courses)
+        start_times = [int(course.start_time) for course in self.courses if course.start_time.isdigit()]
+        if not start_times:
+            return 0.5
+        start_time = min(start_times)
         start_time_mins = to_mins(start_time)
 
         day_time_mins = end_time_mins - start_time_mins

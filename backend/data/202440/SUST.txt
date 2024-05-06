@@ -1,4 +1,4 @@
-2024-04-29T12:48:33.965712
+2024-05-06T14:35:30.696206
 [
     {
         "subject": "SUST 471",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "MacDonald, Lindsey Elizabeth",
-        "room": "TBA",
+        "room": "AH 225",
         "lab_room": null,
         "addl_fees": "Flat Fee $15.00",
         "cap": "10",

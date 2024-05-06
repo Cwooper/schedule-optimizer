@@ -1,4 +1,4 @@
-2024-04-29T12:48:33.396199
+2024-05-06T14:35:30.084276
 [
     {
         "subject": "SMNR 101",
@@ -371,29 +371,6 @@
     {
         "subject": "SMNR 101",
         "course_credits": "2",
-        "crn": "40598",
-        "days": "T",
-        "start_time": "1200",
-        "end_time": "1350",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Hardman, Pam",
-        "room": "BH 151",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "20",
-        "enrl": "0",
-        "avail": "20",
-        "waitlist": "",
-        "restrictions": "",
-        "attributes": "FIG FTF",
-        "prerequisites": "First-year students only.",
-        "gpa": null
-    },
-    {
-        "subject": "SMNR 101",
-        "course_credits": "2",
         "crn": "41508",
         "days": "TR",
         "start_time": "1400",
@@ -488,13 +465,13 @@
         "course_credits": "2",
         "crn": "44140",
         "days": "MW",
-        "start_time": "1300",
-        "end_time": "1350",
+        "start_time": "1600",
+        "end_time": "1650",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "TBA",
+        "room": "BH 417",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
