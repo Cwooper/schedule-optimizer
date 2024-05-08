@@ -1,13 +1,29 @@
 # generate_schedules.py
 
-from Course import Course
-from Schedule import Schedule
+import re
+
+from models import Course, Schedule
 from itertools import combinations
 
 HARD_MINIMUM = 1
 HARD_MAXIMUM = 5
 SUGGESTED_MINIMUM = 2
 SUGGESTED_MAXIMUM = 4
+
+course_name_pattern = r'[A-Z\/ ]{2,4} \d{3}[A-Z]?'
+
+# Takes a list if course names, verifies, cleans them, and returns the result
+def clean_course_names(course_names):
+    cleaned_course_names = []
+    # Clean and verify course names
+    for course_name in course_names:
+        course_name = course_name.strip()
+        if re.match(course_name_pattern, course_name):
+            cleaned_course_names.append(course_name)
+        else:
+            print(f"Invalid Course Name: {course_name}")
+    
+    return cleaned_course_names
 
 def all_conflicts(courses: list[Course]):
     conflicts = []

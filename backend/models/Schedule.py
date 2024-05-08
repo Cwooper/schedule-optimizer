@@ -1,6 +1,6 @@
 # Schedule.py
 # Schedule Object
-from Course import Course
+from .Course import Course
 ROUND = 2
 
 class Schedule:

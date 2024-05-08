@@ -1,11 +1,9 @@
 # get_schedules.py
 
 # Custom functions and objects
-from Course import Course
-from Schedule import Schedule
-from schedule_generator import generate_schedules
+from models import Course, Schedule
+from schedule_generator import generate_schedules, clean_course_names
 
-import re
 import os
 import argparse
 import pandas as pd
@@ -13,7 +11,6 @@ import pandas as pd
 SUGGESTED_MINIMUM = 2
 SUGGESTED_MAXIMUM = 4
 
-course_name_pattern = r'[A-Z\/ ]{2,4} \d{3}[A-Z]?'
 
 current_directory = os.path.dirname(os.path.realpath(__file__))
 data_directory = os.path.join(current_directory, 'data')
@@ -31,18 +28,6 @@ Arguments:
     [--maximum num]             (Optional) Specify the maximum number of schedules to retrieve.
     [--force "course1" "course2" ...] List of courses to force schedules for.
 """
-
-def clean_course_names(course_names):
-    cleaned_course_names = []
-    # Clean and verify course names
-    for course_name in course_names:
-        course_name = course_name.strip()
-        if re.match(course_name_pattern, course_name):
-            cleaned_course_names.append(course_name)
-        else:
-            print(f"Invalid Course Name: {course_name}")
-    
-    return cleaned_course_names
 
 # Return a list of schedules based on the course names
 def _get_schedules(course_names: list[str], term, minimum_size=2,

@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 
 # Custom course object
-from Course import Course
+from models import Course
 
 MAX_SUBJECT_WAIT =  30      # Days
 MAX_COURSE_WAIT =   2       # Days
