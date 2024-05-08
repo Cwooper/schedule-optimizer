@@ -55,16 +55,12 @@
       </div>
       <div class="flex-container">
         <ul id="classList"></ul>
-        <button onclick="generateJSON()">Submit</button>
+        <!-- Hide the submit button if classes array is empty -->
+        <button id="submitButton" style="display: none;" onclick="generateJSON()">Submit</button>
       </div>
     </div>
 
-    <div class="calendar-container">
-      <div id="calendar"></div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
-    <script type="module" src="hello.week.esm.js"></script>
+    
     <script src="scripts.js"></script>
   </body>
 </html>
