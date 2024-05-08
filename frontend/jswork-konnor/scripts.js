@@ -3,23 +3,35 @@ const classSelect = document.getElementById('classSelect'); // Select dropdown f
 const sectionNumber = document.getElementById('sectionNumber'); // Input field for section number
 const classList = document.getElementById('classList'); // List element for displaying added classes
 let classes = []; // Array to store added classes
+let schedule = []; //array to hold the schedule
 
-// Function to add a class to the list
+
 function addClass() {
-    const className = classSelect.value; // Get selected class name
-    const section = sectionNumber.value; // Get section number
-    if (className && section) { // Check if both class name and section are provided
-        classes.push({ className, section }); // Add class to the classes array
-        const li = document.createElement('li'); // Create a new list item element
-        li.textContent = `${className} - Section ${section}`; // Set text content of the list item
-        classList.appendChild(li); // Append the list item to the classList
-    }
+  const className = classSelect.value; // Get selected class name
+  const section = sectionNumber.value; // Get section number
+  
+  if (className && section) { // Check if all values are provided
+      classes.push(`${className} ${section}`);
+      const li = document.createElement('li'); // Create a new list item element
+      li.textContent = `${className} - ${section}`; // Set text content of the list item
+      classList.appendChild(li); // Append the list item to the classList
+  }
 }
-
 // Function to generate JSON from the classes array
 function generateJSON() {
-    const json = JSON.stringify(classes); // Convert classes array to JSON string
-    console.log(json); // Output JSON string to the console
+  const min = minSelect.value; // Get min value
+  const max = maxSelect.value; // Get max value
+  const term = termSelect.value; // Get term value
+  const quarter = quarterSelect.value; // Get quarter valueif (className && section && min && max && term && quarter) { // Check if all values are provided
+    const scheduleinfo = {
+        courses: classes,
+        min: min,
+        max: max,
+        term: term + quarter
+    };
+  schedule.push(scheduleinfo);
+  const json = JSON.stringify(schedule); // Convert classes array to JSON string
+  console.log(json); // Output JSON string to the console
 }
 
 
