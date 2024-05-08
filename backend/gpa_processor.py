@@ -4,7 +4,7 @@ import os
 import re
 import numpy as np
 import pandas as pd
-from Course import Course
+from models import Course
 from data_refresh import fetch_terms_list, filter_terms
 
 code_pattern = re.compile(r'(.*?)\s(\d+[A-Z]?)$')
