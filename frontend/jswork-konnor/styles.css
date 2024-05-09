@@ -86,7 +86,7 @@ button {
     cursor: pointer; /* Changes cursor to indicate button can be clicked */
     padding: 5px 10px; /* Padding inside the button */
     margin: 0 5px; /* Margin around the button */
-    background-color: #22368d; /* Red background color for the remove button */
+    background-color: #03396c; /* Red background color for the remove button */
     color: white; /* White text color */
     border: none; /* No border */
     border-radius: 4px; /* Rounded corners */

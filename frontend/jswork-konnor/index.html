@@ -22,13 +22,12 @@
       <div class="left-container">
         <select id="classSelect"></select>
         <input
-          type="number"
+          type="text"
           id="sectionNumber"
           placeholder="Course Numer"
-          oninput="validity.valid||(value='');"
-          min="1"
-          step="1"
-          pattern="\d*" />
+          pattern="\d{3}[A-Z]?"
+          title="Please enter three digits followed by an optional uppercase letter."
+          required />
         <div class="buttonContainer">
           <button id="classButton" , onclick="addClass()">Add Class</button>
         </div>

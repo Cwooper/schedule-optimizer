@@ -10,10 +10,10 @@ function addClass() {
   const section = sectionNumber.value; // Get section number
   const errorMessage = document.getElementById('errorMessage'); // Get the error message element
 
-  if (className && section && classes.length < 6) { // Check if all values are provided and total classes are less than 6
+  if (className && section && classes.length < 10) { // Check if all values are provided and total classes are less than 6
     classes.push(`${className} ${section}`);
     const li = document.createElement('li'); // Create a new list item element
-    li.textContent = `${className} - ${section}`; // Set text content of the list item
+    li.textContent = `${className} ${section}`; // Set text content of the list item
     classList.appendChild(li); // Append the list item to the classList
 
     // Create a remove button
@@ -41,7 +41,7 @@ function addClass() {
     errorMessage.textContent = '';
   } else {
     // Display an error message if all values are not provided or total classes exceed 6
-    errorMessage.textContent = 'Please select a class and section number, and ensure you have less than 6 classes.';
+    errorMessage.textContent = 'Please select a class and section number, and ensure you have less than 10 classes.';
   }
 }
 
