@@ -1,13 +1,53 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+body {
+    margin-left: 10%; /* Set the left margin to 10% of the viewport width */
+    margin-right: 10%; /* Set the right margin to 10% of the viewport width */
 }
 
-.flex-container {
+.headercontainer, header {
+    background-color: transparent;
+    width: 100%;
+     
+  }
+  
+  header {
+    display: contents;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1.25rem 4rem;
+    background-color: #03396c;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .logo {
+    flex-grow: 1; 
+    color: white;
+    font-size: 36px;
+  }
+  /* Removes underline on the logo link */
+  a.logo {
+    text-decoration: none;
+  }
+  /* Styles the hover just like rest of the nav */
+  a.logo:hover, a.logo:focus {
+  color: #6497b1;
+  }
+
+
+.container {
+    align-items: center;
     display: flex;
     gap: 10px;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-top: 10px;
 }
+
 
 #classSelect,
 #sectionNumber {
@@ -24,14 +64,147 @@ ul {
     padding: 0;
 }
 
-.calendar-container {
-    margin-top: 20px;
-    width: 80%; /* Adjust the width as needed */
-    margin: auto; /* Center the calendar */
+
+.left-container {
+    margin-right: auto;
+    margin-bottom: auto;
+    width: 30%; /* Takes up 60% of the container's width */
+    padding: 10px;
+    box-sizing: border-box; /* Includes padding and border in the width */
+}   
+
+.right-container {
+    margin-bottom: auto;
+    margin-left: auto; /* Keeps the container on the left */
+    width: 70%; /* Takes up 60% of the container's width */
+    padding: 10px;
+    box-sizing: border-box; /* Includes padding and border in the width */
 }
 
-#calendar {
-    max-width: 100%;
-    height: 400px; /* Set the desired height */
-    border: 1px solid #ccc; /* Add a border for clarity */
+
+button {
+    cursor: pointer; /* Changes cursor to indicate button can be clicked */
+    padding: 5px 10px; /* Padding inside the button */
+    margin: 0 5px; /* Margin around the button */
+    background-color: #22368d; /* Red background color for the remove button */
+    color: white; /* White text color */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 17px;
+}
+/* Existing styles for container, etc., are unchanged. Add these new styles below. */
+
+.buttonContainer{
+    padding-top: 15px;
+}
+
+
+li {
+    display: flex;
+    justify-content: space-between; /* This will push the delete button to the right */
+    align-items: center;
+    width: 100%; /* Ensures each list item takes full width of its container */
+    padding: 10px;
+    margin-top: 5px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+
+
+.delete-btn {
+    padding: 5px 10px;
+    background-color: #4e618b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-btn {
+    margin-left: auto;
+}
+
+
+/* DROPDOWN MENUss */ 
+
+/* Style for the label */
+label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  /* Style for the select element */
+  select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    width: 150px; /* Adjust the width as needed */
+  }
+  
+  /* Style for the options */
+  option {
+    font-size: 14px;
+    background-color: #f8f8f8;
+    color: #333;
+  }
+
+  /* section selection css */
+  #sectionNumber {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 150px; /* Adjust the width as needed */
+}
+
+#sectionNumber:focus {
+    outline: none; /* Remove the default focus outline */
+    border-color: dodgerblue; /* Change the border color on focus */
+}
+
+/* ERROR MESSAGES */
+.errorContainer{
+    margin-bottom: auto;
+    padding: 20px;
+}
+
+#errorMessage {
+    color: red;
+    background-color: #ffe6e6; /* Light red background */
+    padding: 10px;
+    border: 1px solid #ff9999; /* Light red border */
+    border-radius: 5px;
+    display: none; /* Hide the error message by default */
+}
+
+#errorMessage:not(:empty) {
+    display: block; /* Display the error message if it is not empty */
+}
+
+
+
+.inputs-container{
+    padding-bottom: 15px;
+}
+
+/* calendar */
+.calendar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+}
+
+
+
+/* json out put text */
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }

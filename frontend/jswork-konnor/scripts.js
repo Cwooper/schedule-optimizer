@@ -8,34 +8,43 @@ let schedule = []; //array to hold the schedule
 function addClass() {
   const className = classSelect.value; // Get selected class name
   const section = sectionNumber.value; // Get section number
-  
-  if (className && section) { // Check if all values are provided
-      classes.push(`${className} ${section}`);
-      const li = document.createElement('li'); // Create a new list item element
-      li.textContent = `${className} - ${section}`; // Set text content of the list item
-      classList.appendChild(li); // Append the list item to the classList
-      
-      // Create a remove button
-      const removeButton = document.createElement('button');
-      removeButton.textContent = '-';
-      removeButton.addEventListener('click', function() {
-        classes.splice(classes.indexOf(`${className} ${section}`), 1); // Remove class from array
-        li.remove(); // Remove list item from the DOM
-        // Check if classes array is empty and hide the submit button if it is
-        if (classes.length === 0) {
-          submitButton.style.display = 'none';
-        }
-      });
-      
-      // Append the remove button to the list item
-      li.appendChild(removeButton);
+  const errorMessage = document.getElementById('errorMessage'); // Get the error message element
 
-      // Show the submit button if classes array is not empty
-      if (classes.length > 0) {
-        submitButton.style.display = 'block';
+  if (className && section && classes.length < 6) { // Check if all values are provided and total classes are less than 6
+    classes.push(`${className} ${section}`);
+    const li = document.createElement('li'); // Create a new list item element
+    li.textContent = `${className} - ${section}`; // Set text content of the list item
+    classList.appendChild(li); // Append the list item to the classList
+
+    // Create a remove button
+    const removeButton = document.createElement('button');
+    removeButton.textContent = '-';
+    removeButton.addEventListener('click', function() {
+      errorMessage.textContent = '';
+      classes.splice(classes.indexOf(`${className} ${section}`), 1); // Remove class from array
+      li.remove(); // Remove list item from the DOM
+      // Check if classes array is empty and hide the submit button if it is
+      if (classes.length === 0) {
+        submitButton.style.display = 'none';
       }
+    });
+
+    // Append the remove button to the list item
+    li.appendChild(removeButton);
+
+    // Show the submit button if classes array is not empty
+    if (classes.length > 0) {
+      submitButton.style.display = 'block';
+    }
+
+    // Clear any previous error message
+    errorMessage.textContent = '';
+  } else {
+    // Display an error message if all values are not provided or total classes exceed 6
+    errorMessage.textContent = 'Please select a class and section number, and ensure you have less than 6 classes.';
   }
 }
+
 
 
 
@@ -55,6 +64,8 @@ function generateJSON() {
   const json = JSON.stringify(schedule); // Convert classes array to JSON string
   console.log(json); // Output JSON string to the console
   //give to cwooper
+  document.getElementById('jsonDisplay').textContent = JSON.stringify(json, null, 2);
+
   
 }
 
