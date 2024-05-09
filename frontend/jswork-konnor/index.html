@@ -10,57 +10,84 @@
     <link href="hello.week.theme.min.css" rel="stylesheet" />
   </head>
   <body>
-    <h1>Class List Maker</h1>
+    <div class="headercontainer">
+      <header>
+        <nav class="navbar">
+          <div class="logo">Class List Maker</div>
+        </nav>
+      </header>
+    </div>
     <div class="container">
-      <div class="flex-container">
+      <!-- This container holds the saved class info on the right -->
+      <div class="left-container">
         <select id="classSelect"></select>
         <input
-          type="text"
+          type="number"
           id="sectionNumber"
-          placeholder="Enter Section Number" />
-        <button onclick="addClass()">Add Class</button>
-        <label for="minSelect">Min:</label>
-        <select id="minSelect">
-          <option value="1">1</option>
-          <option value="2" selected>2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <!-- Add more options as needed -->
-        </select>
-        <label for="maxSelect">Max:</label>
-        <select id="maxSelect">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4" selected>4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <!-- Add more options as needed -->
-        </select>
-        <label for="termSelect">Term:</label>
-        <select id="termSelect">
-          <option value="2024" selected>2024</option>
-          <option value="2025">2025</option>
-          <!-- Add more options as needed -->
-        </select>
-        <label for="quarterSelect">Quarter:</label>
-        <select id="quarterSelect">
-          <option value="10">Winter</option>
-          <option value="20">Spring</option>
-          <option value="30">Summer</option>
-          <option value="40" selected>Fall</option>
-          <!-- Add more options as needed -->
-        </select>
-      </div>
-      <div class="flex-container">
+          placeholder="Course Numer"
+          oninput="validity.valid||(value='');"
+          min="1"
+          step="1"
+          pattern="\d*" />
+        <div class="buttonContainer">
+          <button id="classButton" , onclick="addClass()">Add Class</button>
+        </div>
         <ul id="classList"></ul>
-        <!-- Hide the submit button if classes array is empty -->
-        <button id="submitButton" style="display: none;" onclick="generateJSON()">Submit</button>
+        <button
+          id="submitButton"
+          style="display: none"
+          onclick="generateJSON()">
+          Submit
+        </button>
+        <div class="errorContainer">
+          <div id="errorMessage" style="color: red"></div>
+        </div>
+      </div>
+      <div class="right-container">
+        <div class="inputs-container">
+          <label for="minSelect">Min:</label>
+          <select id="minSelect">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <!-- Add more options as needed -->
+          </select>
+          <label for="maxSelect">Max:</label>
+          <select id="maxSelect">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4" selected>4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <!-- Add more options as needed -->
+          </select>
+          <label for="termSelect">Term:</label>
+          <select id="termSelect">
+            <option value="2024" selected>2024</option>
+            <option value="2025">2025</option>
+            <!-- Add more options as needed -->
+          </select>
+          <label for="quarterSelect">Quarter:</label>
+          <select id="quarterSelect">
+            <option value="10">Winter</option>
+            <option value="20">Spring</option>
+            <option value="30">Summer</option>
+            <option value="40" selected>Fall</option>
+            <!-- Add more options as needed -->
+          </select>
+        </div>
+
+        <div class="calendar" style="color: red">
+          <div class="json-display-container">
+            <pre id="jsonDisplay"></pre>
+          </div>
+        </div>
       </div>
     </div>
 
-    
     <script src="scripts.js"></script>
   </body>
 </html>
