@@ -24,7 +24,7 @@
         <input
           type="text"
           id="sectionNumber"
-          placeholder="Course Numer"
+          placeholder="Course Number"
           pattern="\d{3}[A-Z]?"
           title="Please enter three digits followed by an optional uppercase letter."
           required />
@@ -44,39 +44,47 @@
       </div>
       <div class="right-container">
         <div class="inputs-container">
-          <label for="minSelect">Min:</label>
-          <select id="minSelect">
-            <option value="1">1</option>
-            <option value="2" selected>2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <!-- Add more options as needed -->
-          </select>
-          <label for="maxSelect">Max:</label>
-          <select id="maxSelect">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4" selected>4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <!-- Add more options as needed -->
-          </select>
-          <label for="termSelect">Term:</label>
-          <select id="termSelect">
-            <option value="2024" selected>2024</option>
-            <option value="2025">2025</option>
-            <!-- Add more options as needed -->
-          </select>
-          <label for="quarterSelect">Quarter:</label>
-          <select id="quarterSelect">
-            <option value="10">Winter</option>
-            <option value="20">Spring</option>
-            <option value="30">Summer</option>
-            <option value="40" selected>Fall</option>
-            <!-- Add more options as needed -->
-          </select>
+          <div>
+            <label for="minSelect">Min:</label>
+            <select id="minSelect">
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+          <div>
+            <label for="maxSelect">Max:</label>
+            <select id="maxSelect">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4" selected>4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+          <div>
+            <label for="termSelect">Term:</label>
+            <select id="termSelect">
+              <option value="2024" selected>2024</option>
+              <option value="2025">2025</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+          <div>
+            <label for="quarterSelect">Quarter:</label>
+            <select id="quarterSelect">
+              <option value="10">Winter</option>
+              <option value="20">Spring</option>
+              <option value="30">Summer</option>
+              <option value="40" selected>Fall</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
         </div>
 
         <div class="calendar" style="color: red">

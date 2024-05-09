@@ -158,7 +158,7 @@ label {
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 150px; /* Adjust the width as needed */
+    width: 125px; /* Adjust the width as needed */
 }
 
 #sectionNumber:focus {
@@ -187,9 +187,22 @@ label {
 
 
 
-.inputs-container{
+.inputs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* 4 columns of equal width, minimum width of 200px */
+    grid-gap: 10px; /* Add some spacing between grid items */
     padding-bottom: 15px;
 }
+
+.inputs-container div {
+    display: grid;
+    grid-template-rows: auto 1fr; /* Label takes auto height, select takes remaining space */
+}
+
+.inputs-container label {
+    grid-column: 1; /* Position label in the first row */
+}
+
 
 /* calendar */
 .calendar {
