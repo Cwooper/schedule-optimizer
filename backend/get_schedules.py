@@ -1,8 +1,8 @@
 # get_schedules.py
 
 # Custom functions and objects
-from backend.models.Course import Course
-from backend.models.Schedule import Schedule
+from models.Course import Course
+from models.Schedule import Schedule
 
 from schedule_generator import generate_schedules, clean_course_names
 
@@ -34,7 +34,7 @@ Arguments:
 # Return a list of schedules based on the course names
 def _get_schedules(course_names: list[str], term, minimum_size=2,
                    maximum_size=5, force_include=None) -> list['Schedule']:
-    cleaned_course_names = clean_course_names(course_names)
+    cleaned_course_names = clean_course_names(course_names)["cleaned_course_names"]
     courses = []
 
     pickle_file = os.path.join(data_directory, term, term + '.pkl')
@@ -54,8 +54,10 @@ def _get_schedules(course_names: list[str], term, minimum_size=2,
         for course_dict in course_dicts:
             courses.append(Course(**course_dict))
 
-    schedules = generate_schedules(courses, min_schedule_size=minimum_size,
+    response = generate_schedules(courses, min_schedule_size=minimum_size,
                                             max_schedule_size=maximum_size)
+
+    schedules = response["schedules"]
 
     for schedule in schedules:
         schedule.weigh_self()
