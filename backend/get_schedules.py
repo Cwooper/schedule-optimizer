@@ -55,7 +55,7 @@ def _get_schedules(course_names: list[str], term, minimum_size=2,
             courses.append(Course(**course_dict))
 
     schedules = generate_schedules(courses, min_schedule_size=minimum_size,
-                                   max_schedule_size=maximum_size)
+                                            max_schedule_size=maximum_size)
 
     for schedule in schedules:
         schedule.weigh_self()
