@@ -65,9 +65,25 @@ function generateJSON() {
     schedule = (scheduleinfo);
     const json = JSON.stringify(schedule); // Convert classes array to JSON string
     console.log(json); // Output JSON string to the console
-    //give to cwooper
-    document.getElementById('jsonDisplay').textContent = JSON.stringify(json, null, 2);
+    // document.getElementById('jsonDisplay').textContent = JSON.stringify(schedule, null, 2);
 
+    fetch('/schedule-optimizer', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: json
+    })
+    .then(response => response.json())
+    .then(response => {
+        // Display the response in the console
+        console.log(response); // Here is the response
+        document.getElementById('jsonDisplay').textContent = JSON.stringify(response);
+    })
+    .catch(error => {
+        // Handle any errors
+        console.error('Error:', error);
+    });
 
 }
 

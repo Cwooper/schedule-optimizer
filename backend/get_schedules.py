@@ -1,7 +1,9 @@
 # get_schedules.py
 
 # Custom functions and objects
-from models import Course, Schedule
+from backend.models.Course import Course
+from backend.models.Schedule import Schedule
+
 from schedule_generator import generate_schedules, clean_course_names
 
 import os

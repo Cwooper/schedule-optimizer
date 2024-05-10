@@ -1,8 +1,11 @@
 # generate_schedules.py
 
+import os
 import re
+import pandas as pd
 
-from models import Course, Schedule
+from backend.models.Course import Course
+from backend.models.Schedule import Schedule
 from itertools import combinations
 
 HARD_MINIMUM = 1
@@ -12,8 +15,17 @@ SUGGESTED_MAXIMUM = 4
 
 course_name_pattern = r'[A-Z\/ ]{2,4} \d{3}[A-Z]?'
 
+current_directory = os.path.dirname(os.path.realpath(__file__))
+data_directory = os.path.join(current_directory, 'data')
+
 # Takes a list if course names, verifies, cleans them, and returns the result
 def clean_course_names(course_names):
+    response = {
+        "cleaned_course_names": [],
+        "warnings": [],
+        "errors": []
+    }
+
     cleaned_course_names = []
     # Clean and verify course names
     for course_name in course_names:
@@ -21,9 +33,11 @@ def clean_course_names(course_names):
         if re.match(course_name_pattern, course_name):
             cleaned_course_names.append(course_name)
         else:
-            print(f"Invalid Course Name: {course_name}")
-    
-    return cleaned_course_names
+            response["warnings"].append(f"Invalid Course Name: {course_name}")
+            print(f"Invalid Course: {course_name}")
+
+    response["cleaned_course_names"] = cleaned_course_names
+    return response
 
 def all_conflicts(courses: list[Course]):
     conflicts = []
@@ -54,11 +68,54 @@ def all_schedules(courses, conflicts, min_schedule_size, max_schedule_size) -> l
 
     return course_combinations
 
+# Finds courses based on a list of course_names and a term
+def get_courses(course_names: list[str], term: str):
+    result = {
+        "warnings": [],
+        "errors": [],
+        "courses": []
+    }
+    response = clean_course_names(course_names)
+    cleaned_course_names = response["cleaned_course_names"]
+    if response["warnings"] != []:
+        result["warnings"].append(response["warnings"])
+    if response["errors"] != []:
+        result["errors"].append(response["errors"])
+
+    courses = []
+
+    pickle_file = os.path.join(data_directory, term, term + '.pkl')
+    try:
+        df = pd.read_pickle(pickle_file)
+    except Exception as e:
+        print(e)
+        result["errors"].append(f"Could not find {term}")
+        return result
+
+    for course_name in cleaned_course_names:
+        # Filter DataFrame based on course name
+        matching_rows = df[df['subject'] == course_name]
+        course_dicts = matching_rows.to_dict(orient='records')
+        if len(course_dicts) == 0:
+            result["warnings"].append(f"Course not offered this term: {course_name}")
+            continue
+        for course_dict in course_dicts:
+            courses.append(Course(**course_dict))
+
+    result["courses"] = courses
+    return result
+
 # Return all possible schedules from a list of courses
 def generate_schedules(courses: list['Course'], 
                        min_schedule_size=SUGGESTED_MINIMUM,
-                       max_schedule_size=SUGGESTED_MAXIMUM) -> list[Schedule]:
+                       max_schedule_size=SUGGESTED_MAXIMUM):
     """ Generate schedules based on a list of courses. """
+
+    response = {
+        "schedules": [],
+        "warnings": [],
+        "errors": []
+    }
     # Handle possible bounds errors
     if min_schedule_size < HARD_MINIMUM:
         min_schedule_size = HARD_MINIMUM
@@ -67,9 +124,11 @@ def generate_schedules(courses: list['Course'],
     if min_schedule_size > max_schedule_size:
         min_schedule_size = max_schedule_size
     if len(courses) < min_schedule_size:
-        print(f"Cannot generate schedules with {len(courses)} courses.")
+        response["errors"].append(f"Cannot generate schedules with {len(courses)} courses.")
+        return response
 
     # Find all conflicts between the courses, and return all possible schedules
     conflicts = all_conflicts(courses)
     schedules = all_schedules(courses, conflicts, min_schedule_size, max_schedule_size)
-    return schedules
+    response["schedules"] = schedules
+    return response

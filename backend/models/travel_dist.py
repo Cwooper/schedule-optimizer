@@ -1,8 +1,8 @@
 # travel_dist.py
 # Built-in objects
 # TODO remove this as an object and move it into Schedule
-from .Schedule import Schedule
-from .Course import Course
+from backend.models.Schedule import Schedule
+from backend.models.Course import Course
 
 import re
 import dijkstra # pip3 install dijkstra | 
