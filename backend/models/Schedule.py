@@ -1,6 +1,6 @@
 # Schedule.py
 # Schedule Object
-from .Course import Course
+from backend.models.Course import Course
 ROUND = 2
 
 class Schedule:
@@ -40,6 +40,13 @@ class Schedule:
             result += course_string
         
         return result
+
+    def to_dict(self):
+        return {
+            "courses": [course.to_dict() for course in self.courses],
+            "score": self.score,
+            "weights": self.weights
+        }
     
     def _weigh_gpa(self):
         # GPA 
