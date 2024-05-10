@@ -4,7 +4,7 @@ import os
 import re
 import numpy as np
 import pandas as pd
-from backend.models.Course import Course
+
 from data_refresh import fetch_terms_list, filter_terms
 
 code_pattern = re.compile(r'(.*?)\s(\d+[A-Z]?)$')
@@ -146,7 +146,7 @@ def calculate_average_gpa(df):
         return None
     average_gpa = np.dot(gpa_values, grade_counts) / np.sum(grade_counts)
 
-    return average_gpa
+    return round(average_gpa, 2)
 
 # This will pass in a row from the terms_df, and calculate gpa based on gpa_df
 def calculate_gpa(row, gpa_df):

@@ -78,6 +78,8 @@ function generateJSON() {
     .then(response => {
         // Display the response in the console
         console.log(response); // Here is the response
+        displaySchedule(response);
+        // Add to the calendar table
     })
     .catch(error => {
         // Handle any errors
@@ -133,6 +135,45 @@ function createTable() {
       table.appendChild(row);
       table.classList.add('calendar-table'); // So this applies after DOM is loaded
     });
+}
+
+function stringToColor(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+        hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    const c = (hash & 0x00FFFFFF)
+        .toString(16)
+        .toUpperCase()
+        .padStart(6, '0');
+    return `#${c}`;
+}
+
+function addCoursesToCalendar(courses) {
+    courses.forEach(course => {
+        const days = course.days.split(''); // Split the days string into an array
+        const startTime = parseInt(course.start_time);
+        const endTime = parseInt(course.end_time);
+        
+        days.forEach(day => {
+            const startHour = Math.floor(startTime / 100); // Extract the hour (hundreds place)
+            const endHour = Math.ceil(endTime / 100);
+            for (let i = startHour; i < endHour; i++) { // Loop through each hour
+                const cellId = `${day}-${i}00`; // Append '00' for formatting
+                const cell = document.getElementById(cellId);
+                const bgColor = stringToColor(course.crn); // Generate color based on CRN
+                cell.style.backgroundColor = bgColor; // Set background color
+                cell.textContent = `Subject: ${course.subject} Professor: ${course.instructor} GPA: ${course.gpa}`;
+                cell.classList.add('scheduled-course'); // Add a class for styling
+            }
+        });
+    });
+}
+
+function displaySchedule(response) {
+    const firstSchedule = response.schedules[0]; // Assuming you want to display the first schedule
+    const courses = firstSchedule.courses;
+    addCoursesToCalendar(courses);
 }
 
 // Fetch the class names from subjects.txt and populate the dropdown menu
