@@ -1,6 +1,8 @@
 # Course.py
 # Course object
 
+ROUND = 2
+
 class Course:
     def __init__(self, subject=None,  course_credits=None, crn=None, days=None,
                  start_time=None,     end_time=None,      lab_days=None,
