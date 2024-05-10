@@ -1,6 +1,5 @@
 import os
 import re
-import time
 import json
 import requests
 import pandas as pd
@@ -8,7 +7,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 
 # Custom course object
-from backend.models.Course import Course
+from models.Course import Course
 
 MAX_SUBJECT_WAIT =  30      # Days
 MAX_COURSE_WAIT =   2       # Days
