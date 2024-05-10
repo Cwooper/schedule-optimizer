@@ -205,19 +205,52 @@ label {
 
 
 /* calendar */
+/* CSS styling for the calendar container */
 .calendar {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 600px;
+    height: auto;
     border: 1px solid #ccc;
     overflow: hidden;
+    padding: 10px;
 }
 
+/* CSS styling for the calendar table */
+.calendar-table {
+    border-collapse: collapse;
+    width: 100%;
+}
 
+/* CSS styling for table cells */
+.calendar-table td,
+.calendar-table th {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    width: calc(100% / 6);
+}
 
-/* json out put text */
-pre {
-    white-space: pre-wrap;
-    word-wrap: break-word;
+/* CSS styling for header cells */
+.calendar-table th {
+    background-color: lightgray;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 1000px) {
+    .calendar {
+        overflow-x: auto; /* Add horizontal scrollbar */
+        overflow-y: auto; /* Hide vertical scrollbar initially */
+        white-space: nowrap; /* Prevent line breaks */
+    }
+
+    /* Show vertical scrollbar when needed */
+    .calendar::-webkit-scrollbar {
+        width: 8px; /* Width of the scrollbar */
+    }
+
+    .calendar::-webkit-scrollbar-thumb {
+        background-color: #888; /* Color of the scrollbar thumb */
+        border-radius: 4px; /* Rounded corners */
+    }
 }
