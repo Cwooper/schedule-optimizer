@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Class List Maker</title>
+    <title>Course List Maker</title>
     <link rel="stylesheet" href="styles.css" />
     <link href="hello.week.min.css" rel="stylesheet" />
     <link href="hello.week.theme.min.css" rel="stylesheet" />
@@ -13,25 +13,27 @@
     <div class="headercontainer">
       <header>
         <nav class="navbar">
-          <div class="logo">Class List Maker</div>
+          <div class="logo">Course List Maker</div>
         </nav>
       </header>
     </div>
     <div class="container">
       <!-- This container holds the saved class info on the right -->
       <div class="left-container">
-        <select id="classSelect"></select>
+        <select id="courseSelect"></select>
         <input
           type="text"
           id="sectionNumber"
           placeholder="Course Number"
           pattern="\d{3}[A-Z]?"
           title="Please enter three digits followed by an optional uppercase letter."
-          required />
+          required
+          onkeyup="handleKeyPress(event)" 
+        />
         <div class="buttonContainer">
-          <button id="classButton" , onclick="addClass()">Add Class</button>
+          <button id="courseButton", onclick="addCourse()">Add Class</button>
         </div>
-        <ul id="classList"></ul>
+        <ul id="courseList"></ul>
         <button
           id="submitButton"
           style="display: none"
@@ -52,6 +54,7 @@
               <option value="3">3</option>
               <option value="4">4</option>
               <option value="5">5</option>
+              <option value="6">6</option>
               <!-- Add more options as needed -->
             </select>
           </div>
