@@ -78,13 +78,61 @@ function generateJSON() {
     .then(response => {
         // Display the response in the console
         console.log(response); // Here is the response
-        document.getElementById('jsonDisplay').textContent = JSON.stringify(response);
     })
     .catch(error => {
         // Handle any errors
         console.error('Error:', error);
     });
 
+}
+
+function createTable() {
+    // Get the table element
+    const hours = ['0800', '0900', '1000', '1100', '1200', '1300', '1400', '1500', '1600', '1700'];
+    const daysOfWeek = ['M', 'T', 'W', 'R', 'F'];
+    const fullDaysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+    const table = document.getElementById('calendar');
+    
+    // Create the header row
+    const headerRow = document.createElement('tr');
+    
+    // Create an empty cell for the corner
+    const cornerCell = document.createElement('th');
+    cornerCell.textContent = "Times";
+    headerRow.appendChild(cornerCell);
+    
+    // Create header cells for each day of the week
+    fullDaysOfWeek.forEach(day => {
+        const headerCell = document.createElement('th');
+        headerCell.textContent = day;
+        headerRow.appendChild(headerCell);
+    });
+    
+    // Append the header row to the table
+    table.appendChild(headerRow);
+    
+    // Loop through each hour
+    hours.forEach(hour => {
+      // Create a new table row
+      const row = document.createElement('tr');
+  
+      // Create a table cell for the hour
+      const hourCell = document.createElement('td');
+      hourCell.textContent = `${hour.slice(0, 2)}:${hour.slice(2)}`;
+      row.appendChild(hourCell);
+  
+      // Loop through each day of the week
+      daysOfWeek.forEach(day => {
+        // Create a new table cell
+        const cell = document.createElement('td');
+        cell.id = `${day}-${hour}`;
+        row.appendChild(cell);
+      });
+  
+      // Append the row to the table
+      table.appendChild(row);
+      table.classList.add('calendar-table'); // So this applies after DOM is loaded
+    });
 }
 
 // Fetch the class names from subjects.txt and populate the dropdown menu
@@ -108,3 +156,5 @@ function handleKeyPress(event) {
         addCourse();
     }
 }
+
+createTable();
