@@ -23,7 +23,6 @@ def serve_static(filename):
 @app.route('/schedule-optimizer', methods=['POST'])
 def generate_response():
     data = request.json
-    print(data)
 
     # Create my "response" object
     response = {
@@ -31,8 +30,12 @@ def generate_response():
         "warnings": [],
         "errors": []
     }
+    course_names = data["courses"]
+    if len(course_names) < 2:
+        response["errors"].append("Must have two classes or more.")
+        return jsonify(response)
 
-    course_dict = get_courses(data["courses"], data["term"])
+    course_dict = get_courses(course_names, data["term"])
     if course_dict["warnings"] != []:
         response["warnings"].append(course_dict["warnings"])
     if course_dict["errors"] != []:
@@ -46,7 +49,15 @@ def generate_response():
                                    min_schedule_size=int(data["min"]),
                                    max_schedule_size=int(data["max"]))
 
-    response["schedules"]= [schedule.to_dict() for schedule in schedules_response["schedules"]]
+    schedules = schedules_response["schedules"]
+
+    for schedule in schedules:
+        schedule.weigh_self()
+
+    schedules.sort(key=lambda schedule: schedule.score, reverse=True)
+
+
+    response["schedules"]= [schedule.to_dict() for schedule in schedules]
     if schedules_response["warnings"] != []:
         response["warnings"].append(schedules_response["warnings"])
     if schedules_response["errors"] != []:
