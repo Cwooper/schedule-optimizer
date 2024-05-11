@@ -239,18 +239,19 @@ label {
 
 /* Media query for mobile devices */
 @media (max-width: 1000px) {
-    .calendar {
+    .calendar-box {
         overflow-x: auto; /* Add horizontal scrollbar */
         overflow-y: auto; /* Hide vertical scrollbar initially */
         white-space: nowrap; /* Prevent line breaks */
     }
 
     /* Show vertical scrollbar when needed */
-    .calendar::-webkit-scrollbar {
+    .calendar-box::-webkit-scrollbar {
         width: 8px; /* Width of the scrollbar */
+        display: block;
     }
 
-    .calendar::-webkit-scrollbar-thumb {
+    .calendar-box::-webkit-scrollbar-thumb {
         background-color: #888; /* Color of the scrollbar thumb */
         border-radius: 4px; /* Rounded corners */
     }
