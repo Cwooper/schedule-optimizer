@@ -86,7 +86,7 @@ button {
     cursor: pointer; /* Changes cursor to indicate button can be clicked */
     padding: 5px 10px; /* Padding inside the button */
     margin: 0 5px; /* Margin around the button */
-    background-color: #03396c; /* Red background color for the remove button */
+    background-color: #03396c;
     color: white; /* White text color */
     border: none; /* No border */
     border-radius: 4px; /* Rounded corners */
@@ -208,6 +208,7 @@ label {
 /* CSS styling for the calendar container */
 .calendar {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: auto;
@@ -253,4 +254,54 @@ label {
         background-color: #888; /* Color of the scrollbar thumb */
         border-radius: 4px; /* Rounded corners */
     }
+
+    .errorContainer{
+        padding: 5px;
+        font-size: 11px;
+    }
+
+    button {
+        font-size: 11px;
+    }
+
+    select {
+        font-size: 11px;
+        width: 100px;
+    }
+
+    .left-container {
+        width: 40%
+    }
+
+    .right-container {
+        width: 60%
+    }
+
+    #sectionNumber {
+        width: 85px;
+        font-size: 11px;
+    }
+
+    #courseList {
+        font-size: 11px;
+    }
+}
+
+.buttonContainer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-bottom: 3%;
+}
+
+.buttonContainer button {
+    padding: 5px 10px;
+}
+
+#prevButton {
+    margin-right: auto;
+}
+
+#nextButton {
+    margin-left: auto;
 }

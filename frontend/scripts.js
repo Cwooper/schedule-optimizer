@@ -4,11 +4,19 @@ const sectionNumber = document.getElementById('sectionNumber'); // Input field f
 const courseList = document.getElementById('courseList'); // List element for displaying added classes
 let courses = []; // Array to store added classes
 let schedule = []; // Array to hold the schedule
+let all_schedules = [];
+let current_schedule = 0;
 
 function addCourse() {
     const courseName = courseSelect.value; // Get selected class name
     const section = sectionNumber.value; // Get section number
     const errorMessage = document.getElementById('errorMessage'); // Get the error message element
+    errorMessage.textContent = '';
+
+    if (courses.includes(`${courseName} ${section}`)) {
+        errorMessage.textContent = 'Duplicate Course Entered';
+        return;
+    }
 
     if (!sectionNumber.checkValidity()) {
         errorMessage.textContent = 'Please enter a valid section number.';
@@ -78,8 +86,22 @@ function generateJSON() {
     .then(response => {
         // Display the response in the console
         console.log(response); // Here is the response
-        displaySchedule(response);
-        // Add to the calendar table
+        if (response["errors"].length > 0) {
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.innerHTML = response["errors"];
+            if (response["warnings"].length > 0) {
+                const errorMessage = document.getElementById('errorMessage');
+                errorMessage.innerHTML += "<br>" + response["warnings"].join("<br>");
+            }
+        } else {
+            if (response["warnings"].length > 0) {
+                const errorMessage = document.getElementById('errorMessage');
+                errorMessage.innerHTML += "<br>" + response["warnings"].join("<br>");
+            }
+            all_schedules = response["schedules"]
+            current_schedule = 0;
+            displaySchedule(all_schedules[current_schedule]);
+        }
     })
     .catch(error => {
         // Handle any errors
@@ -100,7 +122,7 @@ function createTable() {
     
     // Create an empty cell for the corner
     const cornerCell = document.createElement('th');
-    cornerCell.textContent = "Times";
+    cornerCell.id = "cornerCell"
     headerRow.appendChild(cornerCell);
     
     // Create header cells for each day of the week
@@ -150,30 +172,90 @@ function stringToColor(str) {
 }
 
 function addCoursesToCalendar(courses) {
+    const cornerCell = document.getElementById('cornerCell');
+    cornerCell.textContent = `Schedule ${current_schedule}`
     courses.forEach(course => {
         const days = course.days.split(''); // Split the days string into an array
         const startTime = parseInt(course.start_time);
         const endTime = parseInt(course.end_time);
         
         days.forEach(day => {
-            const startHour = Math.floor(startTime / 100); // Extract the hour (hundreds place)
-            const endHour = Math.ceil(endTime / 100);
+            var startHour = Math.floor(startTime / 100); // Extract the hour (hundreds place)
+            var endHour = Math.ceil(endTime / 100);
             for (let i = startHour; i < endHour; i++) { // Loop through each hour
+                if (i < 10) {
+                    i = `0${i}`
+                }
                 const cellId = `${day}-${i}00`; // Append '00' for formatting
                 const cell = document.getElementById(cellId);
                 const bgColor = stringToColor(course.crn); // Generate color based on CRN
                 cell.style.backgroundColor = bgColor; // Set background color
-                cell.textContent = `Subject: ${course.subject} Professor: ${course.instructor} GPA: ${course.gpa}`;
+                cell.innerHTML = `<b>${course.subject}</b><br>${course.instructor}<br>Avg GPA: ${course.gpa}<br>${course.room}`;
                 cell.classList.add('scheduled-course'); // Add a class for styling
             }
         });
+
+        if(course.lab_days) {
+            const labDays = course.lab_days.split('');
+            const labStart = parseInt(course.lab_start_time);
+            const labEnd = parseInt(course.lab_end_time);
+            labDays.forEach(labDay => {
+                var labStartHour = Math.floor(labStart / 100); // Extract the hour (hundreds place)
+                var labEndHour = Math.ceil(labEnd / 100);
+                for (let i = labStartHour; i < labEndHour; i++) { // Loop through each hour
+                    if (i < 10) {
+                        i = `0${i}`
+                    }    
+                    const cellId = `${labDay}-${i}00`; // Append '00' for formatting
+                    console.log(`Lab Searching for ${cellId}`)
+                    const cell = document.getElementById(cellId);
+                    const bgColor = stringToColor(course.crn); // Generate color based on CRN
+                    cell.style.backgroundColor = bgColor; // Set background color
+                    cell.innerHTML = `<b>${course.subject} LAB</b><br>${course.instructor}<br>Avg GPA: ${course.gpa}<br>${course.lab_room}`;
+                    cell.classList.add('scheduled-course'); // Add a class for styling
+                }
+            });
+        }
     });
 }
 
-function displaySchedule(response) {
-    const firstSchedule = response.schedules[0]; // Assuming you want to display the first schedule
-    const courses = firstSchedule.courses;
+function displaySchedule(schedule) {
+    clearSchedule();
+    const courses = schedule.courses;
     addCoursesToCalendar(courses);
+}
+
+function clearSchedule() {
+    const table = document.getElementById('calendar');
+    const elements = table.getElementsByTagName('*');
+    
+    for (let i = 0; i < elements.length; i++) {
+        const element = elements[i];
+        if (element.id) {
+            element.textContent = ''; // Clear text content
+            element.style = ''; // Clear style
+        }
+    }
+}
+
+function nextSchedule() {
+    if (current_schedule + 1 < all_schedules.length) {
+        current_schedule++;
+        displaySchedule(all_schedules[current_schedule]);
+    } else {
+        const errorMessage = document.getElementById('errorMessage');
+        errorMessage.textContent = "You are at the end of the Schedules";
+    }
+}
+
+function prevSchedule() {
+    if (current_schedule - 1 > -1) {
+        current_schedule--;
+        displaySchedule(all_schedules[current_schedule]);
+    } else {
+        const errorMessage = document.getElementById('errorMessage');
+        errorMessage.textContent = "You are at the beginning of the Schedules";
+    }
 }
 
 // Fetch the class names from subjects.txt and populate the dropdown menu
@@ -192,9 +274,12 @@ fetch('subjects.txt')
         console.error('Error fetching subjects:', error);
     });
 
+// Clear box and add course
 function handleKeyPress(event) {
     if (event.keyCode === 13) { // Check for pressing Enter
         addCourse();
+        const sectionNumber = document.getElementById('sectionNumber');
+        sectionNumber.value = '';
     }
 }
 

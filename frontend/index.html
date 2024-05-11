@@ -47,7 +47,7 @@
       <div class="right-container">
         <div class="inputs-container">
           <div>
-            <label for="minSelect">Minimum:</label>
+            <label for="minSelect">Minimum Courses:</label>
             <select id="minSelect">
               <option value="1">1</option>
               <option value="2" selected>2</option>
@@ -59,7 +59,7 @@
             </select>
           </div>
           <div>
-            <label for="maxSelect">Maximum:</label>
+            <label for="maxSelect">Maximum Courses:</label>
             <select id="maxSelect">
               <option value="1">1</option>
               <option value="2">2</option>
@@ -91,6 +91,10 @@
         </div>
 
         <div class="calendar" id="calendar-box">
+          <div class="buttonContainer">
+            <button id="prevButton" onclick="prevSchedule()">Previous Schedule</button>
+            <button id="nextButton" onclick="nextSchedule()">Next Schedule</button>
+          </div>
           <table id="calendar"></table>
         </div>
       </div>
