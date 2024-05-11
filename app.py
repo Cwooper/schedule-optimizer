@@ -9,7 +9,7 @@ app = Flask(__name__, template_folder="frontend", static_folder="/schedule-optim
 @app.route('/')
 def index():
     if os.path.exists("var/www/html/index.html"):
-    	return send_file("/var/www/html/index.html")
+        return send_file("/var/www/html/index.html")
     else:
         return render_template("index.html")
 
