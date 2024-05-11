@@ -1,11 +1,17 @@
 # app.py
 
-from flask import Flask, jsonify, request, render_template, redirect, url_for, send_from_directory
-
+import os
+from flask import Flask, jsonify, request, render_template, redirect, url_for, send_from_directory, send_file
 from backend.schedule_generator import generate_schedules, get_courses
 
 app = Flask(__name__, template_folder="frontend", static_folder="/schedule-optimizer/frontend")
 
+@app.route('/')
+def index():
+    if os.path.exists("var/www/html/index.html"):
+    	return send_file("/var/www/html/index.html")
+    else:
+        return render_template("index.html")
 
 @app.route('/schedule-optimizer/')
 def schedule_optimizer():
