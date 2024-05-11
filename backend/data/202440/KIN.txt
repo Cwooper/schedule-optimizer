@@ -1,4 +1,4 @@
-2024-05-06T14:35:23.126325
+2024-05-11T14:27:33.872510
 [
     {
         "subject": "KIN 306",
@@ -525,7 +525,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "KIN 306 or PEH 443P; Senior status.",
         "gpa": null
     },
@@ -548,7 +548,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "KIN 306 or PEH 443P; Senior status.",
         "gpa": null
     },
@@ -1761,7 +1761,7 @@
         "instructor": "Brilla, Lorrie",
         "room": "TBA",
         "lab_room": null,
-        "addl_fees": "Flat Fee $10.00",
+        "addl_fees": "",
         "cap": "15",
         "enrl": "0",
         "avail": "15",

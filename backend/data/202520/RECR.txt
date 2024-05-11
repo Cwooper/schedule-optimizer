@@ -1,4 +1,4 @@
-2024-05-06T14:34:45.933392
+2024-05-11T14:26:41.250997
 [
     {
         "subject": "RECR 210",
@@ -19,7 +19,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -188,9 +188,9 @@
         "subject": "RECR 312",
         "course_credits": "2",
         "crn": "23560",
-        "days": "T",
-        "start_time": "1200",
-        "end_time": "1250",
+        "days": "W",
+        "start_time": "1300",
+        "end_time": "1350",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,

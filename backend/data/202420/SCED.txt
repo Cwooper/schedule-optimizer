@@ -1,4 +1,4 @@
-2024-05-06T14:36:01.329341
+2024-05-11T14:28:38.650715
 [
     {
         "subject": "SCED 201",
@@ -19,7 +19,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "MATH 111 or MATH 112 or college intermediate algebra course with a C or better or a suitable math assessment score.",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "MATH 111 or MATH 112 or college intermediate algebra course with a C or better or a suitable math assessment score.",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "17",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "SCED 201 or instructor permission.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "SCED 201 or instructor permission.",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "11",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Completion of science GURs and completion 90 credits or permission of instructor.",
         "gpa": null
     },

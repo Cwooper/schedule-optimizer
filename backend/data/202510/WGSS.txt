@@ -1,4 +1,4 @@
-2024-05-06T14:35:10.801454
+2024-05-11T14:27:15.678623
 [
     {
         "subject": "WGSS 211",
@@ -226,7 +226,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "BCGM FTF WP2",
+        "attributes": "BCGM WP2 FTF",
         "prerequisites": "WGSS 211, WGSS 212, or WGSS 213",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "FTF",
         "prerequisites": "One 100- or 200-level course in HIST or WGSS 211.",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-05-06T14:35:11.998968
+2024-05-11T14:27:17.717934
 [
     {
         "subject": "A/HI 211",
@@ -13,13 +13,13 @@
         "instructor": "Berzal de Dios, Jimena Ines",
         "room": "FI 238",
         "lab_room": null,
-        "addl_fees": "Flat Fee $1.00",
+        "addl_fees": "Flat Fee $2.61",
         "cap": "50",
         "enrl": "0",
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "140",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -132,7 +132,7 @@
         "cap": "0",
         "enrl": "0",
         "avail": "0",
-        "waitlist": "",
+        "waitlist": "WL",
         "restrictions": "OV",
         "attributes": "FTF",
         "prerequisites": "",
@@ -341,7 +341,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF",
+        "attributes": "WP3 FTF",
         "prerequisites": "Any A/HI or equivalent 300-level course.",
         "gpa": null
     },
@@ -358,13 +358,13 @@
         "instructor": "Witkowski, Jacqueline",
         "room": "FI 232",
         "lab_room": null,
-        "addl_fees": "",
+        "addl_fees": "Flat Fee $14.40",
         "cap": "18",
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Any A/HI or equivalent 300-level course.",
         "gpa": null
     }

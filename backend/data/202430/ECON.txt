@@ -1,4 +1,4 @@
-2024-05-06T14:35:35.649347
+2024-05-11T14:27:53.959208
 [
     {
         "subject": "ECON 206",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
-        "enrl": "0",
-        "avail": "60",
+        "enrl": "21",
+        "avail": "39",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "ASNC OL SSC",
+        "attributes": "SSC OL ASNC",
         "prerequisites": "MATH 112 or equivalent or suitable math assessment score.",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "65",
-        "enrl": "0",
-        "avail": "65",
+        "enrl": "19",
+        "avail": "46",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "ASNC OL SSC",
+        "attributes": "SSC OL ASNC",
         "prerequisites": "ECON 206 or HNRS 209 or ECON 446 or ECON 101; MATH 112 or equivalent or suitable math assessment score.",
         "gpa": null
     },
@@ -61,11 +61,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "0",
-        "avail": "35",
+        "enrl": "7",
+        "avail": "28",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "ASNC OL WP1",
+        "attributes": "WP1 OL ASNC",
         "prerequisites": "ECON 206 and ECON 207; or ECON 207 and HNRS 209; or HNRS 202; or HNRS 254.",
         "gpa": null
     },
@@ -84,11 +84,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "0",
-        "avail": "30",
+        "enrl": "12",
+        "avail": "18",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "ASNC CF-E OL",
+        "attributes": "OL CF-E ASNC",
         "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 202; or HNRS 254.",
         "gpa": null
     },
@@ -107,11 +107,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "0",
-        "avail": "30",
+        "enrl": "4",
+        "avail": "26",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ECON 306 or ECON 309; and ECON 375.",
         "gpa": null
     }

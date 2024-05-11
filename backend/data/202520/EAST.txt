@@ -1,4 +1,4 @@
-2024-05-06T14:34:32.330091
+2024-05-11T14:26:23.425783
 [
     {
         "subject": "EAST 201",
@@ -65,7 +65,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "ASIA FTF",
+        "attributes": "WP3 ASIA FTF",
         "prerequisites": "EAST 201, EAST 202; one year of Chinese or Japanese.",
         "gpa": null
     },

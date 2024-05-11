@@ -1,4 +1,4 @@
-2024-05-06T14:35:38.063431
+2024-05-11T14:27:58.702268
 [
     {
         "subject": "HIST 364",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "0",
-        "avail": "20",
+        "enrl": "19",
+        "avail": "1",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC OL US US1 US2",
+        "attributes": "OL US US1 US2 ASNC",
         "prerequisites": "Sophomore, junior, or senior status.",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "15",
-        "enrl": "0",
-        "avail": "15",
+        "enrl": "9",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "JR SR",
-        "attributes": "EUR EUR2 MIX OL",
+        "attributes": "OL EUR EUR2 MIX",
         "prerequisites": "junior standing",
         "gpa": null
     },
@@ -61,11 +61,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "0",
-        "avail": "20",
-        "waitlist": "",
+        "enrl": "20",
+        "avail": "0",
+        "waitlist": "WL",
         "restrictions": "",
-        "attributes": "ASNC OL US",
+        "attributes": "OL US ASNC",
         "prerequisites": "sophomore standing",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-05-06T14:34:31.321144
+2024-05-11T14:26:21.597567
 [
     {
         "subject": "CISS 346",
@@ -10,7 +10,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Koepp, Michael James",
+        "instructor": "Sizemore, Logan Donald",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "Per/Cr $20.25",
@@ -19,7 +19,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "CISS 247 or CSCI 247.",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "HYBD PBEX WP1",
+        "attributes": "WP1 PBEX HYBD",
         "prerequisites": "CISS 247 or CSCI 247.",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF KLEX",
+        "attributes": "WP1 KLEX FTF",
         "prerequisites": "CISS 247 or CSCI 247.",
         "gpa": null
     },
@@ -93,29 +93,6 @@
         "gpa": null
     },
     {
-        "subject": "CISS 422",
-        "course_credits": "4",
-        "crn": "23104",
-        "days": "MWRF",
-        "start_time": "1400",
-        "end_time": "1450",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Fretheim, Erik Jon",
-        "room": "TBA",
-        "lab_room": null,
-        "addl_fees": "Per/Cr $20.25",
-        "cap": "35",
-        "enrl": "0",
-        "avail": "35",
-        "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "FTF",
-        "prerequisites": "CISS 247",
-        "gpa": null
-    },
-    {
         "subject": "CISS 423",
         "course_credits": "4",
         "crn": "23600",
@@ -134,7 +111,30 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF KLEX",
+        "attributes": "KLEX FTF",
+        "prerequisites": "CISS 247",
+        "gpa": null
+    },
+    {
+        "subject": "CISS 423",
+        "course_credits": "4",
+        "crn": "23633",
+        "days": "MWRF",
+        "start_time": "1400",
+        "end_time": "1450",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Fretheim, Erik Jon",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "Per/Cr $20.25",
+        "cap": "35",
+        "enrl": "0",
+        "avail": "35",
+        "waitlist": "",
+        "restrictions": "PQ",
+        "attributes": "FTF",
         "prerequisites": "CISS 247",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF KLEX",
+        "attributes": "KLEX FTF",
         "prerequisites": "CISS 247 and CISS 301.",
         "gpa": null
     },
@@ -194,7 +194,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Mare, Shri",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "Per/Cr $20.25",
@@ -226,7 +226,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "XBS-CISS MJ",
-        "attributes": "FTF PBEX",
+        "attributes": "PBEX FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "FTF KLEX",
+        "attributes": "KLEX FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "HYBD PBEX",
+        "attributes": "PBEX HYBD",
         "prerequisites": "CISS 492.",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "HYBD KLEX",
+        "attributes": "KLEX HYBD",
         "prerequisites": "CISS 492.",
         "gpa": null
     }

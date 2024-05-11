@@ -1,4 +1,4 @@
-2024-05-06T14:34:29.156586
+2024-05-11T14:26:18.104962
 [
     {
         "subject": "BNS 301",
@@ -111,7 +111,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "BNS 302; BNS 306 or concurrent; and one course from: PSY 319, PSY 321, PSY 322, PSY 323 or PSY 324; or instructor permission.",
         "gpa": null
     }

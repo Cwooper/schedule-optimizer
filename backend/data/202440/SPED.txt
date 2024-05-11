@@ -1,4 +1,4 @@
-2024-05-06T14:35:30.621508
+2024-05-11T14:27:45.098852
 [
     {
         "subject": "SPED 303",
@@ -42,7 +42,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "BCGM FTF WP3",
+        "attributes": "BCGM WP3 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "OV ED",
-        "attributes": "BCGM FTF WP3",
+        "attributes": "BCGM WP3 FTF",
         "prerequisites": "",
         "gpa": null
     },

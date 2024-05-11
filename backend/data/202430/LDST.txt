@@ -1,4 +1,4 @@
-2024-05-06T14:35:39.513833
+2024-05-11T14:28:01.908334
 [
     {
         "subject": "LDST 341",
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "0",
-        "avail": "20",
+        "enrl": "5",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "LDST 101 or instructor permission.",
         "gpa": null
     }

@@ -1,4 +1,4 @@
-2024-05-06T14:35:12.095709
+2024-05-11T14:27:17.924266
 [
     {
         "subject": "AECI 301",
@@ -13,7 +13,7 @@
         "instructor": "Mayer, Aric Arnold",
         "room": "MH 056",
         "lab_room": "MH 056",
-        "addl_fees": "Flat Fee $61.50",
+        "addl_fees": "Flat Fee $15.00",
         "cap": "30",
         "enrl": "0",
         "avail": "30",

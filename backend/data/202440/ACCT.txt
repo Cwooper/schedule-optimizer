@@ -1,4 +1,4 @@
-2024-05-06T14:35:10.969068
+2024-05-11T14:27:15.987621
 [
     {
         "subject": "ACCT 240",
@@ -180,7 +180,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Majors only. ACCT 245, MIS 220 or equivalent skills",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Majors Only. ACCT 342",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Majors only; ACCT 240.",
         "gpa": null
     },
@@ -433,7 +433,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "OL SYNC WP1",
+        "attributes": "WP1 OL SYNC",
         "prerequisites": "Majors Only. MGMT 271",
         "gpa": null
     },

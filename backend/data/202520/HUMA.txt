@@ -1,4 +1,4 @@
-2024-05-06T14:34:37.342088
+2024-05-11T14:26:30.739705
 [
     {
         "subject": "HUMA 110",
@@ -19,7 +19,7 @@
         "avail": "45",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "45",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "45",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "45",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Instructor permission; at least two 100- or 200-level HUMA or REL courses.",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "JR SR",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "Junior or senior status; or instructor permission.",
         "gpa": null
     },

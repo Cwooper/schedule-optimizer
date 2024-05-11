@@ -1,4 +1,4 @@
-2024-05-06T14:35:00.934556
+2024-05-11T14:27:01.022901
 [
     {
         "subject": "I T 344",
@@ -65,7 +65,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "S/U",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "S/U",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "GR PB PM PQ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "IT 520.",
         "gpa": null
     },

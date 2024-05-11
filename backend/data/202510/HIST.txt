@@ -1,4 +1,4 @@
-2024-05-06T14:35:00.012639
+2024-05-11T14:26:59.345761
 [
     {
         "subject": "HIST 103",
@@ -19,7 +19,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM US US1",
+        "attributes": "HUM US US1 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM US US1",
+        "attributes": "HUM US US1 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM US US2",
+        "attributes": "HUM US US2 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM US US2",
+        "attributes": "HUM US US2 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM US US2",
+        "attributes": "HUM US US2 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "75",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ANCT EUR FTF HUM",
+        "attributes": "HUM ANCT EUR FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "EUR EUR1 FTF HUM",
+        "attributes": "HUM EUR EUR1 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "EUR EUR1 FTF HUM",
+        "attributes": "HUM EUR EUR1 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "75",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "EUR EUR2 FTF HUM",
+        "attributes": "HUM EUR EUR2 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "AFME ANCT ASIA EUR FTF HUM",
+        "attributes": "HUM AFME ANCT ASIA EUR FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "75",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "BCGM FTF US US2",
+        "attributes": "BCGM US US2 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "70",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "CMB2 FTF HUM WHEM",
+        "attributes": "HUM CMB2 WHEM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -387,7 +387,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ACGM AFME CMB2 EUR EUR2 FTF US US1",
+        "attributes": "ACGM AFME CMB2 EUR EUR2 US US1 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -525,7 +525,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF US US1 US2",
+        "attributes": "US US1 US2 FTF",
         "prerequisites": "Sophomore status.",
         "gpa": null
     },
@@ -571,7 +571,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF US US2",
+        "attributes": "US US2 FTF",
         "prerequisites": "Sophomore status.",
         "gpa": null
     },
@@ -686,7 +686,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "JR SR",
-        "attributes": "FTF US US1 US2",
+        "attributes": "US US1 US2 FTF",
         "prerequisites": "junior standing",
         "gpa": null
     },
@@ -709,7 +709,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF US",
+        "attributes": "US FTF",
         "prerequisites": "Sophomore status.",
         "gpa": null
     },
@@ -732,31 +732,8 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "JR SR",
-        "attributes": "ASIA CMB2 FTF US US2",
+        "attributes": "ASIA CMB2 US US2 FTF",
         "prerequisites": "Junior Status.",
-        "gpa": null
-    },
-    {
-        "subject": "HIST 490",
-        "course_credits": "5",
-        "crn": "13588",
-        "days": "TR",
-        "start_time": "1200",
-        "end_time": "1350",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Lynn, Kimberly",
-        "room": "BH 159",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "5",
-        "enrl": "0",
-        "avail": "5",
-        "waitlist": "",
-        "restrictions": "JR SR",
-        "attributes": "EUR EUR2 FTF",
-        "prerequisites": "Junior or senior status. Recommended: any 100, 200, 300, 400 level History courses.",
         "gpa": null
     },
     {
@@ -801,7 +778,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "One upper-division HIST course in field of topic and\u00a0HIST 301; or instructor permission.",
         "gpa": null
     },
@@ -824,7 +801,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "One upper-division HIST course in field of topic and\u00a0HIST 301; or instructor permission.",
         "gpa": null
     },
@@ -847,7 +824,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "One upper-division HIST course in field of topic and\u00a0HIST 301; or instructor permission.",
         "gpa": null
     },

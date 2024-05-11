@@ -1,4 +1,4 @@
-2024-05-06T14:34:35.612964
+2024-05-11T14:26:27.828931
 [
     {
         "subject": "FREN 103",
@@ -88,7 +88,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "FREN 202 or equivalent",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "FREN 202 or equivalent",
         "gpa": null
     },

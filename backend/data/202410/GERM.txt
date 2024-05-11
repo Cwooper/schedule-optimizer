@@ -1,4 +1,4 @@
-2024-05-06T14:36:11.627105
+2024-05-11T14:28:55.153730
 [
     {
         "subject": "GERM 102",
@@ -65,7 +65,7 @@
         "avail": "14",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "GERM 201 or instructor permission.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "19",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "GERM 201 or instructor permission.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "GERM 301 or instructor permission.",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "GERM 301 or instructor permission.",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "14",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "GERM 302 or instructor permission; recommended take to GERM 401 first.",
         "gpa": null
     },

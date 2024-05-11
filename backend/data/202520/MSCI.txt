@@ -1,4 +1,4 @@
-2024-05-06T14:34:40.133709
+2024-05-11T14:26:35.768214
 [
     {
         "subject": "MSCI 101",
@@ -19,7 +19,7 @@
         "avail": "36",
         "waitlist": "",
         "restrictions": "FR",
-        "attributes": "FTF SCI",
+        "attributes": "SCI FTF",
         "prerequisites": "Freshman status or permission - FYE",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF",
+        "attributes": "WP1 FTF",
         "prerequisites": "MSCI 340 or instructor permission.",
         "gpa": null
     },

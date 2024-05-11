@@ -1,4 +1,4 @@
-2024-05-06T14:35:29.143679
+2024-05-11T14:27:42.535010
 [
     {
         "subject": "RECR 201",
@@ -249,7 +249,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Phase III Recreation majors.",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Phase III Recreation majors.",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Phase III Recreation majors.",
         "gpa": null
     }

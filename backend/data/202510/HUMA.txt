@@ -1,4 +1,4 @@
-2024-05-06T14:35:00.680384
+2024-05-11T14:27:00.584153
 [
     {
         "subject": "HUMA 121",
@@ -19,7 +19,7 @@
         "avail": "45",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "45",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "45",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "JR SR",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "Junior or senior status; or instructor permission.",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "JR SR",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "Junior or senior status; or instructor permission.",
         "gpa": null
     },
@@ -228,29 +228,6 @@
         "restrictions": "PQ",
         "attributes": "FTF",
         "prerequisites": "EAST 302 or HUMA 302 or instructor permission.",
-        "gpa": null
-    },
-    {
-        "subject": "HUMA 490",
-        "course_credits": "5",
-        "crn": "13585",
-        "days": "TR",
-        "start_time": "1200",
-        "end_time": "1350",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Lynn, Kimberly",
-        "room": "BH 159",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "10",
-        "enrl": "0",
-        "avail": "10",
-        "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "FTF",
-        "prerequisites": "HUMA 302 or instructor permission.",
         "gpa": null
     },
     {

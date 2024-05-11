@@ -1,4 +1,4 @@
-2024-05-06T14:34:46.040853
+2024-05-11T14:26:41.471843
 [
     {
         "subject": "RC 519",
@@ -19,7 +19,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
-        "attributes": "EVEX MIX OL",
+        "attributes": "OL EVEX MIX",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
-        "attributes": "ASNC EVEX OL",
+        "attributes": "OL EVEX ASNC",
         "prerequisites": "",
         "gpa": null
     },

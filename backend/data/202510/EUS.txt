@@ -1,4 +1,4 @@
-2024-05-06T14:34:57.880611
+2024-05-11T14:26:56.782295
 [
     {
         "subject": "EUS 210",
@@ -19,7 +19,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ACGM ASNC OL SST",
+        "attributes": "ACGM OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     }

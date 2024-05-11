@@ -1,4 +1,4 @@
-2024-05-06T14:35:23.999257
+2024-05-11T14:27:35.572201
 [
     {
         "subject": "MFGE 231",
@@ -106,9 +106,9 @@
         "room": "ET 308",
         "lab_room": "ET 136",
         "addl_fees": "Flat Fee $282.00",
-        "cap": "8",
+        "cap": "9",
         "enrl": "0",
-        "avail": "8",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
@@ -129,9 +129,9 @@
         "room": "ET 308",
         "lab_room": "ET 136",
         "addl_fees": "Flat Fee $282.00",
-        "cap": "8",
+        "cap": "9",
         "enrl": "0",
-        "avail": "8",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
@@ -152,9 +152,9 @@
         "room": "ET 308",
         "lab_room": "ET 136",
         "addl_fees": "Flat Fee $282.00",
-        "cap": "8",
+        "cap": "9",
         "enrl": "0",
-        "avail": "8",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
@@ -318,7 +318,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "ENG 101; MFGE 333; MFGE 381.",
         "gpa": null
     },

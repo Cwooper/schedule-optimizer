@@ -1,4 +1,4 @@
-2024-05-06T14:35:27.017176
+2024-05-11T14:27:39.752225
 [
     {
         "subject": "OPS 360",
@@ -88,7 +88,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "OPS 360 or MFGE 341; major restricted.",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
-        "attributes": "FTF PBEX",
+        "attributes": "PBEX FTF",
         "prerequisites": "OPS 360 or MFGE 341; major restricted.",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "26",
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "OPS 360 or MFGE 341; major restricted.",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "OPS 360 and permission of instructor; first-time enrollment restricted to manufacturing and supply chain management students with foundation or full major status; second-time enrollment restricted to manufacturing and supply chain management students with full major status.",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "OPS 360 or MFGE 341; major restricted.",
         "gpa": null
     }

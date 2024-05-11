@@ -1,4 +1,4 @@
-2024-05-06T14:34:33.284749
+2024-05-11T14:26:25.147724
 [
     {
         "subject": "ENRG 101",
@@ -19,7 +19,7 @@
         "avail": "100",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SCI",
+        "attributes": "SCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "11",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "ESCI 380 or ESCI 329 or ENRG 380.",
         "gpa": null
     },

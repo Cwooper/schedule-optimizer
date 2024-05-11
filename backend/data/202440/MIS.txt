@@ -1,4 +1,4 @@
-2024-05-06T14:35:23.845266
+2024-05-11T14:27:35.294439
 [
     {
         "subject": "MIS 220",
@@ -111,7 +111,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "JR SO SR MJ PQ",
-        "attributes": "CF FTF WP1",
+        "attributes": "CF WP1 FTF",
         "prerequisites": "Majors Only. MIS 320 or ACCT 321, C- or better",
         "gpa": null
     },
@@ -205,29 +205,6 @@
         "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "MIS 320 or ACCT 321",
-        "gpa": null
-    },
-    {
-        "subject": "MIS 434",
-        "course_credits": "4",
-        "crn": "42932",
-        "days": "MW",
-        "start_time": "1000",
-        "end_time": "1150",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Staff",
-        "room": "AH 018",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "25",
-        "enrl": "0",
-        "avail": "25",
-        "waitlist": "",
-        "restrictions": "MJ PQ",
-        "attributes": "FTF",
-        "prerequisites": "Majors only. DSCI 305 or ECON 375.",
         "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-05-06T14:36:01.582181
+2024-05-11T14:28:39.152550
 [
     {
         "subject": "SMNR 201",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "14",
-        "avail": "11",
+        "enrl": "13",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",

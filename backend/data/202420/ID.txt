@@ -1,4 +1,4 @@
-2024-05-06T14:35:54.145573
+2024-05-11T14:28:27.273895
 [
     {
         "subject": "ID 120",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $47.00",
         "cap": "48",
-        "enrl": "47",
-        "avail": "1",
+        "enrl": "46",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
