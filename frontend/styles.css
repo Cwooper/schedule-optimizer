@@ -214,12 +214,14 @@ label {
     height: auto;
     border: 1px solid #ccc;
     overflow: hidden;
+    overflow-x: auto;
     padding: 10px;
 }
 
 /* CSS styling for the calendar table */
 .calendar-table {
     border-collapse: collapse;
+    margin: 0 auto;
     width: 100%;
 }
 
@@ -238,22 +240,21 @@ label {
 }
 
 /* Media query for mobile devices */
-@media (max-width: 1000px) {
-    .calendar-box {
-        overflow-x: auto; /* Add horizontal scrollbar */
-        overflow-y: auto; /* Hide vertical scrollbar initially */
-        white-space: nowrap; /* Prevent line breaks */
+@media (max-width: 800px) {
+    /* Scroll Bar */ 
+    .calendar {
+        padding: 5px;
+        display: flex;
     }
 
-    /* Show vertical scrollbar when needed */
-    .calendar-box::-webkit-scrollbar {
-        width: 8px; /* Width of the scrollbar */
-        display: block;
+    .calendar-table {
+        width: fit-content;
+        margin: 0 auto;
     }
 
-    .calendar-box::-webkit-scrollbar-thumb {
-        background-color: #888; /* Color of the scrollbar thumb */
-        border-radius: 4px; /* Rounded corners */
+    .container {
+        flex-direction: column;
+        justify-content: center;
     }
 
     .errorContainer{
@@ -271,11 +272,13 @@ label {
     }
 
     .left-container {
-        width: 40%
+        width: 100%;
+        font-size: 11px;
     }
 
     .right-container {
-        width: 60%
+        width: 100%;
+        font-size: 11px;
     }
 
     #sectionNumber {
