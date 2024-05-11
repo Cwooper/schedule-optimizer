@@ -7,10 +7,6 @@ from backend.schedule_generator import generate_schedules, get_courses
 app = Flask(__name__, template_folder="frontend", static_folder="/schedule-optimizer/frontend")
 
 
-@app.route('/')
-def index():
-    return redirect(url_for('schedule_optimizer'))
-
 @app.route('/schedule-optimizer/')
 def schedule_optimizer():
     return render_template("index.html")
