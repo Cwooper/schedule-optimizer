@@ -207,7 +207,6 @@ function addCoursesToCalendar(courses) {
                         i = `0${i}`
                     }    
                     const cellId = `${labDay}-${i}00`; // Append '00' for formatting
-                    console.log(`Lab Searching for ${cellId}`)
                     const cell = document.getElementById(cellId);
                     const bgColor = stringToColor(course.crn); // Generate color based on CRN
                     cell.style.backgroundColor = bgColor; // Set background color
