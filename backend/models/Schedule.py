@@ -52,7 +52,6 @@ class Schedule:
         # GPA 
         total_gpa = sum(course.gpa for course in self.courses)
         course_num = len(self.courses)
-        print(f"total gpa: {total_gpa} {[course.subject + course.instructor for course in self.courses]}")
         # Calculate the average GPA, normalize it to a score between 0 and 1
         average_gpa = total_gpa / course_num
         gpa_score = average_gpa / 4.0   # Weigh based on 4.0 scale     
