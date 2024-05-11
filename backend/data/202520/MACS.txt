@@ -1,4 +1,4 @@
-2024-05-06T14:34:39.699346
+2024-05-11T14:26:34.877207
 [
     {
         "subject": "MACS 111",
@@ -180,7 +180,7 @@
         "avail": "21",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "FTF",
         "prerequisites": "MACS 303 or ESCI 321; MACS 303 or BIOL 325 or ESCI 325; BIOL 340 or ESCI 340; or instructor permission.",
         "gpa": null
     },
@@ -939,7 +939,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "MACS 493 or MACS 494 or MACS 495.",
         "gpa": null
     },

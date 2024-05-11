@@ -1,4 +1,4 @@
-2024-05-06T14:35:29.409447
+2024-05-11T14:27:42.977816
 [
     {
         "subject": "REL 231",
@@ -89,29 +89,6 @@
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FIG FTF",
-        "prerequisites": "",
-        "gpa": null
-    },
-    {
-        "subject": "REL 290",
-        "course_credits": "5",
-        "crn": "43958",
-        "days": "TR",
-        "start_time": "1200",
-        "end_time": "1350",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Carotenuto, Gianna M.",
-        "room": "VU 552",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "45",
-        "enrl": "0",
-        "avail": "45",
-        "waitlist": "",
-        "restrictions": "",
-        "attributes": "ACGM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -286,7 +263,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Lynn, Kimberly",
+        "instructor": "Gogrof, Andrea E.",
         "room": "BH OFC",
         "lab_room": null,
         "addl_fees": "",
@@ -309,7 +286,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Lynn, Kimberly",
+        "instructor": "Gogrof, Andrea E.",
         "room": "BH OFC",
         "lab_room": null,
         "addl_fees": "",

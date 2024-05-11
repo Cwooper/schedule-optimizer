@@ -1,4 +1,4 @@
-2024-05-06T14:35:21.638752
+2024-05-11T14:27:31.713406
 [
     {
         "subject": "ID 110",
@@ -171,7 +171,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Lund, Justin Thoreau",
         "room": "ET 350",
         "lab_room": null,
         "addl_fees": "Flat Fee $232.00",

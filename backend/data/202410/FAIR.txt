@@ -1,4 +1,4 @@
-2024-05-06T14:36:10.902674
+2024-05-11T14:28:53.910688
 [
     {
         "subject": "FAIR 101A",
@@ -824,7 +824,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV FA S/U",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Required by all Fairhaven students. Senior status.",
         "gpa": null
     },

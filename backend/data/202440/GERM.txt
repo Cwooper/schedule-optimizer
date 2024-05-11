@@ -1,4 +1,4 @@
-2024-05-06T14:35:19.495577
+2024-05-11T14:27:29.119158
 [
     {
         "subject": "GERM 101",
@@ -111,7 +111,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "GERM 203 or instructor permission.",
         "gpa": null
     },

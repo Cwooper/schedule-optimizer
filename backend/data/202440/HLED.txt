@@ -1,4 +1,4 @@
-2024-05-06T14:35:20.546857
+2024-05-11T14:27:29.966544
 [
     {
         "subject": "HLED 202",
@@ -19,7 +19,7 @@
         "avail": "70",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "60",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "HLED 401",
         "gpa": null
     },

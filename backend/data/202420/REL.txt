@@ -1,4 +1,4 @@
-2024-05-06T14:36:01.004064
+2024-05-11T14:28:37.997328
 [
     {
         "subject": "REL 231",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
-        "enrl": "38",
-        "avail": "7",
+        "enrl": "37",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM FTF",
@@ -107,11 +107,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "30",
-        "avail": "0",
+        "enrl": "29",
+        "avail": "1",
         "waitlist": "",
         "restrictions": "OV JR SR",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "Junior or senior status; or instructor permission.",
         "gpa": null
     },

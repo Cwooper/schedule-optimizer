@@ -1,4 +1,4 @@
-2024-05-06T14:35:31.589408
+2024-05-11T14:27:46.943615
 [
     {
         "subject": "ACCT 240",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "0",
-        "avail": "50",
+        "enrl": "10",
+        "avail": "40",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "0",
-        "avail": "50",
+        "enrl": "18",
+        "avail": "32",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "ACCT 240",
         "gpa": null
     },
@@ -61,11 +61,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "0",
-        "avail": "35",
+        "enrl": "10",
+        "avail": "25",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "OL SYNC WP1",
+        "attributes": "WP1 OL SYNC",
         "prerequisites": "Majors Only. MGMT 271",
         "gpa": null
     },

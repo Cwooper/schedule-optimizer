@@ -1,4 +1,4 @@
-2024-05-06T14:35:35.730480
+2024-05-11T14:27:54.161426
 [
     {
         "subject": "EDUC 309",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "0",
-        "avail": "20",
+        "enrl": "8",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC BCOM OL",
+        "attributes": "BCOM OL ASNC",
         "prerequisites": "",
         "gpa": null
     }

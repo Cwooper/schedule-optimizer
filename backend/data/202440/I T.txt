@@ -1,4 +1,4 @@
-2024-05-06T14:35:21.769149
+2024-05-11T14:27:31.987921
 [
     {
         "subject": "I T 344",
@@ -18,8 +18,8 @@
         "enrl": "0",
         "avail": "15",
         "waitlist": "",
-        "restrictions": "S/U",
-        "attributes": "ASNC OL",
+        "restrictions": "ED S/U",
+        "attributes": "OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -41,8 +41,8 @@
         "enrl": "0",
         "avail": "15",
         "waitlist": "",
-        "restrictions": "S/U",
-        "attributes": "ASNC OL",
+        "restrictions": "ED S/U",
+        "attributes": "OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -64,7 +64,7 @@
         "enrl": "0",
         "avail": "15",
         "waitlist": "",
-        "restrictions": "S/U",
+        "restrictions": "ED S/U",
         "attributes": "FTF",
         "prerequisites": "",
         "gpa": null
@@ -110,8 +110,8 @@
         "enrl": "0",
         "avail": "15",
         "waitlist": "",
-        "restrictions": "S/U",
-        "attributes": "ASNC OL",
+        "restrictions": "ED S/U",
+        "attributes": "OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -142,12 +142,12 @@
         "subject": "I T 442",
         "course_credits": "3",
         "crn": "41907",
-        "days": "T",
-        "start_time": "1230",
-        "end_time": "1350",
-        "lab_days": "R",
-        "lab_start_time": "1230",
-        "lab_end_time": "1350",
+        "days": "M",
+        "start_time": "1440",
+        "end_time": "1610",
+        "lab_days": "W",
+        "lab_start_time": "1440",
+        "lab_end_time": "1610",
         "instructor": "Dagnon, Paula Rae",
         "room": "MH 035",
         "lab_room": "MH OFC",
@@ -203,7 +203,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "ED",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "IT 344.",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "GR PB PM",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "",
         "gpa": null
     },

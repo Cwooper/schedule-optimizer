@@ -1,4 +1,4 @@
-2024-05-06T14:35:37.360382
+2024-05-11T14:27:57.273480
 [
     {
         "subject": "FREN 101",
@@ -15,11 +15,11 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "Flat Fee $5.00",
         "cap": "15",
-        "enrl": "0",
-        "avail": "15",
+        "enrl": "2",
+        "avail": "13",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "MIX OL",
+        "attributes": "OL MIX",
         "prerequisites": "",
         "gpa": null
     },
@@ -41,8 +41,8 @@
         "enrl": "0",
         "avail": "15",
         "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "MIX OL",
+        "restrictions": "",
+        "attributes": "OL MIX",
         "prerequisites": "FREN 101",
         "gpa": null
     },
@@ -64,8 +64,8 @@
         "enrl": "0",
         "avail": "15",
         "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "BCOM MIX OL",
+        "restrictions": "",
+        "attributes": "BCOM OL MIX",
         "prerequisites": "FREN 102",
         "gpa": null
     },
@@ -84,11 +84,11 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "Flat Fee $5.00",
         "cap": "15",
-        "enrl": "0",
-        "avail": "15",
+        "enrl": "5",
+        "avail": "10",
         "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "BCOM MIX OL",
+        "restrictions": "",
+        "attributes": "BCOM OL MIX",
         "prerequisites": "FREN 103 or FREN 104 or equivalent",
         "gpa": null
     },
@@ -107,11 +107,11 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "Flat Fee $5.00",
         "cap": "15",
-        "enrl": "0",
-        "avail": "15",
+        "enrl": "6",
+        "avail": "9",
         "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "HUM MIX OL",
+        "restrictions": "",
+        "attributes": "HUM OL MIX",
         "prerequisites": "FREN 201 or equivalent",
         "gpa": null
     },
@@ -130,11 +130,11 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "Flat Fee $5.00",
         "cap": "15",
-        "enrl": "0",
-        "avail": "15",
+        "enrl": "8",
+        "avail": "7",
         "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "HUM MIX OL",
+        "restrictions": "",
+        "attributes": "HUM OL MIX",
         "prerequisites": "FREN 202 or equivalent",
         "gpa": null
     }

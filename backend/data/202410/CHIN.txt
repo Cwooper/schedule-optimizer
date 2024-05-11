@@ -1,4 +1,4 @@
-2024-05-06T14:36:05.969579
+2024-05-11T14:28:45.870771
 [
     {
         "subject": "CHIN 102",
@@ -134,7 +134,7 @@
         "avail": "6",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "CHIN 301 or LING 310 or instructor permission",
         "gpa": null
     },

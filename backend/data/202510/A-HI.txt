@@ -1,4 +1,4 @@
-2024-05-06T14:34:49.337641
+2024-05-11T14:26:47.104289
 [
     {
         "subject": "A/HI 245",
@@ -289,13 +289,13 @@
         "instructor": "Witkowski, Jacqueline",
         "room": "FI 232",
         "lab_room": null,
-        "addl_fees": "Flat Fee $1.50",
+        "addl_fees": "Flat Fee $14.40",
         "cap": "18",
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "A/HI 275, art history majors only.",
         "gpa": null
     },
@@ -387,7 +387,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Any A/HI or equivalent 300-level course.",
         "gpa": null
     },

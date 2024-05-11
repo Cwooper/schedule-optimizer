@@ -1,4 +1,4 @@
-2024-05-06T14:35:29.901869
+2024-05-11T14:27:43.914488
 [
     {
         "subject": "SEC 303",
@@ -263,7 +263,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Ozdogu, Devin Kazim",
         "room": "MH 015",
         "lab_room": null,
         "addl_fees": "",

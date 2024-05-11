@@ -1,4 +1,4 @@
-2024-05-06T14:35:27.359709
+2024-05-11T14:27:40.253363
 [
     {
         "subject": "PA 101",
@@ -335,7 +335,7 @@
         "instructor": "Stahler, Tatyana Krista",
         "room": "TBA",
         "lab_room": null,
-        "addl_fees": "",
+        "addl_fees": "Flat Fee $30.00",
         "cap": "7",
         "enrl": "0",
         "avail": "7",

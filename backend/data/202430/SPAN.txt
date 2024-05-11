@@ -1,4 +1,4 @@
-2024-05-06T14:35:43.412966
+2024-05-11T14:28:09.656743
 [
     {
         "subject": "SPAN 201",
@@ -15,11 +15,11 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "Flat Fee $5.00",
         "cap": "15",
-        "enrl": "0",
-        "avail": "15",
+        "enrl": "6",
+        "avail": "9",
         "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "BCOM MIX OL",
+        "restrictions": "",
+        "attributes": "BCOM OL MIX",
         "prerequisites": "SPAN 103 or SPAN 104 or equivalent.",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "Flat Fee $5.00",
         "cap": "15",
-        "enrl": "0",
-        "avail": "15",
+        "enrl": "10",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "HUM MIX OL",
+        "attributes": "HUM OL MIX",
         "prerequisites": "SPAN 201.",
         "gpa": null
     },
@@ -61,11 +61,11 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "Flat Fee $5.00",
         "cap": "15",
-        "enrl": "0",
-        "avail": "15",
+        "enrl": "12",
+        "avail": "3",
         "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "HUM MIX OL",
+        "restrictions": "",
+        "attributes": "HUM OL MIX",
         "prerequisites": "SPAN 202.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "14",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF HUM TRVL",
+        "attributes": "HUM TRVL FTF",
         "prerequisites": "SPAN 203 or instructor permission.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "14",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF HUM TRVL",
+        "attributes": "HUM TRVL FTF",
         "prerequisites": "SPAN 301.",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "14",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF TRVL",
+        "attributes": "TRVL FTF",
         "prerequisites": "SPAN 301 or instructor permission.",
         "gpa": null
     }

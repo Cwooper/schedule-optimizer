@@ -1,4 +1,4 @@
-2024-05-06T14:35:15.991200
+2024-05-11T14:27:24.691421
 [
     {
         "subject": "EDAD 501",
@@ -42,7 +42,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
-        "attributes": "DLEX OL SYNC",
+        "attributes": "OL DLEX SYNC",
         "prerequisites": "Graduate status or permission of instructor.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
-        "attributes": "DLEX OL SYNC",
+        "attributes": "OL DLEX SYNC",
         "prerequisites": "Graduate status",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "GR GR PB PM",
-        "attributes": "EVEX OL SYNC",
+        "attributes": "OL EVEX SYNC",
         "prerequisites": "Master's degree; admission to superintendent program.",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "GR PB PM MJ",
-        "attributes": "EVEX OL SYNC",
+        "attributes": "OL EVEX SYNC",
         "prerequisites": "Admission to Doctor of Education.",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "GR PB PM",
-        "attributes": "EVEX OL SYNC",
+        "attributes": "OL EVEX SYNC",
         "prerequisites": "Admission to Doctor of Education.",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV GR PB PM MJ S/U",
-        "attributes": "EVEX OL SYNC",
+        "attributes": "OL EVEX SYNC",
         "prerequisites": "Admission to Doctor of Education.",
         "gpa": null
     },

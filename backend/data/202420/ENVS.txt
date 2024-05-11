@@ -1,4 +1,4 @@
-2024-05-06T14:35:51.577298
+2024-05-11T14:28:23.022413
 [
     {
         "subject": "ENVS 203",
@@ -19,7 +19,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "Minimum of one university-level natural science GUR.",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "Minimum of one university-level natural science GUR.",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "Minimum of one university-level natural science GUR.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "Minimum of one university-level natural science GUR.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "ASNC EVEX OL SSC",
+        "attributes": "SSC OL EVEX ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "-1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "ASNC OL PBEX SSC",
+        "attributes": "SSC OL PBEX ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "-1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "ASNC OL PAEX SSC",
+        "attributes": "SSC OL PAEX ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -245,11 +245,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "10",
-        "enrl": "6",
-        "avail": "4",
+        "enrl": "5",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
-        "attributes": "SPL WP3",
+        "attributes": "WP3 SPL",
         "prerequisites": "UEPP 202 or ENVS 303 or instructor permission.",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ENVS 303 or instructor permission.",
         "gpa": null
     },
@@ -291,8 +291,8 @@
         "lab_room": "AH 016",
         "addl_fees": "Flat Fee $31.75",
         "cap": "25",
-        "enrl": "25",
-        "avail": "0",
+        "enrl": "24",
+        "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
@@ -364,7 +364,7 @@
         "avail": "6",
         "waitlist": "",
         "restrictions": "OV MJ",
-        "attributes": "EVEX OL SYNC",
+        "attributes": "OL EVEX SYNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -479,7 +479,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Open to all College of the Environment majors, minors, Journalism pre-majors, majors, and minors; or instructor permission.",
         "gpa": null
     },
@@ -640,7 +640,7 @@
         "avail": "8",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "HYBD PBEX",
+        "attributes": "PBEX HYBD",
         "prerequisites": "ENVS 420",
         "gpa": null
     },
@@ -663,7 +663,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "HYBD PAEX",
+        "attributes": "PAEX HYBD",
         "prerequisites": "ENVS 420",
         "gpa": null
     },
@@ -824,7 +824,7 @@
         "avail": "11",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "ENVS 362 or ENVS 372; or instructor permission.",
         "gpa": null
     },
@@ -847,7 +847,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV SR MJ",
-        "attributes": "CPST FTF WP2",
+        "attributes": "WP2 CPST FTF",
         "prerequisites": "CENV major or CBE major or instructor permission; priority for majors in Business and Sustainability.  Senior status.",
         "gpa": null
     },
@@ -870,7 +870,7 @@
         "avail": "6",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "ENVS 303 or instructor permission.",
         "gpa": null
     },
@@ -893,7 +893,7 @@
         "avail": "14",
         "waitlist": "",
         "restrictions": "OV JR SR MJ",
-        "attributes": "SPL WP3",
+        "attributes": "WP3 SPL",
         "prerequisites": "Junior standing or instructor permission.",
         "gpa": null
     },
@@ -1146,7 +1146,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV S/U",
-        "attributes": "FTF PBEX",
+        "attributes": "PBEX FTF",
         "prerequisites": "Admission to College of the Environment and instructor permission.",
         "gpa": null
     },
@@ -1169,7 +1169,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV S/U",
-        "attributes": "FTF PAEX",
+        "attributes": "PAEX FTF",
         "prerequisites": "Admission to College of the Environment and instructor permission.",
         "gpa": null
     },
@@ -1261,7 +1261,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF PBEX",
+        "attributes": "PBEX FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -1284,7 +1284,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF PAEX",
+        "attributes": "PAEX FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -1491,7 +1491,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV S/U",
-        "attributes": "FTF PBEX",
+        "attributes": "PBEX FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -1514,7 +1514,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV S/U",
-        "attributes": "FTF PAEX",
+        "attributes": "PAEX FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -1675,7 +1675,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF PBEX",
+        "attributes": "PBEX FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -1698,7 +1698,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF PAEX",
+        "attributes": "PAEX FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -1790,7 +1790,7 @@
         "avail": "9",
         "waitlist": "",
         "restrictions": "OV SR",
-        "attributes": "HYBD PBEX",
+        "attributes": "PBEX HYBD",
         "prerequisites": "Senior status or instructor permission.",
         "gpa": null
     },
@@ -1813,7 +1813,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV SR",
-        "attributes": "HYBD PAEX",
+        "attributes": "PAEX HYBD",
         "prerequisites": "Senior status or instructor permission.",
         "gpa": null
     },
@@ -1882,7 +1882,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF PBEX",
+        "attributes": "PBEX FTF",
         "prerequisites": "ENVS 320.",
         "gpa": null
     },
@@ -1905,7 +1905,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF PAEX",
+        "attributes": "PAEX FTF",
         "prerequisites": "ENVS 320.",
         "gpa": null
     },
@@ -1951,7 +1951,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF PBEX",
+        "attributes": "PBEX FTF",
         "prerequisites": "ENVS 320.",
         "gpa": null
     },
@@ -1974,7 +1974,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF PAEX",
+        "attributes": "PAEX FTF",
         "prerequisites": "ENVS 320.",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-05-06T14:34:34.278851
+2024-05-11T14:26:26.483302
 [
     {
         "subject": "ESCI 101",
@@ -19,7 +19,7 @@
         "avail": "400",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SCI",
+        "attributes": "SCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC OL SCI SST",
+        "attributes": "SCI OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Complete one of the following: CHEM 163 and BIOL 206; or CHEM 161, BIOL 101, and ESCI 302 or ESCI 392 or ENVS 392. Or instructor permission.",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Complete one of the following: CHEM 163 and BIOL 206; or CHEM 161, BIOL 101, and ESCI 302 or ESCI 392 or ENVS 392. Or instructor permission.",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "MATH 114; ESCI 321 or ENVS 203 or GEOL 211. MATH 124 and some physics are recommended.",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "ESCI 325 or BIOL 325; ESCI 340 or BIOL 340; or equivalent",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "ESCI 325 or BIOL 325; ESCI 340 or BIOL 340; or equivalent",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ESCI 325 or BIOL 325; ESCI 340 or BIOL 340 or equivalent.",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "Admission to ESCI Field Camp.",
         "gpa": null
     },
@@ -410,7 +410,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "CPST FTF WP3",
+        "attributes": "WP3 CPST FTF",
         "prerequisites": "ESCI 325 or BIOL 325; ESCI 361 or ENVS 327.",
         "gpa": null
     },
@@ -433,7 +433,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "ESCI 325 or BIOL 325; MATH 124; ESCI 340 or BIOL 340; MATH 125 recommended.",
         "gpa": null
     },
@@ -571,7 +571,7 @@
         "avail": "11",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "ESCI 380 or ESCI 329 or ENRG 380",
         "gpa": null
     },
@@ -594,7 +594,7 @@
         "avail": "14",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "ESCI 325; ESCI 340 or BIOL 340; or instructor permission; physics recommended.",
         "gpa": null
     },
@@ -617,7 +617,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "SR MJ",
-        "attributes": "CPST FTF WP3",
+        "attributes": "WP3 CPST FTF",
         "prerequisites": "Senior status. One 300 or 400 level toxicology course strongly recommended.",
         "gpa": null
     },
@@ -663,7 +663,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "SR MJ",
-        "attributes": "CPST FTF WP2",
+        "attributes": "WP2 CPST FTF",
         "prerequisites": "College of the Environment major or MACS major; senior status (priority registration for College of the Environment majors).",
         "gpa": null
     },
@@ -2365,7 +2365,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "GR GR PB PM S/U",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Graduate status.",
         "gpa": null
     },

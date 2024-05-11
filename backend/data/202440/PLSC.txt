@@ -1,4 +1,4 @@
-2024-05-06T14:35:28.125277
+2024-05-11T14:27:41.418460
 [
     {
         "subject": "PLSC 250",
@@ -19,7 +19,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FIG FTF SSC",
+        "attributes": "SSC FIG FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FIG FTF SSC",
+        "attributes": "SSC FIG FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "55",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "40",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "PLSC 250; only 1 of PLSC 311, MGMT 271 or FAIR 311B may be taken for GUR credit.",
         "gpa": null
     },
@@ -410,7 +410,7 @@
         "avail": "22",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "PLSC 250 or instructor permission.",
         "gpa": null
     },
@@ -456,7 +456,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "PLSC 271 or PLSC 291.",
         "gpa": null
     },
@@ -479,7 +479,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "PLSC 250",
         "gpa": null
     },
@@ -525,7 +525,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "SR MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Senior status in political science and 30 credits in political science.",
         "gpa": null
     },
@@ -548,7 +548,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "SR MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Senior status in political science and 30 credits in political science.",
         "gpa": null
     },
@@ -594,7 +594,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "PLSC 250, PLSC 311, plus one additional upper-division course in law or political theory.",
         "gpa": null
     },
@@ -661,7 +661,7 @@
         "cap": "0",
         "enrl": "0",
         "avail": "0",
-        "waitlist": "",
+        "waitlist": "WL",
         "restrictions": "OV MJ",
         "attributes": "FTF",
         "prerequisites": "Instructor permission",

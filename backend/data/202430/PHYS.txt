@@ -1,4 +1,4 @@
-2024-05-06T14:35:41.730971
+2024-05-11T14:28:06.738038
 [
     {
         "subject": "PHYS 114",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "48",
-        "enrl": "0",
-        "avail": "48",
+        "enrl": "8",
+        "avail": "40",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF SCI",
+        "attributes": "SCI FTF",
         "prerequisites": "MATH 115 or MATH 118 or suitable math assessment score.",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": "CF 302",
         "addl_fees": "Flat Fee $65.24",
         "cap": "27",
-        "enrl": "0",
-        "avail": "27",
+        "enrl": "17",
+        "avail": "10",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "MATH 124 or concurrent OR MATH 134 or concurrent OR MATH 138 or concurrent.",
         "gpa": null
     },
@@ -61,11 +61,11 @@
         "lab_room": "CF 307",
         "addl_fees": "Flat Fee $65.24",
         "cap": "27",
-        "enrl": "0",
-        "avail": "27",
+        "enrl": "7",
+        "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 161; MATH 124 and MATH 125 or MATH 134 and MATH 135 or concurrent, or MATH 138.",
         "gpa": null
     },
@@ -84,11 +84,11 @@
         "lab_room": "CF 310",
         "addl_fees": "Flat Fee $65.24",
         "cap": "27",
-        "enrl": "0",
-        "avail": "27",
+        "enrl": "19",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 162; MATH 124 and MATH 125 or MATH 134 and MATH 135 or MATH 138",
         "gpa": null
     }

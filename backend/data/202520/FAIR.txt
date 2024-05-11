@@ -1,4 +1,4 @@
-2024-05-06T14:34:35.219527
+2024-05-11T14:26:27.364472
 [
     {
         "subject": "FAIR 101A",
@@ -387,7 +387,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "S/U",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "FAIR 203A or Social Science GUR or permission of instructor.",
         "gpa": null
     },
@@ -746,7 +746,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Johnson, Claudia Colindres",
         "room": "FA 314",
         "lab_room": null,
         "addl_fees": "Flat Fee $7.74",
@@ -778,7 +778,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "OV FA S/U",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Required by all Fairhaven students. Senior status.",
         "gpa": null
     },
@@ -801,7 +801,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "OV FA S/U",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Required by all Fairhaven students. Senior status.",
         "gpa": null
     },
@@ -824,7 +824,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "OV FA S/U",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Required by all Fairhaven students. Senior status.",
         "gpa": null
     },
@@ -847,7 +847,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "OV FA S/U",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Required by all Fairhaven students. Senior status.",
         "gpa": null
     },
@@ -861,7 +861,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Johnson, Claudia Colindres",
         "room": "FA 314",
         "lab_room": null,
         "addl_fees": "Flat Fee $34.00",

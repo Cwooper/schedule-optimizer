@@ -1,4 +1,4 @@
-2024-05-06T14:35:12.815906
+2024-05-11T14:27:19.033759
 [
     {
         "subject": "BIOL 101",
@@ -19,7 +19,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FIG FTF LSCI",
+        "attributes": "LSCI FIG FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -341,7 +341,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -364,7 +364,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -387,7 +387,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -410,7 +410,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -433,7 +433,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161 or CHEM 175 or concurrent.",
         "gpa": null
     },
@@ -456,7 +456,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161 or CHEM 175 or concurrent.",
         "gpa": null
     },
@@ -479,7 +479,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161 or CHEM 175 or concurrent.",
         "gpa": null
     },
@@ -502,7 +502,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161 or CHEM 175 or concurrent.",
         "gpa": null
     },
@@ -525,7 +525,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161 or CHEM 175 or concurrent.",
         "gpa": null
     },
@@ -548,7 +548,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161 or CHEM 175 or concurrent.",
         "gpa": null
     },
@@ -571,7 +571,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161 or CHEM 175 or concurrent.",
         "gpa": null
     },
@@ -594,7 +594,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161 or CHEM 175 or concurrent.",
         "gpa": null
     },
@@ -617,7 +617,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161 or CHEM 175 or concurrent.",
         "gpa": null
     },
@@ -640,7 +640,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161 or CHEM 175 or concurrent.",
         "gpa": null
     },
@@ -663,7 +663,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161 or CHEM 175 or concurrent.",
         "gpa": null
     },
@@ -686,7 +686,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "BIOL 204; CHEM 161 or CHEM 175; CHEM 162 or CHEM 176 or concurrent.",
         "gpa": null
     },
@@ -709,7 +709,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "BIOL 204; CHEM 161 or CHEM 175; CHEM 162 or CHEM 176 or concurrent.",
         "gpa": null
     },
@@ -732,7 +732,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "BIOL 204; CHEM 161 or CHEM 175; CHEM 162 or CHEM 176 or concurrent.",
         "gpa": null
     },
@@ -755,7 +755,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "BIOL 204; CHEM 161 or CHEM 175; CHEM 162 or CHEM 176 or concurrent.",
         "gpa": null
     },
@@ -778,7 +778,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "BIOL 204; CHEM 161 or CHEM 175; CHEM 162 or CHEM 176 or concurrent.",
         "gpa": null
     },
@@ -801,7 +801,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "BIOL 204; CHEM 161 or CHEM 175; CHEM 162 or CHEM 176 or concurrent.",
         "gpa": null
     },
@@ -824,7 +824,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "BIOL 205; CHEM 162 or CHEM 176; CHEM 163 or CHEM 225 or concurrent.",
         "gpa": null
     },
@@ -847,7 +847,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "BIOL 205; CHEM 162 or CHEM 176; CHEM 163 or CHEM 225 or concurrent.",
         "gpa": null
     },
@@ -870,7 +870,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "BIOL 205; CHEM 162 or CHEM 176; CHEM 163 or CHEM 225 or concurrent.",
         "gpa": null
     },
@@ -893,7 +893,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "BIOL 205; CHEM 162 or CHEM 176; CHEM 163 or CHEM 225 or concurrent.",
         "gpa": null
     },
@@ -916,7 +916,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "BIOL 205; CHEM 162 or CHEM 176; CHEM 163 or CHEM 225 or concurrent.",
         "gpa": null
     },
@@ -939,7 +939,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "BIOL 205; CHEM 162 or CHEM 176; CHEM 163 or CHEM 225 or concurrent.",
         "gpa": null
     },
@@ -1031,7 +1031,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "BIOL 321.",
         "gpa": null
     },
@@ -1100,7 +1100,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "BIOL 325 or concurrent; or ESCI 325.",
         "gpa": null
     },
@@ -1123,7 +1123,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "BIOL 325 or concurrent; or ESCI 325.",
         "gpa": null
     },
@@ -1399,7 +1399,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "BIOL 325 or MACS 303 or instructor permission.",
         "gpa": null
     },
@@ -1422,7 +1422,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "BIOL 321",
         "gpa": null
     },
@@ -1537,7 +1537,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "One course from: BIOL 321, BIOL 323, BIOL 327 or BIOL 328; BIOL 340; BIOL 432; or instructor permission.",
         "gpa": null
     },
@@ -1560,7 +1560,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "BIOL 323, BIOL 327 or BIOL 328",
         "gpa": null
     },
@@ -1569,8 +1569,8 @@
         "course_credits": "1 TO 3",
         "crn": "42755",
         "days": "TBD",
-        "start_time": "TBD",
-        "end_time": "TBD",
+        "start_time": "1500",
+        "end_time": "1550",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
@@ -1608,6 +1608,29 @@
         "restrictions": "OV S/U",
         "attributes": "FTF",
         "prerequisites": "Phase II in Biology and permission of instructor.",
+        "gpa": null
+    },
+    {
+        "subject": "BIOL 497Z",
+        "course_credits": "3",
+        "crn": "44204",
+        "days": "TR",
+        "start_time": "1000",
+        "end_time": "1150",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Serrano-Moreno, Jose R.",
+        "room": "IS 244",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "24",
+        "enrl": "0",
+        "avail": "24",
+        "waitlist": "",
+        "restrictions": "PQ",
+        "attributes": "WP1 FTF",
+        "prerequisites": "BIOL 323; BIOL 471 recommended.",
         "gpa": null
     },
     {

@@ -1,4 +1,4 @@
-2024-05-06T14:35:04.192546
+2024-05-11T14:27:06.690512
 [
     {
         "subject": "MDS 410",
@@ -19,7 +19,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "SPL WP3",
+        "attributes": "WP3 SPL",
         "prerequisites": "Multidisciplinary Studies majors only.",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV MJ S/U",
-        "attributes": "FTF SST",
+        "attributes": "SST FTF",
         "prerequisites": "Multidisciplinary Studies majors only; permission of instructor.",
         "gpa": null
     }

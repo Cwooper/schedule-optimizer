@@ -1,4 +1,4 @@
-2024-05-06T14:36:14.381974
+2024-05-11T14:28:59.967123
 [
     {
         "subject": "LAT 102",
@@ -42,7 +42,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "LAT 201",
         "gpa": null
     }

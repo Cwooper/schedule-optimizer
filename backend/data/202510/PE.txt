@@ -1,4 +1,4 @@
-2024-05-06T14:35:05.888496
+2024-05-11T14:27:09.962341
 [
     {
         "subject": "PE 115",
@@ -19,7 +19,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "S/U",
-        "attributes": "ASNC OL SST",
+        "attributes": "OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },

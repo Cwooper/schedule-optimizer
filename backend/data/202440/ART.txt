@@ -1,4 +1,4 @@
-2024-05-06T14:35:11.850136
+2024-05-11T14:27:17.460871
 [
     {
         "subject": "ART 109",
@@ -19,7 +19,7 @@
         "avail": "142",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SST",
+        "attributes": "SST FTF",
         "prerequisites": "If a student becomes an art major this course can fulfill the requirement for ART 110.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SST",
+        "attributes": "SST FTF",
         "prerequisites": "If a student becomes an art major this course can fulfill the requirement for ART 110.",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SST",
+        "attributes": "SST FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC OL SST",
+        "attributes": "OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SST",
+        "attributes": "SST FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -594,7 +594,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SST TRVL",
+        "attributes": "TRVL SST FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -732,7 +732,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF SST TRVL",
+        "attributes": "TRVL SST FTF",
         "prerequisites": "ART 280",
         "gpa": null
     },
@@ -801,7 +801,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SST TRVL",
+        "attributes": "TRVL SST FTF",
         "prerequisites": "",
         "gpa": null
     },

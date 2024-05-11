@@ -1,4 +1,4 @@
-2024-05-06T14:35:23.725016
+2024-05-11T14:27:35.051084
 [
     {
         "subject": "MGMT 202",
@@ -42,7 +42,7 @@
         "avail": "80",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "Only one of MGMT 271, PLSC 311, or FAIR 311B may be taken for GUR credit.",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "80",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "Only one of MGMT 271, PLSC 311, or FAIR 311B may be taken for GUR credit.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "80",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "Only one of MGMT 271, PLSC 311, or FAIR 311B may be taken for GUR credit.",
         "gpa": null
     },
@@ -110,7 +110,7 @@
         "enrl": "0",
         "avail": "25",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "MJ",
         "attributes": "FTF",
         "prerequisites": "",
         "gpa": null
@@ -133,7 +133,7 @@
         "enrl": "0",
         "avail": "25",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "MJ",
         "attributes": "FTF",
         "prerequisites": "",
         "gpa": null
@@ -156,7 +156,7 @@
         "enrl": "0",
         "avail": "50",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "MJ",
         "attributes": "FTF",
         "prerequisites": "",
         "gpa": null
@@ -179,8 +179,8 @@
         "enrl": "0",
         "avail": "50",
         "waitlist": "",
-        "restrictions": "",
-        "attributes": "ASNC OL",
+        "restrictions": "MJ",
+        "attributes": "OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -221,9 +221,9 @@
         "room": "IS 310",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "25",
+        "cap": "20",
         "enrl": "0",
-        "avail": "25",
+        "avail": "20",
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
@@ -244,12 +244,12 @@
         "room": "PH 108",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "25",
+        "cap": "22",
         "enrl": "0",
-        "avail": "25",
+        "avail": "22",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ENG 101 or equivalent",
         "gpa": null
     },
@@ -267,12 +267,12 @@
         "room": "AW 302",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "25",
+        "cap": "22",
         "enrl": "0",
-        "avail": "25",
+        "avail": "22",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ENG 101 or equivalent",
         "gpa": null
     },
@@ -341,7 +341,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Majors only.",
         "gpa": null
     },
@@ -363,8 +363,8 @@
         "enrl": "0",
         "avail": "20",
         "waitlist": "",
-        "restrictions": "OV MJ PQ",
-        "attributes": "CF FTF SL",
+        "restrictions": "MJ PQ",
+        "attributes": "CF SL FTF",
         "prerequisites": "Majors Only. MGMT 313.",
         "gpa": null
     },
@@ -386,8 +386,8 @@
         "enrl": "0",
         "avail": "25",
         "waitlist": "",
-        "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP2",
+        "restrictions": "MJ PQ",
+        "attributes": "WP2 FTF",
         "prerequisites": "Majors Only. OPS 461; MGMT 313.",
         "gpa": null
     },
@@ -410,7 +410,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF PBEX WP2",
+        "attributes": "WP2 PBEX FTF",
         "prerequisites": "Majors Only. OPS 461; MGMT 313.",
         "gpa": null
     },

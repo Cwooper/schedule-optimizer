@@ -1,4 +1,4 @@
-2024-05-06T14:35:22.283562
+2024-05-11T14:27:33.103799
 [
     {
         "subject": "JAPN 101",
@@ -249,7 +249,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "B- in JAPN 303 or instructor permission.",
         "gpa": null
     },

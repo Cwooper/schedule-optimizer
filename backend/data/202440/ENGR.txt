@@ -1,4 +1,4 @@
-2024-05-06T14:35:16.635877
+2024-05-11T14:27:25.889659
 [
     {
         "subject": "ENGR 101",
@@ -56,7 +56,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Leonhardt, Eric Charles",
         "room": "ET 304",
         "lab_room": null,
         "addl_fees": "Flat Fee $47.00",

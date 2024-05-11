@@ -1,4 +1,4 @@
-2024-05-06T14:35:49.129487
+2024-05-11T14:28:19.467845
 [
     {
         "subject": "EAST 201",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "37",
-        "enrl": "31",
-        "avail": "6",
+        "enrl": "30",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM ASIA CMB2 FTF",

@@ -1,4 +1,4 @@
-2024-05-06T14:34:53.102579
+2024-05-11T14:26:51.432944
 [
     {
         "subject": "CISS 301",
@@ -42,7 +42,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "XBS-CISS MJ PQ",
-        "attributes": "HYBD PBEX",
+        "attributes": "PBEX HYBD",
         "prerequisites": "CSCI 145",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF KLEX",
+        "attributes": "KLEX FTF",
         "prerequisites": "CSCI 145",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "CISS 247 or CSCI 247.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "XBS-CISS MJ PQ",
-        "attributes": "HYBD PBEX",
+        "attributes": "PBEX HYBD",
         "prerequisites": "CISS 247",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF KLEX",
+        "attributes": "KLEX FTF",
         "prerequisites": "CISS 247",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "HYBD PBEX",
+        "attributes": "PBEX HYBD",
         "prerequisites": "CSCI 140 or CSCI 141 or MIS 320.",
         "gpa": null
     },
@@ -204,29 +204,6 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "HYBD",
-        "prerequisites": "CISS 360",
-        "gpa": null
-    },
-    {
-        "subject": "CISS 469",
-        "course_credits": "4",
-        "crn": "12502",
-        "days": "MW",
-        "start_time": "1000",
-        "end_time": "1150",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Fretheim, Erik Jon",
-        "room": "Poulsbo - State Supported",
-        "lab_room": null,
-        "addl_fees": "Per/Cr $20.25",
-        "cap": "5",
-        "enrl": "0",
-        "avail": "5",
-        "waitlist": "",
-        "restrictions": "MJ PQ",
-        "attributes": "HYBD PBEX",
         "prerequisites": "CISS 360",
         "gpa": null
     },
@@ -272,7 +249,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "HYBD PBEX",
+        "attributes": "PBEX HYBD",
         "prerequisites": "CISS 491.",
         "gpa": null
     },
@@ -295,7 +272,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "HYBD KLEX",
+        "attributes": "KLEX HYBD",
         "prerequisites": "CISS 491.",
         "gpa": null
     }

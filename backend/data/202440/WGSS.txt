@@ -1,4 +1,4 @@
-2024-05-06T14:35:31.481198
+2024-05-11T14:27:46.727721
 [
     {
         "subject": "WGSS 211",
@@ -295,7 +295,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "CPST FTF WP3",
+        "attributes": "WP3 CPST FTF",
         "prerequisites": "Senior status in WGSS major or minor; or instructor permission.",
         "gpa": null
     }

@@ -1,4 +1,4 @@
-2024-05-06T14:35:26.701826
+2024-05-11T14:27:39.229675
 [
     {
         "subject": "MUS 101",
@@ -42,7 +42,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC OL SST",
+        "attributes": "OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -59,13 +59,13 @@
         "instructor": "Donnellan, Grant Jonathan",
         "room": "PA 155",
         "lab_room": null,
-        "addl_fees": "",
+        "addl_fees": "Flat Fee $10.00",
         "cap": "103",
         "enrl": "0",
         "avail": "103",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC HUM OL SST",
+        "attributes": "HUM OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FIG FTF HUM",
+        "attributes": "HUM FIG FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "100",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC HUM OL SST",
+        "attributes": "HUM OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FIG FTF HUM",
+        "attributes": "HUM FIG FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FIG FTF HUM",
+        "attributes": "HUM FIG FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC HUM OL SST",
+        "attributes": "HUM OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC HUM OL SST",
+        "attributes": "HUM OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC HUM OL SST",
+        "attributes": "HUM OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC HUM OL SST",
+        "attributes": "HUM OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -640,7 +640,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ACGM ASNC OL SST",
+        "attributes": "ACGM OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -1812,7 +1812,7 @@
         "enrl": "0",
         "avail": "15",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "MJ",
         "attributes": "FTF",
         "prerequisites": "music major; minimum applied performance audition",
         "gpa": null
@@ -1835,7 +1835,7 @@
         "enrl": "0",
         "avail": "25",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "MJ",
         "attributes": "FTF",
         "prerequisites": "music major; minimum applied performance audition",
         "gpa": null
@@ -2111,7 +2111,7 @@
         "enrl": "0",
         "avail": "10",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "MJ",
         "attributes": "FTF",
         "prerequisites": "Composition major or instructor permission.",
         "gpa": null
@@ -2341,7 +2341,7 @@
         "enrl": "0",
         "avail": "50",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "OV",
         "attributes": "FTF",
         "prerequisites": "",
         "gpa": null
@@ -2364,7 +2364,7 @@
         "enrl": "0",
         "avail": "20",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "OV",
         "attributes": "FTF",
         "prerequisites": "by audition",
         "gpa": null
@@ -2387,7 +2387,7 @@
         "enrl": "0",
         "avail": "15",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "OV",
         "attributes": "FTF",
         "prerequisites": "By audition",
         "gpa": null
@@ -2410,7 +2410,7 @@
         "enrl": "0",
         "avail": "10",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "OV",
         "attributes": "FTF",
         "prerequisites": "By audition",
         "gpa": null
@@ -2640,7 +2640,7 @@
         "enrl": "0",
         "avail": "25",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "OV",
         "attributes": "FTF",
         "prerequisites": "by audition",
         "gpa": null
@@ -3130,7 +3130,7 @@
     },
     {
         "subject": "MUS 314K",
-        "course_credits": "1",
+        "course_credits": "1 TO 4",
         "crn": "40769",
         "days": "TBD",
         "start_time": "TBD",
@@ -3153,7 +3153,7 @@
     },
     {
         "subject": "MUS 314K",
-        "course_credits": "1",
+        "course_credits": "1 TO 4",
         "crn": "42052",
         "days": "TBD",
         "start_time": "TBD",
@@ -3176,7 +3176,7 @@
     },
     {
         "subject": "MUS 314K",
-        "course_credits": "1 TO 4",
+        "course_credits": "1",
         "crn": "40769",
         "days": "TBD",
         "start_time": "TBD",
@@ -3199,7 +3199,7 @@
     },
     {
         "subject": "MUS 314K",
-        "course_credits": "1 TO 4",
+        "course_credits": "1",
         "crn": "42052",
         "days": "TBD",
         "start_time": "TBD",
@@ -3238,7 +3238,7 @@
         "enrl": "0",
         "avail": "10",
         "waitlist": "",
-        "restrictions": "MJ",
+        "restrictions": "OV MJ",
         "attributes": "FTF",
         "prerequisites": "music major; upper-division exam",
         "gpa": null
@@ -3261,7 +3261,7 @@
         "enrl": "0",
         "avail": "10",
         "waitlist": "",
-        "restrictions": "MJ",
+        "restrictions": "OV MJ",
         "attributes": "FTF",
         "prerequisites": "music major; upper-division exam",
         "gpa": null
@@ -3284,7 +3284,7 @@
         "enrl": "0",
         "avail": "10",
         "waitlist": "",
-        "restrictions": "MJ",
+        "restrictions": "OV MJ",
         "attributes": "FTF",
         "prerequisites": "music major; upper-division exam",
         "gpa": null
@@ -3307,7 +3307,7 @@
         "enrl": "0",
         "avail": "10",
         "waitlist": "",
-        "restrictions": "MJ",
+        "restrictions": "OV MJ",
         "attributes": "FTF",
         "prerequisites": "music major; upper-division exam",
         "gpa": null
@@ -3330,7 +3330,7 @@
         "enrl": "0",
         "avail": "10",
         "waitlist": "",
-        "restrictions": "MJ",
+        "restrictions": "OV MJ",
         "attributes": "FTF",
         "prerequisites": "music major; upper-division exam",
         "gpa": null
@@ -3353,7 +3353,7 @@
         "enrl": "0",
         "avail": "10",
         "waitlist": "",
-        "restrictions": "MJ",
+        "restrictions": "OV MJ",
         "attributes": "FTF",
         "prerequisites": "music major; upper-division exam",
         "gpa": null
@@ -3376,7 +3376,7 @@
         "enrl": "0",
         "avail": "10",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "OV MJ",
         "attributes": "FTF",
         "prerequisites": "music major; upper-division exam",
         "gpa": null
@@ -3468,7 +3468,7 @@
         "enrl": "0",
         "avail": "10",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "MUS 231 and MUS 226; upper-division portfolio.",
         "gpa": null
@@ -3537,8 +3537,8 @@
         "enrl": "0",
         "avail": "25",
         "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "restrictions": "MJ PQ",
+        "attributes": "WP3 FTF",
         "prerequisites": "MUS 126; music major.",
         "gpa": null
     },
@@ -3560,8 +3560,8 @@
         "enrl": "0",
         "avail": "25",
         "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "restrictions": "MJ PQ",
+        "attributes": "WP3 FTF",
         "prerequisites": "MUS 126; music major.",
         "gpa": null
     },
@@ -3629,7 +3629,7 @@
         "enrl": "0",
         "avail": "65",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "OV",
         "attributes": "FTF",
         "prerequisites": "By audition.",
         "gpa": null
@@ -4107,7 +4107,7 @@
         "instructor": "MacLellan, Peder",
         "room": "PA",
         "lab_room": "PA OFC",
-        "addl_fees": "Flat Fee $582.50",
+        "addl_fees": "Flat Fee $582.48",
         "cap": "8",
         "enrl": "0",
         "avail": "8",
@@ -4204,7 +4204,7 @@
         "enrl": "0",
         "avail": "8",
         "waitlist": "",
-        "restrictions": "MJ",
+        "restrictions": "OV MJ",
         "attributes": "FTF",
         "prerequisites": "music major; upper-division exam",
         "gpa": null
@@ -4227,7 +4227,7 @@
         "enrl": "0",
         "avail": "8",
         "waitlist": "",
-        "restrictions": "MJ",
+        "restrictions": "OV MJ",
         "attributes": "FTF",
         "prerequisites": "music major; upper-division exam",
         "gpa": null
@@ -4250,7 +4250,7 @@
         "enrl": "0",
         "avail": "15",
         "waitlist": "",
-        "restrictions": "MJ",
+        "restrictions": "OV MJ",
         "attributes": "FTF",
         "prerequisites": "music major; upper-division exam",
         "gpa": null
@@ -4273,7 +4273,7 @@
         "enrl": "0",
         "avail": "8",
         "waitlist": "",
-        "restrictions": "MJ",
+        "restrictions": "OV MJ",
         "attributes": "FTF",
         "prerequisites": "music major; upper-division exam",
         "gpa": null
@@ -4296,7 +4296,7 @@
         "enrl": "0",
         "avail": "8",
         "waitlist": "",
-        "restrictions": "MJ",
+        "restrictions": "OV MJ",
         "attributes": "FTF",
         "prerequisites": "music major; upper-division exam",
         "gpa": null
@@ -4319,7 +4319,7 @@
         "enrl": "0",
         "avail": "8",
         "waitlist": "",
-        "restrictions": "MJ",
+        "restrictions": "OV MJ",
         "attributes": "FTF",
         "prerequisites": "music major; upper-division exam",
         "gpa": null
@@ -4342,7 +4342,7 @@
         "enrl": "0",
         "avail": "8",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "OV MJ",
         "attributes": "FTF",
         "prerequisites": "music major; upper-division exam",
         "gpa": null
@@ -4458,7 +4458,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "MUS 342, MUS 343; music major",
         "gpa": null
     },
@@ -4481,7 +4481,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "MUS 342, MUS 343; music major",
         "gpa": null
     },
@@ -4687,7 +4687,7 @@
         "enrl": "0",
         "avail": "60",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "OV",
         "attributes": "FTF",
         "prerequisites": "by audition",
         "gpa": null
@@ -4733,7 +4733,7 @@
         "enrl": "0",
         "avail": "85",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "OV",
         "attributes": "FTF",
         "prerequisites": "by audition",
         "gpa": null
@@ -4756,7 +4756,7 @@
         "enrl": "0",
         "avail": "20",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "OV",
         "attributes": "FTF",
         "prerequisites": "by audition",
         "gpa": null
@@ -4779,7 +4779,7 @@
         "enrl": "0",
         "avail": "10",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "OV",
         "attributes": "FTF",
         "prerequisites": "by audition; MUS 334, MUS 335 or MUS 336 strongly recommended",
         "gpa": null
@@ -4802,7 +4802,7 @@
         "enrl": "0",
         "avail": "10",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "OV",
         "attributes": "FTF",
         "prerequisites": "by audition; MUS 334, MUS 335 or MUS 336 strongly recommended",
         "gpa": null
@@ -4963,7 +4963,7 @@
         "enrl": "0",
         "avail": "20",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "OV",
         "attributes": "FTF",
         "prerequisites": "by audition",
         "gpa": null
@@ -4986,7 +4986,7 @@
         "enrl": "0",
         "avail": "20",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "OV",
         "attributes": "FTF",
         "prerequisites": "by audition",
         "gpa": null

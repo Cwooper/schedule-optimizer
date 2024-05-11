@@ -1,4 +1,4 @@
-2024-05-06T14:35:44.256750
+2024-05-11T14:28:11.197058
 [
     {
         "subject": "WGSS 213",
@@ -10,16 +10,16 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Tilland-Stafford, Anika Oceana",
+        "instructor": "Deylami, Shirin Sedigh",
         "room": "ONLINE ASNC",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "0",
-        "avail": "25",
+        "enrl": "13",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ACGM ASNC OL",
+        "attributes": "ACGM OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "0",
-        "avail": "25",
+        "enrl": "7",
+        "avail": "18",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "ASNC BCGM OL",
+        "attributes": "BCGM OL ASNC",
         "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.",
         "gpa": null
     }

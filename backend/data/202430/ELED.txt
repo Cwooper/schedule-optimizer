@@ -1,4 +1,4 @@
-2024-05-06T14:35:36.120273
+2024-05-11T14:27:54.982502
 [
     {
         "subject": "ELED 464",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "0",
-        "avail": "25",
+        "enrl": "2",
+        "avail": "23",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "GR GR PB PM S/U",
-        "attributes": "ASNC FTF OL",
+        "attributes": "OL ASNC FTF",
         "prerequisites": "Student's graduate committee/program advisor approval.",
         "gpa": null
     }

@@ -1,4 +1,4 @@
-2024-05-06T14:35:15.030808
+2024-05-11T14:27:22.809170
 [
     {
         "subject": "DATA 311",
@@ -65,7 +65,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "CSCI 241; MATH 204; MATH 224; and MATH 341.",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-05-06T14:35:14.691204
+2024-05-11T14:27:22.140680
 [
     {
         "subject": "CISS 247",
@@ -19,7 +19,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF KLEX",
+        "attributes": "KLEX FTF",
         "prerequisites": "CSCI 145",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "HYBD PBEX",
+        "attributes": "PBEX HYBD",
         "prerequisites": "CSCI 145",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "FTF KLEX",
+        "attributes": "KLEX FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "CISS 247 or CSCI 247.",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "CISS 247 or CSCI 247.",
         "gpa": null
     },
@@ -203,8 +203,54 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "CISS 247 or CSCI 247.",
+        "gpa": null
+    },
+    {
+        "subject": "CISS 469",
+        "course_credits": "4",
+        "crn": "44198",
+        "days": "TR",
+        "start_time": "0800",
+        "end_time": "0940",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Tsikerdekis, Michael",
+        "room": "CF 023",
+        "lab_room": null,
+        "addl_fees": "Per/Cr $20.25",
+        "cap": "35",
+        "enrl": "0",
+        "avail": "35",
+        "waitlist": "",
+        "restrictions": "PQ",
+        "attributes": "HYBD",
+        "prerequisites": "CISS 360",
+        "gpa": null
+    },
+    {
+        "subject": "CISS 469",
+        "course_credits": "4",
+        "crn": "44212",
+        "days": "TR",
+        "start_time": "0800",
+        "end_time": "0940",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Tsikerdekis, Michael",
+        "room": "Poulsbo - State Supported",
+        "lab_room": null,
+        "addl_fees": "Per/Cr $20.25",
+        "cap": "5",
+        "enrl": "0",
+        "avail": "5",
+        "waitlist": "",
+        "restrictions": "MJ PQ",
+        "attributes": "PBEX HYBD",
+        "prerequisites": "CISS 360",
         "gpa": null
     },
     {
@@ -226,7 +272,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "HYBD PBEX",
+        "attributes": "PBEX HYBD",
         "prerequisites": "",
         "gpa": null
     },
@@ -272,8 +318,31 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "FTF KLEX",
+        "attributes": "KLEX FTF",
         "prerequisites": "",
+        "gpa": null
+    },
+    {
+        "subject": "CISS 478",
+        "course_credits": "4",
+        "crn": "44132",
+        "days": "TR",
+        "start_time": "1800",
+        "end_time": "1950",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Staff",
+        "room": "Poulsbo - State Supported",
+        "lab_room": null,
+        "addl_fees": "Per/Cr $20.25",
+        "cap": "0",
+        "enrl": "0",
+        "avail": "0",
+        "waitlist": "WL",
+        "restrictions": "MJ PQ",
+        "attributes": "PBEX HYBD",
+        "prerequisites": "CISS 301",
         "gpa": null
     },
     {
@@ -295,7 +364,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "HYBD KLEX",
+        "attributes": "KLEX HYBD",
         "prerequisites": "CISS 301",
         "gpa": null
     },
@@ -341,7 +410,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "SR MJ",
-        "attributes": "HYBD PBEX",
+        "attributes": "PBEX HYBD",
         "prerequisites": "Senior status.",
         "gpa": null
     },
@@ -364,7 +433,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "SR MJ",
-        "attributes": "HYBD KLEX",
+        "attributes": "KLEX HYBD",
         "prerequisites": "Senior status.",
         "gpa": null
     }

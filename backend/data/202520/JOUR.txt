@@ -1,4 +1,4 @@
-2024-05-06T14:34:38.346144
+2024-05-11T14:26:32.513653
 [
     {
         "subject": "JOUR 106",
@@ -42,7 +42,7 @@
         "avail": "120",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "JR SR PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Junior status; JOUR 207; JOUR 214; JOUR 307 or JOUR 380.",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "JOUR 207; one newspaper staff course. May not be taken concurrently with JOUR 404.",
         "gpa": null
     },
@@ -343,29 +343,6 @@
         "restrictions": "JR SO SR MJ PQ",
         "attributes": "FTF",
         "prerequisites": "JOUR 207  or ENG 101 or permission of instructor.",
-        "gpa": null
-    },
-    {
-        "subject": "JOUR 350",
-        "course_credits": "5",
-        "crn": "20639",
-        "days": "TR",
-        "start_time": "1400",
-        "end_time": "1550",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Watt, Peggy",
-        "room": "TBA",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "30",
-        "enrl": "0",
-        "avail": "30",
-        "waitlist": "",
-        "restrictions": "JR SR MJ",
-        "attributes": "FTF",
-        "prerequisites": "Junior status.",
         "gpa": null
     },
     {
@@ -456,7 +433,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF SL",
+        "attributes": "SL FTF",
         "prerequisites": "JOUR 207 and JOUR 330.",
         "gpa": null
     },
@@ -502,7 +479,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "JOUR 207; JOUR 307 or JOUR 380; JOUR 314.",
         "gpa": null
     },
@@ -548,7 +525,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Senior status; JOUR 207; JOUR 307 or JOUR 380; and one newspaper staff course. May not be taken concurrently with JOUR 404.",
         "gpa": null
     },
@@ -686,7 +663,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "JOUR 350 and JOUR 351; and major status.",
         "gpa": null
     }

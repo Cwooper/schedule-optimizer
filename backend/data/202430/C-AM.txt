@@ -1,4 +1,4 @@
-2024-05-06T14:35:32.934358
+2024-05-11T14:27:49.915780
 [
     {
         "subject": "C/AM 200",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "0",
-        "avail": "25",
+        "enrl": "9",
+        "avail": "16",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC OL SSC",
+        "attributes": "SSC OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "MIX OL",
+        "attributes": "OL MIX",
         "prerequisites": "JOUR 190 or ENG 101 or C/AM 200",
         "gpa": null
     }

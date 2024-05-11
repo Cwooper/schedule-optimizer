@@ -1,4 +1,4 @@
-2024-05-06T14:35:15.139439
+2024-05-11T14:27:23.018950
 [
     {
         "subject": "DSCI 205",
@@ -65,7 +65,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "ASNC OL QSR",
+        "attributes": "QSR OL ASNC",
         "prerequisites": "MATH 112 with a C- or better or a college precalculus course with a C+ or better or suitable math assessment score.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "JR SO SR MJ PQ",
-        "attributes": "ASNC OL PBEX",
+        "attributes": "OL PBEX ASNC",
         "prerequisites": "MATH 157 or MATH 124 or MATH 138; and DSCI 205.",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "68",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "MATH 157 or MATH 124 or MATH 138; and DSCI 205.",
         "gpa": null
     }

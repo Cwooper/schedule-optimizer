@@ -1,4 +1,4 @@
-2024-05-06T14:34:34.945912
+2024-05-11T14:26:27.031261
 [
     {
         "subject": "EUS 210",
@@ -19,7 +19,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ACGM ASNC OL SST",
+        "attributes": "ACGM OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF",
+        "attributes": "WP1 FTF",
         "prerequisites": "EUS 201 or EUS 210 or instructor permission.",
         "gpa": null
     }

@@ -1,4 +1,4 @@
-2024-05-06T14:35:21.962968
+2024-05-11T14:27:32.456395
 [
     {
         "subject": "IBUS 370",
@@ -65,7 +65,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "IBUS 370 or MGMT 313 or full major status in College of Business and Economics. Students in other majors may request instructor permission.",
         "gpa": null
     },
@@ -80,15 +80,15 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Samant, Shantala",
-        "room": "TBA",
+        "room": "PH 001",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "25",
+        "cap": "20",
         "enrl": "0",
-        "avail": "25",
+        "avail": "20",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "CF FTF WP1",
+        "attributes": "CF WP1 FTF",
         "prerequisites": "Majors only; IBUS 370.",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "IBUS 370 or instructor permission.",
         "gpa": null
     },

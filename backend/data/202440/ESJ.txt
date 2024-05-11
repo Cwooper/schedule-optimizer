@@ -1,17 +1,17 @@
-2024-05-06T14:35:16.070698
+2024-05-11T14:27:24.882526
 [
     {
         "subject": "ESJ 411",
         "course_credits": "4",
         "crn": "42121",
-        "days": "MW",
-        "start_time": "1200",
-        "end_time": "1350",
+        "days": "TR",
+        "start_time": "1500",
+        "end_time": "1650",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
-        "room": "HU 107",
+        "instructor": "Durias, Joshua",
+        "room": "BH 106",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",

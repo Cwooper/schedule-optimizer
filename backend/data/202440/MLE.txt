@@ -1,4 +1,4 @@
-2024-05-06T14:35:25.399655
+2024-05-11T14:27:38.034144
 [
     {
         "subject": "MLE 441",
@@ -10,7 +10,7 @@
         "lab_days": "N/A",
         "lab_start_time": "N/A",
         "lab_end_time": "N/A",
-        "instructor": "Ruiz Guerrero, Margarita Guadalupe",
+        "instructor": "Timmons Flores, Maria",
         "room": "MH 115",
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
@@ -19,6 +19,29 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
+        "attributes": "HYBD",
+        "prerequisites": "",
+        "gpa": null
+    },
+    {
+        "subject": "MLE 441",
+        "course_credits": "5",
+        "crn": "44199",
+        "days": "TR",
+        "start_time": "1400",
+        "end_time": "1550",
+        "lab_days": "N/A",
+        "lab_start_time": "N/A",
+        "lab_end_time": "N/A",
+        "instructor": "Staff",
+        "room": "MH 115",
+        "lab_room": "ONLINE ASNC",
+        "addl_fees": "",
+        "cap": "25",
+        "enrl": "0",
+        "avail": "25",
+        "waitlist": "",
+        "restrictions": "OV",
         "attributes": "HYBD",
         "prerequisites": "",
         "gpa": null
@@ -33,7 +56,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Timmons Flores, Maria",
+        "instructor": "Ruiz Guerrero, Margarita Guadalupe",
         "room": "MH 015",
         "lab_room": null,
         "addl_fees": "",

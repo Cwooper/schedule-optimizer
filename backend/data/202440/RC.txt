@@ -1,4 +1,4 @@
-2024-05-06T14:35:29.270808
+2024-05-11T14:27:42.750023
 [
     {
         "subject": "RC 501",
@@ -42,7 +42,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "GR PB PM",
-        "attributes": "ASNC EVEX OL",
+        "attributes": "OL EVEX ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
-        "attributes": "ASNC EVEX OL",
+        "attributes": "OL EVEX ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
-        "attributes": "ASNC EVEX OL",
+        "attributes": "OL EVEX ASNC",
         "prerequisites": "",
         "gpa": null
     },

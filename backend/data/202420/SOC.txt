@@ -1,4 +1,4 @@
-2024-05-06T14:36:01.838813
+2024-05-11T14:28:39.447604
 [
     {
         "subject": "SOC 255",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00",
         "cap": "30",
-        "enrl": "30",
-        "avail": "0",
+        "enrl": "29",
+        "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "ASNC OL SSC SST",
+        "attributes": "SSC OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "140",
-        "enrl": "132",
-        "avail": "8",
+        "enrl": "131",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "-2",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271 or instructor permission.",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271 or instructor permission.",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "8",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF QSR",
+        "attributes": "QSR FTF",
         "prerequisites": "MATH 107 or MATH 112 or equivalent; And any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271 or instructor permission.",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "-1",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF QSR",
+        "attributes": "QSR FTF",
         "prerequisites": "MATH 107 or MATH 112 or equivalent; And any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271 or instructor permission.",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "-1",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271 or instructor permission.",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "ASNC OL SST",
+        "attributes": "OL ASNC SST",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271 or instructor permission.",
         "gpa": null
     },
@@ -337,11 +337,11 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00",
         "cap": "30",
-        "enrl": "27",
-        "avail": "3",
+        "enrl": "26",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "ASNC BCGM OL SST",
+        "attributes": "BCGM OL ASNC SST",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, WGSS 211, WGSS 212 or WGSS 213; or instructor permission.",
         "gpa": null
     },
@@ -640,7 +640,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "CPST FTF WP1",
+        "attributes": "WP1 CPST FTF",
         "prerequisites": "SOC 302; SOC 304 or PSY 306; SOC 306; and SOC 320.",
         "gpa": null
     },
@@ -663,7 +663,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "CPST FTF WP1",
+        "attributes": "WP1 CPST FTF",
         "prerequisites": "SOC 302; SOC 304 or PSY 306; and SOC 306.",
         "gpa": null
     },
@@ -686,7 +686,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "CPST FTF WP1",
+        "attributes": "WP1 CPST FTF",
         "prerequisites": "SOC 302; SOC 304 or PSY 306; and SOC 306.",
         "gpa": null
     },
@@ -709,7 +709,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "CPST FTF WP1",
+        "attributes": "WP1 CPST FTF",
         "prerequisites": "SOC 302, SOC 304, SOC 306",
         "gpa": null
     },
@@ -732,7 +732,7 @@
         "avail": "-4",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "CPST FTF WP1",
+        "attributes": "WP1 CPST FTF",
         "prerequisites": "SOC 302; SOC 304 or PSY 306; and SOC 306.",
         "gpa": null
     },
@@ -939,7 +939,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "CPST FTF WP1",
+        "attributes": "WP1 CPST FTF",
         "prerequisites": "SOC 302; and SOC 304 or SOC 215; and SOC 306 or or SOC 210. 5 credits of SOC 400 taken with student's senior thesis faculty advisor before and in preparation for senior thesis.",
         "gpa": null
     }

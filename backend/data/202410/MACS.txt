@@ -1,4 +1,4 @@
-2024-05-06T14:36:15.439813
+2024-05-11T14:29:02.077568
 [
     {
         "subject": "MACS 111",
@@ -111,7 +111,7 @@
         "avail": "8",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "MACS 301 with concurrency.",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "PHYS 161; MATH 125 or MATH 135 or MATH 138; ESCI 340 or BIOL 340 or MACS 401 or concurrent.",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-05-06T14:34:40.850030
+2024-05-11T14:26:37.008894
 [
     {
         "subject": "MLE 441",
@@ -11,6 +11,29 @@
         "lab_start_time": "N/A",
         "lab_end_time": "N/A",
         "instructor": "Kanda, Leann",
+        "room": "TBA",
+        "lab_room": "ONLINE ASNC",
+        "addl_fees": "",
+        "cap": "25",
+        "enrl": "0",
+        "avail": "25",
+        "waitlist": "",
+        "restrictions": "",
+        "attributes": "HYBD",
+        "prerequisites": "",
+        "gpa": null
+    },
+    {
+        "subject": "MLE 441",
+        "course_credits": "5",
+        "crn": "23634",
+        "days": "TR",
+        "start_time": "1400",
+        "end_time": "1550",
+        "lab_days": "N/A",
+        "lab_start_time": "N/A",
+        "lab_end_time": "N/A",
+        "instructor": "Staff",
         "room": "TBA",
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",

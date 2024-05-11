@@ -1,4 +1,4 @@
-2024-05-06T14:35:45.443160
+2024-05-11T14:28:13.199660
 [
     {
         "subject": "A/HI 211",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
-        "enrl": "58",
-        "avail": "2",
+        "enrl": "57",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "180",
-        "enrl": "176",
-        "avail": "4",
+        "enrl": "174",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "ASNC HUM OL",
+        "attributes": "HUM OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $1.50",
         "cap": "185",
-        "enrl": "179",
-        "avail": "6",
+        "enrl": "178",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM FTF",
@@ -341,7 +341,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "A/HI 375; art history majors only.",
         "gpa": null
     },
@@ -364,7 +364,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "OL SYNC WP3",
+        "attributes": "WP3 OL SYNC",
         "prerequisites": "Any A/HI or equivalent 300-level course.",
         "gpa": null
     }

@@ -1,4 +1,4 @@
-2024-05-06T14:35:48.362674
+2024-05-11T14:28:17.868977
 [
     {
         "subject": "DISA 330",
@@ -19,7 +19,7 @@
         "avail": "-8",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "ASNC BCGM OL",
+        "attributes": "BCGM OL ASNC",
         "prerequisites": "ENG 101 or equivalent.",
         "gpa": null
     },

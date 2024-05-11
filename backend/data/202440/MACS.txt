@@ -1,4 +1,4 @@
-2024-05-06T14:35:24.258145
+2024-05-11T14:27:35.874809
 [
     {
         "subject": "MACS 110",
@@ -127,7 +127,7 @@
         "lab_end_time": "1550",
         "instructor": "Kastner, Sam",
         "room": "IS 410",
-        "lab_room": "BH 401",
+        "lab_room": "IS 410",
         "addl_fees": "",
         "cap": "15",
         "enrl": "0",
@@ -1215,7 +1215,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "MACS 493 or MACS 494 or MACS 495.",
         "gpa": null
     },

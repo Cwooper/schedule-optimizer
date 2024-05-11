@@ -1,4 +1,4 @@
-2024-05-06T14:35:16.536266
+2024-05-11T14:27:25.679677
 [
     {
         "subject": "ENRG 101",
@@ -19,7 +19,7 @@
         "avail": "75",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SCI",
+        "attributes": "SCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FIG FTF SCI",
+        "attributes": "SCI FIG FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "17",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "One from: ENRG 384, ECON 384, ENRG 386 or ECON 386;  and one from: DSCI 305, ECON 375, ENRG 322, ESCI 340 or BIOL 340.",
         "gpa": null
     },

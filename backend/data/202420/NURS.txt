@@ -1,4 +1,4 @@
-2024-05-06T14:35:58.600307
+2024-05-11T14:28:34.510879
 [
     {
         "subject": "NURS 401",
@@ -19,7 +19,7 @@
         "avail": "21",
         "waitlist": "",
         "restrictions": "OV MJ S/U",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Admission to the RN-to-BSN program.",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "31",
         "waitlist": "",
         "restrictions": "OV MJ S/U",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Admission to the RN-to-BSN program.",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-05-06T14:35:21.299238
+2024-05-11T14:27:31.233632
 [
     {
         "subject": "HSP 301",
@@ -14,11 +14,11 @@
         "room": "MH 114",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "26",
+        "cap": "15",
         "enrl": "0",
-        "avail": "26",
+        "avail": "15",
         "waitlist": "",
-        "restrictions": "MJ",
+        "restrictions": "OV MJ",
         "attributes": "FTF",
         "prerequisites": "Admission to major, or permission of Human Services Program.",
         "gpa": null
@@ -37,11 +37,11 @@
         "room": "MH 154",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "26",
+        "cap": "15",
         "enrl": "0",
-        "avail": "26",
+        "avail": "15",
         "waitlist": "",
-        "restrictions": "MJ",
+        "restrictions": "OV MJ",
         "attributes": "FTF",
         "prerequisites": "Admission to major, or permission of Human Services Program.",
         "gpa": null
@@ -65,7 +65,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "ASNC DLEX OL",
+        "attributes": "OL DLEX ASNC",
         "prerequisites": "Admission to major, or permission of Human Services Program.",
         "gpa": null
     },
@@ -110,7 +110,7 @@
         "enrl": "0",
         "avail": "26",
         "waitlist": "",
-        "restrictions": "MJ",
+        "restrictions": "OV MJ",
         "attributes": "FTF",
         "prerequisites": "Admission to major.",
         "gpa": null
@@ -133,7 +133,7 @@
         "enrl": "0",
         "avail": "26",
         "waitlist": "",
-        "restrictions": "MJ",
+        "restrictions": "OV MJ",
         "attributes": "FTF",
         "prerequisites": "Admission to major.",
         "gpa": null
@@ -157,7 +157,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "ASNC DLEX OL",
+        "attributes": "OL DLEX ASNC",
         "prerequisites": "Admission to major.",
         "gpa": null
     },
@@ -198,11 +198,11 @@
         "room": "MH 056",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "26",
+        "cap": "15",
         "enrl": "0",
-        "avail": "26",
+        "avail": "15",
         "waitlist": "",
-        "restrictions": "MJ",
+        "restrictions": "OV MJ",
         "attributes": "FTF",
         "prerequisites": "Admission to major or Education and Social Justice Minor.",
         "gpa": null
@@ -221,11 +221,11 @@
         "room": "MH 056",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "26",
+        "cap": "15",
         "enrl": "0",
-        "avail": "26",
+        "avail": "15",
         "waitlist": "",
-        "restrictions": "MJ",
+        "restrictions": "OV MJ",
         "attributes": "FTF",
         "prerequisites": "Admission to major or Education and Social Justice Minor.",
         "gpa": null
@@ -249,7 +249,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "ASNC DLEX OL",
+        "attributes": "OL DLEX ASNC",
         "prerequisites": "Admission to major or Education and Social Justice Minor.",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "26",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -364,7 +364,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "ASNC DLEX OL",
+        "attributes": "OL DLEX ASNC",
         "prerequisites": "HSP 355 or ESJ 411 or instructor permission.",
         "gpa": null
     },
@@ -410,7 +410,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "ASNC DLEX OL",
+        "attributes": "OL DLEX ASNC",
         "prerequisites": "HSP 306 and HSP 435.",
         "gpa": null
     },
@@ -456,7 +456,7 @@
         "avail": "21",
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
-        "attributes": "ASNC DLEX OL",
+        "attributes": "OL DLEX ASNC",
         "prerequisites": "HSP 435.",
         "gpa": null
     },
@@ -479,7 +479,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "ASNC DLEX OL",
+        "attributes": "OL DLEX ASNC",
         "prerequisites": "Admission to major.",
         "gpa": null
     },
@@ -502,7 +502,7 @@
         "avail": "13",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Admission to major.",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-05-06T14:34:58.101636
+2024-05-11T14:26:57.136318
 [
     {
         "subject": "FAIR 101A",
@@ -852,6 +852,29 @@
         "gpa": null
     },
     {
+        "subject": "FAIR 393B",
+        "course_credits": "5",
+        "crn": "13730",
+        "days": "TR",
+        "start_time": "1500",
+        "end_time": "1720",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Johnson, Claudia Colindres",
+        "room": "FA 300B",
+        "lab_room": null,
+        "addl_fees": "Flat Fee $7.74",
+        "cap": "18",
+        "enrl": "0",
+        "avail": "18",
+        "waitlist": "",
+        "restrictions": "S/U",
+        "attributes": "FTF",
+        "prerequisites": "Upper-division courses in social science or history highly recommended.",
+        "gpa": null
+    },
+    {
         "subject": "FAIR 403A",
         "course_credits": "4",
         "crn": "13731",
@@ -870,7 +893,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "OV FA S/U",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Required by all Fairhaven students. Senior status.",
         "gpa": null
     },
@@ -893,8 +916,31 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "OV FA S/U",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Required by all Fairhaven students. Senior status.",
+        "gpa": null
+    },
+    {
+        "subject": "FAIR 412E",
+        "course_credits": "5",
+        "crn": "13736",
+        "days": "MW",
+        "start_time": "1500",
+        "end_time": "1720",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Johnson, Claudia Colindres",
+        "room": "FA 340",
+        "lab_room": null,
+        "addl_fees": "Flat Fee $34.00",
+        "cap": "18",
+        "enrl": "0",
+        "avail": "18",
+        "waitlist": "",
+        "restrictions": "S/U PQ",
+        "attributes": "FTF",
+        "prerequisites": "FAIR 311B or PLSC 311 or permission of instructor.",
         "gpa": null
     },
     {

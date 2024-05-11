@@ -1,4 +1,4 @@
-2024-05-06T14:34:28.277362
+2024-05-11T14:26:16.491906
 [
     {
         "subject": "ANTH 102",
@@ -19,7 +19,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC OL SSC SST",
+        "attributes": "SSC OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "180",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC OL SSC SST",
+        "attributes": "SSC OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "180",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "180",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "80",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "27",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "27",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "26",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "27",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "27",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "26",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -364,7 +364,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF QSR",
+        "attributes": "QSR FTF",
         "prerequisites": "ANTH 201 or HNRS 203 or ANTH 210 or ANTH 215.",
         "gpa": null
     },
@@ -387,7 +387,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF QSR",
+        "attributes": "QSR FTF",
         "prerequisites": "ANTH 201 or HNRS 203 or ANTH 210 or ANTH 215.",
         "gpa": null
     },
@@ -456,7 +456,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "ASNC BCGM OL SST",
+        "attributes": "BCGM OL ASNC SST",
         "prerequisites": "ANTH 201 or HNRS 203.",
         "gpa": null
     },
@@ -778,7 +778,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "SR MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Senior status in anthropology.",
         "gpa": null
     },
@@ -801,7 +801,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "SR MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Senior status in anthropology.",
         "gpa": null
     },

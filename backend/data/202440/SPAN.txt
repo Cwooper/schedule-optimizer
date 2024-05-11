@@ -1,4 +1,4 @@
-2024-05-06T14:35:30.454164
+2024-05-11T14:27:44.785589
 [
     {
         "subject": "SPAN 101",
@@ -226,7 +226,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "SPAN 202.",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "SPAN 202.",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "SPAN 203 or instructor permission.",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "SPAN 203 or instructor permission.",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "SPAN 203 or instructor permission.",
         "gpa": null
     },
@@ -341,7 +341,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "SPAN 203 or instructor permission.",
         "gpa": null
     },
@@ -456,7 +456,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "SPAN 302 or instructor permission; majors only.",
         "gpa": null
     },

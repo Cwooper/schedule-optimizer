@@ -1,4 +1,4 @@
-2024-05-06T14:35:19.074360
+2024-05-11T14:27:28.404389
 [
     {
         "subject": "FREN 101",
@@ -134,7 +134,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "BCOM FTF WP2",
+        "attributes": "BCOM WP2 FTF",
         "prerequisites": "FREN 203 or instructor permission.",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "BCOM FTF WP2",
+        "attributes": "BCOM WP2 FTF",
         "prerequisites": "FREN 203 or instructor permission.",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "FREN 301 and one course from: FREN 340, FREN 341, FREN 342.",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-05-06T14:35:44.990289
+2024-05-11T14:28:12.436127
 [
     {
         "subject": "ANTH 102",
@@ -19,7 +19,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "ASNC OL SSC SST",
+        "attributes": "SSC OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "59",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "ASNC OL SSC SST",
+        "attributes": "SSC OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "-2",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -153,11 +153,11 @@
         "lab_room": "AH 314",
         "addl_fees": "",
         "cap": "27",
-        "enrl": "27",
-        "avail": "0",
+        "enrl": "26",
+        "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF QSR",
+        "attributes": "QSR FTF",
         "prerequisites": "ANTH 201 or HNRS 203 or ANTH 210 or ANTH 215.",
         "gpa": null
     },
@@ -341,7 +341,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF QSR",
+        "attributes": "QSR FTF",
         "prerequisites": "ANTH 201 or HNRS 203 or ANTH 210 or ANTH 215.",
         "gpa": null
     },
@@ -456,7 +456,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ANTH 102 or ANTH 210 or ANTH 215 and ANTH 301 or ANTH 308 or ANTH 310 or ANTH 350, or junior standing in Biology or Anthropology major, or instructor permission.",
         "gpa": null
     },
@@ -479,7 +479,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ANTH 201 or HNRS 203, and junior standing or instructor permission.",
         "gpa": null
     },
@@ -686,7 +686,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV SR",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Senior status in anthropology.",
         "gpa": null
     },
@@ -709,7 +709,7 @@
         "avail": "19",
         "waitlist": "",
         "restrictions": "OV SR",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Senior status in anthropology.",
         "gpa": null
     },

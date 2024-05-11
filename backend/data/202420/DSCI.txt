@@ -1,4 +1,4 @@
-2024-05-06T14:35:48.698359
+2024-05-11T14:28:18.550095
 [
     {
         "subject": "DSCI 205",
@@ -84,8 +84,8 @@
         "lab_room": "AW 306",
         "addl_fees": "",
         "cap": "56",
-        "enrl": "51",
-        "avail": "5",
+        "enrl": "49",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",

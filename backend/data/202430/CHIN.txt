@@ -1,4 +1,4 @@
-2024-05-06T14:35:33.185300
+2024-05-11T14:27:50.356384
 [
     {
         "subject": "CHIN 237",
@@ -15,11 +15,11 @@
         "lab_room": "TBA",
         "addl_fees": "Flat Fee $1557.40",
         "cap": "20",
-        "enrl": "0",
-        "avail": "20",
+        "enrl": "1",
+        "avail": "19",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF TRVL",
+        "attributes": "TRVL FTF",
         "prerequisites": "CHIN 103 or equivalent.",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": "TBA",
         "addl_fees": "Flat Fee $1557.40",
         "cap": "20",
-        "enrl": "0",
-        "avail": "20",
+        "enrl": "3",
+        "avail": "17",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF TRVL",
+        "attributes": "TRVL FTF",
         "prerequisites": "",
         "gpa": null
     }

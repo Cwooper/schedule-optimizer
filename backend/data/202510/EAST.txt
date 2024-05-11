@@ -1,4 +1,4 @@
-2024-05-06T14:34:54.108495
+2024-05-11T14:26:53.251162
 [
     {
         "subject": "EAST 201",
@@ -157,7 +157,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF WP3",
+        "attributes": "FTF",
         "prerequisites": "Any 300-level or equivalent Art History course.",
         "gpa": null
     },
