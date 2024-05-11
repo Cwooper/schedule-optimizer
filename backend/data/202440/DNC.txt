@@ -1,4 +1,4 @@
-2024-05-06T14:35:14.911210
+2024-05-11T14:27:22.600770
 [
     {
         "subject": "DNC 100",
@@ -249,7 +249,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC HUM OL SST",
+        "attributes": "HUM OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF SST",
+        "attributes": "SST FTF",
         "prerequisites": "DNC 339 or PA 111 or PE 111.",
         "gpa": null
     },

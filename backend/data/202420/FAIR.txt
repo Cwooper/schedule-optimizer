@@ -1,4 +1,4 @@
-2024-05-06T14:35:51.870538
+2024-05-11T14:28:23.587484
 [
     {
         "subject": "FAIR 101A",
@@ -291,8 +291,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $8.18",
         "cap": "30",
-        "enrl": "26",
-        "avail": "4",
+        "enrl": "25",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
@@ -479,7 +479,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV S/U",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "FAIR 203A or Social Science GUR or permission of instructor.",
         "gpa": null
     },
@@ -544,8 +544,8 @@
         "lab_room": "FA 318",
         "addl_fees": "Flat Fee $23.33",
         "cap": "18",
-        "enrl": "17",
-        "avail": "1",
+        "enrl": "16",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
@@ -916,7 +916,7 @@
         "avail": "-4",
         "waitlist": "",
         "restrictions": "OV FA S/U",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Required by all Fairhaven students. Senior status.",
         "gpa": null
     },
@@ -939,7 +939,7 @@
         "avail": "-2",
         "waitlist": "",
         "restrictions": "OV FA S/U",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Required by all Fairhaven students. Senior status.",
         "gpa": null
     },
@@ -962,7 +962,7 @@
         "avail": "-6",
         "waitlist": "",
         "restrictions": "OV FA S/U",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Required by all Fairhaven students. Senior status.",
         "gpa": null
     },
@@ -985,7 +985,7 @@
         "avail": "-2",
         "waitlist": "",
         "restrictions": "OV FA S/U",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Required by all Fairhaven students. Senior status.",
         "gpa": null
     },

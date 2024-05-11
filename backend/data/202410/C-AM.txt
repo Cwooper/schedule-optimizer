@@ -1,4 +1,4 @@
-2024-05-06T14:36:05.545450
+2024-05-11T14:28:45.274735
 [
     {
         "subject": "C/AM 200",
@@ -19,7 +19,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-05-06T14:34:46.380393
+2024-05-11T14:26:42.130267
 [
     {
         "subject": "SALI 201",
@@ -10,7 +10,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Loomis, Eli Stuart",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "Flat Fee $20.00",

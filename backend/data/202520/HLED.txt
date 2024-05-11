@@ -1,4 +1,4 @@
-2024-05-06T14:34:36.378024
+2024-05-11T14:26:29.255388
 [
     {
         "subject": "HLED 345",
@@ -88,7 +88,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "HLED 401",
         "gpa": null
     },
@@ -119,14 +119,14 @@
         "subject": "HLED 455",
         "course_credits": "2",
         "crn": "21532",
-        "days": "R",
-        "start_time": "1400",
-        "end_time": "1550",
+        "days": "F",
+        "start_time": "1300",
+        "end_time": "1450",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Reams, Andrea Putman",
-        "room": "MH 135",
+        "instructor": "Staff",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
         "cap": "34",

@@ -1,4 +1,4 @@
-2024-05-06T14:35:38.912328
+2024-05-11T14:28:00.684144
 [
     {
         "subject": "INTL 201",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "10",
-        "enrl": "0",
-        "avail": "10",
+        "enrl": "7",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ACGM ASNC OL",
+        "attributes": "ACGM OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "9",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "FAIR 201A or ENG 101 or INTL 201.",
         "gpa": null
     }

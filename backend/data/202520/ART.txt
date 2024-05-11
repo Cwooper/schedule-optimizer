@@ -1,4 +1,4 @@
-2024-05-06T14:34:28.625576
+2024-05-11T14:26:17.021132
 [
     {
         "subject": "ART 109",
@@ -19,7 +19,7 @@
         "avail": "140",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SST",
+        "attributes": "SST FTF",
         "prerequisites": "If a student becomes an art major this course can fulfill the requirement for ART 110.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SST",
+        "attributes": "SST FTF",
         "prerequisites": "If a student becomes an art major this course can fulfill the requirement for ART 110.",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SST",
+        "attributes": "SST FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC OL SST",
+        "attributes": "OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SST",
+        "attributes": "SST FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -257,7 +257,7 @@
         "subject": "ART 280",
         "course_credits": "5",
         "crn": "22060",
-        "days": "MW",
+        "days": "TR",
         "start_time": "0900",
         "end_time": "1140",
         "lab_days": null,

@@ -1,4 +1,4 @@
-2024-05-06T14:36:21.674754
+2024-05-11T14:29:11.808755
 [
     {
         "subject": "THTR 101",
@@ -19,7 +19,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "11",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -594,7 +594,7 @@
         "avail": "6",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "THTR 101 recommended, THTR 228; THTR 380 recommended",
         "gpa": null
     },
@@ -617,7 +617,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "THTR 228 or permission of instructor.",
         "gpa": null
     },
@@ -663,7 +663,7 @@
         "avail": "8",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "OL SYNC WP2",
+        "attributes": "WP2 OL SYNC",
         "prerequisites": "THTR 228.",
         "gpa": null
     },

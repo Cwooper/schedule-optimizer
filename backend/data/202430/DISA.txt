@@ -1,25 +1,25 @@
-2024-05-06T14:35:34.162707
+2024-05-11T14:27:52.295802
 [
     {
         "subject": "DISA 330",
         "course_credits": "5",
         "crn": "30656",
-        "days": "MTWR",
-        "start_time": "1000",
-        "end_time": "1150",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Tilland-Stafford, Anika Oceana",
-        "room": "ONLINE SYNC",
+        "instructor": "Lucchesi, Andrew John",
+        "room": "ONLINE ASNC",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "0",
-        "avail": "30",
+        "enrl": "5",
+        "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "BCGM OL SYNC",
+        "attributes": "BCGM OL ASNC",
         "prerequisites": "ENG 101 or equivalent.",
         "gpa": null
     }

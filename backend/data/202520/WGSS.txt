@@ -1,4 +1,4 @@
-2024-05-06T14:34:48.158316
+2024-05-11T14:26:45.125363
 [
     {
         "subject": "WGSS 211",
@@ -295,7 +295,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "HYBD OL SYNC",
+        "attributes": "OL SYNC HYBD",
         "prerequisites": "WGSS 211 or WGSS 212 or WGSS 213.",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "SR MJ",
-        "attributes": "CPST FTF WP3",
+        "attributes": "WP3 CPST FTF",
         "prerequisites": "Senior status in WGSS major or minor; or instructor permission.",
         "gpa": null
     }

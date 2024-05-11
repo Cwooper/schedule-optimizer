@@ -1,4 +1,4 @@
-2024-05-06T14:35:13.017817
+2024-05-11T14:27:19.479724
 [
     {
         "subject": "C/AM 277",
@@ -19,7 +19,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 202; or HNRS 254; or instructor permission.",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "JR SR",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Junior status",
         "gpa": null
     }

@@ -1,4 +1,4 @@
-2024-05-06T14:34:59.424810
+2024-05-11T14:26:59.020015
 [
     {
         "subject": "HLED 202",
@@ -19,7 +19,7 @@
         "avail": "70",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "HLED 401",
         "gpa": null
     },
@@ -116,40 +116,17 @@
         "gpa": null
     },
     {
-        "subject": "HLED 445",
-        "course_credits": "5",
-        "crn": "12508",
-        "days": "MW",
-        "start_time": "0900",
-        "end_time": "1120",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Bennett, Steve Woodrow",
-        "room": "MH 114",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "30",
-        "enrl": "0",
-        "avail": "30",
-        "waitlist": "",
-        "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
-        "prerequisites": "HLED 401",
-        "gpa": null
-    },
-    {
         "subject": "HLED 455",
         "course_credits": "2",
         "crn": "10201",
-        "days": "R",
-        "start_time": "1500",
-        "end_time": "1650",
+        "days": "F",
+        "start_time": "1300",
+        "end_time": "1450",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "CV 103",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
         "cap": "34",

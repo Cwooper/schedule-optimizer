@@ -1,4 +1,4 @@
-2024-05-06T14:34:54.912306
+2024-05-11T14:26:54.657052
 [
     {
         "subject": "ELED 305",
@@ -148,7 +148,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Ferreras-Stone, Jessica D.",
+        "instructor": "Machuca-Kelley, Isabel",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
@@ -157,6 +157,29 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "OV MJ",
+        "attributes": "FTF",
+        "prerequisites": "",
+        "gpa": null
+    },
+    {
+        "subject": "ELED 427",
+        "course_credits": "5",
+        "crn": "13990",
+        "days": "W",
+        "start_time": "1700",
+        "end_time": "2050",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Machuca-Kelley, Isabel",
+        "room": "AW 203",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "25",
+        "enrl": "0",
+        "avail": "25",
+        "waitlist": "",
+        "restrictions": "OV",
         "attributes": "FTF",
         "prerequisites": "",
         "gpa": null
@@ -295,7 +318,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ELED 480",
         "gpa": null
     },
@@ -318,7 +341,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ELED 480",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-05-06T14:35:29.583536
+2024-05-11T14:27:43.397182
 [
     {
         "subject": "SALI 201",
@@ -10,7 +10,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Loomis, Eli Stuart",
         "room": "HH 345",
         "lab_room": null,
         "addl_fees": "Flat Fee $20.00",
@@ -33,7 +33,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Loomis, Eli Stuart",
         "room": "HH 345",
         "lab_room": null,
         "addl_fees": "Flat Fee $20.00",
@@ -56,7 +56,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Loomis, Eli Stuart",
         "room": "CA 101",
         "lab_room": null,
         "addl_fees": "Flat Fee $50.00",

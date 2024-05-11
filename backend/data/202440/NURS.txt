@@ -1,4 +1,4 @@
-2024-05-06T14:35:26.834838
+2024-05-11T14:27:39.470833
 [
     {
         "subject": "NURS 301",
@@ -111,7 +111,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "MJ S/U",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Admission to the RN-to-BSN program or permission of instructor.",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "MJ S/U",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Admission to the RN-to-BSN program or permission of instructor.",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "MJ S/U",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Admission to the RN-to-BSN program.",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "MJ S/U",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Admission to the RN-to-BSN program.",
         "gpa": null
     },

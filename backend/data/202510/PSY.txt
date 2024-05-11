@@ -1,4 +1,4 @@
-2024-05-06T14:35:07.331419
+2024-05-11T14:27:11.585214
 [
     {
         "subject": "PSY 101",
@@ -19,7 +19,7 @@
         "avail": "275",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "275",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -387,7 +387,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "PSY 203 and declared Psychology major.",
         "gpa": null
     },
@@ -410,7 +410,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "PSY 203 and declared Psychology major.",
         "gpa": null
     },
@@ -433,7 +433,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "PSY 203 and declared Psychology major.",
         "gpa": null
     },
@@ -832,7 +832,7 @@
         "subject": "PSY 351",
         "course_credits": "5",
         "crn": "11366",
-        "days": "MW",
+        "days": "MWF",
         "start_time": "1000",
         "end_time": "1120",
         "lab_days": null,
@@ -985,7 +985,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "PSY 307 or BNS 302; one course from: PSY 310, PSY 318, PSY 319, PSY 320, or PSY 322",
         "gpa": null
     },
@@ -1008,7 +1008,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "PSY 307; and one course from: PSY 310, PSY 311, PSY 315, PSY 318, PSY 319, or PSY 320",
         "gpa": null
     },
@@ -1031,7 +1031,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "PSY 307 or BNS 302; one course from: PSY 310, PSY 319, PSY 320, PSY 321, PSY 322, PSY 323, or PSY 324",
         "gpa": null
     },
@@ -1054,7 +1054,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "PSY 307; and one course from: PSY 334, PSY 335, PSY 336, or PSY 338",
         "gpa": null
     },
@@ -1077,7 +1077,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF",
+        "attributes": "WP2 FTF",
         "prerequisites": "PSY 307; and one course from: PSY 341, PSY 342, PSY 343, PSY 344, PSY 345, or PSY 346",
         "gpa": null
     },
@@ -1100,7 +1100,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "PSY 307; and one course from: PSY 340, PSY 341, PSY 342, PSY 343, PSY 344, PSY 345, or PSY 346",
         "gpa": null
     },
@@ -1123,7 +1123,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "PSY 307; and one course from PSY 351, PSY 354, or PSY 359",
         "gpa": null
     },
@@ -1146,7 +1146,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "PSY 307; and one course from PSY 351, PSY 354, or PSY 359",
         "gpa": null
     },
@@ -1169,7 +1169,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "PSY 307; and one course from PSY 351, PSY 354, or PSY 359",
         "gpa": null
     },
@@ -1192,7 +1192,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "PSY 307; and one course from PSY 351, PSY 354, or PSY 359",
         "gpa": null
     },
@@ -1215,7 +1215,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "PSY 307; PSY 375, PSY 376, PSY 377 or PSY 378; or instructor permission.",
         "gpa": null
     },

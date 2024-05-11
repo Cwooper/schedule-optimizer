@@ -1,4 +1,4 @@
-2024-05-06T14:35:45.853096
+2024-05-11T14:28:14.017635
 [
     {
         "subject": "BNS 301",
@@ -88,7 +88,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "BNS 302; BNS 306; and one course from: PSY 319, PSY 321, PSY 322, PSY 323 or PSY 324; or instructor permission.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "BNS 302; BNS 306; and one course from: PSY 319, PSY 321, PSY 322, PSY 323 or PSY 324; or instructor permission.",
         "gpa": null
     },

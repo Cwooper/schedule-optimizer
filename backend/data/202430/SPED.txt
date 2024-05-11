@@ -1,4 +1,4 @@
-2024-05-06T14:35:43.695552
+2024-05-11T14:28:09.865857
 [
     {
         "subject": "SPED 310",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "0",
-        "avail": "30",
+        "enrl": "9",
+        "avail": "21",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC BCGM OL WP3",
+        "attributes": "BCGM WP3 OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -61,11 +61,11 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $14.45",
         "cap": "25",
-        "enrl": "0",
-        "avail": "25",
+        "enrl": "14",
+        "avail": "11",
         "waitlist": "",
         "restrictions": "ED",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Admisssion to Woodring College of Education teacher education major or instructor permission.",
         "gpa": null
     },
@@ -84,8 +84,8 @@
         "lab_room": "MH OFC",
         "addl_fees": "Flat Fee $17.52",
         "cap": "25",
-        "enrl": "0",
-        "avail": "25",
+        "enrl": "4",
+        "avail": "21",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",

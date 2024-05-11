@@ -1,4 +1,4 @@
-2024-05-06T14:35:03.229255
+2024-05-11T14:27:04.938429
 [
     {
         "subject": "MKTG 380",
@@ -65,7 +65,7 @@
         "avail": "60",
         "waitlist": "",
         "restrictions": "JR SO SR PQ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "ACCT 240; and ECON 206 or HNRS 209.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "Majors Only. MKTG 380; co-requisite MKTG 382.",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Majors Only. MKTG 380; co-requisite MKTG 381.",
         "gpa": null
     },

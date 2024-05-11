@@ -1,4 +1,4 @@
-2024-05-06T14:36:07.237593
+2024-05-11T14:28:47.980833
 [
     {
         "subject": "CISS 301",
@@ -42,7 +42,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV XBS-CISS MJ PQ",
-        "attributes": "HYBD PBEX",
+        "attributes": "PBEX HYBD",
         "prerequisites": "CSCI 145",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF KLEX",
+        "attributes": "KLEX FTF",
         "prerequisites": "CSCI 145",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "CISS 247 or CSCI 247.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "17",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "CISS 247 or CSCI 247.",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV XBS-CISS MJ PQ",
-        "attributes": "HYBD PBEX",
+        "attributes": "PBEX HYBD",
         "prerequisites": "CISS 247",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "6",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF KLEX",
+        "attributes": "KLEX FTF",
         "prerequisites": "CISS 247",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "27",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "HYBD PBEX",
+        "attributes": "PBEX HYBD",
         "prerequisites": "CSCI 140 or CSCI 141 or MIS 320.",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "HYBD PBEX",
+        "attributes": "PBEX HYBD",
         "prerequisites": "CISS 360",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "HYBD PBEX",
+        "attributes": "PBEX HYBD",
         "prerequisites": "CISS 491.",
         "gpa": null
     }

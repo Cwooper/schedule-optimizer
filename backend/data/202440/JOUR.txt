@@ -1,4 +1,4 @@
-2024-05-06T14:35:22.468485
+2024-05-11T14:27:33.414154
 [
     {
         "subject": "JOUR 106",
@@ -65,7 +65,7 @@
         "avail": "80",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FIG FTF SSC",
+        "attributes": "SSC FIG FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC OL SSC SST",
+        "attributes": "SSC OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -387,7 +387,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "JR SR PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Junior status; JOUR 207; JOUR 214; JOUR 307 or JOUR 380.",
         "gpa": null
     },
@@ -410,7 +410,7 @@
         "avail": "11",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "JOUR 207; one newspaper staff course. May not be taken concurrently with JOUR 404.",
         "gpa": null
     },
@@ -525,7 +525,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF SL",
+        "attributes": "SL FTF",
         "prerequisites": "JOUR 207 and JOUR 330.",
         "gpa": null
     },
@@ -571,7 +571,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "JOUR 207; JOUR 307 or JOUR 380; JOUR 314.",
         "gpa": null
     },
@@ -617,7 +617,7 @@
         "avail": "14",
         "waitlist": "",
         "restrictions": "SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Senior status; JOUR 207; JOUR 307 or JOUR 380; and one newspaper staff course. May not be taken concurrently with JOUR 404.",
         "gpa": null
     },
@@ -686,7 +686,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "JOUR 350 and JOUR 351; and major status.",
         "gpa": null
     },

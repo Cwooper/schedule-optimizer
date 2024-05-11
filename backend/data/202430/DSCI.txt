@@ -1,4 +1,4 @@
-2024-05-06T14:35:35.125427
+2024-05-11T14:27:52.889566
 [
     {
         "subject": "DSCI 205",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "0",
-        "avail": "30",
+        "enrl": "15",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "MATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score.",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
-        "enrl": "0",
-        "avail": "45",
+        "enrl": "35",
+        "avail": "10",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "MATH 157 or MATH 124 or MATH 138; and DSCI 205.",
         "gpa": null
     }

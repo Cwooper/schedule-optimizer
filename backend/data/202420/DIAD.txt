@@ -1,4 +1,4 @@
-2024-05-06T14:35:48.941751
+2024-05-11T14:28:18.996024
 [
     {
         "subject": "DIAD 205",
@@ -42,7 +42,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "ASNC BCGM OL",
+        "attributes": "BCGM OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -84,8 +84,8 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "30",
-        "enrl": "28",
-        "avail": "2",
+        "enrl": "27",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM HYBD",

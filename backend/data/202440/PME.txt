@@ -1,4 +1,4 @@
-2024-05-06T14:35:28.560805
+2024-05-11T14:27:41.694296
 [
     {
         "subject": "PME 295",
@@ -243,7 +243,7 @@
         "instructor": "Misasi, John Michail",
         "room": "ET 107",
         "lab_room": null,
-        "addl_fees": "",
+        "addl_fees": "Flat Fee $252.45",
         "cap": "24",
         "enrl": "0",
         "avail": "24",
@@ -433,7 +433,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "ENG 101; PME 342 or concurrent; PME 471 or concurrent.",
         "gpa": null
     },

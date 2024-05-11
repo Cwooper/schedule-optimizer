@@ -1,4 +1,4 @@
-2024-05-06T14:34:39.352020
+2024-05-11T14:26:34.317706
 [
     {
         "subject": "MIS 220",
@@ -203,7 +203,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "ASNC OL PBEX",
+        "attributes": "OL PBEX ASNC",
         "prerequisites": "MIS 220 or equivalent",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "85",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "MIS 220 or equivalent",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "CF FTF WP1",
+        "attributes": "CF WP1 FTF",
         "prerequisites": "Majors Only. MIS 320 or ACCT 321, C- or better",
         "gpa": null
     },
@@ -387,7 +387,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Majors Only. MIS 321; pre/corequisite: one 400-level MIS elective; C- or better",
         "gpa": null
     }

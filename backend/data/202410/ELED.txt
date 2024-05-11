@@ -1,4 +1,4 @@
-2024-05-06T14:36:09.001591
+2024-05-11T14:28:51.293597
 [
     {
         "subject": "ELED 305",
@@ -180,7 +180,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV ED",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "SPED 420",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ELED 480",
         "gpa": null
     },
@@ -341,7 +341,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ELED 480",
         "gpa": null
     },
@@ -456,7 +456,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV GR GR PB PM",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Graduate status or permission of instructor.",
         "gpa": null
     },

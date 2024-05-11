@@ -1,4 +1,4 @@
-2024-05-06T14:35:29.711476
+2024-05-11T14:27:43.648474
 [
     {
         "subject": "SCED 201",
@@ -19,7 +19,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "MATH 111 or MATH 112 or college intermediate algebra course with a C or better or a suitable math assessment score.",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "MATH 111 or MATH 112 or college intermediate algebra course with a C or better or a suitable math assessment score.",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "SCED 201 or instructor permission.",
         "gpa": null
     },
@@ -73,16 +73,16 @@
         "subject": "SCED 205",
         "course_credits": "2",
         "crn": "43216",
-        "days": "T",
+        "days": "TBD",
         "start_time": "1000",
         "end_time": "1150",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Du, Hanxiang",
-        "room": "SL OFC",
+        "instructor": "Sizemore, Logan Donald",
+        "room": "SL 240S",
         "lab_room": null,
-        "addl_fees": "",
+        "addl_fees": "Flat Fee $13.35",
         "cap": "24",
         "enrl": "0",
         "avail": "24",
@@ -111,7 +111,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Completion of science GUR courses or concurrent if also registered for final science GUR and completion of 90 credits or instructor permission.",
         "gpa": null
     },

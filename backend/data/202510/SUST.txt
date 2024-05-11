@@ -1,4 +1,4 @@
-2024-05-06T14:35:10.083926
+2024-05-11T14:27:14.398873
 [
     {
         "subject": "SUST 116",
@@ -19,7 +19,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     }

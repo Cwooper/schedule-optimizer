@@ -1,4 +1,4 @@
-2024-05-06T14:35:49.569689
+2024-05-11T14:28:20.194307
 [
     {
         "subject": "EDAD 503",
@@ -42,7 +42,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ",
-        "attributes": "DLEX OL SYNC",
+        "attributes": "OL DLEX SYNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV GR GR PB PM",
-        "attributes": "DLEX OL SYNC",
+        "attributes": "OL DLEX SYNC",
         "prerequisites": "Graduate status",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV GR GR PB PM",
-        "attributes": "DLEX OL SYNC",
+        "attributes": "OL DLEX SYNC",
         "prerequisites": "Graduate status",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV GR PB PM S/U",
-        "attributes": "ASNC EVEX OL",
+        "attributes": "OL EVEX ASNC",
         "prerequisites": "Admission to Doctor of Education.",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-05-06T14:35:48.830011
+2024-05-11T14:28:18.787006
 [
     {
         "subject": "DSGN 300",
@@ -157,7 +157,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SST",
+        "attributes": "SST FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV MJ",
-        "attributes": "FTF SST",
+        "attributes": "SST FTF",
         "prerequisites": "",
         "gpa": null
     },

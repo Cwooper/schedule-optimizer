@@ -1,4 +1,4 @@
-2024-05-06T14:35:38.413176
+2024-05-11T14:27:59.515377
 [
     {
         "subject": "HSP 430",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "0",
-        "avail": "15",
+        "enrl": "4",
+        "avail": "11",
         "waitlist": "",
         "restrictions": "MJ S/U",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "18",
-        "enrl": "0",
-        "avail": "18",
+        "enrl": "14",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "MJ S/U PQ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "HSP 435.",
         "gpa": null
     },
@@ -61,11 +61,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "0",
-        "avail": "15",
+        "enrl": "9",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Admission to major.",
         "gpa": null
     }
