@@ -252,6 +252,18 @@ label {
         margin: 0 auto;
     }
 
+    .calendar-table td, th {
+        padding: 2px;
+    }
+
+    .scheduled-course {
+        min-width: 75px;
+    }
+
+    #cornerCell {
+        padding: 2px;
+    }
+
     body {
         margin-left: 2%;
         margin-right: 2%;
