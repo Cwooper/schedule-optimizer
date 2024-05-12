@@ -189,6 +189,16 @@ function addCoursesToCalendar(courses) {
                 const cellId = `${day}-${i}00`; // Append '00' for formatting
                 const cell = document.getElementById(cellId);
                 const bgColor = stringToColor(course.crn); // Generate color based on CRN
+                // Add hover event listener
+                cell._mouseover = () => addHoverEffect.call(cell, bgColor);
+                cell.addEventListener('mouseover', cell._mouseover);
+                
+                cell._mouseout = () => removeHoverEffect.call(cell, bgColor);
+                cell.addEventListener('mouseout', cell._mouseout);
+                
+                cell._click = () => displayPopupHandler(course);
+                cell.addEventListener('click', cell._click);
+
                 cell.style.backgroundColor = bgColor; // Set background color
                 cell.innerHTML = `<b>${course.subject}</b><br>${course.instructor}<br>Avg GPA: ${course.gpa}<br>${course.room}`;
                 cell.classList.add('scheduled-course'); // Add a class for styling
@@ -205,10 +215,20 @@ function addCoursesToCalendar(courses) {
                 for (let i = labStartHour; i < labEndHour; i++) { // Loop through each hour
                     if (i < 10) {
                         i = `0${i}`
-                    }    
+                    }
                     const cellId = `${labDay}-${i}00`; // Append '00' for formatting
                     const cell = document.getElementById(cellId);
                     const bgColor = stringToColor(course.crn); // Generate color based on CRN
+                    // Add hover event listener
+                    cell._mouseover = () => addHoverEffect.call(cell, bgColor);
+                    cell.addEventListener('mouseover', cell._mouseover);
+                    
+                    cell._mouseout = () => removeHoverEffect.call(cell, bgColor);
+                    cell.addEventListener('mouseout', cell._mouseout);
+                    
+                    cell._click = () => displayPopupHandler(course);
+                    cell.addEventListener('click', cell._click);
+
                     cell.style.backgroundColor = bgColor; // Set background color
                     cell.innerHTML = `<b>${course.subject} LAB</b><br>${course.instructor}<br>Avg GPA: ${course.gpa}<br>${course.lab_room}`;
                     cell.classList.add('scheduled-course'); // Add a class for styling
@@ -233,6 +253,10 @@ function clearSchedule() {
         if (element.id) {
             element.textContent = ''; // Clear text content
             element.style = ''; // Clear style
+            element.classList.remove("scheduled-course");
+            element.removeEventListener('mouseover', element._mouseover);
+            element.removeEventListener('mouseout', element._mouseout);
+            element.removeEventListener('click', element._click);
         }
     }
 }
@@ -273,6 +297,56 @@ fetch('subjects.txt')
         console.error('Error fetching subjects:', error);
     });
 
+function displayPopup(course) {
+    const oldPopup = document.getElementById('coursePopup');
+    if (oldPopup) {
+        closePopup();
+    }
+    // Create a div element for the popup
+    const popup = document.createElement('div');
+    // Set ID for the popup
+    popup.id = 'coursePopup';
+    // Set styles for the popup
+    popup.classList.add('popup'); // Add a class for styling if needed
+    popup.style.position = 'fixed';
+    popup.style.top = '50%';
+    popup.style.left = '50%';
+    popup.style.transform = 'translate(-50%, -50%)';
+    popup.style.border = '2px solid black'; // or any border style you prefer
+    popup.style.padding = '10px'; // Adjust padding as needed
+    popup.style.backgroundColor = 'lightblue'; // or any background color you prefer
+
+    // Add content to the popup
+    popup.innerHTML = `
+        <span style="cursor: pointer; position: absolute; top: 5px; right: 5px; font-weight: bold;" onclick="closePopup()">X</span>
+        <b>${course.subject}</b><br>
+        Instructor: ${course.instructor}<br>
+        Avg GPA: ${course.gpa}<br>
+        Credits: ${course.course_credits}<br>
+        Room: ${course.room}<br>
+        Days: ${course.days}<br>
+        Times: ${course.start_time}-${course.end_time}<br>
+        Lab Days: ${course.lab_days}<br>
+        Lab Times: ${course.lab_start_time}-${course.lab_end_time}<br>
+        Available Seats: ${course.avail}<br>
+        Max Students: ${course.cap}<br>
+        Students Enrolled: ${course.enrl}<br>
+        Waitlist: ${course.waitlist}<br>
+        Prerequisites: ${course.prerequisites}<br>
+        Additional Fees: ${course.addl_fees}
+    `;
+
+    // Append the popup to the document body
+    document.body.appendChild(popup);
+}
+
+function closePopup() {
+    const popup = document.getElementById('coursePopup');
+    if (popup) {
+        popup.remove();
+    }
+}
+
 // Clear box and add course
 function handleKeyPress(event) {
     if (event.keyCode === 13) { // Check for pressing Enter
@@ -280,6 +354,18 @@ function handleKeyPress(event) {
         const sectionNumber = document.getElementById('sectionNumber');
         sectionNumber.value = '';
     }
+}
+
+function addHoverEffect(bgColor) {
+    this.style.backgroundColor = 'lightblue';
+}
+
+function removeHoverEffect(bgColor) {
+    this.style.backgroundColor = bgColor;
+}
+
+function displayPopupHandler(course) {
+    displayPopup(course);
 }
 
 createTable();
