@@ -240,7 +240,7 @@ label {
 }
 
 /* Media query for mobile devices */
-@media (max-width: 800px) {
+@media (max-width: 900px) {
     /* Scroll Bar */ 
     .calendar {
         padding: 5px;
@@ -250,6 +250,11 @@ label {
     .calendar-table {
         width: fit-content;
         margin: 0 auto;
+    }
+
+    body {
+        margin-left: 2%;
+        margin-right: 2%;
     }
 
     .container {
