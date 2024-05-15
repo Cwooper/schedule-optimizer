@@ -1,4 +1,4 @@
-2024-05-11T14:28:14.476614
+2024-05-15T00:19:47.865794
 [
     {
         "subject": "BIOL 101",
@@ -38,8 +38,8 @@
         "lab_room": "IS 230",
         "addl_fees": "Flat Fee $31.00",
         "cap": "24",
-        "enrl": "23",
-        "avail": "1",
+        "enrl": "22",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "LSCI FTF",

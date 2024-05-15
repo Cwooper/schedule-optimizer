@@ -1,4 +1,4 @@
-2024-05-11T14:28:40.925061
+2024-05-15T00:20:18.717201
 [
     {
         "subject": "THTR 101",
@@ -107,8 +107,8 @@
         "lab_room": "FR 102",
         "addl_fees": "",
         "cap": "190",
-        "enrl": "184",
-        "avail": "6",
+        "enrl": "183",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "HUM FTF",
@@ -1027,8 +1027,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "5",
-        "enrl": "0",
-        "avail": "5",
+        "enrl": "1",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",

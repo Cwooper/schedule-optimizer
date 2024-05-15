@@ -32,7 +32,7 @@ function addCourse() {
 
         const forceButton = document.createElement('button');
         forceButton.textContent = 'Force';
-        forceButton.addEventListener('click', function() {
+        forceButton.addEventListener('click', function () {
             if (forceList.includes(`${courseName} ${section}`)) {
                 forceList.splice(courses.indexOf(`${courseName} ${section}`), 1);
                 forceButton.classList.remove('forced');
@@ -44,7 +44,7 @@ function addCourse() {
         // Create a remove button
         const removeButton = document.createElement('button');
         removeButton.textContent = '–';
-        removeButton.addEventListener('click', function() {
+        removeButton.addEventListener('click', function () {
             errorMessage.textContent = '';
             courses.splice(courses.indexOf(`${courseName} ${section}`), 1); // Remove class from array
             forceList.splice(courses.indexOf(`${courseName} ${section}`), 1);
@@ -111,31 +111,31 @@ function generateJSON() {
         },
         body: json
     })
-    .then(response => response.json())
-    .then(response => {
-        // Display the response in the console
-        console.log(response); // Here is the response
-        if (response["errors"].length > 0) {
-            const errorMessage = document.getElementById('errorMessage');
-            errorMessage.innerHTML = response["errors"];
-            if (response["warnings"].length > 0) {
+        .then(response => response.json())
+        .then(response => {
+            // Display the response in the console
+            console.log(response); // Here is the response
+            if (response["errors"].length > 0) {
                 const errorMessage = document.getElementById('errorMessage');
-                errorMessage.innerHTML += "<br>" + response["warnings"].join("<br>");
+                errorMessage.innerHTML = response["errors"];
+                if (response["warnings"].length > 0) {
+                    const errorMessage = document.getElementById('errorMessage');
+                    errorMessage.innerHTML += "<br>" + response["warnings"].join("<br>");
+                }
+            } else {
+                if (response["warnings"].length > 0) {
+                    const errorMessage = document.getElementById('errorMessage');
+                    errorMessage.innerHTML += "<br>" + response["warnings"].join("<br>");
+                }
+                all_schedules = response["schedules"]
+                current_schedule = 0;
+                displaySchedule(all_schedules[current_schedule]);
             }
-        } else {
-            if (response["warnings"].length > 0) {
-                const errorMessage = document.getElementById('errorMessage');
-                errorMessage.innerHTML += "<br>" + response["warnings"].join("<br>");
-            }
-            all_schedules = response["schedules"]
-            current_schedule = 0;
-            displaySchedule(all_schedules[current_schedule]);
-        }
-    })
-    .catch(error => {
-        // Handle any errors
-        console.error('Error:', error);
-    });
+        })
+        .catch(error => {
+            // Handle any errors
+            console.error('Error:', error);
+        });
 
 }
 
@@ -145,46 +145,46 @@ function createTable() {
     const daysOfWeek = ['M', 'T', 'W', 'R', 'F'];
     const fullDaysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
     const table = document.getElementById('calendar');
-    
+
     // Create the header row
     const headerRow = document.createElement('tr');
-    
+
     // Create an empty cell for the corner
     const cornerCell = document.createElement('th');
     cornerCell.id = "cornerCell"
     headerRow.appendChild(cornerCell);
-    
+
     // Create header cells for each day of the week
     fullDaysOfWeek.forEach(day => {
         const headerCell = document.createElement('th');
         headerCell.textContent = day;
         headerRow.appendChild(headerCell);
     });
-    
+
     // Append the header row to the table
     table.appendChild(headerRow);
-    
+
     // Loop through each hour
     hours.forEach(hour => {
-      // Create a new table row
-      const row = document.createElement('tr');
-  
-      // Create a table cell for the hour
-      const hourCell = document.createElement('td');
-      hourCell.textContent = `${hour.slice(0, 2)}:${hour.slice(2)}`;
-      row.appendChild(hourCell);
-  
-      // Loop through each day of the week
-      daysOfWeek.forEach(day => {
-        // Create a new table cell
-        const cell = document.createElement('td');
-        cell.id = `${day}-${hour}`;
-        row.appendChild(cell);
-      });
-  
-      // Append the row to the table
-      table.appendChild(row);
-      table.classList.add('calendar-table'); // So this applies after DOM is loaded
+        // Create a new table row
+        const row = document.createElement('tr');
+
+        // Create a table cell for the hour
+        const hourCell = document.createElement('td');
+        hourCell.textContent = `${hour.slice(0, 2)}:${hour.slice(2)}`;
+        row.appendChild(hourCell);
+
+        // Loop through each day of the week
+        daysOfWeek.forEach(day => {
+            // Create a new table cell
+            const cell = document.createElement('td');
+            cell.id = `${day}-${hour}`;
+            row.appendChild(cell);
+        });
+
+        // Append the row to the table
+        table.appendChild(row);
+        table.classList.add('calendar-table'); // So this applies after DOM is loaded
     });
 }
 
@@ -207,7 +207,7 @@ function addCoursesToCalendar(courses) {
         const days = course.days.split(''); // Split the days string into an array
         const startTime = parseInt(course.start_time);
         const endTime = parseInt(course.end_time);
-        
+
         days.forEach(day => {
             let startHour = Math.floor(startTime / 100); // Extract the hour (hundreds place)
             let endHour = Math.ceil(endTime / 100);
@@ -221,10 +221,10 @@ function addCoursesToCalendar(courses) {
                 // Add hover event listener
                 cell._mouseover = () => addHoverEffect.call(cell, bgColor);
                 cell.addEventListener('mouseover', cell._mouseover);
-                
+
                 cell._mouseout = () => removeHoverEffect.call(cell, bgColor);
                 cell.addEventListener('mouseout', cell._mouseout);
-                
+
                 cell._click = () => displayPopupHandler(course);
                 cell.addEventListener('click', cell._click);
 
@@ -234,7 +234,7 @@ function addCoursesToCalendar(courses) {
             }
         });
 
-        if(course.lab_days) {
+        if (course.lab_days) {
             const labDays = course.lab_days.split('');
             const labStart = parseInt(course.lab_start_time);
             const labEnd = parseInt(course.lab_end_time);
@@ -251,10 +251,10 @@ function addCoursesToCalendar(courses) {
                     // Add hover event listener
                     cell._mouseover = () => addHoverEffect.call(cell, bgColor);
                     cell.addEventListener('mouseover', cell._mouseover);
-                    
+
                     cell._mouseout = () => removeHoverEffect.call(cell, bgColor);
                     cell.addEventListener('mouseout', cell._mouseout);
-                    
+
                     cell._click = () => displayPopupHandler(course);
                     cell.addEventListener('click', cell._click);
 
@@ -276,7 +276,7 @@ function displaySchedule(schedule) {
 function clearSchedule() {
     const table = document.getElementById('calendar');
     const elements = table.getElementsByTagName('*');
-    
+
     for (let i = 0; i < elements.length; i++) {
         const element = elements[i];
         if (element.id) {
@@ -313,25 +313,24 @@ function prevSchedule() {
 }
 
 function course_to_str(course) {
-    let result = `<b>${course.subject}</b><br>
-    Instructor: ${course.instructor}<br>
+    let result = `Instructor: ${course.instructor}<br>
     CRN: ${course.crn}<br>`;
 
     result += course.gpa ? `Average GPA: ${course.gpa}<br>` : '';
 
     result += `Credits: ${course.course_credits}<br>
     Room: ${course.room}<br>`
-    
+
     result += course.days ? `Days: ${course.days}<br>
     Times: ${course.start_time} - ${course.end_time}<br>` : '';
 
     result += course.lab_days ? `Lab Days: ${course.lab_days}<br>
     Lab Times: ${course.lab_start_time} - ${course.lab_end_time}<br>` : '';
-    
+
     result += `Available Seats: ${course.avail}<br>
     Max Students: ${course.cap}<br>
     Students Enrolled: ${course.enrl}<br>`
-    
+
     result += course.waitlist ? `Waitlist: ${course.waitlist}<br>` : '';
     result += course.prerequisites ? `Prerequisites: ${course.prerequisites}<br>` : '';
     result += course.attributes ? `Attributes: ${course.attributes}<br>` : '';
@@ -345,42 +344,55 @@ function course_to_str(course) {
     return result;
 }
 
+function displayHelpPopup() {
+    const helpPopup = document.getElementById('help-popup');
+    helpPopup.classList.add('active');
+}
+  
+function closeHelpPopup() {
+    const helpPopup = document.getElementById('help-popup');
+    helpPopup.classList.remove('active');
+}
+  
+
 function displayPopup(course) {
     const oldPopup = document.getElementById('coursePopup');
     if (oldPopup) {
-        closePopup();
+        oldPopup.remove();
     }
     // Create a div element for the popup
     const popup = document.createElement('div');
-    // Set ID for the popup
     popup.id = 'coursePopup';
-    // Set styles for the popup
     popup.classList.add('popup');
-    popup.style.position = 'fixed';
-    popup.style.top = '50%';
-    popup.style.left = '50%';
-    popup.style.transform = 'translate(-50%, -50%)';
-    popup.style.border = '2px solid black';
-    popup.style.padding = '8px';
-    popup.style.backgroundColor = 'lightblue';
-    popup.style.borderRadius = '10px'; // Rounded corners
 
-    // Add content to the popup
-    popup.innerHTML = `
-        <span style="cursor: pointer; position: absolute; top: 5px; right: 5px;
-         font-weight: bold; font-size: 25px" onclick="closePopup()">X</span>
-        ${course_to_str(course)}
-    `;
-
-    // Append the popup to the document body
-    document.body.appendChild(popup);
-}
-
-function closePopup() {
-    const popup = document.getElementById('coursePopup');
-    if (popup) {
-        popup.remove();
+    // Add popup header basics
+    const popupHeader = document.createElement('div');
+    popupHeader.classList.add('popup-header');
+    const popupHeaderTitle = document.createElement('div');
+    popupHeaderTitle.classList.add('popup-header-title');
+    const popupCloseButton = document.createElement('button');
+    popupCloseButton.classList.add('popup-close-button');
+    popupCloseButton.innerHTML = '&times;'
+    popupCloseButton.onclick = () => {
+        if (popup) {
+            popup.remove();
+        }
+        return;
     }
+
+    const popupBody = document.createElement('div');
+    popupBody.classList.add('popup-body');
+
+    popupHeaderTitle.innerHTML = `<b>${course.subject}</b>`
+    // Add content to the popup
+    popupBody.innerHTML = `${course_to_str(course)}`;
+
+    // Append the popup parts together and add it to the document
+    popupHeader.appendChild(popupHeaderTitle);
+    popupHeader.appendChild(popupCloseButton);
+    popup.appendChild(popupHeader);
+    popup.appendChild(popupBody)
+    document.body.appendChild(popup);
 }
 
 // Clear box and add course
@@ -418,6 +430,6 @@ fetch('subjects.txt')
     })
     .catch(error => {
         console.error('Error fetching subjects:', error);
-});
+    });
 
 createTable();

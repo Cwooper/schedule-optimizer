@@ -1,4 +1,4 @@
-2024-05-11T14:28:18.123543
+2024-05-15T00:19:52.311445
 [
     {
         "subject": "DNC 113",
@@ -153,8 +153,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "18",
-        "avail": "2",
+        "enrl": "17",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",

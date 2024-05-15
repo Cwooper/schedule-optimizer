@@ -1,4 +1,4 @@
-2024-05-11T14:28:34.249658
+2024-05-15T00:20:11.232649
 [
     {
         "subject": "MUS 098",
@@ -245,8 +245,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00",
         "cap": "35",
-        "enrl": "32",
-        "avail": "3",
+        "enrl": "31",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "HUM OL ASNC SST",
@@ -1901,8 +1901,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "22",
-        "avail": "3",
+        "enrl": "21",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",

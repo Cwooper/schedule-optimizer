@@ -1,4 +1,4 @@
-2024-05-11T14:28:05.935946
+2024-05-15T00:19:38.688989
 [
     {
         "subject": "PHIL 107",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
-        "enrl": "17",
-        "avail": "28",
+        "enrl": "21",
+        "avail": "24",
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM OL ASNC",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
-        "enrl": "6",
-        "avail": "39",
+        "enrl": "5",
+        "avail": "40",
         "waitlist": "",
         "restrictions": "",
         "attributes": "QSR OL SYNC",

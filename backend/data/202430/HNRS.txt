@@ -1,4 +1,4 @@
-2024-05-11T14:27:59.129267
+2024-05-15T00:19:31.375049
 [
     {
         "subject": "HNRS 105",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $2896.56",
         "cap": "20",
-        "enrl": "6",
-        "avail": "14",
+        "enrl": "12",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM TRVL FTF",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "6",
-        "avail": "14",
+        "enrl": "13",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "LSCI TRVL FTF",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $2896.56",
         "cap": "20",
-        "enrl": "1",
-        "avail": "19",
+        "enrl": "2",
+        "avail": "18",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "TRVL FTF",

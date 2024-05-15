@@ -1,4 +1,4 @@
-2024-05-11T14:28:01.908334
+2024-05-15T00:19:34.564549
 [
     {
         "subject": "LDST 341",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "5",
-        "avail": "15",
+        "enrl": "6",
+        "avail": "14",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL ASNC",

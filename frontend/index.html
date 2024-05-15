@@ -14,7 +14,27 @@
       <header>
         <nav class="navbar">
           <div class="logo">WWU Schedule Optimizer</div>
-          <button class="nav-button">Help</button>
+          <button class="nav-button" 
+                  onclick="displayHelpPopup()"
+                  title="Display Help Menu">Help</button>
+          <div class="help-popup" id="help-popup">
+            <div class="popup-header">
+              <div class="popup-header-title">Help Menu</div>
+              <button class="popup-close-button" onclick="closeHelpPopup()">&times;</button>
+            </div>
+            <div class="popup-body">
+              <p>
+                To add courses, select a subject, and enter a section number.
+                <ul>
+                  <li><b>Minimum Courses:</b> The maximum number of courses that are inlcuded per schedule.</li>
+                  <li><b>Maximum Courses:</b> The minimum number of courses that are inlcuded per schedule.</li>
+                  <li><b>Year:</b> The year that you want to search for.</li>
+                  <li><b>Quarter:</b> The quarter you want to search for.</li>
+                  <li><b>Force:</b> Courses that are forced (required) to be included in every schedule.</li>
+                </ul>
+              </p>
+            </div>
+          </div>
         </nav>
       </header>
     </div>
@@ -107,13 +127,21 @@
       <div class="footer-content">
         <div class="about-info">
           <h3>About Us</h3>
-          <p>This is a schedule optimizer for Western Washington University</p>
+          <p>This is a schedule optimizer passion project for Western Washington University courses</p>
           <p>Created by Cooper Morgan, Konnor Kooi, Rory Bates, Arne Wiseman, and Ben Huyn</p>
           <p><a href="https://github.com/cwooper/schedule-optimizer" target="_blank">GitHub Source Code</a></p>
         </div>
         <div class="contact-info">
           <h3>Report Issues to</h3>
           <p><a href="mailto:admin@cwooper.me">admin@cwooper.me</a></p>
+        </div>
+        <div class="disclaimer">
+          <h3>Disclamer</h3>
+          <p>This project is not affiliated with Western Washington University.
+            It is an independent initiative developed solely for educational
+            and personal use. All data provided by this project is for
+            informational purposes only and should not be considered official
+            or binding. Use at your own discretion.</p>
         </div>
       </div>
     </footer>

@@ -1,4 +1,4 @@
-2024-05-11T14:28:09.656743
+2024-05-15T00:19:42.488877
 [
     {
         "subject": "SPAN 201",
@@ -38,8 +38,8 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "Flat Fee $5.00",
         "cap": "15",
-        "enrl": "10",
-        "avail": "5",
+        "enrl": "11",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "",
         "attributes": "HUM OL MIX",

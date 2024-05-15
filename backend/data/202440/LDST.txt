@@ -1,4 +1,4 @@
-2024-05-11T14:27:34.325764
+2024-05-15T00:19:06.227648
 [
     {
         "subject": "LDST 100",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "0",
-        "avail": "25",
+        "enrl": "3",
+        "avail": "22",
         "waitlist": "",
         "restrictions": "",
         "attributes": "SSC FTF",
@@ -38,8 +38,8 @@
         "lab_room": "BH 114",
         "addl_fees": "Flat Fee $12.00",
         "cap": "20",
-        "enrl": "0",
-        "avail": "20",
+        "enrl": "1",
+        "avail": "19",
         "waitlist": "",
         "restrictions": "",
         "attributes": "SSC SL FTF",
@@ -107,8 +107,8 @@
         "lab_room": "HU 108",
         "addl_fees": "Flat Fee $12.00",
         "cap": "20",
-        "enrl": "0",
-        "avail": "20",
+        "enrl": "1",
+        "avail": "19",
         "waitlist": "",
         "restrictions": "",
         "attributes": "SSC SL FTF",

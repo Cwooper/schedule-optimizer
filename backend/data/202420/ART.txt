@@ -1,4 +1,4 @@
-2024-05-11T14:28:12.952603
+2024-05-15T00:19:46.157008
 [
     {
         "subject": "ART 109",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00 Flat Fee $52.71",
         "cap": "16",
-        "enrl": "17",
-        "avail": "-1",
+        "enrl": "16",
+        "avail": "0",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "SST FTF",

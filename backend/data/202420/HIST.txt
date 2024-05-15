@@ -1,4 +1,4 @@
-2024-05-11T14:28:25.796299
+2024-05-15T00:20:01.272981
 [
     {
         "subject": "HIST 103",
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "75",
-        "enrl": "67",
-        "avail": "8",
+        "enrl": "66",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "HUM EUR EUR2 FTF",
@@ -176,8 +176,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "75",
-        "enrl": "71",
-        "avail": "4",
+        "enrl": "70",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM US US1 US2 FTF",
@@ -360,8 +360,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "12",
-        "avail": "3",
+        "enrl": "11",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "ASIA CMB2 FTF",
