@@ -125,13 +125,13 @@ class Schedule:
         for course in self.courses:
             if isinstance(course.start_time, str) and course.start_time.isdigit():
                 start_times.append(int(course.start_time))
-        start_time = to_mins(min(start_times))
+        start_time = to_mins(min(start_times)) if start_times else None
     
         end_times = []
         for course in self.courses:
             if isinstance(course.end_time, str) and course.end_time.isdigit():
                 end_times.append(int(course.end_time))
-        end_time = to_mins(max(end_times))
+        end_time = to_mins(max(end_times)) if end_times else None
         
         gpa_score = self._weigh_gpa()
         start_score = self._weigh_start(start_time)
