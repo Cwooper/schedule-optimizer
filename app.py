@@ -33,9 +33,6 @@ def generate_response():
         "errors": []
     }
     course_names = data["courses"]
-    if len(course_names) < 2:
-        response["errors"].append("Must have two classes or more.")
-        return jsonify(response)
 
     course_dict = get_courses(course_names, data["term"])
     if course_dict["warnings"] != []:
