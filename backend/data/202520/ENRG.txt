@@ -1,4 +1,4 @@
-2024-05-11T14:26:25.147724
+2024-05-15T00:17:49.613722
 [
     {
         "subject": "ENRG 101",
@@ -251,29 +251,6 @@
         "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "ENRG 350 or UEPP 350 or instructor permission.",
-        "gpa": null
-    },
-    {
-        "subject": "ENRG 461",
-        "course_credits": "5",
-        "crn": "23056",
-        "days": "M",
-        "start_time": "1400",
-        "end_time": "1520",
-        "lab_days": "W",
-        "lab_start_time": "1400",
-        "lab_end_time": "1650",
-        "instructor": "Goel, Nipun",
-        "room": "ES 100",
-        "lab_room": "ES 100",
-        "addl_fees": "",
-        "cap": "20",
-        "enrl": "0",
-        "avail": "20",
-        "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "FTF",
-        "prerequisites": "ENRG 360 or ESCI 360; MATH 124 or MATH 157; or instructor permission.",
         "gpa": null
     },
     {

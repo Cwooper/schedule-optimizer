@@ -1,4 +1,4 @@
-2024-05-11T14:27:29.351827
+2024-05-15T00:19:00.939393
 [
     {
         "subject": "GLBL 201",
@@ -14,9 +14,9 @@
         "room": "MH 239",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "15",
-        "enrl": "0",
-        "avail": "15",
+        "cap": "9",
+        "enrl": "4",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
@@ -37,9 +37,9 @@
         "room": "MH 231",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "40",
-        "enrl": "0",
-        "avail": "40",
+        "cap": "34",
+        "enrl": "5",
+        "avail": "29",
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",

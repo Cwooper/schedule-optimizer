@@ -1,4 +1,4 @@
-2024-05-11T14:28:13.199660
+2024-05-15T00:19:46.407146
 [
     {
         "subject": "A/HI 211",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $1.50",
         "cap": "185",
-        "enrl": "178",
-        "avail": "7",
+        "enrl": "176",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM FTF",

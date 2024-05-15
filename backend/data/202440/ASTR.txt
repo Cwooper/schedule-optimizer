@@ -1,4 +1,4 @@
-2024-05-11T14:27:18.313313
+2024-05-15T00:18:48.685200
 [
     {
         "subject": "ASTR 103",
@@ -13,10 +13,10 @@
         "instructor": "Covey, Kevin R.",
         "room": "CF 115",
         "lab_room": null,
-        "addl_fees": "",
-        "cap": "142",
-        "enrl": "0",
-        "avail": "142",
+        "addl_fees": "Flat Fee $5.32",
+        "cap": "97",
+        "enrl": "6",
+        "avail": "91",
         "waitlist": "",
         "restrictions": "",
         "attributes": "SCI FTF",
@@ -36,10 +36,10 @@
         "instructor": "Rice, Melissa Susanne",
         "room": "CF 226",
         "lab_room": null,
-        "addl_fees": "",
-        "cap": "45",
-        "enrl": "0",
-        "avail": "45",
+        "addl_fees": "Flat Fee $5.32",
+        "cap": "32",
+        "enrl": "2",
+        "avail": "30",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "WP1 FTF",

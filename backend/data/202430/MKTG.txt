@@ -1,4 +1,4 @@
-2024-05-11T14:28:03.361960
+2024-05-15T00:19:35.981711
 [
     {
         "subject": "MKTG 380",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "17",
-        "avail": "18",
+        "enrl": "22",
+        "avail": "13",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL ASNC",

@@ -1,4 +1,4 @@
-2024-05-11T14:27:37.603190
+2024-05-15T00:19:09.507931
 [
     {
         "subject": "LANG 410",
@@ -15,10 +15,10 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "0",
-        "avail": "25",
+        "enrl": "2",
+        "avail": "23",
         "waitlist": "",
-        "restrictions": "OV S/U",
+        "restrictions": "S/U",
         "attributes": "FTF",
         "prerequisites": "10 credits in one world language beyond second year; Grade of B or better in LING 201 or instructor permission.",
         "gpa": null

@@ -1,4 +1,4 @@
-2024-05-11T14:27:23.719767
+2024-05-15T00:18:54.975508
 [
     {
         "subject": "ECE 380",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "0",
-        "avail": "25",
+        "enrl": "1",
+        "avail": "24",
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "WP3 FTF",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $4.50",
         "cap": "25",
-        "enrl": "0",
-        "avail": "25",
+        "enrl": "1",
+        "avail": "24",
         "waitlist": "",
         "restrictions": "OV ED MJ",
         "attributes": "FTF",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "0",
-        "avail": "25",
+        "enrl": "1",
+        "avail": "24",
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF",

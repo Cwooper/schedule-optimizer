@@ -1,4 +1,4 @@
-2024-05-11T14:27:29.752139
+2024-05-15T00:19:01.573547
 [
     {
         "subject": "GREK 101",
@@ -14,11 +14,11 @@
         "room": "MH 114",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "30",
+        "cap": "24",
         "enrl": "0",
-        "avail": "30",
+        "avail": "24",
         "waitlist": "",
-        "restrictions": "OV",
+        "restrictions": "",
         "attributes": "FTF",
         "prerequisites": "",
         "gpa": null
@@ -37,11 +37,11 @@
         "room": "MH 231",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "30",
+        "cap": "24",
         "enrl": "0",
-        "avail": "30",
+        "avail": "24",
         "waitlist": "",
-        "restrictions": "OV",
+        "restrictions": "",
         "attributes": "FTF",
         "prerequisites": "",
         "gpa": null
@@ -64,7 +64,7 @@
         "enrl": "0",
         "avail": "25",
         "waitlist": "",
-        "restrictions": "OV PQ",
+        "restrictions": "PQ",
         "attributes": "BCOM FTF",
         "prerequisites": "GREK 103 or equivalent",
         "gpa": null

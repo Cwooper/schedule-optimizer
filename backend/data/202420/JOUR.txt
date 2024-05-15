@@ -1,4 +1,4 @@
-2024-05-11T14:28:28.876916
+2024-05-15T00:20:04.884789
 [
     {
         "subject": "JOUR 106",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "19",
-        "avail": "6",
+        "enrl": "18",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
@@ -705,8 +705,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "18",
-        "enrl": "8",
-        "avail": "10",
+        "enrl": "9",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "OV SR MJ PQ",
         "attributes": "WP3 FTF",

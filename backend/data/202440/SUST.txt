@@ -1,10 +1,10 @@
-2024-05-11T14:27:45.305270
+2024-05-15T00:19:17.665042
 [
     {
         "subject": "SUST 471",
         "course_credits": "3",
         "crn": "42644",
-        "days": "MW",
+        "days": "WF",
         "start_time": "1400",
         "end_time": "1520",
         "lab_days": null,
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $15.00",
         "cap": "10",
-        "enrl": "0",
-        "avail": "10",
+        "enrl": "2",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",

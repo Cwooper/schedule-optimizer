@@ -1,4 +1,4 @@
-2024-05-11T14:26:17.021132
+2024-05-15T00:17:38.165730
 [
     {
         "subject": "ART 109",
@@ -608,7 +608,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Turner, Lisa Michelle",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
@@ -869,7 +869,7 @@
         "enrl": "0",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "OV",
+        "restrictions": "",
         "attributes": "FTF",
         "prerequisites": "Admission to a teacher education program leading to an elementary endorsement.",
         "gpa": null

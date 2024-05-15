@@ -1,4 +1,4 @@
-2024-05-11T14:26:35.135296
+2024-05-15T00:18:01.085388
 [
     {
         "subject": "MKTG 380",
@@ -64,7 +64,7 @@
         "enrl": "0",
         "avail": "60",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "JR SO SR MJ PQ",
         "attributes": "FTF",
         "prerequisites": "ACCT 240; and ECON 206 or HNRS 209.",
         "gpa": null

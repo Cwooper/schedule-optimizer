@@ -1,4 +1,4 @@
-2024-05-11T14:27:47.156536
+2024-05-15T00:19:19.416228
 [
     {
         "subject": "AHE 518",
@@ -15,8 +15,8 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "25",
-        "enrl": "2",
-        "avail": "23",
+        "enrl": "4",
+        "avail": "21",
         "waitlist": "",
         "restrictions": "GR GR MJ",
         "attributes": "HYBD",
@@ -61,8 +61,8 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "25",
-        "enrl": "0",
-        "avail": "25",
+        "enrl": "1",
+        "avail": "24",
         "waitlist": "",
         "restrictions": "GR GR MJ S/U",
         "attributes": "HYBD",

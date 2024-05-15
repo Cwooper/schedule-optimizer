@@ -1,4 +1,4 @@
-2024-05-11T14:28:27.029198
+2024-05-15T00:20:02.665542
 [
     {
         "subject": "HUMA 121",
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
-        "enrl": "26",
-        "avail": "19",
+        "enrl": "25",
+        "avail": "20",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM FTF",

@@ -1,4 +1,4 @@
-2024-05-11T14:29:05.142092
+2024-05-15T00:20:45.660869
 [
     {
         "subject": "MUS 098",
@@ -623,7 +623,7 @@
     },
     {
         "subject": "MUS 211",
-        "course_credits": "1",
+        "course_credits": "1 TO 4",
         "crn": "11184",
         "days": "TBD",
         "start_time": "TBD",
@@ -646,7 +646,7 @@
     },
     {
         "subject": "MUS 211",
-        "course_credits": "1",
+        "course_credits": "1 TO 4",
         "crn": "11185",
         "days": "TBD",
         "start_time": "TBD",
@@ -669,7 +669,7 @@
     },
     {
         "subject": "MUS 211",
-        "course_credits": "1 TO 4",
+        "course_credits": "1",
         "crn": "11184",
         "days": "TBD",
         "start_time": "TBD",
@@ -692,7 +692,7 @@
     },
     {
         "subject": "MUS 211",
-        "course_credits": "1 TO 4",
+        "course_credits": "1",
         "crn": "11185",
         "days": "TBD",
         "start_time": "TBD",
@@ -3337,7 +3337,7 @@
     },
     {
         "subject": "MUS 316",
-        "course_credits": "1 TO 4",
+        "course_credits": "1",
         "crn": "10821",
         "days": "TBD",
         "start_time": "TBD",
@@ -3360,7 +3360,7 @@
     },
     {
         "subject": "MUS 316",
-        "course_credits": "1 TO 4",
+        "course_credits": "1",
         "crn": "11177",
         "days": "T",
         "start_time": "1400",
@@ -3383,7 +3383,7 @@
     },
     {
         "subject": "MUS 316",
-        "course_credits": "1",
+        "course_credits": "1 TO 4",
         "crn": "10821",
         "days": "TBD",
         "start_time": "TBD",
@@ -3406,7 +3406,7 @@
     },
     {
         "subject": "MUS 316",
-        "course_credits": "1",
+        "course_credits": "1 TO 4",
         "crn": "11177",
         "days": "T",
         "start_time": "1400",

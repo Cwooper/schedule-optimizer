@@ -1,4 +1,4 @@
-2024-05-11T14:27:57.511467
+2024-05-15T00:19:29.666694
 [
     {
         "subject": "GEOL 101",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "23",
-        "avail": "7",
+        "enrl": "27",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "LSCI OL ASNC",
@@ -84,8 +84,8 @@
         "lab_room": "ES OFC",
         "addl_fees": "Flat Fee $450.00",
         "cap": "30",
-        "enrl": "14",
-        "avail": "16",
+        "enrl": "16",
+        "avail": "14",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
@@ -107,8 +107,8 @@
         "lab_room": "ES OFC",
         "addl_fees": "Flat Fee $450.00",
         "cap": "30",
-        "enrl": "14",
-        "avail": "16",
+        "enrl": "16",
+        "avail": "14",
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "TRVL FTF",

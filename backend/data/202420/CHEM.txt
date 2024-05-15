@@ -1,4 +1,4 @@
-2024-05-11T14:28:15.443148
+2024-05-15T00:19:48.759214
 [
     {
         "subject": "CHEM 161",
@@ -751,8 +751,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $45.00",
         "cap": "10",
-        "enrl": "10",
-        "avail": "0",
+        "enrl": "11",
+        "avail": "-1",
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "FTF",
@@ -889,8 +889,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
-        "enrl": "59",
-        "avail": "1",
+        "enrl": "58",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
@@ -912,8 +912,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
-        "enrl": "32",
-        "avail": "28",
+        "enrl": "31",
+        "avail": "29",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",

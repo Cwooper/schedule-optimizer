@@ -1,4 +1,4 @@
-2024-05-11T14:27:46.943615
+2024-05-15T00:19:19.220263
 [
     {
         "subject": "ACCT 240",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "10",
-        "avail": "40",
+        "enrl": "13",
+        "avail": "37",
         "waitlist": "",
         "restrictions": "",
         "attributes": "OL ASNC",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "18",
-        "avail": "32",
+        "enrl": "22",
+        "avail": "28",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL ASNC",

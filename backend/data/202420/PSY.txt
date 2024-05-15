@@ -1,4 +1,4 @@
-2024-05-11T14:28:37.314885
+2024-05-15T00:20:14.689795
 [
     {
         "subject": "PSY 101",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $1.16",
         "cap": "85",
-        "enrl": "81",
-        "avail": "4",
+        "enrl": "79",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
@@ -222,8 +222,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $1.16",
         "cap": "85",
-        "enrl": "78",
-        "avail": "7",
+        "enrl": "77",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",

@@ -1,4 +1,4 @@
-2024-05-11T14:28:07.994281
+2024-05-15T00:19:40.750105
 [
     {
         "subject": "RC 579",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "9",
-        "avail": "16",
+        "enrl": "10",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
         "attributes": "OL EVEX ASNC",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "9",
-        "avail": "16",
+        "enrl": "10",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
         "attributes": "OL EVEX ASNC",

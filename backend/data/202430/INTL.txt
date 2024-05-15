@@ -1,4 +1,4 @@
-2024-05-11T14:28:00.684144
+2024-05-15T00:19:33.086134
 [
     {
         "subject": "INTL 201",
@@ -15,9 +15,9 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "10",
-        "enrl": "7",
-        "avail": "3",
-        "waitlist": "",
+        "enrl": "10",
+        "avail": "0",
+        "waitlist": "WL",
         "restrictions": "",
         "attributes": "ACGM OL ASNC",
         "prerequisites": "",

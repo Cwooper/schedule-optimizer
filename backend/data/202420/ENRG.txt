@@ -1,4 +1,4 @@
-2024-05-11T14:28:21.202942
+2024-05-15T00:19:55.868929
 [
     {
         "subject": "ENRG 101",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "112",
-        "enrl": "111",
-        "avail": "1",
+        "enrl": "110",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "SCI FTF",

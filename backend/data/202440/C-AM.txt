@@ -1,4 +1,4 @@
-2024-05-11T14:27:19.479724
+2024-05-15T00:18:50.192278
 [
     {
         "subject": "C/AM 277",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "5",
-        "enrl": "0",
-        "avail": "5",
+        "enrl": "2",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "",
         "attributes": "HUM FTF",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "10",
-        "enrl": "0",
-        "avail": "10",
+        "enrl": "2",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",

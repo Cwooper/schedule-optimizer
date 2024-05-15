@@ -1,4 +1,4 @@
-2024-05-11T14:27:32.456395
+2024-05-15T00:19:04.453148
 [
     {
         "subject": "IBUS 370",
@@ -14,9 +14,9 @@
         "room": "MH 103",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "35",
-        "enrl": "0",
-        "avail": "35",
+        "cap": "30",
+        "enrl": "6",
+        "avail": "24",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
@@ -37,9 +37,9 @@
         "room": "AW 406",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "35",
-        "enrl": "0",
-        "avail": "35",
+        "cap": "30",
+        "enrl": "1",
+        "avail": "29",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "0",
-        "avail": "25",
+        "enrl": "1",
+        "avail": "24",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "WP1 FTF",

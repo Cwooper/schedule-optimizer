@@ -1,4 +1,4 @@
-2024-05-11T14:27:36.765321
+2024-05-15T00:19:08.636497
 [
     {
         "subject": "MSCI 201",
@@ -13,7 +13,7 @@
         "instructor": "Staff",
         "room": "ET 106",
         "lab_room": null,
-        "addl_fees": "Flat Fee $47.00",
+        "addl_fees": "Per/Cr $25.00 Flat Fee $47.00",
         "cap": "5",
         "enrl": "0",
         "avail": "5",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "12",
-        "enrl": "0",
-        "avail": "12",
+        "enrl": "4",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",

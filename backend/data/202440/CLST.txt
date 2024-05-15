@@ -1,4 +1,4 @@
-2024-05-11T14:27:20.271328
+2024-05-15T00:18:51.103093
 [
     {
         "subject": "CLST 350",
@@ -14,9 +14,9 @@
         "room": "MH 138",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "150",
-        "enrl": "0",
-        "avail": "150",
+        "cap": "85",
+        "enrl": "16",
+        "avail": "69",
         "waitlist": "",
         "restrictions": "",
         "attributes": "HUM FTF",
@@ -38,10 +38,10 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "150",
-        "enrl": "0",
-        "avail": "150",
+        "enrl": "2",
+        "avail": "148",
         "waitlist": "",
-        "restrictions": "OV",
+        "restrictions": "",
         "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null

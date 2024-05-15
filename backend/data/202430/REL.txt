@@ -1,4 +1,4 @@
-2024-05-11T14:28:08.196339
+2024-05-15T00:19:40.940990
 [
     {
         "subject": "REL 332",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "10",
-        "avail": "10",
+        "enrl": "11",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "ACGM OL ASNC",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "6",
-        "avail": "14",
+        "enrl": "8",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "ACGM OL ASNC",

@@ -1,4 +1,4 @@
-2024-05-11T14:27:27.625618
+2024-05-15T00:18:59.233107
 [
     {
         "subject": "EUS 201",
@@ -14,11 +14,11 @@
         "room": "FR 101",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "140",
-        "enrl": "0",
-        "avail": "140",
+        "cap": "100",
+        "enrl": "5",
+        "avail": "95",
         "waitlist": "",
-        "restrictions": "OV",
+        "restrictions": "",
         "attributes": "BCGM FTF",
         "prerequisites": "",
         "gpa": null
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00",
         "cap": "25",
-        "enrl": "0",
-        "avail": "25",
+        "enrl": "3",
+        "avail": "22",
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM OL ASNC SST",
