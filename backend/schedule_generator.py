@@ -105,7 +105,8 @@ def get_courses(course_names: list[str], term: str):
 # Return all possible schedules from a list of courses
 def generate_schedules(courses: list['Course'], 
                        min_schedule_size,
-                       max_schedule_size):
+                       max_schedule_size,
+                       forced_courses):
     """ Generate schedules based on a list of courses. """
 
     response = {
@@ -127,5 +128,22 @@ def generate_schedules(courses: list['Course'],
     # Find all conflicts between the courses, and return all possible schedules
     conflicts = all_conflicts(courses)
     schedules = all_schedules(courses, conflicts, min_schedule_size, max_schedule_size)
+
+    if forced_courses:
+        for schedule in schedules[:]:
+            for forced_course in forced_courses:
+                if forced_course not in [course.subject for course in schedule.courses]:
+                    schedules.remove(schedule)
+                    break
+    
+    if len(schedules) == 0:
+        response["errors"].append("There are no possible schedules with the current selection.")
+        return response
+
+    for schedule in schedules:
+        schedule.weigh_self()
+
+    schedules.sort(key=lambda schedule: schedule.score, reverse=True)
+
     response["schedules"] = schedules
     return response

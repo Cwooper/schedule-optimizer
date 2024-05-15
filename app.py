@@ -25,6 +25,15 @@ def serve_static(filename):
 @app.route('/schedule-optimizer', methods=['POST'])
 def generate_response():
     data = request.json
+    forced_courses = data['force']
+    course_names = data["courses"]
+    minimum = int(data['min'])
+    maximum = int(data['max'])
+    term = data['term']
+
+    # Why waste unecessary CPU time
+    if len(forced_courses) > minimum:
+        minimum = len(forced_courses)
 
     # Create my "response" object
     response = {
@@ -32,9 +41,8 @@ def generate_response():
         "warnings": [],
         "errors": []
     }
-    course_names = data["courses"]
 
-    course_dict = get_courses(course_names, data["term"])
+    course_dict = get_courses(course_names, term)
     if course_dict["warnings"] != []:
         response["warnings"].append(course_dict["warnings"])
     if course_dict["errors"] != []:
@@ -44,17 +52,9 @@ def generate_response():
         return jsonify(response) # Return the errors if the program failed
     
     courses = course_dict["courses"]
-    schedules_response = generate_schedules(courses,
-                                   min_schedule_size=int(data["min"]),
-                                   max_schedule_size=int(data["max"]))
+    schedules_response = generate_schedules(courses, minimum, maximum, forced_courses)
 
     schedules = schedules_response["schedules"]
-
-    for schedule in schedules:
-        schedule.weigh_self()
-
-    schedules.sort(key=lambda schedule: schedule.score, reverse=True)
-
 
     response["schedules"]= [schedule.to_dict() for schedule in schedules]
     if schedules_response["warnings"] != []:

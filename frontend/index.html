@@ -96,11 +96,27 @@
             <button id="prevButton" onclick="prevSchedule()">Previous Schedule</button>
             <button id="nextButton" onclick="nextSchedule()">Next Schedule</button>
           </div>
-          <table id="calendar"></table>
+          <div class="calendar-scroll-container">
+            <table id="calendar"></table>
+          </div>
         </div>
       </div>
     </div>
 
+    <footer class="footer>">
+      <div class="footer-content">
+        <div class="about-info">
+          <h3>About Us</h3>
+          <p>This is a schedule optimizer for Western Washington University</p>
+          <p>Created by Cooper Morgan, Konnor Kooi, Rory Bates, Arne Wiseman, and Ben Huyn</p>
+          <p><a href="https://github.com/cwooper/schedule-optimizer" target="_blank">GitHub Source Code</a></p>
+        </div>
+        <div class="contact-info">
+          <h3>Report Issues to</h3>
+          <p><a href="mailto:admin@cwooper.me">admin@cwooper.me</a></p>
+        </div>
+      </div>
+    </footer>
     <script src="scripts.js"></script>
   </body>
 </html>
