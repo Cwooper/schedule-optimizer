@@ -239,6 +239,19 @@ label {
     background-color: lightgray;
 }
 
+.nav-button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+  
+.nav-button:hover {
+    background-color: lightblue;
+}
+
 /* Media query for mobile devices */
 @media (max-width: 900px) {
     /* Scroll Bar */ 
