@@ -2,7 +2,9 @@
 const courseSelect = document.getElementById('courseSelect'); // Select dropdown for classes
 const sectionNumber = document.getElementById('sectionNumber'); // Input field for section number
 const courseList = document.getElementById('courseList'); // List element for displaying added classes
-let courses = []; // Array to store added classes
+
+let courses = []; // Array to store courses
+let forceList = []; // Array to store forced courses
 let schedule = []; // Array to hold the schedule
 let all_schedules = [];
 let current_schedule = 0;
@@ -29,9 +31,15 @@ function addCourse() {
         courseList.appendChild(li); // Append the list item to the classList
 
         const forceButton = document.createElement('button');
-        forceButton.textContent = 'F';
+        forceButton.textContent = 'Force';
         forceButton.addEventListener('click', function() {
-            console.log("forced")
+            if (forceList.includes(`${courseName} ${section}`)) {
+                forceList.splice(courses.indexOf(`${courseName} ${section}`), 1);
+                forceButton.classList.remove('forced');
+            } else {
+                forceList.push(`${courseName} ${section}`);
+                forceButton.classList.add('forced');
+            }
         });
         // Create a remove button
         const removeButton = document.createElement('button');
@@ -39,6 +47,7 @@ function addCourse() {
         removeButton.addEventListener('click', function() {
             errorMessage.textContent = '';
             courses.splice(courses.indexOf(`${courseName} ${section}`), 1); // Remove class from array
+            forceList.splice(courses.indexOf(`${courseName} ${section}`), 1);
             li.remove(); // Remove list item from the DOM
             // Check if classes array is empty and hide the submit button if it is
             if (courses.length === 0) {
@@ -77,17 +86,23 @@ function generateJSON() {
         errorMessage.innerHTML += "Cannot have less courses than minimum courses in a schedule.";
         return;
     }
-    
+
+    if (forceList.length > max) {
+        errorMessage.innerHTML += "Cannot have more forced courses than maximum courses in a schedule.";
+        return;
+    }
+
     const scheduleinfo = {
         courses: courses,
+        force: forceList,
         min: min,
         max: max,
         term: term + quarter
     };
+
     schedule = (scheduleinfo);
     const json = JSON.stringify(schedule); // Convert classes array to JSON string
     console.log(json); // Output JSON string to the console
-    // document.getElementById('jsonDisplay').textContent = JSON.stringify(schedule, null, 2);
 
     fetch('/schedule-optimizer', {
         method: 'POST',
@@ -194,8 +209,8 @@ function addCoursesToCalendar(courses) {
         const endTime = parseInt(course.end_time);
         
         days.forEach(day => {
-            var startHour = Math.floor(startTime / 100); // Extract the hour (hundreds place)
-            var endHour = Math.ceil(endTime / 100);
+            let startHour = Math.floor(startTime / 100); // Extract the hour (hundreds place)
+            let endHour = Math.ceil(endTime / 100);
             for (let i = startHour; i < endHour; i++) { // Loop through each hour
                 if (i < 10) {
                     i = `0${i}`
@@ -224,8 +239,8 @@ function addCoursesToCalendar(courses) {
             const labStart = parseInt(course.lab_start_time);
             const labEnd = parseInt(course.lab_end_time);
             labDays.forEach(labDay => {
-                var labStartHour = Math.floor(labStart / 100); // Extract the hour (hundreds place)
-                var labEndHour = Math.ceil(labEnd / 100);
+                let labStartHour = Math.floor(labStart / 100); // Extract the hour (hundreds place)
+                let labEndHour = Math.ceil(labEnd / 100);
                 for (let i = labStartHour; i < labEndHour; i++) { // Loop through each hour
                     if (i < 10) {
                         i = `0${i}`
@@ -297,6 +312,38 @@ function prevSchedule() {
     }
 }
 
+function course_to_str(course) {
+    let result = `<b>${course.subject}</b><br>
+    Instructor: ${course.instructor}<br>
+    CRN: ${course.crn}<br>`;
+
+    result += course.gpa ? `Average GPA: ${course.gpa}<br>` : '';
+
+    result += `Credits: ${course.course_credits}<br>
+    Room: ${course.room}<br>`
+    
+    result += course.days ? `Days: ${course.days}<br>
+    Times: ${course.start_time} - ${course.end_time}<br>` : '';
+
+    result += course.lab_days ? `Lab Days: ${course.lab_days}<br>
+    Lab Times: ${course.lab_start_time} - ${course.lab_end_time}<br>` : '';
+    
+    result += `Available Seats: ${course.avail}<br>
+    Max Students: ${course.cap}<br>
+    Students Enrolled: ${course.enrl}<br>`
+    
+    result += course.waitlist ? `Waitlist: ${course.waitlist}<br>` : '';
+    result += course.prerequisites ? `Prerequisites: ${course.prerequisites}<br>` : '';
+    result += course.attributes ? `Attributes: ${course.attributes}<br>` : '';
+    result += course.addl_fees ? `Additional Fees: ${course.addl_fees}` : '';
+
+    if (result.endsWith('<br>')) {
+        // Remove '<br>' from the end of result
+        result = result.slice(0, -4);
+    }
+
+    return result;
+}
 
 function displayPopup(course) {
     const oldPopup = document.getElementById('coursePopup');
@@ -308,35 +355,21 @@ function displayPopup(course) {
     // Set ID for the popup
     popup.id = 'coursePopup';
     // Set styles for the popup
-    popup.classList.add('popup'); // Add a class for styling if need    ed
+    popup.classList.add('popup');
     popup.style.position = 'fixed';
     popup.style.top = '50%';
     popup.style.left = '50%';
     popup.style.transform = 'translate(-50%, -50%)';
-    popup.style.border = '2px solid black'; // or any border style you prefer
-    popup.style.padding = '10px'; // Adjust padding as needed
-    popup.style.backgroundColor = 'lightblue'; // or any background color you prefer
+    popup.style.border = '2px solid black';
+    popup.style.padding = '8px';
+    popup.style.backgroundColor = 'lightblue';
+    popup.style.borderRadius = '10px'; // Rounded corners
 
     // Add content to the popup
     popup.innerHTML = `
-        <span style="cursor: pointer; position: absolute; top: 5px; right: 5px; font-weight: bold; font-size: 20px" onclick="closePopup()">X</span>
-        <b>${course.subject}</b><br>
-        Instructor: ${course.instructor}<br>
-        CRN: ${course.crn}<br>
-        Average GPA: ${course.gpa}<br>
-        Credits: ${course.course_credits}<br>
-        Room: ${course.room}<br>
-        Days: ${course.days}<br>
-        Times: ${course.start_time}-${course.end_time}<br>
-        Lab Days: ${course.lab_days}<br>
-        Lab Times: ${course.lab_start_time}-${course.lab_end_time}<br>
-        Available Seats: ${course.avail}<br>
-        Max Students: ${course.cap}<br>
-        Students Enrolled: ${course.enrl}<br>
-        Waitlist: ${course.waitlist}<br>
-        Prerequisites: ${course.prerequisites}<br>
-        Attributes: ${course.attributes}<br>
-        Additional Fees: ${course.addl_fees}
+        <span style="cursor: pointer; position: absolute; top: 5px; right: 5px;
+         font-weight: bold; font-size: 25px" onclick="closePopup()">X</span>
+        ${course_to_str(course)}
     `;
 
     // Append the popup to the document body

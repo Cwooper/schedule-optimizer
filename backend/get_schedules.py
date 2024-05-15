@@ -1,4 +1,7 @@
 # get_schedules.py
+# This is a deprecated version that was the first test for the live web app
+# I don't particularly recommend using this (not even sure if it works, it 
+# doesn't get supported)
 
 # Custom functions and objects
 from models.Course import Course
@@ -54,7 +57,7 @@ def _get_schedules(course_names: list[str], term, minimum_size=2,
             courses.append(Course(**course_dict))
 
     response = generate_schedules(courses, min_schedule_size=minimum_size,
-                                            max_schedule_size=maximum_size)
+                                           max_schedule_size=maximum_size)
 
     schedules = response["schedules"]
 
