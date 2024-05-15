@@ -13,7 +13,6 @@ import pandas as pd
 SUGGESTED_MINIMUM = 2
 SUGGESTED_MAXIMUM = 4
 
-
 current_directory = os.path.dirname(os.path.realpath(__file__))
 data_directory = os.path.join(current_directory, 'data')
 

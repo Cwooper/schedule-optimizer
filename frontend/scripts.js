@@ -64,6 +64,11 @@ function generateJSON() {
     const max = maxSelect.value; // Get max value
     const term = termSelect.value; // Get term value
     const quarter = quarterSelect.value; // Get quarter valueif (className && section && min && max && term && quarter) { // Check if all values are provided
+    if (courses.length < min) {
+        errorMessage.innerHTML += "Cannot have less courses than minimum courses in a schedule.";
+        return;
+    }
+    
     const scheduleinfo = {
         courses: courses,
         min: min,
@@ -200,7 +205,7 @@ function addCoursesToCalendar(courses) {
                 cell.addEventListener('click', cell._click);
 
                 cell.style.backgroundColor = bgColor; // Set background color
-                cell.innerHTML = `<b>${course.subject}</b><br>${course.instructor}<br>Avg GPA: ${course.gpa}<br>${course.room}`;
+                cell.innerHTML = `<b>${course.subject}</b><br>${course.instructor}<br>${course.crn}<br>${course.room}`;
                 cell.classList.add('scheduled-course'); // Add a class for styling
             }
         });
@@ -230,7 +235,7 @@ function addCoursesToCalendar(courses) {
                     cell.addEventListener('click', cell._click);
 
                     cell.style.backgroundColor = bgColor; // Set background color
-                    cell.innerHTML = `<b>${course.subject} LAB</b><br>${course.instructor}<br>Avg GPA: ${course.gpa}<br>${course.lab_room}`;
+                    cell.innerHTML = `<b>${course.subject} LAB</b><br>${course.instructor}<br>${course.crn}<br>${course.lab_room}`;
                     cell.classList.add('scheduled-course'); // Add a class for styling
                 }
             });
@@ -267,7 +272,7 @@ function nextSchedule() {
         displaySchedule(all_schedules[current_schedule]);
     } else {
         const errorMessage = document.getElementById('errorMessage');
-        errorMessage.textContent = "You are at the end of the Schedules";
+        errorMessage.textContent = "You are at the end of the schedules";
     }
 }
 
@@ -277,7 +282,7 @@ function prevSchedule() {
         displaySchedule(all_schedules[current_schedule]);
     } else {
         const errorMessage = document.getElementById('errorMessage');
-        errorMessage.textContent = "You are at the beginning of the Schedules";
+        errorMessage.textContent = "You are at the beginning of the schedules";
     }
 }
 
@@ -318,10 +323,11 @@ function displayPopup(course) {
 
     // Add content to the popup
     popup.innerHTML = `
-        <span style="cursor: pointer; position: absolute; top: 5px; right: 5px; font-weight: bold;" onclick="closePopup()">X</span>
+        <span style="cursor: pointer; position: absolute; top: 5px; right: 5px; font-weight: bold; font-size: 20px" onclick="closePopup()">X</span>
         <b>${course.subject}</b><br>
         Instructor: ${course.instructor}<br>
-        Avg GPA: ${course.gpa}<br>
+        CRN: ${course.crn}<br>
+        Average GPA: ${course.gpa}<br>
         Credits: ${course.course_credits}<br>
         Room: ${course.room}<br>
         Days: ${course.days}<br>
@@ -333,6 +339,7 @@ function displayPopup(course) {
         Students Enrolled: ${course.enrl}<br>
         Waitlist: ${course.waitlist}<br>
         Prerequisites: ${course.prerequisites}<br>
+        Attributes: ${course.attributes}<br>
         Additional Fees: ${course.addl_fees}
     `;
 

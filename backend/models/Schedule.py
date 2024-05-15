@@ -145,7 +145,6 @@ class Schedule:
             "gpa": gpa_score
         }
 
-        print(self.weights['gpa'])
         scores = [value for value in self.weights.values() if value is not None]
         if scores:
             average = sum(scores) / len(scores)

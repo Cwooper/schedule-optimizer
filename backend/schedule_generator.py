@@ -9,9 +9,7 @@ from backend.models.Schedule import Schedule
 from itertools import combinations
 
 HARD_MINIMUM = 1
-HARD_MAXIMUM = 5
-SUGGESTED_MINIMUM = 2
-SUGGESTED_MAXIMUM = 4
+HARD_MAXIMUM = 6
 
 course_name_pattern = r'[A-Z\/ ]{2,4} \d{3}[A-Z]?'
 
@@ -34,7 +32,6 @@ def clean_course_names(course_names):
             cleaned_course_names.append(course_name)
         else:
             response["warnings"].append(f"Invalid Course Name: {course_name}")
-            print(f"Invalid Course: {course_name}")
 
     response["cleaned_course_names"] = cleaned_course_names
     return response
@@ -107,8 +104,8 @@ def get_courses(course_names: list[str], term: str):
 
 # Return all possible schedules from a list of courses
 def generate_schedules(courses: list['Course'], 
-                       min_schedule_size=SUGGESTED_MINIMUM,
-                       max_schedule_size=SUGGESTED_MAXIMUM):
+                       min_schedule_size,
+                       max_schedule_size):
     """ Generate schedules based on a list of courses. """
 
     response = {
