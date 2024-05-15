@@ -14,7 +14,7 @@ function addCourse() {
     errorMessage.textContent = '';
 
     if (courses.includes(`${courseName} ${section}`)) {
-        errorMessage.textContent = 'Duplicate Course Entered';
+        errorMessage.textContent = 'Duplicate Course Entered.';
         return;
     }
 
@@ -26,12 +26,16 @@ function addCourse() {
     if (courseName && section && courses.length < 10) { // Check if all values are provided and total classes are less than 6
         courses.push(`${courseName} ${section}`);
         const li = document.createElement('li'); // Create a new list item element
-        li.textContent = `${courseName} ${section}`; // Set text content of the list item
         courseList.appendChild(li); // Append the list item to the classList
 
+        const forceButton = document.createElement('button');
+        forceButton.textContent = 'F';
+        forceButton.addEventListener('click', function() {
+            console.log("forced")
+        });
         // Create a remove button
         const removeButton = document.createElement('button');
-        removeButton.textContent = '-';
+        removeButton.textContent = '–';
         removeButton.addEventListener('click', function() {
             errorMessage.textContent = '';
             courses.splice(courses.indexOf(`${courseName} ${section}`), 1); // Remove class from array
@@ -42,9 +46,14 @@ function addCourse() {
             }
         });
 
-        // Append the remove button to the list item
+        const textContainer = document.createElement('div');
+        textContainer.textContent = `${courseName} ${section}`;
+        textContainer.style.flex = '1';
+        li.appendChild(textContainer)
+        li.appendChild(forceButton);
         li.appendChild(removeButton);
-
+        li.style.display = 'flex';
+        li.style.justifyContent = 'space-between';
         // Show the submit button if classes array is not empty
         if (courses.length > 0) {
             submitButton.style.display = 'block';
@@ -269,6 +278,7 @@ function clearSchedule() {
 function nextSchedule() {
     if (current_schedule + 1 < all_schedules.length) {
         current_schedule++;
+        errorMessage.textContent = "";
         displaySchedule(all_schedules[current_schedule]);
     } else {
         const errorMessage = document.getElementById('errorMessage');
@@ -279,6 +289,7 @@ function nextSchedule() {
 function prevSchedule() {
     if (current_schedule - 1 > -1) {
         current_schedule--;
+        errorMessage.textContent = "";
         displaySchedule(all_schedules[current_schedule]);
     } else {
         const errorMessage = document.getElementById('errorMessage');
@@ -286,21 +297,6 @@ function prevSchedule() {
     }
 }
 
-// Fetch the class names from subjects.txt and populate the dropdown menu
-fetch('subjects.txt')
-    .then(response => response.text())
-    .then(text => {
-        const courses = text.trim().split('\n');
-        courses.forEach(courseName => {
-            const option = document.createElement('option');
-            option.value = courseName;
-            option.textContent = courseName;
-            courseSelect.appendChild(option);
-        });
-    })
-    .catch(error => {
-        console.error('Error fetching subjects:', error);
-    });
 
 function displayPopup(course) {
     const oldPopup = document.getElementById('coursePopup');
@@ -374,5 +370,21 @@ function removeHoverEffect(bgColor) {
 function displayPopupHandler(course) {
     displayPopup(course);
 }
+
+// Fetch the class names from subjects.txt and populate the dropdown menu
+fetch('subjects.txt')
+    .then(response => response.text())
+    .then(text => {
+        const courses = text.trim().split('\n');
+        courses.forEach(courseName => {
+            const option = document.createElement('option');
+            option.value = courseName;
+            option.textContent = courseName;
+            courseSelect.appendChild(option);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching subjects:', error);
+});
 
 createTable();
