@@ -138,7 +138,6 @@ def get_instructor(instructor: str):
     return first_name, last_name
 
 def calculate_average_gpa(df):
-    df = df.drop('CNT_W', axis=1)
     grade_counts = df[grade_columns].sum().tolist()
 
     if all(count == 0 for count in grade_counts):
@@ -148,42 +147,43 @@ def calculate_average_gpa(df):
 
     return round(average_gpa, 2)
 
+def get_match_df(subject, first_name, last_name, gpa_df):
+    # Find a direct Match
+    match_df = gpa_df[(gpa_df['INSTRUCTOR_FIRST'].str.contains(first_name, regex=False)) &
+                      (gpa_df['INSTRUCTOR_LAST'].str.contains(last_name, regex=False)) &
+                      (gpa_df['CODE'] == subject)]
+    
+    if match_df.empty:
+        return gpa_df[(gpa_df['INSTRUCTOR_LAST'].str.contains(last_name, regex=False)) &
+                      (gpa_df['CODE'] == subject)]
+    else:
+        return match_df
+
 # This will pass in a row from the terms_df, and calculate gpa based on gpa_df
 def calculate_gpa(row, gpa_df):
     subject = get_subject(row['subject'])
     first_name, last_name = get_instructor(row['instructor'])
-    match_df = None
+    match_df = get_match_df(subject, first_name, last_name, gpa_df)
 
-    if not first_name:
-        # Find the average gpa of the course if it exists, otherwise None
-        match_df = gpa_df[(gpa_df['CODE'] == subject)]
-        if not match_df.empty:
-            return calculate_average_gpa(match_df)
-            # No data for the professor or subject was found
+    if match_df.empty:
+        subject_df = gpa_df[(gpa_df['CODE'] == subject)]
+        if subject_df.empty:
+            instructor_df = gpa_df[(gpa_df['INSTRUCTOR_FIRST'].str.contains(first_name, regex=False)) & 
+                                   (gpa_df['INSTRUCTOR_LAST'].str.contains(last_name, regex=False))]
+            if instructor_df.empty:
+                return None
+            else:
+                return calculate_average_gpa(instructor_df)
         else:
-            return None
-
-    # The course has an instructor, look for the instructor
-    name_df = gpa_df[(gpa_df['INSTRUCTOR_FIRST'].str.contains(first_name)) & 
-                     (gpa_df['INSTRUCTOR_LAST'].str.contains(last_name))]
-    # If no instructor found, look for last name with same course taught
-    if name_df.empty:
-        name_df = gpa_df[(gpa_df['INSTRUCTOR_LAST'].str.contains(last_name)) &
-                         (gpa_df['CODE'].str.contains(subject))]
-    if not name_df.empty:
-        # We found the instructor first, last
-        match_df = name_df[(name_df['CODE'] == subject)]
-        if not match_df.empty:
-            return calculate_average_gpa(match_df)  # We found the best match
-        else:
-            return calculate_average_gpa(name_df)   # No course match, return instructor gpa
+            return calculate_average_gpa(subject_df)
     else:
-        return None
+        return calculate_average_gpa(match_df)
 
 def main():
     if not os.path.exists(gpa_pickle_file):
         excel_to_pickle()
     gpa_df = pd.read_pickle(gpa_pickle_file)
+    gpa_df = gpa_df.drop('CNT_W', axis=1)
     gpa_df.dropna(subset=['CNT_A'], inplace=True)
     terms, _ = filter_terms(fetch_terms_list())
 
@@ -196,6 +196,7 @@ def main():
 
         # Calculate the gpa for every row
         term_df['gpa'] = term_df.apply(calculate_gpa, axis=1, gpa_df=gpa_df)
+        term_df = term_df.replace(np.nan, None)
         term_df.to_pickle(term_pkl)
         print(f"Succesfully saved {term_pkl}!")
 

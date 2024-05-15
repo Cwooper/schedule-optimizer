@@ -49,20 +49,26 @@ class Schedule:
         }
     
     def _weigh_gpa(self):
-        # GPA 
-        total_gpa = sum(course.gpa for course in self.courses)
-        course_num = len(self.courses)
+        # Filter and find gpa of schedule
+        total_gpa = 0
+        num_courses = 0
+        for course in self.courses:
+            if course.gpa:
+                total_gpa += course.gpa
+                num_courses += 1
+        
+        if num_courses == 0:
+            return None
+        
         # Calculate the average GPA, normalize it to a score between 0 and 1
-        average_gpa = total_gpa / course_num
+        average_gpa = total_gpa / num_courses
         gpa_score = average_gpa / 4.0   # Weigh based on 4.0 scale     
         return round(gpa_score, ROUND)
     
-    def _weigh_start(self):
-        start_times = [int(course.start_time) for course in self.courses if course.start_time.isdigit()]
-        if not start_times:
-            return 0.5
-        start_time = min(start_times)
-        start_time = to_mins(start_time)
+    def _weigh_start(self, start_time):
+        # Filter and find start time of schedule
+        if not start_time:
+            return None
 
         if start_time < 480 or start_time >= 780:  # Before 08:00 or after/equal to 13:00
             return 0.0
@@ -75,12 +81,10 @@ class Schedule:
             start_score = (780 - start_time) / 120.0 # 1100 to 1300
             return round(start_score, ROUND) 
         
-    def _weigh_end(self):
-        end_times = [int(course.end_time) for course in self.courses if course.end_time.isdigit()]
-        if not end_times:
-            return 0.5
-        end_time = max(end_times)
-        end_time = to_mins(end_time)
+    def _weigh_end(self, end_time):
+        # Filter and find end time of schedule
+        if not end_time:
+            return None
         
         if end_time <= 840: # 1400 in mins from midnight
             return 1.0
@@ -90,19 +94,11 @@ class Schedule:
             end_score = (960 - end_time) / 120.0 # Between 1400 and 1600
             return round(end_score, ROUND)
         
-    def _weigh_gaps(self):
-        end_times = [int(course.end_time) for course in self.courses if course.end_time.isdigit()]
-        if not end_times:
-            return 0.5
-        end_time = max(end_times)
-        end_time_mins = to_mins(end_time)
-        start_times = [int(course.start_time) for course in self.courses if course.start_time.isdigit()]
-        if not start_times:
-            return 0.5
-        start_time = min(start_times)
-        start_time_mins = to_mins(start_time)
+    def _weigh_gaps(self, start_time, end_time):
+        if not end_time or not start_time:
+            return None
 
-        day_time_mins = end_time_mins - start_time_mins
+        day_time_mins = end_time - start_time
         
         course_time_mins = 0
         for course in self.courses:
@@ -125,30 +121,37 @@ class Schedule:
             return round(gap_score, ROUND)
 
     def weigh_self(self):
-        gpa_score = self._weigh_gpa()
-        start_score = self._weigh_start()
-        end_score = self._weigh_end()
-        gap_score = self._weigh_gaps()
-
-        START_WEIGHT = 2
-        GPA_WEIGHT = 5
-        END_WEIGHT = 2
-        GAP_WEIGHT = 1
-
-        WEIGHT_TOTAL = START_WEIGHT + END_WEIGHT + GAP_WEIGHT + GPA_WEIGHT
-
-        score =  (end_score * END_WEIGHT +
-                  start_score * START_WEIGHT +
-                  gap_score * GAP_WEIGHT +
-                  gpa_score * GPA_WEIGHT) / WEIGHT_TOTAL
+        start_times = []
+        for course in self.courses:
+            if isinstance(course.start_time, str) and course.start_time.isdigit():
+                start_times.append(int(course.start_time))
+        start_time = to_mins(min(start_times))
+    
+        end_times = []
+        for course in self.courses:
+            if isinstance(course.end_time, str) and course.end_time.isdigit():
+                end_times.append(int(course.end_time))
+        end_time = to_mins(max(end_times))
         
+        gpa_score = self._weigh_gpa()
+        start_score = self._weigh_start(start_time)
+        end_score = self._weigh_end(end_time)
+        gap_score = self._weigh_gaps(start_time, end_time)
+
         self.weights = {
             "start": start_score,
             "end": end_score,
             "gap": gap_score,
             "gpa": gpa_score
         }
-        self.score = round(score, ROUND)
+
+        print(self.weights['gpa'])
+        scores = [value for value in self.weights.values() if value is not None]
+        if scores:
+            average = sum(scores) / len(scores)
+            self.score = round(average, ROUND)
+        else:
+            self.score = None
 
 # Returns minutes since midnight
 def to_mins(time: str) -> int:
