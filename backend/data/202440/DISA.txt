@@ -1,4 +1,4 @@
-2024-05-11T14:27:22.345044
+2024-05-15T00:18:53.500726
 [
     {
         "subject": "DISA 330",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "0",
-        "avail": "30",
+        "enrl": "3",
+        "avail": "27",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCGM FTF",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "24",
-        "enrl": "0",
-        "avail": "24",
+        "enrl": "10",
+        "avail": "14",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL ASNC",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "0",
-        "avail": "15",
+        "enrl": "3",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "WP1 FTF",

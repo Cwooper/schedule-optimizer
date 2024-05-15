@@ -1,4 +1,4 @@
-2024-05-11T14:27:34.081940
+2024-05-15T00:19:05.994082
 [
     {
         "subject": "LAT 101",
@@ -14,11 +14,11 @@
         "room": "BH 319",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "30",
+        "cap": "18",
         "enrl": "0",
-        "avail": "30",
+        "avail": "18",
         "waitlist": "",
-        "restrictions": "OV",
+        "restrictions": "",
         "attributes": "FTF",
         "prerequisites": "",
         "gpa": null
@@ -37,11 +37,11 @@
         "room": "BH 319",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "30",
-        "enrl": "0",
-        "avail": "30",
+        "cap": "18",
+        "enrl": "1",
+        "avail": "17",
         "waitlist": "",
-        "restrictions": "OV",
+        "restrictions": "",
         "attributes": "FTF",
         "prerequisites": "",
         "gpa": null
@@ -64,7 +64,7 @@
         "enrl": "0",
         "avail": "10",
         "waitlist": "",
-        "restrictions": "OV PQ",
+        "restrictions": "PQ",
         "attributes": "BCOM FTF",
         "prerequisites": "LAT 103 or two years of high school Latin",
         "gpa": null

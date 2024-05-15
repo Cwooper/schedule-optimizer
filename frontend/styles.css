@@ -104,19 +104,33 @@ button {
     outline: 3px solid red;
 }
 
+.popup-body li {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-top: 5px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    align-items: flex-start;
+}
+.popup-body li > * {
+    margin: 0;
+}
+
 li {
     display: flex;
-    justify-content: space-between; /* This will push the delete button to the right */
+    justify-content: space-between;
     align-items: center;
-    width: 100%; /* Ensures each list item takes full width of its container */
+    width: 100%;
     padding: 10px;
     margin-top: 5px;
     background-color: #f4f4f4;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+    box-sizing: border-box;
 }
-
 
 .delete-btn {
     padding: 5px 10px;
@@ -180,7 +194,6 @@ input:focus {
 #errorMessage:not(:empty) {
     display: block; /* Display the error message if it is not empty */
 }
-
 
 
 .inputs-container {
@@ -270,6 +283,72 @@ p {
     margin: 5px 0;
 }
 
+
+.buttonContainer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-bottom: 3%;
+}
+
+.buttonContainer button {
+    padding: 5px 10px;
+}
+
+#prevButton {
+    margin-right: auto;
+}
+
+#nextButton {
+    margin-left: auto;
+}
+
+.help-popup,
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: lightblue;
+    z-index: 10;
+    max-width: 80%;
+    transition: 200ms ease-in-out;
+}
+
+.help-popup {
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.help-popup.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup-header {
+    padding: 10px 15px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.popup-header .popup-header-title {
+    font-weight: bold;
+}
+
+.popup-header .popup-close-button {
+    cursor: pointer;
+    font-size: 20px;
+    padding: 5px 10px;
+}
+
+.popup-body {
+    padding: 10px 15px;
+    text-align: left;
+}
+
 /* Media query for mobile devices */
 @media (max-width: 900px) {
     /* Scroll Bar */ 
@@ -348,23 +427,19 @@ p {
     .footer-content {
         font-size: 11px;
     }
+
+    .popup-header {
+        padding: 5px 7.5px;
+        display: flex;
+    }
+    
+    .popup-header .popup-close-button {
+        font-size: 20px;
+    }
+
+    .popup-body {
+        padding: 5px 7.5px;
+        font-size: 13px;
+    }
 }
 
-.buttonContainer {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    padding-bottom: 3%;
-}
-
-.buttonContainer button {
-    padding: 5px 10px;
-}
-
-#prevButton {
-    margin-right: auto;
-}
-
-#nextButton {
-    margin-left: auto;
-}

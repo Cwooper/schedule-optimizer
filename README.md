@@ -2,38 +2,13 @@
 
 Schedule Crafter passion project for ACM
 
+This project is not affiliated with Western Washington University.
+It is an independent initiative developed solely for educational
+and personal use. All data provided by this project is for
+informational purposes only and should not be considered official
+or binding. Use at your own discretion.
+
 ## Project goals
-
-File hierarchy:
-
-```
-backend
-├── LICENSE
-├── README.md
-├── Course.py               # Course Object
-├── Schedule.py             # Schedule Object
-├── data
-│   ├── 202410              # Term
-│   │   ├── 202410.pkl      # Courses .pkl
-│   │   ├── A-HI.txt        # Web Scraped Courses
-│   │   ├── ACCT.txt
-│   │   ├── ...
-│   │   ├── UEPP.txt
-│   │   └── WGSS.txt
-│   ├── 202420
-│   │   ├── 202420.pkl
-│   │   ├── A-HI.txt
-│   │   ├── ACCT.txt
-│   │   ├── ...
-│   │   ├── UEPP.txt
-│   │   └── WGSS.txt
-│   ├── ...
-│   ├── subjects.txt
-│   └── terms.txt
-├── data_refresh.py         # Refresh Courses through web scraping
-├── get_schedules.py        # Find non-conflicting on user input
-└── schedule_generator.py   # Generate Schedules
-```
 
 User → Frontend → Flask → Backend
 
@@ -41,7 +16,7 @@ Backend → Flask → Frontend → User
 
 Flask should handle all requests for course schedules.
 
-## Listed from most important to most complex
+### Listed from most important to most complex
 
 **The schedule crafter should...**
 

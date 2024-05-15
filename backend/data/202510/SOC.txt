@@ -1,4 +1,4 @@
-2024-05-11T14:27:13.682814
+2024-05-15T00:18:43.398925
 [
     {
         "subject": "SOC 251",
@@ -133,7 +133,7 @@
         "enrl": "0",
         "avail": "24",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "WP1 FTF",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -156,7 +156,7 @@
         "enrl": "0",
         "avail": "24",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "WP1 FTF",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -179,7 +179,7 @@
         "enrl": "0",
         "avail": "28",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "QSR FTF",
         "prerequisites": "MATH 107 or MATH 112 or equivalent; And any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -202,7 +202,7 @@
         "enrl": "0",
         "avail": "28",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "QSR FTF",
         "prerequisites": "MATH 107 or MATH 112 or equivalent; And any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -225,7 +225,7 @@
         "enrl": "0",
         "avail": "24",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "WP1 FTF",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -248,7 +248,7 @@
         "enrl": "0",
         "avail": "24",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "WP1 FTF",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -294,7 +294,7 @@
         "enrl": "0",
         "avail": "30",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -317,7 +317,7 @@
         "enrl": "0",
         "avail": "30",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -340,7 +340,7 @@
         "enrl": "0",
         "avail": "30",
         "waitlist": "",
-        "restrictions": "MJ PQ",
+        "restrictions": "PQ",
         "attributes": "OL ASNC SST",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -363,7 +363,7 @@
         "enrl": "0",
         "avail": "30",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "ACGM FTF",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -386,7 +386,7 @@
         "enrl": "0",
         "avail": "30",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -409,7 +409,7 @@
         "enrl": "0",
         "avail": "30",
         "waitlist": "",
-        "restrictions": "MJ PQ",
+        "restrictions": "PQ",
         "attributes": "OL ASNC SST",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -432,7 +432,7 @@
         "enrl": "0",
         "avail": "30",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission; minority relations course preferred.",
         "gpa": null
@@ -478,7 +478,7 @@
         "enrl": "0",
         "avail": "25",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "Any course from: ENVS 303, SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -501,7 +501,7 @@
         "enrl": "0",
         "avail": "30",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271 or instructor permission.",
         "gpa": null
@@ -524,7 +524,7 @@
         "enrl": "0",
         "avail": "30",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -593,7 +593,7 @@
         "enrl": "0",
         "avail": "30",
         "waitlist": "",
-        "restrictions": "PQ",
+        "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
@@ -869,7 +869,7 @@
         "enrl": "0",
         "avail": "15",
         "waitlist": "",
-        "restrictions": "OV PQ",
+        "restrictions": "OV MJ PQ",
         "attributes": "WP1 CPST FTF",
         "prerequisites": "SOC 302, SOC 304 and SOC 306",
         "gpa": null

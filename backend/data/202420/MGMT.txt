@@ -1,4 +1,4 @@
-2024-05-11T14:28:30.399135
+2024-05-15T00:20:06.464722
 [
     {
         "subject": "MGMT 271",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "80",
-        "enrl": "44",
-        "avail": "36",
+        "enrl": "41",
+        "avail": "39",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "SSC FTF",

@@ -1,4 +1,4 @@
-2024-05-11T14:28:06.328291
+2024-05-15T00:19:39.077351
 [
     {
         "subject": "PE 104",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "4",
-        "avail": "16",
+        "enrl": "5",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",

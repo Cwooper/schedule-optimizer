@@ -1,4 +1,4 @@
-2024-05-11T14:27:19.246131
+2024-05-15T00:18:49.873908
 [
     {
         "subject": "BUS 310",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
-        "enrl": "0",
-        "avail": "60",
+        "enrl": "9",
+        "avail": "51",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
-        "enrl": "0",
-        "avail": "60",
+        "enrl": "3",
+        "avail": "57",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
-        "enrl": "0",
-        "avail": "60",
+        "enrl": "3",
+        "avail": "57",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",

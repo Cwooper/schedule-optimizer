@@ -1,4 +1,4 @@
-2024-05-11T14:28:19.742734
+2024-05-15T00:19:54.285846
 [
     {
         "subject": "ECON 206",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
-        "enrl": "60",
-        "avail": "0",
+        "enrl": "59",
+        "avail": "1",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "SSC FTF",
@@ -176,8 +176,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "65",
-        "enrl": "44",
-        "avail": "21",
+        "enrl": "43",
+        "avail": "22",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "SSC FTF",

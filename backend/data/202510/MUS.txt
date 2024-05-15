@@ -1,4 +1,4 @@
-2024-05-11T14:27:08.711441
+2024-05-15T00:18:37.616147
 [
     {
         "subject": "MUS 101",
@@ -3291,7 +3291,7 @@
     },
     {
         "subject": "MUS 316",
-        "course_credits": "1 TO 4",
+        "course_credits": "1",
         "crn": "10728",
         "days": "TBD",
         "start_time": "TBD",
@@ -3314,7 +3314,7 @@
     },
     {
         "subject": "MUS 316",
-        "course_credits": "1 TO 4",
+        "course_credits": "1",
         "crn": "11005",
         "days": "T",
         "start_time": "1400",
@@ -3337,7 +3337,7 @@
     },
     {
         "subject": "MUS 316",
-        "course_credits": "1",
+        "course_credits": "1 TO 4",
         "crn": "10728",
         "days": "TBD",
         "start_time": "TBD",
@@ -3360,7 +3360,7 @@
     },
     {
         "subject": "MUS 316",
-        "course_credits": "1",
+        "course_credits": "1 TO 4",
         "crn": "11005",
         "days": "T",
         "start_time": "1400",

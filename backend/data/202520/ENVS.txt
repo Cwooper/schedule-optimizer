@@ -1,4 +1,4 @@
-2024-05-11T14:26:26.812692
+2024-05-15T00:17:51.493159
 [
     {
         "subject": "ENVS 203",
@@ -386,7 +386,7 @@
         "enrl": "0",
         "avail": "10",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "OV",
         "attributes": "CPST FTF",
         "prerequisites": "Instructor permission.",
         "gpa": null

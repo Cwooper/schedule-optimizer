@@ -1,4 +1,4 @@
-2024-05-11T14:27:30.967165
+2024-05-15T00:19:02.929209
 [
     {
         "subject": "HRM 322",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "0",
-        "avail": "35",
+        "enrl": "1",
+        "avail": "34",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "WP1 FTF",

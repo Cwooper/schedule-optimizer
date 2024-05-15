@@ -1,4 +1,4 @@
-2024-05-11T14:27:43.397182
+2024-05-15T00:19:15.696031
 [
     {
         "subject": "SALI 201",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "0",
-        "avail": "15",
+        "enrl": "2",
+        "avail": "13",
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",

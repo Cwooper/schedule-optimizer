@@ -1,4 +1,4 @@
-2024-05-11T14:28:39.447604
+2024-05-15T00:20:17.104225
 [
     {
         "subject": "SOC 255",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "140",
-        "enrl": "131",
-        "avail": "9",
+        "enrl": "130",
+        "avail": "10",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "SSC FTF",
@@ -176,8 +176,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "24",
-        "enrl": "24",
-        "avail": "0",
+        "enrl": "23",
+        "avail": "1",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "WP1 FTF",

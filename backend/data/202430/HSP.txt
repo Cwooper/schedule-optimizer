@@ -1,4 +1,4 @@
-2024-05-11T14:27:59.515377
+2024-05-15T00:19:31.925968
 [
     {
         "subject": "HSP 430",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "18",
-        "enrl": "14",
-        "avail": "4",
+        "enrl": "16",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "MJ S/U PQ",
         "attributes": "OL ASNC",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "9",
-        "avail": "6",
+        "enrl": "10",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "OL ASNC",

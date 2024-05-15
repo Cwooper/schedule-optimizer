@@ -1,4 +1,4 @@
-2024-05-11T14:28:36.486071
+2024-05-15T00:20:13.701156
 [
     {
         "subject": "PLSC 101",
@@ -406,8 +406,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "29",
-        "avail": "1",
+        "enrl": "28",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",
@@ -544,8 +544,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $25.00",
         "cap": "25",
-        "enrl": "16",
-        "avail": "9",
+        "enrl": "15",
+        "avail": "10",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",

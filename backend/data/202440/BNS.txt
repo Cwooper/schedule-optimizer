@@ -1,4 +1,4 @@
-2024-05-11T14:27:18.554005
+2024-05-15T00:18:48.974777
 [
     {
         "subject": "BNS 300",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $12.38",
         "cap": "23",
-        "enrl": "0",
-        "avail": "23",
+        "enrl": "5",
+        "avail": "18",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $17.62",
         "cap": "30",
-        "enrl": "0",
-        "avail": "30",
+        "enrl": "4",
+        "avail": "26",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
@@ -153,8 +153,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $17.62",
         "cap": "15",
-        "enrl": "0",
-        "avail": "15",
+        "enrl": "1",
+        "avail": "14",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "WP2 FTF",

@@ -1,4 +1,4 @@
-2024-05-11T14:28:35.566916
+2024-05-15T00:20:12.782144
 [
     {
         "subject": "PE 101",
@@ -429,8 +429,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00",
         "cap": "10",
-        "enrl": "8",
-        "avail": "2",
+        "enrl": "7",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "SST FTF",
@@ -912,8 +912,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "4",
-        "avail": "16",
+        "enrl": "6",
+        "avail": "14",
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",

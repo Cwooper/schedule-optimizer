@@ -1,4 +1,4 @@
-2024-05-11T14:27:17.157235
+2024-05-15T00:18:47.209285
 [
     {
         "subject": "ARAB 101",
@@ -15,10 +15,10 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "0",
-        "avail": "25",
+        "enrl": "2",
+        "avail": "23",
         "waitlist": "",
-        "restrictions": "OV",
+        "restrictions": "",
         "attributes": "FTF",
         "prerequisites": "",
         "gpa": null
@@ -41,7 +41,7 @@
         "enrl": "0",
         "avail": "25",
         "waitlist": "",
-        "restrictions": "OV",
+        "restrictions": "",
         "attributes": "FTF",
         "prerequisites": "",
         "gpa": null
@@ -64,7 +64,7 @@
         "enrl": "0",
         "avail": "25",
         "waitlist": "",
-        "restrictions": "OV PQ",
+        "restrictions": "PQ",
         "attributes": "BCOM FTF",
         "prerequisites": "ARAB 103",
         "gpa": null
