@@ -307,7 +307,7 @@ function displayPopup(course) {
     // Set ID for the popup
     popup.id = 'coursePopup';
     // Set styles for the popup
-    popup.classList.add('popup'); // Add a class for styling if needed
+    popup.classList.add('popup'); // Add a class for styling if need    ed
     popup.style.position = 'fixed';
     popup.style.top = '50%';
     popup.style.left = '50%';
