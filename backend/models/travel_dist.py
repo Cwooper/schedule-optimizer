@@ -36,7 +36,7 @@ class travel_dist:
             "F": []
         }
         
-        for day, _ in days_dict.items():
+        for day in days_dict.keys():
             # Sort the classes based on value.course.start_time
             days_dict[day].sort(key=lambda x: x.start_time)
             for course in days_dict[day]:
