@@ -1,4 +1,4 @@
-2024-05-15T00:19:35.359249
+2024-05-16T11:51:13.417772
 [
     {
         "subject": "MIS 220",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "80",
-        "enrl": "43",
-        "avail": "37",
+        "enrl": "46",
+        "avail": "34",
         "waitlist": "",
         "restrictions": "S/U",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "Pre-major, major or minor in business; or pre-major or major in economics.",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "MIS 220 or equivalent",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "22",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "Majors only. MIS 320 or ACCT 321.",
         "gpa": null
     },
@@ -84,11 +84,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "8",
-        "avail": "22",
+        "enrl": "9",
+        "avail": "21",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "Majors only. MIS 320 or ACCT 321.",
         "gpa": null
     }

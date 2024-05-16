@@ -1,4 +1,4 @@
-2024-05-15T00:20:30.843932
+2024-05-16T11:51:43.916959
 [
     {
         "subject": "ENRG 101",
@@ -19,7 +19,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "SCI FTF",
+        "attributes": "FTF SCI",
         "prerequisites": "",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "ENRG 350 or UEPP 350 or instructor permission.",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "13",
         "waitlist": "",
         "restrictions": "OV GR PB PM SR MJ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "Senior status; Energy Policy and Management, Energy Science and Technology, and Business and Sustainability: Energy Concentration majors only.",
         "gpa": null
     },

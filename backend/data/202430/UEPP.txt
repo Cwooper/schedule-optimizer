@@ -1,4 +1,4 @@
-2024-05-15T00:19:43.773659
+2024-05-16T11:51:17.737047
 [
     {
         "subject": "UEPP 110",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $15.00",
         "cap": "30",
-        "enrl": "10",
-        "avail": "20",
+        "enrl": "13",
+        "avail": "17",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC OL ASNC",
+        "attributes": "ASNC OL SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "10",
-        "avail": "20",
+        "enrl": "12",
+        "avail": "18",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC OL ASNC",
+        "attributes": "ASNC OL SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "27",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "One course from: ENVS 204, UEPP 261, UEPP 270, or UEPP 370; or instructor permission.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "9",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "TRVL FTF",
+        "attributes": "FTF TRVL",
         "prerequisites": "",
         "gpa": null
     },
@@ -107,11 +107,11 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $15.00",
         "cap": "19",
-        "enrl": "16",
-        "avail": "3",
+        "enrl": "18",
+        "avail": "1",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "TRVL FTF",
+        "attributes": "FTF TRVL",
         "prerequisites": "One course from: SUST 116, UEPP 116, UEPP 202, or UEPP 261; or instructor permission.",
         "gpa": null
     },
@@ -130,11 +130,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "10",
-        "enrl": "2",
-        "avail": "8",
+        "enrl": "4",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "OV S/U",
-        "attributes": "TRVL FTF",
+        "attributes": "FTF TRVL",
         "prerequisites": "Instructor permission.",
         "gpa": null
     },

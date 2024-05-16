@@ -1,4 +1,4 @@
-2024-05-15T00:19:05.994082
+2024-05-16T11:50:58.635694
 [
     {
         "subject": "LAT 101",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "18",
-        "enrl": "1",
-        "avail": "17",
+        "enrl": "2",
+        "avail": "16",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "10",
-        "enrl": "0",
-        "avail": "10",
+        "enrl": "1",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCOM FTF",

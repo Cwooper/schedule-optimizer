@@ -1,4 +1,4 @@
-2024-05-15T00:19:42.687071
+2024-05-16T11:51:17.088083
 [
     {
         "subject": "SPED 310",
@@ -19,7 +19,7 @@
         "avail": "19",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "BCGM WP3 OL ASNC",
+        "attributes": "ASNC BCGM OL WP3",
         "prerequisites": "",
         "gpa": null
     },
@@ -61,11 +61,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "19",
-        "avail": "6",
+        "enrl": "21",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "ED",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "Admisssion to Woodring College of Education teacher education major or instructor permission.",
         "gpa": null
     },

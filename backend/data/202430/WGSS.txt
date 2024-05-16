@@ -1,4 +1,4 @@
-2024-05-15T00:19:43.967916
+2024-05-16T11:51:17.829266
 [
     {
         "subject": "WGSS 213",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "18",
-        "avail": "7",
+        "enrl": "20",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ACGM OL ASNC",
+        "attributes": "ACGM ASNC OL",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "BCGM OL ASNC",
+        "attributes": "ASNC BCGM OL",
         "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.",
         "gpa": null
     }

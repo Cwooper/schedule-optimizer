@@ -1,4 +1,4 @@
-2024-05-15T00:19:14.938667
+2024-05-16T11:51:04.063616
 [
     {
         "subject": "RC 501",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "0",
-        "avail": "25",
+        "enrl": "1",
+        "avail": "24",
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
         "attributes": "EVEX FTF",
@@ -42,7 +42,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "GR PB PM",
-        "attributes": "OL EVEX ASNC",
+        "attributes": "ASNC EVEX OL",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
-        "attributes": "OL EVEX ASNC",
+        "attributes": "ASNC EVEX OL",
         "prerequisites": "",
         "gpa": null
     },
@@ -130,11 +130,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "0",
-        "avail": "25",
+        "enrl": "1",
+        "avail": "24",
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
-        "attributes": "OL EVEX ASNC",
+        "attributes": "ASNC EVEX OL",
         "prerequisites": "",
         "gpa": null
     },

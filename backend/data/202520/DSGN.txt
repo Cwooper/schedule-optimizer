@@ -1,4 +1,4 @@
-2024-05-15T00:17:46.394143
+2024-05-16T11:50:16.656155
 [
     {
         "subject": "DSGN 300",
@@ -42,7 +42,7 @@
         "avail": "36",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "DSGN 111, DSGN 211 and one from A/HI 240, A/HI 241; or DSGN 111, DSGN 211, DSGN 213, DSGN 230. Major status.",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "SST FTF",
+        "attributes": "FTF SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "SST FTF",
+        "attributes": "FTF SST",
         "prerequisites": "",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-05-15T00:18:13.690636
+2024-05-16T11:50:30.791396
 [
     {
         "subject": "ANTH 102",
@@ -19,7 +19,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC OL ASNC SST",
+        "attributes": "ASNC OL SSC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "180",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC OL ASNC SST",
+        "attributes": "ASNC OL SSC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "180",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "180",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "80",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "27",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "LSCI FTF",
+        "attributes": "FTF LSCI",
         "prerequisites": "",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "27",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "LSCI FTF",
+        "attributes": "FTF LSCI",
         "prerequisites": "",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "26",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "LSCI FTF",
+        "attributes": "FTF LSCI",
         "prerequisites": "",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "27",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "LSCI FTF",
+        "attributes": "FTF LSCI",
         "prerequisites": "",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "27",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "LSCI FTF",
+        "attributes": "FTF LSCI",
         "prerequisites": "",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "26",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "LSCI FTF",
+        "attributes": "FTF LSCI",
         "prerequisites": "",
         "gpa": null
     },
@@ -387,7 +387,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "ANTH 201 or HNRS 203 or ANTH 210 or ANTH 215.",
         "gpa": null
     },
@@ -410,7 +410,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "ANTH 201 or HNRS 203 or ANTH 210 or ANTH 215.",
         "gpa": null
     },
@@ -502,7 +502,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "BCGM OL ASNC SST",
+        "attributes": "ASNC BCGM OL SST",
         "prerequisites": "ANTH 201 or HNRS 203.",
         "gpa": null
     },
@@ -571,7 +571,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "ACGM OL ASNC SST",
+        "attributes": "ACGM ASNC OL SST",
         "prerequisites": "ANTH 201 or HNRS 203.",
         "gpa": null
     },
@@ -847,7 +847,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "SR MJ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "Senior status in anthropology.",
         "gpa": null
     },

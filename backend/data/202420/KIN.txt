@@ -1,4 +1,4 @@
-2024-05-15T00:20:05.261310
+2024-05-16T11:51:29.956224
 [
     {
         "subject": "KIN 304",
@@ -479,7 +479,7 @@
         "avail": "11",
         "waitlist": "",
         "restrictions": "OV SR MJ PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "KIN 306 or PEH 443P; Senior status.",
         "gpa": null
     },
@@ -502,7 +502,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV SR MJ PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "KIN 306 or PEH 443P; Senior status.",
         "gpa": null
     },
@@ -525,7 +525,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "OV SR MJ PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "KIN 306 or PEH 443P; Senior status.",
         "gpa": null
     },

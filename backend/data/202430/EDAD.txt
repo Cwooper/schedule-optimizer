@@ -1,4 +1,4 @@
-2024-05-15T00:19:26.524871
+2024-05-16T11:51:09.529769
 [
     {
         "subject": "EDAD 536",
@@ -19,7 +19,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "GR PB PM MJ",
-        "attributes": "OL DLEX SYNC",
+        "attributes": "DLEX OL SYNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
-        "attributes": "OL DLEX SYNC",
+        "attributes": "DLEX OL SYNC",
         "prerequisites": "Graduate status or permission of instructor.",
         "gpa": null
     },
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $426.00",
         "cap": "12",
-        "enrl": "4",
-        "avail": "8",
+        "enrl": "5",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "GR PB PM MJ",
         "attributes": "EVEX FTF",
@@ -88,7 +88,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "GR PB PM",
-        "attributes": "OL DLEX SYNC",
+        "attributes": "DLEX OL SYNC",
         "prerequisites": "Admission to Doctor of Education.",
         "gpa": null
     },
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $426.00",
         "cap": "12",
-        "enrl": "2",
-        "avail": "10",
+        "enrl": "3",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "GR PB PM PQ",
         "attributes": "EVEX FTF",

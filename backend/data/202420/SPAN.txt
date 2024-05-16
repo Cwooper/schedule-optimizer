@@ -1,4 +1,4 @@
-2024-05-15T00:20:17.350674
+2024-05-16T11:51:36.706550
 [
     {
         "subject": "SPAN 103",
@@ -111,7 +111,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "SPAN 201.",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "SPAN 201.",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "27",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "SPAN 202.",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "SPAN 202.",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "SPAN 202.",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "SPAN 301.",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "SPAN 301.",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "SPAN 301.",
         "gpa": null
     },
@@ -364,7 +364,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "SPAN 302 or instructor permission; majors only.",
         "gpa": null
     },

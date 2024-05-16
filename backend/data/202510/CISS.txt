@@ -1,4 +1,4 @@
-2024-05-15T00:18:19.722224
+2024-05-16T11:50:33.851376
 [
     {
         "subject": "CISS 301",
@@ -42,7 +42,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "XBS-CISS MJ PQ",
-        "attributes": "PBEX HYBD",
+        "attributes": "HYBD PBEX",
         "prerequisites": "CSCI 145",
         "gpa": null
     },
@@ -53,19 +53,19 @@
         "days": "MW",
         "start_time": "1800",
         "end_time": "1950",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
+        "lab_days": "W",
+        "lab_start_time": "0800",
+        "lab_end_time": "2050",
         "instructor": "Mohammed, Mubarek",
         "room": "Kirkland-State Supported",
-        "lab_room": null,
+        "lab_room": "Kirkland-State Supported",
         "addl_fees": "Per/Cr $20.25",
         "cap": "10",
         "enrl": "0",
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "KLEX FTF",
+        "attributes": "FTF KLEX",
         "prerequisites": "CSCI 145",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "CISS 247 or CSCI 247.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "XBS-CISS MJ PQ",
-        "attributes": "PBEX HYBD",
+        "attributes": "HYBD PBEX",
         "prerequisites": "CISS 247",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "KLEX FTF",
+        "attributes": "FTF KLEX",
         "prerequisites": "CISS 247",
         "gpa": null
     },
@@ -180,31 +180,8 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "PBEX HYBD",
+        "attributes": "HYBD PBEX",
         "prerequisites": "CSCI 140 or CSCI 141 or MIS 320.",
-        "gpa": null
-    },
-    {
-        "subject": "CISS 469",
-        "course_credits": "4",
-        "crn": "11335",
-        "days": "MWRF",
-        "start_time": "1100",
-        "end_time": "1150",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Fretheim, Erik Jon",
-        "room": "TBA",
-        "lab_room": null,
-        "addl_fees": "Per/Cr $20.25",
-        "cap": "35",
-        "enrl": "0",
-        "avail": "35",
-        "waitlist": "",
-        "restrictions": "MJ PQ",
-        "attributes": "HYBD",
-        "prerequisites": "CISS 360",
         "gpa": null
     },
     {
@@ -249,7 +226,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "PBEX HYBD",
+        "attributes": "HYBD PBEX",
         "prerequisites": "CISS 491.",
         "gpa": null
     },
@@ -272,7 +249,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "KLEX HYBD",
+        "attributes": "HYBD KLEX",
         "prerequisites": "CISS 491.",
         "gpa": null
     }

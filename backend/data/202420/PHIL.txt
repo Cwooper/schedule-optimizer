@@ -1,4 +1,4 @@
-2024-05-15T00:20:12.019952
+2024-05-16T11:51:33.685785
 [
     {
         "subject": "PHIL 107",
@@ -65,7 +65,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "13",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "",
         "gpa": null
     },
@@ -222,11 +222,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "106",
-        "enrl": "54",
-        "avail": "52",
+        "enrl": "53",
+        "avail": "53",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV MJ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "3 upper-division PHIL courses",
         "gpa": null
     },

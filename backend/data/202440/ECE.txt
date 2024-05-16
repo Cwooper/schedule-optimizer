@@ -1,4 +1,4 @@
-2024-05-15T00:18:54.975508
+2024-05-16T11:50:52.711565
 [
     {
         "subject": "ECE 380",
@@ -19,7 +19,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "ECE 391",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-05-15T00:19:29.450677
+2024-05-16T11:51:10.945973
 [
     {
         "subject": "FREN 101",
@@ -19,7 +19,7 @@
         "avail": "13",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "OL MIX",
+        "attributes": "MIX OL",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "OL MIX",
+        "attributes": "MIX OL",
         "prerequisites": "FREN 101",
         "gpa": null
     },
@@ -61,11 +61,11 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "Flat Fee $5.00",
         "cap": "15",
-        "enrl": "0",
-        "avail": "15",
+        "enrl": "1",
+        "avail": "14",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "BCOM OL MIX",
+        "attributes": "BCOM MIX OL",
         "prerequisites": "FREN 102",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "8",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "BCOM OL MIX",
+        "attributes": "BCOM MIX OL",
         "prerequisites": "FREN 103 or FREN 104 or equivalent",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "9",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "HUM OL MIX",
+        "attributes": "HUM MIX OL",
         "prerequisites": "FREN 201 or equivalent",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "HUM OL MIX",
+        "attributes": "HUM MIX OL",
         "prerequisites": "FREN 202 or equivalent",
         "gpa": null
     }

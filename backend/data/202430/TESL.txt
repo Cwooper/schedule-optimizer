@@ -1,4 +1,4 @@
-2024-05-15T00:19:43.302946
+2024-05-16T11:51:17.486235
 [
     {
         "subject": "TESL 411",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "8",
-        "avail": "17",
+        "enrl": "9",
+        "avail": "16",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "Admission to the TESOL program or instructor permission.",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "TRVL FTF",
+        "attributes": "FTF TRVL",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "TRVL FTF",
+        "attributes": "FTF TRVL",
         "prerequisites": "",
         "gpa": null
     },
@@ -84,11 +84,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "6",
-        "avail": "19",
+        "enrl": "7",
+        "avail": "18",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "Admission to the TESOL program or instructor permission.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "TRVL FTF",
+        "attributes": "FTF TRVL",
         "prerequisites": "Admission to the TESOL program or instructor permission.",
         "gpa": null
     },
@@ -130,11 +130,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "6",
-        "avail": "19",
+        "enrl": "7",
+        "avail": "18",
         "waitlist": "",
         "restrictions": "S/U",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "Admission to the TESOL program or instructor permission.",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV S/U PQ",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "TESL 441 or concurrent; or instructor permission.",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "OV S/U PQ",
-        "attributes": "TRVL FTF",
+        "attributes": "FTF TRVL",
         "prerequisites": "TESL 441 or concurrent; or instructor permission.",
         "gpa": null
     }

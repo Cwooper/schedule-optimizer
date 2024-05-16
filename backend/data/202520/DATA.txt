@@ -1,4 +1,4 @@
-2024-05-15T00:17:45.726179
+2024-05-16T11:50:16.362697
 [
     {
         "subject": "DATA 471",
@@ -19,7 +19,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "CSCI 241; MATH 204; MATH 224; and MATH 341.",
         "gpa": null
     },

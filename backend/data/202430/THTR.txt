@@ -1,4 +1,4 @@
-2024-05-15T00:19:43.514915
+2024-05-16T11:51:17.606528
 [
     {
         "subject": "THTR 368",
@@ -15,35 +15,12 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "16",
-        "enrl": "9",
-        "avail": "7",
+        "enrl": "10",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
         "prerequisites": "THTR 260, THTR 261, acceptance into THTR 360.",
-        "gpa": null
-    },
-    {
-        "subject": "THTR 385",
-        "course_credits": "3",
-        "crn": "30835",
-        "days": "TR",
-        "start_time": "1000",
-        "end_time": "1215",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Monaghan, Sarah Jo",
-        "room": "MH 154",
-        "lab_room": null,
-        "addl_fees": "Flat Fee $45.00",
-        "cap": "16",
-        "enrl": "2",
-        "avail": "14",
-        "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "FTF",
-        "prerequisites": "THTR 216",
         "gpa": null
     },
     {

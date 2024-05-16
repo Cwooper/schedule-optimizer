@@ -1,4 +1,4 @@
-2024-05-15T00:18:33.352833
+2024-05-16T11:50:41.503903
 [
     {
         "subject": "MGMT 201",
@@ -19,7 +19,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "80",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "Only one of MGMT 271, PLSC 311, or FAIR 311B may be taken for GUR credit.",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "80",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "Only one of MGMT 271, PLSC 311, or FAIR 311B may be taken for GUR credit.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "80",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "Only one of MGMT 271, PLSC 311, or FAIR 311B may be taken for GUR credit.",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "ENG 101 or equivalent",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "College of the Environment major or Business and Sustainability major or instructor permission.",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "Majors only.",
         "gpa": null
     },
@@ -364,7 +364,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "WP2 FTF",
+        "attributes": "FTF WP2",
         "prerequisites": "Majors Only. OPS 461; MGMT 313.",
         "gpa": null
     },
@@ -387,7 +387,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "XBA-BADM MJ PQ",
-        "attributes": "PBEX FTF",
+        "attributes": "FTF PBEX",
         "prerequisites": "Majors only.",
         "gpa": null
     },
@@ -456,7 +456,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "PBEX FTF",
+        "attributes": "FTF PBEX",
         "prerequisites": "Majors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321.",
         "gpa": null
     },

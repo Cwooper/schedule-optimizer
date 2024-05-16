@@ -1,4 +1,4 @@
-2024-05-15T00:20:41.209467
+2024-05-16T11:51:49.905639
 [
     {
         "subject": "LING 201",
@@ -19,7 +19,7 @@
         "avail": "60",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "6",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "SCI FTF",
+        "attributes": "FTF SCI",
         "prerequisites": "",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "WP2 FTF",
+        "attributes": "FTF WP2",
         "prerequisites": "LING 305 or LING 310 or ANTH 347 or instructor permission.",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "11",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "LING 315",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "8",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "LING 331; one course from: LING 204, LING 207 or ANTH 347.",
         "gpa": null
     }

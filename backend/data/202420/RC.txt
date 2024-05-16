@@ -1,4 +1,4 @@
-2024-05-15T00:20:15.299035
+2024-05-16T11:51:35.489105
 [
     {
         "subject": "RC 546",
@@ -19,7 +19,7 @@
         "avail": "8",
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ",
-        "attributes": "OL EVEX ASNC",
+        "attributes": "ASNC EVEX OL",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "8",
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ",
-        "attributes": "OL EVEX MIX",
+        "attributes": "EVEX MIX OL",
         "prerequisites": "",
         "gpa": null
     },

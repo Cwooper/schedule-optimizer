@@ -1,4 +1,4 @@
-2024-05-15T00:20:16.560229
+2024-05-16T11:51:36.158010
 [
     {
         "subject": "SEC 400",
@@ -180,7 +180,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV ED",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "SEC 430 and SEC 431.",
         "gpa": null
     },

@@ -1,2 +1,26 @@
-2024-05-15T00:19:18.051290
-[]
+2024-05-16T11:51:05.573247
+[
+    {
+        "subject": "TESL 340",
+        "course_credits": "2",
+        "crn": "43249",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Brisbois, Lisa Christine",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "Per/Cr $298.00",
+        "cap": "10",
+        "enrl": "0",
+        "avail": "10",
+        "waitlist": "",
+        "restrictions": "",
+        "attributes": "ASNC OL SST",
+        "prerequisites": "Admission to the TESOL program or instructor permission.",
+        "gpa": null
+    }
+]

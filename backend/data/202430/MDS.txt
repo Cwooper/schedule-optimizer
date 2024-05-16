@@ -1,5 +1,28 @@
-2024-05-15T00:19:37.595779
+2024-05-16T11:51:14.450681
 [
+    {
+        "subject": "MDS 410",
+        "course_credits": "4",
+        "crn": "30463",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Walker, Wendy Colleen",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "10",
+        "enrl": "0",
+        "avail": "10",
+        "waitlist": "",
+        "restrictions": "OV MJ",
+        "attributes": "SPL WP3",
+        "prerequisites": "Multidisciplinary Studies majors only.",
+        "gpa": null
+    },
     {
         "subject": "MDS 471",
         "course_credits": "5 TO 10",

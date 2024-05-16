@@ -1,4 +1,4 @@
-2024-05-15T00:20:06.192123
+2024-05-16T11:51:30.424331
 [
     {
         "subject": "LING 201",
@@ -19,7 +19,7 @@
         "avail": "96",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "54",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "9",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "SCI FTF",
+        "attributes": "FTF SCI",
         "prerequisites": "",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "6",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "LING 321; one course from: LING 204, LING 207 or ANTH 347.",
         "gpa": null
     },

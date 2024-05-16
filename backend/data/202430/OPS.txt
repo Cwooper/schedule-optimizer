@@ -1,4 +1,4 @@
-2024-05-15T00:19:38.484384
+2024-05-16T11:51:14.844545
 [
     {
         "subject": "OPS 360",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "40",
-        "enrl": "32",
-        "avail": "8",
+        "enrl": "34",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "DSCI 205, ACCT 245, C- or better; spreadsheet competency",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "OPS 360 and permission of instructor; first-time enrollment restricted to manufacturing and supply chain management students with foundation or full major status; second-time enrollment restricted to manufacturing and supply chain management students with full major status.",
         "gpa": null
     }
