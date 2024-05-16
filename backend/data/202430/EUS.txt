@@ -1,4 +1,4 @@
-2024-05-15T00:19:28.710857
+2024-05-16T11:51:10.602937
 [
     {
         "subject": "EUS 201",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "26",
-        "enrl": "10",
-        "avail": "16",
+        "enrl": "11",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "BCGM OL ASNC",
+        "attributes": "ASNC BCGM OL",
         "prerequisites": "",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "26",
-        "enrl": "7",
-        "avail": "19",
+        "enrl": "8",
+        "avail": "18",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ACGM OL ASNC",
+        "attributes": "ACGM ASNC OL",
         "prerequisites": "",
         "gpa": null
     }

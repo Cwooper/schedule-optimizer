@@ -1,4 +1,4 @@
-2024-05-15T00:19:35.154378
+2024-05-16T11:51:13.312146
 [
     {
         "subject": "MGMT 311",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "40",
-        "enrl": "35",
-        "avail": "5",
+        "enrl": "36",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "JR SO SR",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "5",
-        "enrl": "0",
-        "avail": "5",
+        "enrl": "1",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "OV MJ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "Majors Only.",
         "gpa": null
     },
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "15",
-        "avail": "20",
+        "enrl": "16",
+        "avail": "19",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "OL SYNC",

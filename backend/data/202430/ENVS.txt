@@ -1,4 +1,4 @@
-2024-05-15T00:19:28.508302
+2024-05-16T11:51:10.499651
 [
     {
         "subject": "ENVS 115",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "40",
-        "enrl": "13",
-        "avail": "27",
+        "enrl": "14",
+        "avail": "26",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC OL ASNC",
+        "attributes": "ASNC OL SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "40",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "QSR OL ASNC",
+        "attributes": "ASNC OL QSR",
         "prerequisites": "MATH 112 with a C- or better or suitable math assessment score.",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "72",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "LSCI FTF",
+        "attributes": "FTF LSCI",
         "prerequisites": "Minimum of one university-level natural science GUR.",
         "gpa": null
     },
@@ -84,11 +84,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
-        "enrl": "41",
-        "avail": "19",
+        "enrl": "44",
+        "avail": "16",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "LSCI OL ASNC",
+        "attributes": "ASNC LSCI OL",
         "prerequisites": "Minimum of one university-level natural science GUR.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "0",
         "waitlist": "WL",
         "restrictions": "",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "",
         "gpa": null
     },
@@ -153,11 +153,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "24",
-        "avail": "26",
+        "enrl": "26",
+        "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "ENVS 203 or ENVS 204 or instructor permission.",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "TRVL FTF",
+        "attributes": "FTF TRVL",
         "prerequisites": "Instructor permission.",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "17",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "ENVS 419 or ENVS 420 or instructor permission.",
         "gpa": null
     },
@@ -222,11 +222,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "18",
-        "avail": "12",
+        "enrl": "19",
+        "avail": "11",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "ENVS 326 or instructor permission.",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "TRVL FTF",
+        "attributes": "FTF TRVL",
         "prerequisites": "",
         "gpa": null
     },
@@ -268,8 +268,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "2",
-        "avail": "13",
+        "enrl": "3",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "OV MJ S/U",
         "attributes": "FTF",
@@ -295,7 +295,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV MJ S/U",
-        "attributes": "PBEX FTF",
+        "attributes": "FTF PBEX",
         "prerequisites": "",
         "gpa": null
     },

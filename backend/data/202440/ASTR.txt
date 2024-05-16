@@ -1,4 +1,4 @@
-2024-05-15T00:18:48.685200
+2024-05-16T11:50:49.667223
 [
     {
         "subject": "ASTR 103",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $5.32",
         "cap": "97",
-        "enrl": "6",
-        "avail": "91",
+        "enrl": "8",
+        "avail": "89",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SCI FTF",
+        "attributes": "FTF SCI",
         "prerequisites": "",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $5.32",
         "cap": "32",
-        "enrl": "2",
-        "avail": "30",
+        "enrl": "5",
+        "avail": "27",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "PHYS 161, PHYS 162 and PHYS 163; or instructor permission.",
         "gpa": null
     }

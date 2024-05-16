@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 from models.Course import Course
 
 MAX_SUBJECT_WAIT =  30      # Days
-MAX_COURSE_WAIT =   2       # Days
+MAX_COURSE_WAIT =   1       # Days
 MAX_TERM_WAIT =     10      # Days
 
 time_pattern = re.compile(r'\d{2}:\d{2}-\d{2}:\d{2} (am|pm)')

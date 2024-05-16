@@ -1,4 +1,4 @@
-2024-05-15T00:19:40.750105
+2024-05-16T11:51:16.035238
 [
     {
         "subject": "RC 579",
@@ -19,7 +19,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
-        "attributes": "OL EVEX ASNC",
+        "attributes": "ASNC EVEX OL",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
-        "attributes": "OL EVEX ASNC",
+        "attributes": "ASNC EVEX OL",
         "prerequisites": "",
         "gpa": null
     },

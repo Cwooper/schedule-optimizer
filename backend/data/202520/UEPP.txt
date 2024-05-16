@@ -1,4 +1,4 @@
-2024-05-15T00:18:12.185767
+2024-05-16T11:50:29.754528
 [
     {
         "subject": "UEPP 202",
@@ -19,7 +19,7 @@
         "avail": "100",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "100",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "UEPP 261 or concurrent or instructor permission.",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "One course from: ECON 383, ENRG 350, ENVS 305, UEPP 350, UEPP 355,\u00a0or PLSC 250; or instructor permission.",
         "gpa": null
     },
@@ -479,7 +479,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "OV SR MJ",
-        "attributes": "WP3 CPST FTF",
+        "attributes": "CPST FTF WP3",
         "prerequisites": "Senior status and College of the Environment admission; or instructor permission.",
         "gpa": null
     },

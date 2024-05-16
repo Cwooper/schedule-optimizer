@@ -1,4 +1,4 @@
-2024-05-15T00:19:26.905607
+2024-05-16T11:51:09.682300
 [
     {
         "subject": "EECE 111",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $138.41",
         "cap": "30",
-        "enrl": "11",
-        "avail": "19",
+        "enrl": "12",
+        "avail": "18",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "MATH 125; PHYS 162.",
         "gpa": null
     },

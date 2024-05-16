@@ -1,4 +1,4 @@
-2024-05-15T00:18:19.465523
+2024-05-16T11:50:33.710596
 [
     {
         "subject": "CSCI 101",
@@ -28,8 +28,8 @@
         "course_credits": "4",
         "crn": "13428",
         "days": "MWF",
-        "start_time": "1200",
-        "end_time": "1250",
+        "start_time": "0900",
+        "end_time": "0950",
         "lab_days": "T",
         "lab_start_time": "1000",
         "lab_end_time": "1150",
@@ -203,7 +203,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "basic computer literacy, use of keyboard and mouse",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "basic computer literacy, use of keyboard and mouse",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "basic computer literacy, use of keyboard and mouse",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "FR SO PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "One of: MATH 112, MATH 114, MATH 115, MATH 118, MATH 124, MATH 125, MATH 134, MATH 138, MATH 156 or suitable math assessment score.",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "FR SO PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "One of: MATH 112, MATH 114, MATH 115, MATH 118, MATH 124, MATH 125, MATH 134, MATH 138, MATH 156 or suitable math assessment score.",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "FR SO PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "One of: MATH 112, MATH 114, MATH 115, MATH 118, MATH 124, MATH 125, MATH 134, MATH 138, MATH 156 or suitable math assessment score.",
         "gpa": null
     },
@@ -341,7 +341,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "FR SO PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "One of: MATH 112, MATH 114, MATH 115, MATH 118, MATH 124, MATH 125, MATH 134, MATH 138, MATH 156 or suitable math assessment score.",
         "gpa": null
     },
@@ -364,7 +364,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "FR SO PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "One of: MATH 112, MATH 114, MATH 115, MATH 118, MATH 124, MATH 125, MATH 134, MATH 138, MATH 156 or suitable math assessment score.",
         "gpa": null
     },
@@ -387,7 +387,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "FR SO PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "One of: MATH 112, MATH 114, MATH 115, MATH 118, MATH 124, MATH 125, MATH 134, MATH 138, MATH 156 or suitable math assessment score.",
         "gpa": null
     },
@@ -410,7 +410,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "FR SO PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "One of: MATH 112, MATH 114, MATH 115, MATH 118, MATH 124, MATH 125, MATH 134, MATH 138, MATH 156 or suitable math assessment score.",
         "gpa": null
     },
@@ -433,7 +433,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "One of: MATH 112, MATH 114, MATH 115, MATH 118, MATH 124, MATH 125, MATH 134, MATH 138, MATH 156 or suitable math assessment score.",
         "gpa": null
     },
@@ -442,8 +442,8 @@
         "course_credits": "4",
         "crn": "10065",
         "days": "MWF",
-        "start_time": "1000",
-        "end_time": "1050",
+        "start_time": "1100",
+        "end_time": "1150",
         "lab_days": "F",
         "lab_start_time": "1200",
         "lab_end_time": "1350",
@@ -456,7 +456,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "CSCI 141 or equivalent; any of: MATH 115, MATH 118, MATH 124 or suitable math assessment score.",
         "gpa": null
     },
@@ -479,7 +479,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "CSCI 141 or equivalent; any of: MATH 115, MATH 118, MATH 124 or suitable math assessment score.",
         "gpa": null
     },
@@ -502,7 +502,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "CSCI 141 or equivalent; any of: MATH 115, MATH 118, MATH 124 or suitable math assessment score.",
         "gpa": null
     },
@@ -525,7 +525,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "CSCI 141 or equivalent; any of: MATH 115, MATH 118, MATH 124 or suitable math assessment score.",
         "gpa": null
     },
@@ -548,7 +548,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "CSCI 141 or equivalent; any of: MATH 115, MATH 118, MATH 124 or suitable math assessment score.",
         "gpa": null
     },
@@ -571,7 +571,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "CSCI 141 or equivalent; any of: MATH 115, MATH 118, MATH 124 or suitable math assessment score.",
         "gpa": null
     },
@@ -916,7 +916,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "CSCI 241",
         "gpa": null
     },
@@ -1100,7 +1100,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "CSCI 305",
         "gpa": null
     },
@@ -1123,7 +1123,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "CSCI 305",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-05-15T00:19:00.742517
+2024-05-16T11:50:56.036056
 [
     {
         "subject": "GERM 101",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "15",
-        "enrl": "2",
-        "avail": "13",
+        "enrl": "4",
+        "avail": "11",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
@@ -107,11 +107,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "14",
-        "enrl": "3",
-        "avail": "11",
+        "enrl": "7",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "GERM 203 or instructor permission.",
         "gpa": null
     },
@@ -176,8 +176,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "20",
-        "enrl": "0",
-        "avail": "20",
+        "enrl": "1",
+        "avail": "19",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",

@@ -1,4 +1,4 @@
-2024-05-15T00:19:59.053848
+2024-05-16T11:51:26.726092
 [
     {
         "subject": "FIN 215",
@@ -19,7 +19,7 @@
         "avail": "8",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "SSC OL ASNC",
+        "attributes": "ASNC OL SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00",
         "cap": "30",
-        "enrl": "28",
-        "avail": "2",
+        "enrl": "27",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "QSR OL ASNC SST",
+        "attributes": "ASNC OL QSR SST",
         "prerequisites": "Cannot be taken after or concurrent with FIN 440.",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "Cannot be taken after or concurrent with FIN 440.",
         "gpa": null
     },
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
-        "enrl": "33",
-        "avail": "12",
+        "enrl": "32",
+        "avail": "13",
         "waitlist": "",
         "restrictions": "OV JR SO SR PQ",
         "attributes": "FTF",
@@ -134,7 +134,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV JR SO SR PQ",
-        "attributes": "OL ASNC SST",
+        "attributes": "ASNC OL SST",
         "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "Majors Only. FIN 341",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "14",
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "Majors Only. FIN 341.",
         "gpa": null
     },

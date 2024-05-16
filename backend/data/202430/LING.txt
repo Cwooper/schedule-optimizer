@@ -1,4 +1,4 @@
-2024-05-15T00:19:34.964275
+2024-05-16T11:51:13.230720
 [
     {
         "subject": "LING 201",
@@ -19,7 +19,7 @@
         "avail": "6",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "10",
-        "avail": "15",
+        "enrl": "11",
+        "avail": "14",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SCI OL ASNC",
+        "attributes": "ASNC OL SCI",
         "prerequisites": "",
         "gpa": null
     }

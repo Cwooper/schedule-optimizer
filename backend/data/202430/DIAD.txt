@@ -1,4 +1,4 @@
-2024-05-15T00:19:25.517098
+2024-05-16T11:51:09.086571
 [
     {
         "subject": "DIAD 205",
@@ -19,7 +19,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "BCGM OL ASNC",
+        "attributes": "ASNC BCGM OL",
         "prerequisites": "",
         "gpa": null
     },

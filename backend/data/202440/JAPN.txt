@@ -1,4 +1,4 @@
-2024-05-15T00:19:05.040197
+2024-05-16T11:50:58.093009
 [
     {
         "subject": "JAPN 101",
@@ -130,8 +130,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "18",
-        "enrl": "0",
-        "avail": "18",
+        "enrl": "1",
+        "avail": "17",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCOM FTF",
@@ -222,8 +222,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "24",
-        "enrl": "1",
-        "avail": "23",
+        "enrl": "2",
+        "avail": "22",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ACGM FTF",
@@ -245,11 +245,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "2",
-        "avail": "18",
+        "enrl": "6",
+        "avail": "14",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "B- in JAPN 303 or instructor permission.",
         "gpa": null
     },
@@ -268,8 +268,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "5",
-        "enrl": "0",
-        "avail": "5",
+        "enrl": "1",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "S/U PQ",
         "attributes": "FTF",

@@ -1,4 +1,4 @@
-2024-05-15T00:19:27.290168
+2024-05-16T11:51:09.869059
 [
     {
         "subject": "ENRG 380",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "4",
-        "avail": "11",
+        "enrl": "6",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "CHEM 161 and MATH 114.",
         "gpa": null
     }

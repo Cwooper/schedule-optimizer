@@ -1,4 +1,4 @@
-2024-05-15T00:18:57.330578
+2024-05-16T11:50:53.828941
 [
     {
         "subject": "ENGR 101",
@@ -153,8 +153,8 @@
         "lab_room": "ET 340",
         "addl_fees": "Flat Fee $130.00",
         "cap": "30",
-        "enrl": "3",
-        "avail": "27",
+        "enrl": "10",
+        "avail": "20",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",

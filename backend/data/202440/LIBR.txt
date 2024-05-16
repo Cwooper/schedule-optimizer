@@ -1,4 +1,4 @@
-2024-05-15T00:19:06.425046
+2024-05-16T11:50:58.846763
 [
     {
         "subject": "LIBR 300",
@@ -19,6 +19,29 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "PR",
+        "attributes": "FTF",
+        "prerequisites": "",
+        "gpa": null
+    },
+    {
+        "subject": "LIBR 341",
+        "course_credits": "1",
+        "crn": "43117",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Stephan, Elizabeth",
+        "room": "WL OFC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "25",
+        "enrl": "0",
+        "avail": "25",
+        "waitlist": "",
+        "restrictions": "OV S/U",
         "attributes": "FTF",
         "prerequisites": "",
         "gpa": null

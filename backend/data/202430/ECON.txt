@@ -1,4 +1,4 @@
-2024-05-15T00:19:26.121593
+2024-05-16T11:51:09.356427
 [
     {
         "subject": "ECON 206",
@@ -19,7 +19,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "SSC OL ASNC",
+        "attributes": "ASNC OL SSC",
         "prerequisites": "MATH 112 or equivalent or suitable math assessment score.",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "65",
-        "enrl": "23",
-        "avail": "42",
+        "enrl": "25",
+        "avail": "40",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "SSC OL ASNC",
+        "attributes": "ASNC OL SSC",
         "prerequisites": "ECON 206 or HNRS 209 or ECON 446 or ECON 101; MATH 112 or equivalent or suitable math assessment score.",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "27",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "WP1 OL ASNC",
+        "attributes": "ASNC OL WP1",
         "prerequisites": "ECON 206 and ECON 207; or ECON 207 and HNRS 209; or HNRS 202; or HNRS 254.",
         "gpa": null
     },
@@ -84,11 +84,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "15",
-        "avail": "15",
+        "enrl": "16",
+        "avail": "14",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "OL CF-E ASNC",
+        "attributes": "ASNC CF-E OL",
         "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 202; or HNRS 254.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "ECON 306 or ECON 309; and ECON 375.",
         "gpa": null
     }
