@@ -1,4 +1,4 @@
-2024-05-15T00:20:27.518812
+2024-05-16T11:51:42.114100
 [
     {
         "subject": "DNC 112",
@@ -180,7 +180,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "ACGM OL ASNC SST",
+        "attributes": "ACGM ASNC OL SST",
         "prerequisites": "",
         "gpa": null
     },

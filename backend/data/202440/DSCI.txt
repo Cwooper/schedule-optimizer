@@ -1,4 +1,4 @@
-2024-05-15T00:18:54.304913
+2024-05-16T11:50:52.359180
 [
     {
         "subject": "DSCI 205",
@@ -15,8 +15,8 @@
         "lab_room": "CF 120",
         "addl_fees": "",
         "cap": "64",
-        "enrl": "0",
-        "avail": "64",
+        "enrl": "2",
+        "avail": "62",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "HYBD",
@@ -38,8 +38,8 @@
         "lab_room": "CF 120",
         "addl_fees": "",
         "cap": "64",
-        "enrl": "5",
-        "avail": "59",
+        "enrl": "6",
+        "avail": "58",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "HYBD",
@@ -61,11 +61,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "22",
-        "enrl": "2",
-        "avail": "20",
+        "enrl": "3",
+        "avail": "19",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR OL ASNC",
+        "attributes": "ASNC OL QSR",
         "prerequisites": "MATH 112 with a C- or better or a college precalculus course with a C+ or better or suitable math assessment score.",
         "gpa": null
     },
@@ -84,8 +84,8 @@
         "lab_room": "AW 306",
         "addl_fees": "",
         "cap": "45",
-        "enrl": "4",
-        "avail": "41",
+        "enrl": "7",
+        "avail": "38",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
@@ -111,7 +111,7 @@
         "avail": "6",
         "waitlist": "",
         "restrictions": "JR SO SR MJ PQ",
-        "attributes": "OL PBEX ASNC",
+        "attributes": "ASNC OL PBEX",
         "prerequisites": "MATH 157 or MATH 124 or MATH 138; and DSCI 205.",
         "gpa": null
     },
@@ -130,11 +130,11 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "52",
-        "enrl": "5",
-        "avail": "47",
+        "enrl": "11",
+        "avail": "41",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "MATH 157 or MATH 124 or MATH 138; and DSCI 205.",
         "gpa": null
     }

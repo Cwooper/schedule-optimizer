@@ -1,4 +1,4 @@
-2024-05-15T00:20:49.774769
+2024-05-16T11:51:54.611441
 [
     {
         "subject": "RC 583",
@@ -65,7 +65,7 @@
         "avail": "9",
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ",
-        "attributes": "OL EVEX ASNC",
+        "attributes": "ASNC EVEX OL",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "14",
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ",
-        "attributes": "OL EVEX ASNC",
+        "attributes": "ASNC EVEX OL",
         "prerequisites": "",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ",
-        "attributes": "OL EVEX ASNC",
+        "attributes": "ASNC EVEX OL",
         "prerequisites": "",
         "gpa": null
     }

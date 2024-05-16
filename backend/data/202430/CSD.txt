@@ -1,4 +1,4 @@
-2024-05-15T00:19:23.482755
+2024-05-16T11:51:08.138594
 [
     {
         "subject": "CSD 210",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "9",
-        "avail": "41",
+        "enrl": "10",
+        "avail": "40",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC OL ASNC",
+        "attributes": "ASNC OL SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "17",
-        "avail": "33",
+        "enrl": "18",
+        "avail": "32",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC OL ASNC",
+        "attributes": "ASNC OL SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "11",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "CSD 371",
         "gpa": null
     },
@@ -130,8 +130,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "13",
-        "avail": "17",
+        "enrl": "15",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "GR PB PM",
         "attributes": "FTF",
@@ -199,8 +199,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $27.76",
         "cap": "25",
-        "enrl": "8",
-        "avail": "17",
+        "enrl": "10",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "GR GR PB PM S/U",
         "attributes": "FTF",

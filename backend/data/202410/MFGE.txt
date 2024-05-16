@@ -1,4 +1,4 @@
-2024-05-15T00:20:41.949804
+2024-05-16T11:51:50.301835
 [
     {
         "subject": "MFGE 261",
@@ -272,7 +272,7 @@
         "avail": "6",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "WP2 HYBD",
+        "attributes": "HYBD WP2",
         "prerequisites": "MFGE 491",
         "gpa": null
     },

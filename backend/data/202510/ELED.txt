@@ -1,4 +1,4 @@
-2024-05-15T00:18:23.329626
+2024-05-16T11:50:35.587477
 [
     {
         "subject": "ELED 305",
@@ -318,7 +318,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "ELED 480",
         "gpa": null
     },
@@ -332,7 +332,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Coskie, Tracy Lynn",
+        "instructor": "Copeland, Stephany N.",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
@@ -341,7 +341,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "ELED 480",
         "gpa": null
     },

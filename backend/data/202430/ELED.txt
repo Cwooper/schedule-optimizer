@@ -1,4 +1,4 @@
-2024-05-15T00:19:27.093062
+2024-05-16T11:51:09.789903
 [
     {
         "subject": "ELED 464",
@@ -19,7 +19,7 @@
         "avail": "21",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "GR GR PB PM S/U",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "Student's graduate committee/program advisor approval.",
         "gpa": null
     }

@@ -1,4 +1,4 @@
-2024-05-15T00:19:58.707999
+2024-05-16T11:51:26.540468
 [
     {
         "subject": "FAIR 101A",
@@ -479,7 +479,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV S/U",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "FAIR 203A or Social Science GUR or permission of instructor.",
         "gpa": null
     },
@@ -916,7 +916,7 @@
         "avail": "-4",
         "waitlist": "",
         "restrictions": "OV FA S/U",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "Required by all Fairhaven students. Senior status.",
         "gpa": null
     },
@@ -939,7 +939,7 @@
         "avail": "-2",
         "waitlist": "",
         "restrictions": "OV FA S/U",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "Required by all Fairhaven students. Senior status.",
         "gpa": null
     },
@@ -962,7 +962,7 @@
         "avail": "-6",
         "waitlist": "",
         "restrictions": "OV FA S/U",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "Required by all Fairhaven students. Senior status.",
         "gpa": null
     },
@@ -985,7 +985,7 @@
         "avail": "-2",
         "waitlist": "",
         "restrictions": "OV FA S/U",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "Required by all Fairhaven students. Senior status.",
         "gpa": null
     },

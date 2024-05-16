@@ -1,4 +1,4 @@
-2024-05-15T00:19:15.696031
+2024-05-16T11:51:04.387033
 [
     {
         "subject": "SALI 201",
@@ -20,29 +20,6 @@
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "BCGM FTF",
-        "prerequisites": "Optional co-requisite: SALI 202.",
-        "gpa": null
-    },
-    {
-        "subject": "SALI 201",
-        "course_credits": "4",
-        "crn": "42416",
-        "days": "TR",
-        "start_time": "1200",
-        "end_time": "1350",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Loomis, Eli Stuart",
-        "room": "HH 345",
-        "lab_room": null,
-        "addl_fees": "Flat Fee $20.00",
-        "cap": "20",
-        "enrl": "0",
-        "avail": "20",
-        "waitlist": "",
-        "restrictions": "",
-        "attributes": "BCGM FIG FTF",
         "prerequisites": "Optional co-requisite: SALI 202.",
         "gpa": null
     },
@@ -84,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "2",
-        "avail": "13",
+        "enrl": "3",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",

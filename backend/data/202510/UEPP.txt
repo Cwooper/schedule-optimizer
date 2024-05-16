@@ -1,4 +1,4 @@
-2024-05-15T00:18:45.350872
+2024-05-16T11:50:48.245608
 [
     {
         "subject": "UEPP 110",
@@ -19,7 +19,7 @@
         "avail": "130",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC OL SYNC",
+        "attributes": "OL SSC SYNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "",
         "gpa": null
     },

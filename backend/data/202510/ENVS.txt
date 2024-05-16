@@ -1,4 +1,4 @@
-2024-05-15T00:18:25.401923
+2024-05-16T11:50:36.998151
 [
     {
         "subject": "ENVS 201",
@@ -19,7 +19,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 112 with a C- or better or MATH 112 concurrent or suitable math assessment score.",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 112 with a C- or better or MATH 112 concurrent or suitable math assessment score.",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 112 with a C- or better or MATH 112 concurrent or suitable math assessment score.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "LSCI FTF",
+        "attributes": "FTF LSCI",
         "prerequisites": "Minimum of one university-level natural science GUR.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "LSCI FTF",
+        "attributes": "FTF LSCI",
         "prerequisites": "Minimum of one university-level natural science GUR.",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "LSCI FTF",
+        "attributes": "FTF LSCI",
         "prerequisites": "Minimum of one university-level natural science GUR.",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "LSCI FTF",
+        "attributes": "FTF LSCI",
         "prerequisites": "Minimum of one university-level natural science GUR.",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "150",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -341,7 +341,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "BCOM WP3 FTF",
+        "attributes": "BCOM FTF WP3",
         "prerequisites": "JOUR 207 or ENVS 303 or ESCI 225; or instructor permission.",
         "gpa": null
     },
@@ -364,7 +364,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "ENVS 303 or instructor permission.",
         "gpa": null
     },
@@ -548,7 +548,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "Open to all College of the Environment majors, minors, Journalism pre-majors, majors, and minors; or instructor permission.",
         "gpa": null
     },
@@ -594,7 +594,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV JR SR",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "Open to editors only.",
         "gpa": null
     },
@@ -686,7 +686,7 @@
         "avail": "27",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "ENVS 303; ENVS 305 or UEPP 355; or instructor permission.",
         "gpa": null
     },
@@ -732,7 +732,7 @@
         "avail": "8",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "ENVS 350 or instructor permission.",
         "gpa": null
     },
@@ -755,7 +755,7 @@
         "avail": "27",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "WP2 FTF",
+        "attributes": "FTF WP2",
         "prerequisites": "ENVS 303 or instructor permission.",
         "gpa": null
     },

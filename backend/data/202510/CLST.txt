@@ -1,4 +1,4 @@
-2024-05-15T00:18:17.628044
+2024-05-16T11:50:32.761186
 [
     {
         "subject": "CLST 350",
@@ -19,7 +19,7 @@
         "avail": "150",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "150",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-05-15T00:18:22.448893
+2024-05-16T11:50:35.154330
 [
     {
         "subject": "EDAD 502",
@@ -42,7 +42,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "GR GR PB PM",
-        "attributes": "OL DLEX SYNC",
+        "attributes": "DLEX OL SYNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
-        "attributes": "OL EVEX SYNC",
+        "attributes": "EVEX OL SYNC",
         "prerequisites": "Master's degree; admission to superintendent program.",
         "gpa": null
     }

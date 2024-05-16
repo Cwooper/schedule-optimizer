@@ -1,4 +1,4 @@
-2024-05-15T00:18:50.192278
+2024-05-16T11:50:50.346385
 [
     {
         "subject": "C/AM 277",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "5",
-        "enrl": "2",
-        "avail": "3",
-        "waitlist": "",
+        "enrl": "5",
+        "avail": "0",
+        "waitlist": "WL",
         "restrictions": "",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 202; or HNRS 254; or instructor permission.",
         "gpa": null
     },
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "10",
-        "enrl": "2",
-        "avail": "8",
+        "enrl": "1",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
@@ -157,7 +157,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "JR SR",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "Junior status",
         "gpa": null
     }

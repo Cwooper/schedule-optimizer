@@ -1,4 +1,4 @@
-2024-05-15T00:18:19.077043
+2024-05-16T11:50:33.437103
 [
     {
         "subject": "C2C 201",
@@ -19,7 +19,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SL FTF",
+        "attributes": "FTF SL",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SL FTF",
+        "attributes": "FTF SL",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "SL FTF",
+        "attributes": "FTF SL",
         "prerequisites": "C2C 201",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "BCGM SL FTF",
+        "attributes": "BCGM FTF SL",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "BCGM SL FTF",
+        "attributes": "BCGM FTF SL",
         "prerequisites": "",
         "gpa": null
     }

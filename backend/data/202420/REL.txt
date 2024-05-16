@@ -1,4 +1,4 @@
-2024-05-15T00:20:15.533902
+2024-05-16T11:51:35.615269
 [
     {
         "subject": "REL 231",
@@ -111,7 +111,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV JR SR",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "Junior or senior status; or instructor permission.",
         "gpa": null
     },

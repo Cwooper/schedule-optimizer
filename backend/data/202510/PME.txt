@@ -1,4 +1,4 @@
-2024-05-15T00:18:40.225581
+2024-05-16T11:50:45.705654
 [
     {
         "subject": "PME 295",
@@ -364,7 +364,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "WP2 FTF",
+        "attributes": "FTF WP2",
         "prerequisites": "PME 342; PME 471; PME 491.",
         "gpa": null
     },

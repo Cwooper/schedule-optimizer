@@ -1,4 +1,4 @@
-2024-05-15T00:20:20.094303
+2024-05-16T11:51:38.266937
 [
     {
         "subject": "AMST 205",
@@ -180,7 +180,7 @@
         "avail": "6",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "AMST 301; senior status; or instructor approval.",
         "gpa": null
     }

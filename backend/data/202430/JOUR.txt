@@ -1,4 +1,4 @@
-2024-05-15T00:19:33.789861
+2024-05-16T11:51:12.720830
 [
     {
         "subject": "JOUR 190",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
-        "enrl": "12",
-        "avail": "48",
+        "enrl": "14",
+        "avail": "46",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC OL ASNC",
+        "attributes": "ASNC OL SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -61,11 +61,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
-        "enrl": "12",
-        "avail": "48",
+        "enrl": "13",
+        "avail": "47",
         "waitlist": "",
         "restrictions": "JR SR",
-        "attributes": "HUM OL ASNC",
+        "attributes": "ASNC HUM OL",
         "prerequisites": "junior standing",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "14",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "OL MIX",
+        "attributes": "MIX OL",
         "prerequisites": "JOUR 190 or ENG 101 or C/AM 200",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "SR MJ PQ",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "JOUR 350 and JOUR 351; and major status.",
         "gpa": null
     }

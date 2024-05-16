@@ -1,4 +1,4 @@
-2024-05-15T00:17:41.775996
+2024-05-16T11:50:14.905905
 [
     {
         "subject": "CHIN 103",
@@ -111,7 +111,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "ACGM WP1 FTF",
+        "attributes": "ACGM FTF WP1",
         "prerequisites": "CHIN 203 or instructor permission.",
         "gpa": null
     },

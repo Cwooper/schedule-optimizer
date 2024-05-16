@@ -1,4 +1,4 @@
-2024-05-15T00:19:21.823990
+2024-05-16T11:51:07.318852
 [
     {
         "subject": "BIOL 101",
@@ -15,11 +15,11 @@
         "lab_room": "IS 220",
         "addl_fees": "",
         "cap": "24",
-        "enrl": "10",
-        "avail": "14",
+        "enrl": "12",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "LSCI FTF",
+        "attributes": "FTF LSCI",
         "prerequisites": "",
         "gpa": null
     },
@@ -84,8 +84,8 @@
         "lab_room": "CV 163A",
         "addl_fees": "",
         "cap": "16",
-        "enrl": "8",
-        "avail": "8",
+        "enrl": "11",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
@@ -107,8 +107,8 @@
         "lab_room": "CV 163B",
         "addl_fees": "Flat Fee $31.00",
         "cap": "16",
-        "enrl": "8",
-        "avail": "8",
+        "enrl": "7",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",

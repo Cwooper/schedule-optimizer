@@ -1,4 +1,4 @@
-2024-05-15T00:19:22.440774
+2024-05-16T11:51:07.642715
 [
     {
         "subject": "CHEM 161",
@@ -15,11 +15,11 @@
         "lab_room": "IS 330",
         "addl_fees": "Flat Fee $50.00",
         "cap": "48",
-        "enrl": "23",
-        "avail": "25",
+        "enrl": "24",
+        "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "LSCI FTF",
+        "attributes": "FTF LSCI",
         "prerequisites": "MATH 114 or suitable math assessment score.",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "29",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "LSCI FTF",
+        "attributes": "FTF LSCI",
         "prerequisites": "CHEM 161.",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "LSCI FTF",
+        "attributes": "FTF LSCI",
         "prerequisites": "CHEM 162.",
         "gpa": null
     },
@@ -84,11 +84,11 @@
         "lab_room": "CB 310",
         "addl_fees": "Flat Fee $60.00",
         "cap": "24",
-        "enrl": "13",
-        "avail": "11",
+        "enrl": "14",
+        "avail": "10",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "LSCI FTF",
+        "attributes": "FTF LSCI",
         "prerequisites": "CHEM 161 or CHEM 175.",
         "gpa": null
     },
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
-        "enrl": "12",
-        "avail": "48",
+        "enrl": "14",
+        "avail": "46",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
@@ -130,8 +130,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
-        "enrl": "19",
-        "avail": "41",
+        "enrl": "21",
+        "avail": "39",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",

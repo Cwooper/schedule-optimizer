@@ -1,4 +1,4 @@
-2024-05-15T00:17:49.265409
+2024-05-16T11:50:17.769652
 [
     {
         "subject": "ELED 305",
@@ -65,7 +65,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "OV ED MJ",
-        "attributes": "BCGM SL FTF",
+        "attributes": "BCGM FTF SL",
         "prerequisites": "Admission to Elementary Education Professional Program.",
         "gpa": null
     },
@@ -181,29 +181,6 @@
         "waitlist": "",
         "restrictions": "OV ED",
         "attributes": "FTF",
-        "prerequisites": "SPED 420",
-        "gpa": null
-    },
-    {
-        "subject": "ELED 426",
-        "course_credits": "4",
-        "crn": "21000",
-        "days": "R",
-        "start_time": "1700",
-        "end_time": "2050",
-        "lab_days": "N/A",
-        "lab_start_time": "N/A",
-        "lab_end_time": "N/A",
-        "instructor": "Jensen, Kirsten Margaret",
-        "room": "ONLINE SYNC",
-        "lab_room": "ONLINE ASNC",
-        "addl_fees": "",
-        "cap": "25",
-        "enrl": "0",
-        "avail": "25",
-        "waitlist": "",
-        "restrictions": "OV ED MJ",
-        "attributes": "OL MIX",
         "prerequisites": "SPED 420",
         "gpa": null
     },
@@ -341,7 +318,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "ELED 480",
         "gpa": null
     },

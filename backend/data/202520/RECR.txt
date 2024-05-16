@@ -1,4 +1,4 @@
-2024-05-15T00:18:08.273345
+2024-05-16T11:50:27.623891
 [
     {
         "subject": "RECR 210",
@@ -19,7 +19,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },

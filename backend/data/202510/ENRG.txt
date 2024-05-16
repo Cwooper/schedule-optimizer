@@ -1,4 +1,4 @@
-2024-05-15T00:18:23.644065
+2024-05-16T11:50:35.723591
 [
     {
         "subject": "ENRG 101",
@@ -19,7 +19,7 @@
         "avail": "150",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SCI FTF",
+        "attributes": "FTF SCI",
         "prerequisites": "",
         "gpa": null
     },
@@ -57,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Wang, Xi",
-        "room": "TBA",
+        "room": "AH 219",
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
@@ -149,7 +149,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Sheikh, Imran Anees",
-        "room": "IS 310",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
         "cap": "16",
@@ -203,7 +203,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "ENRG 350 or UEPP 350 or instructor permission.",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "One from: ENRG 384, ECON 384, ENRG 386 or ECON 386;  and one from: DSCI 305, ECON 375, ENRG 322, ESCI 340 or BIOL 340.",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "GR PB PM SR MJ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "Senior status; Energy Policy and Management, Energy Science and Technology, and Business and Sustainability: Energy Concentration majors only.",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-05-15T00:18:32.976160
+2024-05-16T11:50:41.367734
 [
     {
         "subject": "LING 201",
@@ -19,7 +19,7 @@
         "avail": "150",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "150",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "75",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "75",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SCI FTF",
+        "attributes": "FTF SCI",
         "prerequisites": "",
         "gpa": null
     },
@@ -113,29 +113,6 @@
         "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "LING 201 or\u00a0ANTH 247\u00a0or HNRS\u00a0217.",
-        "gpa": null
-    },
-    {
-        "subject": "LING 311",
-        "course_credits": "5",
-        "crn": "11022",
-        "days": "TR",
-        "start_time": "1400",
-        "end_time": "1550",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Staff",
-        "room": "TBA",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "20",
-        "enrl": "0",
-        "avail": "20",
-        "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "FTF",
-        "prerequisites": "LING 305, LING 310, or instructor permission.",
         "gpa": null
     },
     {
@@ -272,7 +249,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "LING 315",
         "gpa": null
     },

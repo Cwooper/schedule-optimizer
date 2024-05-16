@@ -1,4 +1,4 @@
-2024-05-15T00:17:45.396318
+2024-05-16T11:50:16.260497
 [
     {
         "subject": "DNC 113",
@@ -180,7 +180,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "HUM OL ASNC SST",
+        "attributes": "ASNC HUM OL SST",
         "prerequisites": "",
         "gpa": null
     },

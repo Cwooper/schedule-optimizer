@@ -1,4 +1,4 @@
-2024-05-15T00:18:18.459609
+2024-05-16T11:50:33.153869
 [
     {
         "subject": "CSD 354",
@@ -111,7 +111,7 @@
         "avail": "60",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "CSD 354, CSD 356, and CSD 361.",
         "gpa": null
     },

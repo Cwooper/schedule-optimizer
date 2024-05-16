@@ -1,4 +1,4 @@
-2024-05-15T00:18:53.306085
+2024-05-16T11:50:51.949292
 [
     {
         "subject": "CISS 247",
@@ -19,7 +19,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "KLEX FTF",
+        "attributes": "FTF KLEX",
         "prerequisites": "CSCI 145",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "PBEX HYBD",
+        "attributes": "HYBD PBEX",
         "prerequisites": "CSCI 145",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "KLEX FTF",
+        "attributes": "FTF KLEX",
         "prerequisites": "",
         "gpa": null
     },
@@ -153,11 +153,11 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $20.25",
         "cap": "35",
-        "enrl": "4",
-        "avail": "31",
+        "enrl": "9",
+        "avail": "26",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "CISS 247 or CSCI 247.",
         "gpa": null
     },
@@ -176,11 +176,11 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $20.25",
         "cap": "35",
-        "enrl": "5",
-        "avail": "30",
+        "enrl": "10",
+        "avail": "25",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "CISS 247 or CSCI 247.",
         "gpa": null
     },
@@ -199,11 +199,11 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $20.25",
         "cap": "35",
-        "enrl": "0",
-        "avail": "35",
+        "enrl": "14",
+        "avail": "21",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "CISS 247 or CSCI 247.",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "PBEX HYBD",
+        "attributes": "HYBD PBEX",
         "prerequisites": "CISS 360",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "PBEX HYBD",
+        "attributes": "HYBD PBEX",
         "prerequisites": "",
         "gpa": null
     },
@@ -291,8 +291,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $20.25",
         "cap": "35",
-        "enrl": "3",
-        "avail": "32",
+        "enrl": "4",
+        "avail": "31",
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
@@ -318,7 +318,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "KLEX FTF",
+        "attributes": "FTF KLEX",
         "prerequisites": "",
         "gpa": null
     },
@@ -341,7 +341,7 @@
         "avail": "0",
         "waitlist": "WL",
         "restrictions": "MJ PQ",
-        "attributes": "PBEX HYBD",
+        "attributes": "HYBD PBEX",
         "prerequisites": "CISS 301",
         "gpa": null
     },
@@ -364,7 +364,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "KLEX HYBD",
+        "attributes": "HYBD KLEX",
         "prerequisites": "CISS 301",
         "gpa": null
     },
@@ -383,8 +383,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $20.25",
         "cap": "10",
-        "enrl": "0",
-        "avail": "10",
+        "enrl": "1",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "HYBD",
@@ -410,7 +410,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "SR MJ",
-        "attributes": "PBEX HYBD",
+        "attributes": "HYBD PBEX",
         "prerequisites": "Senior status.",
         "gpa": null
     },
@@ -433,7 +433,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "SR MJ",
-        "attributes": "KLEX HYBD",
+        "attributes": "HYBD KLEX",
         "prerequisites": "Senior status.",
         "gpa": null
     }

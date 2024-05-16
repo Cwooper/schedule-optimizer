@@ -1,4 +1,4 @@
-2024-05-15T00:19:08.636497
+2024-05-16T11:51:00.203674
 [
     {
         "subject": "MSCI 201",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "12",
-        "enrl": "4",
-        "avail": "8",
+        "enrl": "6",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",

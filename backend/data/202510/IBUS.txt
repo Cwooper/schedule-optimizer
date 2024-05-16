@@ -1,4 +1,4 @@
-2024-05-15T00:18:30.713883
+2024-05-16T11:50:40.110590
 [
     {
         "subject": "IBUS 370",
@@ -65,7 +65,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "CF WP1 FTF",
+        "attributes": "CF FTF WP1",
         "prerequisites": "Majors only; IBUS 370.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "Majors Only. IBUS 370 or equivalent or permission of instructor.",
         "gpa": null
     },

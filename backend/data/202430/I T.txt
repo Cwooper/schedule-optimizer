@@ -1,4 +1,4 @@
-2024-05-15T00:19:32.518215
+2024-05-16T11:51:12.141288
 [
     {
         "subject": "I T 442",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $6.74",
         "cap": "40",
-        "enrl": "40",
-        "avail": "0",
+        "enrl": "39",
+        "avail": "1",
         "waitlist": "WL",
         "restrictions": "PQ",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "IT 344",
         "gpa": null
     }

@@ -1,4 +1,4 @@
-2024-05-15T00:18:02.388636
+2024-05-16T11:50:24.559400
 [
     {
         "subject": "MATH 099",
@@ -157,7 +157,7 @@
         "avail": "60",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 99 or MATH 112 or college intermediate algebra course with a C- or better or suitable math assessment score.",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "60",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 99 or MATH 112 or college intermediate algebra course with a C- or better or suitable math assessment score.",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "60",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 99 or MATH 112 or college intermediate algebra course with a C- or better or suitable math assessment score.",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "60",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 99 or MATH 112 or college intermediate algebra course with a C- or better or suitable math assessment score.",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "45",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 99 or college intermediate algebra course with a C- or better or suitable math assessment score. Note: Neither MATH 106, MATH 107 nor MATH 108 is an acceptable prerequisite for this course.",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 99 or college intermediate algebra course with a C- or better or suitable math assessment score. Note: Neither MATH 106, MATH 107 nor MATH 108 is an acceptable prerequisite for this course.",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 99 or college intermediate algebra course with a C- or better or suitable math assessment score. Note: Neither MATH 106, MATH 107 nor MATH 108 is an acceptable prerequisite for this course.",
         "gpa": null
     },
@@ -341,7 +341,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 99 or college intermediate algebra course with a C- or better or suitable math assessment score. Note: Neither MATH 106, MATH 107 nor MATH 108 is an acceptable prerequisite for this course.",
         "gpa": null
     },
@@ -364,7 +364,7 @@
         "avail": "45",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 99 or college intermediate algebra course with a C- or better or suitable math assessment score. Note: Neither MATH 106, MATH 107 nor MATH 108 is an acceptable prerequisite for this course.",
         "gpa": null
     },
@@ -387,7 +387,7 @@
         "avail": "45",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 99 or college intermediate algebra course with a C- or better or suitable math assessment score. Note: Neither MATH 106, MATH 107 nor MATH 108 is an acceptable prerequisite for this course.",
         "gpa": null
     },
@@ -410,7 +410,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 99 or college intermediate algebra course with a C- or better or suitable math assessment score. Note: Neither MATH 106, MATH 107 nor MATH 108 is an acceptable prerequisite for this course.",
         "gpa": null
     },
@@ -433,7 +433,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 99 or college intermediate algebra course with a C- or better or suitable math assessment score. Note: Neither MATH 106, MATH 107 nor MATH 108 is an acceptable prerequisite for this course.",
         "gpa": null
     },
@@ -456,7 +456,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 99 or college intermediate algebra course with a C- or better or suitable math assessment score. Note: Neither MATH 106, MATH 107 nor MATH 108 is an acceptable prerequisite for this course.",
         "gpa": null
     },
@@ -479,7 +479,7 @@
         "avail": "40",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 112 with a C- or better or suitable math assessment score.",
         "gpa": null
     },
@@ -502,7 +502,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 112 with a C- or better or suitable math assessment score.",
         "gpa": null
     },
@@ -525,7 +525,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 112 with a C- or better or suitable math assessment score.",
         "gpa": null
     },
@@ -548,7 +548,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 112 with a C- or better or suitable math assessment score.",
         "gpa": null
     },
@@ -571,7 +571,7 @@
         "avail": "40",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 112 with a C- or better or suitable math assessment score.",
         "gpa": null
     },
@@ -594,7 +594,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 112 with a C- or better or suitable math assessment score.",
         "gpa": null
     },
@@ -617,7 +617,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 112 with a C- or better or suitable math assessment score.",
         "gpa": null
     },
@@ -640,7 +640,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 112 with a C- or better or suitable math assessment score.",
         "gpa": null
     },
@@ -663,7 +663,7 @@
         "avail": "40",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 114 with a C- or better at Western",
         "gpa": null
     },
@@ -686,7 +686,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 114 with a C- or better at Western",
         "gpa": null
     },
@@ -709,7 +709,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 114 with a C- or better at Western",
         "gpa": null
     },
@@ -732,7 +732,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 114 with a C- or better at Western",
         "gpa": null
     },
@@ -755,7 +755,7 @@
         "avail": "40",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 114 with a C- or better at Western",
         "gpa": null
     },
@@ -778,7 +778,7 @@
         "avail": "40",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 114 with a C- or better at Western",
         "gpa": null
     },
@@ -801,7 +801,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 115 or MATH 118 with a C- or better or a grade of 2.3 or higher in a culminating college precalculus course or suitable math assessment score.",
         "gpa": null
     },
@@ -824,7 +824,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 115 or MATH 118 with a C- or better or a grade of 2.3 or higher in a culminating college precalculus course or suitable math assessment score.",
         "gpa": null
     },
@@ -847,7 +847,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 115 or MATH 118 with a C- or better or a grade of 2.3 or higher in a culminating college precalculus course or suitable math assessment score.",
         "gpa": null
     },
@@ -870,7 +870,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 115 or MATH 118 with a C- or better or a grade of 2.3 or higher in a culminating college precalculus course or suitable math assessment score.",
         "gpa": null
     },
@@ -893,7 +893,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 115 or MATH 118 with a C- or better or a grade of 2.3 or higher in a culminating college precalculus course or suitable math assessment score.",
         "gpa": null
     },
@@ -916,7 +916,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 115 or MATH 118 with a C- or better or a grade of 2.3 or higher in a culminating college precalculus course or suitable math assessment score.",
         "gpa": null
     },
@@ -1054,7 +1054,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 112 with a C- or better or suitable math assessment score.",
         "gpa": null
     },
@@ -1077,7 +1077,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 112 with a C- or better or suitable math assessment score.",
         "gpa": null
     },
@@ -1100,7 +1100,7 @@
         "avail": "60",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 156 or MATH 114 or MATH 118 or grade of 2.3 or higher in a college precalculus course or suitable math assessment score.",
         "gpa": null
     },
@@ -1123,7 +1123,7 @@
         "avail": "60",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 156 or MATH 114 or MATH 118 or grade of 2.3 or higher in a college precalculus course or suitable math assessment score.",
         "gpa": null
     },
@@ -1399,7 +1399,7 @@
         "avail": "40",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 112 with a C- or better or a college precalculus course with a C+ or better or suitable math assessment score.",
         "gpa": null
     },
@@ -1422,7 +1422,7 @@
         "avail": "40",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "MATH 112 with a C- or better or a college precalculus course with a C+ or better or suitable math assessment score.",
         "gpa": null
     },
@@ -1721,7 +1721,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "XBS-CISS MJ PQ",
-        "attributes": "PBEX FTF",
+        "attributes": "FTF PBEX",
         "prerequisites": "MATH 125 or MATH 135 or MATH 138",
         "gpa": null
     },
@@ -1744,7 +1744,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "KLEX FTF",
+        "attributes": "FTF KLEX",
         "prerequisites": "MATH 125 or MATH 135 or MATH 138",
         "gpa": null
     },
@@ -1813,7 +1813,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "Suitable math assessment score, or a grade of C or better in MATH 111 or MATH 112, or college intermediate or higher level course in mathematics.",
         "gpa": null
     },
@@ -2020,7 +2020,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "12 credits upper-division math",
         "gpa": null
     },
@@ -2043,7 +2043,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "12 credits upper-division math",
         "gpa": null
     },

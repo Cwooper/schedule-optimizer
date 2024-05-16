@@ -1,4 +1,4 @@
-2024-05-15T00:20:53.908868
+2024-05-16T11:51:56.601351
 [
     {
         "subject": "UEPP 110",
@@ -19,7 +19,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "SSC OL SYNC",
+        "attributes": "OL SSC SYNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "SSC OL SYNC",
+        "attributes": "OL SSC SYNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "SSC OL SYNC",
+        "attributes": "OL SSC SYNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "Minimum of one university-level natural science GUR; UEPP 261 or ENVS 305; or instructor permission.",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "PAEX HYBD",
+        "attributes": "HYBD PAEX",
         "prerequisites": "ENVS 305\u00a0or PLSC 250;\u00a0or instructor permission.",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "-5",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "PBEX HYBD",
+        "attributes": "HYBD PBEX",
         "prerequisites": "ENVS 305\u00a0or PLSC 250;\u00a0or instructor permission.",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-05-15T00:18:18.760535
+2024-05-16T11:50:33.348057
 [
     {
         "subject": "COMM 101",
@@ -157,7 +157,7 @@
         "avail": "100",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "100",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "",
         "gpa": null
     },
@@ -456,7 +456,7 @@
         "avail": "100",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -525,7 +525,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SL FTF",
+        "attributes": "FTF SL",
         "prerequisites": "",
         "gpa": null
     },
@@ -594,7 +594,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SL FTF",
+        "attributes": "FTF SL",
         "prerequisites": "",
         "gpa": null
     },
@@ -778,7 +778,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "COMM 327 and COMM 398 or permission of instructor.",
         "gpa": null
     },
@@ -801,7 +801,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "COMM 230 or COMM major status or instructor permission.",
         "gpa": null
     },
@@ -847,7 +847,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "COMM 240 or JOUR 190; and COMM 398.",
         "gpa": null
     },
@@ -870,7 +870,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "WP1 SL FTF",
+        "attributes": "FTF SL WP1",
         "prerequisites": "COMM 398 or instructor permission.",
         "gpa": null
     },
@@ -893,7 +893,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "COMM 398 or permission of instructor.",
         "gpa": null
     },
@@ -916,7 +916,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "COMM 398 or permission of instructor.",
         "gpa": null
     }

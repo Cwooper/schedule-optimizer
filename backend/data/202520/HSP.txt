@@ -1,4 +1,4 @@
-2024-05-15T00:17:55.960048
+2024-05-16T11:50:21.188652
 [
     {
         "subject": "HSP 325",
@@ -42,7 +42,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "XBA-HS MJ PQ",
-        "attributes": "OL DLEX ASNC",
+        "attributes": "ASNC DLEX OL",
         "prerequisites": "HSP 301.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "26",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "",
         "gpa": null
     },
@@ -135,29 +135,6 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "HSP 355 or ESJ 411 or instructor permission.",
-        "gpa": null
-    },
-    {
-        "subject": "HSP 406",
-        "course_credits": "5",
-        "crn": "23471",
-        "days": "TBD",
-        "start_time": "TBD",
-        "end_time": "TBD",
-        "lab_days": "N/A",
-        "lab_start_time": "N/A",
-        "lab_end_time": "N/A",
-        "instructor": "Delvalle, Derek",
-        "room": "Distance Learning - State Supp",
-        "lab_room": "ONLINE ASNC",
-        "addl_fees": "",
-        "cap": "25",
-        "enrl": "0",
-        "avail": "25",
-        "waitlist": "",
-        "restrictions": "SR MJ PQ",
-        "attributes": "OL DLEX ASNC",
         "prerequisites": "HSP 355 or ESJ 411 or instructor permission.",
         "gpa": null
     },
@@ -226,7 +203,7 @@
         "avail": "13",
         "waitlist": "",
         "restrictions": "MJ S/U",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "",
         "gpa": null
     },
@@ -249,7 +226,7 @@
         "avail": "8",
         "waitlist": "",
         "restrictions": "MJ S/U",
-        "attributes": "OL DLEX ASNC",
+        "attributes": "ASNC DLEX OL",
         "prerequisites": "",
         "gpa": null
     },
@@ -302,29 +279,6 @@
     {
         "subject": "HSP 440",
         "course_credits": "5",
-        "crn": "21413",
-        "days": "TBD",
-        "start_time": "TBD",
-        "end_time": "TBD",
-        "lab_days": "N/A",
-        "lab_start_time": "N/A",
-        "lab_end_time": "N/A",
-        "instructor": "Kula, Kali",
-        "room": "Everett",
-        "lab_room": "ONLINE ASNC",
-        "addl_fees": "",
-        "cap": "8",
-        "enrl": "0",
-        "avail": "8",
-        "waitlist": "",
-        "restrictions": "XBA-HS MJ S/U PQ",
-        "attributes": "OL EVEX ASNC",
-        "prerequisites": "HSP 435.",
-        "gpa": null
-    },
-    {
-        "subject": "HSP 440",
-        "course_credits": "5",
         "crn": "21486",
         "days": "M",
         "start_time": "1200",
@@ -364,7 +318,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "XBA-HS MJ S/U PQ",
-        "attributes": "OL DLEX ASNC",
+        "attributes": "ASNC DLEX OL",
         "prerequisites": "HSP 435.",
         "gpa": null
     },
@@ -387,7 +341,7 @@
         "avail": "8",
         "waitlist": "",
         "restrictions": "SR MJ S/U PQ",
-        "attributes": "OL DLEX ASNC",
+        "attributes": "ASNC DLEX OL",
         "prerequisites": "HSP 435.",
         "gpa": null
     },
@@ -410,7 +364,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "OL DLEX ASNC",
+        "attributes": "ASNC DLEX OL",
         "prerequisites": "Admission to major.",
         "gpa": null
     },
@@ -479,7 +433,7 @@
         "avail": "13",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "Admission to major.",
         "gpa": null
     },
@@ -502,7 +456,7 @@
         "avail": "8",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "OL DLEX ASNC",
+        "attributes": "ASNC DLEX OL",
         "prerequisites": "Admission to major.",
         "gpa": null
     },
@@ -525,7 +479,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "ANTH 201 or PSY 101",
         "gpa": null
     }

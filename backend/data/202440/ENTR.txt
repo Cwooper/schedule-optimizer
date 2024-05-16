@@ -1,4 +1,4 @@
-2024-05-15T00:18:58.039696
+2024-05-16T11:50:54.272480
 [
     {
         "subject": "ENTR 246",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "11",
-        "enrl": "1",
-        "avail": "10",
+        "enrl": "2",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",

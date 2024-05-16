@@ -1,4 +1,4 @@
-2024-05-15T00:19:03.704283
+2024-05-16T11:50:57.450843
 [
     {
         "subject": "ID 110",
@@ -222,8 +222,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $232.00",
         "cap": "12",
-        "enrl": "4",
-        "avail": "8",
+        "enrl": "6",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",

@@ -1,4 +1,4 @@
-2024-05-15T00:19:39.699344
+2024-05-16T11:51:15.428575
 [
     {
         "subject": "PLSC 250",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "9",
-        "avail": "16",
+        "enrl": "10",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC OL ASNC",
+        "attributes": "ASNC OL SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "14",
-        "avail": "11",
+        "enrl": "17",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "HUM OL ASNC",
+        "attributes": "ASNC HUM OL",
         "prerequisites": "",
         "gpa": null
     },
@@ -61,11 +61,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "13",
-        "avail": "7",
+        "enrl": "14",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC OL ASNC",
+        "attributes": "ASNC OL SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "13",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "PLSC 261 or PLSC 271 or PLSC 291; or instructor permission.",
         "gpa": null
     },
@@ -130,11 +130,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "22",
-        "avail": "3",
-        "waitlist": "",
+        "enrl": "25",
+        "avail": "0",
+        "waitlist": "WL",
         "restrictions": "PQ",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "PLSC 250 or instructor permission.",
         "gpa": null
     },

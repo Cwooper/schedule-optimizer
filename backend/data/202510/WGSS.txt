@@ -1,4 +1,4 @@
-2024-05-15T00:18:45.582809
+2024-05-16T11:50:48.355216
 [
     {
         "subject": "WGSS 211",
@@ -226,7 +226,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "BCGM WP2 FTF",
+        "attributes": "BCGM FTF WP2",
         "prerequisites": "WGSS 211, WGSS 212, or WGSS 213",
         "gpa": null
     },

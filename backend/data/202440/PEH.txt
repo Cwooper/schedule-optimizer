@@ -1,4 +1,4 @@
-2024-05-15T00:19:12.646105
+2024-05-16T11:51:02.860958
 [
     {
         "subject": "PEH 340",
@@ -38,8 +38,8 @@
         "lab_room": "CV 272",
         "addl_fees": "Flat Fee $10.00",
         "cap": "20",
-        "enrl": "2",
-        "avail": "18",
+        "enrl": "3",
+        "avail": "17",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
@@ -61,10 +61,10 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "0",
-        "avail": "20",
+        "enrl": "2",
+        "avail": "18",
         "waitlist": "",
-        "restrictions": "OV MJ PQ",
+        "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "PEH 341P; PEH 440 or concurrent.",
         "gpa": null
@@ -87,7 +87,7 @@
         "enrl": "0",
         "avail": "20",
         "waitlist": "",
-        "restrictions": "OV MJ S/U PQ",
+        "restrictions": "MJ S/U PQ",
         "attributes": "FTF",
         "prerequisites": "PEH 341P",
         "gpa": null

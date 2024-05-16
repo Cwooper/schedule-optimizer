@@ -1,4 +1,4 @@
-2024-05-15T00:18:59.233107
+2024-05-16T11:50:55.068403
 [
     {
         "subject": "EUS 201",
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00",
         "cap": "25",
-        "enrl": "3",
-        "avail": "22",
+        "enrl": "5",
+        "avail": "20",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ACGM OL ASNC SST",
+        "attributes": "ACGM ASNC OL SST",
         "prerequisites": "",
         "gpa": null
     }

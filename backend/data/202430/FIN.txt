@@ -1,4 +1,4 @@
-2024-05-15T00:19:29.204111
+2024-05-16T11:51:10.845678
 [
     {
         "subject": "FIN 215",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "17",
-        "avail": "18",
+        "enrl": "18",
+        "avail": "17",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SSC OL ASNC",
+        "attributes": "ASNC OL SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "15",
-        "avail": "20",
+        "enrl": "17",
+        "avail": "18",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "QSR OL ASNC",
+        "attributes": "ASNC OL QSR",
         "prerequisites": "Cannot be taken after or concurrent with FIN 440.",
         "gpa": null
     },
@@ -61,11 +61,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "25",
-        "avail": "10",
+        "enrl": "33",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "JR SO SR PQ",
-        "attributes": "OL ASNC",
+        "attributes": "ASNC OL",
         "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
         "gpa": null
     },
@@ -84,11 +84,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "14",
-        "avail": "21",
+        "enrl": "15",
+        "avail": "20",
         "waitlist": "",
         "restrictions": "JR SO SR PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "Majors Only. FIN 341",
         "gpa": null
     },

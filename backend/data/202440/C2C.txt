@@ -1,4 +1,4 @@
-2024-05-15T00:18:52.615564
+2024-05-16T11:50:51.541873
 [
     {
         "subject": "C2C 201",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $24.74",
         "cap": "30",
-        "enrl": "2",
-        "avail": "28",
+        "enrl": "3",
+        "avail": "27",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SL FTF",
+        "attributes": "FTF SL",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "28",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "SL FTF",
+        "attributes": "FTF SL",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "29",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "SL FTF",
+        "attributes": "FTF SL",
         "prerequisites": "C2C 201",
         "gpa": null
     },
@@ -84,11 +84,11 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $24.74",
         "cap": "30",
-        "enrl": "3",
-        "avail": "27",
+        "enrl": "5",
+        "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "BCGM SL FTF",
+        "attributes": "BCGM FTF SL",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "28",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "BCGM SL FTF",
+        "attributes": "BCGM FTF SL",
         "prerequisites": "",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "29",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "BCGM SL FTF",
+        "attributes": "BCGM FTF SL",
         "prerequisites": "",
         "gpa": null
     }

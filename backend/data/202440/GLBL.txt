@@ -1,4 +1,4 @@
-2024-05-15T00:19:00.939393
+2024-05-16T11:50:56.143859
 [
     {
         "subject": "GLBL 201",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "9",
-        "enrl": "4",
-        "avail": "5",
+        "enrl": "5",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
@@ -38,34 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "34",
-        "enrl": "5",
-        "avail": "29",
+        "enrl": "6",
+        "avail": "28",
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
-        "prerequisites": "",
-        "gpa": null
-    },
-    {
-        "subject": "GLBL 201",
-        "course_credits": "5",
-        "crn": "43990",
-        "days": "TR",
-        "start_time": "1000",
-        "end_time": "1150",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Lippman, Leah Niobe",
-        "room": "MH 239",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "25",
-        "enrl": "0",
-        "avail": "25",
-        "waitlist": "",
-        "restrictions": "",
-        "attributes": "ACGM FIG FTF",
         "prerequisites": "",
         "gpa": null
     }

@@ -1,4 +1,4 @@
-2024-05-15T00:17:38.530573
+2024-05-16T11:50:13.495023
 [
     {
         "subject": "A/HI 212",
@@ -19,7 +19,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "140",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "HUM FTF",
+        "attributes": "FTF HUM",
         "prerequisites": "",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "Any A/HI or equivalent 300-level course.",
         "gpa": null
     },
@@ -341,7 +341,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "Any A/HI or equivalent 300-level course.",
         "gpa": null
     },
@@ -364,7 +364,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "A/HI 375; art history majors only.",
         "gpa": null
     }

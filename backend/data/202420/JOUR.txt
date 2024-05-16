@@ -1,4 +1,4 @@
-2024-05-15T00:20:04.884789
+2024-05-16T11:51:29.690491
 [
     {
         "subject": "JOUR 106",
@@ -42,7 +42,7 @@
         "avail": "57",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV JR SR PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "Junior status; JOUR 207; JOUR 214; JOUR 307 or JOUR 380.",
         "gpa": null
     },
@@ -337,11 +337,11 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $10.00",
         "cap": "13",
-        "enrl": "11",
-        "avail": "2",
+        "enrl": "10",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "JOUR 207; one newspaper staff course. May not be taken concurrently with JOUR 404.",
         "gpa": null
     },
@@ -525,7 +525,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV SR MJ PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "JOUR 207; JOUR 307 or JOUR 380; JOUR 314.",
         "gpa": null
     },
@@ -571,7 +571,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV SR MJ PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "Senior status; JOUR 207; JOUR 307 or JOUR 380; and one newspaper staff course. May not be taken concurrently with JOUR 404.",
         "gpa": null
     },
@@ -709,7 +709,7 @@
         "avail": "9",
         "waitlist": "",
         "restrictions": "OV SR MJ PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "JOUR 350 and JOUR 351; and major status.",
         "gpa": null
     }

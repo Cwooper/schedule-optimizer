@@ -1,4 +1,4 @@
-2024-05-15T00:18:13.323359
+2024-05-16T11:50:30.492875
 [
     {
         "subject": "ASLC 101",
@@ -56,7 +56,7 @@
         "lab_days": "N/A",
         "lab_start_time": "N/A",
         "lab_end_time": "N/A",
-        "instructor": "Staff",
+        "instructor": "Boyd, Linda Sue",
         "room": "TBA",
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",

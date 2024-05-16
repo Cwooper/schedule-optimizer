@@ -1,4 +1,4 @@
-2024-05-15T00:20:40.209589
+2024-05-16T11:51:49.277455
 [
     {
         "subject": "KIN 306",
@@ -548,7 +548,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV SR MJ PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "KIN 306 or PEH 443P; Senior status.",
         "gpa": null
     },

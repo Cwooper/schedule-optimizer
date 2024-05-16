@@ -1,4 +1,4 @@
-2024-05-15T00:20:19.056418
+2024-05-16T11:51:37.649945
 [
     {
         "subject": "UEPP 202",
@@ -19,7 +19,7 @@
         "avail": "6",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "SSC OL ASNC",
+        "attributes": "ASNC OL SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "SSC FTF",
+        "attributes": "FTF SSC",
         "prerequisites": "",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "-5",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "UEPP 261 or concurrent or instructor permission.",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "One course from: ECON 383, ENRG 350, ENVS 305, UEPP 350, UEPP 355,\u00a0or PLSC 250; or instructor permission.",
         "gpa": null
     },
@@ -433,7 +433,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "OV SR MJ",
-        "attributes": "WP3 CPST FTF",
+        "attributes": "CPST FTF WP3",
         "prerequisites": "Senior status and College of the Environment admission; or instructor permission.",
         "gpa": null
     },
@@ -1073,8 +1073,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "2",
-        "enrl": "1",
-        "avail": "1",
+        "enrl": "2",
+        "avail": "0",
         "waitlist": "",
         "restrictions": "OV GR PB PM S/U",
         "attributes": "FTF",
@@ -1234,8 +1234,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "1",
-        "enrl": "1",
-        "avail": "0",
+        "enrl": "0",
+        "avail": "1",
         "waitlist": "",
         "restrictions": "OV GR PB PM S/U",
         "attributes": "FTF",

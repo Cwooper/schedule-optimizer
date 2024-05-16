@@ -1,4 +1,4 @@
-2024-05-15T00:19:51.366601
+2024-05-16T11:51:22.353546
 [
     {
         "subject": "CSCI 101",
@@ -180,7 +180,7 @@
         "avail": "6",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "One of: MATH 112, MATH 114, MATH 115, MATH 118, MATH 124, MATH 125, MATH 134, MATH 138, MATH 156 or suitable math assessment score.",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "One of: MATH 112, MATH 114, MATH 115, MATH 118, MATH 124, MATH 125, MATH 134, MATH 138, MATH 156 or suitable math assessment score.",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "One of: MATH 112, MATH 114, MATH 115, MATH 118, MATH 124, MATH 125, MATH 134, MATH 138, MATH 156 or suitable math assessment score.",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "One of: MATH 112, MATH 114, MATH 115, MATH 118, MATH 124, MATH 125, MATH 134, MATH 138, MATH 156 or suitable math assessment score.",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "One of: MATH 112, MATH 114, MATH 115, MATH 118, MATH 124, MATH 125, MATH 134, MATH 138, MATH 156 or suitable math assessment score.",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "CSCI 141 or equivalent; any of: MATH 115, MATH 118, MATH 124 or suitable math assessment score.",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "CSCI 141 or equivalent; any of: MATH 115, MATH 118, MATH 124 or suitable math assessment score.",
         "gpa": null
     },
@@ -341,7 +341,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "CSCI 141 or equivalent; any of: MATH 115, MATH 118, MATH 124 or suitable math assessment score.",
         "gpa": null
     },
@@ -364,7 +364,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "CSCI 141 or equivalent; any of: MATH 115, MATH 118, MATH 124 or suitable math assessment score.",
         "gpa": null
     },
@@ -387,7 +387,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "QSR FTF",
+        "attributes": "FTF QSR",
         "prerequisites": "",
         "gpa": null
     },
@@ -778,7 +778,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "CSCI 241",
         "gpa": null
     },
@@ -820,8 +820,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $20.25",
         "cap": "35",
-        "enrl": "21",
-        "avail": "14",
+        "enrl": "20",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
@@ -939,7 +939,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "CSCI 305",
         "gpa": null
     },
@@ -962,7 +962,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "CSCI 305",
         "gpa": null
     },
@@ -1744,7 +1744,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ PQ",
-        "attributes": "WP1 FTF",
+        "attributes": "FTF WP1",
         "prerequisites": "CSCI 305",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-05-15T00:19:34.049308
+2024-05-16T11:51:12.894733
 [
     {
         "subject": "KIN 312",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $35.00",
         "cap": "20",
-        "enrl": "11",
-        "avail": "9",
+        "enrl": "12",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
         "attributes": "FTF",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $15.50",
         "cap": "20",
-        "enrl": "6",
-        "avail": "14",
+        "enrl": "7",
+        "avail": "13",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
@@ -84,11 +84,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "7",
-        "avail": "18",
+        "enrl": "9",
+        "avail": "16",
         "waitlist": "",
         "restrictions": "SR MJ PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "KIN 306 or PEH 443P; Senior status.",
         "gpa": null
     },
@@ -130,8 +130,8 @@
         "lab_room": "TBA",
         "addl_fees": "",
         "cap": "35",
-        "enrl": "1",
-        "avail": "34",
+        "enrl": "2",
+        "avail": "33",
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",

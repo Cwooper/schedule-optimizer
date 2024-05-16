@@ -1,4 +1,4 @@
-2024-05-15T00:18:14.561496
+2024-05-16T11:50:31.255839
 [
     {
         "subject": "A/HI 245",
@@ -295,7 +295,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "A/HI 275, art history majors only.",
         "gpa": null
     },
@@ -387,7 +387,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "WP3 FTF",
+        "attributes": "FTF WP3",
         "prerequisites": "Any A/HI or equivalent 300-level course.",
         "gpa": null
     },
