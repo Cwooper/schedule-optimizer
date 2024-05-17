@@ -128,6 +128,7 @@ function generateJSON() {
                     errorMessage.innerHTML += "<br>" + response["warnings"].join("<br>");
                 }
                 all_schedules = response["schedules"]
+                sortSchedules();    // Update the sort based on the current value
                 current_schedule = 0;
                 displaySchedule(all_schedules[current_schedule]);
             }
@@ -200,9 +201,17 @@ function stringToColor(str) {
     return `#${c}`;
 }
 
-function addCoursesToCalendar(courses) {
+function addCoursesToCalendar(schedule) {
+    const courses = schedule.courses;
     const cornerCell = document.getElementById('cornerCell');
     cornerCell.textContent = `Schedule ${current_schedule}`
+    cornerCell._mouseover = () => addHoverEffect.call(cornerCell, "lightgray");
+    cornerCell.addEventListener('mouseover', cornerCell._mouseover);
+    cornerCell._mouseout = () => removeHoverEffect.call(cornerCell, "lightgray");
+    cornerCell.addEventListener('mouseout', cornerCell._mouseout);
+    cornerCell._click = () => displaySchedulePopupHandler(schedule);
+    cornerCell.addEventListener('click', cornerCell._click);
+
     courses.forEach(course => {
         const days = course.days.split(''); // Split the days string into an array
         const startTime = parseInt(course.start_time);
@@ -269,8 +278,7 @@ function addCoursesToCalendar(courses) {
 
 function displaySchedule(schedule) {
     clearSchedule();
-    const courses = schedule.courses;
-    addCoursesToCalendar(courses);
+    addCoursesToCalendar(schedule);
 }
 
 function clearSchedule() {
@@ -414,6 +422,87 @@ function removeHoverEffect(bgColor) {
 
 function displayPopupHandler(course) {
     displayPopup(course);
+}
+
+function displaySchedulePopupHandler(schedule) {
+    displaySchedulePopup(schedule);
+}
+
+function displaySchedulePopup(schedule) {
+    const oldPopup = document.getElementById('schedulePopup');
+    if (oldPopup) {
+        oldPopup.remove();
+    }
+    // Create a div element for the schedulePopup
+    const schedulePopup = document.createElement('div');
+    schedulePopup.id = 'schedulePopup';
+    schedulePopup.classList.add('popup');
+
+    // Add popup header basics
+    const popupHeader = document.createElement('div');
+    popupHeader.classList.add('popup-header');
+    const popupHeaderTitle = document.createElement('div');
+    popupHeaderTitle.classList.add('popup-header-title');
+    const popupCloseButton = document.createElement('button');
+    popupCloseButton.classList.add('popup-close-button');
+    popupCloseButton.innerHTML = '&times;'
+    popupCloseButton.onclick = () => {
+        if (schedulePopup) {
+            schedulePopup.remove();
+        }
+        return;
+    }
+
+    const popupBody = document.createElement('div');
+    popupBody.classList.add('popup-body');
+
+    popupHeaderTitle.innerHTML = `<b>Schedule ${current_schedule} Weights</b>`
+    // Add content to the popup
+    popupBody.innerHTML = `Average Score: ${schedule.score}<br>
+                           Average GPA: ${schedule.weights.gpa * 4.0}<br>
+                           Start Time Score: ${schedule.weights.start}<br>
+                           End Time Score: ${schedule.weights.end}<br>
+                           Gaps Score: ${schedule.weights.gap}`;
+
+    // Append the popup parts together and add it to the document
+    popupHeader.appendChild(popupHeaderTitle);
+    popupHeader.appendChild(popupCloseButton);
+    schedulePopup.appendChild(popupHeader);
+    schedulePopup.appendChild(popupBody)
+    document.body.appendChild(schedulePopup);
+}
+
+function sortSchedules() {
+    if (all_schedules.length <= 0) {
+        return;
+    }
+
+    const sortButton = document.getElementById('scheduleSort');
+    const sortValue = sortButton.value;
+
+    all_schedules.sort((a, b) => {
+        if (sortValue === 'score') {
+          return b.score - a.score;
+        } else if (sortValue === 'end') {
+          return b.weights.end - a.weights.end;
+        } else if (sortValue === 'gap') {
+          return b.weights.gap - a.weights.gap;
+        } else if (sortValue === 'gpa') {
+          return b.weights.gpa - a.weights.gpa;
+        } else if (sortValue === 'start') {
+          return b.weights.start - a.weights.start;
+        }
+        return 0;
+      });
+}
+
+function updateSort() {
+    if (all_schedules.length <= 0) {
+        return;
+    }
+    sortSchedules();
+    current_schedule = 0;
+    displaySchedule(all_schedules[current_schedule]);
 }
 
 // Fetch the class names from subjects.txt and populate the dropdown menu
