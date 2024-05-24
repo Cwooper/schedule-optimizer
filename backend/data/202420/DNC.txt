@@ -1,4 +1,4 @@
-2024-05-16T11:51:22.730807
+2024-05-23T17:34:53.633488
 [
     {
         "subject": "DNC 113",
@@ -176,8 +176,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $25.00",
         "cap": "20",
-        "enrl": "14",
-        "avail": "6",
+        "enrl": "13",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
@@ -222,8 +222,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "11",
-        "avail": "4",
+        "enrl": "10",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",

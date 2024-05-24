@@ -1,4 +1,4 @@
-2024-05-16T11:51:22.951733
+2024-05-23T17:34:53.831342
 [
     {
         "subject": "DSCI 205",
@@ -15,8 +15,8 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "90",
-        "enrl": "53",
-        "avail": "37",
+        "enrl": "52",
+        "avail": "38",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "HYBD",
@@ -38,8 +38,8 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "90",
-        "enrl": "83",
-        "avail": "7",
+        "enrl": "82",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "HYBD",

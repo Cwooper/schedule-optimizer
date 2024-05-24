@@ -1,4 +1,4 @@
-2024-05-16T11:51:13.594657
+2024-05-23T17:34:46.028199
 [
     {
         "subject": "MACS 494",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "10",
-        "enrl": "3",
-        "avail": "7",
+        "enrl": "4",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",

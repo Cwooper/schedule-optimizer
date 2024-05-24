@@ -1,4 +1,4 @@
-2024-05-16T11:50:56.302432
+2024-05-23T17:34:29.191483
 [
     {
         "subject": "GREK 101",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "24",
-        "enrl": "1",
-        "avail": "23",
+        "enrl": "4",
+        "avail": "20",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "24",
-        "enrl": "0",
-        "avail": "24",
+        "enrl": "6",
+        "avail": "18",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "2",
-        "avail": "23",
+        "enrl": "6",
+        "avail": "19",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCOM FTF",

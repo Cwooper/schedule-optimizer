@@ -1,4 +1,4 @@
-2024-05-16T11:51:15.897921
+2024-05-23T17:34:48.182750
 [
     {
         "subject": "RECR 472",
@@ -15,8 +15,8 @@
         "lab_room": "TBA",
         "addl_fees": "",
         "cap": "60",
-        "enrl": "39",
-        "avail": "21",
+        "enrl": "43",
+        "avail": "17",
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",

@@ -1,12 +1,12 @@
-2024-05-16T11:50:28.162781
+2024-05-23T17:34:01.616220
 [
     {
         "subject": "SCED 201",
         "course_credits": "4",
         "crn": "20622",
         "days": "MWF",
-        "start_time": "1000",
-        "end_time": "1150",
+        "start_time": "1200",
+        "end_time": "1350",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
@@ -83,9 +83,9 @@
         "room": "SL 210",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "0",
+        "cap": "20",
         "enrl": "0",
-        "avail": "0",
+        "avail": "20",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF WP3",

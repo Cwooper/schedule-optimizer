@@ -1,4 +1,4 @@
-2024-05-16T11:51:27.162762
+2024-05-23T17:34:57.628937
 [
     {
         "subject": "GEOL 101",
@@ -682,8 +682,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00",
         "cap": "75",
-        "enrl": "84",
-        "avail": "-9",
+        "enrl": "83",
+        "avail": "-8",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "ASNC OL SCI SST",

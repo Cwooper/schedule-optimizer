@@ -1,4 +1,4 @@
-2024-05-16T11:51:23.823621
+2024-05-23T17:34:54.592585
 [
     {
         "subject": "EDUC 109",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00",
         "cap": "19",
-        "enrl": "19",
-        "avail": "0",
+        "enrl": "15",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ASNC BCOM OL SST",

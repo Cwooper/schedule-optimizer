@@ -1,4 +1,4 @@
-2024-05-16T11:51:36.898497
+2024-05-23T17:35:06.905947
 [
     {
         "subject": "SPED 303",
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $16.17",
         "cap": "25",
-        "enrl": "22",
-        "avail": "3",
+        "enrl": "21",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "OV ED",
         "attributes": "FTF",

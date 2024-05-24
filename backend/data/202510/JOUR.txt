@@ -1,4 +1,4 @@
-2024-05-16T11:50:40.602175
+2024-05-23T17:34:13.503496
 [
     {
         "subject": "JOUR 106",
@@ -379,7 +379,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Watt, Peggy",
-        "room": "CF 226",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "Flat Fee $10.64",
         "cap": "12",

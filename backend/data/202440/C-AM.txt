@@ -1,4 +1,4 @@
-2024-05-16T11:50:50.346385
+2024-05-23T17:34:23.181734
 [
     {
         "subject": "C/AM 277",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "10",
-        "enrl": "1",
-        "avail": "9",
+        "enrl": "5",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
@@ -130,8 +130,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "5",
-        "enrl": "0",
-        "avail": "5",
+        "enrl": "1",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
@@ -153,8 +153,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "0",
-        "avail": "15",
+        "enrl": "4",
+        "avail": "11",
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "FTF WP1",

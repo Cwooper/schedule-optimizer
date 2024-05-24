@@ -1,4 +1,4 @@
-2024-05-16T11:50:46.079070
+2024-05-23T17:34:18.788476
 [
     {
         "subject": "PSY 101",
@@ -148,7 +148,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Warren, Mike",
+        "instructor": "Staff",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "Flat Fee $1.23",
@@ -884,7 +884,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Smith, Aaron",
+        "instructor": "Staff",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
@@ -1321,7 +1321,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Smith, Aaron",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
@@ -1413,7 +1413,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Smith, Aaron",
+        "instructor": "Staff",
         "room": "AI 479",
         "lab_room": null,
         "addl_fees": "",

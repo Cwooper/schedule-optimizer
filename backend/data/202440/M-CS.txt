@@ -1,4 +1,4 @@
-2024-05-16T11:51:00.695650
+2024-05-23T17:34:33.280021
 [
     {
         "subject": "M/CS 335",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "7",
-        "avail": "28",
+        "enrl": "29",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "2",
-        "avail": "33",
+        "enrl": "10",
+        "avail": "25",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "3",
-        "avail": "32",
+        "enrl": "10",
+        "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",

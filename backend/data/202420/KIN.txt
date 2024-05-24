@@ -1,4 +1,4 @@
-2024-05-16T11:51:29.956224
+2024-05-23T17:35:00.320435
 [
     {
         "subject": "KIN 304",
@@ -222,8 +222,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "40",
-        "enrl": "24",
-        "avail": "16",
+        "enrl": "23",
+        "avail": "17",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
@@ -774,8 +774,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "3",
-        "avail": "32",
+        "enrl": "4",
+        "avail": "31",
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",

@@ -1,4 +1,4 @@
-2024-05-16T11:50:42.077361
+2024-05-23T17:34:14.890487
 [
     {
         "subject": "MACS 111",
@@ -51,8 +51,8 @@
         "course_credits": "4",
         "crn": "12072",
         "days": "TR",
-        "start_time": "1000",
-        "end_time": "1115",
+        "start_time": "0900",
+        "end_time": "1015",
         "lab_days": "F",
         "lab_start_time": "0900",
         "lab_end_time": "1150",
@@ -74,8 +74,8 @@
         "course_credits": "4",
         "crn": "13071",
         "days": "TR",
-        "start_time": "1000",
-        "end_time": "1115",
+        "start_time": "0900",
+        "end_time": "1015",
         "lab_days": "F",
         "lab_start_time": "1400",
         "lab_end_time": "1650",
