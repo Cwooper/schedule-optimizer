@@ -8,6 +8,15 @@ and personal use. All data provided by this project is for
 informational purposes only and should not be considered official
 or binding. Use at your own discretion.
 
+## Requirements
+
+Python libraries:
+
+- flask
+- pandas
+- numpy
+- bs4
+
 ## Project goals
 
 User → Frontend → Flask → Backend
@@ -42,11 +51,10 @@ Flask should handle all requests for course schedules.
     - [ ] add `class_distance` weight (Dijkstra's)
 - [x] have a working frontend with well defined inputs
 - [x] send and recieve signlas from a web server
-- [ ] have a "force" button for necessary courses
+- [x] have a "force" button for necessary courses
 - [ ] provided automatic weights on the frontend
     - [ ] add customizability to weights on frontend
-- [ ] display the schedules in an easily readable format (maybe a library)
-    - [ ] possibly customize schedule viewing to show which courses can interchange with other courses, per schedule
+- [x] display the schedules in an easily readable format (maybe a library)
 - [ ] save user data by exporting a file (probably `.json`)
 
 Possible future additions (probably WWU only):
