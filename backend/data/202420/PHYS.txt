@@ -1,4 +1,4 @@
-2024-05-16T11:51:34.460504
+2024-05-23T17:35:04.619983
 [
     {
         "subject": "PHYS 102",
@@ -360,8 +360,8 @@
         "lab_room": "CF 315",
         "addl_fees": "Flat Fee $65.22",
         "cap": "20",
-        "enrl": "15",
-        "avail": "5",
+        "enrl": "13",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF LSCI",
@@ -521,8 +521,8 @@
         "lab_room": "CF 310",
         "addl_fees": "Flat Fee $65.22",
         "cap": "20",
-        "enrl": "19",
-        "avail": "1",
+        "enrl": "18",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF LSCI",

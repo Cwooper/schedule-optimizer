@@ -1,4 +1,4 @@
-2024-05-16T11:51:26.540468
+2024-05-23T17:34:57.085004
 [
     {
         "subject": "FAIR 101A",
@@ -291,8 +291,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $8.18",
         "cap": "30",
-        "enrl": "25",
-        "avail": "5",
+        "enrl": "26",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
@@ -429,8 +429,8 @@
         "lab_room": "FA 300A",
         "addl_fees": "Flat Fee $7.20",
         "cap": "35",
-        "enrl": "18",
-        "avail": "17",
+        "enrl": "19",
+        "avail": "16",
         "waitlist": "",
         "restrictions": "OV FA S/U PQ",
         "attributes": "FTF",

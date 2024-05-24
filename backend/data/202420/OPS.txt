@@ -1,4 +1,4 @@
-2024-05-16T11:51:33.512027
+2024-05-23T17:35:03.715598
 [
     {
         "subject": "OPS 360",
@@ -38,8 +38,8 @@
         "lab_room": "ES 100",
         "addl_fees": "",
         "cap": "65",
-        "enrl": "44",
-        "avail": "21",
+        "enrl": "43",
+        "avail": "22",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",

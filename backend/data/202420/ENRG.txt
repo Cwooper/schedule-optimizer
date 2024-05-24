@@ -1,4 +1,4 @@
-2024-05-16T11:51:24.636233
+2024-05-23T17:34:55.362354
 [
     {
         "subject": "ENRG 101",
@@ -263,7 +263,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Dunn, Jess",
         "room": "ES 070",
         "lab_room": null,
         "addl_fees": "",
@@ -392,6 +392,29 @@
         "gpa": null
     },
     {
+        "subject": "ENRG 495",
+        "course_credits": "1 TO 4",
+        "crn": "21622",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Magee, Darrin Lynn",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "10",
+        "enrl": "1",
+        "avail": "9",
+        "waitlist": "",
+        "restrictions": "OV MJ S/U",
+        "attributes": "FTF",
+        "prerequisites": "Declared Energy Policy and Management, BA, student.",
+        "gpa": null
+    },
+    {
         "subject": "ENRG 498",
         "course_credits": "1 TO 12",
         "crn": "23316",
@@ -424,7 +447,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Dunn, Jess",
         "room": "ES 070",
         "lab_room": null,
         "addl_fees": "",

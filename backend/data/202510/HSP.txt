@@ -1,4 +1,4 @@
-2024-05-16T11:50:39.530061
+2024-05-23T17:34:12.502942
 [
     {
         "subject": "HSP 301",
@@ -33,7 +33,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Durias, Joshua",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",

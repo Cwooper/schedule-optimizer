@@ -1,4 +1,4 @@
-2024-05-16T11:51:16.432568
+2024-05-23T17:34:48.509548
 [
     {
         "subject": "SALI 201",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "13",
-        "avail": "22",
+        "enrl": "16",
+        "avail": "19",
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC BCGM OL",

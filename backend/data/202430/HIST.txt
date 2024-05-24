@@ -1,4 +1,4 @@
-2024-05-16T11:51:11.589711
+2024-05-23T17:34:44.109919
 [
     {
         "subject": "HIST 364",
@@ -14,9 +14,9 @@
         "room": "ONLINE ASNC",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "20",
-        "enrl": "20",
-        "avail": "0",
+        "cap": "25",
+        "enrl": "24",
+        "avail": "1",
         "waitlist": "WL",
         "restrictions": "",
         "attributes": "ASNC OL US US1 US2",
@@ -38,9 +38,9 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "15",
-        "enrl": "13",
-        "avail": "2",
-        "waitlist": "",
+        "enrl": "16",
+        "avail": "-1",
+        "waitlist": "WL",
         "restrictions": "JR SR",
         "attributes": "EUR EUR2 MIX OL",
         "prerequisites": "junior standing",
@@ -60,8 +60,8 @@
         "room": "ONLINE ASNC",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "20",
-        "enrl": "20",
+        "cap": "25",
+        "enrl": "25",
         "avail": "0",
         "waitlist": "WL",
         "restrictions": "",

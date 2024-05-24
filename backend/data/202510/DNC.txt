@@ -1,4 +1,4 @@
-2024-05-16T11:50:34.062145
+2024-05-23T17:34:07.409234
 [
     {
         "subject": "DNC 112",
@@ -264,7 +264,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Haines, Susan Elizabeth",
-        "room": "AW 304",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "Flat Fee $75.00",
         "cap": "25",

@@ -1,4 +1,4 @@
-2024-05-16T11:51:26.846841
+2024-05-23T17:34:57.325700
 [
     {
         "subject": "FREN 103",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "30",
-        "enrl": "21",
-        "avail": "9",
+        "enrl": "20",
+        "avail": "10",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCOM FTF",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "30",
-        "enrl": "10",
-        "avail": "20",
+        "enrl": "9",
+        "avail": "21",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCOM FTF",

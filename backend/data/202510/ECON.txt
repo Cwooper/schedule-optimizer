@@ -1,4 +1,4 @@
-2024-05-16T11:50:34.971277
+2024-05-23T17:34:08.349370
 [
     {
         "subject": "ECON 101",
@@ -425,7 +425,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Wright, Adam Charles",
-        "room": "AW 302",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
@@ -609,7 +609,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Wright, Adam Charles",
-        "room": "AW 302",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",

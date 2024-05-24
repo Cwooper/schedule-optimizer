@@ -1,4 +1,4 @@
-2024-05-16T11:50:39.255438
+2024-05-23T17:34:12.253105
 [
     {
         "subject": "HNRS 104",
@@ -356,7 +356,7 @@
         "lab_start_time": "1000",
         "lab_end_time": "1150",
         "instructor": "Bach, Andy",
-        "room": "CF 231",
+        "room": "TBA",
         "lab_room": "AH 005",
         "addl_fees": "",
         "cap": "24",
@@ -379,7 +379,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Martindale, Lori Marie",
-        "room": "OM 580",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -425,7 +425,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Ten Eyck, Toby",
-        "room": "CF 224",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
         "cap": "24",

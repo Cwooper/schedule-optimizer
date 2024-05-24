@@ -1,4 +1,4 @@
-2024-05-16T11:51:09.682300
+2024-05-23T17:34:42.245613
 [
     {
         "subject": "EECE 111",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $138.41",
         "cap": "30",
-        "enrl": "12",
-        "avail": "18",
+        "enrl": "13",
+        "avail": "17",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $34.26",
         "cap": "4",
-        "enrl": "0",
-        "avail": "4",
+        "enrl": "2",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",

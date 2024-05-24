@@ -1,4 +1,4 @@
-2024-05-16T11:51:26.726092
+2024-05-23T17:34:57.224165
 [
     {
         "subject": "FIN 215",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "90",
-        "enrl": "82",
-        "avail": "8",
+        "enrl": "81",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ASNC OL SSC",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00",
         "cap": "30",
-        "enrl": "27",
-        "avail": "3",
+        "enrl": "26",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ASNC OL QSR SST",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
-        "enrl": "11",
-        "avail": "34",
+        "enrl": "8",
+        "avail": "37",
         "waitlist": "",
         "restrictions": "OV JR SO SR PQ",
         "attributes": "FTF",

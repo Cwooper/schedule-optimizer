@@ -1,4 +1,4 @@
-2024-05-16T11:51:36.158010
+2024-05-23T17:35:06.252487
 [
     {
         "subject": "SEC 400",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "9",
-        "avail": "11",
+        "enrl": "8",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "OV ED",
         "attributes": "FTF",
@@ -268,8 +268,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
-        "enrl": "35",
-        "avail": "25",
+        "enrl": "36",
+        "avail": "24",
         "waitlist": "",
         "restrictions": "OV ED S/U",
         "attributes": "FTF",

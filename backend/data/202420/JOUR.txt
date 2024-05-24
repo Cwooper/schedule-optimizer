@@ -1,4 +1,4 @@
-2024-05-16T11:51:29.690491
+2024-05-23T17:34:59.981972
 [
     {
         "subject": "JOUR 106",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "120",
-        "enrl": "63",
-        "avail": "57",
+        "enrl": "61",
+        "avail": "59",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",
@@ -130,8 +130,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $3.55",
         "cap": "18",
-        "enrl": "18",
-        "avail": "0",
+        "enrl": "16",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCOM FTF",

@@ -1,4 +1,4 @@
-2024-05-16T11:50:48.024698
+2024-05-23T17:34:20.772502
 [
     {
         "subject": "THTR 101",
@@ -586,7 +586,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Staff",
-        "room": "MH 131",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
         "cap": "24",

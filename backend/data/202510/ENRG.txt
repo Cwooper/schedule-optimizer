@@ -1,4 +1,4 @@
-2024-05-16T11:50:35.723591
+2024-05-23T17:34:09.096533
 [
     {
         "subject": "ENRG 101",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Barnhart, Charles Joseph",
-        "room": "AH 100",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
         "cap": "150",
@@ -34,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Sifuentes, Froylan",
-        "room": "ES 072",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -218,8 +218,8 @@
         "lab_start_time": "1400",
         "lab_end_time": "1650",
         "instructor": "Goel, Nipun",
-        "room": "AW 305",
-        "lab_room": "AW 305",
+        "room": "TBA",
+        "lab_room": "TBA",
         "addl_fees": "",
         "cap": "25",
         "enrl": "0",
@@ -257,7 +257,7 @@
         "subject": "ENRG 482",
         "course_credits": "4",
         "crn": "12168",
-        "days": "TR",
+        "days": "MW",
         "start_time": "1200",
         "end_time": "1350",
         "lab_days": null,
@@ -287,7 +287,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Dorsey-Palmateer, Reid Matthew",
-        "room": "ES 080",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",

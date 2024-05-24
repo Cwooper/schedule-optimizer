@@ -1,4 +1,4 @@
-2024-05-16T11:50:39.661842
+2024-05-23T17:34:12.628635
 [
     {
         "subject": "HUMA 121",
@@ -79,7 +79,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Goosmann, Breann",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
@@ -102,7 +102,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Carotenuto, Gianna M.",
+        "instructor": "Staff",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
@@ -171,7 +171,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Gogrof, Andrea E.",
+        "instructor": "Staff",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
@@ -240,7 +240,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Lynn, Kimberly",
+        "instructor": "Gogrof, Andrea E.",
         "room": "BH OFC",
         "lab_room": null,
         "addl_fees": "",
@@ -263,7 +263,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Lynn, Kimberly",
+        "instructor": "Gogrof, Andrea E.",
         "room": "BH OFC",
         "lab_room": null,
         "addl_fees": "",

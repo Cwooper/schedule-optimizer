@@ -1,4 +1,4 @@
-2024-05-16T11:50:26.926213
+2024-05-23T17:34:00.345624
 [
     {
         "subject": "PLSC 250",
@@ -573,6 +573,29 @@
         "restrictions": "SR MJ",
         "attributes": "FTF WP3",
         "prerequisites": "Senior status in political science and 30 credits in political science.",
+        "gpa": null
+    },
+    {
+        "subject": "PLSC 444",
+        "course_credits": "3 TO 15",
+        "crn": "23286",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Donovan, Todd A.",
+        "room": "AH OFC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "8",
+        "enrl": "0",
+        "avail": "8",
+        "waitlist": "",
+        "restrictions": "OV PQ",
+        "attributes": "FTF",
+        "prerequisites": "Two courses in appropriate field in discipline",
         "gpa": null
     },
     {

@@ -1,4 +1,4 @@
-2024-05-16T11:50:36.998151
+2024-05-23T17:34:10.287769
 [
     {
         "subject": "ENVS 201",
@@ -202,7 +202,7 @@
         "enrl": "0",
         "avail": "30",
         "waitlist": "",
-        "restrictions": "EN MJ",
+        "restrictions": "MJ",
         "attributes": "FTF",
         "prerequisites": "College of the Environment majors or instructor permission.",
         "gpa": null
@@ -225,7 +225,7 @@
         "enrl": "0",
         "avail": "30",
         "waitlist": "",
-        "restrictions": "EN MJ",
+        "restrictions": "MJ",
         "attributes": "FTF",
         "prerequisites": "College of the Environment majors or instructor permission.",
         "gpa": null
@@ -248,7 +248,7 @@
         "enrl": "0",
         "avail": "30",
         "waitlist": "",
-        "restrictions": "EN MJ",
+        "restrictions": "MJ",
         "attributes": "FTF",
         "prerequisites": "College of the Environment majors or instructor permission.",
         "gpa": null

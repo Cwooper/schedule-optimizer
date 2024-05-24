@@ -1,4 +1,4 @@
-2024-05-16T11:51:28.604740
+2024-05-23T17:34:58.929001
 [
     {
         "subject": "HSP 325",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "26",
-        "enrl": "20",
-        "avail": "6",
+        "enrl": "19",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
@@ -222,8 +222,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "17",
-        "avail": "8",
+        "enrl": "16",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF",

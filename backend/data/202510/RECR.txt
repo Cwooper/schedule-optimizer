@@ -1,4 +1,4 @@
-2024-05-16T11:50:46.195099
+2024-05-23T17:34:18.915976
 [
     {
         "subject": "RECR 201",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Chmielewski, Kristen Elizabeth",
-        "room": "MH 139",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
@@ -57,7 +57,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "D'Eloia, Melissa Hough",
-        "room": "CV 264",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "Flat Fee $128.00",
         "cap": "15",
@@ -103,7 +103,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Goodnow, Jasmine Marie",
-        "room": "MH 017",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "Flat Fee $128.00",
         "cap": "15",
@@ -172,7 +172,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "D'Eloia, Melissa Hough",
-        "room": "MH 115",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -241,7 +241,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Goodnow, Jasmine Marie",
-        "room": "CV 265",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "Flat Fee $75.00",
         "cap": "20",

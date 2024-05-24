@@ -1,4 +1,4 @@
-2024-05-16T11:50:33.710596
+2024-05-23T17:34:07.031561
 [
     {
         "subject": "CSCI 101",
@@ -1516,6 +1516,29 @@
         "restrictions": "GR PB PM PQ",
         "attributes": "FTF",
         "prerequisites": "CSCI 367 and graduate status; or instructor permission.",
+        "gpa": null
+    },
+    {
+        "subject": "CSCI 692",
+        "course_credits": "5",
+        "crn": "13997",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Staff",
+        "room": "CF OFC",
+        "lab_room": null,
+        "addl_fees": "Per/Cr $26.44",
+        "cap": "30",
+        "enrl": "0",
+        "avail": "30",
+        "waitlist": "",
+        "restrictions": "OV GR PB PM S/U",
+        "attributes": "FTF",
+        "prerequisites": "Instructor permission.",
         "gpa": null
     }
 ]

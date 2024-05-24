@@ -1,4 +1,4 @@
-2024-05-16T11:50:25.815096
+2024-05-23T17:33:59.212963
 [
     {
         "subject": "MUS 101",
@@ -481,6 +481,29 @@
         "restrictions": "MJ",
         "attributes": "FTF",
         "prerequisites": "MUS 124; Music major or Music minor.",
+        "gpa": null
+    },
+    {
+        "subject": "MUS 197J",
+        "course_credits": "3",
+        "crn": "23647",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Staff",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "Per/Cr $298.00",
+        "cap": "35",
+        "enrl": "0",
+        "avail": "35",
+        "waitlist": "",
+        "restrictions": "",
+        "attributes": "ASNC OL SST",
+        "prerequisites": "",
         "gpa": null
     },
     {

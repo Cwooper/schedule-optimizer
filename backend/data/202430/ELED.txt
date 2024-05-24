@@ -1,4 +1,4 @@
-2024-05-16T11:51:09.789903
+2024-05-23T17:34:42.329539
 [
     {
         "subject": "ELED 464",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "4",
-        "avail": "21",
+        "enrl": "3",
+        "avail": "22",
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL",

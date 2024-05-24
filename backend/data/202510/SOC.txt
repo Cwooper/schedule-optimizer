@@ -1,4 +1,4 @@
-2024-05-16T11:50:47.234594
+2024-05-23T17:34:19.969986
 [
     {
         "subject": "SOC 251",
@@ -415,6 +415,29 @@
         "gpa": null
     },
     {
+        "subject": "SOC 366",
+        "course_credits": "5",
+        "crn": "14000",
+        "days": "R",
+        "start_time": "0900",
+        "end_time": "1050",
+        "lab_days": "N/A",
+        "lab_start_time": "N/A",
+        "lab_end_time": "N/A",
+        "instructor": "Staff",
+        "room": "ONLINE SYNC",
+        "lab_room": "ONLINE ASNC",
+        "addl_fees": "Per/Cr $298.00",
+        "cap": "30",
+        "enrl": "0",
+        "avail": "30",
+        "waitlist": "",
+        "restrictions": "PQ",
+        "attributes": "ACGM MIX OL SST",
+        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
+        "gpa": null
+    },
+    {
         "subject": "SOC 369",
         "course_credits": "5",
         "crn": "10467",
@@ -461,9 +484,9 @@
         "gpa": null
     },
     {
-        "subject": "SOC 374",
+        "subject": "SOC 372",
         "course_credits": "5",
-        "crn": "12473",
+        "crn": "13998",
         "days": "TR",
         "start_time": "0800",
         "end_time": "0950",
@@ -480,7 +503,7 @@
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
-        "prerequisites": "Any course from: ENVS 303, SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
+        "prerequisites": "Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.",
         "gpa": null
     },
     {
@@ -625,9 +648,9 @@
         "subject": "SOC 430",
         "course_credits": "5",
         "crn": "12879",
-        "days": "MWF",
-        "start_time": "1300",
-        "end_time": "1420",
+        "days": "WF",
+        "start_time": "1130",
+        "end_time": "1320",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
