@@ -70,16 +70,13 @@ class Schedule:
         if not start_time:
             return None
 
-        if start_time < 480 or start_time >= 780:  # Before 08:00 or after/equal to 13:00
+        if start_time < 480:  # Before 08:00
             return 0.0
         elif 480 <= start_time < 600: # 0800 to 1000
             start_score = (start_time - 480) / 120.0
             return round(start_score, ROUND)
-        elif 600 <= start_time < 660: # 1000 to 1100
+        else: # 1000 and up
             return 1.0
-        else:
-            start_score = (780 - start_time) / 120.0 # 1100 to 1300
-            return round(start_score, ROUND) 
         
     def _weigh_end(self, end_time):
         # Filter and find end time of schedule
@@ -109,7 +106,12 @@ class Schedule:
         gap_time = day_time_mins - course_time_mins
 
         num_courses = len(self.courses)
-        best_gaps_time = 10 * (num_courses - 1)
+        num_labs = 0
+        for course in self.courses:
+            if course.lab_days:
+                num_labs += 1
+
+        best_gaps_time = 10 * (num_courses + num_labs - 1)
 
         if gap_time <= best_gaps_time:
             return 1.0
@@ -125,12 +127,16 @@ class Schedule:
         for course in self.courses:
             if isinstance(course.start_time, str) and course.start_time.isdigit():
                 start_times.append(int(course.start_time))
+            if isinstance(course.lab_start_time, str) and course.lab_start_time.isdigit():
+                start_times.append(int(course.lab_start_time))
         start_time = to_mins(min(start_times)) if start_times else None
     
         end_times = []
         for course in self.courses:
             if isinstance(course.end_time, str) and course.end_time.isdigit():
                 end_times.append(int(course.end_time))
+            if isinstance(course.lab_end_time, str) and course.lab_end_time.isdigit():
+                start_times.append(int(course.lab_end_time))
         end_time = to_mins(max(end_times)) if end_times else None
         
         gpa_score = self._weigh_gpa()
