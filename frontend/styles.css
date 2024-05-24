@@ -295,6 +295,15 @@ p {
     padding: 5px 10px;
 }
 
+.calendarOptions {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    text-align: center;
+    padding-bottom: 3%;
+}
+
 #prevButton {
     margin-right: auto;
 }
@@ -365,6 +374,20 @@ p {
     .calendar-table td, th {
         padding: 2px;
     }
+    /* TODO fix this formatting on mobile */
+    .calendarOptions {
+        width: 100%;
+        justify-content: left;
+    }
+
+    #prevButton {
+        margin: auto;
+    }
+    
+    #nextButton {
+        margin: auto;
+    }
+    
 
     .scheduled-course {
         min-width: 75px;
