@@ -1,4 +1,4 @@
-2024-05-16T11:51:26.203053
+2024-05-23T17:34:56.704189
 [
     {
         "subject": "ENVS 203",
@@ -314,8 +314,8 @@
         "lab_room": "AH 016",
         "addl_fees": "Flat Fee $31.75",
         "cap": "25",
-        "enrl": "23",
-        "avail": "2",
+        "enrl": "22",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "OV UG",
         "attributes": "FTF",
@@ -567,8 +567,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $26.25",
         "cap": "22",
-        "enrl": "23",
-        "avail": "-1",
+        "enrl": "22",
+        "avail": "0",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",

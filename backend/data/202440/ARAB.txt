@@ -1,4 +1,4 @@
-2024-05-16T11:50:49.090503
+2024-05-23T17:34:21.984436
 [
     {
         "subject": "ARAB 101",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "3",
-        "avail": "22",
+        "enrl": "8",
+        "avail": "17",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "0",
-        "avail": "25",
+        "enrl": "3",
+        "avail": "22",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",

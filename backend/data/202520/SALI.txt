@@ -1,12 +1,12 @@
-2024-05-16T11:50:28.061328
+2024-05-23T17:34:01.503827
 [
     {
         "subject": "SALI 201",
         "course_credits": "4",
         "crn": "21751",
         "days": "TR",
-        "start_time": "1200",
-        "end_time": "1350",
+        "start_time": "1000",
+        "end_time": "1150",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,

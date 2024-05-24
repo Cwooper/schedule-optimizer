@@ -1,4 +1,4 @@
-2024-05-16T11:51:12.141288
+2024-05-23T17:34:44.699084
 [
     {
         "subject": "I T 442",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $6.74",
         "cap": "40",
-        "enrl": "39",
-        "avail": "1",
+        "enrl": "40",
+        "avail": "0",
         "waitlist": "WL",
         "restrictions": "PQ",
         "attributes": "ASNC OL",

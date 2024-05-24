@@ -1,4 +1,4 @@
-2024-05-16T11:50:18.866091
+2024-05-23T17:33:52.441280
 [
     {
         "subject": "ESCI 101",
@@ -79,7 +79,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Wallin, David O.",
+        "instructor": "Green, Gregory Alex",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",

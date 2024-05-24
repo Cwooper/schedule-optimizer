@@ -1,4 +1,4 @@
-2024-05-16T11:51:19.028693
+2024-05-23T17:34:50.675009
 [
     {
         "subject": "ART 109",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $5.06",
         "cap": "180",
-        "enrl": "172",
-        "avail": "8",
+        "enrl": "171",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ASNC HUM OL",
@@ -153,8 +153,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00 Flat Fee $50.00",
         "cap": "18",
-        "enrl": "18",
-        "avail": "0",
+        "enrl": "17",
+        "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ASNC OL SST",

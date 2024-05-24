@@ -1,4 +1,4 @@
-2024-05-16T11:50:37.508323
+2024-05-23T17:34:10.718781
 [
     {
         "subject": "FIN 215",
@@ -234,10 +234,10 @@
         "subject": "FIN 441",
         "course_credits": "4",
         "crn": "10234",
-        "days": "MW",
+        "days": "M",
         "start_time": "1430",
         "end_time": "1550",
-        "lab_days": "F",
+        "lab_days": "WF",
         "lab_start_time": "1430",
         "lab_end_time": "1550",
         "instructor": "Wonder, Nicholas Xerxes",

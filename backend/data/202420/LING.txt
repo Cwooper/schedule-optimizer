@@ -1,4 +1,4 @@
-2024-05-16T11:51:30.424331
+2024-05-23T17:35:00.763633
 [
     {
         "subject": "LING 201",
@@ -245,8 +245,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "9",
-        "avail": "6",
+        "enrl": "8",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF WP3",

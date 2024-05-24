@@ -1,4 +1,4 @@
-2024-05-16T11:51:37.766460
+2024-05-23T17:35:07.809018
 [
     {
         "subject": "WGSS 211",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "28",
-        "avail": "7",
+        "enrl": "27",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ASNC BCGM OL",
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "31",
-        "avail": "4",
+        "enrl": "30",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM FTF",
@@ -153,8 +153,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "33",
-        "avail": "2",
+        "enrl": "31",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM ASNC OL",
@@ -286,7 +286,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Tilland-Stafford, Anika Oceana",
+        "instructor": "Wires, Katherine Nicole",
         "room": "OS X101",
         "lab_room": null,
         "addl_fees": "",

@@ -1,4 +1,4 @@
-2024-05-16T11:50:27.516534
+2024-05-23T17:34:00.936611
 [
     {
         "subject": "PSY 101",
@@ -723,7 +723,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Smith, Aaron",
+        "instructor": "Staff",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
@@ -1436,7 +1436,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Smith, Aaron",
         "room": "AI 479",
         "lab_room": null,
         "addl_fees": "",

@@ -1,4 +1,4 @@
-2024-05-16T11:51:13.230720
+2024-05-23T17:34:45.701468
 [
     {
         "subject": "LING 201",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "10",
-        "enrl": "4",
-        "avail": "6",
+        "enrl": "2",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF SSC",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "11",
-        "avail": "14",
+        "enrl": "12",
+        "avail": "13",
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SCI",

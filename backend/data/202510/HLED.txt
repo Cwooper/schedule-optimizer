@@ -1,4 +1,4 @@
-2024-05-16T11:50:38.624615
+2024-05-23T17:34:11.722104
 [
     {
         "subject": "HLED 202",
@@ -11,7 +11,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Hunt, Mary",
-        "room": "CV 104",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
         "cap": "70",
@@ -34,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Bennett, Steve Woodrow",
-        "room": "MH 131",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
@@ -103,7 +103,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Li, Ying",
-        "room": "CV 265",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
@@ -112,6 +112,29 @@
         "waitlist": "",
         "restrictions": "MJ S/U PQ",
         "attributes": "FTF",
+        "prerequisites": "HLED 401",
+        "gpa": null
+    },
+    {
+        "subject": "HLED 445",
+        "course_credits": "5",
+        "crn": "12508",
+        "days": "MW",
+        "start_time": "0900",
+        "end_time": "1120",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Bennett, Steve Woodrow",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "30",
+        "enrl": "0",
+        "avail": "30",
+        "waitlist": "",
+        "restrictions": "MJ PQ",
+        "attributes": "FTF WP3",
         "prerequisites": "HLED 401",
         "gpa": null
     },

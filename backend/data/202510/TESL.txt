@@ -1,4 +1,4 @@
-2024-05-16T11:50:47.833915
+2024-05-23T17:34:20.569018
 [
     {
         "subject": "TESL 340",
@@ -33,7 +33,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Blick, Andrew Michael",
+        "instructor": "Staff",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00",
@@ -47,6 +47,29 @@
         "gpa": null
     },
     {
+        "subject": "TESL 350",
+        "course_credits": "1 TO 4",
+        "crn": "13096",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Staff",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "5",
+        "enrl": "0",
+        "avail": "5",
+        "waitlist": "",
+        "restrictions": "OV S/U",
+        "attributes": "HYBD",
+        "prerequisites": "Instructor permission.",
+        "gpa": null
+    },
+    {
         "subject": "TESL 441",
         "course_credits": "4",
         "crn": "13994",
@@ -56,7 +79,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Brisbois, Lisa Christine",
+        "instructor": "Staff",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00",
@@ -79,7 +102,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Brisbois, Lisa Christine",
+        "instructor": "Staff",
         "room": "ONLINE ASNC",
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00",
@@ -102,7 +125,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Brisbois, Lisa Christine",
+        "instructor": "Staff",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00",

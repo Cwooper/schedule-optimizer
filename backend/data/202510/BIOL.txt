@@ -1,4 +1,4 @@
-2024-05-16T11:50:32.001495
+2024-05-23T17:34:05.161573
 [
     {
         "subject": "BIOL 101",
@@ -1562,6 +1562,29 @@
         "restrictions": "MJ S/U PQ",
         "attributes": "FTF",
         "prerequisites": "BIOL 204, BIOL 205, BIOL 206",
+        "gpa": null
+    },
+    {
+        "subject": "BIOL 446",
+        "course_credits": "4",
+        "crn": "14002",
+        "days": "TR",
+        "start_time": "1400",
+        "end_time": "1550",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Snyder, Annelise Grace",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "30",
+        "enrl": "0",
+        "avail": "30",
+        "waitlist": "",
+        "restrictions": "PQ",
+        "attributes": "FTF",
+        "prerequisites": "BIOL 321; BIOL 323 or BIOL 328",
         "gpa": null
     },
     {

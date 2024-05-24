@@ -1,4 +1,4 @@
-2024-05-16T11:51:04.387033
+2024-05-23T17:34:36.828660
 [
     {
         "subject": "SALI 201",
@@ -15,10 +15,10 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $20.00",
         "cap": "20",
-        "enrl": "0",
-        "avail": "20",
-        "waitlist": "",
-        "restrictions": "MJ",
+        "enrl": "20",
+        "avail": "0",
+        "waitlist": "WL",
+        "restrictions": "",
         "attributes": "BCGM FTF",
         "prerequisites": "Optional co-requisite: SALI 202.",
         "gpa": null
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $50.00",
         "cap": "10",
-        "enrl": "0",
-        "avail": "10",
+        "enrl": "4",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "3",
-        "avail": "12",
+        "enrl": "4",
+        "avail": "11",
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",

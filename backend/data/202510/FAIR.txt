@@ -1,4 +1,4 @@
-2024-05-16T11:50:37.320782
+2024-05-23T17:34:10.562693
 [
     {
         "subject": "FAIR 101A",
@@ -517,7 +517,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Akinrinade, Babafemi A.",
-        "room": "TBA",
+        "room": "FA OFC",
         "lab_room": null,
         "addl_fees": "",
         "cap": "6",

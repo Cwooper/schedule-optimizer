@@ -1,4 +1,4 @@
-2024-05-16T11:50:27.872137
+2024-05-23T17:34:01.298951
 [
     {
         "subject": "REL 231",
@@ -286,7 +286,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Lynn, Kimberly",
+        "instructor": "Gogrof, Andrea E.",
         "room": "BH OFC",
         "lab_room": null,
         "addl_fees": "",
@@ -309,7 +309,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Lynn, Kimberly",
+        "instructor": "Gogrof, Andrea E.",
         "room": "BH OFC",
         "lab_room": null,
         "addl_fees": "",

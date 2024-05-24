@@ -1,4 +1,4 @@
-2024-05-16T11:50:44.396989
+2024-05-23T17:34:16.966306
 [
     {
         "subject": "MUS 101",
@@ -504,6 +504,29 @@
         "restrictions": "",
         "attributes": "FTF",
         "prerequisites": "Admission to the music program as a voice pre-major, MUS 166A.",
+        "gpa": null
+    },
+    {
+        "subject": "MUS 197J",
+        "course_credits": "3",
+        "crn": "14001",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Staff",
+        "room": "ONLINE ASNC",
+        "lab_room": null,
+        "addl_fees": "Per/Cr $298.00",
+        "cap": "35",
+        "enrl": "0",
+        "avail": "35",
+        "waitlist": "",
+        "restrictions": "",
+        "attributes": "ASNC OL SST",
+        "prerequisites": "",
         "gpa": null
     },
     {
@@ -3291,7 +3314,7 @@
     },
     {
         "subject": "MUS 316",
-        "course_credits": "1 TO 4",
+        "course_credits": "1",
         "crn": "10728",
         "days": "TBD",
         "start_time": "TBD",
@@ -3314,7 +3337,7 @@
     },
     {
         "subject": "MUS 316",
-        "course_credits": "1 TO 4",
+        "course_credits": "1",
         "crn": "11005",
         "days": "T",
         "start_time": "1400",
@@ -3337,7 +3360,7 @@
     },
     {
         "subject": "MUS 316",
-        "course_credits": "1",
+        "course_credits": "1 TO 4",
         "crn": "10728",
         "days": "TBD",
         "start_time": "TBD",
@@ -3360,7 +3383,7 @@
     },
     {
         "subject": "MUS 316",
-        "course_credits": "1",
+        "course_credits": "1 TO 4",
         "crn": "11005",
         "days": "T",
         "start_time": "1400",

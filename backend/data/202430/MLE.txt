@@ -1,4 +1,4 @@
-2024-05-16T11:51:14.546902
+2024-05-23T17:34:46.894426
 [
     {
         "subject": "MLE 441",
@@ -15,8 +15,8 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "25",
-        "enrl": "6",
-        "avail": "19",
+        "enrl": "7",
+        "avail": "18",
         "waitlist": "",
         "restrictions": "",
         "attributes": "MIX OL",

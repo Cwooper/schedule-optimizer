@@ -1,4 +1,4 @@
-2024-05-16T11:51:14.844545
+2024-05-23T17:34:47.221334
 [
     {
         "subject": "OPS 360",
@@ -15,9 +15,9 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "40",
-        "enrl": "34",
-        "avail": "6",
-        "waitlist": "",
+        "enrl": "40",
+        "avail": "0",
+        "waitlist": "WL",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
         "prerequisites": "DSCI 205, ACCT 245, C- or better; spreadsheet competency",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "3",
-        "avail": "27",
+        "enrl": "2",
+        "avail": "28",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",

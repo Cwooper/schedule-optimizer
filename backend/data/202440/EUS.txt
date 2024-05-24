@@ -1,4 +1,4 @@
-2024-05-16T11:50:55.068403
+2024-05-23T17:34:27.995353
 [
     {
         "subject": "EUS 201",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "100",
-        "enrl": "5",
-        "avail": "95",
+        "enrl": "28",
+        "avail": "72",
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00",
         "cap": "25",
-        "enrl": "5",
-        "avail": "20",
+        "enrl": "24",
+        "avail": "1",
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM ASNC OL SST",

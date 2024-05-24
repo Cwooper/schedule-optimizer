@@ -1,4 +1,4 @@
-2024-05-16T11:50:34.810059
+2024-05-23T17:34:08.171700
 [
     {
         "subject": "EAST 201",
@@ -73,8 +73,8 @@
         "subject": "EAST 310",
         "course_credits": "5",
         "crn": "13821",
-        "days": "TR",
-        "start_time": "1400",
+        "days": "MWF",
+        "start_time": "1430",
         "end_time": "1550",
         "lab_days": null,
         "lab_start_time": null,

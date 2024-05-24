@@ -1,4 +1,4 @@
-2024-05-16T11:50:22.766239
+2024-05-23T17:33:56.473213
 [
     {
         "subject": "LIBR 325",
@@ -14,9 +14,9 @@
         "room": "WL 677",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "5",
+        "cap": "15",
         "enrl": "0",
-        "avail": "5",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
