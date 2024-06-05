@@ -1,4 +1,4 @@
-2024-05-23T17:33:59.212963
+2024-06-05T18:46:31.907911
 [
     {
         "subject": "MUS 101",
@@ -3694,9 +3694,9 @@
         "room": "PA 047",
         "lab_room": null,
         "addl_fees": "Flat Fee $60.00",
-        "cap": "25",
+        "cap": "20",
         "enrl": "0",
-        "avail": "25",
+        "avail": "20",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",

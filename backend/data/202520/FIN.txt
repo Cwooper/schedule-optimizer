@@ -1,4 +1,4 @@
-2024-05-23T17:33:53.180713
+2024-06-05T18:46:25.726642
 [
     {
         "subject": "FIN 215",
@@ -33,7 +33,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "McClain, Lee",
+        "instructor": "Staff",
         "room": "ONLINE ASNC",
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00",
@@ -56,7 +56,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "LaBorde, Pamela M.",
+        "instructor": "Staff",
         "room": "ONLINE ASNC",
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00",
@@ -148,7 +148,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Kong, Sophie",
+        "instructor": "Staff",
         "room": "ONLINE ASNC",
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00",

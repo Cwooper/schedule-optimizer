@@ -1,4 +1,4 @@
-2024-05-23T17:34:47.786629
+2024-06-05T18:47:23.250972
 [
     {
         "subject": "PLSC 250",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "12",
-        "avail": "13",
+        "enrl": "13",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SSC",
@@ -153,8 +153,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "0",
-        "avail": "20",
+        "enrl": "1",
+        "avail": "19",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",

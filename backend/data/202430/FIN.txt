@@ -1,4 +1,4 @@
-2024-05-23T17:34:43.330789
+2024-06-05T18:47:18.745479
 [
     {
         "subject": "FIN 215",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "19",
-        "avail": "16",
+        "enrl": "26",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL QSR",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "19",
-        "avail": "16",
+        "enrl": "18",
+        "avail": "17",
         "waitlist": "",
         "restrictions": "JR SO SR PQ",
         "attributes": "FTF WP1",

@@ -1,4 +1,4 @@
-2024-05-23T17:33:57.981637
+2024-06-05T18:46:30.423138
 [
     {
         "subject": "MATH 099",
@@ -664,7 +664,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF QSR",
-        "prerequisites": "MATH 114 with a C- or better at Western",
+        "prerequisites": "MATH 114 with a C- or better at Western or suitable AP Precalculus score.",
         "gpa": null
     },
     {
@@ -687,7 +687,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF QSR",
-        "prerequisites": "MATH 114 with a C- or better at Western",
+        "prerequisites": "MATH 114 with a C- or better at Western or suitable AP Precalculus score.",
         "gpa": null
     },
     {
@@ -710,7 +710,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF QSR",
-        "prerequisites": "MATH 114 with a C- or better at Western",
+        "prerequisites": "MATH 114 with a C- or better at Western or suitable AP Precalculus score.",
         "gpa": null
     },
     {
@@ -733,7 +733,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF QSR",
-        "prerequisites": "MATH 114 with a C- or better at Western",
+        "prerequisites": "MATH 114 with a C- or better at Western or suitable AP Precalculus score.",
         "gpa": null
     },
     {
@@ -756,7 +756,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF QSR",
-        "prerequisites": "MATH 114 with a C- or better at Western",
+        "prerequisites": "MATH 114 with a C- or better at Western or suitable AP Precalculus score.",
         "gpa": null
     },
     {
@@ -779,7 +779,7 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF QSR",
-        "prerequisites": "MATH 114 with a C- or better at Western",
+        "prerequisites": "MATH 114 with a C- or better at Western or suitable AP Precalculus score.",
         "gpa": null
     },
     {

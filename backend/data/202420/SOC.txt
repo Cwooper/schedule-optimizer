@@ -1,4 +1,4 @@
-2024-05-23T17:35:06.576961
+2024-06-05T18:47:42.582349
 [
     {
         "subject": "SOC 255",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "140",
-        "enrl": "127",
-        "avail": "13",
+        "enrl": "126",
+        "avail": "14",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",
@@ -130,8 +130,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "125",
-        "enrl": "125",
-        "avail": "0",
+        "enrl": "124",
+        "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCGM FTF",

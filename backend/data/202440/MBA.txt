@@ -1,4 +1,4 @@
-2024-05-23T17:34:32.676248
+2024-06-05T18:47:07.319687
 [
     {
         "subject": "MBA 502",
@@ -130,8 +130,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $42.50",
         "cap": "20",
-        "enrl": "4",
-        "avail": "16",
+        "enrl": "5",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ PQ",
         "attributes": "FTF",
@@ -153,8 +153,8 @@
         "lab_room": "PH 001",
         "addl_fees": "Per/Cr $42.50",
         "cap": "20",
-        "enrl": "4",
-        "avail": "16",
+        "enrl": "5",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ PQ",
         "attributes": "FTF",

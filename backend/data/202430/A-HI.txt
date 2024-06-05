@@ -1,4 +1,4 @@
-2024-05-23T17:34:39.419146
+2024-06-05T18:47:14.449446
 [
     {
         "subject": "A/HI 210",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
-        "enrl": "18",
-        "avail": "42",
+        "enrl": "21",
+        "avail": "39",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "32",
-        "avail": "3",
+        "enrl": "33",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
@@ -130,9 +130,9 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "19",
-        "avail": "1",
-        "waitlist": "",
+        "enrl": "20",
+        "avail": "0",
+        "waitlist": "WL",
         "restrictions": "PQ",
         "attributes": "ASNC OL WP3",
         "prerequisites": "Any A/HI or equivalent 300-level course.",

@@ -1,4 +1,4 @@
-2024-05-23T17:34:59.621273
+2024-06-05T18:47:35.729030
 [
     {
         "subject": "INTL 201",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "40",
-        "enrl": "40",
-        "avail": "0",
+        "enrl": "39",
+        "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM FTF",

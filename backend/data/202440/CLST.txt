@@ -1,4 +1,4 @@
-2024-05-23T17:34:23.669675
+2024-06-05T18:46:56.820233
 [
     {
         "subject": "CLST 350",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "150",
-        "enrl": "41",
-        "avail": "109",
+        "enrl": "55",
+        "avail": "95",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF HUM",

@@ -1,4 +1,4 @@
-2024-05-23T17:34:23.590432
+2024-06-05T18:46:56.736672
 [
     {
         "subject": "CHIN 101",
@@ -38,9 +38,9 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "11",
-        "enrl": "10",
-        "avail": "1",
-        "waitlist": "",
+        "enrl": "11",
+        "avail": "0",
+        "waitlist": "WL",
         "restrictions": "",
         "attributes": "FTF",
         "prerequisites": "",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "17",
-        "enrl": "8",
-        "avail": "9",
+        "enrl": "9",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ACGM FTF",
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "3",
-        "avail": "12",
+        "enrl": "4",
+        "avail": "11",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF WP1",

@@ -1,4 +1,4 @@
-2024-05-23T17:34:03.295269
+2024-06-05T18:46:36.278643
 [
     {
         "subject": "WGSS 211",
@@ -29,7 +29,7 @@
         "crn": "21192",
         "days": "MWF",
         "start_time": "1130",
-        "end_time": "1320",
+        "end_time": "1250",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,

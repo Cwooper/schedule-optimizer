@@ -1,12 +1,12 @@
-2024-05-23T17:34:10.366874
+2024-06-05T18:46:43.293530
 [
     {
-        "subject": "EUS 210",
+        "subject": "EUS 201",
         "course_credits": "5",
-        "crn": "13064",
-        "days": "N/A",
-        "start_time": "N/A",
-        "end_time": "N/A",
+        "crn": "12366",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
@@ -19,7 +19,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ACGM ASNC OL SST",
+        "attributes": "ASNC BCGM OL SST",
         "prerequisites": "",
         "gpa": null
     }

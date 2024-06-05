@@ -1,4 +1,4 @@
-2024-05-23T17:34:55.011450
+2024-06-05T18:47:30.863970
 [
     {
         "subject": "EECE 111",
@@ -153,8 +153,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
-        "enrl": "34",
-        "avail": "26",
+        "enrl": "33",
+        "avail": "27",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",

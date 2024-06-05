@@ -1,4 +1,4 @@
-2024-05-23T17:34:49.440246
+2024-06-05T18:47:25.082746
 [
     {
         "subject": "THTR 368",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $45.00",
         "cap": "16",
-        "enrl": "3",
-        "avail": "13",
+        "enrl": "4",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
@@ -65,7 +65,7 @@
         "avail": "9",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "OL SYNC",
+        "attributes": "OL SYNC WP2",
         "prerequisites": "THTR 228.",
         "gpa": null
     },

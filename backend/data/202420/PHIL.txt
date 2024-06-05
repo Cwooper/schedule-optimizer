@@ -1,4 +1,4 @@
-2024-05-23T17:35:03.834534
+2024-06-05T18:47:39.909292
 [
     {
         "subject": "PHIL 107",
@@ -130,8 +130,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
-        "enrl": "32",
-        "avail": "13",
+        "enrl": "31",
+        "avail": "14",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
@@ -222,8 +222,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "106",
-        "enrl": "51",
-        "avail": "55",
+        "enrl": "50",
+        "avail": "56",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF QSR",

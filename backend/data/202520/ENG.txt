@@ -1,4 +1,4 @@
-2024-05-23T17:33:51.969365
+2024-06-05T18:46:24.402525
 [
     {
         "subject": "ENG 101",
@@ -970,9 +970,9 @@
         "subject": "ENG 307",
         "course_credits": "5",
         "crn": "21943",
-        "days": "MWF",
-        "start_time": "1000",
-        "end_time": "1120",
+        "days": "TR",
+        "start_time": "1200",
+        "end_time": "1350",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
@@ -1040,8 +1040,8 @@
         "course_credits": "5",
         "crn": "21089",
         "days": "TR",
-        "start_time": "1600",
-        "end_time": "1750",
+        "start_time": "1400",
+        "end_time": "1550",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
@@ -1091,7 +1091,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Vulic, Kathryn Rajam",
+        "instructor": "Staff",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
@@ -2333,7 +2333,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Loar, Christopher F.",
+        "instructor": "Vulic, Kathryn Rajam",
         "room": "HU 304",
         "lab_room": null,
         "addl_fees": "",

@@ -1,4 +1,4 @@
-2024-05-23T17:34:50.371166
+2024-06-05T18:47:26.145657
 [
     {
         "subject": "ANTH 102",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "180",
-        "enrl": "177",
-        "avail": "3",
+        "enrl": "176",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "180",
-        "enrl": "174",
-        "avail": "6",
+        "enrl": "173",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",
@@ -406,8 +406,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "30",
-        "avail": "5",
+        "enrl": "29",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "ACGM FTF",

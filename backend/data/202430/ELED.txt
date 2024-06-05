@@ -1,28 +1,5 @@
-2024-05-23T17:34:42.329539
+2024-06-05T18:47:17.624279
 [
-    {
-        "subject": "ELED 464",
-        "course_credits": "4",
-        "crn": "30614",
-        "days": "N/A",
-        "start_time": "N/A",
-        "end_time": "N/A",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Ferreras-Stone, Jessica D.",
-        "room": "ONLINE ASNC",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "25",
-        "enrl": "3",
-        "avail": "22",
-        "waitlist": "",
-        "restrictions": "",
-        "attributes": "ASNC OL",
-        "prerequisites": "",
-        "gpa": null
-    },
     {
         "subject": "ELED 691",
         "course_credits": "3",

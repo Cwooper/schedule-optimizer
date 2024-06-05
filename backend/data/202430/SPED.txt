@@ -1,4 +1,4 @@
-2024-05-23T17:34:49.069545
+2024-06-05T18:47:24.737544
 [
     {
         "subject": "SPED 310",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "12",
-        "avail": "18",
+        "enrl": "13",
+        "avail": "17",
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC BCGM OL WP3",
@@ -60,9 +60,9 @@
         "room": "ONLINE ASNC",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "25",
+        "cap": "34",
         "enrl": "24",
-        "avail": "1",
+        "avail": "10",
         "waitlist": "",
         "restrictions": "ED",
         "attributes": "ASNC OL",
@@ -84,8 +84,8 @@
         "lab_room": "MH OFC",
         "addl_fees": "",
         "cap": "25",
-        "enrl": "7",
-        "avail": "18",
+        "enrl": "8",
+        "avail": "17",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
