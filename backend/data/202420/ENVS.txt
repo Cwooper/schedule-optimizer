@@ -1,4 +1,4 @@
-2024-05-23T17:34:56.704189
+2024-06-05T18:47:32.785913
 [
     {
         "subject": "ENVS 203",
@@ -268,8 +268,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "29",
-        "avail": "1",
+        "enrl": "28",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF WP3",
@@ -475,8 +475,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "15",
-        "avail": "5",
+        "enrl": "14",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF WP3",
@@ -889,8 +889,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "6",
-        "avail": "14",
+        "enrl": "5",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "OV JR SR MJ",
         "attributes": "SPL WP3",

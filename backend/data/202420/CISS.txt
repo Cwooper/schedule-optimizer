@@ -1,4 +1,4 @@
-2024-05-23T17:34:53.432935
+2024-06-05T18:47:29.197720
 [
     {
         "subject": "CISS 346",
@@ -130,8 +130,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $13.93",
         "cap": "30",
-        "enrl": "23",
-        "avail": "7",
+        "enrl": "22",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "OL SYNC",

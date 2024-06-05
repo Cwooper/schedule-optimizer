@@ -1,4 +1,4 @@
-2024-05-23T17:34:58.343161
+2024-06-05T18:47:34.481328
 [
     {
         "subject": "HIST 103",
@@ -153,8 +153,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "75",
-        "enrl": "70",
-        "avail": "5",
+        "enrl": "69",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "CMB2 FTF HUM",

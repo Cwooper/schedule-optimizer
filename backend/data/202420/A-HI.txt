@@ -1,4 +1,4 @@
-2024-05-23T17:34:50.806265
+2024-06-05T18:47:26.582752
 [
     {
         "subject": "A/HI 211",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "180",
-        "enrl": "173",
-        "avail": "7",
+        "enrl": "172",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ASNC HUM OL",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $1.50",
         "cap": "185",
-        "enrl": "175",
-        "avail": "10",
+        "enrl": "174",
+        "avail": "11",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ACGM FTF",

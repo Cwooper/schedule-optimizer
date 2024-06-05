@@ -1,4 +1,4 @@
-2024-05-23T17:34:57.224165
+2024-06-05T18:47:33.373044
 [
     {
         "subject": "FIN 215",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "90",
-        "enrl": "81",
-        "avail": "9",
+        "enrl": "80",
+        "avail": "10",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "ASNC OL SSC",

@@ -1,4 +1,4 @@
-2024-05-23T17:34:55.479374
+2024-06-05T18:47:31.383749
 [
     {
         "subject": "ENGR 101",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $72.00",
         "cap": "36",
-        "enrl": "36",
-        "avail": "0",
+        "enrl": "35",
+        "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",

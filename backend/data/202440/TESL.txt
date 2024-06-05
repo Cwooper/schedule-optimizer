@@ -1,4 +1,4 @@
-2024-05-23T17:34:38.056106
+2024-06-05T18:47:12.870775
 [
     {
         "subject": "TESL 340",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00",
         "cap": "10",
-        "enrl": "2",
-        "avail": "8",
+        "enrl": "4",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "ASNC OL SST",
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $298.00",
         "cap": "10",
-        "enrl": "1",
-        "avail": "9",
+        "enrl": "2",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "OV S/U PQ",
         "attributes": "MIX OL SST",

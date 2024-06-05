@@ -1,4 +1,4 @@
-2024-05-23T17:34:43.112239
+2024-06-05T18:47:18.522864
 [
     {
         "subject": "EUS 201",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "26",
-        "enrl": "12",
-        "avail": "14",
+        "enrl": "13",
+        "avail": "13",
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC BCGM OL",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "26",
-        "enrl": "9",
-        "avail": "17",
+        "enrl": "11",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM ASNC OL",

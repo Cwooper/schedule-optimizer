@@ -1,4 +1,4 @@
-2024-05-23T17:34:40.053070
+2024-06-05T18:47:15.145669
 [
     {
         "subject": "C/AM 200",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "18",
-        "avail": "7",
+        "enrl": "19",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL SSC",

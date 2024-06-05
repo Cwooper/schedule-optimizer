@@ -1,4 +1,4 @@
-2024-05-23T17:34:57.325700
+2024-06-05T18:47:33.483790
 [
     {
         "subject": "FREN 103",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "27",
-        "avail": "3",
+        "enrl": "26",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCOM FTF",

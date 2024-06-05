@@ -1,4 +1,4 @@
-2024-05-23T17:34:45.782172
+2024-06-05T18:47:21.199303
 [
     {
         "subject": "MGMT 311",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "5",
-        "enrl": "3",
-        "avail": "2",
+        "enrl": "4",
+        "avail": "1",
         "waitlist": "",
         "restrictions": "OV MJ",
         "attributes": "FTF WP1",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "21",
-        "avail": "14",
+        "enrl": "20",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "OL SYNC",
