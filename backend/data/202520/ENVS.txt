@@ -1,4 +1,4 @@
-2024-05-23T17:33:52.699032
+2024-06-05T18:46:25.155663
 [
     {
         "subject": "ENVS 203",
@@ -159,6 +159,29 @@
         "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "ENVS 303 or instructor permission.",
+        "gpa": null
+    },
+    {
+        "subject": "ENVS 308",
+        "course_credits": "4",
+        "crn": "21414",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Walker, Wendy Colleen",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "10",
+        "enrl": "0",
+        "avail": "10",
+        "waitlist": "",
+        "restrictions": "OV JR SR MJ PQ",
+        "attributes": "SPL SST WP3",
+        "prerequisites": "UEPP 202 or ENVS 303 or instructor permission.",
         "gpa": null
     },
     {
@@ -599,6 +622,29 @@
         "gpa": null
     },
     {
+        "subject": "ENVS 484",
+        "course_credits": "4",
+        "crn": "22947",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Walker, Wendy Colleen",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "20",
+        "enrl": "0",
+        "avail": "20",
+        "waitlist": "",
+        "restrictions": "OV JR SR MJ",
+        "attributes": "SPL SST WP3",
+        "prerequisites": "Junior standing or instructor permission.",
+        "gpa": null
+    },
+    {
         "subject": "ENVS 485",
         "course_credits": "4",
         "crn": "20680",
@@ -826,6 +872,29 @@
         "restrictions": "OV MJ S/U",
         "attributes": "FTF",
         "prerequisites": "Admission to the College of the Environment or instructor permission. Additional prerequisites will vary depending on topic offered.",
+        "gpa": null
+    },
+    {
+        "subject": "ENVS 499Q",
+        "course_credits": "1",
+        "crn": "22948",
+        "days": "US",
+        "start_time": "0900",
+        "end_time": "1550",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Staff",
+        "room": "AH 016",
+        "lab_room": null,
+        "addl_fees": "Per/Cr $298.00 Flat Fee $15.75",
+        "cap": "15",
+        "enrl": "0",
+        "avail": "15",
+        "waitlist": "",
+        "restrictions": "PQ",
+        "attributes": "FTF SST",
+        "prerequisites": "ENVS 320.",
         "gpa": null
     },
     {

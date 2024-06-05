@@ -1,4 +1,4 @@
-2024-05-23T17:34:02.930936
+2024-06-05T18:46:35.835128
 [
     {
         "subject": "THTR 101",
@@ -217,7 +217,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Gil, Eva",
+        "instructor": "Gutierrez-Dennehy, Christina",
         "room": "PA OFC",
         "lab_room": null,
         "addl_fees": "",
@@ -424,7 +424,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Gil, Eva",
+        "instructor": "Gutierrez-Dennehy, Christina",
         "room": "PA OFC",
         "lab_room": null,
         "addl_fees": "",

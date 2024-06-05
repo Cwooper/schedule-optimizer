@@ -1,4 +1,4 @@
-2024-05-23T17:34:38.968874
+2024-06-05T18:47:13.970043
 [
     {
         "subject": "ASLC 101",
@@ -38,8 +38,8 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "30",
-        "enrl": "1",
-        "avail": "29",
+        "enrl": "2",
+        "avail": "28",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "HYBD",

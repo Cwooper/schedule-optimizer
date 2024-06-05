@@ -1,4 +1,4 @@
-2024-05-23T17:34:22.536699
+2024-06-05T18:46:55.597388
 [
     {
         "subject": "ASTR 103",
@@ -15,9 +15,9 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $5.32",
         "cap": "97",
-        "enrl": "88",
-        "avail": "9",
-        "waitlist": "",
+        "enrl": "96",
+        "avail": "1",
+        "waitlist": "WL",
         "restrictions": "",
         "attributes": "FTF SCI",
         "prerequisites": "",

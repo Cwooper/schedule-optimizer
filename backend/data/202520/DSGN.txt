@@ -1,4 +1,4 @@
-2024-05-23T17:33:50.204163
+2024-06-05T18:46:22.504429
 [
     {
         "subject": "DSGN 300",
@@ -278,7 +278,7 @@
     },
     {
         "subject": "DSGN 390",
-        "course_credits": "3 TO 5",
+        "course_credits": "3",
         "crn": "23313",
         "days": "MW",
         "start_time": "0900",
@@ -373,8 +373,8 @@
         "course_credits": "6",
         "crn": "23442",
         "days": "TR",
-        "start_time": "1400",
-        "end_time": "1650",
+        "start_time": "1100",
+        "end_time": "1350",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,

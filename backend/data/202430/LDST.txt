@@ -1,4 +1,4 @@
-2024-05-23T17:34:45.527900
+2024-06-05T18:47:20.949633
 [
     {
         "subject": "LDST 341",
@@ -15,10 +15,10 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "1",
-        "avail": "14",
+        "enrl": "0",
+        "avail": "15",
         "waitlist": "",
-        "restrictions": "",
+        "restrictions": "OV",
         "attributes": "FTF",
         "prerequisites": "Sophomore, junior or senior status and instructor permission.",
         "gpa": null
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "9",
-        "avail": "11",
+        "enrl": "10",
+        "avail": "10",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",

@@ -1,4 +1,4 @@
-2024-05-23T17:34:54.748599
+2024-06-05T18:47:30.619698
 [
     {
         "subject": "EDAD 503",
@@ -153,8 +153,8 @@
         "lab_room": "MH OFC",
         "addl_fees": "",
         "cap": "12",
-        "enrl": "9",
-        "avail": "3",
+        "enrl": "10",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "OV GR GR PB PM S/U",
         "attributes": "FTF",

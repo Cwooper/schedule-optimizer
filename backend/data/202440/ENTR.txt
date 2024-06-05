@@ -1,4 +1,4 @@
-2024-05-23T17:34:27.248327
+2024-06-05T18:47:00.443755
 [
     {
         "subject": "ENTR 246",
@@ -37,9 +37,9 @@
         "room": "OM 580",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "15",
+        "cap": "0",
         "enrl": "2",
-        "avail": "13",
+        "avail": "-2",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
@@ -60,9 +60,9 @@
         "room": "ES 080",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "25",
-        "enrl": "2",
-        "avail": "23",
+        "cap": "15",
+        "enrl": "3",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",

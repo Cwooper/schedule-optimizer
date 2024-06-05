@@ -1,4 +1,4 @@
-2024-05-23T17:34:37.961917
+2024-06-05T18:47:12.771232
 [
     {
         "subject": "TEOP 494",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "8",
-        "avail": "17",
+        "enrl": "9",
+        "avail": "16",
         "waitlist": "",
         "restrictions": "OV ED IP",
         "attributes": "FTF",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "3",
-        "avail": "22",
+        "enrl": "5",
+        "avail": "20",
         "waitlist": "",
         "restrictions": "OV ED IP",
         "attributes": "FTF",

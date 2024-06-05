@@ -1,4 +1,4 @@
-2024-05-23T17:34:23.181734
+2024-06-05T18:46:56.279395
 [
     {
         "subject": "C/AM 277",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "10",
-        "enrl": "5",
-        "avail": "5",
+        "enrl": "7",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "5",
-        "enrl": "0",
-        "avail": "5",
+        "enrl": "2",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "JR SO SR",
         "attributes": "FTF",

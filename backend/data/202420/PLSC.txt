@@ -1,4 +1,4 @@
-2024-05-23T17:35:04.828450
+2024-06-05T18:47:40.888869
 [
     {
         "subject": "PLSC 101",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "49",
-        "avail": "1",
+        "enrl": "48",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "47",
-        "avail": "3",
+        "enrl": "46",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",
@@ -153,8 +153,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
-        "enrl": "50",
-        "avail": "10",
+        "enrl": "49",
+        "avail": "11",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF SSC",

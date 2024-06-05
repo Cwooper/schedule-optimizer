@@ -1,4 +1,4 @@
-2024-05-23T17:34:08.171700
+2024-06-05T18:46:40.856244
 [
     {
         "subject": "EAST 201",
@@ -90,29 +90,6 @@
         "restrictions": "",
         "attributes": "FTF",
         "prerequisites": "Sophomore status or instructor permission.",
-        "gpa": null
-    },
-    {
-        "subject": "EAST 367",
-        "course_credits": "5",
-        "crn": "12085",
-        "days": "MWF",
-        "start_time": "1000",
-        "end_time": "1120",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Wu, Julian Siyuan",
-        "room": "TBA",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "20",
-        "enrl": "0",
-        "avail": "20",
-        "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "FTF",
-        "prerequisites": "EAST 201 or EAST 202 or CHIN 103 or HUMA 277 or permission of instructor.",
         "gpa": null
     },
     {

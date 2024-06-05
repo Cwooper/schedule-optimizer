@@ -1,4 +1,4 @@
-2024-05-23T17:35:03.472642
+2024-06-05T18:47:39.551687
 [
     {
         "subject": "MUS 098",
@@ -130,8 +130,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "200",
-        "enrl": "139",
-        "avail": "61",
+        "enrl": "138",
+        "avail": "62",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF HUM",

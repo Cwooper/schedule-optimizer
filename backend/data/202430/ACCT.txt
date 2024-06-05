@@ -1,4 +1,4 @@
-2024-05-23T17:34:38.708836
+2024-06-05T18:47:13.684802
 [
     {
         "subject": "ACCT 240",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "20",
-        "avail": "30",
+        "enrl": "24",
+        "avail": "26",
         "waitlist": "",
         "restrictions": "",
         "attributes": "ASNC OL",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "34",
-        "avail": "16",
+        "enrl": "40",
+        "avail": "10",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "13",
-        "avail": "22",
+        "enrl": "14",
+        "avail": "21",
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "OL SYNC WP1",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "10",
-        "enrl": "0",
-        "avail": "10",
+        "enrl": "1",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
@@ -94,7 +94,7 @@
     },
     {
         "subject": "ACCT 490",
-        "course_credits": "2",
+        "course_credits": "1",
         "crn": "30111",
         "days": "TBD",
         "start_time": "TBD",

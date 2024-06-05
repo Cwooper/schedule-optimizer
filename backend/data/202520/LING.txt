@@ -1,4 +1,4 @@
-2024-05-23T17:33:56.594600
+2024-06-05T18:46:29.050563
 [
     {
         "subject": "LING 201",
@@ -185,6 +185,29 @@
         "gpa": null
     },
     {
+        "subject": "LING 332",
+        "course_credits": "5",
+        "crn": "23664",
+        "days": "TR",
+        "start_time": "1400",
+        "end_time": "1550",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Dawson, Virginia",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "20",
+        "enrl": "0",
+        "avail": "20",
+        "waitlist": "",
+        "restrictions": "PQ",
+        "attributes": "FTF",
+        "prerequisites": "LING 331",
+        "gpa": null
+    },
+    {
         "subject": "LING 370",
         "course_credits": "5",
         "crn": "23464",
@@ -228,29 +251,6 @@
         "restrictions": "PQ",
         "attributes": "FTF WP3",
         "prerequisites": "LING 321; one course from: LING 204, LING 207 or ANTH 347.",
-        "gpa": null
-    },
-    {
-        "subject": "LING 431",
-        "course_credits": "5",
-        "crn": "23065",
-        "days": "TR",
-        "start_time": "1400",
-        "end_time": "1550",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Dawson, Virginia",
-        "room": "TBA",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "15",
-        "enrl": "0",
-        "avail": "15",
-        "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "FTF WP3",
-        "prerequisites": "LING 331; one course from: LING 204, LING 207 or ANTH 347.",
         "gpa": null
     },
     {

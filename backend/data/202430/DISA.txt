@@ -1,4 +1,4 @@
-2024-05-23T17:34:41.151342
+2024-06-05T18:47:16.356536
 [
     {
         "subject": "DISA 330",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "12",
-        "avail": "18",
+        "enrl": "14",
+        "avail": "16",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC BCGM OL",

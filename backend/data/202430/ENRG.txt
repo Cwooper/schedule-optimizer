@@ -1,4 +1,4 @@
-2024-05-23T17:34:42.406707
+2024-06-05T18:47:17.711973
 [
     {
         "subject": "ENRG 380",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "9",
-        "avail": "6",
+        "enrl": "10",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "ASNC OL",

@@ -1,4 +1,4 @@
-2024-05-23T17:34:44.298733
+2024-06-05T18:47:19.711555
 [
     {
         "subject": "HNRS 105",
@@ -10,7 +10,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Carbajal, Amy R.",
+        "instructor": "Laso, Francisco J.",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "Flat Fee $2896.56",
@@ -79,7 +79,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Carbajal, Amy R.",
+        "instructor": "Laso, Francisco J.",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "Flat Fee $2896.56",
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "7",
-        "avail": "8",
+        "enrl": "6",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "FTF WP3",
@@ -130,8 +130,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "1",
-        "avail": "19",
+        "enrl": "6",
+        "avail": "14",
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",

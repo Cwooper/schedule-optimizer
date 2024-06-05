@@ -1,4 +1,4 @@
-2024-05-23T17:34:53.732356
+2024-06-05T18:47:29.534285
 [
     {
         "subject": "DATA 311",
@@ -15,8 +15,8 @@
         "lab_room": "CF 420",
         "addl_fees": "Per/Cr $13.93",
         "cap": "35",
-        "enrl": "18",
-        "avail": "17",
+        "enrl": "17",
+        "avail": "18",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",

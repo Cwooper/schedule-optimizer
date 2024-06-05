@@ -1,4 +1,4 @@
-2024-05-23T17:34:33.371296
+2024-06-05T18:47:08.044425
 [
     {
         "subject": "LANG 410",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "13",
-        "avail": "12",
+        "enrl": "15",
+        "avail": "10",
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
