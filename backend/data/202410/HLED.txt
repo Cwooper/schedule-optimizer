@@ -1,4 +1,4 @@
-2024-06-05T18:47:52.624779
+2024-06-18T18:20:37.610905
 [
     {
         "subject": "HLED 152",
@@ -111,7 +111,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "HLED 415 and HLED 419.",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "17",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "HLED 415",
         "gpa": null
     },

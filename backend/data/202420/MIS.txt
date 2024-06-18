@@ -1,4 +1,4 @@
-2024-06-05T18:47:37.104453
+2024-06-18T18:20:19.510954
 [
     {
         "subject": "MIS 220",
@@ -42,7 +42,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV S/U",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Pre-major, major or minor in business; or pre-major or major in economics.",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV XBA-BADM XBA-BUSS MJ PQ",
-        "attributes": "ASNC OL PBEX",
+        "attributes": "OL PBEX ASNC",
         "prerequisites": "MIS 220 or equivalent",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "MIS 220 or equivalent",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "CF FTF WP1",
+        "attributes": "CF WP1 FTF",
         "prerequisites": "Majors Only. MIS 320 or ACCT 321, C- or better",
         "gpa": null
     },
@@ -222,8 +222,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "16",
-        "avail": "9",
+        "enrl": "15",
+        "avail": "10",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
@@ -295,7 +295,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Majors Only. MIS 321; pre/corequisite: one 400-level MIS elective; C- or better",
         "gpa": null
     }

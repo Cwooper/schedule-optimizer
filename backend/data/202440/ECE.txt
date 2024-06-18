@@ -1,4 +1,4 @@
-2024-06-05T18:46:58.791906
+2024-06-18T18:19:38.102948
 [
     {
         "subject": "ECE 380",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "16",
-        "avail": "9",
+        "enrl": "17",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ECE 391",
         "gpa": null
     },
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $4.50",
         "cap": "25",
-        "enrl": "12",
-        "avail": "13",
+        "enrl": "13",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "OV ED MJ",
         "attributes": "FTF",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "10",
-        "avail": "15",
+        "enrl": "12",
+        "avail": "13",
         "waitlist": "",
         "restrictions": "OV ED MJ",
         "attributes": "FTF",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "12",
-        "avail": "13",
+        "enrl": "13",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
         "attributes": "FTF",

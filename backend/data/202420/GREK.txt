@@ -1,4 +1,4 @@
-2024-06-05T18:47:34.161511
+2024-06-18T18:20:16.134503
 [
     {
         "subject": "GREK 103",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "14",
-        "avail": "11",
+        "enrl": "13",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "BCOM FTF",

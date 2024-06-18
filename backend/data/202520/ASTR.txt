@@ -1,4 +1,4 @@
-2024-06-05T18:46:19.469011
+2024-06-18T18:18:51.906234
 [
     {
         "subject": "ASTR 113",
@@ -19,7 +19,7 @@
         "avail": "45",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF SCI",
+        "attributes": "SCI FTF",
         "prerequisites": "MATH 107 or higher or suitable math assessment score.",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "32",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "ASTR 316.",
         "gpa": null
     }

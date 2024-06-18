@@ -1,4 +1,4 @@
-2024-06-05T18:47:24.991033
+2024-06-18T18:20:05.511660
 [
     {
         "subject": "TESL 411",
@@ -19,7 +19,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Admission to the TESOL program or instructor permission.",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "17",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Admission to the TESOL program or instructor permission.",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "S/U",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Admission to the TESOL program or instructor permission.",
         "gpa": null
     },
@@ -83,12 +83,12 @@
         "room": "ONLINE ASNC",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "10",
-        "enrl": "5",
-        "avail": "5",
-        "waitlist": "",
+        "cap": "6",
+        "enrl": "6",
+        "avail": "0",
+        "waitlist": "WL",
         "restrictions": "OV S/U PQ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "TESL 441 or concurrent; or instructor permission.",
         "gpa": null
     }

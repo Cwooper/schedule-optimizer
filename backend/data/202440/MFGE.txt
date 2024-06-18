@@ -1,4 +1,4 @@
-2024-06-05T18:47:06.816038
+2024-06-18T18:19:45.761691
 [
     {
         "subject": "MFGE 231",
@@ -318,7 +318,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "ENG 101; MFGE 333; MFGE 381.",
         "gpa": null
     },

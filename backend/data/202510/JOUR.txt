@@ -1,4 +1,4 @@
-2024-06-05T18:46:46.350398
+2024-06-18T18:19:24.153441
 [
     {
         "subject": "JOUR 106",
@@ -65,30 +65,7 @@
         "avail": "110",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
-        "prerequisites": "",
-        "gpa": null
-    },
-    {
-        "subject": "JOUR 190",
-        "course_credits": "5",
-        "crn": "12057",
-        "days": "MTWRF",
-        "start_time": "1100",
-        "end_time": "1150",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "O'Donovan, Betsy",
-        "room": "TBA",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "110",
-        "enrl": "0",
-        "avail": "110",
-        "waitlist": "",
-        "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -341,7 +318,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "BCOM FTF WP3",
+        "attributes": "BCOM WP3 FTF",
         "prerequisites": "JOUR 207 or ENVS 303 or\u00a0ESCI 225;\u00a0or instructor permission.",
         "gpa": null
     },
@@ -364,7 +341,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "JR SR PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Junior status; JOUR 207; JOUR 214; JOUR 307 or JOUR 380.",
         "gpa": null
     },
@@ -387,7 +364,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "JOUR 207; one newspaper staff course. May not be taken concurrently with JOUR 404.",
         "gpa": null
     },
@@ -410,7 +387,7 @@
         "avail": "60",
         "waitlist": "",
         "restrictions": "JR SR",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "junior standing",
         "gpa": null
     },
@@ -571,7 +548,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "JOUR 207; JOUR 307 or JOUR 380; JOUR 314.",
         "gpa": null
     },
@@ -617,7 +594,7 @@
         "avail": "13",
         "waitlist": "",
         "restrictions": "SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Senior status; JOUR 207; JOUR 307 or JOUR 380; and one newspaper staff course. May not be taken concurrently with JOUR 404.",
         "gpa": null
     },
@@ -686,7 +663,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "JOUR 350 and JOUR 351; and major status.",
         "gpa": null
     }

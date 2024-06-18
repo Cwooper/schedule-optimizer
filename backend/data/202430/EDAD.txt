@@ -1,4 +1,4 @@
-2024-06-05T18:47:17.381127
+2024-06-18T18:19:57.110721
 [
     {
         "subject": "EDAD 536",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $426.00",
         "cap": "24",
-        "enrl": "17",
-        "avail": "7",
+        "enrl": "18",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "GR PB PM MJ",
-        "attributes": "DLEX OL SYNC",
+        "attributes": "OL DLEX SYNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $426.00",
         "cap": "24",
-        "enrl": "12",
-        "avail": "12",
+        "enrl": "14",
+        "avail": "10",
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
-        "attributes": "DLEX OL SYNC",
+        "attributes": "OL DLEX SYNC",
         "prerequisites": "Graduate status or permission of instructor.",
         "gpa": null
     },
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $426.00",
         "cap": "12",
-        "enrl": "7",
-        "avail": "5",
+        "enrl": "10",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "GR PB PM MJ",
         "attributes": "EVEX FTF",
@@ -84,11 +84,11 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $426.00",
         "cap": "12",
-        "enrl": "8",
-        "avail": "4",
+        "enrl": "9",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "GR PB PM",
-        "attributes": "DLEX OL SYNC",
+        "attributes": "OL DLEX SYNC",
         "prerequisites": "Admission to Doctor of Education.",
         "gpa": null
     },
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $426.00",
         "cap": "12",
-        "enrl": "5",
-        "avail": "7",
+        "enrl": "6",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "GR PB PM PQ",
         "attributes": "EVEX FTF",
@@ -134,7 +134,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "GR PB PM MJ S/U",
-        "attributes": "ASNC EVEX OL SST",
+        "attributes": "OL EVEX ASNC SST",
         "prerequisites": "Admission to Doctor of Education.",
         "gpa": null
     }

@@ -1,4 +1,4 @@
-2024-06-05T18:47:22.296990
+2024-06-18T18:20:02.379552
 [
     {
         "subject": "MDS 410",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "10",
-        "enrl": "0",
-        "avail": "10",
+        "enrl": "1",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "OV MJ",
-        "attributes": "SPL WP3",
+        "attributes": "WP3 SPL",
         "prerequisites": "Multidisciplinary Studies majors only.",
         "gpa": null
     },

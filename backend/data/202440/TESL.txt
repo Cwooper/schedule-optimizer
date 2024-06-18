@@ -1,4 +1,4 @@
-2024-06-05T18:47:12.870775
+2024-06-18T18:19:52.498920
 [
     {
         "subject": "TESL 340",
@@ -19,7 +19,7 @@
         "avail": "9",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC OL SST",
+        "attributes": "OL ASNC SST",
         "prerequisites": "Admission to the TESOL program or instructor permission.",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV S/U",
-        "attributes": "HYBD SST",
+        "attributes": "SST HYBD",
         "prerequisites": "Instructor permission.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "6",
         "waitlist": "",
         "restrictions": "S/U",
-        "attributes": "ASNC OL SST",
+        "attributes": "OL ASNC SST",
         "prerequisites": "Admission to the TESOL program or instructor permission.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "8",
         "waitlist": "",
         "restrictions": "OV S/U PQ",
-        "attributes": "MIX OL SST",
+        "attributes": "OL SST MIX",
         "prerequisites": "TESL 441 or concurrent; or instructor permission.",
         "gpa": null
     }

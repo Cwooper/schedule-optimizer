@@ -1,4 +1,4 @@
-2024-06-05T18:47:22.960055
+2024-06-18T18:20:03.061633
 [
     {
         "subject": "PE 104",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "7",
-        "avail": "13",
+        "enrl": "6",
+        "avail": "14",
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "6",
-        "avail": "14",
+        "enrl": "8",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
@@ -65,31 +65,8 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "S/U",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "",
-        "gpa": null
-    },
-    {
-        "subject": "PE 345",
-        "course_credits": "3",
-        "crn": "30894",
-        "days": "TR",
-        "start_time": "1300",
-        "end_time": "1450",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Robey, Hillary May",
-        "room": "CV 272",
-        "lab_room": null,
-        "addl_fees": "Flat Fee $12.74",
-        "cap": "15",
-        "enrl": "1",
-        "avail": "14",
-        "waitlist": "",
-        "restrictions": "ED",
-        "attributes": "FTF",
-        "prerequisites": "Admission to Woodring College of Education.",
         "gpa": null
     }
 ]

@@ -1,4 +1,4 @@
-2024-06-05T18:47:02.812558
+2024-06-18T18:19:42.676553
 [
     {
         "subject": "HLED 202",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "49",
-        "enrl": "38",
-        "avail": "11",
+        "enrl": "43",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "38",
-        "enrl": "17",
-        "avail": "21",
+        "enrl": "19",
+        "avail": "19",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "31",
-        "avail": "19",
+        "enrl": "32",
+        "avail": "18",
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
@@ -111,7 +111,7 @@
         "avail": "40",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "HLED 401",
         "gpa": null
     },
@@ -153,8 +153,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "34",
-        "enrl": "30",
-        "avail": "4",
+        "enrl": "31",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "ED MJ",
         "attributes": "FTF",

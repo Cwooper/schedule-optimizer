@@ -1,4 +1,4 @@
-2024-06-05T18:47:41.046532
+2024-06-18T18:20:24.113041
 [
     {
         "subject": "PME 295",
@@ -111,7 +111,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SCI",
+        "attributes": "SCI FTF",
         "prerequisites": "",
         "gpa": null
     },

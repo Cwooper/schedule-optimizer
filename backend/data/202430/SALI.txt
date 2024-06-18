@@ -1,4 +1,4 @@
-2024-06-05T18:47:24.144362
+2024-06-18T18:20:04.446050
 [
     {
         "subject": "SALI 201",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "19",
-        "avail": "16",
+        "enrl": "23",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC BCGM OL",
+        "attributes": "BCGM OL ASNC",
         "prerequisites": "Optional co-requisite: SALI 202.",
         "gpa": null
     }

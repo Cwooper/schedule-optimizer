@@ -1,4 +1,4 @@
-2024-06-05T18:47:45.189450
+2024-06-18T18:20:29.096954
 [
     {
         "subject": "ASTR 103",
@@ -19,7 +19,7 @@
         "avail": "21",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF SCI",
+        "attributes": "SCI FTF",
         "prerequisites": "MATH 107 or higher or suitable math assessment score.",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "26",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "ASTR 315; PHYS 161, PHYS 162 and PHYS 163; or instructor permission.",
         "gpa": null
     }

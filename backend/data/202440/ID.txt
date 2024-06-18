@@ -1,4 +1,4 @@
-2024-06-05T18:47:03.781260
+2024-06-18T18:19:43.776304
 [
     {
         "subject": "ID 110",
@@ -84,8 +84,8 @@
         "lab_room": "ET 349",
         "addl_fees": "Flat Fee $267.00",
         "cap": "13",
-        "enrl": "7",
-        "avail": "6",
+        "enrl": "8",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "MJ",
         "attributes": "FTF",
@@ -130,8 +130,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $192.00",
         "cap": "24",
-        "enrl": "21",
-        "avail": "3",
+        "enrl": "23",
+        "avail": "1",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",

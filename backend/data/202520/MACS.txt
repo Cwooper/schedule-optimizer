@@ -1,4 +1,4 @@
-2024-06-05T18:46:29.633776
+2024-06-18T18:19:04.577769
 [
     {
         "subject": "MACS 111",
@@ -939,7 +939,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "MACS 493 or MACS 494 or MACS 495.",
         "gpa": null
     },

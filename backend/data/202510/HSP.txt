@@ -1,4 +1,4 @@
-2024-06-05T18:46:45.300140
+2024-06-18T18:19:22.800066
 [
     {
         "subject": "HSP 301",
@@ -88,7 +88,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "XBA-HS MJ",
-        "attributes": "ASNC DLEX OL WP3",
+        "attributes": "WP3 OL DLEX ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "26",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "26",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "ASNC DLEX OL",
+        "attributes": "OL DLEX ASNC",
         "prerequisites": "Admission to major.",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "XBA-HS SR MJ S/U",
-        "attributes": "ASNC DLEX OL",
+        "attributes": "OL DLEX ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "13",
         "waitlist": "",
         "restrictions": "MJ S/U",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -364,7 +364,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "ASNC DLEX OL",
+        "attributes": "OL DLEX ASNC",
         "prerequisites": "HSP 301; HSP 306 or concurrent.",
         "gpa": null
     },
@@ -410,7 +410,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "XBA-HS MJ S/U PQ",
-        "attributes": "ASNC DLEX OL",
+        "attributes": "OL DLEX ASNC",
         "prerequisites": "HSP 435.",
         "gpa": null
     },
@@ -433,7 +433,7 @@
         "avail": "13",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Admission to major.",
         "gpa": null
     },
@@ -456,7 +456,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "ASNC DLEX OL",
+        "attributes": "OL DLEX ASNC",
         "prerequisites": "Admission to major.",
         "gpa": null
     },
@@ -479,7 +479,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "ASNC DLEX OL",
+        "attributes": "OL DLEX ASNC",
         "prerequisites": "Admission to major.",
         "gpa": null
     },
@@ -502,7 +502,7 @@
         "avail": "13",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Admission to major.",
         "gpa": null
     },
@@ -525,7 +525,7 @@
         "avail": "13",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Admission to major.",
         "gpa": null
     },
@@ -548,7 +548,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "ASNC DLEX OL",
+        "attributes": "OL DLEX ASNC",
         "prerequisites": "Admission to major.",
         "gpa": null
     },
@@ -571,7 +571,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "ASNC DLEX OL",
+        "attributes": "OL DLEX ASNC",
         "prerequisites": "Admission to major.",
         "gpa": null
     },
@@ -594,7 +594,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "ASNC DLEX OL",
+        "attributes": "OL DLEX ASNC",
         "prerequisites": "Admission to major.",
         "gpa": null
     },
@@ -617,7 +617,7 @@
         "avail": "13",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Admission to major.",
         "gpa": null
     },
@@ -663,7 +663,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "XBA-HS MJ PQ",
-        "attributes": "ASNC DLEX OL",
+        "attributes": "OL DLEX ASNC",
         "prerequisites": "HSP 385",
         "gpa": null
     }

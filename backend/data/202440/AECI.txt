@@ -1,4 +1,4 @@
-2024-06-05T18:46:55.431142
+2024-06-18T18:19:34.094036
 [
     {
         "subject": "AECI 301",
@@ -15,8 +15,8 @@
         "lab_room": "MH 056",
         "addl_fees": "Flat Fee $15.00",
         "cap": "30",
-        "enrl": "9",
-        "avail": "21",
+        "enrl": "13",
+        "avail": "17",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
@@ -38,8 +38,8 @@
         "lab_room": "MH 056",
         "addl_fees": "Flat Fee $12.50",
         "cap": "20",
-        "enrl": "4",
-        "avail": "16",
+        "enrl": "5",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",

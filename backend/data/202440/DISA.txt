@@ -1,4 +1,4 @@
-2024-06-05T18:46:57.976707
+2024-06-18T18:19:37.059984
 [
     {
         "subject": "DISA 330",
@@ -13,13 +13,13 @@
         "instructor": "Wandke, Daman Lee Michael",
         "room": "ONLINE ASNC",
         "lab_room": null,
-        "addl_fees": "Per/Cr $298.00",
+        "addl_fees": "Per/Cr $307.00",
         "cap": "30",
-        "enrl": "18",
-        "avail": "12",
+        "enrl": "22",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "ASNC BCGM OL SST",
+        "attributes": "BCGM OL ASNC SST",
         "prerequisites": "ENG 101 or equivalent.",
         "gpa": null
     },
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "14",
-        "avail": "16",
+        "enrl": "18",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCGM FTF",
@@ -61,11 +61,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "24",
-        "enrl": "23",
-        "avail": "1",
-        "waitlist": "",
+        "enrl": "24",
+        "avail": "0",
+        "waitlist": "WL",
         "restrictions": "PQ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "ENG 101 or equivalent.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "8",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "ENG 101 or equivalent; DISA 330; DISA 350.",
         "gpa": null
     }

@@ -1,4 +1,4 @@
-2024-06-05T18:46:40.474512
+2024-06-18T18:19:17.109929
 [
     {
         "subject": "DSGN 211",
@@ -19,7 +19,7 @@
         "avail": "150",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "FTF SST",
+        "attributes": "SST FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "FTF SST",
+        "attributes": "SST FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "FTF SST",
+        "attributes": "SST FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -364,7 +364,7 @@
         "avail": "36",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "DSGN 310, DSGN 331, DSGN 363 and major status.",
         "gpa": null
     },

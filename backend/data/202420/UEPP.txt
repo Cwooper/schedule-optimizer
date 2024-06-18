@@ -1,4 +1,4 @@
-2024-06-05T18:47:43.557881
+2024-06-18T18:20:27.198140
 [
     {
         "subject": "UEPP 202",
@@ -19,7 +19,7 @@
         "avail": "6",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "ASNC OL SSC",
+        "attributes": "SSC OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "32",
-        "avail": "3",
+        "enrl": "31",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
@@ -226,7 +226,7 @@
         "avail": "-4",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "UEPP 261 or concurrent or instructor permission.",
         "gpa": null
     },
@@ -245,8 +245,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $15.00",
         "cap": "20",
-        "enrl": "19",
-        "avail": "1",
+        "enrl": "18",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "OV JR SR PQ",
         "attributes": "FTF",
@@ -272,7 +272,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "One course from: ECON 383, ENRG 350, ENVS 305, UEPP 350, UEPP 355,\u00a0or PLSC 250; or instructor permission.",
         "gpa": null
     },
@@ -433,7 +433,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "OV SR MJ",
-        "attributes": "CPST FTF WP3",
+        "attributes": "WP3 CPST FTF",
         "prerequisites": "Senior status and College of the Environment admission; or instructor permission.",
         "gpa": null
     },

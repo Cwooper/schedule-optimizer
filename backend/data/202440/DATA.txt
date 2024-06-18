@@ -1,4 +1,4 @@
-2024-06-05T18:46:58.251989
+2024-06-18T18:19:37.485740
 [
     {
         "subject": "DATA 311",
@@ -15,8 +15,8 @@
         "lab_room": "CF 162",
         "addl_fees": "Per/Cr $20.25",
         "cap": "16",
-        "enrl": "10",
-        "avail": "6",
+        "enrl": "11",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
@@ -38,8 +38,8 @@
         "lab_room": "CF 162",
         "addl_fees": "Per/Cr $20.25",
         "cap": "16",
-        "enrl": "2",
-        "avail": "14",
+        "enrl": "3",
+        "avail": "13",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
@@ -65,7 +65,7 @@
         "avail": "9",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "CSCI 241; MATH 204; MATH 224; and MATH 341.",
         "gpa": null
     },

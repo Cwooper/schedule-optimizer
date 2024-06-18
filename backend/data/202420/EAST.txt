@@ -1,4 +1,4 @@
-2024-06-05T18:47:30.175197
+2024-06-18T18:20:11.848490
 [
     {
         "subject": "EAST 201",
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "14",
-        "avail": "1",
+        "enrl": "13",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "OV JR SR",
         "attributes": "ACGM FTF",

@@ -1,4 +1,4 @@
-2024-06-05T18:46:53.227063
+2024-06-18T18:19:31.602634
 [
     {
         "subject": "SPED 303",
@@ -42,7 +42,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "BCGM FTF WP3",
+        "attributes": "BCGM WP3 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "OV ED",
-        "attributes": "BCGM FTF WP3",
+        "attributes": "BCGM WP3 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -280,13 +280,13 @@
         "subject": "SPED 462",
         "course_credits": "5",
         "crn": "11402",
-        "days": "T",
+        "days": "M",
         "start_time": "1600",
         "end_time": "1950",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Robinson, LeAnne Kay",
+        "instructor": "Bybee, Lauriel",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
