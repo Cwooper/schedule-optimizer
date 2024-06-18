@@ -1,4 +1,4 @@
-2024-06-05T18:47:22.789588
+2024-06-18T18:20:02.879048
 [
     {
         "subject": "PHIL 107",
@@ -15,34 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
-        "enrl": "32",
-        "avail": "13",
+        "enrl": "34",
+        "avail": "11",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC BCOM OL",
-        "prerequisites": "",
-        "gpa": null
-    },
-    {
-        "subject": "PHIL 113",
-        "course_credits": "3",
-        "crn": "30883",
-        "days": "MWF",
-        "start_time": "1400",
-        "end_time": "1520",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Howard-Snyder, Dan",
-        "room": "ONLINE SYNC",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "45",
-        "enrl": "2",
-        "avail": "43",
-        "waitlist": "",
-        "restrictions": "",
-        "attributes": "HUM OL SYNC",
+        "attributes": "BCOM OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +42,7 @@
         "avail": "37",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "OL QSR SYNC",
+        "attributes": "QSR OL SYNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -84,11 +61,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "40",
-        "enrl": "6",
-        "avail": "34",
+        "enrl": "5",
+        "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "One philosophy course",
         "gpa": null
     },

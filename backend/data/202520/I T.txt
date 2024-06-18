@@ -1,4 +1,4 @@
-2024-06-05T18:46:27.673682
+2024-06-18T18:19:02.339281
 [
     {
         "subject": "I T 344",
@@ -65,7 +65,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "ED S/U",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "ED S/U",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "ED",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "IT 344.",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "ED",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "IT 344.",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "GR PB PM PQ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "IT 525.",
         "gpa": null
     },

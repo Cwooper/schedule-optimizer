@@ -1,4 +1,4 @@
-2024-06-05T18:47:28.431267
+2024-06-18T18:20:09.681400
 [
     {
         "subject": "CSD 251",
@@ -19,7 +19,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "CSD 354",
         "gpa": null
     },

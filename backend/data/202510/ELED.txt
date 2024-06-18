@@ -1,4 +1,4 @@
-2024-06-05T18:46:41.642805
+2024-06-18T18:19:18.759068
 [
     {
         "subject": "ELED 305",
@@ -318,7 +318,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ELED 480",
         "gpa": null
     },
@@ -341,7 +341,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ELED 480",
         "gpa": null
     },

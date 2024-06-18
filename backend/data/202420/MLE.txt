@@ -1,4 +1,4 @@
-2024-06-05T18:47:38.596640
+2024-06-18T18:20:21.474191
 [
     {
         "subject": "MLE 441",
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "7",
-        "avail": "18",
+        "enrl": "6",
+        "avail": "19",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "FTF",

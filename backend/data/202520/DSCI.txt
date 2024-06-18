@@ -1,4 +1,4 @@
-2024-06-05T18:46:22.351396
+2024-06-18T18:18:55.675869
 [
     {
         "subject": "DSCI 205",
@@ -65,7 +65,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "ASNC OL QSR",
+        "attributes": "QSR OL ASNC",
         "prerequisites": "MATH 112 with a C- or better or a college precalculus course with a C+ or better or suitable math assessment score.",
         "gpa": null
     },

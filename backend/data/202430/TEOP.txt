@@ -1,26 +1,2 @@
-2024-06-05T18:47:24.900624
-[
-    {
-        "subject": "TEOP 494",
-        "course_credits": "1 TO 16",
-        "crn": "30821",
-        "days": "TBD",
-        "start_time": "TBD",
-        "end_time": "TBD",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Kelley, Bridget",
-        "room": "MH OFC",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "25",
-        "enrl": "0",
-        "avail": "25",
-        "waitlist": "",
-        "restrictions": "OV IP",
-        "attributes": "FTF",
-        "prerequisites": "Must have been admitted to Woodring College of Education and to a Teacher Education Outreach Program; completed all requirements for the Education for Inclusive Environments, BAE.",
-        "gpa": null
-    }
-]
+2024-06-18T18:20:05.409293
+[]

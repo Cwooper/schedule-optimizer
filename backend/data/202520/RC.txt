@@ -1,4 +1,4 @@
-2024-06-05T18:46:34.024022
+2024-06-18T18:19:09.334236
 [
     {
         "subject": "RC 519",
@@ -19,7 +19,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
-        "attributes": "EVEX MIX OL",
+        "attributes": "OL EVEX MIX",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "GR GR PB PM MJ",
-        "attributes": "ASNC EVEX OL",
+        "attributes": "OL EVEX ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -140,7 +140,7 @@
     },
     {
         "subject": "RC 592",
-        "course_credits": "4",
+        "course_credits": "1 TO 8",
         "crn": "20656",
         "days": "T",
         "start_time": "1700",
@@ -163,7 +163,7 @@
     },
     {
         "subject": "RC 592",
-        "course_credits": "4",
+        "course_credits": "1 TO 8",
         "crn": "20902",
         "days": "T",
         "start_time": "1700",
@@ -186,7 +186,7 @@
     },
     {
         "subject": "RC 592",
-        "course_credits": "4",
+        "course_credits": "1 TO 8",
         "crn": "21982",
         "days": "T",
         "start_time": "1700",

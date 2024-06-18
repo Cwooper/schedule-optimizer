@@ -1,5 +1,28 @@
-2024-06-05T18:46:28.928002
+2024-06-18T18:19:03.817654
 [
+    {
+        "subject": "LIBR 297D",
+        "course_credits": "5",
+        "crn": "23672",
+        "days": "TR",
+        "start_time": "1200",
+        "end_time": "1350",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Tserendorj, Munkhchimeg",
+        "room": "HH 222",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "13",
+        "enrl": "0",
+        "avail": "13",
+        "waitlist": "",
+        "restrictions": "",
+        "attributes": "FTF",
+        "prerequisites": "",
+        "gpa": null
+    },
     {
         "subject": "LIBR 325",
         "course_credits": "5",

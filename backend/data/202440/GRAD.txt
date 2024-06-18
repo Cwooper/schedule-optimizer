@@ -1,4 +1,4 @@
-2024-06-05T18:47:02.550815
+2024-06-18T18:19:42.411233
 [
     {
         "subject": "GRAD 699",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $50.00",
         "cap": "100",
-        "enrl": "13",
-        "avail": "87",
+        "enrl": "16",
+        "avail": "84",
         "waitlist": "",
         "restrictions": "OV GR PB PM S/U",
         "attributes": "FTF",

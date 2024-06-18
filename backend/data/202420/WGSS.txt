@@ -1,4 +1,4 @@
-2024-06-05T18:47:43.826485
+2024-06-18T18:20:27.435044
 [
     {
         "subject": "WGSS 211",
@@ -42,7 +42,7 @@
         "avail": "8",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "ASNC BCGM OL",
+        "attributes": "BCGM OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "ACGM ASNC OL",
+        "attributes": "ACGM OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "BCGM FTF WP2",
+        "attributes": "BCGM WP2 FTF",
         "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "BCGM OL SYNC WP3",
+        "attributes": "BCGM WP3 OL SYNC",
         "prerequisites": "WGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "One 100- or 200-level course in HIST or WGSS 211.",
         "gpa": null
     },
@@ -341,7 +341,7 @@
         "avail": "6",
         "waitlist": "",
         "restrictions": "OV SR MJ",
-        "attributes": "CPST FTF WP3",
+        "attributes": "WP3 CPST FTF",
         "prerequisites": "Senior status in WGSS major or minor; or instructor permission.",
         "gpa": null
     }

@@ -1,4 +1,4 @@
-2024-06-05T18:47:25.082746
+2024-06-18T18:20:05.605936
 [
     {
         "subject": "THTR 368",
@@ -24,29 +24,6 @@
         "gpa": null
     },
     {
-        "subject": "THTR 397M",
-        "course_credits": "3",
-        "crn": "30953",
-        "days": "MW",
-        "start_time": "1000",
-        "end_time": "1215",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Monaghan, Sarah Jo",
-        "room": "MH 154",
-        "lab_room": null,
-        "addl_fees": "Flat Fee $45.00",
-        "cap": "16",
-        "enrl": "4",
-        "avail": "12",
-        "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "FTF",
-        "prerequisites": "THTR 216",
-        "gpa": null
-    },
-    {
         "subject": "THTR 428",
         "course_credits": "3",
         "crn": "30836",
@@ -65,7 +42,7 @@
         "avail": "9",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "OL SYNC WP2",
+        "attributes": "WP2 OL SYNC",
         "prerequisites": "THTR 228.",
         "gpa": null
     },

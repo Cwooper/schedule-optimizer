@@ -1,4 +1,4 @@
-2024-06-05T18:47:45.290260
+2024-06-18T18:20:29.248244
 [
     {
         "subject": "BNS 302",
@@ -19,7 +19,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "BNS 301 and declared Behavioral Neuroscience Major; or instructor permission.",
         "gpa": null
     },

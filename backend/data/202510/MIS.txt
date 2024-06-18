@@ -1,4 +1,4 @@
-2024-06-05T18:46:47.349924
+2024-06-18T18:19:25.250308
 [
     {
         "subject": "MIS 220",
@@ -65,7 +65,7 @@
         "avail": "60",
         "waitlist": "",
         "restrictions": "MJ S/U",
-        "attributes": "MIX OL",
+        "attributes": "OL MIX",
         "prerequisites": "Pre-major, major or minor in business; or pre-major or major in economics.",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "CF FTF WP1",
+        "attributes": "CF WP1 FTF",
         "prerequisites": "Majors Only. MIS 320 or ACCT 321, C- or better",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Majors Only. MIS 321; pre/corequisite: one 400-level MIS elective; C- or better",
         "gpa": null
     }

@@ -1,4 +1,4 @@
-2024-06-05T18:46:41.015498
+2024-06-18T18:19:17.953580
 [
     {
         "subject": "ECON 101",
@@ -19,7 +19,7 @@
         "avail": "100",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "100",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "60",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "MATH 112 or equivalent or suitable math assessment score.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "60",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "MATH 112 or equivalent or suitable math assessment score.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "60",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "MATH 112 or equivalent or suitable math assessment score.",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "60",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "MATH 112 or equivalent or suitable math assessment score.",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "60",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "MATH 112 or equivalent or suitable math assessment score.",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "65",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "ECON 206 or HNRS 209 or ECON 446 or ECON 101; MATH 112 or equivalent or suitable math assessment score.",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "65",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "ECON 206 or HNRS 209 or ECON 446 or ECON 101; MATH 112 or equivalent or suitable math assessment score.",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "65",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "ECON 206 or HNRS 209 or ECON 446 or ECON 101; MATH 112 or equivalent or suitable math assessment score.",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "65",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "ECON 206 or HNRS 209 or ECON 446 or ECON 101; MATH 112 or equivalent or suitable math assessment score.",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "CF-E FTF WP1",
+        "attributes": "WP1 CF-E FTF",
         "prerequisites": "ECON 206 and ECON 207; or ECON 207 and HNRS 209; or HNRS 202; or HNRS 254.",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "ECON 206 and ECON 207; or ECON 207 and HNRS 209; or HNRS 202; or HNRS 254.",
         "gpa": null
     },
@@ -502,7 +502,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 202; or HNRS 254.",
         "gpa": null
     },
@@ -571,7 +571,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "ECON 307, ECON 375.",
         "gpa": null
     },
@@ -594,7 +594,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "ECON 306 or ECON 309; DSCI 205 or MATH 240 or MATH 341.",
         "gpa": null
     },
@@ -640,7 +640,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "ECON 306; ECON 307; DSCI 205 or MATH 240 or MATH 341.",
         "gpa": null
     },
@@ -663,7 +663,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "CF-E FTF WP1",
+        "attributes": "WP1 CF-E FTF",
         "prerequisites": "ECON 306 or ECON 307; ECON 375 or MATH 342 or MATH 442",
         "gpa": null
     },
@@ -686,7 +686,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "ECON 306 or ECON 309",
         "gpa": null
     },
@@ -709,7 +709,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "One from: ENRG 384, ECON 384, ENRG 386 or ECON 386; and one from: DSCI 305, ECON 375, ENRG 322, ESCI 340 or BIOL 340.",
         "gpa": null
     }

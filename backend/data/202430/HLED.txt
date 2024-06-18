@@ -1,4 +1,4 @@
-2024-06-05T18:47:19.425430
+2024-06-18T18:19:59.388042
 [
     {
         "subject": "HLED 210",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "8",
-        "avail": "42",
+        "enrl": "9",
+        "avail": "41",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC OL SSC",
+        "attributes": "SSC OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "27",
-        "avail": "23",
+        "enrl": "25",
+        "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "BIOL 101 or BIOL 205",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "8",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "BIOL 101 or BIOL 205 or CHEM 115 or CHEM 161.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "0",
         "waitlist": "WL",
         "restrictions": "",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Admission to Woodring College of Education.",
         "gpa": null
     },
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "12",
-        "enrl": "5",
-        "avail": "7",
+        "enrl": "9",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",
@@ -153,8 +153,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "12",
-        "enrl": "7",
-        "avail": "5",
+        "enrl": "9",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "OV MJ S/U PQ",
         "attributes": "FTF",

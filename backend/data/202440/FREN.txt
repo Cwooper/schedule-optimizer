@@ -1,4 +1,4 @@
-2024-06-05T18:47:01.972521
+2024-06-18T18:19:41.688275
 [
     {
         "subject": "FREN 101",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "14",
-        "enrl": "7",
-        "avail": "7",
+        "enrl": "8",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",
         "cap": "14",
-        "enrl": "11",
-        "avail": "3",
+        "enrl": "13",
+        "avail": "1",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
@@ -134,7 +134,7 @@
         "avail": "-1",
         "waitlist": "WL",
         "restrictions": "PQ",
-        "attributes": "BCOM FTF WP2",
+        "attributes": "BCOM WP2 FTF",
         "prerequisites": "FREN 203 or instructor permission.",
         "gpa": null
     },
@@ -153,11 +153,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "8",
-        "avail": "12",
+        "enrl": "9",
+        "avail": "11",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "BCOM FTF WP2",
+        "attributes": "BCOM WP2 FTF",
         "prerequisites": "FREN 203 or instructor permission.",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "FREN 301 and one course from: FREN 340, FREN 341, FREN 342.",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-06-05T18:47:06.395098
+2024-06-18T18:19:45.367111
 [
     {
         "subject": "LING 101",
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "44",
-        "enrl": "17",
-        "avail": "27",
+        "enrl": "21",
+        "avail": "23",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -61,11 +61,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "94",
-        "enrl": "25",
-        "avail": "69",
+        "enrl": "28",
+        "avail": "66",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "33",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -107,11 +107,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "64",
-        "enrl": "53",
-        "avail": "11",
+        "enrl": "51",
+        "avail": "13",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SCI",
+        "attributes": "SCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "0",
         "waitlist": "WL",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -199,8 +199,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "24",
-        "avail": "1",
+        "enrl": "25",
+        "avail": "0",
         "waitlist": "WL",
         "restrictions": "PQ",
         "attributes": "FTF",
@@ -226,7 +226,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "LING 305 or instructor permission.",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "0",
         "waitlist": "WL",
         "restrictions": "PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "LING 310",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "LING 311; one course from: LING 204, LING 207 or ANTH 347.",
         "gpa": null
     }

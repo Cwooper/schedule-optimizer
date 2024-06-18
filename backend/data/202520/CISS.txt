@@ -1,4 +1,4 @@
-2024-06-05T18:46:21.862760
+2024-06-18T18:18:55.052070
 [
     {
         "subject": "CISS 346",
@@ -19,7 +19,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "CISS 247 or CSCI 247.",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "HYBD PBEX WP1",
+        "attributes": "WP1 PBEX HYBD",
         "prerequisites": "CISS 247 or CSCI 247.",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF KLEX WP1",
+        "attributes": "WP1 KLEX FTF",
         "prerequisites": "CISS 247 or CSCI 247.",
         "gpa": null
     },
@@ -90,29 +90,6 @@
         "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "CSCI 140 or CSCI 141 or MIS 320.",
-        "gpa": null
-    },
-    {
-        "subject": "CISS 423",
-        "course_credits": "4",
-        "crn": "23600",
-        "days": "W",
-        "start_time": "0800",
-        "end_time": "2150",
-        "lab_days": "F",
-        "lab_start_time": "1800",
-        "lab_end_time": "1950",
-        "instructor": "Fretheim, Erik Jon",
-        "room": "Kirkland-State Supported",
-        "lab_room": "Kirkland-State Supported",
-        "addl_fees": "Per/Cr $20.25",
-        "cap": "10",
-        "enrl": "0",
-        "avail": "10",
-        "waitlist": "",
-        "restrictions": "MJ PQ",
-        "attributes": "FTF KLEX",
-        "prerequisites": "CISS 247",
         "gpa": null
     },
     {
@@ -180,7 +157,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF KLEX",
+        "attributes": "KLEX FTF",
         "prerequisites": "CISS 247 and CISS 301.",
         "gpa": null
     },
@@ -226,7 +203,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "XBS-CISS MJ",
-        "attributes": "FTF PBEX",
+        "attributes": "PBEX FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -249,7 +226,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "FTF KLEX",
+        "attributes": "KLEX FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -272,7 +249,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "HYBD PBEX",
+        "attributes": "PBEX HYBD",
         "prerequisites": "CISS 492.",
         "gpa": null
     },
@@ -295,7 +272,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "HYBD KLEX",
+        "attributes": "KLEX HYBD",
         "prerequisites": "CISS 492.",
         "gpa": null
     }

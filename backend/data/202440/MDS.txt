@@ -1,4 +1,4 @@
-2024-06-05T18:47:08.129759
+2024-06-18T18:19:47.250307
 [
     {
         "subject": "MDS 410",
@@ -19,7 +19,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "SPL WP3",
+        "attributes": "WP3 SPL",
         "prerequisites": "Multidisciplinary Studies majors only.",
         "gpa": null
     },
@@ -36,13 +36,13 @@
         "instructor": "Walker, Wendy Colleen",
         "room": "TBA",
         "lab_room": null,
-        "addl_fees": "Per/Cr $298.00",
+        "addl_fees": "Per/Cr $307.00",
         "cap": "10",
         "enrl": "0",
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV MJ S/U",
-        "attributes": "FTF SST",
+        "attributes": "SST FTF",
         "prerequisites": "Multidisciplinary Studies majors only; permission of instructor.",
         "gpa": null
     }

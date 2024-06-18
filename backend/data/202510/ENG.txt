@@ -1,4 +1,4 @@
-2024-06-05T18:46:42.311934
+2024-06-18T18:19:19.411048
 [
     {
         "subject": "ENG 101",
@@ -847,7 +847,7 @@
         "avail": "75",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -916,7 +916,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ENG 101; junior status; or instructor permission.",
         "gpa": null
     },
@@ -939,7 +939,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ENG 101; junior standing.",
         "gpa": null
     },
@@ -962,7 +962,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ENG 101; junior standing.",
         "gpa": null
     },
@@ -985,7 +985,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ENG 101; junior standing.",
         "gpa": null
     },
@@ -1008,7 +1008,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ENG 101; junior standing.",
         "gpa": null
     },
@@ -1031,7 +1031,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ENG 101; junior standing.",
         "gpa": null
     },
@@ -1054,7 +1054,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "JR SR PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ENG 101; junior standing.",
         "gpa": null
     },
@@ -1399,7 +1399,7 @@
         "avail": "60",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "ENG 202",
         "gpa": null
     },
@@ -1744,7 +1744,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF SL WP3",
+        "attributes": "WP3 SL FTF",
         "prerequisites": "ENG 302",
         "gpa": null
     },
@@ -1767,7 +1767,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ENG 364 or instructor permission.",
         "gpa": null
     },
@@ -1790,7 +1790,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ENG 313 or ENG 314; two courses from: ENG 307-347, ENG 364 or ENG 371.",
         "gpa": null
     },
@@ -1813,7 +1813,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ENG 202; plus three from: ENG 307, ENG 308, ENG 309, ENG 310, ENG 311, ENG 313, ENG 314, ENG 317, ENG 318, ENG 319, ENG 320, ENG 321, ENG 331, ENG 333, ENG 334, ENG 335, ENG 336, ENG 338, ENG 339, ENG 341, ENG 342, ENG 343, ENG 347, ENG 364, ENG 371.",
         "gpa": null
     },
@@ -1836,7 +1836,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "JR SR PQ",
-        "attributes": "CPST FTF WP3",
+        "attributes": "WP3 CPST FTF",
         "prerequisites": "Senior status; ENG 313 or ENG 314; and one course from: ENG 307, ENG 308, ENG 309, ENG 310 or ENG 311.",
         "gpa": null
     },
@@ -1859,7 +1859,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "JR SR PQ",
-        "attributes": "CPST FTF WP3",
+        "attributes": "WP3 CPST FTF",
         "prerequisites": "Senior status; ENG 313 or ENG 314; and one course from: ENG 307, ENG 308, ENG 309, ENG 310 or ENG 311.",
         "gpa": null
     },
@@ -1882,7 +1882,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ENG 202; plus three from: ENG 307, ENG 308, ENG 309, ENG 310, ENG 311, ENG 313, ENG 314, ENG 317, ENG 318, ENG 319, ENG 320, ENG 321, ENG 331, ENG 333, ENG 334, ENG 335, ENG 336, ENG 338, ENG 339, ENG 341, ENG 342, ENG 343, ENG 347, ENG 364, ENG 371.",
         "gpa": null
     },
@@ -1905,7 +1905,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ENG 202; plus three from: ENG 307, ENG 308, ENG 309, ENG 310, ENG 311, ENG 313, ENG 314, ENG 317, ENG 318, ENG 319, ENG 320, ENG 321, ENG 331, ENG 333, ENG 334, ENG 335, ENG 336, ENG 338, ENG 339, ENG 341, ENG 342, ENG 343, ENG 347, ENG 364, ENG 371.",
         "gpa": null
     },
@@ -1928,7 +1928,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "JR SR PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "One course from: ENG 227, ENG 313, ENG 314, ENG 351, ENG 353, ENG 354 or equivalent prerequisite coursework and instructor approval; and junior status.",
         "gpa": null
     },
@@ -1974,7 +1974,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "One course from: ENG 202, ENG 301, ENG 302, ENG 371 or instructor permission.",
         "gpa": null
     },
@@ -1997,7 +1997,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ENG 301, ENG 302 or ENG 371; ENG 347; ENG 350; ENG 441 or concurrent or MLE 444 or concurrent; and two courses from: ENG 307, ENG 308, ENG 309, ENG 310, ENG 311, ENG 317, ENG 318, ENG 319, ENG 320 and ENG 321.",
         "gpa": null
     },
@@ -2250,7 +2250,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ENG 364 or instructor permission.",
         "gpa": null
     },
