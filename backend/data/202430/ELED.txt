@@ -1,4 +1,4 @@
-2024-06-05T18:47:17.624279
+2024-06-18T18:19:57.380641
 [
     {
         "subject": "ELED 691",
@@ -19,7 +19,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "GR GR PB PM S/U",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Student's graduate committee/program advisor approval.",
         "gpa": null
     }

@@ -1,4 +1,4 @@
-2024-06-05T18:46:56.983072
+2024-06-18T18:19:36.044833
 [
     {
         "subject": "CSEC 121",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "24",
-        "enrl": "1",
-        "avail": "23",
+        "enrl": "0",
+        "avail": "24",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",

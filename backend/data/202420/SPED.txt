@@ -1,4 +1,4 @@
-2024-06-05T18:47:42.870426
+2024-06-18T18:20:26.381878
 [
     {
         "subject": "SPED 303",
@@ -42,7 +42,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "BCGM FTF WP3",
+        "attributes": "BCGM WP3 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "6",
         "waitlist": "",
         "restrictions": "OV ED",
-        "attributes": "BCGM FTF WP3",
+        "attributes": "BCGM WP3 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV ED MJ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Admission to the Woodring College of Education.",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "11",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "SPED 303, SPED 360, or SPED 420; co-requisites: SPED 464 and SPED 465; or instructor permission.",
         "gpa": null
     },
@@ -341,7 +341,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "SPED 420 and SPED 457; or instructor permission.",
         "gpa": null
     },

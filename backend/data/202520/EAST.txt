@@ -1,4 +1,4 @@
-2024-06-05T18:46:22.923798
+2024-06-18T18:18:56.449542
 [
     {
         "subject": "EAST 201",
@@ -47,6 +47,29 @@
         "gpa": null
     },
     {
+        "subject": "EAST 297D",
+        "course_credits": "5",
+        "crn": "23673",
+        "days": "TR",
+        "start_time": "1200",
+        "end_time": "1350",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Tserendorj, Munkhchimeg",
+        "room": "HH 222",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "12",
+        "enrl": "0",
+        "avail": "12",
+        "waitlist": "",
+        "restrictions": "",
+        "attributes": "FTF",
+        "prerequisites": "",
+        "gpa": null
+    },
+    {
         "subject": "EAST 302",
         "course_credits": "3",
         "crn": "22765",
@@ -65,7 +88,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "ASIA FTF WP3",
+        "attributes": "WP3 ASIA FTF",
         "prerequisites": "EAST 201, EAST 202; one year of Chinese or Japanese.",
         "gpa": null
     },

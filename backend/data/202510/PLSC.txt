@@ -1,4 +1,4 @@
-2024-06-05T18:46:51.151587
+2024-06-18T18:19:29.130244
 [
     {
         "subject": "PLSC 250",
@@ -19,7 +19,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "55",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "40",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "PLSC 250; only 1 of PLSC 311, MGMT 271 or FAIR 311B may be taken for GUR credit.",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "PLSC 250 or instructor permission.",
         "gpa": null
     },
@@ -387,7 +387,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "One course\u00a0from: PLSC 250, PLSC 261, PLSC 271, PLSC 291, PLSC 366, PLSC 433, PLSC 434; or instructor permission.",
         "gpa": null
     },
@@ -410,7 +410,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "PLSC 250 and one from: PLSC 311, PLSC 314, FAIR 311B or MGMT 271",
         "gpa": null
     },
@@ -456,7 +456,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "PLSC 250",
         "gpa": null
     },
@@ -479,7 +479,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "SR MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Senior status in political science and 30 credits in political science.",
         "gpa": null
     },
@@ -502,7 +502,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "SR MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Senior status in political science and 30 credits in political science.",
         "gpa": null
     },

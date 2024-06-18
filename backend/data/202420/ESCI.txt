@@ -1,4 +1,4 @@
-2024-06-05T18:47:32.410342
+2024-06-18T18:20:14.043555
 [
     {
         "subject": "ESCI 101",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "400",
-        "enrl": "226",
-        "avail": "174",
+        "enrl": "225",
+        "avail": "175",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SCI",
+        "attributes": "SCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "ASNC OL SCI SST",
+        "attributes": "SCI OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "HYBD PBEX",
+        "attributes": "PBEX HYBD",
         "prerequisites": "BIOL 205; CHEM 161; MATH 115; Physics recommended; or instructor permission.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "HYBD PAEX",
+        "attributes": "PAEX HYBD",
         "prerequisites": "BIOL 205; CHEM 161; MATH 115; Physics recommended; or instructor permission.",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF PBEX",
+        "attributes": "PBEX FTF",
         "prerequisites": "ESCI 321 or concurrent.",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF PAEX",
+        "attributes": "PAEX FTF",
         "prerequisites": "ESCI 321 or concurrent.",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "HYBD PBEX",
+        "attributes": "PBEX HYBD",
         "prerequisites": "ESCI 302 or one year of biology or instructor permission.",
         "gpa": null
     },
@@ -268,11 +268,11 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $66.00",
         "cap": "8",
-        "enrl": "1",
-        "avail": "7",
+        "enrl": "0",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "HYBD PAEX",
+        "attributes": "PAEX HYBD",
         "prerequisites": "ESCI 302 or one year of biology or instructor permission.",
         "gpa": null
     },
@@ -341,7 +341,7 @@
         "avail": "6",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "HYBD PBEX",
+        "attributes": "PBEX HYBD",
         "prerequisites": "BIOL 101 or BIOL 204 or instructor permission.",
         "gpa": null
     },
@@ -360,11 +360,11 @@
         "lab_room": "Port Angeles-State Supported",
         "addl_fees": "Flat Fee $180.00",
         "cap": "8",
-        "enrl": "3",
-        "avail": "5",
+        "enrl": "2",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "HYBD PAEX",
+        "attributes": "PAEX HYBD",
         "prerequisites": "BIOL 101 or BIOL 204 or instructor permission.",
         "gpa": null
     },
@@ -410,7 +410,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Complete one of the following: CHEM 163 and BIOL 206; or CHEM 161, BIOL 101, and ESCI 302 or ESCI 392 or ENVS 392. Or instructor permission.",
         "gpa": null
     },
@@ -433,7 +433,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Complete one of the following: CHEM 163 and BIOL 206; or CHEM 161, BIOL 101, and ESCI 302 or ESCI 392 or ENVS 392. Or instructor permission.",
         "gpa": null
     },
@@ -479,7 +479,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "ESCI 325 or BIOL 325; ESCI 340 or BIOL 340; or equivalent",
         "gpa": null
     },
@@ -502,7 +502,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "ESCI 325 or BIOL 325; ESCI 340 or BIOL 340; or equivalent",
         "gpa": null
     },
@@ -525,7 +525,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ESCI 325 or BIOL 325; ESCI 340 or BIOL 340 or equivalent.",
         "gpa": null
     },
@@ -663,7 +663,7 @@
         "avail": "8",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "CPST FTF WP3",
+        "attributes": "WP3 CPST FTF",
         "prerequisites": "ESCI 325 or BIOL 325; ESCI 361 or ENVS 327.",
         "gpa": null
     },
@@ -686,7 +686,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "ESCI 325 or BIOL 325; MATH 124; ESCI 340 or BIOL 340; MATH 125 recommended.",
         "gpa": null
     },
@@ -824,7 +824,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "ESCI 380 or ESCI 329 or ENRG 380",
         "gpa": null
     },
@@ -847,7 +847,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "ESCI 325; ESCI 340 or BIOL 340; or instructor permission; physics recommended.",
         "gpa": null
     },
@@ -870,7 +870,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV SR MJ",
-        "attributes": "CPST FTF WP3",
+        "attributes": "WP3 CPST FTF",
         "prerequisites": "Senior status. One 300 or 400 level toxicology course strongly recommended.",
         "gpa": null
     },
@@ -916,7 +916,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV SR MJ",
-        "attributes": "CPST FTF WP2",
+        "attributes": "WP2 CPST FTF",
         "prerequisites": "College of the Environment major or MACS major; senior status (priority registration for College of the Environment majors).",
         "gpa": null
     },
@@ -1514,7 +1514,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF PBEX",
+        "attributes": "PBEX FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -1537,7 +1537,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF PAEX",
+        "attributes": "PAEX FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -2089,7 +2089,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV S/U",
-        "attributes": "FTF PBEX",
+        "attributes": "PBEX FTF",
         "prerequisites": "Permission of instructor.",
         "gpa": null
     },
@@ -2112,7 +2112,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV S/U",
-        "attributes": "FTF PAEX",
+        "attributes": "PAEX FTF",
         "prerequisites": "Permission of instructor.",
         "gpa": null
     },
@@ -2664,7 +2664,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF PBEX",
+        "attributes": "PBEX FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -2687,7 +2687,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF PAEX",
+        "attributes": "PAEX FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -2756,7 +2756,7 @@
         "avail": "17",
         "waitlist": "",
         "restrictions": "OV GR PB PM MJ PQ",
-        "attributes": "ASNC OL SST",
+        "attributes": "OL ASNC SST",
         "prerequisites": "ESCI 502 or instructor permission.",
         "gpa": null
     },
@@ -3009,7 +3009,7 @@
         "avail": "13",
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ S/U",
-        "attributes": "ASNC OL SST",
+        "attributes": "OL ASNC SST",
         "prerequisites": "Graduate status.",
         "gpa": null
     },

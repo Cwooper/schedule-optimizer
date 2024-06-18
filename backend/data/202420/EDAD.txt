@@ -1,4 +1,4 @@
-2024-06-05T18:47:30.619698
+2024-06-18T18:20:12.238161
 [
     {
         "subject": "EDAD 503",
@@ -42,7 +42,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV GR GR PB PM MJ",
-        "attributes": "DLEX OL SYNC",
+        "attributes": "OL DLEX SYNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -53,12 +53,12 @@
         "days": "T",
         "start_time": "1700",
         "end_time": "2050",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
+        "lab_days": "T",
+        "lab_start_time": "1700",
+        "lab_end_time": "2050",
         "instructor": "Bruce, Tim",
         "room": "ONLINE SYNC",
-        "lab_room": null,
+        "lab_room": "ONLINE SYNC",
         "addl_fees": "",
         "cap": "12",
         "enrl": "9",
@@ -111,7 +111,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV GR GR PB PM",
-        "attributes": "DLEX OL SYNC",
+        "attributes": "OL DLEX SYNC",
         "prerequisites": "Graduate status",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV GR GR PB PM",
-        "attributes": "DLEX OL SYNC",
+        "attributes": "OL DLEX SYNC",
         "prerequisites": "Graduate status",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV GR PB PM S/U",
-        "attributes": "ASNC EVEX OL",
+        "attributes": "OL EVEX ASNC",
         "prerequisites": "Admission to Doctor of Education.",
         "gpa": null
     },

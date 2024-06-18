@@ -1,4 +1,4 @@
-2024-06-05T18:47:24.737544
+2024-06-18T18:20:05.193940
 [
     {
         "subject": "SPED 310",
@@ -19,31 +19,8 @@
         "avail": "17",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC BCGM OL WP3",
+        "attributes": "BCGM WP3 OL ASNC",
         "prerequisites": "",
-        "gpa": null
-    },
-    {
-        "subject": "SPED 441",
-        "course_credits": "1 TO 5",
-        "crn": "30650",
-        "days": "TBD",
-        "start_time": "TBD",
-        "end_time": "TBD",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Perzigian, Aaron",
-        "room": "MH OFC",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "25",
-        "enrl": "0",
-        "avail": "25",
-        "waitlist": "",
-        "restrictions": "OV S/U",
-        "attributes": "FTF",
-        "prerequisites": "One course from educational psychology or foundations area, or permission of instructor.",
         "gpa": null
     },
     {
@@ -61,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "34",
-        "enrl": "24",
-        "avail": "10",
+        "enrl": "26",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "ED",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Admisssion to Woodring College of Education teacher education major or instructor permission.",
         "gpa": null
     },

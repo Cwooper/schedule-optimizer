@@ -1,4 +1,4 @@
-2024-06-05T18:47:34.481328
+2024-06-18T18:20:16.489081
 [
     {
         "subject": "HIST 103",
@@ -19,7 +19,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF HUM US US1",
+        "attributes": "HUM US US1 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF HUM US US1",
+        "attributes": "HUM US US1 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "AFME ANCT EUR FTF HUM",
+        "attributes": "HUM AFME ANCT EUR FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "EUR EUR1 FTF HUM",
+        "attributes": "HUM EUR EUR1 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "EUR EUR2 FTF HUM",
+        "attributes": "HUM EUR EUR2 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "ANCT FTF HUM",
+        "attributes": "HUM ANCT FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "6",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "CMB2 FTF HUM",
+        "attributes": "HUM CMB2 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -176,11 +176,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "75",
-        "enrl": "69",
-        "avail": "6",
+        "enrl": "68",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "BCGM FTF US US1 US2",
+        "attributes": "BCGM US US1 US2 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "34",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "BCGM FTF US US2",
+        "attributes": "BCGM US US2 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "-1",
         "waitlist": "",
         "restrictions": "OV JR SO SR",
-        "attributes": "CMB2 FTF WHEM",
+        "attributes": "CMB2 WHEM FTF",
         "prerequisites": "Sophomore status or instructor permission.",
         "gpa": null
     },
@@ -341,7 +341,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF US US2",
+        "attributes": "US US2 FTF",
         "prerequisites": "HIST 103 or HIST 104.",
         "gpa": null
     },
@@ -387,7 +387,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV JR SO SR",
-        "attributes": "CMB2 FTF WHEM",
+        "attributes": "CMB2 WHEM FTF",
         "prerequisites": "Sophomore, junior, or senior status.",
         "gpa": null
     },
@@ -410,7 +410,7 @@
         "avail": "-3",
         "waitlist": "",
         "restrictions": "OV JR SR",
-        "attributes": "FTF US US1 US2",
+        "attributes": "US US1 US2 FTF",
         "prerequisites": "Junior or senior status.",
         "gpa": null
     },
@@ -521,8 +521,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "28",
-        "avail": "2",
+        "enrl": "27",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "OV JR SR",
         "attributes": "EUR EUR2 FTF",
@@ -544,8 +544,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "22",
-        "avail": "8",
+        "enrl": "20",
+        "avail": "10",
         "waitlist": "",
         "restrictions": "OV JR SR",
         "attributes": "ASIA CMB1 FTF",
@@ -571,7 +571,7 @@
         "avail": "-1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF US",
+        "attributes": "US FTF",
         "prerequisites": "sophomore standing",
         "gpa": null
     },
@@ -636,8 +636,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "5",
-        "avail": "10",
+        "enrl": "4",
+        "avail": "11",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "EUR EUR1 FTF",
@@ -663,7 +663,7 @@
         "avail": "9",
         "waitlist": "",
         "restrictions": "OV JR SR PQ",
-        "attributes": "FTF US US1",
+        "attributes": "US US1 FTF",
         "prerequisites": "Junior status and HIST 103; or instructor permission.",
         "gpa": null
     },
@@ -686,7 +686,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV JR SR",
-        "attributes": "FTF WHEM",
+        "attributes": "WHEM FTF",
         "prerequisites": "Junior or senior status. Recommended: any 100, 200, 300, 400 level History courses.",
         "gpa": null
     },
@@ -732,7 +732,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV JR SR",
-        "attributes": "CMB2 FTF US US2 WHEM",
+        "attributes": "CMB2 US US2 WHEM FTF",
         "prerequisites": "Junior or senior status. Recommended: any 100, 200, 300, 400 level History courses.",
         "gpa": null
     },
@@ -778,7 +778,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "One upper-division course in field of topic.",
         "gpa": null
     },
@@ -801,7 +801,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "One upper-division course in field of topic.",
         "gpa": null
     },
@@ -824,7 +824,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "One upper-division course in field of topic.",
         "gpa": null
     },
@@ -847,7 +847,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "One upper-division course in field of topic.",
         "gpa": null
     },

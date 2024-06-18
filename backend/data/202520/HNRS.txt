@@ -1,4 +1,4 @@
-2024-06-05T18:46:27.076274
+2024-06-18T18:19:01.518234
 [
     {
         "subject": "HNRS 105",
@@ -318,7 +318,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "Admission to the Honors College.",
         "gpa": null
     },
@@ -364,7 +364,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "MATH 112 or higher or equivalent or suitable math assessment score.",
         "gpa": null
     },
@@ -387,7 +387,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "Admission to the Honors College.",
         "gpa": null
     },
@@ -410,7 +410,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "Admission to the Honors College.",
         "gpa": null
     },
@@ -433,7 +433,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "Admission to the Honors College.",
         "gpa": null
     },
@@ -456,7 +456,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "JR SR",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Admission to the Honors College.",
         "gpa": null
     },
@@ -479,7 +479,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "JR SR",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Admission to the Honors College.",
         "gpa": null
     },
@@ -502,7 +502,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "JR SR",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "Admission to the Honors College.",
         "gpa": null
     },
@@ -525,7 +525,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "JR SR",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "Admission to the Honors College.",
         "gpa": null
     },
@@ -548,7 +548,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "JR SR",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "Admission to the Honors College.",
         "gpa": null
     },
@@ -571,7 +571,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "JR SR",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "Admission to the Honors College.",
         "gpa": null
     },
@@ -594,7 +594,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "JR SR",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Admission to the Honors College.",
         "gpa": null
     },
@@ -617,7 +617,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "JR SR",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Admission to the Honors College.",
         "gpa": null
     },
@@ -686,7 +686,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "JR SR",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Admission to the Honors College.",
         "gpa": null
     },
@@ -694,14 +694,14 @@
         "subject": "HNRS 390",
         "course_credits": "1",
         "crn": "21724",
-        "days": "T",
+        "days": "W",
         "start_time": "1600",
         "end_time": "1650",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Dunn, Paul Richard",
-        "room": "OM 330C",
+        "room": "OM 330A",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -717,14 +717,14 @@
         "subject": "HNRS 390",
         "course_credits": "1",
         "crn": "22675",
-        "days": "F",
-        "start_time": "1200",
-        "end_time": "1250",
+        "days": "R",
+        "start_time": "1600",
+        "end_time": "1650",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Martindale, Lori Marie",
-        "room": "TBA",
+        "room": "OM 330A",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",

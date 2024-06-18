@@ -1,4 +1,4 @@
-2024-06-05T18:46:56.279395
+2024-06-18T18:19:35.164243
 [
     {
         "subject": "C/AM 277",
@@ -19,7 +19,7 @@
         "avail": "0",
         "waitlist": "WL",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "5",
-        "enrl": "0",
-        "avail": "5",
+        "enrl": "1",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or HNRS 202; or HNRS 254; or instructor permission.",
         "gpa": null
     },
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "10",
-        "enrl": "7",
-        "avail": "3",
+        "enrl": "9",
+        "avail": "1",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",
@@ -153,12 +153,35 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "4",
-        "avail": "11",
+        "enrl": "5",
+        "avail": "10",
         "waitlist": "",
         "restrictions": "JR SR",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Junior status",
+        "gpa": null
+    },
+    {
+        "subject": "C/AM 444",
+        "course_credits": "3",
+        "crn": "44297",
+        "days": "TBD",
+        "start_time": "TBD",
+        "end_time": "TBD",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Keppie, Christina L.",
+        "room": "CA OFC",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "2",
+        "enrl": "0",
+        "avail": "2",
+        "waitlist": "",
+        "restrictions": "OV PQ",
+        "attributes": "FTF",
+        "prerequisites": "C/AM 200; C/AM 277 or HIST 277; C/AM 331 or ENVS 331; Junior status.",
         "gpa": null
     }
 ]

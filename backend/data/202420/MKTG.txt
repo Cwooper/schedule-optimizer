@@ -1,4 +1,4 @@
-2024-06-05T18:47:37.557488
+2024-06-18T18:20:20.055399
 [
     {
         "subject": "MKTG 380",
@@ -19,7 +19,7 @@
         "avail": "14",
         "waitlist": "",
         "restrictions": "OV JR SO SR PQ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "ACCT 240; and ECON 206 or HNRS 209.",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV JR SO SR PQ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "ACCT 240; and ECON 206 or HNRS 209.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "Majors Only. MKTG 380; co-requisite MKTG 382.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Majors Only. MKTG 380; co-requisite MKTG 381.",
         "gpa": null
     },
@@ -199,8 +199,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "25",
-        "avail": "10",
+        "enrl": "24",
+        "avail": "11",
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
         "attributes": "CF FTF",
@@ -222,8 +222,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "26",
-        "avail": "9",
+        "enrl": "25",
+        "avail": "10",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",

@@ -1,4 +1,4 @@
-2024-06-05T18:46:58.354366
+2024-06-18T18:19:37.590442
 [
     {
         "subject": "DSCI 205",
@@ -15,8 +15,8 @@
         "lab_room": "CF 120",
         "addl_fees": "",
         "cap": "64",
-        "enrl": "25",
-        "avail": "39",
+        "enrl": "29",
+        "avail": "35",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "HYBD",
@@ -61,11 +61,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "22",
-        "enrl": "12",
-        "avail": "10",
+        "enrl": "14",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "ASNC OL QSR",
+        "attributes": "QSR OL ASNC",
         "prerequisites": "MATH 112 with a C- or better or a college precalculus course with a C+ or better or suitable math assessment score.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "JR SO SR MJ PQ",
-        "attributes": "ASNC OL PBEX",
+        "attributes": "OL PBEX ASNC",
         "prerequisites": "MATH 157 or MATH 124 or MATH 138; and DSCI 205.",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "0",
         "waitlist": "WL",
         "restrictions": "PQ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "MATH 157 or MATH 124 or MATH 138; and DSCI 205.",
         "gpa": null
     }

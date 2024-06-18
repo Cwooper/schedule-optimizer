@@ -1,4 +1,4 @@
-2024-06-05T18:46:42.818122
+2024-06-18T18:19:19.911627
 [
     {
         "subject": "ESCI 101",
@@ -19,7 +19,7 @@
         "avail": "400",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SCI",
+        "attributes": "SCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC OL SCI SST",
+        "attributes": "SCI OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "170",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF SCI",
+        "attributes": "SCI FTF",
         "prerequisites": "MATH 112 or ENVS 201; one lab science GUR; or instructor permission.",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Complete one of the following: CHEM 163 and BIOL 206; or CHEM 161, BIOL 101, and ESCI 302 or ESCI 392 or ENVS 392. Or instructor permission.",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Complete one of the following: CHEM 163 and BIOL 206; or CHEM 161, BIOL 101, and ESCI 302 or ESCI 392 or ENVS 392. Or instructor permission.",
         "gpa": null
     },
@@ -410,7 +410,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "Completion of a 300-level course in either ESCI, ENVS, BIOL, GEOL, ANTH, or permission of instructor.",
         "gpa": null
     },
@@ -433,7 +433,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "Completion of a 300-level course in either ESCI, ENVS, BIOL, GEOL, ANTH, or permission of instructor.",
         "gpa": null
     },
@@ -456,7 +456,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "ESCI 333 or ESCI 361 or ESCI 455; or ESCI 460 or concurrent or instructor permission.",
         "gpa": null
     },
@@ -2296,7 +2296,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "GR GR PB PM S/U",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Graduate status.",
         "gpa": null
     },

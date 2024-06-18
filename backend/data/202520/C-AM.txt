@@ -1,4 +1,4 @@
-2024-06-05T18:46:20.228352
+2024-06-18T18:18:52.936235
 [
     {
         "subject": "C/AM 305",
@@ -88,7 +88,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ECON 206 and ECON 207; or HNRS 209 and ECON 207; or instructor permission.",
         "gpa": null
     },

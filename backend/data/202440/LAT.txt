@@ -1,4 +1,4 @@
-2024-06-05T18:47:06.025676
+2024-06-18T18:19:45.028053
 [
     {
         "subject": "LAT 101",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "18",
-        "enrl": "2",
-        "avail": "16",
+        "enrl": "3",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",

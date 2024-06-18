@@ -1,4 +1,4 @@
-2024-06-05T18:46:43.648841
+2024-06-18T18:19:20.963863
 [
     {
         "subject": "FIN 215",
@@ -19,7 +19,7 @@
         "avail": "90",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC OL SSC SST",
+        "attributes": "SSC OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "45",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF QSR",
+        "attributes": "QSR FTF",
         "prerequisites": "Cannot be taken after or concurrent with FIN 440.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC OL QSR SST",
+        "attributes": "QSR OL ASNC SST",
         "prerequisites": "Cannot be taken after or concurrent with FIN 440.",
         "gpa": null
     },
@@ -119,22 +119,22 @@
         "subject": "FIN 341",
         "course_credits": "4",
         "crn": "11193",
-        "days": "TR",
-        "start_time": "1200",
-        "end_time": "1350",
+        "days": "N/A",
+        "start_time": "N/A",
+        "end_time": "N/A",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Kong, Sophie",
-        "room": "TBA",
+        "room": "ONLINE ASNC",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "45",
+        "cap": "25",
         "enrl": "0",
-        "avail": "45",
+        "avail": "25",
         "waitlist": "",
         "restrictions": "JR SO SR MJ PQ",
-        "attributes": "FTF",
+        "attributes": "OL ASNC",
         "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "JR SO SR PQ",
-        "attributes": "HYBD PBEX",
+        "attributes": "PBEX HYBD",
         "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "MIX OL",
+        "attributes": "OL MIX",
         "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "35",
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Majors Only. FIN 341",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "JR SR MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Majors Only. FIN 341.",
         "gpa": null
     },

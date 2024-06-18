@@ -1,4 +1,4 @@
-2024-06-05T18:47:36.360432
+2024-06-18T18:20:18.742498
 [
     {
         "subject": "KIN 304",
@@ -153,8 +153,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "34",
-        "enrl": "34",
-        "avail": "0",
+        "enrl": "33",
+        "avail": "1",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",
@@ -479,7 +479,7 @@
         "avail": "11",
         "waitlist": "",
         "restrictions": "OV SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "KIN 306 or PEH 443P; Senior status.",
         "gpa": null
     },
@@ -502,7 +502,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "KIN 306 or PEH 443P; Senior status.",
         "gpa": null
     },
@@ -525,7 +525,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "OV SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "KIN 306 or PEH 443P; Senior status.",
         "gpa": null
     },

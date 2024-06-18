@@ -1,4 +1,4 @@
-2024-06-05T18:47:09.734916
+2024-06-18T18:19:48.979223
 [
     {
         "subject": "PA 101",
@@ -268,9 +268,9 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $30.00",
         "cap": "5",
-        "enrl": "5",
-        "avail": "0",
-        "waitlist": "WL",
+        "enrl": "4",
+        "avail": "1",
+        "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",
         "prerequisites": "Kinesiology majors only.",

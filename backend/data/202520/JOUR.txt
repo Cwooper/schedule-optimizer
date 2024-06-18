@@ -1,4 +1,4 @@
-2024-06-05T18:46:28.331783
+2024-06-18T18:19:03.177450
 [
     {
         "subject": "JOUR 106",
@@ -42,7 +42,7 @@
         "avail": "120",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "JR SR PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Junior status; JOUR 207; JOUR 214; JOUR 307 or JOUR 380.",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "JOUR 207; one newspaper staff course. May not be taken concurrently with JOUR 404.",
         "gpa": null
     },
@@ -433,7 +433,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF SL",
+        "attributes": "SL FTF",
         "prerequisites": "JOUR 207 and JOUR 330.",
         "gpa": null
     },
@@ -479,7 +479,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "JOUR 207; JOUR 307 or JOUR 380; JOUR 314.",
         "gpa": null
     },
@@ -525,7 +525,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Senior status; JOUR 207; JOUR 307 or JOUR 380; and one newspaper staff course. May not be taken concurrently with JOUR 404.",
         "gpa": null
     },
@@ -663,7 +663,7 @@
         "avail": "18",
         "waitlist": "",
         "restrictions": "SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "JOUR 350 and JOUR 351; and major status.",
         "gpa": null
     }

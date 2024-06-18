@@ -1,4 +1,4 @@
-2024-06-05T18:46:55.701786
+2024-06-18T18:19:34.454827
 [
     {
         "subject": "BNS 300",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $12.38",
         "cap": "23",
-        "enrl": "14",
-        "avail": "9",
+        "enrl": "15",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
@@ -65,7 +65,7 @@
         "avail": "9",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "BNS 301 and declared Behavioral Neuroscience Major; or instructor permission.",
         "gpa": null
     },
@@ -153,11 +153,11 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $17.62",
         "cap": "15",
-        "enrl": "6",
-        "avail": "9",
+        "enrl": "7",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "BNS 302; BNS 306 or concurrent; and one course from: PSY 319, PSY 321, PSY 322, PSY 323 or PSY 324; or instructor permission.",
         "gpa": null
     }

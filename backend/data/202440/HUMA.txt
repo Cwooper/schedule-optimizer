@@ -1,4 +1,4 @@
-2024-06-05T18:47:03.664263
+2024-06-18T18:19:43.591944
 [
     {
         "subject": "HUMA 110",
@@ -19,7 +19,7 @@
         "avail": "0",
         "waitlist": "WL",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "0",
         "waitlist": "WL",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
-        "enrl": "11",
-        "avail": "34",
+        "enrl": "16",
+        "avail": "29",
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
-        "enrl": "17",
-        "avail": "28",
+        "enrl": "16",
+        "avail": "29",
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
@@ -130,8 +130,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
-        "enrl": "7",
-        "avail": "38",
+        "enrl": "6",
+        "avail": "39",
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM FTF",
@@ -199,8 +199,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "15",
-        "enrl": "11",
-        "avail": "4",
+        "enrl": "10",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "JR SR",
         "attributes": "ACGM FTF",

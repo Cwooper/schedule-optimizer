@@ -1,4 +1,4 @@
-2024-06-05T18:46:25.155663
+2024-06-18T18:18:59.176645
 [
     {
         "subject": "ENVS 203",
@@ -19,7 +19,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "Minimum of one university-level natural science GUR.",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "Minimum of one university-level natural science GUR.",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "Minimum of one university-level natural science GUR.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "Minimum of one university-level natural science GUR.",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
-        "attributes": "SPL SST WP3",
+        "attributes": "WP3 SST SPL",
         "prerequisites": "UEPP 202 or ENVS 303 or instructor permission.",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ENVS 303 or instructor permission.",
         "gpa": null
     },
@@ -341,7 +341,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Open to all College of the Environment majors, minors, Journalism pre-majors, majors, and minors; or instructor permission.",
         "gpa": null
     },
@@ -387,7 +387,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV JR SR",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Open to editors only.",
         "gpa": null
     },
@@ -617,7 +617,7 @@
         "avail": "22",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "ENVS 362 or ENVS 372; or instructor permission.",
         "gpa": null
     },
@@ -640,7 +640,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "OV JR SR MJ",
-        "attributes": "SPL SST WP3",
+        "attributes": "WP3 SST SPL",
         "prerequisites": "Junior standing or instructor permission.",
         "gpa": null
     },
@@ -893,7 +893,7 @@
         "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF SST",
+        "attributes": "SST FTF",
         "prerequisites": "ENVS 320.",
         "gpa": null
     },

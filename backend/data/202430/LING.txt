@@ -1,28 +1,5 @@
-2024-06-05T18:47:21.106679
+2024-06-18T18:20:01.122722
 [
-    {
-        "subject": "LING 201",
-        "course_credits": "5",
-        "crn": "30811",
-        "days": "MTWR",
-        "start_time": "1100",
-        "end_time": "1250",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Sandoval, Jordan Beth",
-        "room": "HU 103",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "10",
-        "enrl": "4",
-        "avail": "6",
-        "waitlist": "",
-        "restrictions": "",
-        "attributes": "FTF SSC",
-        "prerequisites": "",
-        "gpa": null
-    },
     {
         "subject": "LING 207",
         "course_credits": "5",
@@ -38,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "12",
-        "avail": "13",
+        "enrl": "18",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC OL SCI",
+        "attributes": "SCI OL ASNC",
         "prerequisites": "",
         "gpa": null
     }

@@ -1,4 +1,4 @@
-2024-06-05T18:47:40.888869
+2024-06-18T18:20:23.892292
 [
     {
         "subject": "PLSC 101",
@@ -19,7 +19,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "14",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -107,11 +107,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "47",
-        "avail": "3",
+        "enrl": "45",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "11",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "13",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "PLSC 250 or PLSC 271",
         "gpa": null
     },
@@ -291,8 +291,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "40",
-        "enrl": "24",
-        "avail": "16",
+        "enrl": "23",
+        "avail": "17",
         "waitlist": "",
         "restrictions": "OV PQ",
         "attributes": "ACGM FTF",
@@ -318,7 +318,7 @@
         "avail": "-1",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "HIST 111 or HUMA 121 or PLSC 261 or equivalent.",
         "gpa": null
     },
@@ -341,7 +341,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -502,7 +502,7 @@
         "avail": "11",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "PLSC 271 or PLSC 291.",
         "gpa": null
     },
@@ -571,7 +571,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV SR MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Senior status in political science and 30 credits in political science.",
         "gpa": null
     },
@@ -594,7 +594,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV SR MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Senior status in political science and 30 credits in political science.",
         "gpa": null
     },
@@ -778,7 +778,7 @@
         "avail": "13",
         "waitlist": "",
         "restrictions": "OV SR",
-        "attributes": "CF-E FTF WP3",
+        "attributes": "WP3 CF-E FTF",
         "prerequisites": "senior standing political science/economics combined major or political science major/economics minor",
         "gpa": null
     },

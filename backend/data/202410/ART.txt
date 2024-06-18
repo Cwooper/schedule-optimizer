@@ -1,4 +1,4 @@
-2024-06-05T18:47:44.810578
+2024-06-18T18:20:28.547818
 [
     {
         "subject": "ART 109",
@@ -19,7 +19,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "ASNC HUM OL",
+        "attributes": "HUM OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SST",
+        "attributes": "SST FTF",
         "prerequisites": "If a student becomes an art major this course can fulfill the requirement for ART 110.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SST",
+        "attributes": "SST FTF",
         "prerequisites": "If a student becomes an art major this course can fulfill the requirement for ART 110.",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "ASNC OL SST",
+        "attributes": "OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SST",
+        "attributes": "SST FTF",
         "prerequisites": "",
         "gpa": null
     },

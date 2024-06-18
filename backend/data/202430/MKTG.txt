@@ -1,4 +1,4 @@
-2024-06-05T18:47:21.577569
+2024-06-18T18:20:01.694480
 [
     {
         "subject": "MKTG 380",
@@ -19,7 +19,7 @@
         "avail": "0",
         "waitlist": "WL",
         "restrictions": "PQ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "ACCT 240; and ECON 206 or HNRS 209.",
         "gpa": null
     },
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "5",
-        "avail": "15",
+        "enrl": "7",
+        "avail": "13",
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
         "attributes": "FTF",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "5",
-        "avail": "15",
+        "enrl": "6",
+        "avail": "14",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "CF FTF",
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "7",
-        "avail": "28",
+        "enrl": "8",
+        "avail": "27",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
         "attributes": "FTF",

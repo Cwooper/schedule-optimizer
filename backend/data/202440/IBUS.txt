@@ -1,4 +1,4 @@
-2024-06-05T18:47:04.088714
+2024-06-18T18:19:44.189086
 [
     {
         "subject": "IBUS 370",
@@ -61,11 +61,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "13",
-        "avail": "12",
+        "enrl": "14",
+        "avail": "11",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "IBUS 370 or MGMT 313 or full major status in College of Business and Economics. Students in other majors may request instructor permission.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "14",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "CF FTF WP1",
+        "attributes": "CF WP1 FTF",
         "prerequisites": "Majors only; IBUS 370.",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "13",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "IBUS 370 or instructor permission.",
         "gpa": null
     },

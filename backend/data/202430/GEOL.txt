@@ -1,4 +1,4 @@
-2024-06-05T18:47:18.968654
+2024-06-18T18:19:58.743397
 [
     {
         "subject": "GEOL 101",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "38",
-        "avail": "12",
+        "enrl": "43",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "ASNC LSCI OL",
+        "attributes": "LSCI OL ASNC",
         "prerequisites": "MATH 107 or MATH 112 with concurrency or higher or suitable math assessment score.",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "25",
-        "avail": "5",
+        "enrl": "24",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ASNC OL SCI",
+        "attributes": "SCI OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "19",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF TRVL",
+        "attributes": "TRVL FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "11",
         "waitlist": "",
         "restrictions": "OV MJ",
-        "attributes": "FTF TRVL",
+        "attributes": "TRVL FTF",
         "prerequisites": "Co-requisite: GEOL 409",
         "gpa": null
     },

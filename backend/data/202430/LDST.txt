@@ -1,4 +1,4 @@
-2024-06-05T18:47:20.949633
+2024-06-18T18:20:00.964459
 [
     {
         "subject": "LDST 341",
@@ -42,7 +42,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "LDST 101 or instructor permission.",
         "gpa": null
     }

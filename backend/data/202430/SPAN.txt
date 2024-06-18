@@ -1,4 +1,4 @@
-2024-06-05T18:47:24.641672
+2024-06-18T18:20:05.085930
 [
     {
         "subject": "SPAN 201",
@@ -15,11 +15,11 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "Flat Fee $5.00",
         "cap": "15",
-        "enrl": "9",
-        "avail": "6",
+        "enrl": "8",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "BCOM MIX OL",
+        "attributes": "BCOM OL MIX",
         "prerequisites": "SPAN 103 or SPAN 104 or equivalent.",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "Flat Fee $5.00",
         "cap": "15",
-        "enrl": "13",
-        "avail": "2",
+        "enrl": "12",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "HUM MIX OL",
+        "attributes": "HUM OL MIX",
         "prerequisites": "SPAN 201.",
         "gpa": null
     },
@@ -61,11 +61,11 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "Flat Fee $5.00",
         "cap": "15",
-        "enrl": "15",
-        "avail": "0",
-        "waitlist": "WL",
+        "enrl": "13",
+        "avail": "2",
+        "waitlist": "",
         "restrictions": "",
-        "attributes": "HUM MIX OL",
+        "attributes": "HUM OL MIX",
         "prerequisites": "SPAN 202.",
         "gpa": null
     },
@@ -84,11 +84,11 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $1425.00",
         "cap": "14",
-        "enrl": "13",
-        "avail": "1",
-        "waitlist": "",
+        "enrl": "14",
+        "avail": "0",
+        "waitlist": "WL",
         "restrictions": "OV PQ",
-        "attributes": "FTF HUM TRVL",
+        "attributes": "HUM TRVL FTF",
         "prerequisites": "SPAN 203 or instructor permission.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "0",
         "waitlist": "WL",
         "restrictions": "OV PQ",
-        "attributes": "FTF HUM TRVL",
+        "attributes": "HUM TRVL FTF",
         "prerequisites": "SPAN 301.",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "0",
         "waitlist": "WL",
         "restrictions": "OV PQ",
-        "attributes": "FTF TRVL",
+        "attributes": "TRVL FTF",
         "prerequisites": "SPAN 301 or instructor permission.",
         "gpa": null
     }

@@ -1,4 +1,4 @@
-2024-06-05T18:46:59.793191
+2024-06-18T18:19:39.352710
 [
     {
         "subject": "ENRG 101",
@@ -19,7 +19,7 @@
         "avail": "0",
         "waitlist": "WL",
         "restrictions": "",
-        "attributes": "FTF SCI",
+        "attributes": "SCI FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -34,7 +34,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Glosser, Deborah",
-        "room": "ES 080",
+        "room": "HH 253",
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
@@ -153,8 +153,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "16",
-        "avail": "4",
+        "enrl": "18",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
@@ -199,8 +199,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "17",
-        "avail": "33",
+        "enrl": "16",
+        "avail": "34",
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
@@ -249,7 +249,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "One from: ENRG 384, ECON 384, ENRG 386 or ECON 386;  and one from: DSCI 305, ECON 375, ENRG 322, ESCI 340 or BIOL 340.",
         "gpa": null
     },

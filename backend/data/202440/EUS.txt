@@ -1,4 +1,4 @@
-2024-06-05T18:47:01.512068
+2024-06-18T18:19:41.192391
 [
     {
         "subject": "EUS 201",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "100",
-        "enrl": "35",
-        "avail": "65",
+        "enrl": "40",
+        "avail": "60",
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
@@ -36,13 +36,13 @@
         "instructor": "Vajda, Edward J.",
         "room": "ONLINE ASNC",
         "lab_room": null,
-        "addl_fees": "Per/Cr $298.00",
+        "addl_fees": "Per/Cr $307.00",
         "cap": "25",
-        "enrl": "24",
-        "avail": "1",
-        "waitlist": "",
+        "enrl": "25",
+        "avail": "0",
+        "waitlist": "WL",
         "restrictions": "",
-        "attributes": "ACGM ASNC OL SST",
+        "attributes": "ACGM OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     }

@@ -1,4 +1,4 @@
-2024-06-05T18:46:35.835128
+2024-06-18T18:19:11.437096
 [
     {
         "subject": "THTR 101",
@@ -19,7 +19,7 @@
         "avail": "130",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "190",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -571,7 +571,7 @@
         "avail": "60",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "THTR 381",
         "gpa": null
     },
@@ -617,7 +617,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "THTR 228 or permission of instructor.",
         "gpa": null
     },
@@ -663,7 +663,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "THTR 228.",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-06-05T18:46:26.583699
+2024-06-18T18:19:00.914737
 [
     {
         "subject": "HLED 345",
@@ -88,7 +88,7 @@
         "avail": "30",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "HLED 401",
         "gpa": null
     },

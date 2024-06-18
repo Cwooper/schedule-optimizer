@@ -1,4 +1,4 @@
-2024-06-05T18:47:59.803938
+2024-06-18T18:20:45.576278
 [
     {
         "subject": "PSY 101",
@@ -19,7 +19,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "57",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -410,7 +410,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "PSY 203 and declared Psychology major.",
         "gpa": null
     },
@@ -433,7 +433,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "PSY 203 and declared Psychology major.",
         "gpa": null
     },
@@ -456,7 +456,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "PSY 203 and declared Psychology major.",
         "gpa": null
     },
@@ -479,7 +479,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "PSY 203 and declared Psychology major.",
         "gpa": null
     },
@@ -502,7 +502,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "PSY 203 and declared Psychology major.",
         "gpa": null
     },
@@ -847,7 +847,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "PSY 240 and PSY 305. Available to Sport Psychology majors and minors with instructor permission.",
         "gpa": null
     },
@@ -1077,7 +1077,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "PSY 307 or BNS 302; one course from: PSY 310, PSY 318, PSY 319, PSY 320 or PSY 322.",
         "gpa": null
     },
@@ -1100,7 +1100,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "PSY 307 or BNS 302; one course from: PSY 310, PSY 319, PSY 320, PSY 321, PSY 322, PSY 323 or PSY 324.",
         "gpa": null
     },
@@ -1123,7 +1123,7 @@
         "avail": "-1",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "PSY 307; and one course from: PSY 334, PSY 335, PSY 336 or PSY 338.",
         "gpa": null
     },
@@ -1169,7 +1169,7 @@
         "avail": "-2",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "PSY 307; and one course from PSY 351, PSY 354 or PSY 359.",
         "gpa": null
     },
@@ -1192,7 +1192,7 @@
         "avail": "-1",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "PSY 307; and one course from PSY 351, PSY 354 or PSY 359.",
         "gpa": null
     },
@@ -1215,7 +1215,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "PSY 307; and one course from PSY 351, PSY 354 or PSY 359.",
         "gpa": null
     },

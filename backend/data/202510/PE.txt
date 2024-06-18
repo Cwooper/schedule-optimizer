@@ -1,28 +1,5 @@
-2024-06-05T18:46:50.683414
+2024-06-18T18:19:28.641464
 [
-    {
-        "subject": "PE 115",
-        "course_credits": "1",
-        "crn": "12674",
-        "days": "N/A",
-        "start_time": "N/A",
-        "end_time": "N/A",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "MacIntyre Witt, Jill Marie",
-        "room": "ONLINE ASNC",
-        "lab_room": null,
-        "addl_fees": "Per/Cr $298.00",
-        "cap": "20",
-        "enrl": "0",
-        "avail": "20",
-        "waitlist": "",
-        "restrictions": "S/U",
-        "attributes": "ASNC OL SST",
-        "prerequisites": "",
-        "gpa": null
-    },
     {
         "subject": "PE 181",
         "course_credits": "2",

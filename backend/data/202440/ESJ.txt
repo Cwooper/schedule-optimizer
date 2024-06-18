@@ -1,4 +1,4 @@
-2024-06-05T18:46:59.340940
+2024-06-18T18:19:38.870677
 [
     {
         "subject": "ESJ 411",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "9",
-        "avail": "16",
+        "enrl": "8",
+        "avail": "17",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",

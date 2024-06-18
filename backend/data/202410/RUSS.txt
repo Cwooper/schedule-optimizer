@@ -1,4 +1,4 @@
-2024-06-05T18:48:00.312768
+2024-06-18T18:20:46.333309
 [
     {
         "subject": "RUSS 202",
@@ -19,7 +19,7 @@
         "avail": "8",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "RUSS 201",
         "gpa": null
     }

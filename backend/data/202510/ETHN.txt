@@ -1,4 +1,4 @@
-2024-06-05T18:46:43.200888
+2024-06-18T18:19:20.377311
 [
     {
         "subject": "ETHN 201",
@@ -203,7 +203,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ETHN 301 and ETHN 302",
         "gpa": null
     }

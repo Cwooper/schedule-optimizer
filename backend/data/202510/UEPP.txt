@@ -1,4 +1,4 @@
-2024-06-05T18:46:54.022076
+2024-06-18T18:19:32.436043
 [
     {
         "subject": "UEPP 110",
@@ -19,7 +19,7 @@
         "avail": "130",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "OL SSC SYNC",
+        "attributes": "SSC OL SYNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "50",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -320,6 +320,29 @@
         "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "UEPP 355 or instructor permission.",
+        "gpa": null
+    },
+    {
+        "subject": "UEPP 461",
+        "course_credits": "4",
+        "crn": "14025",
+        "days": "MW",
+        "start_time": "1000",
+        "end_time": "1150",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "Russell, Sheri",
+        "room": "AH 225",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "24",
+        "enrl": "0",
+        "avail": "24",
+        "waitlist": "",
+        "restrictions": "PQ",
+        "attributes": "FTF",
+        "prerequisites": "One course from: ENVS 204, ENVS 303, UEPP 261, or UEPP 355; or instructor permission.",
         "gpa": null
     },
     {
@@ -868,7 +891,7 @@
         "cap": "0",
         "enrl": "0",
         "avail": "0",
-        "waitlist": "WL",
+        "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",
         "prerequisites": "",

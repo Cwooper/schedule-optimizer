@@ -1,4 +1,4 @@
-2024-06-05T18:47:33.193227
+2024-06-18T18:20:14.942526
 [
     {
         "subject": "FAIR 101A",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $14.30",
         "cap": "18",
-        "enrl": "13",
-        "avail": "5",
+        "enrl": "12",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "OV FA S/U",
         "attributes": "FTF",
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $7.00",
         "cap": "18",
-        "enrl": "14",
-        "avail": "4",
+        "enrl": "13",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "OV FA S/U",
         "attributes": "FTF",
@@ -337,8 +337,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "12",
-        "enrl": "12",
-        "avail": "0",
+        "enrl": "11",
+        "avail": "1",
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
@@ -406,8 +406,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "42",
-        "avail": "8",
+        "enrl": "41",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "OV FA S/U PQ",
         "attributes": "FTF",
@@ -479,7 +479,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV S/U",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "FAIR 203A or Social Science GUR or permission of instructor.",
         "gpa": null
     },
@@ -916,7 +916,7 @@
         "avail": "-4",
         "waitlist": "",
         "restrictions": "OV FA S/U",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Required by all Fairhaven students. Senior status.",
         "gpa": null
     },
@@ -939,7 +939,7 @@
         "avail": "-2",
         "waitlist": "",
         "restrictions": "OV FA S/U",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Required by all Fairhaven students. Senior status.",
         "gpa": null
     },
@@ -962,7 +962,7 @@
         "avail": "-6",
         "waitlist": "",
         "restrictions": "OV FA S/U",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Required by all Fairhaven students. Senior status.",
         "gpa": null
     },
@@ -985,7 +985,7 @@
         "avail": "-2",
         "waitlist": "",
         "restrictions": "OV FA S/U",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Required by all Fairhaven students. Senior status.",
         "gpa": null
     },

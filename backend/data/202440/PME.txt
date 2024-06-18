@@ -1,4 +1,4 @@
-2024-06-05T18:47:10.633536
+2024-06-18T18:19:49.962163
 [
     {
         "subject": "PME 295",
@@ -245,8 +245,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $47.00",
         "cap": "24",
-        "enrl": "12",
-        "avail": "12",
+        "enrl": "13",
+        "avail": "11",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
@@ -383,8 +383,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $207.00",
         "cap": "24",
-        "enrl": "16",
-        "avail": "8",
+        "enrl": "17",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
@@ -429,11 +429,11 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $157.00",
         "cap": "24",
-        "enrl": "17",
-        "avail": "7",
+        "enrl": "18",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "ENG 101; PME 342 or concurrent; PME 471 or concurrent.",
         "gpa": null
     },

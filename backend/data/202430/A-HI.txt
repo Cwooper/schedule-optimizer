@@ -1,4 +1,4 @@
-2024-06-05T18:47:14.449446
+2024-06-18T18:19:54.120001
 [
     {
         "subject": "A/HI 210",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
-        "enrl": "21",
-        "avail": "39",
+        "enrl": "24",
+        "avail": "36",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -38,11 +38,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
-        "enrl": "44",
-        "avail": "16",
+        "enrl": "48",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "",
-        "attributes": "ACGM ASNC OL",
+        "attributes": "ACGM OL ASNC",
         "prerequisites": "",
         "gpa": null
     },
@@ -107,11 +107,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "33",
-        "avail": "2",
-        "waitlist": "",
+        "enrl": "35",
+        "avail": "0",
+        "waitlist": "WL",
         "restrictions": "PQ",
-        "attributes": "ASNC OL",
+        "attributes": "OL ASNC",
         "prerequisites": "Any A/HI or equivalent 200-level course.",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "0",
         "waitlist": "WL",
         "restrictions": "PQ",
-        "attributes": "ASNC OL WP3",
+        "attributes": "WP3 OL ASNC",
         "prerequisites": "Any A/HI or equivalent 300-level course.",
         "gpa": null
     }

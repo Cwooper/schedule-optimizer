@@ -1,4 +1,4 @@
-2024-06-05T18:47:28.666212
+2024-06-18T18:20:09.878280
 [
     {
         "subject": "COMM 101",
@@ -84,8 +84,8 @@
         "lab_room": "AW 204",
         "addl_fees": "",
         "cap": "24",
-        "enrl": "22",
-        "avail": "2",
+        "enrl": "21",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCOM FTF",
@@ -176,11 +176,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "100",
-        "enrl": "97",
-        "avail": "3",
+        "enrl": "96",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "ASNC HUM OL SST",
+        "attributes": "HUM OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -383,8 +383,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "24",
-        "enrl": "22",
-        "avail": "2",
+        "enrl": "21",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "BCOM FTF",
@@ -433,7 +433,7 @@
         "avail": "6",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -456,7 +456,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "BCGM FTF SL",
+        "attributes": "BCGM SL FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -502,7 +502,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SL",
+        "attributes": "SL FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -778,7 +778,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV JR SR PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Junior status and COMM 398 or instructor permission.",
         "gpa": null
     },
@@ -801,7 +801,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "COMM 325 and COMM 398 or permission of instructor.",
         "gpa": null
     },
@@ -824,7 +824,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF SL WP1",
+        "attributes": "WP1 SL FTF",
         "prerequisites": "COMM 228 and COMM 398 or instructor permission.",
         "gpa": null
     },
@@ -847,7 +847,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "COMM 240 or JOUR 190; and COMM 398.",
         "gpa": null
     },
@@ -870,7 +870,7 @@
         "avail": "9",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "COMM 398 or permission of instructor.",
         "gpa": null
     },
@@ -893,7 +893,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "COMM 398 or permission of instructor.",
         "gpa": null
     }

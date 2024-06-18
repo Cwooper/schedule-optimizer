@@ -1,4 +1,4 @@
-2024-06-05T18:47:46.240326
+2024-06-18T18:20:30.270530
 [
     {
         "subject": "CHEM 161",
@@ -19,7 +19,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "MATH 114 or suitable math assessment score.",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "MATH 114 or suitable math assessment score.",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "MATH 114 or suitable math assessment score.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "MATH 114 or suitable math assessment score.",
         "gpa": null
     },
@@ -111,7 +111,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "MATH 114 or suitable math assessment score.",
         "gpa": null
     },
@@ -134,7 +134,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "MATH 114 or suitable math assessment score.",
         "gpa": null
     },
@@ -157,7 +157,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "MATH 114 or suitable math assessment score.",
         "gpa": null
     },
@@ -180,7 +180,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "MATH 114 or suitable math assessment score.",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "MATH 114 or suitable math assessment score.",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "MATH 114 or suitable math assessment score.",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "MATH 114 or suitable math assessment score.",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "MATH 114 or suitable math assessment score.",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161.",
         "gpa": null
     },
@@ -318,7 +318,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161.",
         "gpa": null
     },
@@ -341,7 +341,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161.",
         "gpa": null
     },
@@ -364,7 +364,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161.",
         "gpa": null
     },
@@ -387,7 +387,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161.",
         "gpa": null
     },
@@ -410,7 +410,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161.",
         "gpa": null
     },
@@ -433,7 +433,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161.",
         "gpa": null
     },
@@ -456,7 +456,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161.",
         "gpa": null
     },
@@ -479,7 +479,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161.",
         "gpa": null
     },
@@ -502,7 +502,7 @@
         "avail": "4",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161.",
         "gpa": null
     },
@@ -525,7 +525,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161.",
         "gpa": null
     },
@@ -548,7 +548,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161.",
         "gpa": null
     },
@@ -571,7 +571,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161.",
         "gpa": null
     },
@@ -594,7 +594,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161.",
         "gpa": null
     },
@@ -617,7 +617,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161.",
         "gpa": null
     },
@@ -640,7 +640,7 @@
         "avail": "21",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 161.",
         "gpa": null
     },
@@ -663,7 +663,7 @@
         "avail": "6",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 162.",
         "gpa": null
     },
@@ -686,7 +686,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 162.",
         "gpa": null
     },
@@ -709,7 +709,7 @@
         "avail": "9",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 162.",
         "gpa": null
     },
@@ -732,7 +732,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 162.",
         "gpa": null
     },
@@ -755,7 +755,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 162.",
         "gpa": null
     },
@@ -778,7 +778,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 162.",
         "gpa": null
     },
@@ -801,7 +801,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "CHEM 175.",
         "gpa": null
     },
@@ -1192,7 +1192,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "CHEM 401, CHEM 425, CHEM 471, CHEM 494 or CHEM 498 or concurrent; and permission of instructor.",
         "gpa": null
     },
@@ -1330,7 +1330,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "CHEM 333 or CHEM 225; CHEM 441 or concurrent; CHEM 461; CHEM 462 or concurrent.",
         "gpa": null
     },
@@ -1353,7 +1353,7 @@
         "avail": "1",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "CHEM 333 or CHEM 225; CHEM 441 or concurrent; CHEM 461; CHEM 462 or concurrent.",
         "gpa": null
     },
@@ -1491,7 +1491,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV MJ PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "CHEM 163 or CHEM 225; CHEM 354 or BIOL 324; CHEM 471 (or concurrent).",
         "gpa": null
     },
@@ -1537,7 +1537,7 @@
         "avail": "8",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "CHEM 461 or CHEM 466 or PHYS 225; or instructor permission.",
         "gpa": null
     },
@@ -1583,7 +1583,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV MJ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "Six credits of Chemistry research courses, advancement to departmental honors candidacy (application required).",
         "gpa": null
     },

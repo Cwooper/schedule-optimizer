@@ -1,4 +1,4 @@
-2024-06-05T18:47:02.636159
+2024-06-18T18:19:42.565217
 [
     {
         "subject": "GREK 101",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "24",
-        "enrl": "6",
-        "avail": "18",
+        "enrl": "8",
+        "avail": "16",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",

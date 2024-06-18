@@ -1,4 +1,4 @@
-2024-06-05T18:46:28.154739
+2024-06-18T18:19:03.008650
 [
     {
         "subject": "JAPN 103",
@@ -57,29 +57,6 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Kusakabe, Madoka",
-        "room": "TBA",
-        "lab_room": null,
-        "addl_fees": "Flat Fee $5.00",
-        "cap": "25",
-        "enrl": "0",
-        "avail": "25",
-        "waitlist": "",
-        "restrictions": "OV PQ",
-        "attributes": "BCOM FTF",
-        "prerequisites": "JAPN 102",
-        "gpa": null
-    },
-    {
-        "subject": "JAPN 103",
-        "course_credits": "5",
-        "crn": "23119",
-        "days": "MWF",
-        "start_time": "1300",
-        "end_time": "1420",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Staff",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "Flat Fee $5.00",

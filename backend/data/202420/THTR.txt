@@ -1,4 +1,4 @@
-2024-06-05T18:47:43.337144
+2024-06-18T18:20:26.906295
 [
     {
         "subject": "THTR 101",
@@ -15,11 +15,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "130",
-        "enrl": "91",
-        "avail": "39",
+        "enrl": "90",
+        "avail": "40",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -107,11 +107,11 @@
         "lab_room": "FR 102",
         "addl_fees": "",
         "cap": "190",
-        "enrl": "182",
-        "avail": "8",
+        "enrl": "181",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -594,7 +594,7 @@
         "avail": "14",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF HUM",
+        "attributes": "HUM FTF",
         "prerequisites": "THTR 101 recommended, THTR 228; THTR 380, THTR 381 recommended",
         "gpa": null
     },
@@ -617,7 +617,7 @@
         "avail": "13",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "THTR 228 or permission of instructor.",
         "gpa": null
     },
@@ -686,7 +686,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF WP2",
+        "attributes": "WP2 FTF",
         "prerequisites": "THTR 228.",
         "gpa": null
     },

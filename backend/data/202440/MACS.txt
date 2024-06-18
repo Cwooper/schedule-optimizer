@@ -1,4 +1,4 @@
-2024-06-05T18:47:07.026120
+2024-06-18T18:19:46.001157
 [
     {
         "subject": "MACS 110",
@@ -843,8 +843,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "6",
-        "enrl": "0",
-        "avail": "6",
+        "enrl": "1",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "FTF",
@@ -1211,11 +1211,11 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "10",
-        "avail": "20",
+        "enrl": "11",
+        "avail": "19",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "MACS 493 or MACS 494 or MACS 495.",
         "gpa": null
     },
@@ -1234,8 +1234,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "10",
-        "avail": "10",
+        "enrl": "11",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",
@@ -1257,8 +1257,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "19",
-        "avail": "1",
+        "enrl": "18",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",

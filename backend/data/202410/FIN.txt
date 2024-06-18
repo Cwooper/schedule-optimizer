@@ -1,4 +1,4 @@
-2024-06-05T18:47:51.724637
+2024-06-18T18:20:36.560052
 [
     {
         "subject": "FIN 215",
@@ -19,7 +19,7 @@
         "avail": "7",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF SSC",
+        "attributes": "SSC FTF",
         "prerequisites": "",
         "gpa": null
     },
@@ -42,7 +42,7 @@
         "avail": "2",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "ASNC OL SSC SST",
+        "attributes": "SSC OL ASNC SST",
         "prerequisites": "",
         "gpa": null
     },
@@ -65,7 +65,7 @@
         "avail": "8",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "FTF QSR",
+        "attributes": "QSR FTF",
         "prerequisites": "Cannot be taken after or concurrent with FIN 440.",
         "gpa": null
     },
@@ -88,7 +88,7 @@
         "avail": "3",
         "waitlist": "",
         "restrictions": "OV",
-        "attributes": "ASNC OL QSR SST",
+        "attributes": "QSR OL ASNC SST",
         "prerequisites": "Cannot be taken after or concurrent with FIN 440.",
         "gpa": null
     },
@@ -203,7 +203,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "OV JR SO SR PQ",
-        "attributes": "HYBD PBEX",
+        "attributes": "PBEX HYBD",
         "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
         "gpa": null
     },
@@ -226,7 +226,7 @@
         "avail": "0",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "MIX OL",
+        "attributes": "OL MIX",
         "prerequisites": "Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.",
         "gpa": null
     },
@@ -249,7 +249,7 @@
         "avail": "21",
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Majors Only. FIN 341",
         "gpa": null
     },
@@ -272,7 +272,7 @@
         "avail": "10",
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Majors Only. FIN 341.",
         "gpa": null
     },
@@ -295,7 +295,7 @@
         "avail": "16",
         "waitlist": "",
         "restrictions": "OV JR SR MJ PQ",
-        "attributes": "FTF WP1",
+        "attributes": "WP1 FTF",
         "prerequisites": "Majors Only. FIN 341",
         "gpa": null
     },

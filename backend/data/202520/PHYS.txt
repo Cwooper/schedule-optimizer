@@ -1,28 +1,5 @@
-2024-06-05T18:46:32.876743
+2024-06-18T18:19:08.113004
 [
-    {
-        "subject": "PHYS 102",
-        "course_credits": "3",
-        "crn": "22657",
-        "days": "MWF",
-        "start_time": "1500",
-        "end_time": "1550",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Nelson, Madison Lee",
-        "room": "TBA",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "40",
-        "enrl": "0",
-        "avail": "40",
-        "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "FTF SCI",
-        "prerequisites": "MATH 107 or higher or suitable math assessment score.",
-        "gpa": null
-    },
     {
         "subject": "PHYS 104",
         "course_credits": "4",
@@ -42,7 +19,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "MATH 107 or higher or suitable math assessment score.",
         "gpa": null
     },
@@ -65,7 +42,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "OV PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "MATH 107 or higher or suitable math assessment score.",
         "gpa": null
     },
@@ -88,7 +65,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 114",
         "gpa": null
     },
@@ -111,7 +88,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 114",
         "gpa": null
     },
@@ -134,7 +111,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 114",
         "gpa": null
     },
@@ -157,7 +134,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 115",
         "gpa": null
     },
@@ -180,7 +157,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 115",
         "gpa": null
     },
@@ -203,7 +180,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 115",
         "gpa": null
     },
@@ -226,7 +203,7 @@
         "avail": "24",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 115",
         "gpa": null
     },
@@ -249,7 +226,7 @@
         "avail": "5",
         "waitlist": "",
         "restrictions": "MJ PQ",
-        "attributes": "FTF LSCI PBEX",
+        "attributes": "LSCI PBEX FTF",
         "prerequisites": "PHYS 161; MATH 124 and MATH 125 or MATH 134 and MATH 135 or concurrent, or MATH 138.",
         "gpa": null
     },
@@ -272,7 +249,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 161; MATH 124 and MATH 125 or MATH 134 and MATH 135 or concurrent, or MATH 138.",
         "gpa": null
     },
@@ -295,7 +272,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 161; MATH 124 and MATH 125 or MATH 134 and MATH 135 or concurrent, or MATH 138.",
         "gpa": null
     },
@@ -318,7 +295,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 161; MATH 124 and MATH 125 or MATH 134 and MATH 135 or concurrent, or MATH 138.",
         "gpa": null
     },
@@ -341,7 +318,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 161; MATH 124 and MATH 125 or MATH 134 and MATH 135 or concurrent, or MATH 138.",
         "gpa": null
     },
@@ -364,7 +341,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 161; MATH 124 and MATH 125 or MATH 134 and MATH 135 or concurrent, or MATH 138.",
         "gpa": null
     },
@@ -387,7 +364,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 161; MATH 124 and MATH 125 or MATH 134 and MATH 135 or concurrent, or MATH 138.",
         "gpa": null
     },
@@ -410,7 +387,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 161; MATH 124 and MATH 125 or MATH 134 and MATH 135 or concurrent, or MATH 138.",
         "gpa": null
     },
@@ -433,7 +410,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 161; MATH 124 and MATH 125 or MATH 134 and MATH 135 or concurrent, or MATH 138.",
         "gpa": null
     },
@@ -456,7 +433,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 161; MATH 124 and MATH 125 or MATH 134 and MATH 135 or concurrent, or MATH 138.",
         "gpa": null
     },
@@ -479,7 +456,7 @@
         "avail": "12",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 161; MATH 124 and MATH 125 or MATH 134 and MATH 135 or concurrent, or MATH 138.",
         "gpa": null
     },
@@ -502,7 +479,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 162; MATH 124 and MATH 125 or MATH 134 and MATH 135 or MATH 138",
         "gpa": null
     },
@@ -525,7 +502,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 162; MATH 124 and MATH 125 or MATH 134 and MATH 135 or MATH 138",
         "gpa": null
     },
@@ -548,7 +525,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 162; MATH 124 and MATH 125 or MATH 134 and MATH 135 or MATH 138",
         "gpa": null
     },
@@ -571,7 +548,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 162; MATH 124 and MATH 125 or MATH 134 and MATH 135 or MATH 138",
         "gpa": null
     },
@@ -594,7 +571,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 162; MATH 124 and MATH 125 or MATH 134 and MATH 135 or MATH 138",
         "gpa": null
     },
@@ -617,7 +594,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 162; MATH 124 and MATH 125 or MATH 134 and MATH 135 or MATH 138",
         "gpa": null
     },
@@ -640,7 +617,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 162; MATH 124 and MATH 125 or MATH 134 and MATH 135 or MATH 138",
         "gpa": null
     },
@@ -663,7 +640,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 162; MATH 124 and MATH 125 or MATH 134 and MATH 135 or MATH 138",
         "gpa": null
     },
@@ -686,7 +663,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 162; MATH 124 and MATH 125 or MATH 134 and MATH 135 or MATH 138",
         "gpa": null
     },
@@ -709,7 +686,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 162; MATH 124 and MATH 125 or MATH 134 and MATH 135 or MATH 138",
         "gpa": null
     },
@@ -732,7 +709,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 162; MATH 124 and MATH 125 or MATH 134 and MATH 135 or MATH 138",
         "gpa": null
     },
@@ -755,7 +732,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "PQ",
-        "attributes": "FTF LSCI",
+        "attributes": "LSCI FTF",
         "prerequisites": "PHYS 162; MATH 124 and MATH 125 or MATH 134 and MATH 135 or MATH 138",
         "gpa": null
     },
@@ -918,29 +895,6 @@
         "restrictions": "PQ",
         "attributes": "FTF",
         "prerequisites": "PHYS 224",
-        "gpa": null
-    },
-    {
-        "subject": "PHYS 345",
-        "course_credits": "3",
-        "crn": "22658",
-        "days": "MWF",
-        "start_time": "1400",
-        "end_time": "1450",
-        "lab_days": null,
-        "lab_start_time": null,
-        "lab_end_time": null,
-        "instructor": "Rahmani, Armin",
-        "room": "TBA",
-        "lab_room": null,
-        "addl_fees": "",
-        "cap": "30",
-        "enrl": "0",
-        "avail": "30",
-        "waitlist": "",
-        "restrictions": "PQ",
-        "attributes": "FTF",
-        "prerequisites": "MATH 204; CSCI 140 or CSCI 141.",
         "gpa": null
     },
     {

@@ -1,4 +1,4 @@
-2024-06-05T18:46:23.725567
+2024-06-18T18:18:57.593186
 [
     {
         "subject": "ELED 305",
@@ -65,7 +65,7 @@
         "avail": "25",
         "waitlist": "",
         "restrictions": "OV ED MJ",
-        "attributes": "BCGM FTF SL",
+        "attributes": "BCGM SL FTF",
         "prerequisites": "Admission to Elementary Education Professional Program.",
         "gpa": null
     },
@@ -364,7 +364,7 @@
         "avail": "20",
         "waitlist": "",
         "restrictions": "OV ED MJ PQ",
-        "attributes": "FTF WP3",
+        "attributes": "WP3 FTF",
         "prerequisites": "ELED 480",
         "gpa": null
     },
