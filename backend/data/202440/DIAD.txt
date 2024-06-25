@@ -1,4 +1,4 @@
-2024-06-18T18:19:37.860198
+2024-06-25T20:14:05.095298
 [
     {
         "subject": "DIAD 205",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $307.00",
         "cap": "30",
-        "enrl": "18",
-        "avail": "12",
+        "enrl": "19",
+        "avail": "11",
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM OL ASNC SST",
@@ -84,8 +84,8 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "30",
-        "enrl": "18",
-        "avail": "12",
+        "enrl": "19",
+        "avail": "11",
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM HYBD",

@@ -1,4 +1,4 @@
-2024-06-18T18:19:59.492757
+2024-06-25T20:14:25.690210
 [
     {
         "subject": "HIST 364",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "25",
-        "avail": "0",
+        "enrl": "26",
+        "avail": "-1",
         "waitlist": "WL",
         "restrictions": "",
         "attributes": "OL US US1 US2 ASNC",

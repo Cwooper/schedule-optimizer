@@ -1,4 +1,4 @@
-2024-06-18T18:19:58.594756
+2024-06-25T20:14:24.932379
 [
     {
         "subject": "FREN 201",
@@ -15,8 +15,8 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "Flat Fee $5.00",
         "cap": "15",
-        "enrl": "10",
-        "avail": "5",
+        "enrl": "11",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM OL MIX",

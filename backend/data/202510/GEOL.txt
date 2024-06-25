@@ -1,4 +1,4 @@
-2024-06-18T18:19:21.456574
+2024-06-25T20:13:49.164450
 [
     {
         "subject": "GEOL 101",
@@ -381,7 +381,7 @@
         "instructor": "Staff",
         "room": "ONLINE ASNC",
         "lab_room": null,
-        "addl_fees": "Per/Cr $298.00",
+        "addl_fees": "Per/Cr $307.00",
         "cap": "25",
         "enrl": "0",
         "avail": "25",
@@ -703,7 +703,7 @@
         "instructor": "Staff",
         "room": "ONLINE ASNC",
         "lab_room": null,
-        "addl_fees": "Per/Cr $298.00",
+        "addl_fees": "Per/Cr $307.00",
         "cap": "75",
         "enrl": "0",
         "avail": "75",

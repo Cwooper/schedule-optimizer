@@ -1,4 +1,4 @@
-2024-06-18T18:19:03.177450
+2024-06-25T20:13:30.952299
 [
     {
         "subject": "JOUR 106",
@@ -56,7 +56,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Shaw, Jeff",
         "room": "CF 161",
         "lab_room": null,
         "addl_fees": "Flat Fee $3.78",
@@ -102,7 +102,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Harris, John M.",
+        "instructor": "Shelton, Donald",
         "room": "CF 161",
         "lab_room": null,
         "addl_fees": "Flat Fee $3.78",
@@ -194,7 +194,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Harris, John M.",
+        "instructor": "Terrell, Scott",
         "room": "CF 202",
         "lab_room": null,
         "addl_fees": "Flat Fee $15.96",
@@ -217,7 +217,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Breymeyer, Natalie Shell",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",

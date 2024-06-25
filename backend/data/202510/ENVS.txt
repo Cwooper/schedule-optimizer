@@ -1,4 +1,4 @@
-2024-06-18T18:19:20.184313
+2024-06-25T20:13:48.053786
 [
     {
         "subject": "ENVS 201",
@@ -1025,7 +1025,7 @@
         "instructor": "Staff",
         "room": "AH 016",
         "lab_room": null,
-        "addl_fees": "Per/Cr $298.00 Flat Fee $15.75",
+        "addl_fees": "Per/Cr $307.00 Flat Fee $15.75",
         "cap": "15",
         "enrl": "0",
         "avail": "15",

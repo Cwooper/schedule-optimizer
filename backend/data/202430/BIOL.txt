@@ -1,4 +1,4 @@
-2024-06-18T18:19:54.698574
+2024-06-25T20:14:21.077155
 [
     {
         "subject": "BIOL 101",
@@ -15,8 +15,8 @@
         "lab_room": "IS 220",
         "addl_fees": "",
         "cap": "24",
-        "enrl": "17",
-        "avail": "7",
+        "enrl": "18",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "",
         "attributes": "LSCI FTF",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "18",
-        "avail": "17",
+        "enrl": "17",
+        "avail": "18",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "OL SYNC",
@@ -84,9 +84,9 @@
         "lab_room": "CV 163A",
         "addl_fees": "",
         "cap": "16",
-        "enrl": "16",
-        "avail": "0",
-        "waitlist": "WL",
+        "enrl": "15",
+        "avail": "1",
+        "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "BIOL 101 or BIOL 205",

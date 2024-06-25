@@ -1,4 +1,4 @@
-2024-06-18T18:19:56.072647
+2024-06-25T20:14:22.432289
 [
     {
         "subject": "DNC 231",
@@ -15,9 +15,9 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "25",
-        "avail": "0",
-        "waitlist": "WL",
+        "enrl": "22",
+        "avail": "3",
+        "waitlist": "",
         "restrictions": "",
         "attributes": "CCOM OL ASNC",
         "prerequisites": "",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "15",
-        "avail": "10",
+        "enrl": "13",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "",
         "attributes": "ACGM OL ASNC",

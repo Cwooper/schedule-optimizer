@@ -1,4 +1,4 @@
-2024-06-18T18:20:01.122722
+2024-06-25T20:14:27.317813
 [
     {
         "subject": "LING 207",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "18",
-        "avail": "7",
+        "enrl": "20",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "",
         "attributes": "SCI OL ASNC",

@@ -1,4 +1,4 @@
-2024-06-18T18:19:48.507155
+2024-06-25T20:14:14.869342
 [
     {
         "subject": "NURS 301",
@@ -10,7 +10,7 @@
         "lab_days": "N/A",
         "lab_start_time": "N/A",
         "lab_end_time": "N/A",
-        "instructor": "Staff",
+        "instructor": "Wahler, Katie",
         "room": "MH 156",
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
@@ -33,7 +33,7 @@
         "lab_days": "N/A",
         "lab_start_time": "N/A",
         "lab_end_time": "N/A",
-        "instructor": "Staff",
+        "instructor": "Wahler, Katie",
         "room": "MH 156",
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",

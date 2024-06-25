@@ -1,4 +1,4 @@
-2024-06-18T18:19:42.270547
+2024-06-25T20:14:09.001391
 [
     {
         "subject": "GLBL 201",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "9",
-        "enrl": "9",
-        "avail": "0",
+        "enrl": "8",
+        "avail": "1",
         "waitlist": "WL",
         "restrictions": "",
         "attributes": "ACGM FTF",

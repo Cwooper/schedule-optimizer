@@ -1,4 +1,4 @@
-2024-06-18T18:19:40.443489
+2024-06-25T20:14:07.451900
 [
     {
         "subject": "ESCI 101",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "165",
-        "enrl": "81",
-        "avail": "84",
+        "enrl": "83",
+        "avail": "82",
         "waitlist": "",
         "restrictions": "",
         "attributes": "SCI FTF",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $307.00",
         "cap": "35",
-        "enrl": "31",
-        "avail": "4",
+        "enrl": "32",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "",
         "attributes": "SCI OL ASNC SST",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $97.00",
         "cap": "102",
-        "enrl": "101",
-        "avail": "1",
+        "enrl": "102",
+        "avail": "0",
         "waitlist": "WL",
         "restrictions": "PQ",
         "attributes": "SCI FTF",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "55",
-        "enrl": "43",
-        "avail": "12",
+        "enrl": "45",
+        "avail": "10",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
@@ -176,8 +176,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "31",
-        "avail": "19",
+        "enrl": "32",
+        "avail": "18",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
@@ -314,9 +314,9 @@
         "lab_room": "AH 005",
         "addl_fees": "",
         "cap": "30",
-        "enrl": "29",
-        "avail": "1",
-        "waitlist": "",
+        "enrl": "30",
+        "avail": "0",
+        "waitlist": "WL",
         "restrictions": "MJ PQ",
         "attributes": "FTF",
         "prerequisites": "CHEM 163; BIOL 206 or PHYS 163.",
@@ -751,8 +751,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $40.00",
         "cap": "20",
-        "enrl": "4",
-        "avail": "16",
+        "enrl": "5",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "CPST FTF",
@@ -1533,8 +1533,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "10",
-        "enrl": "0",
-        "avail": "10",
+        "enrl": "1",
+        "avail": "9",
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",
@@ -1911,7 +1911,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "40358",
         "days": "TBD",
         "start_time": "TBD",
@@ -1934,7 +1934,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "40490",
         "days": "TBD",
         "start_time": "TBD",
@@ -1957,7 +1957,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "40613",
         "days": "TBD",
         "start_time": "TBD",
@@ -1980,7 +1980,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "40669",
         "days": "TBD",
         "start_time": "TBD",
@@ -2003,7 +2003,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "40954",
         "days": "TBD",
         "start_time": "TBD",
@@ -2026,7 +2026,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "40967",
         "days": "TBD",
         "start_time": "TBD",
@@ -2049,7 +2049,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "41028",
         "days": "TBD",
         "start_time": "TBD",
@@ -2072,7 +2072,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "41032",
         "days": "R",
         "start_time": "1600",
@@ -2095,7 +2095,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "41134",
         "days": "TBD",
         "start_time": "TBD",
@@ -2118,7 +2118,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "41188",
         "days": "TBD",
         "start_time": "TBD",
@@ -2141,7 +2141,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "41189",
         "days": "TBD",
         "start_time": "TBD",
@@ -2164,7 +2164,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "41190",
         "days": "TBD",
         "start_time": "TBD",
@@ -2187,7 +2187,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "41226",
         "days": "TBD",
         "start_time": "TBD",
@@ -2210,7 +2210,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "41263",
         "days": "R",
         "start_time": "1600",
@@ -2233,7 +2233,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "41499",
         "days": "TBD",
         "start_time": "TBD",
@@ -2256,7 +2256,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "41543",
         "days": "R",
         "start_time": "1600",
@@ -2279,7 +2279,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "41547",
         "days": "TBD",
         "start_time": "TBD",
@@ -2302,7 +2302,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "41551",
         "days": "TBD",
         "start_time": "TBD",
@@ -2325,7 +2325,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "41568",
         "days": "TBD",
         "start_time": "TBD",
@@ -2348,7 +2348,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "41572",
         "days": "TBD",
         "start_time": "TBD",
@@ -2371,7 +2371,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "41845",
         "days": "TBD",
         "start_time": "TBD",
@@ -2394,7 +2394,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "41848",
         "days": "TBD",
         "start_time": "TBD",
@@ -2417,7 +2417,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "41943",
         "days": "TBD",
         "start_time": "TBD",
@@ -2440,7 +2440,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "41944",
         "days": "TBD",
         "start_time": "TBD",
@@ -2463,7 +2463,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "41945",
         "days": "TBD",
         "start_time": "TBD",
@@ -2486,7 +2486,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "42457",
         "days": "TBD",
         "start_time": "TBD",
@@ -2509,7 +2509,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1",
+        "course_credits": "1 TO 15",
         "crn": "42461",
         "days": "TBD",
         "start_time": "TBD",
@@ -2532,7 +2532,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "40358",
         "days": "TBD",
         "start_time": "TBD",
@@ -2555,7 +2555,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "40490",
         "days": "TBD",
         "start_time": "TBD",
@@ -2578,7 +2578,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "40613",
         "days": "TBD",
         "start_time": "TBD",
@@ -2601,7 +2601,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "40669",
         "days": "TBD",
         "start_time": "TBD",
@@ -2624,7 +2624,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "40954",
         "days": "TBD",
         "start_time": "TBD",
@@ -2647,7 +2647,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "40967",
         "days": "TBD",
         "start_time": "TBD",
@@ -2670,7 +2670,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "41028",
         "days": "TBD",
         "start_time": "TBD",
@@ -2693,7 +2693,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "41032",
         "days": "R",
         "start_time": "1600",
@@ -2716,7 +2716,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "41134",
         "days": "TBD",
         "start_time": "TBD",
@@ -2739,7 +2739,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "41188",
         "days": "TBD",
         "start_time": "TBD",
@@ -2762,7 +2762,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "41189",
         "days": "TBD",
         "start_time": "TBD",
@@ -2785,7 +2785,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "41190",
         "days": "TBD",
         "start_time": "TBD",
@@ -2808,7 +2808,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "41226",
         "days": "TBD",
         "start_time": "TBD",
@@ -2831,7 +2831,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "41263",
         "days": "R",
         "start_time": "1600",
@@ -2854,7 +2854,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "41499",
         "days": "TBD",
         "start_time": "TBD",
@@ -2877,7 +2877,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "41543",
         "days": "R",
         "start_time": "1600",
@@ -2900,7 +2900,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "41547",
         "days": "TBD",
         "start_time": "TBD",
@@ -2923,7 +2923,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "41551",
         "days": "TBD",
         "start_time": "TBD",
@@ -2946,7 +2946,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "41568",
         "days": "TBD",
         "start_time": "TBD",
@@ -2969,7 +2969,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "41572",
         "days": "TBD",
         "start_time": "TBD",
@@ -2992,7 +2992,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "41845",
         "days": "TBD",
         "start_time": "TBD",
@@ -3015,7 +3015,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "41848",
         "days": "TBD",
         "start_time": "TBD",
@@ -3038,7 +3038,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "41943",
         "days": "TBD",
         "start_time": "TBD",
@@ -3061,7 +3061,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "41944",
         "days": "TBD",
         "start_time": "TBD",
@@ -3084,7 +3084,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "41945",
         "days": "TBD",
         "start_time": "TBD",
@@ -3107,7 +3107,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "42457",
         "days": "TBD",
         "start_time": "TBD",
@@ -3130,7 +3130,7 @@
     },
     {
         "subject": "ESCI 498C",
-        "course_credits": "1 TO 15",
+        "course_credits": "1",
         "crn": "42461",
         "days": "TBD",
         "start_time": "TBD",
@@ -3373,8 +3373,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "5",
-        "enrl": "1",
-        "avail": "4",
+        "enrl": "2",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "OV GR S/U",
         "attributes": "FTF",
@@ -3741,8 +3741,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "5",
-        "enrl": "2",
-        "avail": "3",
+        "enrl": "3",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "OV GR GR PB PM S/U",
         "attributes": "FTF",

@@ -1,4 +1,4 @@
-2024-06-18T18:19:32.012463
+2024-06-25T20:13:59.520570
 [
     {
         "subject": "TESL 340",
@@ -13,7 +13,7 @@
         "instructor": "Staff",
         "room": "ONLINE ASNC",
         "lab_room": null,
-        "addl_fees": "Per/Cr $298.00",
+        "addl_fees": "Per/Cr $307.00",
         "cap": "5",
         "enrl": "0",
         "avail": "5",
@@ -36,7 +36,7 @@
         "instructor": "Staff",
         "room": "TBA",
         "lab_room": null,
-        "addl_fees": "Per/Cr $298.00",
+        "addl_fees": "Per/Cr $307.00",
         "cap": "5",
         "enrl": "0",
         "avail": "5",
@@ -82,7 +82,7 @@
         "instructor": "Staff",
         "room": "TBA",
         "lab_room": null,
-        "addl_fees": "Per/Cr $298.00",
+        "addl_fees": "Per/Cr $307.00",
         "cap": "5",
         "enrl": "0",
         "avail": "5",
@@ -105,7 +105,7 @@
         "instructor": "Staff",
         "room": "ONLINE ASNC",
         "lab_room": null,
-        "addl_fees": "Per/Cr $298.00",
+        "addl_fees": "Per/Cr $307.00",
         "cap": "5",
         "enrl": "0",
         "avail": "5",
@@ -128,7 +128,7 @@
         "instructor": "Staff",
         "room": "TBA",
         "lab_room": null,
-        "addl_fees": "Per/Cr $298.00",
+        "addl_fees": "Per/Cr $307.00",
         "cap": "5",
         "enrl": "0",
         "avail": "5",
