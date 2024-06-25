@@ -1,4 +1,4 @@
-2024-06-18T18:19:44.517520
+2024-06-25T20:14:11.085160
 [
     {
         "subject": "JAPN 101",
@@ -268,8 +268,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "5",
-        "enrl": "2",
-        "avail": "3",
+        "enrl": "1",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "S/U PQ",
         "attributes": "FTF",

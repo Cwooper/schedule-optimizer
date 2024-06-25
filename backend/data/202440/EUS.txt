@@ -1,4 +1,4 @@
-2024-06-18T18:19:41.192391
+2024-06-25T20:14:08.071291
 [
     {
         "subject": "EUS 201",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "100",
-        "enrl": "40",
-        "avail": "60",
+        "enrl": "41",
+        "avail": "59",
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",

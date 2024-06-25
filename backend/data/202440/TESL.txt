@@ -1,4 +1,4 @@
-2024-06-18T18:19:52.498920
+2024-06-25T20:14:18.967496
 [
     {
         "subject": "TESL 340",
@@ -13,7 +13,7 @@
         "instructor": "Brisbois, Lisa Christine",
         "room": "ONLINE ASNC",
         "lab_room": null,
-        "addl_fees": "Per/Cr $298.00",
+        "addl_fees": "Per/Cr $307.00",
         "cap": "10",
         "enrl": "1",
         "avail": "9",
@@ -36,7 +36,7 @@
         "instructor": "Blick, Andrew Michael",
         "room": "TBA",
         "lab_room": null,
-        "addl_fees": "Per/Cr $298.00",
+        "addl_fees": "Per/Cr $307.00",
         "cap": "10",
         "enrl": "0",
         "avail": "10",
@@ -82,7 +82,7 @@
         "instructor": "Brisbois, Lisa Christine",
         "room": "ONLINE ASNC",
         "lab_room": null,
-        "addl_fees": "Per/Cr $298.00",
+        "addl_fees": "Per/Cr $307.00",
         "cap": "10",
         "enrl": "4",
         "avail": "6",
@@ -105,7 +105,7 @@
         "instructor": "Brisbois, Lisa Christine",
         "room": "TBA",
         "lab_room": null,
-        "addl_fees": "Per/Cr $298.00",
+        "addl_fees": "Per/Cr $307.00",
         "cap": "10",
         "enrl": "2",
         "avail": "8",

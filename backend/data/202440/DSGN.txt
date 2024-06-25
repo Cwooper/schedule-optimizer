@@ -1,4 +1,4 @@
-2024-06-18T18:19:37.752844
+2024-06-25T20:14:04.920414
 [
     {
         "subject": "DSGN 111",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $22.33",
         "cap": "64",
-        "enrl": "63",
-        "avail": "1",
+        "enrl": "64",
+        "avail": "0",
         "waitlist": "WL",
         "restrictions": "",
         "attributes": "HUM FTF",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $22.28",
         "cap": "100",
-        "enrl": "24",
-        "avail": "76",
+        "enrl": "25",
+        "avail": "75",
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "FTF",

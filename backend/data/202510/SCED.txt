@@ -1,12 +1,12 @@
-2024-06-18T18:19:30.735038
+2024-06-25T20:13:58.150484
 [
     {
         "subject": "SCED 201",
         "course_credits": "4",
         "crn": "13948",
         "days": "MWF",
-        "start_time": "1400",
-        "end_time": "1550",
+        "start_time": "1200",
+        "end_time": "1350",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
@@ -33,7 +33,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Borda, Emily Jeanne",
+        "instructor": "Stephenson, Norda",
         "room": "SL 240S",
         "lab_room": null,
         "addl_fees": "Flat Fee $12.55",
@@ -102,7 +102,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Stephenson, Norda",
+        "instructor": "Borda, Emily Jeanne",
         "room": "SL 210",
         "lab_room": null,
         "addl_fees": "Flat Fee $23.00",

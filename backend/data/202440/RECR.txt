@@ -1,4 +1,4 @@
-2024-06-18T18:19:50.673626
+2024-06-25T20:14:16.961379
 [
     {
         "subject": "RECR 201",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "44",
-        "enrl": "23",
-        "avail": "21",
+        "enrl": "24",
+        "avail": "20",
         "waitlist": "",
         "restrictions": "JR SO SR",
         "attributes": "FTF",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "20",
-        "enrl": "10",
-        "avail": "10",
+        "enrl": "9",
+        "avail": "11",
         "waitlist": "",
         "restrictions": "JR SO SR",
         "attributes": "FTF",
@@ -222,8 +222,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $355.00",
         "cap": "20",
-        "enrl": "6",
-        "avail": "14",
+        "enrl": "7",
+        "avail": "13",
         "waitlist": "",
         "restrictions": "",
         "attributes": "FTF",

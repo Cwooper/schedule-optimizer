@@ -1,4 +1,4 @@
-2024-06-18T18:19:25.636058
+2024-06-25T20:13:53.287912
 [
     {
         "subject": "MACS 111",
@@ -163,7 +163,7 @@
     },
     {
         "subject": "MACS 492",
-        "course_credits": "1 TO 5",
+        "course_credits": "1",
         "crn": "12322",
         "days": "TBD",
         "start_time": "TBD",
@@ -186,7 +186,7 @@
     },
     {
         "subject": "MACS 492",
-        "course_credits": "1 TO 5",
+        "course_credits": "1",
         "crn": "12457",
         "days": "TBD",
         "start_time": "TBD",
@@ -209,7 +209,7 @@
     },
     {
         "subject": "MACS 492",
-        "course_credits": "1 TO 5",
+        "course_credits": "1",
         "crn": "12459",
         "days": "TBD",
         "start_time": "TBD",
@@ -232,7 +232,7 @@
     },
     {
         "subject": "MACS 492",
-        "course_credits": "1 TO 5",
+        "course_credits": "1",
         "crn": "12460",
         "days": "TBD",
         "start_time": "TBD",
@@ -255,7 +255,7 @@
     },
     {
         "subject": "MACS 492",
-        "course_credits": "1 TO 5",
+        "course_credits": "1",
         "crn": "12461",
         "days": "TBD",
         "start_time": "TBD",
@@ -278,7 +278,7 @@
     },
     {
         "subject": "MACS 492",
-        "course_credits": "1 TO 5",
+        "course_credits": "1",
         "crn": "12462",
         "days": "TBD",
         "start_time": "TBD",
@@ -301,7 +301,7 @@
     },
     {
         "subject": "MACS 492",
-        "course_credits": "1 TO 5",
+        "course_credits": "1",
         "crn": "12463",
         "days": "TBD",
         "start_time": "TBD",
@@ -324,7 +324,7 @@
     },
     {
         "subject": "MACS 492",
-        "course_credits": "1 TO 5",
+        "course_credits": "1",
         "crn": "12464",
         "days": "TBD",
         "start_time": "TBD",
@@ -347,7 +347,7 @@
     },
     {
         "subject": "MACS 492",
-        "course_credits": "1 TO 5",
+        "course_credits": "1",
         "crn": "12465",
         "days": "TBD",
         "start_time": "TBD",
@@ -370,7 +370,7 @@
     },
     {
         "subject": "MACS 492",
-        "course_credits": "1 TO 5",
+        "course_credits": "1",
         "crn": "12550",
         "days": "TBD",
         "start_time": "TBD",
@@ -393,7 +393,7 @@
     },
     {
         "subject": "MACS 492",
-        "course_credits": "1",
+        "course_credits": "1 TO 5",
         "crn": "12322",
         "days": "TBD",
         "start_time": "TBD",
@@ -416,7 +416,7 @@
     },
     {
         "subject": "MACS 492",
-        "course_credits": "1",
+        "course_credits": "1 TO 5",
         "crn": "12457",
         "days": "TBD",
         "start_time": "TBD",
@@ -439,7 +439,7 @@
     },
     {
         "subject": "MACS 492",
-        "course_credits": "1",
+        "course_credits": "1 TO 5",
         "crn": "12459",
         "days": "TBD",
         "start_time": "TBD",
@@ -462,7 +462,7 @@
     },
     {
         "subject": "MACS 492",
-        "course_credits": "1",
+        "course_credits": "1 TO 5",
         "crn": "12460",
         "days": "TBD",
         "start_time": "TBD",
@@ -485,7 +485,7 @@
     },
     {
         "subject": "MACS 492",
-        "course_credits": "1",
+        "course_credits": "1 TO 5",
         "crn": "12461",
         "days": "TBD",
         "start_time": "TBD",
@@ -508,7 +508,7 @@
     },
     {
         "subject": "MACS 492",
-        "course_credits": "1",
+        "course_credits": "1 TO 5",
         "crn": "12462",
         "days": "TBD",
         "start_time": "TBD",
@@ -531,7 +531,7 @@
     },
     {
         "subject": "MACS 492",
-        "course_credits": "1",
+        "course_credits": "1 TO 5",
         "crn": "12463",
         "days": "TBD",
         "start_time": "TBD",
@@ -554,7 +554,7 @@
     },
     {
         "subject": "MACS 492",
-        "course_credits": "1",
+        "course_credits": "1 TO 5",
         "crn": "12464",
         "days": "TBD",
         "start_time": "TBD",
@@ -577,7 +577,7 @@
     },
     {
         "subject": "MACS 492",
-        "course_credits": "1",
+        "course_credits": "1 TO 5",
         "crn": "12465",
         "days": "TBD",
         "start_time": "TBD",
@@ -600,7 +600,7 @@
     },
     {
         "subject": "MACS 492",
-        "course_credits": "1",
+        "course_credits": "1 TO 5",
         "crn": "12550",
         "days": "TBD",
         "start_time": "TBD",

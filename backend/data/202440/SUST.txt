@@ -1,4 +1,4 @@
-2024-06-18T18:19:52.250923
+2024-06-25T20:14:18.700028
 [
     {
         "subject": "SUST 471",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $15.00",
         "cap": "10",
-        "enrl": "8",
-        "avail": "2",
+        "enrl": "7",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",

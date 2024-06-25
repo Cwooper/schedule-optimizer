@@ -1,4 +1,4 @@
-2024-06-18T18:19:58.743397
+2024-06-25T20:14:25.078525
 [
     {
         "subject": "GEOL 101",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "50",
-        "enrl": "43",
-        "avail": "7",
+        "enrl": "44",
+        "avail": "6",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "LSCI OL ASNC",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "24",
-        "avail": "6",
+        "enrl": "27",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "",
         "attributes": "SCI OL ASNC",

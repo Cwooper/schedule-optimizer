@@ -1,4 +1,4 @@
-2024-06-18T18:19:17.109929
+2024-06-25T20:13:45.245986
 [
     {
         "subject": "DSGN 211",
@@ -243,7 +243,7 @@
         "instructor": "Staff",
         "room": "AA 254",
         "lab_room": null,
-        "addl_fees": "Per/Cr $298.00 Flat Fee $16.68",
+        "addl_fees": "Per/Cr $307.00 Flat Fee $16.68",
         "cap": "18",
         "enrl": "0",
         "avail": "18",
@@ -266,7 +266,7 @@
         "instructor": "Staff",
         "room": "FI 110A",
         "lab_room": null,
-        "addl_fees": "Per/Cr $298.00 Flat Fee $16.68",
+        "addl_fees": "Per/Cr $307.00 Flat Fee $16.68",
         "cap": "18",
         "enrl": "0",
         "avail": "18",

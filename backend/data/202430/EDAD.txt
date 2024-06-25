@@ -1,4 +1,4 @@
-2024-06-18T18:19:57.110721
+2024-06-25T20:14:23.370185
 [
     {
         "subject": "EDAD 536",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $426.00",
         "cap": "24",
-        "enrl": "18",
-        "avail": "6",
+        "enrl": "19",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "GR PB PM MJ",
         "attributes": "OL DLEX SYNC",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $426.00",
         "cap": "12",
-        "enrl": "9",
-        "avail": "3",
+        "enrl": "10",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "GR PB PM",
         "attributes": "OL DLEX SYNC",
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $426.00",
         "cap": "12",
-        "enrl": "6",
-        "avail": "6",
+        "enrl": "7",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "GR PB PM PQ",
         "attributes": "EVEX FTF",

@@ -1,4 +1,4 @@
-2024-06-18T18:19:36.542999
+2024-06-25T20:14:03.890126
 [
     {
         "subject": "C2C 201",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $24.74",
         "cap": "30",
-        "enrl": "22",
-        "avail": "8",
+        "enrl": "23",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "",
         "attributes": "SL FTF",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "14",
-        "avail": "16",
+        "enrl": "15",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "SL FTF",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $24.74",
         "cap": "30",
-        "enrl": "12",
-        "avail": "18",
+        "enrl": "13",
+        "avail": "17",
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM SL FTF",

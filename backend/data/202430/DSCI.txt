@@ -1,4 +1,4 @@
-2024-06-18T18:19:56.250636
+2024-06-25T20:14:22.606599
 [
     {
         "subject": "DSCI 205",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "29",
-        "avail": "6",
+        "enrl": "28",
+        "avail": "7",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL ASNC",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "57",
-        "enrl": "57",
-        "avail": "0",
+        "enrl": "56",
+        "avail": "1",
         "waitlist": "WL",
         "restrictions": "PQ",
         "attributes": "OL ASNC",

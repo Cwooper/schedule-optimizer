@@ -1,4 +1,4 @@
-2024-06-18T18:19:45.623963
+2024-06-25T20:14:12.218580
 [
     {
         "subject": "MIS 220",
@@ -61,8 +61,8 @@
         "lab_room": "PH 210",
         "addl_fees": "",
         "cap": "27",
-        "enrl": "20",
-        "avail": "7",
+        "enrl": "22",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "JR SO SR PQ",
         "attributes": "FTF",
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "13",
-        "avail": "12",
+        "enrl": "14",
+        "avail": "11",
         "waitlist": "",
         "restrictions": "JR SO SR MJ PQ",
         "attributes": "CF WP1 FTF",
@@ -199,8 +199,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "16",
-        "avail": "9",
+        "enrl": "14",
+        "avail": "11",
         "waitlist": "",
         "restrictions": "MJ PQ",
         "attributes": "FTF",

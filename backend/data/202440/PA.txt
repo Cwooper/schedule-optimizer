@@ -1,4 +1,4 @@
-2024-06-18T18:19:48.979223
+2024-06-25T20:14:15.337564
 [
     {
         "subject": "PA 101",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $30.00",
         "cap": "7",
-        "enrl": "4",
-        "avail": "3",
+        "enrl": "5",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "MJ S/U",
         "attributes": "FTF",

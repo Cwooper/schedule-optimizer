@@ -1,4 +1,4 @@
-2024-06-18T18:19:49.962163
+2024-06-25T20:14:16.254555
 [
     {
         "subject": "PME 295",
@@ -222,8 +222,8 @@
         "lab_room": null,
         "addl_fees": "Per/Cr $39.25",
         "cap": "10",
-        "enrl": "5",
-        "avail": "5",
+        "enrl": "6",
+        "avail": "4",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",

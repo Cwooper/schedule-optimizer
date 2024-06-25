@@ -1,4 +1,4 @@
-2024-06-18T18:19:08.113004
+2024-06-25T20:13:36.299336
 [
     {
         "subject": "PHYS 104",
@@ -457,6 +457,29 @@
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "LSCI FTF",
+        "prerequisites": "PHYS 161; MATH 124 and MATH 125 or MATH 134 and MATH 135 or concurrent, or MATH 138.",
+        "gpa": null
+    },
+    {
+        "subject": "PHYS 162",
+        "course_credits": "5",
+        "crn": "23681",
+        "days": "TR",
+        "start_time": "1800",
+        "end_time": "1950",
+        "lab_days": "R",
+        "lab_start_time": "0800",
+        "lab_end_time": "2050",
+        "instructor": "Staff",
+        "room": "Kirkland-State Supported",
+        "lab_room": "Kirkland-State Supported",
+        "addl_fees": "Flat Fee $69.39",
+        "cap": "10",
+        "enrl": "0",
+        "avail": "10",
+        "waitlist": "",
+        "restrictions": "MJ PQ",
+        "attributes": "LSCI KLEX FTF",
         "prerequisites": "PHYS 161; MATH 124 and MATH 125 or MATH 134 and MATH 135 or concurrent, or MATH 138.",
         "gpa": null
     },

@@ -1,4 +1,4 @@
-2024-06-18T18:20:01.417636
+2024-06-25T20:14:27.500842
 [
     {
         "subject": "MIS 220",
@@ -14,9 +14,9 @@
         "room": "ONLINE ASNC",
         "lab_room": null,
         "addl_fees": "",
-        "cap": "80",
-        "enrl": "74",
-        "avail": "6",
+        "cap": "90",
+        "enrl": "75",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "S/U",
         "attributes": "OL ASNC",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "14",
-        "avail": "16",
+        "enrl": "16",
+        "avail": "14",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "OL ASNC",

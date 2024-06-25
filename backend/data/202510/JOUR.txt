@@ -1,4 +1,4 @@
-2024-06-18T18:19:24.153441
+2024-06-25T20:13:51.707078
 [
     {
         "subject": "JOUR 106",
@@ -70,6 +70,29 @@
         "gpa": null
     },
     {
+        "subject": "JOUR 190",
+        "course_credits": "5",
+        "crn": "12057",
+        "days": "MTWRF",
+        "start_time": "1100",
+        "end_time": "1150",
+        "lab_days": null,
+        "lab_start_time": null,
+        "lab_end_time": null,
+        "instructor": "O'Donovan, Betsy",
+        "room": "TBA",
+        "lab_room": null,
+        "addl_fees": "",
+        "cap": "110",
+        "enrl": "0",
+        "avail": "110",
+        "waitlist": "",
+        "restrictions": "",
+        "attributes": "SSC FTF",
+        "prerequisites": "",
+        "gpa": null
+    },
+    {
         "subject": "JOUR 207",
         "course_credits": "4",
         "crn": "10631",
@@ -102,7 +125,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Harris, John M.",
+        "instructor": "Terrell, Scott",
         "room": "CF 161",
         "lab_room": null,
         "addl_fees": "Flat Fee $3.78",
@@ -125,7 +148,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Terrell, Scott",
+        "instructor": "Shelton, Donald",
         "room": "CF 161",
         "lab_room": null,
         "addl_fees": "Flat Fee $3.78",
@@ -263,7 +286,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Staff",
+        "instructor": "Breymeyer, Natalie Shell",
         "room": "TBA",
         "lab_room": null,
         "addl_fees": "",

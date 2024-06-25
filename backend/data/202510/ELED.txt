@@ -1,4 +1,4 @@
-2024-06-18T18:19:18.759068
+2024-06-25T20:13:46.689470
 [
     {
         "subject": "ELED 305",
@@ -258,8 +258,8 @@
         "course_credits": "5",
         "crn": "11029",
         "days": "MW",
-        "start_time": "1500",
-        "end_time": "1650",
+        "start_time": "0930",
+        "end_time": "1150",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,

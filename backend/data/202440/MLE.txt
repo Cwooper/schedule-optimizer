@@ -1,4 +1,4 @@
-2024-06-18T18:19:47.368421
+2024-06-25T20:14:13.820389
 [
     {
         "subject": "MLE 441",
@@ -10,7 +10,7 @@
         "lab_days": "N/A",
         "lab_start_time": "N/A",
         "lab_end_time": "N/A",
-        "instructor": "Timmons Flores, Maria",
+        "instructor": "Green, Jennifer D.",
         "room": "ONLINE SYNC",
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
@@ -38,8 +38,8 @@
         "lab_room": "ONLINE ASNC",
         "addl_fees": "",
         "cap": "25",
-        "enrl": "9",
-        "avail": "16",
+        "enrl": "10",
+        "avail": "15",
         "waitlist": "",
         "restrictions": "OV",
         "attributes": "HYBD",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "14",
-        "avail": "11",
+        "enrl": "13",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "FTF",

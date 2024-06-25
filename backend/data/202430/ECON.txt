@@ -1,4 +1,4 @@
-2024-06-18T18:19:56.914396
+2024-06-25T20:14:23.186152
 [
     {
         "subject": "ECON 206",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "60",
-        "enrl": "32",
-        "avail": "28",
+        "enrl": "34",
+        "avail": "26",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "SSC OL ASNC",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "65",
-        "enrl": "36",
-        "avail": "29",
+        "enrl": "38",
+        "avail": "27",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "SSC OL ASNC",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "17",
-        "avail": "18",
+        "enrl": "19",
+        "avail": "16",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "WP1 OL ASNC",

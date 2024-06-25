@@ -1,4 +1,4 @@
-2024-06-18T18:19:33.809922
+2024-06-25T20:14:01.359838
 [
     {
         "subject": "ART 109",
@@ -79,7 +79,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Scopa, Sally Kenner",
+        "instructor": "Staff",
         "room": "FI 300",
         "lab_room": null,
         "addl_fees": "Per/Cr $307.00 Flat Fee $56.08",
@@ -217,7 +217,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Kolbo, Scott Michael",
+        "instructor": "Staff",
         "room": "FI 211",
         "lab_room": null,
         "addl_fees": "Flat Fee $119.14",
@@ -240,7 +240,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Kolbo, Scott Michael",
+        "instructor": "Staff",
         "room": "FI 211",
         "lab_room": null,
         "addl_fees": "Flat Fee $119.14",
