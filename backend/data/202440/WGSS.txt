@@ -1,4 +1,4 @@
-2024-06-18T18:19:53.126457
+2024-06-25T20:14:19.607140
 [
     {
         "subject": "WGSS 211",
@@ -107,8 +107,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "21",
-        "enrl": "17",
-        "avail": "4",
+        "enrl": "18",
+        "avail": "3",
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
@@ -199,8 +199,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "10",
-        "avail": "20",
+        "enrl": "11",
+        "avail": "19",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCGM OL SYNC",
@@ -268,8 +268,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "15",
-        "avail": "15",
+        "enrl": "16",
+        "avail": "14",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "BCGM FTF",

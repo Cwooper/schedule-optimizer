@@ -1,4 +1,4 @@
-2024-06-18T18:19:56.442353
+2024-06-25T20:14:22.792086
 [
     {
         "subject": "DIAD 205",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "30",
-        "enrl": "19",
-        "avail": "11",
+        "enrl": "18",
+        "avail": "12",
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM OL ASNC",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "2",
-        "avail": "23",
+        "enrl": "3",
+        "avail": "22",
         "waitlist": "",
         "restrictions": "OV S/U",
         "attributes": "FTF",

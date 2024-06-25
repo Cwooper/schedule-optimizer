@@ -1,4 +1,4 @@
-2024-06-18T18:19:29.130244
+2024-06-25T20:13:56.760233
 [
     {
         "subject": "PLSC 250",
@@ -356,7 +356,7 @@
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Alamillo, Rudy",
-        "room": "CF 025",
+        "room": "TBA",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
@@ -392,9 +392,9 @@
         "gpa": null
     },
     {
-        "subject": "PLSC 414",
+        "subject": "PLSC 415",
         "course_credits": "5",
-        "crn": "13649",
+        "crn": "14027",
         "days": "TR",
         "start_time": "1000",
         "end_time": "1150",
@@ -409,7 +409,7 @@
         "enrl": "0",
         "avail": "15",
         "waitlist": "",
-        "restrictions": "MJ PQ",
+        "restrictions": "PQ",
         "attributes": "WP3 FTF",
         "prerequisites": "PLSC 250 and one from: PLSC 311, PLSC 314, FAIR 311B or MGMT 271",
         "gpa": null

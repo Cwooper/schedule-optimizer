@@ -1,4 +1,4 @@
-2024-06-18T18:19:57.380641
+2024-06-25T20:14:23.628217
 [
     {
         "subject": "ELED 691",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "3",
-        "enrl": "0",
-        "avail": "3",
+        "enrl": "1",
+        "avail": "2",
         "waitlist": "",
         "restrictions": "GR GR PB PM S/U",
         "attributes": "OL ASNC",

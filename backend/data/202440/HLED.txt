@@ -1,4 +1,4 @@
-2024-06-18T18:19:42.676553
+2024-06-25T20:14:09.409671
 [
     {
         "subject": "HLED 202",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "38",
-        "enrl": "19",
-        "avail": "19",
+        "enrl": "18",
+        "avail": "20",
         "waitlist": "",
         "restrictions": "",
         "attributes": "SSC FTF",
@@ -64,7 +64,7 @@
         "enrl": "32",
         "avail": "18",
         "waitlist": "",
-        "restrictions": "MJ",
+        "restrictions": "",
         "attributes": "FTF",
         "prerequisites": "",
         "gpa": null

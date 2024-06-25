@@ -1,17 +1,17 @@
-2024-06-18T18:19:38.102948
+2024-06-25T20:14:05.348493
 [
     {
         "subject": "ECE 380",
         "course_credits": "4",
         "crn": "42396",
         "days": "TR",
-        "start_time": "0900",
-        "end_time": "1050",
+        "start_time": "0930",
+        "end_time": "1120",
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
         "instructor": "Strachan, Steph",
-        "room": "OM 483",
+        "room": "BH 221",
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",

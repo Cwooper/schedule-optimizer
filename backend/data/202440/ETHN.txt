@@ -1,4 +1,4 @@
-2024-06-18T18:19:41.031486
+2024-06-25T20:14:07.987852
 [
     {
         "subject": "ETHN 201",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "35",
-        "enrl": "17",
-        "avail": "18",
+        "enrl": "18",
+        "avail": "17",
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",
@@ -84,8 +84,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "25",
-        "enrl": "7",
-        "avail": "18",
+        "enrl": "8",
+        "avail": "17",
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCGM FTF",

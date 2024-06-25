@@ -1,4 +1,4 @@
-2024-06-18T18:19:26.752913
+2024-06-25T20:13:54.425244
 [
     {
         "subject": "MDS 410",
@@ -36,7 +36,7 @@
         "instructor": "Staff",
         "room": "TBA",
         "lab_room": null,
-        "addl_fees": "Per/Cr $298.00",
+        "addl_fees": "Per/Cr $307.00",
         "cap": "10",
         "enrl": "0",
         "avail": "10",

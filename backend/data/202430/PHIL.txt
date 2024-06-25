@@ -1,4 +1,4 @@
-2024-06-18T18:20:02.879048
+2024-06-25T20:14:28.978676
 [
     {
         "subject": "PHIL 107",
@@ -15,8 +15,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
-        "enrl": "34",
-        "avail": "11",
+        "enrl": "37",
+        "avail": "8",
         "waitlist": "",
         "restrictions": "",
         "attributes": "BCOM OL ASNC",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "45",
-        "enrl": "8",
-        "avail": "37",
+        "enrl": "7",
+        "avail": "38",
         "waitlist": "",
         "restrictions": "",
         "attributes": "QSR OL SYNC",
@@ -61,8 +61,8 @@
         "lab_room": null,
         "addl_fees": "",
         "cap": "40",
-        "enrl": "5",
-        "avail": "35",
+        "enrl": "4",
+        "avail": "36",
         "waitlist": "",
         "restrictions": "PQ",
         "attributes": "HUM FTF",

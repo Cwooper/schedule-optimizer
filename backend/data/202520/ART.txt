@@ -1,4 +1,4 @@
-2024-06-18T18:18:51.285575
+2024-06-25T20:13:18.981678
 [
     {
         "subject": "ART 109",
@@ -240,7 +240,7 @@
         "lab_days": null,
         "lab_start_time": null,
         "lab_end_time": null,
-        "instructor": "Kolbo, Scott Michael",
+        "instructor": "Staff",
         "room": "FI 211",
         "lab_room": null,
         "addl_fees": "Flat Fee $119.14",

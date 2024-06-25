@@ -1,4 +1,4 @@
-2024-06-18T18:19:43.893067
+2024-06-25T20:14:10.530979
 [
     {
         "subject": "I T 344",
@@ -38,8 +38,8 @@
         "lab_room": null,
         "addl_fees": "Flat Fee $7.17",
         "cap": "15",
-        "enrl": "9",
-        "avail": "6",
+        "enrl": "10",
+        "avail": "5",
         "waitlist": "",
         "restrictions": "ED S/U",
         "attributes": "OL ASNC",
