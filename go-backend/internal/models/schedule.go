@@ -85,55 +85,9 @@ func weighGPA(s *Schedule) float64 {
 
 // TODO untested
 func weighGap(s *Schedule) float64 {
-	daySchedules := make(map[rune]*daySchedule)
-	for _, day := range []rune{'M', 'T', 'W', 'R', 'F'} {
-		daySchedules[day] = &daySchedule{
-			totalClassTime: 0,
-			firstClassTime: -1,
-			lastClassTime:  -1,
-		}
-	}
-
-	for _, course := range s.Courses {
-		for _, session := range course.Sessions {
-			sessionStartMins := toMins(session.StartTime)
-			sessionEndMins := toMins(session.EndTime)
-			sessionDuration := sessionEndMins - sessionStartMins
-
-			for _, day := range session.Days {
-				// Increase the total amount of time taken on this day
-				schedule := daySchedules[day]
-				schedule.totalClassTime += sessionDuration
-
-				// Change min and max values if necessary
-				if schedule.firstClassTime == -1 || sessionStartMins < schedule.firstClassTime {
-					schedule.firstClassTime = sessionStartMins
-				}
-				if schedule.lastClassTime == -1 || sessionEndMins > schedule.lastClassTime {
-					schedule.lastClassTime = sessionEndMins
-				}
-			}
-		}
-	}
-
-	totalGapScore := 0.0
-	activeDays := 0
-
-	for _, schedule := range daySchedules {
-		if schedule.totalClassTime > 0 {
-			activeDays++
-			totalDayTime := schedule.lastClassTime - schedule.firstClassTime
-			gapTime := totalDayTime - schedule.totalClassTime
-			gapRatio := float64(gapTime) / float64(totalDayTime)
-			totalGapScore += 1 - gapRatio // Higher score for less gap time
-		}
-	}
-
-	if activeDays == 0 {
-		return 0
-	}
-
-	averageGapScore := totalGapScore / float64(activeDays)
+	daySchedules := initializeDaySchedules()
+	updateDaySchedules(s, daySchedules)
+	averageGapScore := weighDaySchedules(daySchedules)
 	return utils.Round(averageGapScore)
 }
 
@@ -192,7 +146,72 @@ func findStartEndTimes(s *Schedule) (int, int) {
 
 // daySchedule holds the schedule information for a single day
 type daySchedule struct {
-	totalClassTime int // Total time spent in classes
-	firstClassTime int // Start time of the first class
-	lastClassTime  int // End time of the last class
+	totalCourseTime int // Total time spent in courses
+	firstCourseTime int // Start time of the first course
+	lastCourseTime  int // End time of the last course
+}
+
+
+func initializeDaySchedules() map[rune]*daySchedule {
+	daySchedules := make(map[rune]*daySchedule)
+	for _, day := range []rune{'M', 'T', 'W', 'R', 'F'} {
+		daySchedules[day] = &daySchedule{
+			totalCourseTime: 0,
+			firstCourseTime: -1,
+			lastCourseTime:  -1,
+		}
+	}
+	return daySchedules
+}
+
+func updateDaySchedules(s *Schedule, daySchedules map[rune]*daySchedule) {
+	for _, course := range s.Courses {
+		for _, session := range course.Sessions {
+			updateSessionSchedule(session, daySchedules)
+		}
+	}
+}
+
+func updateSessionSchedule(session Session, daySchedules map[rune]*daySchedule) {
+	sessionStartMins := toMins(session.StartTime)
+	sessionEndMins := toMins(session.EndTime)
+	sessionDuration := sessionEndMins - sessionStartMins
+
+	for _, day := range session.Days {
+		schedule := daySchedules[day]
+		schedule.totalCourseTime += sessionDuration
+		updateDayBoundaries(schedule, sessionStartMins, sessionEndMins)
+	}
+}
+
+func updateDayBoundaries(schedule *daySchedule, startMins, endMins int) {
+	if schedule.firstCourseTime == -1 || startMins < schedule.firstCourseTime {
+		schedule.firstCourseTime = startMins
+	}
+	if schedule.lastCourseTime == -1 || endMins > schedule.lastCourseTime {
+		schedule.lastCourseTime = endMins
+	}
+}
+
+
+// Weighs the daySchedules based on their total time vs gap time
+func weighDaySchedules(daySchedules map[rune]*daySchedule) float64 {
+	totalGapScore := 0.0
+	activeDays := 0
+
+	for _, schedule := range daySchedules {
+		if schedule.totalCourseTime > 0 {
+			activeDays++
+			totalDayTime := schedule.lastCourseTime - schedule.firstCourseTime
+			gapTime := totalDayTime - schedule.totalCourseTime
+			gapRatio := float64(gapTime) / float64(totalDayTime)
+			totalGapScore += 1 - gapRatio // Higher score for less gap time
+		}
+	}
+
+	if activeDays == 0 {
+		return 0
+	}
+
+	return totalGapScore / float64(activeDays)
 }
