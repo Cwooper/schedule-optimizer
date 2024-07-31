@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package models;
+
+option go_package = "schedule-optimizer/internal/proto/generated";
+
+message Session {
+  string days = 1;
+  int32 start_time = 2;
+  int32 end_time = 3;
+  string location = 4;
+}
+
+message Course {
+  string subject = 1;
+  string instructor = 2;
+  int32 credits = 3;
+  int32 crn = 4;
+  repeated Session sessions = 5;
+  double gpa = 6;
+  int32 capacity = 7;
+  int32 enrollment = 8;
+  int32 available_seats = 9;
+  int32 waitlist_count = 10;
+  string additional_fees = 11;
+  string restrictions = 12;
+  string attributes = 13;
+  string prerequisites = 14;
+}
+
+message CourseArray {
+  repeated Course courses = 1;
+}
