@@ -1,4 +1,4 @@
-// Package constants for "modular" hard-coding
+// Package utils for "modular" hard-coding and re-used functions
 package utils
 
 import "math"
