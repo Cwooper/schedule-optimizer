@@ -20,7 +20,9 @@ const (
 
 	TIME_FORMAT = "2006-01-02 15:04:05"
 
-	URL = "https://web4u.banner.wwu.edu/pls/wwis/wwskcfnd.TimeTable"
+	URL        = "https://web4u.banner.wwu.edu/pls/wwis/wwskcfnd.TimeTable"
+	SUBJECT_ID = "subj" // HTML select id name
+	TERM_ID    = "term" // HTML term id name
 )
 
 var DataDirectory string
