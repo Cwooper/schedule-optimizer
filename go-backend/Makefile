@@ -1,5 +1,5 @@
 # Makefile
-# Used for compiling the Course protobufs
+# Used for compiling protobufs
 
 # Variables
 PROTO_DIR := internal/models/proto

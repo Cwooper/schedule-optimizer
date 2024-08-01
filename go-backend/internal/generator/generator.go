@@ -23,17 +23,19 @@ type Conflict struct {
 // The generator
 type Generator struct {
 	response           *models.Response // Holds the response to the user
-	conflicts          []Conflict
-	courses            []models.Course
-	cleanedCourseNames []string
-	cleanedForcedNames []string
+	conflicts          []Conflict       // List of conflict pairs
+	courses            []models.Course  // list of Course objects
+	cleanedCourseNames []string         // Courses as names
+	cleanedForcedNames []string         // Courses to force as names
 }
 
 func NewGenerator() *Generator {
 	return &Generator{
-		response:  &models.Response{},       // Response to the frontend
-		conflicts: make([]Conflict, 0),      // Course conflicts
-		courses:   make([]models.Course, 0), // Cleaned courses
+		response:           &models.Response{},       // Response to the frontend
+		conflicts:          make([]Conflict, 0),      // Course conflicts
+		courses:            make([]models.Course, 0), // Cleaned courses
+		cleanedCourseNames: make([]string, 0),        // Cleaned list of course names
+		cleanedForcedNames: make([]string, 0),        // Cleaned list of forced names
 	}
 }
 
@@ -57,7 +59,7 @@ func (g *Generator) GenerateResponse(req models.ScheduleRequest) *models.Respons
 	if len(g.response.Errors) > 0 {
 		return g.response
 	}
-	
+
 	// Clamp and verify that the bounds work
 	min, max := clampBounds(req.Min, req.Max)
 	if len(g.courses) < min {
@@ -84,7 +86,7 @@ func (g *Generator) GenerateResponse(req models.ScheduleRequest) *models.Respons
 func (g *Generator) cleanCourseNames(courses []string) []string {
 	cleanedNames := make([]string, len(courses))
 	pattern, err := regexp.Compile(CourseNamePattern)
-	if err != nil {	// Failed to compile regexp pattern
+	if err != nil { // Failed to compile regexp pattern
 		g.response.Errors = append(g.response.Errors, "Backend regexp error: "+err.Error())
 		return nil
 	}
@@ -92,7 +94,7 @@ func (g *Generator) cleanCourseNames(courses []string) []string {
 		courseName = strings.TrimSpace(courseName)
 		if pattern.MatchString(courseName) {
 			cleanedNames = append(cleanedNames, courseName)
-		} else {	// Invalid Course Name
+		} else { // Invalid Course Name
 			g.response.Warnings = append(g.response.Warnings, "Invalid course name: "+courseName)
 		}
 	}
