@@ -18,7 +18,7 @@ const (
 	MAX_COURSE_WAIT  = 1  // Days
 	MAX_TERM_WAIT    = 10 // Days
 
-	TIME_FORMAT = "2000-01-01 00:00:00"
+	TIME_FORMAT = "2006-01-02 15:04:05"
 
 	URL = "https://web4u.banner.wwu.edu/pls/wwis/wwskcfnd.TimeTable"
 )
