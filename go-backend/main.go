@@ -1,11 +1,9 @@
 package main
 
-import (
-	"schedule-optimizer/internal/scraper"
-)
+import "schedule-optimizer/internal/gpa"
 
 func main() {
-	err := scraper.UpdateCourses()
+	err := gpa.Test()
 	if err != nil {
 		panic(err)
 	}

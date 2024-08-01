@@ -2,9 +2,14 @@
 package utils
 
 import (
+	"fmt"
 	"math"
 	"os"
 	"path/filepath"
+
+	"google.golang.org/protobuf/proto"
+
+	pb "schedule-optimizer/internal/proto/generated"
 )
 
 const (
@@ -45,4 +50,33 @@ func init() {
 func Round(x float64) float64 {
 	pow := math.Pow(10, float64(ROUND))
 	return math.Round(x*pow) / pow
+}
+
+// Helper function to load protobuf
+func LoadProtobuf(filePath string) (*pb.CourseList, error) {
+	data, err := os.ReadFile(filePath)
+	if err != nil {
+		return nil, fmt.Errorf("failed to read protobuf file: %w", err)
+	}
+
+	var courseList pb.CourseList
+	if err := proto.Unmarshal(data, &courseList); err != nil {
+		return nil, fmt.Errorf("failed to unmarshal protobuf: %w", err)
+	}
+
+	return &courseList, nil
+}
+
+// Helper to save a protobuf
+func SaveProtobuf(protobuf *pb.CourseList, filename string) error {
+	data, err := proto.Marshal(protobuf)
+	if err != nil {
+		return fmt.Errorf("failed to marshal protobuf: %w", err)
+	}
+
+	if err := os.WriteFile(filename, data, 0644); err != nil {
+		return fmt.Errorf("failed to write protobuf to file: %w", err)
+	}
+
+	return nil
 }
