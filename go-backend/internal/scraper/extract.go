@@ -27,14 +27,14 @@ func init() {
 	}
 }
 
-// Helper function to see if a selection is contained in a selection array
-func containsTable(tables []*goquery.Selection, target *goquery.Selection) bool {
-	for _, table := range tables {
-		if table == target {
-			return true
-		}
-	}
-	return false
+// Normalizes the spaces inside of a string by replacing multiple ws with one
+func normalizeSpaces(s string) string {
+    // First, trim leading and trailing spaces
+    s = strings.TrimSpace(s)
+    
+    // Then, replace multiple spaces with a single space
+    re := regexp.MustCompile(`\s+`)
+    return re.ReplaceAllString(s, " ")
 }
 
 // convertMultiple converts multiple strings to ints
@@ -100,20 +100,19 @@ func extractHeader(parts []string, rows *goquery.Selection) (*models.Course, err
 	subject := strings.TrimSpace(parts[0])
 	title := strings.TrimSpace(parts[1])
 	credits := strings.TrimSpace(strings.ReplaceAll(parts[2], "cr", ""))
-	creditsInt, err := strconv.Atoi(credits)
-	if err != nil {
-		return nil, fmt.Errorf("failed to parse string to int: %w", err)
-	}
 
 	prerequisites := ""
 	for i := 1; i < rows.Length(); i++ {
-		prerequisites += strings.TrimSpace(rows.Eq(1).Text())
+		prerequisites += strings.TrimSpace(rows.Eq(i).Text())
+		if i != rows.Length() - 1 { // Add spaces between rows
+			prerequisites += " "
+		}
 	}
 
 	return &models.Course{
 		Subject:       subject,
 		Title:         title,
-		Credits:       creditsInt,
+		Credits:       credits,
 		Prerequisites: prerequisites,
 	}, nil
 }
@@ -169,7 +168,7 @@ func extractCourse(cells *goquery.Selection, course *models.Course) error {
 
 	course.CRN = nums[0]
 	course.Sessions = append(course.Sessions, session)
-	course.AdditionalFees = additionalFees
+	course.AdditionalFees = normalizeSpaces(additionalFees)
 	course.Capacity = nums[1]
 	course.Enrolled = nums[2]
 	course.AvailableSeats = nums[3]
@@ -222,7 +221,7 @@ func extractSession(cells *goquery.Selection, course *models.Course) error {
 // Gets the courses from the given table
 //
 //		Format of a course table:
-//		<table> Header Information </table>
+//		<table> Header Information </table> (if fieldformatboldtext in <td>)
 //		<div></div>
 //		<table> Course Information <table> (if 13 <td> elements in <tr>)
 //		<table> Session Information <table> (if 12 <td> elements in <tr>)
@@ -233,21 +232,28 @@ func getCoursesFromTables(doc *goquery.Document) ([]models.Course, error) {
 	var courses []models.Course
 	var err error
 
-	table := doc.Find("table")
-	table.Next().Each(func(i int, table *goquery.Selection) {
-		rows := table.Find("tr")
-		headerCells := rows.Eq(0).Find("td.fieldformatboldtext")
+	// Iterate over every table
+	doc.Find("table").Each(func(i int, tableSelection *goquery.Selection) {
+		rows := tableSelection.Find("tr") // Used in the header only
+		if strings.Contains(rows.Find("td").First().Text(), "Term") {
+			return // This is an info row
+		}
 
-		if headerCells.Length() > 0 {
-			headerText := headerCells.Text()
-			parts := strings.Split(headerText, "|")
-			if len(parts) == 3 {
+		boldTextCells := tableSelection.Find("td.fieldformatboldtext")
+		if boldTextCells.Length() > 0 {
+			headerText := strings.TrimSpace(boldTextCells.Text())
+
+			// Extract the parts of the header's td.fieldformatboldtext
+			title := boldTextCells.Find("a").Text()
+			if title != "" {
+				beforeAfter := strings.SplitN(headerText, title, 2)
 				// This is a new header, process the previous course if exists
-				if lastCourse.Subject != "" {
-					courses = append(courses, *lastCourse)
+				if lastCourse.Sessions != nil {
+				courses = append(courses, *lastCourse)
 				}
-
 				// Extract new header
+
+				parts := []string{beforeAfter[0], title, beforeAfter[1]}
 				lastCourse, err = extractHeader(parts, rows)
 				if err != nil {
 					fmt.Printf("error extracting header: %v\n", err)
@@ -256,22 +262,19 @@ func getCoursesFromTables(doc *goquery.Document) ([]models.Course, error) {
 			}
 		} else {
 			// This table might contain course or session information
-			table.Find("tr").Each(func(j int, row *goquery.Selection) {
+			tableSelection.Find("tr").Each(func(j int, row *goquery.Selection) {
 				cells := row.Find("td")
 				cellCount := cells.Length()
 
 				if cellCount == 13 {
-					if strings.TrimSpace(cells.Eq(0).Text()) == "Term" {
-						return // Subject Title Row
-					}
-
 					// This is a course row
-					if lastCourse != nil {
+					if lastCourse.Sessions != nil {
+						// Append the course if it's a main session
 						courses = append(courses, *lastCourse)
 					}
 
 					// Reset the last course for the next one
-					if lastCourse != nil {
+					if lastCourse.Sessions != nil {
 						lastCourse = &models.Course{
 							Subject:       lastCourse.Subject,
 							Title:         lastCourse.Title,
@@ -279,12 +282,13 @@ func getCoursesFromTables(doc *goquery.Document) ([]models.Course, error) {
 							Prerequisites: lastCourse.Prerequisites,
 						}
 					}
+
 					err = extractCourse(cells, lastCourse)
 					if err != nil {
 						fmt.Printf("error extracting course: %v\n", err)
 						return
 					}
-				} else if cellCount == 12 && lastCourse != nil {
+				} else if cellCount == 12 && lastCourse.Sessions != nil {
 					err = extractSession(cells, lastCourse)
 					if err != nil {
 						fmt.Printf("error extracting session: %v\n", err)
@@ -296,7 +300,7 @@ func getCoursesFromTables(doc *goquery.Document) ([]models.Course, error) {
 	})
 
 	// Append the last course if it exists
-	if lastCourse != nil {
+	if lastCourse.Sessions != nil {
 		courses = append(courses, *lastCourse)
 	}
 

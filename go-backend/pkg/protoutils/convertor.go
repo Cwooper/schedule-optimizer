@@ -30,7 +30,8 @@ func ProtoToCourses(pbCourseArray *pb.CourseList) []models.Course {
 func CourseToProto(course models.Course) *pb.Course {
 	return &pb.Course{
 		Subject:        course.Subject,
-		Credits:        int32(course.Credits),
+		Title:          course.Title,
+		Credits:        course.Credits,
 		Crn:            int32(course.CRN),
 		Sessions:       sessionsToProto(course.Sessions),
 		Gpa:            course.GPA,
@@ -49,7 +50,8 @@ func CourseToProto(course models.Course) *pb.Course {
 func ProtoToCourse(pbCourse *pb.Course) models.Course {
 	return models.Course{
 		Subject:        pbCourse.Subject,
-		Credits:        int(pbCourse.Credits),
+		Title:          pbCourse.Title,
+		Credits:        pbCourse.Credits,
 		CRN:            int(pbCourse.Crn),
 		Sessions:       protoToSessions(pbCourse.Sessions),
 		GPA:            pbCourse.Gpa,
