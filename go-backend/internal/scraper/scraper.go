@@ -23,6 +23,14 @@ const (
 	Terms
 )
 
+// Helper function for printing a list of courses.
+func printCourseList(courseList []models.Course) {
+	for _, course := range courseList {
+		fmt.Printf("%v\n", course)
+	}
+	fmt.Println()
+}
+
 // Gets the subjects/terms from url
 func getSelectListFromURL(option string) ([]string, error) {
 	resp, err := http.Get(utils.URL)
@@ -174,10 +182,9 @@ func getCourses(subjects []string, term, year string) (int, error) {
 		if time.Since(pullTime) < utils.MAX_COURSE_WAIT*24*time.Hour {
 			// Use existing data
 			courseList := protoutils.ProtoToCourses(existingProto)
-			// for _, course := range courseList { // Helper print function
-			// 	fmt.Printf("%v\n", course)
+			// if term == "202440" { // Helper print function
+			// 	printCourseList(courseList)
 			// }
-			fmt.Println()
 			return len(courseList), nil
 		}
 	}
