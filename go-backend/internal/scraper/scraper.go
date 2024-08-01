@@ -2,7 +2,6 @@
 package scraper
 
 import (
-	"bufio"
 	"fmt"
 	"net/http"
 	"os"
@@ -11,11 +10,9 @@ import (
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
-	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
 	"schedule-optimizer/internal/models"
-	pb "schedule-optimizer/internal/proto/generated"
 	"schedule-optimizer/internal/utils"
 	"schedule-optimizer/pkg/protoutils"
 )
@@ -25,58 +22,6 @@ const (
 	Subject int = iota
 	Terms
 )
-
-// Parses the given file to an array strings split by lines
-func fileToLines(file string) ([]string, error) {
-	f, err := os.Open(file)
-	if err != nil {
-		return nil, fmt.Errorf("failed to open file: %w", err)
-	}
-	defer f.Close()
-
-	// Create a scanner to read the file
-	scanner := bufio.NewScanner(f)
-	var lines []string
-	for scanner.Scan() {
-		lines = append(lines, scanner.Text())
-	}
-
-	if err := scanner.Err(); err != nil {
-		return nil, fmt.Errorf("error reading file: %w", err)
-	}
-
-	return lines, nil
-}
-
-// Saves the given lines into a file specified by file
-// Prepends the time to the top (format specified utils)
-func linesToFile(lines []string, file string) error {
-	// Prepend the current line to the list
-	currentTime := time.Now().Format(utils.TIME_FORMAT)
-	allLines := append([]string{currentTime}, lines...)
-
-	f, err := os.Create(file)
-	if err != nil {
-		return fmt.Errorf("failed to create file: %w", err)
-	}
-	defer f.Close()
-
-	// Write each line to the file
-	writer := bufio.NewWriter(f)
-	for _, line := range allLines {
-		_, err := writer.WriteString(line + "\n")
-		if err != nil {
-			return fmt.Errorf("failed to write line to file: %w", err)
-		}
-	}
-
-	// Flush the writer to ensure all data is written to the file
-	if err := writer.Flush(); err != nil {
-		return fmt.Errorf("failed to flush writer: %w", err)
-	}
-
-	return nil
-}
 
 // Gets the subjects/terms from url
 func getSelectListFromURL(option string) ([]string, error) {
@@ -167,7 +112,7 @@ func filterTerms(terms []string) ([]string, string, error) {
 	// At most there will ever be 8 terms above this one
 	filteredTerms := make([]string, 8)
 	for _, term := range terms {
-		if term >= currentTerm && term != "ALL" {
+		if term >= currentTerm && term != "All" {
 			filteredTerms = append(filteredTerms, term)
 		}
 	}
@@ -191,13 +136,6 @@ func filterTerms(terms []string) ([]string, string, error) {
 	yearLow := yearHigh - 1
 	year := fmt.Sprintf("%02d%02d", yearLow, yearHigh)
 	return filteredTerms, year, nil
-}
-
-// Returns all of the courses found at the given url specified
-// by the subject, term and year
-func getSubjectFromURL(subject, term, year string) ([]models.Course, error) {
-
-	return nil, nil
 }
 
 // Returns a list of all courses found for this term
@@ -256,35 +194,7 @@ func getCourses(subjects []string, term, year string) (int, error) {
 	return len(courseList), nil
 }
 
-// Helper function to load protobuf
-func loadProtobuf(filePath string) (*pb.CourseList, error) {
-	data, err := os.ReadFile(filePath)
-	if err != nil {
-		return nil, fmt.Errorf("failed to read protobuf file: %w", err)
-	}
-
-	var courseList pb.CourseList
-	if err := proto.Unmarshal(data, &courseList); err != nil {
-		return nil, fmt.Errorf("failed to unmarshal protobuf: %w", err)
-	}
-
-	return &courseList, nil
-}
-
-// Helper to save a protobuf
-func saveProtobuf(protobuf *pb.CourseList, filename string) error {
-	data, err := proto.Marshal(protobuf)
-	if err != nil {
-		return fmt.Errorf("failed to marshal protobuf: %w", err)
-	}
-
-	if err := os.WriteFile(filename, data, 0644); err != nil {
-		return fmt.Errorf("failed to write protobuf to file: %w", err)
-	}
-
-	return nil
-}
-
+// Updates all courses in Term protobufs if deemed necessary
 func UpdateCourses() error {
 	// Create data directory if it doesn't exist
 	if err := os.MkdirAll(utils.DataDirectory, os.ModePerm); err != nil {
@@ -307,7 +217,7 @@ func UpdateCourses() error {
 	}
 
 	fmt.Printf("Found %d subjects\n", len(subjects))
-	fmt.Printf("Current terms: %v\n", terms)
+	fmt.Printf("Current terms: %v\n", terms) // TODO terms list is not correct
 
 	count := 0
 	for _, term := range terms {

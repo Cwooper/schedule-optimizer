@@ -10,25 +10,27 @@ message Session {
   string days = 1;
   int32 start_time = 2;
   int32 end_time = 3;
-  string location = 4;
+  string instructor = 4;
+  string location = 5;
+  bool is_async = 6;
+  bool is_time_tbd = 7;
 }
 
 message Course {
   string subject = 1;
   string title = 2;
-  string instructor = 3;
-  int32 credits = 4;
-  int32 crn = 5;
-  repeated Session sessions = 6;
-  double gpa = 7;
-  int32 capacity = 8;
-  int32 enrollment = 9;
-  int32 available_seats = 10;
-  int32 waitlist_count = 11;
-  string additional_fees = 12;
-  string restrictions = 13;
-  string attributes = 14;
-  string prerequisites = 15;
+  int32 credits = 3;
+  int32 crn = 4;
+  repeated Session sessions = 5;
+  double gpa = 6;
+  int32 capacity = 7;
+  int32 enrolled = 8;
+  int32 available_seats = 9;
+  int32 waitlist_count = 10;
+  string additional_fees = 11;
+  string restrictions = 12;
+  string attributes = 13;
+  string prerequisites = 14;
 }
 
 message CourseList {
