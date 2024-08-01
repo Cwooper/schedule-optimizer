@@ -30,13 +30,12 @@ func ProtoToCourses(pbCourseArray *pb.CourseList) []models.Course {
 func CourseToProto(course models.Course) *pb.Course {
 	return &pb.Course{
 		Subject:        course.Subject,
-		Instructor:     course.Instructor,
 		Credits:        int32(course.Credits),
 		Crn:            int32(course.CRN),
 		Sessions:       sessionsToProto(course.Sessions),
 		Gpa:            course.GPA,
 		Capacity:       int32(course.Capacity),
-		Enrollment:     int32(course.Enrollment),
+		Enrolled:       int32(course.Enrolled),
 		AvailableSeats: int32(course.AvailableSeats),
 		WaitlistCount:  int32(course.WaitlistCount),
 		AdditionalFees: course.AdditionalFees,
@@ -50,13 +49,12 @@ func CourseToProto(course models.Course) *pb.Course {
 func ProtoToCourse(pbCourse *pb.Course) models.Course {
 	return models.Course{
 		Subject:        pbCourse.Subject,
-		Instructor:     pbCourse.Instructor,
 		Credits:        int(pbCourse.Credits),
 		CRN:            int(pbCourse.Crn),
 		Sessions:       protoToSessions(pbCourse.Sessions),
 		GPA:            pbCourse.Gpa,
 		Capacity:       int(pbCourse.Capacity),
-		Enrollment:     int(pbCourse.Enrollment),
+		Enrolled:       int(pbCourse.Enrolled),
 		AvailableSeats: int(pbCourse.AvailableSeats),
 		WaitlistCount:  int(pbCourse.WaitlistCount),
 		AdditionalFees: pbCourse.AdditionalFees,
@@ -71,10 +69,13 @@ func sessionsToProto(sessions []models.Session) []*pb.Session {
 	pbSessions := make([]*pb.Session, len(sessions))
 	for i, session := range sessions {
 		pbSessions[i] = &pb.Session{
-			Days:      session.Days,
-			StartTime: int32(session.StartTime),
-			EndTime:   int32(session.EndTime),
-			Location:  session.Location,
+			Days:       session.Days,
+			StartTime:  int32(session.StartTime),
+			EndTime:    int32(session.EndTime),
+			Instructor: session.Instructor,
+			Location:   session.Location,
+			IsAsync:    session.IsAsync,
+			IsTimeTbd:  session.IsTimeTBD,
 		}
 	}
 	return pbSessions
@@ -85,10 +86,13 @@ func protoToSessions(pbSessions []*pb.Session) []models.Session {
 	sessions := make([]models.Session, len(pbSessions))
 	for i, pbSession := range pbSessions {
 		sessions[i] = models.Session{
-			Days:      pbSession.Days,
-			StartTime: int(pbSession.StartTime),
-			EndTime:   int(pbSession.EndTime),
-			Location:  pbSession.Location,
+			Days:       pbSession.Days,
+			StartTime:  int(pbSession.StartTime),
+			EndTime:    int(pbSession.EndTime),
+			Instructor: pbSession.Instructor,
+			Location:   pbSession.Location,
+			IsAsync:    pbSession.IsAsync,
+			IsTimeTBD:  pbSession.IsTimeTbd,
 		}
 	}
 	return sessions

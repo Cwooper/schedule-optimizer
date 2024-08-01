@@ -10,9 +10,7 @@ import (
 	"schedule-optimizer/internal/utils"
 )
 
-const (
-	CourseNamePattern = `^[A-Z\/ ]{2,4} \d{3}[A-Z]?$` // e.g. CSCI 497A
-)
+var CourseNamePattern = regexp.MustCompile(`^[A-Z/ ]{2,4} \d{3}[A-Z]?$`) // e.g. CSCI 497A
 
 // Conflict structure to hold the conflicts in an array of courses
 type Conflict struct {
@@ -85,14 +83,9 @@ func (g *Generator) GenerateResponse(req models.ScheduleRequest) *models.Respons
 // that the course names are valid
 func (g *Generator) cleanCourseNames(courses []string) []string {
 	cleanedNames := make([]string, len(courses))
-	pattern, err := regexp.Compile(CourseNamePattern)
-	if err != nil { // Failed to compile regexp pattern
-		g.response.Errors = append(g.response.Errors, "Backend regexp error: "+err.Error())
-		return nil
-	}
 	for _, courseName := range courses {
 		courseName = strings.TrimSpace(courseName)
-		if pattern.MatchString(courseName) {
+		if CourseNamePattern.MatchString(courseName) {
 			cleanedNames = append(cleanedNames, courseName)
 		} else { // Invalid Course Name
 			g.response.Warnings = append(g.response.Warnings, "Invalid course name: "+courseName)
