@@ -165,7 +165,7 @@ func getCourses(subjects []string, term, year string) (int, error) {
 	// Check if term protobuf already exists
 	if _, err := os.Stat(termFile); err == nil {
 		// File exists, check its Pulltimestamp
-		existingProto, err := loadProtobuf(termFile)
+		existingProto, err := utils.LoadProtobuf(termFile)
 		if err != nil {
 			return 0, fmt.Errorf("failed to load existing protobuf: %w", err)
 		}
@@ -191,7 +191,7 @@ func getCourses(subjects []string, term, year string) (int, error) {
 	protobuf.PullTimestamp = timestamppb.Now()
 
 	// Save the protobuf
-	if err := saveProtobuf(protobuf, termFile); err != nil {
+	if err := utils.SaveProtobuf(protobuf, termFile); err != nil {
 		return 0, fmt.Errorf("failed to save protobuf for term %s: %w", term, err)
 	}
 

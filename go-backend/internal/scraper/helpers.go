@@ -10,10 +10,6 @@ import (
 	"time"
 
 	"schedule-optimizer/internal/models"
-	pb "schedule-optimizer/internal/proto/generated"
-
-	"google.golang.org/protobuf/proto"
-
 	"schedule-optimizer/internal/utils"
 )
 
@@ -99,35 +95,6 @@ func linesToFile(lines []string, file string) error {
 	// Flush the writer to ensure all data is written to the file
 	if err := writer.Flush(); err != nil {
 		return fmt.Errorf("failed to flush writer: %w", err)
-	}
-
-	return nil
-}
-
-// Helper function to load protobuf
-func loadProtobuf(filePath string) (*pb.CourseList, error) {
-	data, err := os.ReadFile(filePath)
-	if err != nil {
-		return nil, fmt.Errorf("failed to read protobuf file: %w", err)
-	}
-
-	var courseList pb.CourseList
-	if err := proto.Unmarshal(data, &courseList); err != nil {
-		return nil, fmt.Errorf("failed to unmarshal protobuf: %w", err)
-	}
-
-	return &courseList, nil
-}
-
-// Helper to save a protobuf
-func saveProtobuf(protobuf *pb.CourseList, filename string) error {
-	data, err := proto.Marshal(protobuf)
-	if err != nil {
-		return fmt.Errorf("failed to marshal protobuf: %w", err)
-	}
-
-	if err := os.WriteFile(filename, data, 0644); err != nil {
-		return fmt.Errorf("failed to write protobuf to file: %w", err)
 	}
 
 	return nil
