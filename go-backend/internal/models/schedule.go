@@ -30,6 +30,7 @@ type Schedule struct {
 	Score   float64  // The average of the weights for an average score
 }
 
+// Creates a new schedule with the courses and initializes the weights
 func NewSchedule(courses []Course) *Schedule {
 	s := &Schedule{
 		Courses: courses,
@@ -94,6 +95,9 @@ func weighGap(s *Schedule) float64 {
 // TODO untested
 func weighStart(s *Schedule) float64 {
 	startTime, _ := findStartEndTimes(s)
+	if startTime == -1 {
+		return 0.0
+	}
 
 	dayBegin := toMins(800)
 	dayEnd := toMins(1700)
@@ -109,6 +113,9 @@ func weighStart(s *Schedule) float64 {
 // TODO untested
 func weighEnd(s *Schedule) float64 {
 	_, endTime := findStartEndTimes(s)
+	if endTime == -1 {
+		return 0.0
+	}
 
 	dayBegin := toMins(800)
 	dayEnd := toMins(1700)
@@ -128,12 +135,16 @@ func toMins(time int) int {
 
 // Helper function to find the earliest start time and latest end time of the schedule
 func findStartEndTimes(s *Schedule) (int, int) {
-	var startTime, endTime int
+	endTime := -1
+	startTime := -1
 	for _, course := range s.Courses {
 		for _, session := range course.Sessions {
+			if session.IsAsync || session.IsTimeTBD {
+				continue // There are no times for async or timetbd sessions
+			}
 			sessionStart := toMins(session.StartTime)
 			sessionEnd := toMins(session.EndTime)
-			if startTime == 0 || sessionStart < startTime {
+			if startTime == -1 || sessionStart < startTime {
 				startTime = sessionStart
 			}
 			if sessionEnd > endTime {
@@ -151,7 +162,6 @@ type daySchedule struct {
 	lastCourseTime  int // End time of the last course
 }
 
-
 func initializeDaySchedules() map[rune]*daySchedule {
 	daySchedules := make(map[rune]*daySchedule)
 	for _, day := range []rune{'M', 'T', 'W', 'R', 'F'} {
@@ -164,10 +174,13 @@ func initializeDaySchedules() map[rune]*daySchedule {
 	return daySchedules
 }
 
+// Won't add session to the schedules if it's async or tbd time
 func updateDaySchedules(s *Schedule, daySchedules map[rune]*daySchedule) {
 	for _, course := range s.Courses {
 		for _, session := range course.Sessions {
-			updateSessionSchedule(session, daySchedules)
+			if !session.IsAsync && !session.IsTimeTBD {
+				updateSessionSchedule(session, daySchedules)
+			} 
 		}
 	}
 }
