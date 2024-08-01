@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-	"strings"
+	"strconv"
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
@@ -17,6 +17,12 @@ import (
 	pb "schedule-optimizer/internal/proto/generated"
 	"schedule-optimizer/internal/utils"
 	"schedule-optimizer/pkg/protoutils"
+)
+
+// Enum for subjects and terms
+const (
+	Subject int = iota
+	Terms
 )
 
 // Parses the given file to an array strings split by lines
@@ -43,7 +49,7 @@ func fileToLines(file string) ([]string, error) {
 
 // Saves the given lines into a file specified by file
 // Prepends the time to the top (format specified utils)
-func arrayToFile(lines []string, file string) error {
+func linesToFile(lines []string, file string) error {
 	// Prepend the current line to the list
 	currentTime := time.Now().Format(utils.TIME_FORMAT)
 	allLines := append([]string{currentTime}, lines...)
@@ -71,8 +77,8 @@ func arrayToFile(lines []string, file string) error {
 	return nil
 }
 
-// Fetches the subjects from url
-func fetchSubjectsFromURL() ([]string, error) {
+// Fetches the subjects/terms from url
+func fetchFromURL(option string) ([]string, error) {
 	resp, err := http.Get(utils.URL)
 	if err != nil {
 		return nil, fmt.Errorf("failed to fetch URL: %w", err)
@@ -90,77 +96,103 @@ func fetchSubjectsFromURL() ([]string, error) {
 	}
 
 	// Find the select subject element and store them into a subjects slice
+	selectOption := fmt.Sprintf("select#%s option", option)
 	var subjects []string
-	doc.Find("select#subj option").Each(func(i int, s *goquery.Selection) {
+	doc.Find(selectOption).Each(func(i int, s *goquery.Selection) {
 		if value, exists := s.Attr("value"); exists {
 			subjects = append(subjects, value)
 		}
 	})
 
-	// Format subjects into file for later use
-	subjectsFile := filepath.Join(utils.DataDirectory, "subjects.txt")
-	f, err := os.Create(subjectsFile)
-	if err != nil {
-		return nil, fmt.Errorf("failed to create subjects file: %w", err)
-	}
-	defer f.Close()
-
-	// Write current time and subjects to file
-	_, err = fmt.Fprintf(f, "%s\n%s", time.Now().Format(time.RFC3339), strings.Join(subjects, "\n"))
-	if err != nil {
-		return nil, fmt.Errorf("failed to write to subjects file: %w", err)
-	}
-
-	fmt.Println("Successfully fetched from server.")
 	return subjects, nil
 }
 
-// Fetches the subjects list from file or url depending on time since file
-func fetchSubjectList() ([]string, error) {
-	subjectsFile := filepath.Join(utils.DataDirectory, "subjects.txt")
-	_, err := os.Stat(subjectsFile)
-	var subjects []string
+// Fetches the given list from file or url dpeending on time since file creation
+func fetchList(option int) ([]string, error) {
+	// Create variables based upon type of fetch request
+	var filename string
+	var htmlID string
+	var waitTime int
+	if option == Subject {
+		filename = "subjects.txt"
+		htmlID = utils.SUBJECT_ID
+		waitTime = utils.MAX_SUBJECT_WAIT
+	} else {
+		filename = "terms.txt"
+		htmlID = utils.TERM_ID
+		waitTime = utils.MAX_TERM_WAIT
+	}
 
-	if os.IsExist(err) {
-		// Parse the file and get subjects from file
-		subjects, err = fileToLines(subjectsFile)
+	var lines []string
+	file := filepath.Join(utils.DataDirectory, filename)
+	_, err := os.Stat(file)
+
+	if err == nil {
+		// Parse the file and get items from file
+		lines, err = fileToLines(file)
 		if err != nil {
-			return nil, fmt.Errorf("failed to convert %v to lines: %w", subjectsFile, err)
+			return nil, fmt.Errorf("failed to convert %v to lines: %w", file, err)
 		}
 
-		fileTime, err := time.Parse(utils.TIME_FORMAT, subjects[0])
+		fileTime, err := time.Parse(utils.TIME_FORMAT, lines[0])
 		if err != nil {
-			return nil, fmt.Errorf("failed to parse time in %v: %w", subjects[0], err)
+			return nil, fmt.Errorf("failed to parse time in %v: %w", lines[0], err)
 		}
 
 		currentTime := time.Now()
 		duration := currentTime.Sub(fileTime)
 
 		// If file creation to now is longer than MAX wait time defined in utils
-		if duration < utils.MAX_SUBJECT_WAIT*24*time.Hour {
-			return subjects[1:], nil
+		if duration < time.Duration(waitTime)*24*time.Hour {
+			return lines[1:], nil
 		}
 	}
 
 	// This will only run if all of the above fails
-	// Fetch the subjects from url
-	subjects, err = fetchSubjectsFromURL()
+	// Fetch the items from url
+	lines, err = fetchFromURL(htmlID)
 	if err != nil {
 		return nil, fmt.Errorf("failed to fetch subjects from url: %w", err)
 	}
 
-	arrayToFile(subjects, subjectsFile)
-	fmt.Printf("Longer than %d days, saved %v\n", utils.MAX_SUBJECT_WAIT, subjectsFile)
+	// Save the file for re-use
+	linesToFile(lines, file)
+	fmt.Printf("Longer than %d days, saved %v\n", waitTime, file)
 
-	return subjects, nil
+	return lines, nil
 }
 
-func fetchTermsList() ([]string, error) {
-	return nil, nil
-}
-
+// Filters the list of turns and returns the current year code
 func filterTerms(terms []string) ([]string, string, error) {
-	return nil, "", nil
+	currentTerm := fmt.Sprintf("%d00", time.Now().Year())
+
+	// At most there will ever be 8 terms above this one
+	filteredTerms := make([]string, 8)
+	for _, term := range terms {
+		if term >= currentTerm && term != "ALL" {
+			filteredTerms = append(filteredTerms, term)
+		}
+	}
+
+	if len(filteredTerms) == 0 {
+		return nil, "", fmt.Errorf("no valid terms found")
+	}
+
+	largestTerm := filteredTerms[0]
+	for _, term := range filteredTerms {
+		if term > largestTerm {
+			largestTerm = term
+		}
+	}
+
+	yearHigh, err := strconv.Atoi(largestTerm[2:4])
+	if err != nil {
+		return nil, "", fmt.Errorf("failed to parse year: %w", err)
+	}
+
+	yearLow := yearHigh - 1
+	year := fmt.Sprintf("%02d%02d", yearLow, yearHigh)
+	return filteredTerms, year, nil
 }
 
 func getCourses(subject, term, year string) ([]models.Course, error) {
@@ -186,12 +218,12 @@ func UpdateCourses() error {
 		return fmt.Errorf("failed to create data directory: %w", err)
 	}
 
-	subjects, err := fetchSubjectList()
+	subjects, err := fetchList(Subject)
 	if err != nil {
 		return fmt.Errorf("failed to fetch subjects list: %w", err)
 	}
 
-	terms, err := fetchTermsList()
+	terms, err := fetchList(Terms)
 	if err != nil {
 		return fmt.Errorf("failed to fetch terms list: %w", err)
 	}
