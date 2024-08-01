@@ -12,6 +12,7 @@ import (
 
 	"github.com/PuerkitoBio/goquery"
 	"google.golang.org/protobuf/proto"
+	"google.golang.org/protobuf/types/known/timestamppb"
 
 	"schedule-optimizer/internal/models"
 	pb "schedule-optimizer/internal/proto/generated"
@@ -77,11 +78,11 @@ func linesToFile(lines []string, file string) error {
 	return nil
 }
 
-// Fetches the subjects/terms from url
-func fetchFromURL(option string) ([]string, error) {
+// Gets the subjects/terms from url
+func getSelectListFromURL(option string) ([]string, error) {
 	resp, err := http.Get(utils.URL)
 	if err != nil {
-		return nil, fmt.Errorf("failed to fetch URL: %w", err)
+		return nil, fmt.Errorf("failed to get URL: %w", err)
 	}
 	defer resp.Body.Close()
 
@@ -107,9 +108,9 @@ func fetchFromURL(option string) ([]string, error) {
 	return subjects, nil
 }
 
-// Fetches the given list from file or url dpeending on time since file creation
-func fetchList(option int) ([]string, error) {
-	// Create variables based upon type of fetch request
+// Gets the given list from file or url dpeending on time since file creation
+func getList(option int) ([]string, error) {
+	// Create variables based upon type of get request
 	var filename string
 	var htmlID string
 	var waitTime int
@@ -139,20 +140,17 @@ func fetchList(option int) ([]string, error) {
 			return nil, fmt.Errorf("failed to parse time in %v: %w", lines[0], err)
 		}
 
-		currentTime := time.Now()
-		duration := currentTime.Sub(fileTime)
-
 		// If file creation to now is longer than MAX wait time defined in utils
-		if duration < time.Duration(waitTime)*24*time.Hour {
+		if time.Since(fileTime) < time.Duration(waitTime)*24*time.Hour {
 			return lines[1:], nil
 		}
 	}
 
 	// This will only run if all of the above fails
-	// Fetch the items from url
-	lines, err = fetchFromURL(htmlID)
+	// Get the items from url
+	lines, err = getSelectListFromURL(htmlID)
 	if err != nil {
-		return nil, fmt.Errorf("failed to fetch subjects from url: %w", err)
+		return nil, fmt.Errorf("failed to get subjects from url: %w", err)
 	}
 
 	// Save the file for re-use
@@ -195,10 +193,85 @@ func filterTerms(terms []string) ([]string, string, error) {
 	return filteredTerms, year, nil
 }
 
-func getCourses(subject, term, year string) ([]models.Course, error) {
+// Returns all of the courses found at the given url specified
+// by the subject, term and year
+func getSubjectFromURL(subject, term, year string) ([]models.Course, error) {
+
 	return nil, nil
 }
 
+// Returns a list of all courses found for this term
+func getCoursesFromURL(subjects []string, term, year string) ([]models.Course, error) {
+	// About 1500 courses per term, 2000 to be efficient
+	courseList := make([]models.Course, 2000)
+	for _, subject := range subjects {
+		newCourses, err := getSubjectFromURL(subject, term, year)
+		if err != nil {
+			return nil, fmt.Errorf("failed to get courses: %w", err)
+		}
+		if len(newCourses) > 0 {
+			courseList = append(courseList, newCourses...)
+		}
+	}
+
+	return courseList, nil
+}
+
+// Gets the courses for the given term, returns the total courses found
+func getCourses(subjects []string, term, year string) (int, error) {
+	termFile := filepath.Join(utils.DataDirectory, term, ".pb")
+
+	// Check if term protobuf already exists
+	if _, err := os.Stat(termFile); err == nil {
+		// File exists, check its Pulltimestamp
+		existingProto, err := loadProtobuf(termFile)
+		if err != nil {
+			return 0, fmt.Errorf("failed to load existing protobuf: %w", err)
+		}
+
+		pullTime := existingProto.PullTimestamp.AsTime()
+		if time.Since(pullTime) < utils.MAX_COURSE_WAIT*24*time.Hour {
+			// Use existing data
+			courseList := protoutils.ProtoToCourses(existingProto)
+			return len(courseList), nil
+		}
+	}
+
+	// Fetch new data, above didn't work out
+	courseList, err := getCoursesFromURL(subjects, term, year)
+	if err != nil {
+		return 0, fmt.Errorf("failed to get courses from url: %w", err)
+	}
+
+	protobuf := protoutils.CoursesToProto(courseList)
+	protobuf.PullTimestamp = timestamppb.Now()
+
+	// Save the protobuf
+	if err := saveProtobuf(protobuf, termFile); err != nil {
+		return 0, fmt.Errorf("failed to save protobuf for term %s: %w", term, err)
+	}
+
+	fmt.Printf("%v: Found and saved %d courses to %v\n", term, len(courseList), termFile)
+
+	return len(courseList), nil
+}
+
+// Helper function to load protobuf
+func loadProtobuf(filePath string) (*pb.CourseList, error) {
+	data, err := os.ReadFile(filePath)
+	if err != nil {
+		return nil, fmt.Errorf("failed to read protobuf file: %w", err)
+	}
+
+	var courseList pb.CourseList
+	if err := proto.Unmarshal(data, &courseList); err != nil {
+		return nil, fmt.Errorf("failed to unmarshal protobuf: %w", err)
+	}
+
+	return &courseList, nil
+}
+
+// Helper to save a protobuf
 func saveProtobuf(protobuf *pb.CourseList, filename string) error {
 	data, err := proto.Marshal(protobuf)
 	if err != nil {
@@ -218,14 +291,14 @@ func UpdateCourses() error {
 		return fmt.Errorf("failed to create data directory: %w", err)
 	}
 
-	subjects, err := fetchList(Subject)
+	subjects, err := getList(Subject)
 	if err != nil {
-		return fmt.Errorf("failed to fetch subjects list: %w", err)
+		return fmt.Errorf("failed to get subjects list: %w", err)
 	}
 
-	terms, err := fetchList(Terms)
+	terms, err := getList(Terms)
 	if err != nil {
-		return fmt.Errorf("failed to fetch terms list: %w", err)
+		return fmt.Errorf("failed to get terms list: %w", err)
 	}
 
 	terms, year, err := filterTerms(terms)
@@ -236,29 +309,15 @@ func UpdateCourses() error {
 	fmt.Printf("Found %d subjects\n", len(subjects))
 	fmt.Printf("Current terms: %v\n", terms)
 
+	count := 0
 	for _, term := range terms {
-		// About 1500 courses per term, 2000 to be efficient
-		courseList := make([]models.Course, 2000)
-		for _, subject := range subjects {
-			newCourses, err := getCourses(subject, term, year)
-			if err != nil {
-				return fmt.Errorf("failed to get courses: %w", err)
-			}
-			if len(newCourses) > 0 {
-				courseList = append(courseList, newCourses...)
-			}
+		found, err := getCourses(subjects, term, year)
+		if err != nil {
+			return fmt.Errorf("failed to get courses: %w", err)
 		}
-
-		protobuf := protoutils.CoursesToProto(courseList)
-
-		// Save the protobuf
-		termFile := filepath.Join(utils.DataDirectory, term, ".pb")
-		if err := saveProtobuf(protobuf, termFile); err != nil {
-			return fmt.Errorf("failed to save protobuf for term %s: %w", term, err)
-		}
-
-		fmt.Printf("%v: Found and saved %d courses to %v\n", term, len(courseList), termFile)
+		count += found
 	}
 
+	fmt.Printf("Found %d total courses\n", count)
 	return nil
 }
