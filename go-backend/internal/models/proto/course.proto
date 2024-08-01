@@ -13,19 +13,20 @@ message Session {
 
 message Course {
   string subject = 1;
-  string instructor = 2;
-  int32 credits = 3;
-  int32 crn = 4;
-  repeated Session sessions = 5;
-  double gpa = 6;
-  int32 capacity = 7;
-  int32 enrollment = 8;
-  int32 available_seats = 9;
-  int32 waitlist_count = 10;
-  string additional_fees = 11;
-  string restrictions = 12;
-  string attributes = 13;
-  string prerequisites = 14;
+  string title = 2;
+  string instructor = 3;
+  int32 credits = 4;
+  int32 crn = 5;
+  repeated Session sessions = 6;
+  double gpa = 7;
+  int32 capacity = 8;
+  int32 enrollment = 9;
+  int32 available_seats = 10;
+  int32 waitlist_count = 11;
+  string additional_fees = 12;
+  string restrictions = 13;
+  string attributes = 14;
+  string prerequisites = 15;
 }
 
 message CourseArray {
