@@ -14,6 +14,7 @@ type Session struct {
 // Holds all of a single courses data
 type Course struct {
 	Subject        string    // Course Subject
+	Title          string    // Course Title
 	Instructor     string    // Course Instructor
 	Credits        int       // Number of credits
 	CRN            int       // Course Record Number

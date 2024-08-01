@@ -78,3 +78,15 @@ backend
 │       └── convertor.go
 └── README.md
 ```
+
+## TODO
+
+- [x] Create Course Model
+  - [x] Course Conflicts
+  - [x] Create Course Array ProtoBuf
+- [x] Create Schedule Model
+  - [x] Schedule Auto-weighing
+  - [x] Modular Weight System
+- [ ] Create Web Scraper
+- [ ] Create GPA Processor
+- [ ] Create Schedule Generator
