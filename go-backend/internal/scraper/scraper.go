@@ -174,6 +174,10 @@ func getCourses(subjects []string, term, year string) (int, error) {
 		if time.Since(pullTime) < utils.MAX_COURSE_WAIT*24*time.Hour {
 			// Use existing data
 			courseList := protoutils.ProtoToCourses(existingProto)
+			for _, course := range courseList {
+				fmt.Printf("%v\n", course)
+			}
+			fmt.Println()
 			return len(courseList), nil
 		}
 	}
@@ -198,6 +202,7 @@ func getCourses(subjects []string, term, year string) (int, error) {
 }
 
 // Updates all courses in Term protobufs if deemed necessary
+// It is up to the user to process the gpa of each course for each term
 func UpdateCourses() error {
 	// Create data directory if it doesn't exist
 	if err := os.MkdirAll(utils.DataDirectory, os.ModePerm); err != nil {
