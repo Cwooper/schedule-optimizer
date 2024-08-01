@@ -18,7 +18,7 @@ type Session struct {
 type Course struct {
 	Subject        string    // Course Subject
 	Title          string    // Course Title
-	Credits        int       // Number of credits
+	Credits        string    // Number of credits
 	CRN            int       // Course Record Number
 	Sessions       []Session // All sessions for this course (nil if asnyc)
 	GPA            float64   // Average GPA for this course
@@ -37,7 +37,7 @@ func NewCourse() *Course {
 	return &Course{
 		Subject:        "",
 		Title:          "",
-		Credits:        0,
+		Credits:        "",
 		CRN:            0,
 		Sessions:       nil,
 		GPA:            0.0,

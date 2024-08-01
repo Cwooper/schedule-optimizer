@@ -19,7 +19,7 @@ message Session {
 message Course {
   string subject = 1;
   string title = 2;
-  int32 credits = 3;
+  string credits = 3;
   int32 crn = 4;
   repeated Session sessions = 5;
   double gpa = 6;
