@@ -87,6 +87,6 @@ backend
 - [x] Create Schedule Model
   - [x] Schedule Auto-weighing
   - [x] Modular Weight System
-- [ ] Create Web Scraper
+- [x] Create Web Scraper
 - [ ] Create GPA Processor
 - [ ] Create Schedule Generator
