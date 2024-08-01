@@ -27,33 +27,6 @@ func init() {
 	}
 }
 
-// Normalizes the spaces inside of a string by replacing multiple ws with one
-func normalizeSpaces(s string) string {
-    // First, trim leading and trailing spaces
-    s = strings.TrimSpace(s)
-    
-    // Then, replace multiple spaces with a single space
-    re := regexp.MustCompile(`\s+`)
-    return re.ReplaceAllString(s, " ")
-}
-
-// convertMultiple converts multiple strings to ints
-// It returns the converted ints and an error if any conversion failed
-func convertMultiple(strs ...string) ([]int, error) {
-	result := make([]int, len(strs))
-	for i, s := range strs {
-		if s == "" {
-			continue // Skip empty strings, leaving 0 in the result
-		}
-		n, err := strconv.Atoi(s)
-		if err != nil {
-			return nil, fmt.Errorf("failed to convert '%s' to int: %w", s, err)
-		}
-		result[i] = n
-	}
-	return result, nil
-}
-
 // convertTimes converts times format from "09:00-01:50 pm" to 900, 1350
 func convertTimes(times string) (int, int, error) {
 	timeParts := strings.Split(times, " ")
