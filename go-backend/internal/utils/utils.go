@@ -15,7 +15,7 @@ const (
 	MAX_COURSES = 7 // Maximum courses in a single schedule
 
 	MAX_SUBJECT_WAIT = 30 // Days
-	MAX_COURSE_WAIT  = 1  // Days
+	MAX_COURSE_WAIT  = 2  // Days
 	MAX_TERM_WAIT    = 10 // Days
 
 	TIME_FORMAT = "2006-01-02 15:04:05"
