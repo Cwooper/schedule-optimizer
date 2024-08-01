@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package models;
 
+import "google/protobuf/timestamp.proto";
+
 option go_package = "schedule-optimizer/internal/proto/generated";
 
 message Session {
@@ -29,6 +31,7 @@ message Course {
   string prerequisites = 15;
 }
 
-message CourseArray {
+message CourseList {
   repeated Course courses = 1;
+  google.protobuf.Timestamp pull_timestamp = 2;
 }

@@ -7,18 +7,18 @@ import (
 )
 
 // CoursesToProto converts an array of Course structs to a CourseArray protobuf message
-func CoursesToProto(courses []models.Course) *pb.CourseArray {
+func CoursesToProto(courses []models.Course) *pb.CourseList {
 	pbCourses := make([]*pb.Course, len(courses))
 	for i, course := range courses {
 		pbCourses[i] = CourseToProto(course)
 	}
-	return &pb.CourseArray{
+	return &pb.CourseList{
 		Courses: pbCourses,
 	}
 }
 
 // ProtoToCourses converts a CourseArray protobuf message to an array of Course structs
-func ProtoToCourses(pbCourseArray *pb.CourseArray) []models.Course {
+func ProtoToCourses(pbCourseArray *pb.CourseList) []models.Course {
 	courses := make([]models.Course, len(pbCourseArray.Courses))
 	for i, pbCourse := range pbCourseArray.Courses {
 		courses[i] = ProtoToCourse(pbCourse)
