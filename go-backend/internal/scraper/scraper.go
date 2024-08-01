@@ -174,9 +174,9 @@ func getCourses(subjects []string, term, year string) (int, error) {
 		if time.Since(pullTime) < utils.MAX_COURSE_WAIT*24*time.Hour {
 			// Use existing data
 			courseList := protoutils.ProtoToCourses(existingProto)
-			for _, course := range courseList {
-				fmt.Printf("%v\n", course)
-			}
+			// for _, course := range courseList { // Helper print function
+			// 	fmt.Printf("%v\n", course)
+			// }
 			fmt.Println()
 			return len(courseList), nil
 		}
