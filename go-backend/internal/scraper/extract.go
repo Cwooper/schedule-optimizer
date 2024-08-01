@@ -27,6 +27,16 @@ func init() {
 	}
 }
 
+// Helper function to see if a selection is contained in a selection array
+func containsTable(tables []*goquery.Selection, target *goquery.Selection) bool {
+	for _, table := range tables {
+		if table == target {
+			return true
+		}
+	}
+	return false
+}
+
 // convertMultiple converts multiple strings to ints
 // It returns the converted ints and an error if any conversion failed
 func convertMultiple(strs ...string) ([]int, error) {
@@ -85,18 +95,19 @@ func convertTimes(times string) (int, int, error) {
 	return startTimeInt, endTimeInt, nil
 }
 
-// Extracts the header from the string parts and the given cell
-func extractHeader(parts []string, cells *goquery.Selection) (*models.Course, error) {
+// Extracts the header from the string parts and the given rows
+func extractHeader(parts []string, rows *goquery.Selection) (*models.Course, error) {
 	subject := strings.TrimSpace(parts[0])
-	title := strings.TrimSpace(parts[0])
+	title := strings.TrimSpace(parts[1])
 	credits := strings.TrimSpace(strings.ReplaceAll(parts[2], "cr", ""))
 	creditsInt, err := strconv.Atoi(credits)
 	if err != nil {
 		return nil, fmt.Errorf("failed to parse string to int: %w", err)
 	}
+
 	prerequisites := ""
-	if cells.Length() > 1 {
-		prerequisites = strings.TrimSpace(cells.Eq(1).Text())
+	for i := 1; i < rows.Length(); i++ {
+		prerequisites += strings.TrimSpace(rows.Eq(1).Text())
 	}
 
 	return &models.Course{
@@ -160,7 +171,6 @@ func extractCourse(cells *goquery.Selection, course *models.Course) error {
 	course.Sessions = append(course.Sessions, session)
 	course.AdditionalFees = additionalFees
 	course.Capacity = nums[1]
-	course.Capacity = nums[1]
 	course.Enrolled = nums[2]
 	course.AvailableSeats = nums[3]
 	course.WaitlistCount = nums[4]
@@ -210,76 +220,87 @@ func extractSession(cells *goquery.Selection, course *models.Course) error {
 }
 
 // Gets the courses from the given table
-func getCoursesFromTable(table *goquery.Selection) ([]models.Course, error) {
+//
+//		Format of a course table:
+//		<table> Header Information </table>
+//		<div></div>
+//		<table> Course Information <table> (if 13 <td> elements in <tr>)
+//		<table> Session Information <table> (if 12 <td> elements in <tr>)
+//		The above two can repeat in any order
+//	 The above then repeats any number of times
+func getCoursesFromTables(doc *goquery.Document) ([]models.Course, error) {
+	lastCourse := models.NewCourse()
 	var courses []models.Course
-	var lastCourse *models.Course
 	var err error
 
-	rows := table.Find("tr")
-	for i := 0; i < rows.Length(); i++ {
-		row := rows.Eq(i)
-		cells := row.Find("td")
-		cellCount := cells.Length() // TODO this is always 1, fix it there is no findall equivalent
+	table := doc.Find("table")
+	table.Next().Each(func(i int, table *goquery.Selection) {
+		rows := table.Find("tr")
+		headerCells := rows.Eq(0).Find("td.fieldformatboldtext")
 
-		switch cellCount {
-		case 1:
-			// Header row
-			headerText := cells.Eq(0).Text()
+		if headerCells.Length() > 0 {
+			headerText := headerCells.Text()
 			parts := strings.Split(headerText, "|")
-			if len(parts) != 3 {
-				continue
-			}
-			lastCourse, err = extractHeader(parts, cells)
-			if err != nil {
-				return nil, fmt.Errorf("error extracting header: %w", err)
-			}
-		case 13:
-			// Main course row
-			if lastCourse != nil {
-				courses = append(courses, *lastCourse)
-			}
-			err = extractCourse(cells, lastCourse)
-			if err != nil {
-				return nil, fmt.Errorf("error extracting course: %w", err)
-			}
-		case 12:
-			// Extra session row
-			if lastCourse != nil {
-				err = extractSession(cells, lastCourse)
+			if len(parts) == 3 {
+				// This is a new header, process the previous course if exists
+				if lastCourse.Subject != "" {
+					courses = append(courses, *lastCourse)
+				}
+
+				// Extract new header
+				lastCourse, err = extractHeader(parts, rows)
 				if err != nil {
-					return nil, fmt.Errorf("error extracting lab: %w", err)
+					fmt.Printf("error extracting header: %v\n", err)
+					return
 				}
 			}
-		}
-	}
+		} else {
+			// This table might contain course or session information
+			table.Find("tr").Each(func(j int, row *goquery.Selection) {
+				cells := row.Find("td")
+				cellCount := cells.Length()
 
+				if cellCount == 13 {
+					if strings.TrimSpace(cells.Eq(0).Text()) == "Term" {
+						return // Subject Title Row
+					}
+
+					// This is a course row
+					if lastCourse != nil {
+						courses = append(courses, *lastCourse)
+					}
+
+					// Reset the last course for the next one
+					if lastCourse != nil {
+						lastCourse = &models.Course{
+							Subject:       lastCourse.Subject,
+							Title:         lastCourse.Title,
+							Credits:       lastCourse.Credits,
+							Prerequisites: lastCourse.Prerequisites,
+						}
+					}
+					err = extractCourse(cells, lastCourse)
+					if err != nil {
+						fmt.Printf("error extracting course: %v\n", err)
+						return
+					}
+				} else if cellCount == 12 && lastCourse != nil {
+					err = extractSession(cells, lastCourse)
+					if err != nil {
+						fmt.Printf("error extracting session: %v\n", err)
+						return
+					}
+				}
+			})
+		}
+	})
+
+	// Append the last course if it exists
 	if lastCourse != nil {
 		courses = append(courses, *lastCourse)
 	}
 
 	return courses, nil
-}
-
-// GetCourseTables finds all course-like tables and returns them
-func getCourseTables(doc *goquery.Document) []*goquery.Selection {
-	var courseTables []*goquery.Selection
-	tables := doc.Find("table")
-
-	tables.Each(func(i int, table *goquery.Selection) {
-		// Find all table cells as defined by "fieldformatboldtext"
-		rows := table.Find("tr")
-		rows.Each(func(j int, row *goquery.Selection) {
-			cells := row.Find("td.fieldformatboldtext")
-
-			// If we found such cells, this table contains course info
-			if cells.Length() > 0 {
-				courseTables = append(courseTables, table)
-				return
-			}
-		})
-	})
-
-	return courseTables
 }
 
 // Returns all of the courses found at the given url specified
@@ -322,19 +343,11 @@ func getSubjectFromURL(subject, term, year string) ([]models.Course, error) {
 		return nil, fmt.Errorf("failed to parse HTML: %w", err)
 	}
 
-	allCourses := make([]models.Course, 0)
-
 	// Get the course tables from the response body
-	tables := getCourseTables(doc)
-	for _, table := range tables {
-		fmt.Printf("Getting courses from table\n")
-		courses, err := getCoursesFromTable(table)
-		if err != nil {
-			return nil, fmt.Errorf("failed to get course from table: %w", err)
-		}
-
-		allCourses = append(allCourses, courses...)
+	courses, err := getCoursesFromTables(doc)
+	if err != nil {
+		return nil, fmt.Errorf("failed to get courses from tables: %w", err)
 	}
 
-	return allCourses, nil
+	return courses, nil
 }

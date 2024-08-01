@@ -32,6 +32,26 @@ type Course struct {
 	Prerequisites  string    // Any noted prerequisites
 }
 
+// Initialize fully empty course
+func NewCourse() *Course {
+	return &Course{
+		Subject:        "",
+		Title:          "",
+		Credits:        0,
+		CRN:            0,
+		Sessions:       nil,
+		GPA:            0.0,
+		Capacity:       0,
+		Enrolled:       0,
+		AvailableSeats: 0,
+		WaitlistCount:  0,
+		AdditionalFees: "",
+		Restrictions:   "",
+		Attributes:     "",
+		Prerequisites:  "",
+	}
+}
+
 // Returns whether the courses conflict with one another
 func (c Course) Conflicts(other Course) bool {
 	// Conflicts on the same subject
