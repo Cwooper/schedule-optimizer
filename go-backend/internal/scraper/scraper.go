@@ -23,14 +23,6 @@ const (
 	Terms
 )
 
-// Helper function for printing a list of courses.
-func printCourseList(courseList []models.Course) {
-	for _, course := range courseList {
-		fmt.Printf("%v\n", course)
-	}
-	fmt.Println()
-}
-
 // Gets the subjects/terms from url
 func getSelectListFromURL(option string) ([]string, error) {
 	resp, err := http.Get(utils.URL)

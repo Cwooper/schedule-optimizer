@@ -4,13 +4,53 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"regexp"
+	"strconv"
+	"strings"
 	"time"
 
-	"google.golang.org/protobuf/proto"
+	"schedule-optimizer/internal/models"
 	pb "schedule-optimizer/internal/proto/generated"
+
+	"google.golang.org/protobuf/proto"
 
 	"schedule-optimizer/internal/utils"
 )
+
+// Helper function for printing a list of courses.
+func printCourseList(courseList []models.Course) {
+	for _, course := range courseList {
+		fmt.Printf("%v\n", course)
+	}
+	fmt.Println()
+}
+
+// Normalizes the spaces inside of a string by replacing multiple ws with one
+func normalizeSpaces(s string) string {
+	// First, trim leading and trailing spaces
+	s = strings.TrimSpace(s)
+
+	// Then, replace multiple spaces with a single space
+	re := regexp.MustCompile(`\s+`)
+	return re.ReplaceAllString(s, " ")
+}
+
+// convertMultiple converts multiple strings to ints
+// It returns the converted ints and an error if any conversion failed
+func convertMultiple(strs ...string) ([]int, error) {
+	result := make([]int, len(strs))
+	for i, s := range strs {
+		if s == "" {
+			continue // Skip empty strings, leaving 0 in the result
+		}
+		n, err := strconv.Atoi(s)
+		if err != nil {
+			return nil, fmt.Errorf("failed to convert '%s' to int: %w", s, err)
+		}
+		result[i] = n
+	}
+	return result, nil
+}
 
 // Parses the given file to an array strings split by lines
 func fileToLines(file string) ([]string, error) {
