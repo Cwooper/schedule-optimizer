@@ -1,11 +1,10 @@
 package scraper
 
 import (
-	"bytes"
-	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
 	"regexp"
 	"strconv"
 	"strings"
@@ -178,7 +177,7 @@ func extractSession(cells *goquery.Selection, course *models.Course) error {
 	instructor := strings.TrimSpace(cells.Eq(4).Text())
 	location := strings.TrimSpace(cells.Eq(5).Text())
 	// All other data does not exist for labs
-	
+
 	var startTime, endTime int
 	isAsync := false
 	isTimeTBD := false
@@ -196,13 +195,13 @@ func extractSession(cells *goquery.Selection, course *models.Course) error {
 	}
 
 	session := models.Session{
-		Days: days,
-		StartTime: startTime,
-		EndTime: endTime,
+		Days:       days,
+		StartTime:  startTime,
+		EndTime:    endTime,
 		Instructor: instructor,
-		Location: location,
-		IsAsync: isAsync,
-		IsTimeTBD: isTimeTBD,
+		Location:   location,
+		IsAsync:    isAsync,
+		IsTimeTBD:  isTimeTBD,
 	}
 
 	course.Sessions = append(course.Sessions, session)
@@ -220,7 +219,7 @@ func getCoursesFromTable(table *goquery.Selection) ([]models.Course, error) {
 	for i := 0; i < rows.Length(); i++ {
 		row := rows.Eq(i)
 		cells := row.Find("td")
-		cellCount := cells.Length()
+		cellCount := cells.Length() // TODO this is always 1, fix it there is no findall equivalent
 
 		switch cellCount {
 		case 1:
@@ -286,23 +285,21 @@ func getCourseTables(doc *goquery.Document) []*goquery.Selection {
 // Returns all of the courses found at the given url specified
 // by the subject, term and year
 func getSubjectFromURL(subject, term, year string) ([]models.Course, error) {
-	payload := map[string]string{
-		"term":    term,
-		"curr_yr": year,
-		"subj":    subject,
-	}
+	// Create url.Values to hold the payload
+	data := url.Values{}
+	data.Set("term", term)
+	data.Set("curr_yr", year)
+	data.Set("subj", subject)
 
-	jsonPayload, err := json.Marshal(payload)
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal payload: %w", err)
-	}
-
-	req, err := http.NewRequest("POST", utils.URL, bytes.NewBuffer(jsonPayload))
+	// Create a new request with the encoded form data
+	encodedData := data.Encode()
+	req, err := http.NewRequest("POST", utils.URL, strings.NewReader(encodedData))
 	if err != nil {
 		return nil, fmt.Errorf("failed to create request: %w", err)
 	}
 
-	req.Header.Set("Content-Type", "application/json")
+	// Set the correct Content-Type for form data
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 
 	resp, err := httpClient.Do(req)
 	if err != nil {
@@ -311,7 +308,8 @@ func getSubjectFromURL(subject, term, year string) ([]models.Course, error) {
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("error: status code %d accessing %s", resp.StatusCode, utils.URL)
+		return nil, fmt.Errorf("error: status code %d accessing %s with payload %v",
+			resp.StatusCode, utils.URL, encodedData)
 	}
 
 	body, err := io.ReadAll(resp.Body)
@@ -319,7 +317,7 @@ func getSubjectFromURL(subject, term, year string) ([]models.Course, error) {
 		return nil, fmt.Errorf("failed to read response body: %w", err)
 	}
 
-	doc, err := goquery.NewDocumentFromReader(bytes.NewReader(body))
+	doc, err := goquery.NewDocumentFromReader(strings.NewReader(string(body)))
 	if err != nil {
 		return nil, fmt.Errorf("failed to parse HTML: %w", err)
 	}
@@ -329,6 +327,7 @@ func getSubjectFromURL(subject, term, year string) ([]models.Course, error) {
 	// Get the course tables from the response body
 	tables := getCourseTables(doc)
 	for _, table := range tables {
+		fmt.Printf("Getting courses from table\n")
 		courses, err := getCoursesFromTable(table)
 		if err != nil {
 			return nil, fmt.Errorf("failed to get course from table: %w", err)

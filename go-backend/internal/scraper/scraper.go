@@ -109,8 +109,7 @@ func getList(option int) ([]string, error) {
 func filterTerms(terms []string) ([]string, string, error) {
 	currentTerm := fmt.Sprintf("%d00", time.Now().Year())
 
-	// At most there will ever be 8 terms above this one
-	filteredTerms := make([]string, 8)
+	var filteredTerms []string
 	for _, term := range terms {
 		if term >= currentTerm && term != "All" {
 			filteredTerms = append(filteredTerms, term)
@@ -141,8 +140,11 @@ func filterTerms(terms []string) ([]string, string, error) {
 // Returns a list of all courses found for this term
 func getCoursesFromURL(subjects []string, term, year string) ([]models.Course, error) {
 	// About 1500 courses per term, 2000 to be efficient
-	courseList := make([]models.Course, 2000)
+	var courseList []models.Course
+
+	fmt.Printf("Processing Subjects: ")
 	for _, subject := range subjects {
+		fmt.Printf("%v ", subject)
 		newCourses, err := getSubjectFromURL(subject, term, year)
 		if err != nil {
 			return nil, fmt.Errorf("failed to get courses: %w", err)
@@ -151,13 +153,14 @@ func getCoursesFromURL(subjects []string, term, year string) ([]models.Course, e
 			courseList = append(courseList, newCourses...)
 		}
 	}
+	fmt.Printf("\n\n")
 
 	return courseList, nil
 }
 
 // Gets the courses for the given term, returns the total courses found
 func getCourses(subjects []string, term, year string) (int, error) {
-	termFile := filepath.Join(utils.DataDirectory, term, ".pb")
+	termFile := filepath.Join(utils.DataDirectory, term+".pb")
 
 	// Check if term protobuf already exists
 	if _, err := os.Stat(termFile); err == nil {
@@ -217,7 +220,7 @@ func UpdateCourses() error {
 	}
 
 	fmt.Printf("Found %d subjects\n", len(subjects))
-	fmt.Printf("Current terms: %v\n", terms) // TODO terms list is not correct
+	fmt.Printf("Current terms: %v\n", terms)
 
 	count := 0
 	for _, term := range terms {
