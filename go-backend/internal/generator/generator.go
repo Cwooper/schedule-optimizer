@@ -3,19 +3,21 @@ package generator
 
 import (
 	"fmt"
+	"path/filepath"
 	"regexp"
 	"strings"
 
 	"schedule-optimizer/internal/models"
 	"schedule-optimizer/internal/utils"
+	"schedule-optimizer/pkg/protoutils"
 )
 
 var CourseNamePattern = regexp.MustCompile(`^[A-Z/ ]{2,4} \d{3}[A-Z]?$`) // e.g. CSCI 497A
 
 // Conflict structure to hold the conflicts in an array of courses
 type Conflict struct {
-	First  models.Course
-	Second models.Course
+	First  int // CRN of first course
+	Second int // CRN of second course
 }
 
 // The generator
@@ -41,7 +43,7 @@ func NewGenerator() *Generator {
 // Takes into account the requested min and max schedule size
 // Forces the forced courses into the returned schedule
 // This takes can takes a "dirty request" directly from a user
-func (g *Generator) GenerateResponse(req models.ScheduleRequest) *models.Response {
+func (g *Generator) GenerateResponse(req models.RawRequest) *models.Response {
 	// Clean the course Names
 	g.cleanedCourseNames = g.cleanCourseNames(req.Courses)
 	if len(g.response.Errors) > 0 {
@@ -53,21 +55,21 @@ func (g *Generator) GenerateResponse(req models.ScheduleRequest) *models.Respons
 	}
 
 	// Generate the courses based on the cleaned Names
-	g.generateCourses()
+	g.generateCourses(req.Term)
 	if len(g.response.Errors) > 0 {
 		return g.response
 	}
 
 	// Clamp and verify that the bounds work
-	min, max := clampBounds(req.Min, req.Max)
-	if len(g.courses) < min {
+	req.Min, req.Max = clampBounds(req.Min, req.Max)
+	if len(g.courses) < req.Min {
 		errString := fmt.Sprintf("Cannot generate %d minimum size schedule "+
 			"with %d courses", req.Min, len(g.courses))
 		g.response.Errors = append(g.response.Errors, errString)
 		return g.response
 	}
 	if len(req.Forced) > req.Max {
-		errString := fmt.Sprintf("Cannot force more than %d courses", max)
+		errString := fmt.Sprintf("Cannot force more than %d courses", req.Max)
 		g.response.Errors = append(g.response.Errors, errString)
 		return g.response
 	}
@@ -82,13 +84,14 @@ func (g *Generator) GenerateResponse(req models.ScheduleRequest) *models.Respons
 // Cleans the course names by stripping any possible whitespace and verifying
 // that the course names are valid
 func (g *Generator) cleanCourseNames(courses []string) []string {
-	cleanedNames := make([]string, len(courses))
+	cleanedNames := make([]string, 0)
 	for _, courseName := range courses {
 		courseName = strings.TrimSpace(courseName)
 		if CourseNamePattern.MatchString(courseName) {
 			cleanedNames = append(cleanedNames, courseName)
 		} else { // Invalid Course Name
-			g.response.Warnings = append(g.response.Warnings, "Invalid course name: "+courseName)
+			g.response.Warnings = append(g.response.Warnings,
+				"Invalid course name: "+courseName)
 		}
 	}
 
@@ -96,8 +99,51 @@ func (g *Generator) cleanCourseNames(courses []string) []string {
 }
 
 // Fills the courses array in the generator with courses in the database
-func (g *Generator) generateCourses() {
-	// Gets the courses from the given data/term proto buf
+func (g *Generator) generateCourses(term string) {
+	// Load the term protobuf
+	termFile := filepath.Join(utils.DataDirectory, term+".pb")
+
+	proto, err := utils.LoadCoursesProtobuf(termFile)
+	if err != nil {
+		g.response.Warnings = append(g.response.Warnings,
+			"Term does not exist: "+term)
+		return
+	}
+
+	courseList := protoutils.ProtoToCourses(proto)
+
+	courses := make([]models.Course, 0)
+
+	// Search for the necessary courses of cleaned names
+	for _, courseRequest := range g.cleanedCourseNames {
+		found := false
+		for _, course := range courseList {
+			if course.Subject == courseRequest {
+				found = true
+				courses = append(courses, course)
+			}
+		}
+		if !found {
+			g.response.Warnings = append(g.response.Warnings,
+				"Course not offered this term: "+courseRequest)
+		}
+	}
+
+	for _, forceRequest := range g.cleanedForcedNames {
+		found := false
+		for _, course := range courseList {
+			if course.Subject == forceRequest {
+				found = true
+				courses = append(courses, course)
+			}
+		}
+		if !found {
+			g.response.Warnings = append(g.response.Warnings,
+				"Course not offered this term: "+forceRequest)
+		}
+	}
+
+	g.courses = courses
 }
 
 // Fills the conflicts array in the generator with known conflict pairs
@@ -107,8 +153,8 @@ func (g *Generator) generateConflicts() {
 		for j := i + 1; j < len(g.courses); j++ {
 			if g.courses[i].Conflicts(g.courses[j]) {
 				g.conflicts = append(g.conflicts, Conflict{
-					First:  g.courses[i],
-					Second: g.courses[j],
+					First:  g.courses[i].CRN,
+					Second: g.courses[j].CRN,
 				})
 			}
 		}
@@ -116,8 +162,15 @@ func (g *Generator) generateConflicts() {
 }
 
 // Generates Schedules after finding conflicts and getting courses
-func (g *Generator) generateSchedules(req models.ScheduleRequest) {
+func (g *Generator) generateSchedules(req models.RawRequest) {
+	scheduleRequest := ScheduleRequest{
+		Courses:   g.courses,
+		Conflicts: g.conflicts,
+		Min:       req.Min,
+		Max:       req.Max,
+	}
 
+	g.response.Schedules = Combinations(scheduleRequest)
 }
 
 // Clamp the bounds in case they are out of bounds

@@ -1,6 +1,6 @@
 package models
 
-type ScheduleRequest struct {
+type RawRequest struct {
 	Courses []string // Course Names
 	Forced  []string // Forced Courses
 	Term    string   // Term to find Courses
