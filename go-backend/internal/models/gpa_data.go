@@ -61,29 +61,36 @@ func (data *GPAData) ProcessRecords(records [][]string) {
 	courseTotal := make(map[string]float64)
 
 	for _, record := range records {
-		// Skip records with no data
-		if record[utils.CNT_A_COL] == "" {
-			continue
+		if record[utils.CNT_A_COL] == "" || record[utils.GRADE_COUNT_COL] == "0" {
+			continue // Skip records with no data
 		}
-
+		
 		count, err := strconv.Atoi(record[utils.GRADE_COUNT_COL])
 		if err != nil {
 			fmt.Printf("failed to parse grade count: %v", err)
 			continue
 		}
 		total := totalGPA(record)
-
+		if total == 0.0 {
+			continue
+		}
+		
 		professor := record[utils.PROFESSOR_COL]
 		subject := record[utils.CODE_COL]
 		courseKey := CourseKey(professor, subject)
-
-		professorCount[professor] += count
-		subjectCount[subject] += count
-		courseCount[courseKey] += count
-
-		professorTotal[professor] += total
-		subjectTotal[subject] += total
-		courseTotal[courseKey] += total
+		
+		if professor != "" {
+			professorCount[professor] += count
+			professorTotal[professor] += total
+		}
+		if subject != "" {
+			subjectCount[subject] += count
+			subjectTotal[subject] += total
+		}
+		if professor != "" && subject != "" {
+			courseCount[courseKey] += count
+			courseTotal[courseKey] += total
+		}
 	}
 
 	data.Professors = calculateAverages(professorCount, professorTotal)

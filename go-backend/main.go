@@ -1,6 +1,8 @@
 package main
 
-import "schedule-optimizer/internal/gpa"
+import (
+	"schedule-optimizer/internal/gpa"
+)
 
 func main() {
 	_, err := gpa.GetGPAData()

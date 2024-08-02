@@ -117,7 +117,7 @@ func GetGPAData() (models.GPAData, error) {
 	if err != nil {
 		return gpaData, fmt.Errorf("failed to save gpaData to protobuf: %w", err)
 	}
-	fmt.Printf("Saved GPAData to %v\n", pbFilename)
+	fmt.Printf("Saved GPA Data to %v\n", pbFilename)
 
 	return gpaData, nil
 }
