@@ -16,8 +16,9 @@ const (
 	ROUND       = 2    // Round to x decimal places
 	MINS_IN_DAY = 1440 // Number of minutes in a day (60 * 24)
 
-	MIN_COURSES = 1 // Minimum courses in a single schedule
-	MAX_COURSES = 7 // Maximum courses in a single schedule
+	MIN_COURSES       = 1  // Minimum courses in a single schedule
+	MAX_COURSES       = 8  // Maximum courses in a single schedule
+	MAX_INPUT_COURSES = 13 // Maximum courses a user an input to be combined
 
 	MAX_SUBJECT_WAIT = 30 // Days
 	MAX_COURSE_WAIT  = 2  // Days
