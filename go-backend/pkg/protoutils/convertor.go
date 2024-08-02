@@ -99,3 +99,21 @@ func protoToSessions(pbSessions []*pb.Session) []models.Session {
 	}
 	return sessions
 }
+
+// GPADataToProto converts a GPAData struct to a GPAData protobuf message
+func GPADataToProto(gpaData models.GPAData) *pb.GPAData {
+	return &pb.GPAData{
+		Subjects:   gpaData.Subjects,
+		Professors: gpaData.Professors,
+		CourseGpas: gpaData.CourseGPAs,
+	}
+}
+
+// ProtoToGPAData converts a GPAData protobuf message to a GPAData struct
+func ProtoToGPAData(pbGPAData *pb.GPAData) models.GPAData {
+	return models.GPAData{
+		Subjects:   pbGPAData.Subjects,
+		Professors: pbGPAData.Professors,
+		CourseGPAs: pbGPAData.CourseGpas,
+	}
+}

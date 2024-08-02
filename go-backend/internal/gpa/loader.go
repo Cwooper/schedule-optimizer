@@ -9,44 +9,22 @@ import (
 	"os"
 	"path/filepath"
 
+	"schedule-optimizer/internal/models"
+	pb "schedule-optimizer/internal/proto/generated"
 	"schedule-optimizer/internal/utils"
+	"schedule-optimizer/pkg/protoutils"
+
+	"google.golang.org/protobuf/proto"
 )
 
 const (
-	CSV_Filename = "grade_distribution.csv"
+	CSV_FILENAME = "grade_distribution.csv"
+	PB_FILENAME  = "grade_distribution.pb"
 )
-
-var (
-	GradeColumns = []string{"CNT_A", "CNT_AM", "CNT_BP", "CNT_B", "CNT_BM",
-		"CNT_CP", "CNT_C", "CNT_CM", "CNT_DP", "CNT_D", "CNT_DM", "CNT_F"}
-	GpaValues = []float64{4.0, 3.7, 3.3, 3.0, 2.7, 2.3, 2.0, 1.7, 1.3, 1.0, 0.7, 0.0}
-)
-
-type SubjectGPA struct {
-	Subject string
-	GPA     float64
-}
-
-type ProfessorGPA struct {
-	Professor string
-	GPA       float64
-}
-
-type CourseGPA struct {
-	Subject   string
-	Professor string
-	GPA       float64
-}
-
-type GPAData struct {
-	SubjectGPAs   []SubjectGPA
-	ProfessorGPAs []ProfessorGPA
-	CourseGPAs    []CourseGPA
-}
 
 // Loads the grade_distribution csv file
 func loadCSV() ([][]string, error) {
-	csvFile := filepath.Join(utils.DataDirectory, CSV_Filename)
+	csvFile := filepath.Join(utils.DataDirectory, CSV_FILENAME)
 	file, err := os.Open(csvFile)
 	if err != nil {
 		return nil, fmt.Errorf("failed to read csv: %w", err)
@@ -69,20 +47,77 @@ func loadCSV() ([][]string, error) {
 	return records, nil
 }
 
-func GetGPAData() (GPAData, error) {
-	var gpaData GPAData
-	// if grade_distribution.pb exists, use that
-	// otherwise, process the grade_distribution.csv
-
-	return gpaData, nil
-}
-
-func Test() error {
+// Gets the GPAData from the grade_distribution file
+func getFromCSV() (models.GPAData, error) {
+	gpaData := models.NewGPAData()
 	records, err := loadCSV()
 	if err != nil {
-		return fmt.Errorf("failed to load csv: %w", err)
+		return *gpaData, fmt.Errorf("failed to load csv: %w", err)
 	}
 
-	fmt.Printf("Rows: %d\n", len(records))
+	gpaData.ProcessRecords(records)
+
+	return *gpaData, nil
+}
+
+// Saves the GPAData to the protobuf
+func SaveGpaDataAsPB(gpaData models.GPAData) error {
+	pbGPAData := protoutils.GPADataToProto(gpaData)
+	data, err := proto.Marshal(pbGPAData)
+	if err != nil {
+		return fmt.Errorf("failed to marshal GPAData: %w", err)
+	}
+
+	pbFilename := filepath.Join(utils.DataDirectory, PB_FILENAME)
+	err = os.WriteFile(pbFilename, data, 0644)
+	if err != nil {
+		return fmt.Errorf("failed to write GPAData to file: %w", err)
+	}
+
 	return nil
+}
+
+// Gets the GPAData from the protobuf file
+func GetGpaDataFromPB(file *os.File) (models.GPAData, error) {
+	data, err := os.ReadFile(file.Name())
+	if err != nil {
+		return models.GPAData{}, fmt.Errorf("failed to read GPAData file: %w", err)
+	}
+
+	var pbGPAData pb.GPAData
+	err = proto.Unmarshal(data, &pbGPAData)
+	if err != nil {
+		return models.GPAData{}, fmt.Errorf("failed to unmarshal GPAData: %w", err)
+	}
+
+	return protoutils.ProtoToGPAData(&pbGPAData), nil
+}
+
+// Returns the GPAData structure
+func GetGPAData() (models.GPAData, error) {
+	var gpaData models.GPAData
+	pbFilename := filepath.Join(utils.DataDirectory, PB_FILENAME)
+
+	// Get from the protobuf if it exists
+	if file, err := os.Open(pbFilename); err == nil {
+		gpaData, err = GetGpaDataFromPB(file)
+		if err != nil {
+			return gpaData, fmt.Errorf("failed to get gpadata from protobuf: %w", err)
+		}
+		return gpaData, nil
+	}
+
+	// Otherwise get and process from the csv
+	gpaData, err := getFromCSV()
+	if err != nil {
+		return gpaData, fmt.Errorf("failed to get gpadata from csv: %w", err)
+	}
+
+	err = SaveGpaDataAsPB(gpaData)
+	if err != nil {
+		return gpaData, fmt.Errorf("failed to save gpaData to protobuf: %w", err)
+	}
+	fmt.Printf("Saved GPAData to %v\n", pbFilename)
+
+	return gpaData, nil
 }
