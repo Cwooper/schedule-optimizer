@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"path/filepath"
 	"regexp"
+	"sort"
 	"strings"
 
 	"schedule-optimizer/internal/models"
@@ -44,6 +45,11 @@ func NewGenerator() *Generator {
 // Forces the forced courses into the returned schedule
 // This takes can takes a "dirty request" directly from a user
 func (g *Generator) GenerateResponse(req models.RawRequest) *models.Response {
+	if len(req.Courses) > utils.MAX_INPUT_COURSES || len(req.Forced) > utils.MAX_INPUT_COURSES {
+		errString := fmt.Sprintf("Cannot input more than %d courses", utils.MAX_INPUT_COURSES)
+		g.response.Errors = append(g.response.Errors, errString)
+		return g.response
+	}
 	// Clean the course Names
 	g.cleanedCourseNames = g.cleanCourseNames(req.Courses)
 	if len(g.response.Errors) > 0 {
@@ -58,6 +64,20 @@ func (g *Generator) GenerateResponse(req models.RawRequest) *models.Response {
 	g.generateCourses(req.Term)
 	if len(g.response.Errors) > 0 {
 		return g.response
+	}
+
+	for i, forceName := range g.cleanedForcedNames {
+		found := false
+		for _, course := range g.courses {
+			if forceName == course.Subject {
+				found = true
+				break
+			}
+		}
+		if !found {
+			g.cleanedForcedNames[i] = ""
+			g.response.Warnings = append(g.response.Warnings, "Could not find "+forceName)
+		}
 	}
 
 	// Clamp and verify that the bounds work
@@ -81,13 +101,23 @@ func (g *Generator) GenerateResponse(req models.RawRequest) *models.Response {
 	return g.response
 }
 
+// Checks if the string array already contains the given string
+func containsString(s []string, str string) bool {
+	for _, v := range s {
+		if v == str {
+			return true
+		}
+	}
+	return false
+}
+
 // Cleans the course names by stripping any possible whitespace and verifying
 // that the course names are valid
 func (g *Generator) cleanCourseNames(courses []string) []string {
 	cleanedNames := make([]string, 0)
 	for _, courseName := range courses {
 		courseName = strings.TrimSpace(courseName)
-		if CourseNamePattern.MatchString(courseName) {
+		if CourseNamePattern.MatchString(courseName) && !containsString(cleanedNames, courseName) {
 			cleanedNames = append(cleanedNames, courseName)
 		} else { // Invalid Course Name
 			g.response.Warnings = append(g.response.Warnings,
@@ -170,7 +200,49 @@ func (g *Generator) generateSchedules(req models.RawRequest) {
 		Max:       req.Max,
 	}
 
-	g.response.Schedules = Combinations(scheduleRequest)
+	schedules := Combinations(scheduleRequest)
+	// Remove schedules that don't have the forced courses
+	schedules = filterSchedules(schedules, g.cleanedForcedNames)
+	if len(schedules) == 0 {
+		g.response.Errors = append(g.response.Errors, "No possible schedules found")
+		return
+	}
+
+	// Store and sort the schedules
+	g.response.Schedules = schedules
+	sort.Slice(g.response.Schedules, func(i, j int) bool {
+		return g.response.Schedules[i].Score > g.response.Schedules[j].Score
+	})
+}
+
+// filterSchedules filters schedules based on forced courses
+func filterSchedules(schedules []models.Schedule, forcedCourses []string) []models.Schedule {
+	filtered := make([]models.Schedule, 0, len(schedules))
+
+	for _, schedule := range schedules {
+		if containsAllForcedCourses(schedule, forcedCourses) {
+			filtered = append(filtered, schedule)
+		}
+	}
+
+	return filtered
+}
+
+// containsAllForcedCourses checks if a schedule contains all forced courses
+func containsAllForcedCourses(schedule models.Schedule, forcedCourses []string) bool {
+	for _, forcedCourse := range forcedCourses {
+		found := false
+		for _, course := range schedule.Courses {
+			if course.Subject == forcedCourse {
+				found = true
+				break
+			}
+		}
+		if !found {
+			return false
+		}
+	}
+	return true
 }
 
 // Clamp the bounds in case they are out of bounds
