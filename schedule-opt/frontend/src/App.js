@@ -7,13 +7,6 @@ import Footer from "./components/Footer";
 import HelpPopup from "./components/HelpPopup";
 import { useCourses, useSchedules } from "./useCourses";
 import Dropdown from "./components/Dropdown";
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "./components/Carousel"; // Adjust the import path
 import { clearSchedule, addCoursesToCalendar, sortSchedules } from "./utils";
 
 function App() {
@@ -36,6 +29,23 @@ function App() {
         handleToggleForce,
     } = useCourses();
 
+    const handlePreviousSchedule = () => {
+        if (currentSchedule > 0) {
+            setCurrentSchedule(currentSchedule - 1);
+        }
+    };
+
+    const handleNextSchedule = () => {
+        if (currentSchedule < allSchedules.length - 1) {
+            setCurrentSchedule(currentSchedule + 1);
+        }
+    };
+
+    const handleSlideChange = useCallback((index) => {
+        console.log("Slide changed to:", index);
+        setCurrentSchedule(index);
+    }, []);
+
     const displaySchedule = useCallback(
         (schedule) => {
             if (!schedule || !schedule.courses) {
@@ -43,10 +53,29 @@ function App() {
                 return;
             }
 
+            console.log("Displaying schedule:", schedule);
             clearSchedule();
-            addCoursesToCalendar(schedule, currentSchedule);
+            addCoursesToCalendar(schedule, currentSchedule + 1);
+
+            // Update corner cell with schedule information
+            const cornerCell = document.getElementById("cornerCell");
+            if (cornerCell) {
+                cornerCell.textContent = `Schedule ${currentSchedule + 1} of ${
+                    allSchedules.length
+                }`;
+            }
+            console.log(
+                `Displaying schedule ${currentSchedule + 1} of ${
+                    allSchedules.length
+                }`
+            );
         },
-        [currentSchedule] // Ensure the current schedule is used
+        [
+            currentSchedule,
+            allSchedules.length,
+            clearSchedule,
+            addCoursesToCalendar,
+        ]
     );
 
     const { generateJSON } = useSchedules(
@@ -108,28 +137,27 @@ function App() {
     };
 
     const handleScheduleChange = (index) => {
+        if (index < 0 || index >= allSchedules.length) return;
         setCurrentSchedule(index);
-        displaySchedule(allSchedules[index]);
-        console.log(`Schedule ${index + 1} loaded into the carousel`);
     };
 
     useEffect(() => {
         if (allSchedules.length > 0) {
-            handleScheduleChange(0);
+            displaySchedule(allSchedules[currentSchedule]);
         }
-    }, [allSchedules, handleScheduleChange]);
+    }, [allSchedules, currentSchedule, displaySchedule]);
 
     return (
         <div className="App bg-white">
             <Header />
-            <div className="container mx-auto px-4 py-6 bg-white text-darkgray">
-                <div className="flex flex-col md:flex-row gap-6">
-                    <div className="bg-white p-4 rounded-lg shadow-md md:w-4/12 w-full flex flex-col items-center">
+            <div className="container mx-auto px-2 py-4 bg-white text-darkgray">
+                <div className="flex flex-col md:flex-row gap-4">
+                    <div className="bg-white p-2 rounded-lg shadow-md md:w-4/12 w-full flex flex-col items-center">
                         <CourseForm
                             onAddCourse={handleAddCourseWithValidation}
                             courseCount={courses.length}
                         />
-                        <div className="w-full pt-4">
+                        <div className="w-full pt-2">
                             <CourseList
                                 courses={courses}
                                 onRemoveCourse={
@@ -139,7 +167,7 @@ function App() {
                             />
                         </div>
                         <button
-                            className="mt-4 btn btn-primary bg-darkblue text-white w-1/2"
+                            className="mt-2 btn btn-primary bg-darkblue text-white w-1/2"
                             onClick={handleGenerateJSON}
                             disabled={loading}>
                             {loading ? "Generating..." : "Submit"}
@@ -147,18 +175,20 @@ function App() {
                         {errorMessage && (
                             <div
                                 id="errorMessage"
-                                className="mt-4 text-red-500">
+                                className="mt-2 text-red-500 text-sm">
                                 {errorMessage}
                             </div>
                         )}
                         {globalError && (
-                            <div id="globalError" className="mt-4 text-red-500">
+                            <div
+                                id="globalError"
+                                className="mt-2 text-red-500 text-sm">
                                 {globalError}
                             </div>
                         )}
                     </div>
                     <div className="w-full md:w-3/5">
-                        <div className="bg-white p-4 rounded-lg shadow-md flex flex-wrap justify-center justify-evenly">
+                        <div className="bg-white p-2 rounded-lg shadow-md flex flex-wrap justify-center justify-evenly">
                             <Dropdown
                                 label="Minimum Courses:"
                                 value={min}
@@ -202,37 +232,17 @@ function App() {
                                 className="w-full md:w-1/4"
                             />
                         </div>
-                        <div className="bg-white p-4 rounded-lg shadow-md mt-4">
-                            {allSchedules.length > 0 ? (
-                                <Carousel className="w-full">
-                                    <CarouselContent>
-                                        {allSchedules.map((schedule, index) => (
-                                            <CarouselItem
-                                                key={index}
-                                                onClick={() =>
-                                                    handleScheduleChange(index)
-                                                }>
-                                                <ScheduleTable
-                                                    schedule={[schedule]}
-                                                    currentSchedule={index}
-                                                    displaySchedule={
-                                                        displaySchedule
-                                                    }
-                                                    clearSchedule={
-                                                        clearSchedule
-                                                    }
-                                                />
-                                            </CarouselItem>
-                                        ))}
-                                    </CarouselContent>
-                                    <CarouselPrevious />
-                                    <CarouselNext />
-                                </Carousel>
-                            ) : (
-                                <div className="text-center text-gray-500">
-                                    No schedules available.
-                                </div>
-                            )}
+                        <div className="bg-white p-2 rounded-lg shadow-md mt-2">
+                            <div>
+                                <ScheduleTable
+                                    schedule={allSchedules[currentSchedule]}
+                                    currentSchedule={currentSchedule}
+                                    totalSchedules={allSchedules.length}
+                                    onPrevious={handlePreviousSchedule}
+                                    onNext={handleNextSchedule}
+                                />
+                                <div className="flex justify-center mt-2 space-x-2"></div>
+                            </div>
                         </div>
                     </div>
                 </div>

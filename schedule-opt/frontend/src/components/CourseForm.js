@@ -47,6 +47,13 @@ const CourseForm = ({ onAddCourse, courseCount }) => {
         }
     };
 
+    const handleKeyPress = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault(); // Prevent form submission
+            handleAddCourse();
+        }
+    };
+
     return (
         <div className="px-4 flex flex-col items-center w-full">
             <div className="flex flex-wrap gap-4 w-full items-end">
@@ -74,6 +81,7 @@ const CourseForm = ({ onAddCourse, courseCount }) => {
                             value={section}
                             placeholder="Course Number"
                             onChange={handleSectionChange}
+                            onKeyPress={handleKeyPress}
                             className="input input-bordered w-full bg-white border-lightgray"
                         />
                     </div>

@@ -1,12 +1,11 @@
 // utils.js
-
 export const stringToColor = (str) => {
     let hash = 0;
     for (let i = 0; i < str.length; i++) {
         hash = str.charCodeAt(i) + ((hash << 5) - hash);
     }
-    const c = (hash & 0x00ffffff).toString(16).toUpperCase().padStart(6, "0");
-    return `#${c}`;
+    const hue = hash % 360;
+    return `hsla(${hue}, 70%, 80%, 0.95)`; // Lighter shade with 60% opacity
 };
 
 export const getQuarterCode = (quarter) => {
@@ -44,32 +43,31 @@ export const sortSchedules = (schedules, sortValue) => {
 };
 
 export const clearSchedule = () => {
-    const table = document.getElementById("calendar");
+    const table = document.getElementById("calendar-table");
     if (!table) {
-        console.error("No element with ID 'calendar' found.");
+        console.error("No element with ID 'calendar-table' found.");
         return;
     }
-    const elements = table.getElementsByTagName("*");
-
-    for (let i = 0; i < elements.length; i++) {
-        const element = elements[i];
-        if (element.id) {
-            element.textContent = "";
-            element.style = "";
-            element.classList.remove("scheduled-course");
+    const cells = table.getElementsByTagName("td");
+    for (let cell of cells) {
+        if (cell.id !== "cornerCell" && !cell.classList.contains("time-cell")) {
+            cell.innerHTML = "";
+            cell.style.backgroundColor = "";
+            cell.classList.remove("scheduled-course");
         }
     }
 };
 
 export const addCoursesToCalendar = (schedule, currentSchedule) => {
+    console.log("Adding courses to calendar:", schedule, currentSchedule);
     const courses = schedule.courses;
     const cornerCell = document.getElementById("cornerCell");
-
     if (cornerCell) {
         cornerCell.textContent = `Schedule ${currentSchedule}`;
     }
 
     courses.forEach((course) => {
+        console.log("Processing course:", course);
         const days = course.days ? course.days.split("") : [];
         const startTime = parseInt(course.start_time);
         const endTime = parseInt(course.end_time);
@@ -78,17 +76,22 @@ export const addCoursesToCalendar = (schedule, currentSchedule) => {
             let startHour = Math.floor(startTime / 100);
             let endHour = Math.ceil(endTime / 100);
             for (let i = startHour; i < endHour; i++) {
-                if (i < 10) {
-                    i = `0${i}`;
-                }
-                const cellId = `${day}-${i}00`;
+                const hour = i < 10 ? `0${i}00` : `${i}00`;
+                const cellId = `${day}-${hour}`;
                 const cell = document.getElementById(cellId);
-
                 if (cell) {
+                    console.log(`Populating cell ${cellId}`);
                     const bgColor = stringToColor(course.crn);
                     cell.style.backgroundColor = bgColor;
-                    cell.innerHTML = `<b>${course.subject}</b><br>${course.instructor}<br>${course.crn}<br>${course.room}`;
+                    cell.innerHTML = `<div class="text-xs p-1">
+                        <b>${course.subject}</b><br>
+                        ${course.instructor}<br>
+                        ${course.crn}<br>
+                        ${course.room}
+                    </div>`;
                     cell.classList.add("scheduled-course");
+                } else {
+                    console.log(`Cell ${cellId} not found`);
                 }
             }
         });
