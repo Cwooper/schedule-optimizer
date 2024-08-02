@@ -1,9 +1,16 @@
 package models
 
 import (
-	"math"
-
 	"schedule-optimizer/internal/utils"
+)
+
+var (
+	dayBegin       = toMins(800)  // Converts the start of the day to mins
+	dayEnd         = toMins(1700) // Converts the end of the day to mins
+	startSlope     = 1.0 / float64(dayEnd-dayBegin)
+	startIntercept = float64(dayBegin) / float64(dayEnd-dayBegin) * -1
+	endSlope       = startSlope * -1
+	endIntercept   = 1 + (startIntercept * -1)
 )
 
 // WeighFunc is a function type for weight calculation functions
@@ -52,14 +59,18 @@ func (s *Schedule) initializeWeights() {
 // Weighs this schedule by evaluating and storing the internal weights
 func (s *Schedule) weigh() {
 	var totalWeight float64
+	foundWeights := 0
 	for i := range s.Weights {
 		weighFunc, exists := weightMap[s.Weights[i].Name]
 		if exists {
 			s.Weights[i].Value = weighFunc(s)
-			totalWeight += s.Weights[i].Value
+			if s.Weights[i].Value != 0.0 {
+				totalWeight += s.Weights[i].Value
+				foundWeights += 1
+			}
 		} // weights already initialized to 0
 	}
-	s.Score = utils.Round(totalWeight / float64(len(s.Weights)))
+	s.Score = utils.Round(totalWeight / float64(foundWeights))
 }
 
 // ----------------------- Weighing Logic -----------------------
@@ -94,37 +105,29 @@ func weighGap(s *Schedule) float64 {
 
 // TODO untested
 func weighStart(s *Schedule) float64 {
-	startTime, _ := findStartEndTimes(s)
+	startTime, _ := findStartEndTimes(s) // Already converted to mins
 	if startTime == -1 {
 		return 0.0
 	}
 
-	dayBegin := toMins(800)
-	dayEnd := toMins(1700)
-
-	if startTime < dayBegin || startTime > dayEnd { // Before 08:00 or After 17:00 is error
+	if startTime <= dayBegin || startTime >= dayEnd { // Before 08:00 or After 17:00 is error
 		return 0.0
 	} else {
-		ratio := 1 / (math.Log10(float64(dayEnd - dayBegin)))
-		return ratio * math.Log10(float64(startTime-dayBegin))
+		return startSlope*float64(startTime) + startIntercept
 	}
 }
 
 // TODO untested
 func weighEnd(s *Schedule) float64 {
-	_, endTime := findStartEndTimes(s)
+	_, endTime := findStartEndTimes(s) // Already converted to mins
 	if endTime == -1 {
 		return 0.0
 	}
 
-	dayBegin := toMins(800)
-	dayEnd := toMins(1700)
-
-	if endTime < dayBegin || endTime > dayEnd { // Before 08:00 or After 17:00 is error
+	if endTime <= dayBegin || endTime >= dayEnd { // Before 08:00 or After 17:00 is error
 		return 0.0
 	} else {
-		ratio := 1 / (math.Log10(float64(dayEnd - dayBegin)))
-		return ratio * math.Log10(float64(dayEnd-endTime))
+		return endSlope*float64(endTime) + endIntercept
 	}
 }
 
@@ -180,7 +183,7 @@ func updateDaySchedules(s *Schedule, daySchedules map[rune]*daySchedule) {
 		for _, session := range course.Sessions {
 			if !session.IsAsync && !session.IsTimeTBD {
 				updateSessionSchedule(session, daySchedules)
-			} 
+			}
 		}
 	}
 }
@@ -205,7 +208,6 @@ func updateDayBoundaries(schedule *daySchedule, startMins, endMins int) {
 		schedule.lastCourseTime = endMins
 	}
 }
-
 
 // Weighs the daySchedules based on their total time vs gap time
 func weighDaySchedules(daySchedules map[rune]*daySchedule) float64 {
