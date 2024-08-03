@@ -2,10 +2,10 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 	"os"
+	"path/filepath"
 
 	"schedule-optimizer/internal/generator"
 	"schedule-optimizer/internal/models"
@@ -13,39 +13,24 @@ import (
 
 func main() {
 	port := getPort()
+	// Serve static files from the frontend directory
+	fs := http.FileServer(http.Dir("frontend"))
+	http.Handle("/schedule-optimizer/", http.StripPrefix("/schedule-optimizer/", fs))
 
-	http.HandleFunc("/schedule-optimizer", handleSchedules)
-	http.HandleFunc("/", handleHome)
+	// Handle GET and POST requests for /schedule-optimizer
+	http.HandleFunc("/schedule-optimizer", handleScheduleOptimizer)
 
 	log.Printf("Server starting on port %s\n", port)
-	log.Fatal(http.ListenAndServe(":"+port, nil))
+	log.Fatal(http.ListenAndServe(port, nil))
 }
 
-// Get the port to listen on
-func getPort() string {
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080" // default port if not specified
-	}
-	return port
-}
-
-func handleHome(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/" {
-		http.NotFound(w, r)
-		return
-	}
-	fmt.Fprintf(w, "<a href=\"/schedule-optimizer\">Go to Schedule Optimizer</a>")
-}
-
-// Handles the schedule-optimizer GET/POST requests
-func handleSchedules(w http.ResponseWriter, r *http.Request) {
+func handleScheduleOptimizer(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "GET":
-		// Handle GET request
-		http.ServeFile(w, r, "index.html")
+		// Serve the index.html file for GET requests
+		http.ServeFile(w, r, filepath.Join("frontend", "index.html"))
 	case "POST":
-		// Handle POST request
+		// Handle POST requests for optimization
 		var request models.RawRequest
 		err := json.NewDecoder(r.Body).Decode(&request)
 		if err != nil {
@@ -60,6 +45,15 @@ func handleSchedules(w http.ResponseWriter, r *http.Request) {
 	default:
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 	}
+}
+
+// Get the port to listen on
+func getPort() string {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080" // default port if not specified
+	}
+	return port
 }
 
 

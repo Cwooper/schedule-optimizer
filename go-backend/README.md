@@ -53,8 +53,8 @@ This is the backend for the Schedule Optimizer Web Application.
    # Existing Config
    DocumentRoot /var/www/html # Existing DocumentRoot
 
-   ProxyPass /schedule-optimizer http://localhost:8080
-   ProxyPassReverse /schedule-optimizer http://localhost:8080
+   ProxyPass /schedule-optimizer http://localhost:8080/schedule-optimizer
+   ProxyPassReverse /schedule-optimizer http://localhost:8080/schedule-optimizer
 
    # Existing Config ...
       ```
