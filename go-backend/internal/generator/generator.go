@@ -44,7 +44,9 @@ func NewGenerator() *Generator {
 // Takes into account the requested min and max schedule size
 // Forces the forced courses into the returned schedule
 // This takes can takes a "dirty request" directly from a user
-func (g *Generator) GenerateResponse(req models.RawRequest) *models.Response {
+func GenerateResponse(req models.RawRequest) *models.Response {
+	g := NewGenerator()
+	
 	if len(req.Courses) > utils.MAX_INPUT_COURSES || len(req.Forced) > utils.MAX_INPUT_COURSES {
 		errString := fmt.Sprintf("Cannot input more than %d courses", utils.MAX_INPUT_COURSES)
 		g.response.Errors = append(g.response.Errors, errString)
