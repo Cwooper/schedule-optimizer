@@ -200,5 +200,5 @@ Extra:
   - [ ] Visualize something in Go WASM
   - [ ] Create Paths between classes per schedule
 - [ ] Redo Calendar in Go WASM?
-- [ ] Port frontend to React
+- [ ] Port frontend to React (Konnor)
 - [ ] Weight customizability on frontend
