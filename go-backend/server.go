@@ -5,7 +5,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"path/filepath"
 
 	"schedule-optimizer/internal/generator"
 	"schedule-optimizer/internal/models"
@@ -13,39 +12,43 @@ import (
 
 func main() {
 	port := getPort()
+
 	// Serve static files from the frontend directory
 	fs := http.FileServer(http.Dir("frontend"))
-	http.Handle("/schedule-optimizer/", http.StripPrefix("/schedule-optimizer/", fs))
 
-	// Handle GET and POST requests for /schedule-optimizer
-	http.HandleFunc("/schedule-optimizer", handleScheduleOptimizer)
+	http.HandleFunc("/schedule-optimizer/", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == "POST" {
+			handleScheduleOptimizer(w, r)
+		} else {
+			// For GET and other methods, serve static files
+			if r.URL.Path == "/schedule-optimizer/" {
+				http.ServeFile(w, r, "frontend/index.html")
+			} else {
+				http.StripPrefix("/schedule-optimizer/", fs).ServeHTTP(w, r)
+			}
+		}
+	})
 
 	log.Printf("Server starting on port %s\n", port)
-	log.Fatal(http.ListenAndServe(port, nil))
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
 
+// Handles POST requests to /schedule-optimizer
 func handleScheduleOptimizer(w http.ResponseWriter, r *http.Request) {
-	switch r.Method {
-	case "GET":
-		// Serve the index.html file for GET requests
-		http.ServeFile(w, r, filepath.Join("frontend", "index.html"))
-	case "POST":
-		// Handle POST requests for optimization
-		var request models.RawRequest
-		err := json.NewDecoder(r.Body).Decode(&request)
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusBadRequest)
-			return
-		}
-
-		resp := generator.GenerateResponse(request)
-
-		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(resp)
-	default:
-		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+	var request models.RawRequest
+	err := json.NewDecoder(r.Body).Decode(&request)
+	if err != nil {
+		log.Printf("Error decoding JSON: %v", err)
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
 	}
+
+	resp := generator.GenerateResponse(request)
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(resp)
 }
+
 
 // Get the port to listen on
 func getPort() string {
@@ -56,7 +59,7 @@ func getPort() string {
 	return port
 }
 
-
+// Tester function for generating schedules via terminal
 // func main() {
 // 	courses := []string{"CSCI 330", "CSCI 345", "CSCI 367", "CSCI 305",
 // 		"CSCI 145", "MATH 204", "CSCI 141", "CSCI 241", "CSCI 247"}
