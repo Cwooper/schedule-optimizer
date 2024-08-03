@@ -4,7 +4,7 @@ This is the backend for the Schedule Optimizer Web Application.
 
 ## Prerequisites
 
-- Go 1.16 or later
+- Go 1.22 or later
 - Protocol Buffer Compiler (protoc) 3.0.0 or later
 - Go Protocol Buffers plugin
 
@@ -13,7 +13,7 @@ This is the backend for the Schedule Optimizer Web Application.
 1. Install the Protocol Buffer Compiler (protoc) if you haven't already:
    - MacOS: `brew install protobuf`
    - Linux: `sudo apt install protobuf-compiler`
-   - Windows: Download from https://github.com/protocolbuffers/protobuf/releases
+   - Windows: Download from <https://github.com/protocolbuffers/protobuf/releases>
 
 2. Install the `Go` Protocol Buffers plugin:
 
@@ -26,6 +26,98 @@ This is the backend for the Schedule Optimizer Web Application.
    ```bash
    export PATH="$PATH:$(go env GOPATH)/bin"
    ```
+
+4. To run the server:
+
+   ```bash
+   PORT=xxxx go run server.go
+   # For Port 8080:
+   go run server.go
+   ```
+
+5. (Optional) To run within an apache server.
+      1. you need to create a reverse
+      proxy for apache to access your Go server.
+
+      ```bash
+   sudo apt -y install apache2
+   sudo a2enmod proxy
+   sudo a2enmod proxy_http
+      ```
+
+      2. Add the following to your Apache Config under `DocumentRoot`
+      (often in `/etc/apache2/sites-available/000-default.conf`).
+
+      ```
+   # ...
+   # Existing Config
+   DocumentRoot /var/www/html # Existing DocumentRoot
+
+   ProxyPass /schedule-optimizer http://localhost:8080
+   ProxyPassReverse /schedule-optimizer http://localhost:8080
+
+   # Existing Config ...
+      ```
+
+      3. Restart the web server with `sudo systemctl restart apache2`
+
+      If you want the Go server to be linked to Apache (starts and stops along
+      with each other):
+
+      1. Save the following in a file named
+      `/etc/systemd/system/schedule-optimizer.service`. Make sure to replace
+      the paths with the path to your schedule-optimizer.
+
+      ```conf
+      [Unit]
+      Description=Schedule Optimizer Go Server
+      After=network.target
+
+      [Service]
+      ExecStart=/usr/local/go/bin/go run /var/www/schedule-optimizer/server.go
+      WorkingDirectory=/var/www/schedule-optimizer
+      User=www-data
+      Restart=always
+      RestartSec=10
+
+      [Install]
+      WantedBy=multi-user.target
+      ```
+
+      2. Edit the apache2 file with `sudo systemctl edit apache2.service` and
+      replace it with the following (save afterward):
+
+      ```conf
+      [Unit]
+      Description=The Apache HTTP Server
+      After=network.target remote-fs.target nss-lookup.target
+      Wants=schedule-optimizer.service
+
+      [Service]
+      Type=forking
+      Environment=APACHE_STARTED_BY_SYSTEMD=true
+      ExecStartPre=/usr/local/go/bin/go run /path/to/your/server.go &
+      ExecStart=/usr/sbin/apachectl start
+      ExecStop=/usr/sbin/apachectl graceful-stop
+      ExecReload=/usr/sbin/apachectl graceful
+      KillMode=mixed
+      PrivateTmp=true
+      Restart=on-failure
+
+      [Install]
+      WantedBy=multi-user.target
+      ```
+
+      3. To put these changes into effect run:
+
+      ```bash
+      sudo systemctl daemon-reload
+      sudo systemctl restart apache2
+      ```
+
+      These changes ensure that Apache2 and your go server will be run
+      synonymously as well as restarting when your computer restarts. 
+
 
 ## Compiling Protocol Buffers
 

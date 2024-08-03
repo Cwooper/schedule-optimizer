@@ -1,26 +1,67 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"log"
+	"net/http"
+	"os"
 
 	"schedule-optimizer/internal/generator"
 	"schedule-optimizer/internal/models"
 )
 
 func main() {
-	// Gets the request as json post request, use this for now
-	request := models.RawRequest{
-		Courses: []string{"CSCI 301", "CSCI 247", "CSCI 241"},
-		Forced:  []string{},
-		Term:    "202440",
-		Min:     2,
-		Max:     3,
-	}
+	port := getPort()
 
-	resp := generator.GenerateResponse(request)
-	fmt.Printf("Response: %v\n", resp)
-	// send the response back as a json
+	http.HandleFunc("/schedule-optimizer", handleSchedules)
+	http.HandleFunc("/", handleHome)
+
+	log.Printf("Server starting on port %s\n", port)
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
+
+// Get the port to listen on
+func getPort() string {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080" // default port if not specified
+	}
+	return port
+}
+
+func handleHome(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/" {
+		http.NotFound(w, r)
+		return
+	}
+	fmt.Fprintf(w, "<a href=\"/schedule-optimizer\">Go to Schedule Optimizer</a>")
+}
+
+// Handles the schedule-optimizer GET/POST requests
+func handleSchedules(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case "GET":
+		// Handle GET request
+		http.ServeFile(w, r, "index.html")
+	case "POST":
+		// Handle POST request
+		var request models.RawRequest
+		err := json.NewDecoder(r.Body).Decode(&request)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusBadRequest)
+			return
+		}
+
+		resp := generator.GenerateResponse(request)
+
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(resp)
+	default:
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+	}
+}
+
 
 // func main() {
 // 	courses := []string{"CSCI 330", "CSCI 345", "CSCI 367", "CSCI 305",
