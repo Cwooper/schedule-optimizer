@@ -173,6 +173,8 @@ backend
 
 ## TODO
 
+Fully Transfer backend:
+
 - [x] Create Course Model
   - [x] Course Conflicts
   - [x] Create Course Array ProtoBuf
@@ -180,5 +182,23 @@ backend
   - [x] Schedule Auto-weighing
   - [x] Modular Weight System
 - [x] Create Web Scraper
-- [ ] Create GPA Processor
-- [ ] Create Schedule Generator
+- [x] Create Schedule Generator
+- [x] Create Go Web Server
+- [ ] Initialize GPA Values
+  - [x] Process CSV to efficient Protobuf
+  - [ ] Process Course GPA Values
+- [x] Interface Web Server with old frontend
+  - [x] Unify data
+  - [x] Handle requests to and from
+  - [x] Display Old Calendar (doesn't need to be 100%)
+
+- [ ] Backend Is Fully Transferred and Optimized
+
+Extra:
+
+- [ ] Create Dijkstra Map Weighing
+  - [ ] Visualize something in Go WASM
+  - [ ] Create Paths between classes per schedule
+- [ ] Redo Calendar in Go WASM?
+- [ ] Port frontend to React
+- [ ] Weight customizability on frontend
