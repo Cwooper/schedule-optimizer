@@ -49,7 +49,6 @@ func handleScheduleOptimizer(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(resp)
 }
 
-
 // Get the port to listen on
 func getPort() string {
 	port := os.Getenv("PORT")
