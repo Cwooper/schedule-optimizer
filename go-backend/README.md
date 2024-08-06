@@ -191,14 +191,19 @@ Fully Transfer backend:
   - [x] Unify data
   - [x] Handle requests to and from
   - [x] Display Old Calendar (doesn't need to be 100%)
+  - [x] Display Full Calendar and Update HTML
 
 - [ ] Backend Is Fully Transferred and Optimized
 
 Extra:
 
+- [ ] Multithread WebScraper, GPA Processing
+- [ ] Optimize Forced Courses
+- [ ] Add Async/TBD table to frontend calendar
 - [ ] Create Dijkstra Map Weighing
   - [ ] Visualize something in Go WASM
   - [ ] Create Paths between classes per schedule
+- [ ] Fuzzy search a "Did you Mean:" when course not found
 - [ ] Redo Calendar in Go WASM?
 - [ ] Port frontend to React (Konnor)
 - [ ] Weight customizability on frontend
