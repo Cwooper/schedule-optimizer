@@ -1,7 +1,7 @@
 package gpa
 
 // Loads the gpa grade_distribution.csv and converts it to a protobuf
-// after processing the data
+// after processing the data if necessary, otherwise, it loads the pb
 
 import (
 	"encoding/csv"
