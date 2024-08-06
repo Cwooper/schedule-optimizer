@@ -1,14 +1,25 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"log"
 	"net/http"
 	"os"
+	"runtime/debug"
+	"time"
 
 	"schedule-optimizer/internal/generator"
 	"schedule-optimizer/internal/models"
 )
+
+func init() {
+	// Set initial GC percentage
+	debug.SetGCPercent(50)
+
+	// Set soft memory limit
+	debug.SetMemoryLimit(2 << 30) // 2GB
+}
 
 func main() {
 	port := getPort()
@@ -43,10 +54,33 @@ func handleScheduleOptimizer(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	resp := generator.GenerateResponse(request)
+	// Create a context with a 1-second timeout
+	ctx, cancel := context.WithTimeout(r.Context(), 1*time.Second)
+	defer cancel()
 
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(resp)
+	// Create a channel to receive the response
+	respChan := make(chan *models.Response)
+
+	// Run GenerateResponse in a goroutine
+	go func() {
+		respChan <- generator.GenerateResponse(request)
+	}()
+
+	// Wait for either the response or a timeout
+	select {
+	case resp := <-respChan:
+		// If we get a response within the timeout, send it
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(resp)
+	case <-ctx.Done():
+		// If we timeout, send an error response
+		errorResp := models.Response{
+			Errors: []string{"Too many schedules were generated, please narrow down your selection."},
+		}
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusRequestTimeout)
+		json.NewEncoder(w).Encode(errorResp)
+	}
 }
 
 // Get the port to listen on
