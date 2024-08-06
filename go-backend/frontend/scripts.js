@@ -213,66 +213,41 @@ function addCoursesToCalendar(schedule) {
   cornerCell.addEventListener('click', cornerCell._click);
 
   courses.forEach(course => {
-    const days = course.days.split(''); // Split the days string into an array
-    const startTime = parseInt(course.start_time);
-    const endTime = parseInt(course.end_time);
-
-    days.forEach(day => {
-      let startHour = Math.floor(startTime / 100); // Extract the hour (hundreds place)
-      let endHour = Math.ceil(endTime / 100);
-      for (let i = startHour; i < endHour; i++) { // Loop through each hour
-        if (i < 10) {
-          i = `0${i}`
-        }
-        const cellId = `${day}-${i}00`; // Append '00' for formatting
-        const cell = document.getElementById(cellId);
-        const bgColor = stringToColor(course.CRN); // Generate color based on CRN
-        // Add hover event listener
-        cell._mouseover = () => addHoverEffect.call(cell, bgColor);
-        cell.addEventListener('mouseover', cell._mouseover);
-
-        cell._mouseout = () => removeHoverEffect.call(cell, bgColor);
-        cell.addEventListener('mouseout', cell._mouseout);
-
-        cell._click = () => displayPopupHandler(course);
-        cell.addEventListener('click', cell._click);
-
-        cell.style.backgroundColor = bgColor; // Set background color
-        cell.innerHTML = `<b>${course.Subject}</b><br>${course.instructor}<br>${course.CRN}<br>${course.room}`;
-        cell.classList.add('scheduled-course'); // Add a class for styling
+    course.Sessions.forEach(session => {
+      if (session.IsAsync || session.IsTimeTBD) {
+        return; // Skip async or TBD sessions
       }
-    });
 
-    if (course.lab_days) {
-      const labDays = course.lab_days.split('');
-      const labStart = parseInt(course.lab_start_time);
-      const labEnd = parseInt(course.lab_end_time);
-      labDays.forEach(labDay => {
-        let labStartHour = Math.floor(labStart / 100); // Extract the hour (hundreds place)
-        let labEndHour = Math.ceil(labEnd / 100);
-        for (let i = labStartHour; i < labEndHour; i++) { // Loop through each hour
+      const days = session.Days.split('');
+      const startTime = session.StartTime;
+      const endTime = session.EndTime;
+
+      days.forEach(day => {
+        let startHour = Math.floor(startTime / 100);
+        let endHour = Math.ceil(endTime / 100);
+        for (let i = startHour; i < endHour; i++) {
           if (i < 10) {
             i = `0${i}`
           }
-          const cellId = `${labDay}-${i}00`; // Append '00' for formatting
+          const cellId = `${day}-${i}00`;
           const cell = document.getElementById(cellId);
-          const bgColor = stringToColor(course.CRN); // Generate color based on CRN
-          // Add hover event listener
+          const bgColor = stringToColor(course.CRN.toString());
+
           cell._mouseover = () => addHoverEffect.call(cell, bgColor);
           cell.addEventListener('mouseover', cell._mouseover);
 
           cell._mouseout = () => removeHoverEffect.call(cell, bgColor);
           cell.addEventListener('mouseout', cell._mouseout);
 
-          cell._click = () => displayPopupHandler(course);
+          cell._click = () => displayPopupHandler(course, session);
           cell.addEventListener('click', cell._click);
 
-          cell.style.backgroundColor = bgColor; // Set background color
-          cell.innerHTML = `<b>${course.Subject} LAB</b><br>${course.instructor}<br>${course.CRN}<br>${course.lab_room}`;
-          cell.classList.add('scheduled-course'); // Add a class for styling
+          cell.style.backgroundColor = bgColor;
+          cell.innerHTML = `<b>${course.Subject}</b><br>${session.Instructor}<br>${course.CRN}<br>${session.Location}`;
+          cell.classList.add('scheduled-course');
         }
       });
-    }
+    });
   });
 }
 
@@ -320,33 +295,32 @@ function prevSchedule() {
   }
 }
 
-function course_to_str(course) {
-  let result = `Instructor: ${course.instructor}<br>
+function course_to_str(course, session) {
+  let result = `Course: ${course.Subject} - ${course.Title}<br>
     CRN: ${course.CRN}<br>`;
 
   result += course.GPA ? `Average GPA: ${course.GPA}<br>` : '';
 
-  result += `Credits: ${course.Credts}<br>
-    Room: ${course.room}<br>`
+  result += `Credits: ${course.Credits}<br><br>`;
 
-  result += course.days ? `Days: ${course.days}<br>
-    Times: ${course.start_time} - ${course.end_time}<br>` : '';
-
-  result += course.lab_days ? `Lab Days: ${course.lab_days}<br>
-    Lab Times: ${course.lab_start_time} - ${course.lab_end_time}<br>` : '';
+  result += session.IsAsync ? 'Asynchronous Session<br>' :
+            (session.IsTimeTBD ? 'Session Time TBD<br>' :
+            `Days: ${session.Days}<br>
+             Times: ${session.StartTime.toString().padStart(4, '0')} - ${session.EndTime.toString().padStart(4, '0')}<br>`);
+  result += `Instructor: ${session.Instructor}<br>
+             Location: ${session.Location}<br><br>`;
 
   result += `Available Seats: ${course.AvailableSeats}<br>
     Max Students: ${course.Capacity}<br>
-    Students Enrolled: ${course.Enrolled}<br>`
+    Students Enrolled: ${course.Enrolled}<br>`;
 
   result += course.WaitlistCount ? `Waitlist: ${course.WaitlistCount}<br>` : '';
   result += course.Prerequisites ? `Prerequisites: ${course.Prerequisites}<br>` : '';
   result += course.Attributes ? `Attributes: ${course.Attributes}<br>` : '';
-  result += course.AdditionalFees ? `Additional Fees: ${course.AdditionalFees}` : '';
+  result += course.AdditionalFees ? `Additional Fees: ${course.AdditionalFees}<br>` : '';
   result += course.Restrictions ? `Restrictions: ${course.Restrictions}` : '';
 
   if (result.endsWith('<br>')) {
-    // Remove '<br>' from the end of result
     result = result.slice(0, -4);
   }
 
@@ -364,17 +338,15 @@ function closeHelpPopup() {
 }
 
 
-function displayPopup(course) {
+function displayPopup(course, session) {
   const oldPopup = document.getElementById('coursePopup');
   if (oldPopup) {
     oldPopup.remove();
   }
-  // Create a div element for the popup
   const popup = document.createElement('div');
   popup.id = 'coursePopup';
   popup.classList.add('popup');
 
-  // Add popup header basics
   const popupHeader = document.createElement('div');
   popupHeader.classList.add('popup-header');
   const popupHeaderTitle = document.createElement('div');
@@ -392,11 +364,9 @@ function displayPopup(course) {
   const popupBody = document.createElement('div');
   popupBody.classList.add('popup-body');
 
-  popupHeaderTitle.innerHTML = `<b>${course.Subject}</b>`
-  // Add content to the popup
-  popupBody.innerHTML = `${course_to_str(course)}`;
+  popupHeaderTitle.innerHTML = `<b>${course.Subject} - ${course.Title}</b>`
+  popupBody.innerHTML = `${course_to_str(course, session)}`;
 
-  // Append the popup parts together and add it to the document
   popupHeader.appendChild(popupHeaderTitle);
   popupHeader.appendChild(popupCloseButton);
   popup.appendChild(popupHeader);
@@ -421,8 +391,8 @@ function removeHoverEffect(bgColor) {
   this.style.backgroundColor = bgColor;
 }
 
-function displayPopupHandler(course) {
-  displayPopup(course);
+function displayPopupHandler(course, session) {
+  displayPopup(course, session);
 }
 
 function displaySchedulePopupHandler(schedule) {
