@@ -25,7 +25,7 @@ function addCourse() {
     return;
   }
 
-  if (courseName && section && courses.length < 10) { // Check if all values are provided and total classes are less than 6
+  if (courseName && section && courses.length < 13) { // Check if all values are provided and total classes are less than 13
     courses.push(`${courseName} ${section}`);
     const li = document.createElement('li'); // Create a new list item element
     courseList.appendChild(li); // Append the list item to the classList
@@ -72,7 +72,7 @@ function addCourse() {
     errorMessage.textContent = '';
   } else {
     // Display an error message if all values are not provided or total classes exceed 6
-    errorMessage.textContent = 'Ensure you have less than 10 classes added.';
+    errorMessage.textContent = 'Ensure you have less than 13 classes added.';
   }
 }
 
@@ -115,6 +115,11 @@ function generateJSON() {
     .then(response => {
       // Display the response in the console
       console.log(response); // Here is the response
+
+      // TODO test size of JSON
+      const jsonString = JSON.stringify(response);
+      const sizeInBytes = new Blob([jsonString]).size;
+      console.log("JSON size:", sizeInBytes, "bytes");
       if (response["Errors"] != null) {
         const errorMessage = document.getElementById('errorMessage');
         errorMessage.innerHTML = response["Errors"];
@@ -304,8 +309,8 @@ function course_to_str(course, session) {
   result += `Credits: ${course.Credits}<br><br>`;
 
   result += session.IsAsync ? 'Asynchronous Session<br>' :
-            (session.IsTimeTBD ? 'Session Time TBD<br>' :
-            `Days: ${session.Days}<br>
+    (session.IsTimeTBD ? 'Session Time TBD<br>' :
+      `Days: ${session.Days}<br>
              Times: ${session.StartTime.toString().padStart(4, '0')} - ${session.EndTime.toString().padStart(4, '0')}<br>`);
   result += `Instructor: ${session.Instructor}<br>
              Location: ${session.Location}<br><br>`;
@@ -459,16 +464,16 @@ function sortSchedules() {
       // Find the weight with the matching name
       const aWeight = a.Weights.find(w => w.Name.toLowerCase() === sortValue);
       const bWeight = b.Weights.find(w => w.Name.toLowerCase() === sortValue);
-      
+
       // If both weights are found, compare their values
       if (aWeight && bWeight) {
         return bWeight.Value - aWeight.Value;
       }
-      
+
       // If a weight is missing, put that schedule last
       if (!aWeight && bWeight) return 1;
       if (aWeight && !bWeight) return -1;
-      
+
       // If both weights are missing, maintain original order
       return 0;
     }
