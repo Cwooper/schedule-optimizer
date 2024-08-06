@@ -450,20 +450,28 @@ function sortSchedules() {
 
   const sortButton = document.getElementById('scheduleSort');
   const sortValue = sortButton.value;
+  console.log(`Sorting by ${sortValue}`);
 
   all_schedules.sort((a, b) => {
     if (sortValue === 'score') {
       return b.Score - a.Score;
-    } else if (sortValue === 'end') {
-      return b.Weights.end - a.Weights.end;
-    } else if (sortValue === 'gap') {
-      return b.Weights.gap - a.Weights.gap;
-    } else if (sortValue === 'gpa') {
-      return b.Weights.GPA - a.Weights.GPA;
-    } else if (sortValue === 'start') {
-      return b.Weights.start - a.Weights.start;
+    } else {
+      // Find the weight with the matching name
+      const aWeight = a.Weights.find(w => w.Name.toLowerCase() === sortValue);
+      const bWeight = b.Weights.find(w => w.Name.toLowerCase() === sortValue);
+      
+      // If both weights are found, compare their values
+      if (aWeight && bWeight) {
+        return bWeight.Value - aWeight.Value;
+      }
+      
+      // If a weight is missing, put that schedule last
+      if (!aWeight && bWeight) return 1;
+      if (aWeight && !bWeight) return -1;
+      
+      // If both weights are missing, maintain original order
+      return 0;
     }
-    return 0;
   });
 }
 
