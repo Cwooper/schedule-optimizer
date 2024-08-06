@@ -1,207 +1,191 @@
 // Get references to HTML elements
-const courseSelect = document.getElementById("courseSelect");
-const sectionNumber = document.getElementById("sectionNumber");
-const courseList = document.getElementById("courseList");
+const courseSelect = document.getElementById('courseSelect'); // Select dropdown for classes
+const sectionNumber = document.getElementById('sectionNumber'); // Input field for section number
+const courseList = document.getElementById('courseList'); // List element for displaying added classes
 
-let courses = [];
-let forceList = [];
-let allSchedules = [];
-let currentSchedule = 0;
+let courses = []; // Array to store courses
+let forceList = []; // Array to store forced courses
+let schedule = []; // Array to hold the schedule
+let all_schedules = [];
+let current_schedule = 0;
 
 function addCourse() {
-  const courseName = courseSelect.value;
-  const section = sectionNumber.value;
-  const errorMessage = document.getElementById("errorMessage");
-  errorMessage.textContent = "";
+  const courseName = courseSelect.value; // Get selected class name
+  const section = sectionNumber.value; // Get section number
+  const errorMessage = document.getElementById('errorMessage'); // Get the error message element
+  errorMessage.textContent = '';
 
-  if (
-    courses.some(
-      (course) =>
-        course.Subject === courseName && course.CRN === parseInt(section)
-    )
-  ) {
-    errorMessage.textContent = "Duplicate Course Entered.";
+  if (courses.includes(`${courseName} ${section}`)) {
+    errorMessage.textContent = 'Duplicate Course Entered.';
     return;
   }
 
   if (!sectionNumber.checkValidity()) {
-    errorMessage.textContent = "Please enter a valid section number.";
+    errorMessage.textContent = 'Please enter a valid section number.';
     return;
   }
 
-  if (courseName && section && courses.length < 10) {
-    const newCourse = courseName + " " + section;
-    courses.push(newCourse);
-    const li = document.createElement("li");
-    courseList.appendChild(li);
+  if (courseName && section && courses.length < 10) { // Check if all values are provided and total classes are less than 6
+    courses.push(`${courseName} ${section}`);
+    const li = document.createElement('li'); // Create a new list item element
+    courseList.appendChild(li); // Append the list item to the classList
 
-    const forceButton = document.createElement("button");
-    forceButton.textContent = "Force";
-    forceButton.addEventListener("click", function () {
-      const index = forceList.findIndex(
-        (c) => c.Subject === newCourse.Subject && c.CRN === newCourse.CRN
-      );
-      if (index !== -1) {
-        forceList.splice(index, 1);
-        forceButton.classList.remove("forced");
+    const forceButton = document.createElement('button');
+    forceButton.textContent = 'Force';
+    forceButton.addEventListener('click', function () {
+      if (forceList.includes(`${courseName} ${section}`)) {
+        forceList.splice(courses.indexOf(`${courseName} ${section}`), 1);
+        forceButton.classList.remove('forced');
       } else {
-        forceList.push(newCourse);
-        forceButton.classList.add("forced");
+        forceList.push(`${courseName} ${section}`);
+        forceButton.classList.add('forced');
       }
     });
-
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "–";
-    removeButton.addEventListener("click", function () {
-      errorMessage.textContent = "";
-      const index = courses.findIndex(
-        (c) => c.Subject === newCourse.Subject && c.CRN === newCourse.CRN
-      );
-      if (index !== -1) {
-        courses.splice(index, 1);
-      }
-      const forceIndex = forceList.findIndex(
-        (c) => c.Subject === newCourse.Subject && c.CRN === newCourse.CRN
-      );
-      if (forceIndex !== -1) {
-        forceList.splice(forceIndex, 1);
-      }
-      li.remove();
+    // Create a remove button
+    const removeButton = document.createElement('button');
+    removeButton.textContent = '–';
+    removeButton.addEventListener('click', function () {
+      errorMessage.textContent = '';
+      courses.splice(courses.indexOf(`${courseName} ${section}`), 1); // Remove class from array
+      forceList.splice(courses.indexOf(`${courseName} ${section}`), 1);
+      li.remove(); // Remove list item from the DOM
+      // Check if classes array is empty and hide the submit button if it is
       if (courses.length === 0) {
-        submitButton.style.display = "none";
+        submitButton.style.display = 'none';
       }
     });
 
-    const textContainer = document.createElement("div");
+    const textContainer = document.createElement('div');
     textContainer.textContent = `${courseName} ${section}`;
-    textContainer.style.flex = "1";
-    li.appendChild(textContainer);
+    textContainer.style.flex = '1';
+    li.appendChild(textContainer)
     li.appendChild(forceButton);
     li.appendChild(removeButton);
-    li.style.display = "flex";
-    li.style.justifyContent = "space-between";
-
+    li.style.display = 'flex';
+    li.style.justifyContent = 'space-between';
+    // Show the submit button if classes array is not empty
     if (courses.length > 0) {
-      submitButton.style.display = "block";
+      submitButton.style.display = 'block';
     }
 
-    errorMessage.textContent = "";
+    // Clear any previous error message
+    errorMessage.textContent = '';
   } else {
-    errorMessage.textContent = "Ensure you have less than 10 classes added.";
+    // Display an error message if all values are not provided or total classes exceed 6
+    errorMessage.textContent = 'Ensure you have less than 10 classes added.';
   }
 }
 
+// Function to generate JSON from the classes array
 function generateJSON() {
-  const min = minSelect.value;
-  const max = maxSelect.value;
-  const term = termSelect.value;
-  const quarter = quarterSelect.value;
-  const errorMessage = document.getElementById("errorMessage");
-  errorMessage.textContent = "";
-
+  const min = minSelect.value; // Get min value
+  const max = maxSelect.value; // Get max value
+  const term = termSelect.value; // Get term value
+  const quarter = quarterSelect.value; // Get quarter valueif (className && section && min && max && term && quarter) { // Check if all values are provided
   if (courses.length < min) {
-    errorMessage.textContent +=
-      "Cannot have less courses than minimum courses in a schedule.";
+    errorMessage.innerHTML += "Cannot have less courses than minimum courses in a schedule.";
     return;
   }
 
   if (forceList.length > max) {
-    errorMessage.textContent +=
-      "Cannot have more forced courses than maximum courses in a schedule.";
+    errorMessage.innerHTML += "Cannot have more forced courses than maximum courses in a schedule.";
     return;
   }
 
-  const scheduleInfo = {
-    Courses: courses, // string[]
-    Forced: forceList, // string[]
-    Term: term + quarter, // string
-    Min: parseInt(min), // int
-    Max: parseInt(max), // int
+  const scheduleinfo = {
+    Courses: courses,
+    Forced: forceList,
+    Min: parseInt(min),
+    Max: parseInt(max),
+    Term: term + quarter
   };
 
-  const json = JSON.stringify(scheduleInfo);
-  console.log(json);
+  schedule = (scheduleinfo);
+  const json = JSON.stringify(schedule); // Convert classes array to JSON string
+  console.log(json); // Output JSON string to the console
 
-  fetch("/schedule-optimizer/", {
-    method: "POST",
+  fetch('/schedule-optimizer/', {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json'
     },
-    body: json,
+    body: json
   })
-    .then((response) => response.json())
-    .then((response) => {
-      console.log(response);
-      if (response.errors && response.errors.length > 0) {
-        errorMessage.innerHTML = response.errors.join("<br>");
-        if (response.warnings && response.warnings.length > 0) {
-          errorMessage.innerHTML += "<br>" + response.warnings.join("<br>");
+    .then(response => response.json())
+    .then(response => {
+      // Display the response in the console
+      console.log(response); // Here is the response
+      if (response["Errors"] != null) {
+        const errorMessage = document.getElementById('errorMessage');
+        errorMessage.innerHTML = response["Errors"];
+        if (response["Warnings"] != null) {
+          const errorMessage = document.getElementById('errorMessage');
+          errorMessage.innerHTML += "<br>" + response["Warnings"].join("<br>");
         }
       } else {
-        if (response.warnings && response.warnings.length > 0) {
-          errorMessage.innerHTML = response.warnings.join("<br>");
+        if (response["Warnings"] != null) {
+          const errorMessage = document.getElementById('errorMessage');
+          errorMessage.innerHTML += "<br>" + response["Warnings"].join("<br>");
         }
-        allSchedules = response.Schedules;
-        sortSchedules();
-        currentSchedule = 0;
-        displaySchedule(allSchedules[currentSchedule]);
+        all_schedules = response["Schedules"]
+        sortSchedules();    // Update the sort based on the current value
+        current_schedule = 0;
+        displaySchedule(all_schedules[current_schedule]);
       }
     })
-    .catch((error) => {
-      console.error("Error:", error);
+    .catch(error => {
+      // Handle any errors
+      console.error('Error:', error);
     });
+
 }
 
 function createTable() {
-  const hours = [
-    "0800",
-    "0900",
-    "1000",
-    "1100",
-    "1200",
-    "1300",
-    "1400",
-    "1500",
-    "1600",
-    "1700",
-  ];
-  const daysOfWeek = ["M", "T", "W", "R", "F"];
-  const fullDaysOfWeek = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-  ];
-  const table = document.getElementById("calendar");
+  // Get the table element
+  const hours = ['0800', '0900', '1000', '1100', '1200', '1300', '1400', '1500', '1600', '1700'];
+  const daysOfWeek = ['M', 'T', 'W', 'R', 'F'];
+  const fullDaysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+  const table = document.getElementById('calendar');
 
-  const headerRow = document.createElement("tr");
-  const cornerCell = document.createElement("th");
-  cornerCell.id = "cornerCell";
+  // Create the header row
+  const headerRow = document.createElement('tr');
+
+  // Create an empty cell for the corner
+  const cornerCell = document.createElement('th');
+  cornerCell.id = "cornerCell"
   headerRow.appendChild(cornerCell);
 
-  fullDaysOfWeek.forEach((day) => {
-    const headerCell = document.createElement("th");
+  // Create header cells for each day of the week
+  fullDaysOfWeek.forEach(day => {
+    const headerCell = document.createElement('th');
     headerCell.textContent = day;
     headerRow.appendChild(headerCell);
   });
 
+  // Append the header row to the table
   table.appendChild(headerRow);
 
-  hours.forEach((hour) => {
-    const row = document.createElement("tr");
-    const hourCell = document.createElement("td");
+  // Loop through each hour
+  hours.forEach(hour => {
+    // Create a new table row
+    const row = document.createElement('tr');
+
+    // Create a table cell for the hour
+    const hourCell = document.createElement('td');
     hourCell.textContent = `${hour.slice(0, 2)}:${hour.slice(2)}`;
     row.appendChild(hourCell);
 
-    daysOfWeek.forEach((day) => {
-      const cell = document.createElement("td");
+    // Loop through each day of the week
+    daysOfWeek.forEach(day => {
+      // Create a new table cell
+      const cell = document.createElement('td');
       cell.id = `${day}-${hour}`;
       row.appendChild(cell);
     });
 
+    // Append the row to the table
     table.appendChild(row);
-    table.classList.add("calendar-table");
+    table.classList.add('calendar-table'); // So this applies after DOM is loaded
   });
 }
 
@@ -210,53 +194,85 @@ function stringToColor(str) {
   for (let i = 0; i < str.length; i++) {
     hash = str.charCodeAt(i) + ((hash << 5) - hash);
   }
-  const c = (hash & 0x00ffffff).toString(16).toUpperCase().padStart(6, "0");
+  const c = (hash & 0x00FFFFFF)
+    .toString(16)
+    .toUpperCase()
+    .padStart(6, '0');
   return `#${c}`;
 }
 
 function addCoursesToCalendar(schedule) {
-  const cornerCell = document.getElementById("cornerCell");
-  cornerCell.textContent = `Schedule ${currentSchedule}`;
-  cornerCell.addEventListener("mouseover", () =>
-    addHoverEffect.call(cornerCell, "lightgray")
-  );
-  cornerCell.addEventListener("mouseout", () =>
-    removeHoverEffect.call(cornerCell, "lightgray")
-  );
-  cornerCell.addEventListener("click", () =>
-    displaySchedulePopupHandler(schedule)
-  );
+  const courses = schedule.Courses;
+  const cornerCell = document.getElementById('cornerCell');
+  cornerCell.textContent = `Schedule ${current_schedule}`
+  cornerCell._mouseover = () => addHoverEffect.call(cornerCell, "lightgray");
+  cornerCell.addEventListener('mouseover', cornerCell._mouseover);
+  cornerCell._mouseout = () => removeHoverEffect.call(cornerCell, "lightgray");
+  cornerCell.addEventListener('mouseout', cornerCell._mouseout);
+  cornerCell._click = () => displaySchedulePopupHandler(schedule);
+  cornerCell.addEventListener('click', cornerCell._click);
 
-  schedule.Courses.forEach((course) => {
-    course.Sessions.forEach((session) => {
-      if (!session.IsAsync && !session.IsTimeTBD) {
-        const days = session.Days.split("");
-        const startTime = parseInt(session.StartTime);
-        const endTime = parseInt(session.EndTime);
+  courses.forEach(course => {
+    const days = course.days.split(''); // Split the days string into an array
+    const startTime = parseInt(course.start_time);
+    const endTime = parseInt(course.end_time);
 
-        days.forEach((day) => {
-          let startHour = Math.floor(startTime / 100);
-          let endHour = Math.ceil(endTime / 100);
-          for (let i = startHour; i < endHour; i++) {
-            const cellId = `${day}-${i.toString().padStart(2, "0")}00`;
-            const cell = document.getElementById(cellId);
-            const bgColor = stringToColor(course.CRN.toString());
+    days.forEach(day => {
+      let startHour = Math.floor(startTime / 100); // Extract the hour (hundreds place)
+      let endHour = Math.ceil(endTime / 100);
+      for (let i = startHour; i < endHour; i++) { // Loop through each hour
+        if (i < 10) {
+          i = `0${i}`
+        }
+        const cellId = `${day}-${i}00`; // Append '00' for formatting
+        const cell = document.getElementById(cellId);
+        const bgColor = stringToColor(course.CRN); // Generate color based on CRN
+        // Add hover event listener
+        cell._mouseover = () => addHoverEffect.call(cell, bgColor);
+        cell.addEventListener('mouseover', cell._mouseover);
 
-            cell.addEventListener("mouseover", () =>
-              addHoverEffect.call(cell, bgColor)
-            );
-            cell.addEventListener("mouseout", () =>
-              removeHoverEffect.call(cell, bgColor)
-            );
-            cell.addEventListener("click", () => displayPopupHandler(course));
+        cell._mouseout = () => removeHoverEffect.call(cell, bgColor);
+        cell.addEventListener('mouseout', cell._mouseout);
 
-            cell.style.backgroundColor = bgColor;
-            cell.innerHTML = `<b>${course.Subject}</b><br>${session.Instructor}<br>${course.CRN}<br>${session.Location}`;
-            cell.classList.add("scheduled-course");
-          }
-        });
+        cell._click = () => displayPopupHandler(course);
+        cell.addEventListener('click', cell._click);
+
+        cell.style.backgroundColor = bgColor; // Set background color
+        cell.innerHTML = `<b>${course.Subject}</b><br>${course.instructor}<br>${course.CRN}<br>${course.room}`;
+        cell.classList.add('scheduled-course'); // Add a class for styling
       }
     });
+
+    if (course.lab_days) {
+      const labDays = course.lab_days.split('');
+      const labStart = parseInt(course.lab_start_time);
+      const labEnd = parseInt(course.lab_end_time);
+      labDays.forEach(labDay => {
+        let labStartHour = Math.floor(labStart / 100); // Extract the hour (hundreds place)
+        let labEndHour = Math.ceil(labEnd / 100);
+        for (let i = labStartHour; i < labEndHour; i++) { // Loop through each hour
+          if (i < 10) {
+            i = `0${i}`
+          }
+          const cellId = `${labDay}-${i}00`; // Append '00' for formatting
+          const cell = document.getElementById(cellId);
+          const bgColor = stringToColor(course.CRN); // Generate color based on CRN
+          // Add hover event listener
+          cell._mouseover = () => addHoverEffect.call(cell, bgColor);
+          cell.addEventListener('mouseover', cell._mouseover);
+
+          cell._mouseout = () => removeHoverEffect.call(cell, bgColor);
+          cell.addEventListener('mouseout', cell._mouseout);
+
+          cell._click = () => displayPopupHandler(course);
+          cell.addEventListener('click', cell._click);
+
+          cell.style.backgroundColor = bgColor; // Set background color
+          cell.innerHTML = `<b>${course.Subject} LAB</b><br>${course.instructor}<br>${course.CRN}<br>${course.lab_room}`;
+          cell.classList.add('scheduled-course'); // Add a class for styling
+        }
+      });
+    }
   });
 }
 
@@ -266,120 +282,139 @@ function displaySchedule(schedule) {
 }
 
 function clearSchedule() {
-  const table = document.getElementById("calendar");
-  const elements = table.getElementsByTagName("*");
+  const table = document.getElementById('calendar');
+  const elements = table.getElementsByTagName('*');
 
   for (let i = 0; i < elements.length; i++) {
     const element = elements[i];
     if (element.id) {
-      element.textContent = "";
-      element.style = "";
+      element.textContent = ''; // Clear text content
+      element.style = ''; // Clear style
       element.classList.remove("scheduled-course");
-      element.removeEventListener("mouseover", element._mouseover);
-      element.removeEventListener("mouseout", element._mouseout);
-      element.removeEventListener("click", element._click);
+      element.removeEventListener('mouseover', element._mouseover);
+      element.removeEventListener('mouseout', element._mouseout);
+      element.removeEventListener('click', element._click);
     }
   }
 }
 
 function nextSchedule() {
-  if (currentSchedule + 1 < allSchedules.length) {
-    currentSchedule++;
+  if (current_schedule + 1 < all_schedules.length) {
+    current_schedule++;
     errorMessage.textContent = "";
-    displaySchedule(allSchedules[currentSchedule]);
+    displaySchedule(all_schedules[current_schedule]);
   } else {
+    const errorMessage = document.getElementById('errorMessage');
     errorMessage.textContent = "You are at the end of the schedules";
   }
 }
 
 function prevSchedule() {
-  if (currentSchedule - 1 > -1) {
-    currentSchedule--;
+  if (current_schedule - 1 > -1) {
+    current_schedule--;
     errorMessage.textContent = "";
-    displaySchedule(allSchedules[currentSchedule]);
+    displaySchedule(all_schedules[current_schedule]);
   } else {
+    const errorMessage = document.getElementById('errorMessage');
     errorMessage.textContent = "You are at the beginning of the schedules";
   }
 }
 
 function course_to_str(course) {
-  let result = `Instructor: ${course.Sessions[0].Instructor}<br>
+  let result = `Instructor: ${course.instructor}<br>
     CRN: ${course.CRN}<br>`;
 
-  result += course.GPA ? `Average GPA: ${course.GPA}<br>` : "";
+  result += course.GPA ? `Average GPA: ${course.GPA}<br>` : '';
 
-  result += `Credits: ${course.Credits}<br>
-    Room: ${course.Sessions[0].Location}<br>`;
+  result += `Credits: ${course.Credts}<br>
+    Room: ${course.room}<br>`
 
-  result += course.Sessions[0].Days
-    ? `Days: ${course.Sessions[0].Days}<br>
-    Times: ${course.Sessions[0].StartTime} - ${course.Sessions[0].EndTime}<br>`
-    : "";
+  result += course.days ? `Days: ${course.days}<br>
+    Times: ${course.start_time} - ${course.end_time}<br>` : '';
+
+  result += course.lab_days ? `Lab Days: ${course.lab_days}<br>
+    Lab Times: ${course.lab_start_time} - ${course.lab_end_time}<br>` : '';
 
   result += `Available Seats: ${course.AvailableSeats}<br>
     Max Students: ${course.Capacity}<br>
-    Students Enrolled: ${course.Enrolled}<br>`;
+    Students Enrolled: ${course.Enrolled}<br>`
 
-  result += course.WaitlistCount ? `Waitlist: ${course.WaitlistCount}<br>` : "";
-  result += course.Prerequisites
-    ? `Prerequisites: ${course.Prerequisites}<br>`
-    : "";
-  result += course.Attributes ? `Attributes: ${course.Attributes}<br>` : "";
-  result += course.AdditionalFees
-    ? `Additional Fees: ${course.AdditionalFees}`
-    : "";
+  result += course.WaitlistCount ? `Waitlist: ${course.WaitlistCount}<br>` : '';
+  result += course.Prerequisites ? `Prerequisites: ${course.Prerequisites}<br>` : '';
+  result += course.Attributes ? `Attributes: ${course.Attributes}<br>` : '';
+  result += course.AdditionalFees ? `Additional Fees: ${course.AdditionalFees}` : '';
+  result += course.Restrictions ? `Restrictions: ${course.Restrictions}` : '';
 
-  if (result.endsWith("<br>")) {
+  if (result.endsWith('<br>')) {
+    // Remove '<br>' from the end of result
     result = result.slice(0, -4);
   }
 
   return result;
 }
 
+function displayHelpPopup() {
+  const helpPopup = document.getElementById('help-popup');
+  helpPopup.classList.add('active');
+}
+
+function closeHelpPopup() {
+  const helpPopup = document.getElementById('help-popup');
+  helpPopup.classList.remove('active');
+}
+
+
 function displayPopup(course) {
-  const oldPopup = document.getElementById("coursePopup");
+  const oldPopup = document.getElementById('coursePopup');
   if (oldPopup) {
     oldPopup.remove();
   }
-  const popup = document.createElement("div");
-  popup.id = "coursePopup";
-  popup.classList.add("popup");
+  // Create a div element for the popup
+  const popup = document.createElement('div');
+  popup.id = 'coursePopup';
+  popup.classList.add('popup');
 
-  const popupHeader = document.createElement("div");
-  popupHeader.classList.add("popup-header");
-  const popupHeaderTitle = document.createElement("div");
-  popupHeaderTitle.classList.add("popup-header-title");
-  const popupCloseButton = document.createElement("button");
-  popupCloseButton.classList.add("popup-close-button");
-  popupCloseButton.innerHTML = "&times;";
+  // Add popup header basics
+  const popupHeader = document.createElement('div');
+  popupHeader.classList.add('popup-header');
+  const popupHeaderTitle = document.createElement('div');
+  popupHeaderTitle.classList.add('popup-header-title');
+  const popupCloseButton = document.createElement('button');
+  popupCloseButton.classList.add('popup-close-button');
+  popupCloseButton.innerHTML = '&times;'
   popupCloseButton.onclick = () => {
     if (popup) {
       popup.remove();
     }
-  };
+    return;
+  }
 
-  const popupBody = document.createElement("div");
-  popupBody.classList.add("popup-body");
+  const popupBody = document.createElement('div');
+  popupBody.classList.add('popup-body');
 
-  popupHeaderTitle.innerHTML = `<b>${course.Subject}</b>`;
-  popupBody.innerHTML = course_to_str(course);
+  popupHeaderTitle.innerHTML = `<b>${course.Subject}</b>`
+  // Add content to the popup
+  popupBody.innerHTML = `${course_to_str(course)}`;
 
+  // Append the popup parts together and add it to the document
   popupHeader.appendChild(popupHeaderTitle);
   popupHeader.appendChild(popupCloseButton);
   popup.appendChild(popupHeader);
-  popup.appendChild(popupBody);
+  popup.appendChild(popupBody)
   document.body.appendChild(popup);
 }
 
+// Clear box and add course
 function handleKeyPress(event) {
-  if (event.keyCode === 13) {
+  if (event.keyCode === 13) { // Check for pressing Enter
     addCourse();
-    document.getElementById("sectionNumber").value = "";
+    const sectionNumber = document.getElementById('sectionNumber');
+    sectionNumber.value = '';
   }
 }
 
 function addHoverEffect(bgColor) {
-  this.style.backgroundColor = "lightblue";
+  this.style.backgroundColor = 'lightblue';
 }
 
 function removeHoverEffect(bgColor) {
@@ -395,142 +430,96 @@ function displaySchedulePopupHandler(schedule) {
 }
 
 function displaySchedulePopup(schedule) {
-  const oldPopup = document.getElementById("schedulePopup");
+  const oldPopup = document.getElementById('schedulePopup');
   if (oldPopup) {
     oldPopup.remove();
   }
-  const schedulePopup = document.createElement("div");
-  schedulePopup.id = "schedulePopup";
-  schedulePopup.classList.add("popup");
+  // Create a div element for the schedulePopup
+  const schedulePopup = document.createElement('div');
+  schedulePopup.id = 'schedulePopup';
+  schedulePopup.classList.add('popup');
 
-  const popupHeader = document.createElement("div");
-  popupHeader.classList.add("popup-header");
-  const popupHeaderTitle = document.createElement("div");
-  popupHeaderTitle.classList.add("popup-header-title");
-  const popupCloseButton = document.createElement("button");
-  popupCloseButton.classList.add("popup-close-button");
-  popupCloseButton.innerHTML = "&times;";
+  // Add popup header basics
+  const popupHeader = document.createElement('div');
+  popupHeader.classList.add('popup-header');
+  const popupHeaderTitle = document.createElement('div');
+  popupHeaderTitle.classList.add('popup-header-title');
+  const popupCloseButton = document.createElement('button');
+  popupCloseButton.classList.add('popup-close-button');
+  popupCloseButton.innerHTML = '&times;'
   popupCloseButton.onclick = () => {
     if (schedulePopup) {
       schedulePopup.remove();
     }
-  };
+    return;
+  }
 
-  const popupBody = document.createElement("div");
-  popupBody.classList.add("popup-body");
+  const popupBody = document.createElement('div');
+  popupBody.classList.add('popup-body');
 
-  popupHeaderTitle.innerHTML = `<b>Schedule ${currentSchedule} Weights</b>`;
+  popupHeaderTitle.innerHTML = `<b>Schedule ${current_schedule} Weights</b>`
+  // Add content to the popup
   popupBody.innerHTML = `Average Score: ${schedule.Score}<br>
-                           Average GPA: ${
-                             schedule.Weights.find((w) => w.Name === "GPA")
-                               .Value * 4.0
-                           }<br>
-                           Start Time Score: ${
-                             schedule.Weights.find((w) => w.Name === "Start")
-                               .Value
-                           }<br>
-                           End Time Score: ${
-                             schedule.Weights.find((w) => w.Name === "End")
-                               .Value
-                           }<br>
-                           Gaps Score: ${
-                             schedule.Weights.find((w) => w.Name === "GAP")
-                               .Value
-                           }`;
+                           Average GPA: ${schedule.Weights.GPA * 4.0}<br>
+                           Start Time Score: ${schedule.Weights.start}<br>
+                           End Time Score: ${schedule.Weights.end}<br>
+                           Gaps Score: ${schedule.Weights.gap}`;
 
+  // Append the popup parts together and add it to the document
   popupHeader.appendChild(popupHeaderTitle);
   popupHeader.appendChild(popupCloseButton);
   schedulePopup.appendChild(popupHeader);
-  schedulePopup.appendChild(popupBody);
+  schedulePopup.appendChild(popupBody)
   document.body.appendChild(schedulePopup);
 }
 
 function sortSchedules() {
-  if (allSchedules.length <= 0) {
+  if (all_schedules.length <= 0) {
     return;
   }
 
-  const sortButton = document.getElementById("scheduleSort");
+  const sortButton = document.getElementById('scheduleSort');
   const sortValue = sortButton.value;
 
-  allSchedules.sort((a, b) => {
-    if (sortValue === "score") {
+  all_schedules.sort((a, b) => {
+    if (sortValue === 'score') {
       return b.Score - a.Score;
-    } else if (sortValue === "nd") {
-      return (
-        b.Weights.find((w) => w.Name === "End").Value -
-        a.Weights.find((w) => w.Name === "End").Value
-      );
-    } else if (sortValue === "gap") {
-      return (
-        b.Weights.find((w) => w.Name === "GAP").Value -
-        a.Weights.find((w) => w.Name === "GAP").Value
-      );
-    } else if (sortValue === "gpa") {
-      return (
-        b.Weights.find((w) => w.Name === "GPA").Value -
-        a.Weights.find((w) => w.Name === "GPA").Value
-      );
-    } else if (sortValue === "start") {
-      return (
-        b.Weights.find((w) => w.Name === "Start").Value -
-        a.Weights.find((w) => w.Name === "Start").Value
-      );
+    } else if (sortValue === 'end') {
+      return b.Weights.end - a.Weights.end;
+    } else if (sortValue === 'gap') {
+      return b.Weights.gap - a.Weights.gap;
+    } else if (sortValue === 'gpa') {
+      return b.Weights.GPA - a.Weights.GPA;
+    } else if (sortValue === 'start') {
+      return b.Weights.start - a.Weights.start;
     }
     return 0;
   });
-
-  console.log(allSchedules)
 }
 
 function updateSort() {
-  if (allSchedules.length <= 0) {
+  if (all_schedules.length <= 0) {
     return;
   }
   sortSchedules();
-  currentSchedule = 0;
-  displaySchedule(allSchedules[currentSchedule]);
+  current_schedule = 0;
+  displaySchedule(all_schedules[current_schedule]);
 }
 
 // Fetch the class names from subjects.txt and populate the dropdown menu
-fetch("subjects.txt")
-  .then((response) => response.text())
-  .then((text) => {
-    const courses = text.trim().split("\n");
-    courses.forEach((courseName) => {
-      const option = document.createElement("option");
+fetch('subjects.txt')
+  .then(response => response.text())
+  .then(text => {
+    const courses = text.trim().split('\n');
+    courses.forEach(courseName => {
+      const option = document.createElement('option');
       option.value = courseName;
       option.textContent = courseName;
       courseSelect.appendChild(option);
     });
   })
-  .catch((error) => {
-    console.error("Error fetching subjects:", error);
+  .catch(error => {
+    console.error('Error fetching subjects:', error);
   });
 
-function displayHelpPopup() {
-  const helpPopup = document.getElementById("help-popup");
-  helpPopup.classList.add("active");
-}
-
-function closeHelpPopup() {
-  const helpPopup = document.getElementById("help-popup");
-  helpPopup.classList.remove("active");
-}
-
 createTable();
-
-// Event listeners
-document.getElementById("addCourseButton").addEventListener("click", addCourse);
-document
-  .getElementById("generateButton")
-  .addEventListener("click", generateJSON);
-document.getElementById("nextButton").addEventListener("click", nextSchedule);
-document.getElementById("prevButton").addEventListener("click", prevSchedule);
-document.getElementById("scheduleSort").addEventListener("change", updateSort);
-document
-  .getElementById("helpButton")
-  .addEventListener("click", displayHelpPopup);
-document
-  .getElementById("closeHelpButton")
-  .addEventListener("click", closeHelpPopup);
