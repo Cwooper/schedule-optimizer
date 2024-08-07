@@ -29,15 +29,15 @@ func main() {
 	port := getPort()
 
 	// Serve static files from the frontend directory
-	fs := http.FileServer(http.Dir("frontend"))
+	fs := http.FileServer(http.Dir("build"))
 
-	http.HandleFunc("/schedule-optimizer", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/schedule-optimizer/", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == "POST" {
 			handleScheduleOptimizer(w, r)
 		} else {
 			// For GET and other methods, serve static files
 			if r.URL.Path == "/schedule-optimizer/" {
-				http.ServeFile(w, r, "frontend/index.html")
+				http.ServeFile(w, r, "build/index.html")
 			} else {
 				http.StripPrefix("/schedule-optimizer/", fs).ServeHTTP(w, r)
 			}

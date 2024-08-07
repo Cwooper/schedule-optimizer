@@ -2,20 +2,14 @@
   "name": "schedule-optimizer",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/schedule-optimizer",
   "dependencies": {
-    "@daypilot/daypilot-lite-react": "^3.23.0",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.2",
     "daisyui": "^4.12.10",
     "embla-carousel-react": "^8.1.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-scripts": "5.0.1",
-    "react-slick": "^0.30.2",
-    "slick-carousel": "^1.8.1",
-    "web-vitals": "^2.1.4"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,6 +36,7 @@
     ]
   },
   "devDependencies": {
+    "eslint-config-react-app": "^7.0.1",
     "tailwindcss": "^3.4.4"
   },
   "proxy": "http://localhost:8080"

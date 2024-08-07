@@ -89,7 +89,7 @@ export const useSchedules = () => {
         };
         try {
             const response = await axios.post(
-                "/schedule-optimizer",
+                "/schedule-optimizer/",
                 rawRequest
             );
             const data = response.data;

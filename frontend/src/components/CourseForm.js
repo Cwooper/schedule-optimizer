@@ -8,7 +8,7 @@ const CourseForm = ({ onAddCourse, courseCount }) => {
     const [error, setError] = useState("");
 
     useEffect(() => {
-        fetch("/subjects.txt")
+        fetch("/schedule-optimizer/subjects.txt")
             .then((response) => response.text())
             .then((text) => {
                 const courses = text.trim().split("\n");

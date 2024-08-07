@@ -1,2 +1,3 @@
 # Any JSON Cache Files
 frontend/node_modules/.cache/*
+build/
