@@ -184,16 +184,16 @@ Fully Transfer backend:
 - [x] Create Web Scraper
 - [x] Create Schedule Generator
 - [x] Create Go Web Server
-- [ ] Initialize GPA Values
+- [x] Initialize GPA Values
   - [x] Process CSV to efficient Protobuf
-  - [ ] Process Course GPA Values
+  - [x] Process Course GPA Values
 - [x] Interface Web Server with old frontend
   - [x] Unify data
   - [x] Handle requests to and from
   - [x] Display Old Calendar (doesn't need to be 100%)
   - [x] Display Full Calendar and Update HTML
 
-- [ ] Backend Is Fully Transferred and Optimized
+- [x] Backend Is Fully Transferred and Optimized
 
 Extra:
 
