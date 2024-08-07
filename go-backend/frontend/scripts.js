@@ -102,7 +102,7 @@ function generateJSON() {
 
   schedule = (scheduleinfo);
   const json = JSON.stringify(schedule); // Convert classes array to JSON string
-  console.log(json); // Output JSON string to the console
+  console.log(`Sending: ${json}`); // Output JSON string to the console
 
   fetch('/schedule-optimizer/', {
     method: 'POST',
@@ -114,12 +114,13 @@ function generateJSON() {
     .then(response => response.json())
     .then(response => {
       // Display the response in the console
-      console.log(response); // Here is the response
+      console.log(`Response: ${response}`); // Here is the response
 
-      // TODO test size of JSON
+      // Size of JSON (should be less than 2MB ever)
       const jsonString = JSON.stringify(response);
       const sizeInBytes = new Blob([jsonString]).size;
       console.log("JSON size:", sizeInBytes, "bytes");
+
       if (response["Errors"] != null) {
         const errorMessage = document.getElementById('errorMessage');
         errorMessage.innerHTML = response["Errors"];
@@ -209,7 +210,7 @@ function stringToColor(str) {
 function addCoursesToCalendar(schedule) {
   const courses = schedule.Courses;
   const cornerCell = document.getElementById('cornerCell');
-  cornerCell.textContent = `Schedule ${current_schedule}`
+  cornerCell.textContent = `Schedule ${current_schedule} / ${all_schedules.length}`
   cornerCell._mouseover = () => addHoverEffect.call(cornerCell, "lightgray");
   cornerCell.addEventListener('mouseover', cornerCell._mouseover);
   cornerCell._mouseout = () => removeHoverEffect.call(cornerCell, "lightgray");
@@ -319,7 +320,6 @@ function course_to_str(course, session) {
     Max Students: ${course.Capacity}<br>
     Students Enrolled: ${course.Enrolled}<br>`;
 
-  result += course.WaitlistCount ? `Waitlist: ${course.WaitlistCount}<br>` : '';
   result += course.Prerequisites ? `Prerequisites: ${course.Prerequisites}<br>` : '';
   result += course.Attributes ? `Attributes: ${course.Attributes}<br>` : '';
   result += course.AdditionalFees ? `Additional Fees: ${course.AdditionalFees}<br>` : '';
@@ -462,7 +462,6 @@ function sortSchedules() {
 
   const sortButton = document.getElementById('scheduleSort');
   const sortValue = sortButton.value;
-  console.log(`Sorting by ${sortValue}`);
 
   all_schedules.sort((a, b) => {
     if (sortValue === 'score') {
