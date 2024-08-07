@@ -35,88 +35,119 @@ This is the backend for the Schedule Optimizer Web Application.
    go run server.go
    ```
 
-5. (Optional) To run within an apache server.
-      1. you need to create a reverse
-      proxy for apache to access your Go server.
 
-      ```bash
-   sudo apt -y install apache2
-   sudo a2enmod proxy
-   sudo a2enmod proxy_http
-      ```
+## Running Schedule Optimizer with System Startup and Apache2
 
-      2. Add the following to your Apache Config under `DocumentRoot`
-      (often in `/etc/apache2/sites-available/000-default.conf`).
+Follow these steps to set up the Schedule Optimizer to run automatically with system startup.
 
-      ```
-   # ...
-   # Existing Config
-   DocumentRoot /var/www/html # Existing DocumentRoot
+## 1. Create a service file for Schedule Optimizer
 
-   ProxyPass /schedule-optimizer http://localhost:8080/schedule-optimizer
-   ProxyPassReverse /schedule-optimizer http://localhost:8080/schedule-optimizer
+Create a new file `/etc/systemd/system/schedule-optimizer.service` with the following content:
 
-   # Existing Config ...
-      ```
+```ini
+[Unit]
+Description=Schedule Optimizer Go Server
+After=network.target
 
-      3. Restart the web server with `sudo systemctl restart apache2`
+[Service]
+ExecStart=/usr/local/go/bin/go run /var/www/schedule-optimizer/server.go
+WorkingDirectory=/var/www/schedule-optimizer
+User=www-data
+Restart=always
+RestartSec=10
+Environment="GOPATH=/var/lib/go-cache"
+Environment="GOCACHE=/var/lib/go-cache"
 
-      If you want the Go server to be linked to Apache (starts and stops along
-      with each other):
+[Install]
+WantedBy=multi-user.target
+```
 
-      1. Save the following in a file named
-      `/etc/systemd/system/schedule-optimizer.service`. Make sure to replace
-      the paths with the path to your schedule-optimizer.
+## 2. Set up Go cache directory
 
-      ```conf
-      [Unit]
-      Description=Schedule Optimizer Go Server
-      After=network.target
+Create a directory for the Go module cache and set appropriate permissions:
 
-      [Service]
-      ExecStart=/usr/local/go/bin/go run /var/www/schedule-optimizer/server.go
-      WorkingDirectory=/var/www/schedule-optimizer
-      User=www-data
-      Restart=always
-      RestartSec=10
+```bash
+sudo mkdir -p /var/lib/go-cache
+sudo chown www-data:www-data /var/lib/go-cache
+```
 
-      [Install]
-      WantedBy=multi-user.target
-      ```
+## 3. Configure Apache2
 
-      2. Edit the apache2 file with `sudo systemctl edit apache2.service` and
-      replace it with the following (save afterward):
+1. Enable necessary Apache modules:
 
-      ```conf
-      [Unit]
-      Description=The Apache HTTP Server
-      After=network.target remote-fs.target nss-lookup.target
-      Wants=schedule-optimizer.service
+```bash
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+```
 
-      [Service]
-      Type=forking
-      Environment=APACHE_STARTED_BY_SYSTEMD=true
-      ExecStartPre=/usr/local/go/bin/go run /path/to/your/server.go &
-      ExecStart=/usr/sbin/apachectl start
-      ExecStop=/usr/sbin/apachectl graceful-stop
-      ExecReload=/usr/sbin/apachectl graceful
-      KillMode=mixed
-      PrivateTmp=true
-      Restart=on-failure
+2. Edit your Apache site configuration (often in `/etc/apache2/sites-available/000-default.conf`) and add the following under the `DocumentRoot` line:
 
-      [Install]
-      WantedBy=multi-user.target
-      ```
+```apache
+ProxyPass /schedule-optimizer http://localhost:8080/schedule-optimizer
+ProxyPassReverse /schedule-optimizer http://localhost:8080/schedule-optimizer
+```
 
-      3. To put these changes into effect run:
+3. Create a drop-in file to ensure Apache2 starts after the Schedule Optimizer:
 
-      ```bash
-      sudo systemctl daemon-reload
-      sudo systemctl restart apache2
-      ```
+```bash
+sudo mkdir -p /etc/systemd/system/apache2.service.d/
+sudo nano /etc/systemd/system/apache2.service.d/schedule-optimizer.conf
+```
 
-      These changes ensure that Apache2 and your go server will be run
-      synonymously as well as restarting when your computer restarts. 
+Add the following content:
+
+```ini
+[Unit]
+After=schedule-optimizer.service
+Requires=schedule-optimizer.service
+```
+
+## 4. Enable and start the services
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable schedule-optimizer
+sudo systemctl start schedule-optimizer
+sudo systemctl restart apache2
+```
+
+## 5. Verify the setup
+
+Check the status of both services:
+
+```bash
+sudo systemctl status schedule-optimizer
+sudo systemctl status apache2
+```
+
+Both services should be active and running.
+
+## Troubleshooting
+
+If you encounter issues:
+
+1. Check the logs:
+   ```bash
+   sudo journalctl -u schedule-optimizer -n 100 --no-pager
+   ```
+
+2. Ensure all file permissions are correct:
+   ```bash
+   sudo chown -R www-data:www-data /var/www/schedule-optimizer
+   ```
+
+3. If needed, manually download Go dependencies:
+   ```bash
+   sudo -u www-data GOPATH=/var/lib/go-cache GOCACHE=/var/lib/go-cache /usr/local/go/bin/go mod download
+   ```
+   Run this in the `/var/www/schedule-optimizer` directory.
+
+Remember to restart both services after making any changes:
+
+```bash
+sudo systemctl restart schedule-optimizer
+sudo systemctl restart apache2
+```
 
 
 ## Compiling Protocol Buffers
@@ -147,28 +178,59 @@ make help
 ```bash
 backend
 ├── data
-│   └──protobufs
+│   ├── 202410.pb
+│   ├── 202420.pb
+│   ├── 202430.pb
+│   ├── 202440.pb
+│   ├── 202510.pb
+│   ├── 202520.pb
+│   ├── grade_distribution.csv
+│   ├── grade_distribution.pb
+│   ├── subjects.txt
+│   └── terms.txt
+├── frontend
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── scripts.js
+│   ├── styles.css
+│   └── subjects.txt
 ├── go.mod
 ├── go.sum
 ├── internal
-│   ├── generator
-│   │   └── generator.go
-│   ├── models
-│   │   ├── course.go
-│   │   ├── proto
-│   │   │   └── course.proto
-│   │   └── schedule.go
-│   ├── proto
-│   │   └── generated
-│   │       └── course.pb.go
-│   └── utils
-│       └── utils.go
-├── main.go
+│   ├── generator
+│   │   ├── combinations.go
+│   │   └── generator.go
+│   ├── gpa
+│   │   ├── gpa.go
+│   │   └── loader.go
+│   ├── models
+│   │   ├── course.go
+│   │   ├── gpa_data.go
+│   │   ├── proto
+│   │   │   ├── course.proto
+│   │   │   └── gpa_data.proto
+│   │   ├── raw_request.go
+│   │   ├── response.go
+│   │   └── schedule.go
+│   ├── proto
+│   │   └── generated
+│   │       ├── course.pb.go
+│   │       └── gpa_data.pb.go
+│   ├── README.md
+│   ├── scraper
+│   │   ├── extract.go
+│   │   ├── helpers.go
+│   │   └── scraper.go
+│   └── utils
+│       └── utils.go
+├── LICENSE
 ├── Makefile
 ├── pkg
-│   └── protoutils
-│       └── convertor.go
-└── README.md
+│   └── protoutils
+│       └── convertor.go
+├── README.md
+└── server.go
+
 ```
 
 ## TODO
