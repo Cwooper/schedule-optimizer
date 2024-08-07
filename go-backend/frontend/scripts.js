@@ -210,7 +210,7 @@ function stringToColor(str) {
 function addCoursesToCalendar(schedule) {
   const courses = schedule.Courses;
   const cornerCell = document.getElementById('cornerCell');
-  cornerCell.textContent = `Schedule ${current_schedule} / ${all_schedules.length}`
+  cornerCell.textContent = `Schedule ${current_schedule + 1} / ${all_schedules.length}`
   cornerCell._mouseover = () => addHoverEffect.call(cornerCell, "lightgray");
   cornerCell.addEventListener('mouseover', cornerCell._mouseover);
   cornerCell._mouseout = () => removeHoverEffect.call(cornerCell, "lightgray");
