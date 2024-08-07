@@ -2,8 +2,10 @@ package models
 
 import (
 	"fmt"
-	"schedule-optimizer/internal/utils"
 	"strconv"
+	"strings"
+
+	"schedule-optimizer/internal/utils"
 )
 
 type Professors map[string]float64
@@ -12,6 +14,14 @@ type CourseGPAs map[string]float64
 
 func CourseKey(subject, professor string) string {
 	return subject + "|" + professor
+}
+
+func simplifyName(name string) string {
+	parts := strings.Fields(name)
+	if len(parts) < 2 {
+		return name // Return original name if it can't be simplified
+	}
+	return parts[0] + " " + parts[len(parts)-1] // First name + Last name
 }
 
 type GPAData struct {
@@ -64,7 +74,7 @@ func (data *GPAData) ProcessRecords(records [][]string) {
 		if record[utils.CNT_A_COL] == "" || record[utils.GRADE_COUNT_COL] == "0" {
 			continue // Skip records with no data
 		}
-		
+
 		count, err := strconv.Atoi(record[utils.GRADE_COUNT_COL])
 		if err != nil {
 			fmt.Printf("failed to parse grade count: %v", err)
@@ -74,11 +84,11 @@ func (data *GPAData) ProcessRecords(records [][]string) {
 		if total == 0.0 {
 			continue
 		}
-		
-		professor := record[utils.PROFESSOR_COL]
+
+		professor := simplifyName(record[utils.PROFESSOR_COL])
 		subject := record[utils.CODE_COL]
 		courseKey := CourseKey(professor, subject)
-		
+
 		if professor != "" {
 			professorCount[professor] += count
 			professorTotal[professor] += total
