@@ -114,26 +114,33 @@ function generateJSON() {
     .then(response => response.json())
     .then(response => {
       // Display the response in the console
-      console.log(`Response: ${response}`); // Here is the response
+      console.log('Response:', response);
 
       // Size of JSON (should be less than 2MB ever)
       const jsonString = JSON.stringify(response);
       const sizeInBytes = new Blob([jsonString]).size;
       console.log("JSON size:", sizeInBytes, "bytes");
 
-      if (response["Errors"] != null) {
-        const errorMessage = document.getElementById('errorMessage');
-        errorMessage.innerHTML = response["Errors"];
-        if (response["Warnings"] != null) {
-          const errorMessage = document.getElementById('errorMessage');
-          errorMessage.innerHTML += "<br>" + response["Warnings"].join("<br>");
-        }
+      const errorMessage = document.getElementById('errorMessage');
+      let messages = [];
+
+      if (response.Errors && response.Errors.length > 0) {
+        messages = messages.concat(response.Errors);
+      }
+
+      if (response.Warnings && response.Warnings.length > 0) {
+        messages = messages.concat(response.Warnings);
+      }
+
+      if (messages.length > 0) {
+        errorMessage.innerHTML = messages.join("<br>");
+        errorMessage.style.display = 'block';
       } else {
-        if (response["Warnings"] != null) {
-          const errorMessage = document.getElementById('errorMessage');
-          errorMessage.innerHTML += "<br>" + response["Warnings"].join("<br>");
-        }
-        all_schedules = response["Schedules"]
+        errorMessage.style.display = 'none';
+      }
+
+      if (response.Schedules) {
+        all_schedules = response.Schedules;
         sortSchedules();    // Update the sort based on the current value
         current_schedule = 0;
         displaySchedule(all_schedules[current_schedule]);
@@ -142,8 +149,10 @@ function generateJSON() {
     .catch(error => {
       // Handle any errors
       console.error('Error:', error);
+      const errorMessage = document.getElementById('errorMessage');
+      errorMessage.innerHTML = 'An error occurred while processing your request.';
+      errorMessage.style.display = 'block';
     });
-
 }
 
 function createTable() {
@@ -305,7 +314,7 @@ function course_to_str(course, session) {
   let result = `Course: ${course.Subject} - ${course.Title}<br>
     CRN: ${course.CRN}<br>`;
 
-  result += course.GPA ? `Average GPA: ${course.GPA}<br>` : '';
+    result += course.GPA ? `Average GPA: ${Number(course.GPA).toFixed(2)}<br>` : '';
 
   result += `Credits: ${course.Credits}<br><br>`;
 
