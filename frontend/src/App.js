@@ -111,8 +111,8 @@ function App() {
             setGlobalError("You must select at least one course");
             return false;
         }
-        if (courses.length > 10) {
-            setGlobalError("You cannot select more than 10 courses");
+        if (courses.length > 13) {
+            setGlobalError("You cannot select more than 13 courses");
             return false;
         }
         if (courses.length < min) {
@@ -129,7 +129,7 @@ function App() {
         if (validateCourses()) {
             setLoading(true);
             try {
-                await generateJSON(courses, forceList, min, max, term, quarter);
+                await generateJSON(courses, forceList, parseInt(min), parseInt(max), term, quarter);
             } catch (error) {
                 console.error("Error generating schedules:", error);
                 setErrorMessage(
@@ -228,7 +228,7 @@ function App() {
                             <Dropdown
                                 label="Minimum Courses:"
                                 value={min}
-                                options={[...Array(6).keys()].map((i) => i + 1)}
+                                options={[...Array(8).keys()].map((i) => i + 1)}
                                 onChange={(e) => {
                                     setMin(e.target.value);
                                     if (globalError) setGlobalError(""); // Reset error when min is changed
@@ -238,7 +238,7 @@ function App() {
                             <Dropdown
                                 label="Maximum Courses:"
                                 value={max}
-                                options={[...Array(10).keys()].map(
+                                options={[...Array(8).keys()].map(
                                     (i) => i + 1
                                 )}
                                 onChange={(e) => {

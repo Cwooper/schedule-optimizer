@@ -27,8 +27,8 @@ const CourseForm = ({ onAddCourse, courseCount }) => {
             setError("Course number is required");
             return;
         }
-        if (courseCount >= 10) {
-            setError("Cannot add more than 10 courses");
+        if (courseCount >= 13) {
+            setError("Cannot add more than 13 courses");
             return;
         }
         setError("");
@@ -65,10 +65,10 @@ const CourseForm = ({ onAddCourse, courseCount }) => {
                         onChange={(e) => {
                             setCourseName(e.target.value);
                             if (
-                                error === "Cannot add more than 10 courses" &&
-                                courseCount < 10
+                                error === "Cannot add more than 13 courses" &&
+                                courseCount < 13
                             ) {
-                                setError(""); // Clear error if course count is below 10
+                                setError(""); // Clear error if course count is below 13
                             }
                         }}
                         className="w-full"

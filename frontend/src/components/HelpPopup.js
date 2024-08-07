@@ -51,8 +51,7 @@ function HelpPopup() {
                         </ul>
                         <p className="mt-4 text-sm text-gray-600">
                             You can view more details about a course by clicking
-                            it. <br />
-                            Also, view more details about a schedule such as
+                            it. Also, view more details about a schedule such as
                             Average GPA by pressing the "Schedule Number" in the
                             top left corner!
                         </p>

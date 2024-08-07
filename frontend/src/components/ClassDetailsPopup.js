@@ -11,7 +11,7 @@ const ClassDetailsPopup = ({ course, onClose }) => {
                             {Object.entries(item).map(([subKey, subValue]) => (
                                 <div key={subKey} className="leading-tight">
                                     <strong>{subKey}:</strong>{" "}
-                                    {subValue.toString()}
+                                    {renderValue(subKey, subValue)}
                                 </div>
                             ))}
                         </li>
@@ -22,6 +22,8 @@ const ClassDetailsPopup = ({ course, onClose }) => {
             return (
                 <span className="leading-tight">{JSON.stringify(value)}</span>
             );
+        } else if (typeof value === "number" && !Number.isInteger(value)) {
+            return <span className="leading-tight">{value.toFixed(2)}</span>;
         } else {
             return <span className="leading-tight">{value.toString()}</span>;
         }
