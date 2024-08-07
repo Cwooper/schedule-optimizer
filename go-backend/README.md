@@ -199,6 +199,7 @@ Extra:
 
 - [ ] Multithread WebScraper, GPA Processing
 - [ ] Optimize Forced Courses
+- [ ] If User Asks for the same schedule twice, don't send POST request.
 - [ ] Add Async/TBD table to frontend calendar
 - [ ] Create Dijkstra Map Weighing
   - [ ] Visualize something in Go WASM

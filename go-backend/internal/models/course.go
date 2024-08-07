@@ -25,7 +25,6 @@ type Course struct {
 	Capacity       int       // Maximum enrollment capacity
 	Enrolled       int       // Number of currently enrolled students
 	AvailableSeats int       // Number of seats available
-	WaitlistCount  int       // Number of students on waitlist
 	AdditionalFees string    // Any noted additional fees
 	Restrictions   string    // Any noted restrictions
 	Attributes     string    // Any noted attributes
@@ -44,7 +43,6 @@ func NewCourse() *Course {
 		Capacity:       0,
 		Enrolled:       0,
 		AvailableSeats: 0,
-		WaitlistCount:  0,
 		AdditionalFees: "",
 		Restrictions:   "",
 		Attributes:     "",
