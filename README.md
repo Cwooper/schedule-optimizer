@@ -31,6 +31,7 @@ This is the backend for the Schedule Optimizer Web Application.
    frontend into a static-served webpage.
 
     ```bash
+    cd frontend && npm install
     make frontend
     ```
 
