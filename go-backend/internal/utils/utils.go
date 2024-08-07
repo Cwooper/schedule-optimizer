@@ -6,6 +6,7 @@ import (
 	"math"
 	"os"
 	"path/filepath"
+	"regexp"
 
 	"google.golang.org/protobuf/proto"
 
@@ -136,6 +137,15 @@ var (
 		CNT_DM_COL: 0.7,
 		CNT_F_COL:  0.0,
 	}
+)
+
+var (
+	// Returns first and last name with a comma (e.g. "Smith, John")
+	CommaNameRegexp = regexp.MustCompile(`^.*?(\S+)\s*,\s*(\S+).*$`)
+	// Returns first and last name listed normally (e.g. "John Smith")
+	PlainNameRegexp = regexp.MustCompile(`^(\S+)(?:.*\s)?(\S+)$`)
+	// Returns the Course Subject and Number Associated (e.g. "CSCI 497A")
+	SubjectRegexp = regexp.MustCompile(`^(\S+)\s+(\d+[A-Z]?)$`)
 )
 
 func init() {

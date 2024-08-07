@@ -12,6 +12,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
+	"schedule-optimizer/internal/gpa"
 	"schedule-optimizer/internal/models"
 	"schedule-optimizer/internal/utils"
 	"schedule-optimizer/pkg/protoutils"
@@ -142,7 +143,7 @@ func getCoursesFromURL(subjects []string, term, year string) ([]models.Course, e
 	// About 1500 courses per term, 2000 to be efficient
 	var courseList []models.Course
 
-	fmt.Printf("Processing Subjects: ")
+	fmt.Printf("\nProcessing %s: ", term)
 	for _, subject := range subjects {
 		fmt.Printf("%v ", subject)
 		newCourses, err := getSubjectFromURL(subject, term, year)
@@ -153,7 +154,7 @@ func getCoursesFromURL(subjects []string, term, year string) ([]models.Course, e
 			courseList = append(courseList, newCourses...)
 		}
 	}
-	fmt.Printf("\n\n")
+	fmt.Printf("\n")
 
 	return courseList, nil
 }
@@ -174,7 +175,7 @@ func getCourses(subjects []string, term, year string) (int, error) {
 		if time.Since(pullTime) < utils.MAX_COURSE_WAIT*24*time.Hour {
 			// Use existing data
 			courseList := protoutils.ProtoToCourses(existingProto)
-			// if term == "202440" { // Helper print function
+			// if term == "202520" { // Helper print function
 			// 	printCourseList(courseList)
 			// }
 			return len(courseList), nil
@@ -186,6 +187,14 @@ func getCourses(subjects []string, term, year string) (int, error) {
 	if err != nil {
 		return 0, fmt.Errorf("failed to get courses from url: %w", err)
 	}
+
+	start := time.Now()
+	err = gpa.GenerateGPA(&courseList)
+	if err != nil {
+		return 0, fmt.Errorf("failed to generate gpa for course list: %w", err)
+	}
+	duration := time.Since(start)
+	fmt.Printf("GenerateGPA took %v to execute\n", duration)
 
 	protobuf := protoutils.CoursesToProto(courseList)
 	protobuf.PullTimestamp = timestamppb.Now()

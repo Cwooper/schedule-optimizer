@@ -15,6 +15,8 @@ import (
 	"schedule-optimizer/internal/utils"
 )
 
+// ----------------------------- SERVER BELOW -----------------------------
+
 func init() {
 	// Set initial GC percentage
 	debug.SetGCPercent(50)
@@ -103,6 +105,8 @@ func getPort() string {
 	}
 	return port
 }
+
+// ----------------------- SCHEDULE TESTING BELOW -----------------------------
 
 // Tester function for generating schedules via terminal
 // func main() {

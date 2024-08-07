@@ -77,7 +77,7 @@ func extractHeader(parts []string, rows *goquery.Selection) (*models.Course, err
 	prerequisites := ""
 	for i := 1; i < rows.Length(); i++ {
 		prerequisites += strings.TrimSpace(rows.Eq(i).Text())
-		if i != rows.Length() - 1 { // Add spaces between rows
+		if i != rows.Length()-1 { // Add spaces between rows
 			prerequisites += " "
 		}
 	}
@@ -102,7 +102,7 @@ func extractCourse(cells *goquery.Selection, course *models.Course) error {
 	capacity := strings.TrimSpace(cells.Eq(7).Text())
 	enrolled := strings.TrimSpace(cells.Eq(8).Text())
 	available := strings.TrimSpace(cells.Eq(9).Text())
-	waitlist := strings.TrimSpace(cells.Eq(10).Text())
+	// waitlist := strings.TrimSpace(cells.Eq(10).Text()) // Unused
 	restrictions := strings.TrimSpace(cells.Eq(11).Text())
 	attributes := strings.TrimSpace(cells.Eq(12).Text())
 
@@ -134,7 +134,7 @@ func extractCourse(cells *goquery.Selection, course *models.Course) error {
 	}
 
 	// Convert all of the needed number strings to ints
-	nums, err := convertMultiple(crn, capacity, enrolled, available, waitlist)
+	nums, err := convertMultiple(crn, capacity, enrolled, available)
 	if err != nil {
 		return fmt.Errorf("error converting course numbers: %w", err)
 	}
@@ -145,7 +145,6 @@ func extractCourse(cells *goquery.Selection, course *models.Course) error {
 	course.Capacity = nums[1]
 	course.Enrolled = nums[2]
 	course.AvailableSeats = nums[3]
-	course.WaitlistCount = nums[4]
 	course.Restrictions = restrictions
 	course.Attributes = attributes
 
@@ -222,7 +221,7 @@ func getCoursesFromTables(doc *goquery.Document) ([]models.Course, error) {
 				beforeAfter := strings.SplitN(headerText, title, 2)
 				// This is a new header, process the previous course if exists
 				if lastCourse.Sessions != nil {
-				courses = append(courses, *lastCourse)
+					courses = append(courses, *lastCourse)
 				}
 				// Extract new header
 
@@ -258,7 +257,7 @@ func getCoursesFromTables(doc *goquery.Document) ([]models.Course, error) {
 
 					err = extractCourse(cells, lastCourse)
 					if err != nil {
-						fmt.Printf("error extracting course: %v\n", err)
+						fmt.Printf("error extracting course %s: %v\n", lastCourse.Subject, err)
 						return
 					}
 				} else if cellCount == 12 && lastCourse.Sessions != nil {

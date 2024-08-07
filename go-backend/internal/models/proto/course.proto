@@ -26,11 +26,10 @@ message Course {
   int32 capacity = 7;
   int32 enrolled = 8;
   int32 available_seats = 9;
-  int32 waitlist_count = 10;
-  string additional_fees = 11;
-  string restrictions = 12;
-  string attributes = 13;
-  string prerequisites = 14;
+  string additional_fees = 10;
+  string restrictions = 11;
+  string attributes = 12;
+  string prerequisites = 13;
 }
 
 message CourseList {
