@@ -27,6 +27,7 @@ const (
 
 	// One Schedule is about 2KB. 2000 Schedules is 4MB.
 	MAX_OUTPUT_SCHEDULES = 2000
+	SERVER_TIMEOUT_SECS  = 2 // Server will timeout after x seconds
 
 	TIME_FORMAT = "2006-01-02 15:04:05"
 

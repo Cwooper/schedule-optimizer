@@ -59,7 +59,7 @@ func handleScheduleOptimizer(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Create a context with a 1-second timeout
-	ctx, cancel := context.WithTimeout(r.Context(), 1*time.Second)
+	ctx, cancel := context.WithTimeout(r.Context(), utils.SERVER_TIMEOUT_SECS*time.Second)
 	defer cancel()
 
 	// Create a channel to receive the response
