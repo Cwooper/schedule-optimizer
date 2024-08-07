@@ -31,7 +31,7 @@ func main() {
 	// Serve static files from the frontend directory
 	fs := http.FileServer(http.Dir("frontend"))
 
-	http.HandleFunc("/schedule-optimizer/", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/schedule-optimizer", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == "POST" {
 			handleScheduleOptimizer(w, r)
 		} else {
@@ -50,6 +50,7 @@ func main() {
 
 // Handles POST requests to /schedule-optimizer
 func handleScheduleOptimizer(w http.ResponseWriter, r *http.Request) {
+	log.Println("Received request to /schedule-optimizer")
 	var request models.RawRequest
 	err := json.NewDecoder(r.Body).Decode(&request)
 	if err != nil {
