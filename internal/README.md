@@ -87,14 +87,6 @@ ProxyPass /schedule-optimizer http://localhost:8080/schedule-optimizer
 ProxyPassReverse /schedule-optimizer http://localhost:8080/schedule-optimizer
 ```
 
-3. Create a drop-in file to ensure Apache2 starts after the Schedule Optimizer:
-
-```bash
-sudo mkdir -p /etc/systemd/system/apache2.service.d/
-sudo nano /etc/systemd/system/apache2.service.d/schedule-optimizer.conf
-```
-
-
 ## 4. Enable and start the services
 
 ```bash
