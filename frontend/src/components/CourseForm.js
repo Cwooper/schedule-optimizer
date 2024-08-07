@@ -39,7 +39,7 @@ const CourseForm = ({ onAddCourse, courseCount }) => {
 
     const handleSectionChange = (e) => {
         const value = e.target.value;
-        if (/^\d*$/.test(value)) {
+        if (/^\d{0,3}[A-Z]?$/.test(value)) {
             setSection(value);
             if (value && error === "Course number is required") {
                 setError(""); // Clear error if section is provided

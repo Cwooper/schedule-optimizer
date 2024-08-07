@@ -50,7 +50,6 @@ func main() {
 
 // Handles POST requests to /schedule-optimizer
 func handleScheduleOptimizer(w http.ResponseWriter, r *http.Request) {
-	log.Println("Received request to /schedule-optimizer")
 	var request models.RawRequest
 	err := json.NewDecoder(r.Body).Decode(&request)
 	if err != nil {

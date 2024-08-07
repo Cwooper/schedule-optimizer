@@ -1,2 +1,2 @@
 # Any JSON Cache Files
-*.cache*
+frontend/node_modules/.cache/*
