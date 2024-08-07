@@ -1,62 +1,263 @@
-# schedule-optimizer
+# Schedule Optimizer
 
-Schedule Crafter passion project for ACM
+This is the backend for the Schedule Optimizer Web Application.
 
-This project is not affiliated with Western Washington University.
-It is an independent initiative developed solely for educational
-and personal use. All data provided by this project is for
-informational purposes only and should not be considered official
-or binding. Use at your own discretion.
+## Prerequisites
 
-## Requirements
+- Go 1.22 or later
+- Protocol Buffer Compiler (protoc) 3.0.0 or later
+- Go Protocol Buffers plugin
 
-Python libraries:
+## Setup
 
-- flask
-- pandas
-- numpy
-- bs4
+1. Install the Protocol Buffer Compiler (protoc) if you haven't already:
+   - MacOS: `brew install protobuf`
+   - Linux: `sudo apt install protobuf-compiler`
+   - Windows: Download from <https://github.com/protocolbuffers/protobuf/releases>
 
-## Project goals
+2. Install the `Go` Protocol Buffers plugin:
 
-User → Frontend → Flask → Backend
+   ```bash
+   go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+   ```
 
-Backend → Flask → Frontend → User
+3. Make sure your PATH includes the `Go` bin directory:
 
-Flask should handle all requests for course schedules.
+   ```bash
+   export PATH="$PATH:$(go env GOPATH)/bin"
+   ```
 
-### Listed from most important to most complex
+4. Make sure that you have `npm` installed and run the following to build the
+   frontend into a static-served webpage.
 
-**The schedule crafter should...**
+    ```bash
+    make frontend
+    ```
 
-- [x] create `Course` object
-- [x] create internal time conflict handling within `Course` objects
-- [x] create `Schedule` structure to hold lists if `Course`s.
-- [x] allow users to input only subject and code, e.g. "CSCI 301"
-    - [x] functional as `backend/get_schedules.py` with no weights
-- [x] find all of the possible schedules with no overlapping
-- [x] automatic class finder scraping for less input (only input some classes)
-    - [x] class finder webscraping
-    - [x] store webscraped data as a `.pkl` file per term
-    - [x] automatic webscraping
-    - [x] automatically finding available terms from now, into the future
-- [x] past WWU data for courses (passing rate, total people taking it, etc.)
-    - [x] obtain gpa rate
-    - [x] apply `gpa` attribute to `Course` object
-- [x] determine the "best" `Schedule` based on weights
-    - [x] add gpa weight
-    - [x] add `start_time` weight
-    - [x] add `end_time` weight
-    - [x] add `time_gap` weight
-    - [ ] add `class_distance` weight (Dijkstra's)
-- [x] have a working frontend with well defined inputs
-- [x] send and recieve signlas from a web server
-- [x] have a "force" button for necessary courses
-- [ ] provided automatic weights on the frontend
-    - [ ] add customizability to weights on frontend
-- [x] display the schedules in an easily readable format (maybe a library)
-- [ ] save user data by exporting a file (probably `.json`)
+5. To run the server:
 
-Possible future additions (probably WWU only):
-- [x] store the web scraped data in a database for as little CPU usage as possible
-- [ ] future class scheduler per quarter based on pre-requisites
+   ```bash
+   PORT=xxxx go run server.go
+   # For Port 8080:
+   go run server.go
+   ```
+
+
+## Running Schedule Optimizer with System Startup and Apache2
+
+Follow these steps to set up the Schedule Optimizer to run automatically with system startup.
+
+## 1. Create a service file for Schedule Optimizer
+
+Create a new file `/etc/systemd/system/schedule-optimizer.service` with the following content:
+
+```ini
+[Unit]
+Description=Schedule Optimizer Go Server
+After=network.target
+
+[Service]
+ExecStart=/usr/local/go/bin/go run /var/www/schedule-optimizer/server.go
+WorkingDirectory=/var/www/schedule-optimizer
+User=www-data
+Restart=always
+RestartSec=10
+Environment="GOPATH=/var/lib/go-cache"
+Environment="GOCACHE=/var/lib/go-cache"
+
+[Install]
+WantedBy=multi-user.target
+```
+
+## 2. Set up Go cache directory
+
+Create a directory for the Go module cache and set appropriate permissions:
+
+```bash
+sudo mkdir -p /var/lib/go-cache
+sudo chown www-data:www-data /var/lib/go-cache
+```
+
+## 3. Configure Apache2
+
+1. Enable necessary Apache modules:
+
+```bash
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+```
+
+2. Edit your Apache site configuration (often in `/etc/apache2/sites-available/000-default.conf`) and add the following under the `DocumentRoot` line:
+
+```apache
+ProxyPass /schedule-optimizer http://localhost:8080/schedule-optimizer
+ProxyPassReverse /schedule-optimizer http://localhost:8080/schedule-optimizer
+```
+
+## 4. Enable and start the services
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable schedule-optimizer
+sudo systemctl start schedule-optimizer
+sudo systemctl restart apache2
+```
+
+## 5. Verify the setup
+
+Check the status of both services:
+
+```bash
+sudo systemctl status schedule-optimizer
+sudo systemctl status apache2
+```
+
+Both services should be active and running.
+
+## Troubleshooting
+
+If you encounter issues:
+
+1. Check the logs:
+   ```bash
+   sudo journalctl -u schedule-optimizer -n 100 --no-pager
+   ```
+
+2. Ensure all file permissions are correct:
+   ```bash
+   sudo chown -R www-data:www-data /var/www/schedule-optimizer
+   ```
+
+3. If needed, manually download Go dependencies:
+   ```bash
+   sudo -u www-data GOPATH=/var/lib/go-cache GOCACHE=/var/lib/go-cache /usr/local/go/bin/go mod download
+   ```
+   Run this in the `/var/www/schedule-optimizer` directory.
+
+Remember to restart both services after making any changes:
+
+```bash
+sudo systemctl restart schedule-optimizer
+sudo systemctl restart apache2
+```
+
+## Compiling Protocol Buffers
+
+To compile the Protocol Buffer files and generate the corresponding `Go` code, run:
+
+```bash
+make proto
+```
+
+This will compile all `.proto` files in the `internal/models/proto` directory and
+output the generated `Go` files to `internal/proto/generated`.
+
+To remove all generated Protocol Buffer Go files, run:
+
+```bash
+make clean
+```
+
+For a list of available make targets, run:
+
+```bash
+make help
+```
+
+## Project Backend Structure
+
+```bash
+backend
+├── data
+│   ├── 202410.pb
+│   ├── 202420.pb
+│   ├── 202430.pb
+│   ├── 202440.pb
+│   ├── 202510.pb
+│   ├── 202520.pb
+│   ├── grade_distribution.csv
+│   ├── grade_distribution.pb
+│   ├── subjects.txt
+│   └── terms.txt
+├── frontend
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── scripts.js
+│   ├── styles.css
+│   └── subjects.txt
+├── go.mod
+├── go.sum
+├── internal
+│   ├── generator
+│   │   ├── combinations.go
+│   │   └── generator.go
+│   ├── gpa
+│   │   ├── gpa.go
+│   │   └── loader.go
+│   ├── models
+│   │   ├── course.go
+│   │   ├── gpa_data.go
+│   │   ├── proto
+│   │   │   ├── course.proto
+│   │   │   └── gpa_data.proto
+│   │   ├── raw_request.go
+│   │   ├── response.go
+│   │   └── schedule.go
+│   ├── proto
+│   │   └── generated
+│   │       ├── course.pb.go
+│   │       └── gpa_data.pb.go
+│   ├── README.md
+│   ├── scraper
+│   │   ├── extract.go
+│   │   ├── helpers.go
+│   │   └── scraper.go
+│   └── utils
+│       └── utils.go
+├── LICENSE
+├── Makefile
+├── pkg
+│   └── protoutils
+│       └── convertor.go
+├── README.md
+└── server.go
+
+```
+
+## TODO
+
+Fully Transfer backend:
+
+- [x] Create Course Model
+  - [x] Course Conflicts
+  - [x] Create Course Array ProtoBuf
+- [x] Create Schedule Model
+  - [x] Schedule Auto-weighing
+  - [x] Modular Weight System
+- [x] Create Web Scraper
+- [x] Create Schedule Generator
+- [x] Create Go Web Server
+- [x] Initialize GPA Values
+  - [x] Process CSV to efficient Protobuf
+  - [x] Process Course GPA Values
+- [x] Interface Web Server with old frontend
+  - [x] Unify data
+  - [x] Handle requests to and from
+  - [x] Display Old Calendar (doesn't need to be 100%)
+  - [x] Display Full Calendar and Update HTML
+
+- [x] Backend Is Fully Transferred and Optimized
+
+Extra:
+
+- [ ] Multithread WebScraper, GPA Processing
+- [ ] Optimize Forced Courses
+- [ ] If User Asks for the same schedule twice, don't send POST request.
+- [ ] Add Async/TBD table to frontend calendar
+- [ ] Create Dijkstra Map Weighing
+  - [ ] Visualize something in Go WASM
+  - [ ] Create Paths between classes per schedule
+- [ ] Fuzzy search a "Did you Mean:" when course not found
+- [ ] Redo Calendar in Go WASM?
+- [x] Port frontend to React (Konnor)
+- [ ] Weight customizability on frontend
