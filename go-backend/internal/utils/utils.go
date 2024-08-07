@@ -25,8 +25,8 @@ const (
 	MAX_COURSE_WAIT  = 2  // Days
 	MAX_TERM_WAIT    = 10 // Days
 
-	// One Schedule is about 2KB. 1000 Schedules is 2MB.
-	MAX_OUTPUT_SCHEDULES = 1000
+	// One Schedule is about 2KB. 2000 Schedules is 4MB.
+	MAX_OUTPUT_SCHEDULES = 2000
 
 	TIME_FORMAT = "2006-01-02 15:04:05"
 
