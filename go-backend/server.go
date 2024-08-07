@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -11,6 +12,7 @@ import (
 
 	"schedule-optimizer/internal/generator"
 	"schedule-optimizer/internal/models"
+	"schedule-optimizer/internal/utils"
 )
 
 func init() {
@@ -70,12 +72,22 @@ func handleScheduleOptimizer(w http.ResponseWriter, r *http.Request) {
 	select {
 	case resp := <-respChan:
 		// If we get a response within the timeout, send it
+
+		// Limit the number of schedules sent to the user.
+		if len(resp.Schedules) > utils.MAX_OUTPUT_SCHEDULES {
+			errString := fmt.Sprintf("There were %d schedules generated, limiting the output to %d schedules. ",
+				len(resp.Schedules), utils.MAX_OUTPUT_SCHEDULES)
+			errString += "Please narrow your selection criteria."
+			resp.Schedules = resp.Schedules[:utils.MAX_OUTPUT_SCHEDULES]
+			resp.Warnings = append(resp.Warnings, errString)
+		}
+
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(resp)
 	case <-ctx.Done():
 		// If we timeout, send an error response
 		errorResp := models.Response{
-			Errors: []string{"Too many schedules were generated, please narrow down your selection."},
+			Errors: []string{"Too many schedules were generated, please narrow your selection criteria."},
 		}
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusRequestTimeout)

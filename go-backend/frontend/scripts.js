@@ -147,7 +147,7 @@ function generateJSON() {
 
 function createTable() {
   // Get the table element
-  const hours = ['0800', '0900', '1000', '1100', '1200', '1300', '1400', '1500', '1600', '1700'];
+  const hours = ['0800', '0900', '1000', '1100', '1200', '1300', '1400', '1500', '1600', '1700', '1800'];
   const daysOfWeek = ['M', 'T', 'W', 'R', 'F'];
   const fullDaysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
   const table = document.getElementById('calendar');
@@ -433,12 +433,19 @@ function displaySchedulePopup(schedule) {
   popupBody.classList.add('popup-body');
 
   popupHeaderTitle.innerHTML = `<b>Schedule ${current_schedule} Weights</b>`
+
+  // Find weights by name
+  const gpaWeight = schedule.Weights.find(w => w.Name === 'GPA');
+  const startWeight = schedule.Weights.find(w => w.Name === 'Start');
+  const endWeight = schedule.Weights.find(w => w.Name === 'End');
+  const gapWeight = schedule.Weights.find(w => w.Name === 'GAP');
+
   // Add content to the popup
-  popupBody.innerHTML = `Average Score: ${schedule.Score}<br>
-                           Average GPA: ${schedule.Weights.GPA * 4.0}<br>
-                           Start Time Score: ${schedule.Weights.start}<br>
-                           End Time Score: ${schedule.Weights.end}<br>
-                           Gaps Score: ${schedule.Weights.gap}`;
+  popupBody.innerHTML = `Average Score: ${schedule.Score.toFixed(2)}<br>
+                         Average GPA: ${(gpaWeight ? gpaWeight.Value * 4.0 : 'N/A').toFixed(2)}<br>
+                         Start Time Score: ${startWeight ? startWeight.Value.toFixed(2) : 'N/A'}<br>
+                         End Time Score: ${endWeight ? endWeight.Value.toFixed(2) : 'N/A'}<br>
+                         Gaps Score: ${gapWeight ? gapWeight.Value.toFixed(2) : 'N/A'}`;
 
   // Append the popup parts together and add it to the document
   popupHeader.appendChild(popupHeaderTitle);
