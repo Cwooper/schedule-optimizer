@@ -94,13 +94,6 @@ sudo mkdir -p /etc/systemd/system/apache2.service.d/
 sudo nano /etc/systemd/system/apache2.service.d/schedule-optimizer.conf
 ```
 
-Add the following content:
-
-```ini
-[Unit]
-After=schedule-optimizer.service
-Requires=schedule-optimizer.service
-```
 
 ## 4. Enable and start the services
 
@@ -148,7 +141,6 @@ Remember to restart both services after making any changes:
 sudo systemctl restart schedule-optimizer
 sudo systemctl restart apache2
 ```
-
 
 ## Compiling Protocol Buffers
 
