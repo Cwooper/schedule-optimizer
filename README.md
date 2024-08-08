@@ -49,7 +49,7 @@ or binding. Use at your own discretion.
     go run server.go
     ```
 
-    Navigate to [localhost schedule-optimizer](localhost:8080/schedule-optimizer)
+    Navigate to [localhost:8080/schedule-optimizer](localhost:8080/schedule-optimizer)
 
 ## Project To-do list
 
