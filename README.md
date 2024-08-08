@@ -10,53 +10,81 @@ or binding. Use at your own discretion.
 
 ## Requirements
 
-Python libraries:
+### Frontend
 
-- flask
-- pandas
-- numpy
-- bs4
+- npm
 
-## Project goals
+### Backend
 
-User → Frontend → Flask → Backend
+- Go 1.22 or later
+- Protocol Buffer Compiler (protoc) 3.0.0 or later
+- Go Protocol Buffers plugin
 
-Backend → Flask → Frontend → User
+## Getting Started
 
-Flask should handle all requests for course schedules.
+1. Install `Go`
+2. Install Go packages:
 
-### Listed from most important to most complex
+   ```bash
+   cd backend
+   go mod download # Install necessary packages
+   cd ../
+   ```
 
-**The schedule crafter should...**
+3. Install `npm`
+4. Install React Modules and build the frontend:
 
-- [x] create `Course` object
-- [x] create internal time conflict handling within `Course` objects
-- [x] create `Schedule` structure to hold lists if `Course`s.
-- [x] allow users to input only subject and code, e.g. "CSCI 301"
-    - [x] functional as `backend/get_schedules.py` with no weights
-- [x] find all of the possible schedules with no overlapping
-- [x] automatic class finder scraping for less input (only input some classes)
-    - [x] class finder webscraping
-    - [x] store webscraped data as a `.pkl` file per term
-    - [x] automatic webscraping
-    - [x] automatically finding available terms from now, into the future
-- [x] past WWU data for courses (passing rate, total people taking it, etc.)
-    - [x] obtain gpa rate
-    - [x] apply `gpa` attribute to `Course` object
-- [x] determine the "best" `Schedule` based on weights
-    - [x] add gpa weight
-    - [x] add `start_time` weight
-    - [x] add `end_time` weight
-    - [x] add `time_gap` weight
-    - [ ] add `class_distance` weight (Dijkstra's)
-- [x] have a working frontend with well defined inputs
-- [x] send and recieve signlas from a web server
-- [x] have a "force" button for necessary courses
-- [ ] provided automatic weights on the frontend
-    - [ ] add customizability to weights on frontend
-- [x] display the schedules in an easily readable format (maybe a library)
-- [ ] save user data by exporting a file (probably `.json`)
+    ```bash
+    cd frontend
+    npm install     # Install necessary modules
+    npm run build   # Build the frontend to static
+    mv build/ ../   # Move the frontend to front facing
+    cd ../
+    ```
 
-Possible future additions (probably WWU only):
-- [x] store the web scraped data in a database for as little CPU usage as possible
-- [ ] future class scheduler per quarter based on pre-requisites
+5. Test the server:
+
+    ```bash
+    cd backend
+    go run server.go
+    ```
+
+    Navigate to [localhost schedule-optimizer](localhost:8080/schedule-optimizer)
+
+## Project To-do list
+
+Fully Transfer backend:
+
+- [x] Create Course Model
+  - [x] Course Conflicts
+  - [x] Create Course Array ProtoBuf
+- [x] Create Schedule Model
+  - [x] Schedule Auto-weighing
+  - [x] Modular Weight System
+- [x] Create Web Scraper
+- [x] Create Schedule Generator
+- [x] Create Go Web Server
+- [x] Initialize GPA Values
+  - [x] Process CSV to efficient Protobuf
+  - [x] Process Course GPA Values
+- [x] Interface Web Server with old frontend
+  - [x] Unify data
+  - [x] Handle requests to and from
+  - [x] Display Old Calendar (doesn't need to be 100%)
+  - [x] Display Full Calendar and Update HTML
+
+- [x] Backend Is Fully Transferred and Optimized
+
+Extra:
+
+- [ ] Multithread WebScraper, GPA Processing
+- [ ] Optimize Forced Courses
+- [ ] If User Asks for the same schedule twice, don't send POST request.
+- [ ] Add Async/TBD table to frontend calendar
+- [ ] Create Dijkstra Map Weighing
+  - [ ] Visualize something in Go WASM
+  - [ ] Create Paths between classes per schedule
+- [ ] Fuzzy search a "Did you Mean:" when course not found
+- [ ] Redo Calendar in Go WASM?
+- [ ] Port frontend to React (Konnor)
+- [ ] Weight customizability on frontend
