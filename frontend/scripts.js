@@ -441,7 +441,7 @@ function displaySchedulePopup(schedule) {
   const popupBody = document.createElement('div');
   popupBody.classList.add('popup-body');
 
-  popupHeaderTitle.innerHTML = `<b>Schedule ${current_schedule} Weights</b>`
+  popupHeaderTitle.innerHTML = `<b>Schedule ${current_schedule + 1} Weights</b>`
 
   // Find weights by name
   const gpaWeight = schedule.Weights.find(w => w.Name === 'GPA');
