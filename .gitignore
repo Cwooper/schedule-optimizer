@@ -1,1 +1,4 @@
-__pycache__
+# Frontend download, build
+build/
+frontend/node_modules/
+
