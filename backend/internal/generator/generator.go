@@ -166,7 +166,7 @@ func (g *Generator) generateCourses(term string) {
 		for _, course := range courseList {
 			if course.Subject == forceRequest {
 				found = true
-				courses = append(courses, course)
+				break
 			}
 		}
 		if !found {
