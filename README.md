@@ -1,6 +1,6 @@
 # schedule-optimizer
 
-Schedule Crafter passion project for ACM
+Schedule Optimizer passion project for ACM club at WWU
 
 This project is not affiliated with Western Washington University.
 It is an independent initiative developed solely for educational
@@ -9,6 +9,14 @@ informational purposes only and should not be considered official
 or binding. Use at your own discretion.
 
 Currently hosted live at [cwooper.me](https://cwooper.me/schedule-optimizer)
+
+To use the live website, try entering a few classes:
+
+- CSCI 301
+- CSCI 241
+- CSCI 247
+
+Press Submit and view your options!
 
 ## Requirements
 
