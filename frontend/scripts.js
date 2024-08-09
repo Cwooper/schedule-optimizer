@@ -35,7 +35,7 @@ function addCourse() {
     forceButton.textContent = 'Force';
     forceButton.addEventListener('click', function () {
       if (forceList.includes(`${courseName} ${section}`)) {
-        forceList.splice(courses.indexOf(`${courseName} ${section}`), 1);
+        forceList.splice(forceList.indexOf(`${courseName} ${section}`), 1);
         forceButton.classList.remove('forced');
       } else {
         forceList.push(`${courseName} ${section}`);
