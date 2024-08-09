@@ -50,8 +50,8 @@ Description=Schedule Optimizer Go Server
 After=network.target
 
 [Service]
-ExecStart=/usr/local/go/bin/go run /var/www/schedule-optimizer/server.go
-WorkingDirectory=/var/www/schedule-optimizer
+ExecStart=/usr/local/go/bin/go run /var/www/schedule-optimizer/backend/server.go
+WorkingDirectory=/var/www/schedule-optimizer/backend
 User=www-data
 Restart=always
 RestartSec=10
