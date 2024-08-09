@@ -7,6 +7,7 @@ import (
 	"os"
 	"path/filepath"
 	"strconv"
+	"sync"
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
@@ -23,6 +24,12 @@ const (
 	Subject int = iota
 	Terms
 )
+
+type Result struct {
+	Term  string
+	Count int
+	Error error
+}
 
 // Gets the subjects/terms from url
 func getSelectListFromURL(option string) ([]string, error) {
@@ -140,12 +147,10 @@ func filterTerms(terms []string) ([]string, string, error) {
 
 // Returns a list of all courses found for this term
 func getCoursesFromURL(subjects []string, term, year string) ([]models.Course, error) {
-	// About 1500 courses per term, 2000 to be efficient
+	// About 1500 courses per term
 	var courseList []models.Course
 
-	fmt.Printf("\nProcessing %s: ", term)
 	for _, subject := range subjects {
-		fmt.Printf("%v ", subject)
 		newCourses, err := getSubjectFromURL(subject, term, year)
 		if err != nil {
 			return nil, fmt.Errorf("failed to get courses: %w", err)
@@ -154,59 +159,68 @@ func getCoursesFromURL(subjects []string, term, year string) ([]models.Course, e
 			courseList = append(courseList, newCourses...)
 		}
 	}
-	fmt.Printf("\n")
 
 	return courseList, nil
 }
 
 // Gets the courses for the given term, returns the total courses found
-func getCourses(subjects []string, term, year string) (int, error) {
+func getCourses(subjects []string, term, year string) Result {
 	termFile := filepath.Join(utils.DataDirectory, term+".pb")
 
 	// Check if term protobuf already exists
 	if _, err := os.Stat(termFile); err == nil {
-		// File exists, check its Pulltimestamp
 		existingProto, err := utils.LoadCoursesProtobuf(termFile)
 		if err != nil {
-			return 0, fmt.Errorf("failed to load existing protobuf: %w", err)
+			return Result{
+				Term: term,
+				Error: fmt.Errorf("failed to load existing protobuf: %w", err),
+			}
 		}
 
 		pullTime := existingProto.PullTimestamp.AsTime()
 		if time.Since(pullTime) < utils.MAX_COURSE_WAIT*24*time.Hour {
-			// Use existing data
 			courseList := protoutils.ProtoToCourses(existingProto)
-			// if term == "202520" { // Helper print function
-			// 	printCourseList(courseList)
-			// }
-			return len(courseList), nil
+			return Result{
+				Term: term,
+				Count: len(courseList),
+			}
 		}
 	}
 
-	// Fetch new data, above didn't work out
+	// Fetch new data
 	courseList, err := getCoursesFromURL(subjects, term, year)
 	if err != nil {
-		return 0, fmt.Errorf("failed to get courses from url: %w", err)
+		return Result{Term: term, Error: fmt.Errorf("failed to get courses from url: %w", err)}
 	}
 
 	start := time.Now()
 	err = gpa.GenerateGPA(&courseList)
 	if err != nil {
-		return 0, fmt.Errorf("failed to generate gpa for course list: %w", err)
+		return Result{
+			Term: term,
+			Error: fmt.Errorf("failed to generate gpa for course list: %w", err),
+		}
 	}
 	duration := time.Since(start)
-	fmt.Printf("GenerateGPA took %v to execute\n", duration)
+	fmt.Printf("GenerateGPA for %s took %v to execute\n", term, duration)
 
 	protobuf := protoutils.CoursesToProto(courseList)
 	protobuf.PullTimestamp = timestamppb.Now()
 
 	// Save the protobuf
 	if err := utils.SaveCoursesProtobuf(protobuf, termFile); err != nil {
-		return 0, fmt.Errorf("failed to save protobuf for term %s: %w", term, err)
+		return Result{
+			Term: term, 
+			Error: fmt.Errorf("failed to save protobuf for term %s: %w", term, err),
+		}
 	}
 
 	fmt.Printf("%v: Found and saved %d courses to %v\n", term, len(courseList), termFile)
 
-	return len(courseList), nil
+	return Result{
+		Term: term, 
+		Count: len(courseList),
+	}
 }
 
 // Updates all courses in Term protobufs if deemed necessary
@@ -235,15 +249,30 @@ func UpdateCourses() error {
 	fmt.Printf("Found %d subjects\n", len(subjects))
 	fmt.Printf("Current terms: %v\n", terms)
 
-	count := 0
+	var wg sync.WaitGroup
+	results := make(chan Result, len(terms))
+
 	for _, term := range terms {
-		found, err := getCourses(subjects, term, year)
-		if err != nil {
-			return fmt.Errorf("failed to get courses: %w", err)
-		}
-		count += found
+		wg.Add(1)
+		go func(t string) {
+			defer wg.Done()
+			results <- getCourses(subjects, t, year)
+		}(term)
 	}
 
-	fmt.Printf("Found %d total courses\n", count)
+	go func() {
+		wg.Wait()
+		close(results)
+	}()
+
+	totalCount := 0
+	for result := range results {
+		if result.Error != nil {
+			return result.Error
+		}
+		totalCount += result.Count
+	}
+
+	fmt.Printf("Found %d total courses\n", totalCount)
 	return nil
 }
