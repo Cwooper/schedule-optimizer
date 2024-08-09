@@ -25,6 +25,9 @@ const (
 	MAX_TERM_WAIT    = 10 // Days
 	MAX_COURSE_WAIT  = 1  // Days
 
+	UPDATE_HOUR = "3" // 0-23 hour to update course data, your time zone (e.g. 18 is 6pm)
+	UPDATE_MIN  = "0" // 0-59 minute to update your course data, (e.g. 0 is on the hour)
+
 	// One Schedule is about 2KB. 2000 Schedules is 4MB.
 	MAX_OUTPUT_SCHEDULES = 2000
 	SERVER_TIMEOUT_SECS  = 2 // Server will timeout after x seconds
