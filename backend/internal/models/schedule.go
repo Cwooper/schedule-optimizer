@@ -75,7 +75,6 @@ func (s *Schedule) weigh() {
 
 // ----------------------- Weighing Logic -----------------------
 
-// TODO untested
 func weighGPA(s *Schedule) float64 {
 	totalGPA := 0.0
 	numCourses := 0
@@ -95,7 +94,6 @@ func weighGPA(s *Schedule) float64 {
 	return utils.Round(gpaScore)
 }
 
-// TODO untested
 func weighGap(s *Schedule) float64 {
 	daySchedules := initializeDaySchedules()
 	updateDaySchedules(s, daySchedules)
@@ -103,7 +101,6 @@ func weighGap(s *Schedule) float64 {
 	return utils.Round(averageGapScore)
 }
 
-// TODO untested
 func weighStart(s *Schedule) float64 {
 	startTime, _ := findStartEndTimes(s) // Already converted to mins
 	if startTime == -1 {
@@ -117,7 +114,6 @@ func weighStart(s *Schedule) float64 {
 	}
 }
 
-// TODO untested
 func weighEnd(s *Schedule) float64 {
 	_, endTime := findStartEndTimes(s) // Already converted to mins
 	if endTime == -1 {
