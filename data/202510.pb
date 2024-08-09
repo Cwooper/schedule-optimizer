@@ -80,7 +80,7 @@ H
 Z	OV MJ S/UbFTFjKMajors Only. ACCT 341; minimum 2.75 GPA in 300/400-level accounting courses
 ¶
 ACCT 491Accounting Internship2 TO 4 “a*
-TBD"Smith, Steve*PH OFC81Ää]+~#@8HZOV PQbFTFj@ACCT 342 and instructor permission; Accounting, BS major status.
+TBD"Smith, Steve*PH OFC81±;¥˝=@8HZOV PQbFTFj@ACCT 342 and instructor permission; Accounting, BS major status.
 Ï
 AHE 501Understanding Ed. Research4 Éb*+
 S∞	Ú"Thibou, Shevell Shardene*AW 203*
@@ -209,8 +209,7 @@ z
 Ä
 ANTH 365Latin American Perspectives5 Ωk*
 TR¯
-é"Fisher, Jae*TBA1ıæ‘ò}à
-@82H2ZMJ PQbACGM FTFjANTH 201 or HNRS 203.
+é"Fisher, Jae*TBA1l¡l¡V@82H2ZMJ PQbACGM FTFjANTH 201 or HNRS 203.
 è
 ANTH 366Perspectives on Africa5 Úe*
 N/A"Staff*ONLINE ASNC01ìÔ»∞A‹
@@ -276,8 +275,7 @@ ZOV JR SR MJ PQbFTFj`ANTH 301 and junior status or instructor permission. Must
 TBD"Ek Romero, Jerald David*AH OFC88HZSR S/UbFTFjSenior status in anthropology.
 |
 ANTH 496Portfolio Assembly1 ∏m*
-TBD"Fisher, Jae*AH OFC81ıæ‘ò}à
-@8HZSR S/UbFTFjSenior status in anthropology.
+TBD"Fisher, Jae*AH OFC81l¡l¡V@8HZSR S/UbFTFjSenior status in anthropology.
 Ä
 ANTH 496Portfolio Assembly1 πm* 
 TBD"Koetje, Todd A.*AH OFC81éTCë	@8HZSR S/UbFTFjSenior status in anthropology.
@@ -330,7 +328,7 @@ H
 ZOV GR GR PB PM MJ S/UbFTFj6formal advancement to candidacy for MA in Anthropology
 p
 ANTH 699Continuous Enrollment2 ™O*"
-TBD"Patrick, David L.*AH OFC81qÀØÍ˝-@8
+TBD"Patrick, David L.*AH OFC81uÂ…:W@8
 H
 ZOV GR GR PB PM MJbFTF
 m
@@ -907,7 +905,7 @@ ZOV PQbFTF WP3jBIOL 321
 ~
 BIOL 446Immunobiology4 ≤m*'
 TR¯
-é"Snyder, Annelise Grace*TBA1¯Jl#ò@8HZPQbFTFjBIOL 321; BIOL 323 or BIOL 328
+é"Snyder, Annelise Grace*TBA1|{{{{{@8HZPQbFTFjBIOL 321; BIOL 323 or BIOL 328
 é
 BIOL 451Plant Development Biology3 ⁄d*$
 TR¯
@@ -1031,12 +1029,12 @@ q
 TBD"Strom, Suzanne L.*BI OFC81ñ{aπß@8HZOV GR GR PB PM S/UbFTFjPermission of thesis advisor.
 m
 BIOL 699Continuous Enrollment2 ‹P*"
-TBD"Patrick, David L.*BI OFC81qÀØÍ˝-@8
+TBD"Patrick, David L.*BI OFC81_^ÁÏ»≤@8
 H
 ZPR GR GR PB PMbFTF
 m
 BIOL 699Continuous Enrollment2 ìY*"
-TBD"Patrick, David L.*BI OFC81qÀØÍ˝-@8
+TBD"Patrick, David L.*BI OFC81_^ÁÏ»≤@8
 H
 ZPR GR GR PB PMbFTF
 r
@@ -1397,7 +1395,7 @@ H
 ZOV GR GR PB PMbFTF
 Ç
 CHIN 102First-Year Chinese5 ‰h*
-MWFÍ‚	"Liu, Claudia*TBA1µçÚÖ”	@8HRFlat Fee $5.00ZPQbFTFjCHIN 101 or equivalent
+MWFÍ‚	"Liu, Claudia*TBA1Å˛ ™éK@8HRFlat Fee $5.00ZPQbFTFjCHIN 101 or equivalent
 Ç
 CHIN 102First-Year Chinese5 Âh*
 MWFî
@@ -1408,8 +1406,7 @@ ZOV GR GR PB PMbFTF
 å"Su, Wenling*TBA1B©v‹B	@8HRFlat Fee $5.00ZPQbACGM FTFjCHIN 201 or equivalent
 l
 CHIN 280Chin Character/Calligraphy5 Áh*
-MWFË‡"Liu, Claudia*TBA1°0VÙ
-@8HZPQbFTFjCHIN 101
+MWFË‡"Liu, Claudia*TBA1µçÚÖ”	@8HZPQbFTFjCHIN 101
 h
 CHIN 302Third-Year Chinese5 Ëh*
 MWFÍ‚	"Su, Wenling*TBA1B©v‹B	@8HZPQbACGM FTFjCHIN 301
@@ -1550,7 +1547,7 @@ RFlat Fee $18.56ZGR GR PB PM MJbFTFjPermission of instructor.
 TBD"Cooper, Megan B.*AI OFC81      @8HZOV GR PB PM MJ S/U PQbFTFjCSD 564 and CSD 568.
 Ï
 CSD 598Intern in Speech/Lang Path/Aud1 TO 4 óR*
-TBD"Burgess, Dawn*AI OFC81p‰Fn‰F@8HZGR GR PB PM MJ S/UbFTFjÔSecond-year graduate status; completion of plan of study; instructor permission; B in last clinic and a minimum of 200 clinic hours; enroll in clinic the quarter prior to internship and have all administrative and clinical records current.
+TBD"Burgess, Dawn*AI OFC81ù¥V≈À¯@8HZGR GR PB PM MJ S/UbFTFjÔSecond-year graduate status; completion of plan of study; instructor permission; B in last clinic and a minimum of 200 clinic hours; enroll in clinic the quarter prior to internship and have all administrative and clinical records current.
 P
 CSD 690Thesis1 TO 9 óO*
 TBD"Staff*AI OFC88
@@ -1908,10 +1905,10 @@ v
 MTWF∞	‚	"Sharmin, Moushumi*TBA1ÿ)˜Ò%@8#H#RPer/Cr $20.25ZMJ PQbFTF WP1jCSCI 241
 Ö
 CSCI 347Computer Systems II4 ›[*
-MTWFÑ∂"Nelson, Phil*TBA1Úã%øXÚ@8#H#RPer/Cr $20.25ZMJ PQbFTFjCSCI 247 and CSCI 241
+MTWFÑ∂"Nelson, Phil*TBA1˙Ågn @8#H#RPer/Cr $20.25ZMJ PQbFTFjCSCI 247 and CSCI 241
 Ö
 CSCI 347Computer Systems II4 Ø]*
-MTWFÃ˛"Nelson, Phil*TBA1Úã%øXÚ@8#H#RPer/Cr $20.25ZMJ PQbFTFjCSCI 247 and CSCI 241
+MTWFÃ˛"Nelson, Phil*TBA1˙Ågn @8#H#RPer/Cr $20.25ZMJ PQbFTFjCSCI 247 and CSCI 241
 £
 CSCI 348Web Development Fundamentals4 ∫e*'
 TR∞	º
@@ -2081,7 +2078,8 @@ z
 DISA 350Topics in Critical Disability5 Íd*
 TR∞	∆
 "
-Kuntz, Pam*TBA1«∑Tªj›@8HZPQbFTFjENG 101 or equivalent.
+Kuntz, Pam*TBA1„¯Ô
+@8HZPQbFTFjENG 101 or equivalent.
 á
 DNC 112Ballet I - Level 22 Ôi*)
 MW∞	®
@@ -2166,11 +2164,11 @@ RPer/Cr $46.69ZOV MJbFTFj'Major status and instructor permission.
 Ê
 DSCI 205Business Statistics4 õP*%
 Mæ∂"Zhang, George*ONLINE SYNC*
-WFæ∂"Su, Sue*TBA1Í≠√p†@8ZHZZPQbHYBDjgMATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score.
+WFæ∂"Su, Sue*TBA1≠i	Í›§@8ZHZZPQbHYBDjgMATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score.
 Ê
 DSCI 205Business Statistics4 úP*%
 MË‡"Zhang, George*ONLINE SYNC*
-WFË‡"Su, Sue*TBA1Í≠√p†@8ZHZZPQbHYBDjgMATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score.
+WFË‡"Su, Sue*TBA1≠i	Í›§@8ZHZZPQbHYBDjgMATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score.
 ¥
 DSCI 305Applied Bus Stats & Analytics4 ÒP*
 MWñé"Kim, Ilhyung*TBA*
@@ -2513,11 +2511,11 @@ School Law4 ≤S*3
 §
 EDAD 552Plan for Curriculum Administ4 °U*(
 T§Ç"
-Bruce, Tim*Distance Learning1éO_[,@8HRPer/Cr $438.00ZGR GR PB PM MJbDLEX OL SYNCjGraduate status
+Bruce, Tim*Distance Learning1ªªªªªª@8HRPer/Cr $438.00ZGR GR PB PM MJbDLEX OL SYNCjGraduate status
 Ü
 EDAD 552Plan for Curriculum Administ4 ƒW*"
 T§Ç"
-Bruce, Tim*ONLINE SYNC1éO_[,@8HZGR GR PB PMbOL SYNCjGraduate status
+Bruce, Tim*ONLINE SYNC1ªªªªªª@8HZGR GR PB PMbOL SYNCjGraduate status
 µ
 EDAD 592Field Exp:Admin for Principal4 °Q*&
 TBD"Larsen, Donald Edward*MH OFC8*
@@ -2531,7 +2529,7 @@ Bellingham88HRPer/Cr $438.00ZGR GR PB PM MJ S/UbDLEX FTFjPermission of in
 œ
 EDAD 644Public Policy Formulation&Prac4 çj*+
 TBD"
-Bruce, Tim*Everett EESP Extention81MØ@scÿ	@8HRPer/Cr $438.00ZGR GR PB PM MJbEVEX OL SYNCj5Master's degree; admission to superintendent program.
+Bruce, Tim*Everett EESP Extention81ªªªªªª@8HRPer/Cr $438.00ZGR GR PB PM MJbEVEX OL SYNCj5Master's degree; admission to superintendent program.
 ®
 EDAD 654Quantitative Research5 Í_*-
 TBD"Bruner, Carl*Everett EESP Extention88HRPer/Cr $438.00ZGR PB PM MJbEVEX OL SYNCj!Admission to Doctor of Education.
@@ -2757,8 +2755,7 @@ h
 "Wang, Xi*AH 2191^CyÂ5@8HZPQbFTFj!PLSC 250 or MGMT 271 or ENVS 305.
 z
 ENRG 345Energy in the Global South5  d*
-TRË˛"Fisher, Jae*TBA1ıæ‘ò}à
-@8HZMJ PQbFTFjANTH 201 or ENRG 340.
+TRË˛"Fisher, Jae*TBA1l¡l¡V@8HZMJ PQbFTFjANTH 201 or ENRG 340.
 s
 ENRG 354Energy in American History5 Çl* 
 TRË˛"Seltz, Jennifer*TBA1M0Sö—ˇ@8HbFTFjSophomore status.
@@ -3345,14 +3342,14 @@ Bunn, Andy*TBA*
 Bunn, Andy*TBA*
 Rî
 é"
-Bunn, Andy*CF 0241B¯m›õÔ@8HZMJ PQbFTFjDESCI 325 or BIOL 325; ESCI 340 or BIOL 340 or instructor permission.
+Bunn, Andy*CF 0241Ÿé&˜Uò@8HZMJ PQbFTFjDESCI 325 or BIOL 325; ESCI 340 or BIOL 340 or instructor permission.
 |
 ESCI 432Topics in Marine Ecology4 üU* 
 MW¿÷"Shull, David H.*TBA1wÏÿ±c«@8HZMJ PQbFTFjESCI 321 or MACS 303.
 î
 ESCI 435Landscape Ecology4 –c*
 TRË˛"
-Bunn, Andy*TBA1B¯m›õÔ@8HZMJ PQbFTFj9ESCI 325 or BIOL 325; ESCI 340 or BIOL 340; or equivalent
+Bunn, Andy*TBA1Ÿé&˜Uò@8HZMJ PQbFTFj9ESCI 325 or BIOL 325; ESCI 340 or BIOL 340; or equivalent
 å
 ESCI 436Invasive Species3 §l*!
 TR¯
@@ -3407,7 +3404,7 @@ c
 Y
 	ESCI 498ASenior Thesis1 TO 15 √R*
 TBD"
-Bunn, Andy*ES OFC81B¯m›õÔ@8HZOVbFTF
+Bunn, Andy*ES OFC81Ÿé&˜Uò@8HZOVbFTF
 ^
 	ESCI 498ASenior Thesis1 TO 15 ÇV* 
 TBD"Shull, David H.*ES OFC81wÏÿ±c«@8HZOVbFTF
@@ -3582,7 +3579,7 @@ Internship1 TO 15 ô`*!
 Z
 	ESCI 498CSenior Project1 TO 15 ˇQ*
 TBD"
-Bunn, Andy*ES OFC81B¯m›õÔ@8HZOVbFTF
+Bunn, Andy*ES OFC81Ÿé&˜Uò@8HZOVbFTF
 d
 	ESCI 498CSenior Project1 TO 15 ¿R*%
 TBD"Helfield, James Mark*ES OFC81€4†M⁄@8HZOVbFTF
@@ -3656,7 +3653,7 @@ Z
 ö
 ESCI 535Advanced Landscape Ecology4 —c*
 TRË˛"
-Bunn, Andy*TBA1B¯m›õÔ@8
+Bunn, Andy*TBA1Ÿé&˜Uò@8
 H
 ZGR GR PB PM PQbFTFj-ESCI 325; ESCI 340 or BIOL 340 or equivalent.
 d
@@ -3726,7 +3723,7 @@ ZOV GR GR PB PM S/UbFTFj$thesis advisory committee permission
 ê
 ESCI 690Thesis Research1 TO 12 ƒR*
 TBD"
-Bunn, Andy*ES OFC81B¯m›õÔ@8HZOV GR GR PB PM S/UbFTFj$thesis advisory committee permission
+Bunn, Andy*ES OFC81Ÿé&˜Uò@8HZOV GR GR PB PM S/UbFTFj$thesis advisory committee permission
 í
 ESCI 690Thesis Research1 TO 12 ∂U*
 TBD"Love, Brooke*ES OFC81®ı+j˝
@@ -3773,7 +3770,7 @@ Bunn, Andy*ES OFC81B¯m›õÔ@8HZOV GR GR PB PM S/UbFTFj$thesis advisory comm
 @8HZOV GR GR PB PM S/UbFTFj$thesis advisory committee permission
 a
 ESCI 699Continuous Enrollment2 ÀP*"
-TBD"Patrick, David L.*ES OFC81uÂ…:W@8
+TBD"Patrick, David L.*ES OFC81iè®%‹ï@8
 H
 ZPRbFTF
 Ì
@@ -3819,18 +3816,18 @@ d
 MW¯
 é"Myers, Gene*TBA*
 F¯
-™"Myers, Gene*TBA15˝P”@8HZMJbFTFj;College of the Environment majors or instructor permission.
+™"Myers, Gene*TBA1≈≠ïËÙé@8HZMJbFTFj;College of the Environment majors or instructor permission.
 Ω
 ENVS 303Intro ENVS I:Hum Ecol & Ethic5 ‰j*
 MW¯
 é"Myers, Gene*TBA*
-F‹é"Myers, Gene*TBA15˝P”@8HZMJbFTFj;College of the Environment majors or instructor permission.
+F‹é"Myers, Gene*TBA1≈≠ïËÙé@8HZMJbFTFj;College of the Environment majors or instructor permission.
 Ω
 ENVS 303Intro ENVS I:Hum Ecol & Ethic5 Âj*
 MW¯
 é"Myers, Gene*TBA*
 F¯
-™"Myers, Gene*TBA15˝P”@8HZMJbFTFj;College of the Environment majors or instructor permission.
+™"Myers, Gene*TBA1≈≠ïËÙé@8HZMJbFTFj;College of the Environment majors or instructor permission.
 ∑
 ENVS 305Intro ENVS II: Hist and Pol5 Êj*%
 MW¯
@@ -4023,7 +4020,7 @@ y
 „
 ENVS 690Thesis1 TO 12 öV*
 TBD"
-Bach, Andy*AH OFC81áqø.©|@8HZOV GR GR PM S/UbFTFjÇAdvancement to candidacy for the Master's degree and appointment of thesis advisor and thesis committee. Permission of instructor.
+Bach, Andy*AH OFC81ÂFn‰Fn@8HZOV GR GR PM S/UbFTFjÇAdvancement to candidacy for the Master's degree and appointment of thesis advisor and thesis committee. Permission of instructor.
 Ï
 ENVS 690Thesis1 TO 12 úV*$
 TBD"Darby, Kate Jenifer*AH OFC812çY˘≤ú	@8HZOV GR GR PM S/UbFTFjÇAdvancement to candidacy for the Master's degree and appointment of thesis advisor and thesis committee. Permission of instructor.
@@ -4086,7 +4083,7 @@ h
 F¢ö"Di Nitto, Kate*FA 300A8-H-RFlat Fee $3.00ZFA S/UbFTFjadmission to Fairhaven College
 ñ
 	FAIR 201ACritical & Reflective Inquiry5 åk*
-TR‹∏"	Tag, Stan*FA 3381UUUUUï@8HRFlat Fee $7.00ZS/UbFTFjAdmission to Fairhaven College
+TR‹∏"	Tag, Stan*FA 3381ÕÃÃÃÃL@8HRFlat Fee $7.00ZS/UbFTFjAdmission to Fairhaven College
 ï
 	FAIR 201ACritical & Reflective Inquiry5 Ÿk*
 MWŒ	™"Lara, JR*FA 33817r#7r#@8HRFlat Fee $7.00ZS/UbFTFjAdmission to Fairhaven College
@@ -4152,7 +4149,7 @@ j
 TR‹Ú"Pierce, Clayton Todd*FA OFC8HZ	FA MJ S/UbFTFj#FAIR 304A or instructor permission.
 ê
 	FAIR 316XArtful Sentences5 òk*
-TR¢˛"	Tag, Stan*FA 3381UUUUUï@8HZS/U PQbFTFj2FAIR 201A or concurrent; or instructor permission.
+TR¢˛"	Tag, Stan*FA 3381ÕÃÃÃÃL@8HZS/U PQbFTFj2FAIR 201A or concurrent; or instructor permission.
 ë
 	FAIR 334JGenocide5 ôk*+
 MW∞	å"Akinrinade, Babafemi A.*FA OFC1√⁄7¨}@8HZS/UbFTFj0FAIR 203A or FAIR 334C or instructor permission.
@@ -4186,7 +4183,7 @@ s
 WFÑö"Nichols, Scot*FA 3078HRFlat Fee $15.47ZS/UbFTFj	FAIR 201A
 s
 	FAIR 353YSongwriting Workshop4 ûk*#
-TR˙∏"Russell, Caskey*FA 3401»~Ï«~Ï@8HRFlat Fee $6.89ZS/UbFTF
+TR˙∏"Russell, Caskey*FA 3401ÿ¯|çœ◊@8HRFlat Fee $6.89ZS/UbFTF
 Ω
 	FAIR 354VScriptwriting Workshop I4 ˙l*#
 MWŒ	™"Simon, Richard*FA 300B1N⁄⁄≈Á@8HZFA S/UbFTFjQprevious course work or experience with creative writing or instructor permission
@@ -4207,9 +4204,7 @@ FAIR 270H.
 ™"Wallace, Erik Takuichi*FC 101F1,…Úó,@8HRFlat Fee $165.00ZOV FA MJ S/UbFTFjInstructor permission.
 “
 	FAIR 393BRights,Liberties,Justice in US5 ¢k*/
-TR‹∏"Johnson, Claudia Colindres*FA 300B1
-Êã*∑
-@8HRFlat Fee $7.74ZS/UbFTFjGUpper-division courses in social science or history highly recommended.
+TR‹∏"Johnson, Claudia Colindres*FA 300B1&÷|≥h@8HRFlat Fee $7.74ZS/UbFTFjGUpper-division courses in social science or history highly recommended.
 ß
 	FAIR 403AAdvanced Seminar4 £k*&
 TRî
@@ -4219,15 +4214,14 @@ FAIR 270H.
 MW‹Ú"O Murchu, Niall F.*FA 3078HRFlat Fee $4.00Z	OV FA S/UbFTF WP3j2Required by all Fairhaven students. Senior status.
 ∏
 	FAIR 412EAdvanced Topics in Law5 ®k*.
-MW‹∏"Johnson, Claudia Colindres*FA 3401
-Êã*∑
-@8HRFlat Fee $34.00ZS/U PQbFTFj2FAIR 311B or PLSC 311 or permission of instructor.
+MW‹∏"Johnson, Claudia Colindres*FA 3401ìNÕÉ‹ı	@8HRFlat Fee $34.00ZS/U PQbFTFj2FAIR 311B or PLSC 311 or permission of instructor.
 Ä
 	FAIR 414DCommunityEngage4 ¨k*%
 MW‹Ú"Calderon, Dolores*FA 3141µÛ«@8HZFA MJ S/U PQbFTFjFAIR 314E and ESJ 411
 ¥
 	FAIR 422KAdvanced Legal Writing5 ±k**
-TR∞	å"Anderson, Maren Kristi*FA 3141+sk¬÷e @8HRFlat Fee $11.06ZS/U PQbFTFj2FAIR 311B and FAIR 322K; or instructor permission.
+TR∞	å"Anderson, Maren Kristi*FA 3141‚zÆG·
+@8HRFlat Fee $11.06ZS/U PQbFTFj2FAIR 311B and FAIR 322K; or instructor permission.
 Y
 FIN 215Personal Finance4 …W* 
 MW¯
@@ -4484,7 +4478,7 @@ Mineralogy4 ÅS*%
 ø
 GEOL 310Geomorphology w/lab5 §T*
 T∞	™"Clark, Doug*ES 213*
-R∞	é"Staff*ES 2131Ã˝Êª¯¿@8HRFlat Fee $80.00ZPQbFTF WP2j3GEOL 211 or GEOL 211A; GEOL 213; MATH 114 or higher
+R∞	é"Staff*ES 2131[mGì˚*@8HRFlat Fee $80.00ZPQbFTF WP2j3GEOL 211 or GEOL 211A; GEOL 213; MATH 114 or higher
 Ÿ
 GEOL 314Engineering Geology4 ”`*)
 MF¯
@@ -4574,7 +4568,7 @@ c
 GEOL 595Intro to Graduate Research3 ﬂN*
 M‹Ú"Clark, Doug*ES 213*
 T¿∏"Staff*TBA*
-F∞	‚	"Staff*ES 2131=ôay˜Õ@8HRFlat Fee $30.00ZGR GR PB PM MJ S/UbFTFj"Graduate status in the department.
+F∞	‚	"Staff*ES 2131Ã˝Êª¯¿@8HRFlat Fee $30.00ZGR GR PB PM MJ S/UbFTFj"Graduate status in the department.
 ò
 	GEOL 597V	Magmatism4 ‚l*&
 MW∞	∆
@@ -4638,7 +4632,7 @@ a
 TBD"Saenger, Casey*ES OFC81¨Rd˙uê	@8HZOV GR GR PB PMbFTF
 [
 GEOL 690Thesis2 TO 15 Û^*
-TBD"Sas, Mai*ES OFC81≠ÈöÆÈö
+TBD"Sas, Mai*ES OFC81™çºÛ∑
 @8HZOV GR GR PB PMbFTF
 ^
 GEOL 690Thesis2 TO 15 Ù^*
@@ -4689,7 +4683,7 @@ m
 é"Lippman, Leah Niobe*TBA1ä˘ªfÀ@8HZPQbFTFj"GLBL 201 or instructor permission.
 É
 GRAD 699Continuous Enrollment1 ΩY*&
-TBD"Barr, Michael Charles*OM OFC81π≤Ü—~@8dHdRFlat Fee $50.00ZOV GR PB PM S/UbFTF
+TBD"Barr, Michael Charles*OM OFC81gffff¶@8dHdRFlat Fee $50.00ZOV GR PB PM S/UbFTF
 o
 GREK 102Elementary Greek5 ∏i*(
 MWFæ∂"Krause, Miller Stanley*TBA1fF(
@@ -4884,7 +4878,7 @@ H
 ZOV GR GR PB PMbFTFjGraduate status.
 l
 HIST 699Continous Enrollment2 ™d*"
-TBD"Patrick, David L.*BH OFC81_^ÁÏ»≤@8
+TBD"Patrick, David L.*BH OFC81ë´u·	π@8
 H
 ZOV GR GR PB PMbFTF
 
@@ -5266,7 +5260,7 @@ Lim, Eunah*TBA1p±&¡Œ
 Ñ
 IBUS 470International Business Ops4 âU*
 MW∞	∆
-"Kim, Jongwook*TBA1ŸÇ-ÿÇ≠
+"Kim, Jongwook*TBA1œ(⁄j
 @8HZMJ PQb
 CF FTF WP1jMajors only; IBUS 370.
 Ø
@@ -5348,7 +5342,8 @@ g]‰
 JOUR 207Newswriting4 âS*
 TR∞	∆
 "
-Shaw, Jeff*CF 1611ÔÅ¢≠@8HRFlat Fee $3.78bBCOM FTFj%basic word processing skills required
+Shaw, Jeff*CF 1611ë¬ı(\è
+@8HRFlat Fee $3.78bBCOM FTFj%basic word processing skills required
 ó
 JOUR 207Newswriting4 äS**
 MW∞	∆
@@ -5397,7 +5392,7 @@ RFlat Fee $10.64ZJR SR PQbFTF WP3j8Junior status; JOUR 207; JOUR 214; JOUR 30
 `
 JOUR 350Mass Media Law5 üm*
 TR∞	∆
-"Watt, Peggy*TBA1£Ì4@8HbFTFjJunior status.
+"Watt, Peggy*TBA1éÏÛqR@8HbFTFjJunior status.
 r
 JOUR 351Mass Media Ethics4 óS**
 MWÑö"Keller, Jennifer Margaret*TBA1B%›(f@8HZMJ PQbFTFjJOUR 207
@@ -5434,13 +5429,13 @@ ZOV MJ PQbFTFjYJOUR 207; JOUR 307 or JOUR 380; one newspaper staff course, and
 Î
 JOUR 421Klipsun Staff4 ìS*
 MW¯
-é"Watt, Peggy*TBA1£Ì4@8HRFlat Fee $10.64ZSR MJ PQbFTF WP3j{Senior status; JOUR 207; JOUR 307 or JOUR 380; and one newspaper staff course. May not be taken concurrently with JOUR 404.
+é"Watt, Peggy*TBA1éÏÛqR@8HRFlat Fee $10.64ZSR MJ PQbFTF WP3j{Senior status; JOUR 207; JOUR 307 or JOUR 380; and one newspaper staff course. May not be taken concurrently with JOUR 404.
 ⁄
 JOUR 422Klipsun Editorship5 îS*
 MW¯
 é"Watt, Peggy*TBA*
 F¯
-é"Watt, Peggy*CF OFC1£Ì4@8HZOV MJ PQbFTFjZJOUR 207; JOUR 307 or JOUR 380; one periodical staff course, and permission of instructor.
+é"Watt, Peggy*CF OFC1éÏÛqR@8HZOV MJ PQbFTFjZJOUR 207; JOUR 307 or JOUR 380; one periodical staff course, and permission of instructor.
 ä
 JOUR 430Field Internship6 öS* 
 TBD"Harris, John M.*CF OFC81õÓ`ø’∆@8
@@ -5806,7 +5801,7 @@ ZOV GR GR PB PM MJ S/U PQbFTFjBKIN 520, topic approval form submitted, and ins
 TBD"Robey, Nathan*CV OFC81‚8é„8é@8HZOV GR GR PB PM MJ S/U PQbFTFjBKIN 520, topic approval form submitted, and instructor permission.
 j
 KIN 699Continuous Enrollment2 ∆R*"
-TBD"Patrick, David L.*CV OFC81iè®%‹ï@8HZOV GR MJ S/UbFTF
+TBD"Patrick, David L.*CV OFC81_^ÁÏ»≤@8HZOV GR MJ S/UbFTF
 q
 LAT 102Elementary Latin5 æi*,
 MWFË‡"Engelsing, Eduardo Marcant*TBA1∫©!‘@8HZOV PQbFTFjLAT 101
@@ -5879,7 +5874,7 @@ W
 TBD"Staff*WL OFC88HZPRbFTF
 n
 LIBR 341Academic Literacies Practicum1 Ög*#
-TBD"Stephan, Elizabeth*WL OFC81ŸËl"±-@8HZOV S/UbFTF
+TBD"Stephan, Elizabeth*WL OFC81›^Œ¡≤@8HZOV S/UbFTF
 N
 LIBR 400Independent Study1 TO 15 Ñm*
 TBD"Staff*WL OFC88HZPRbFTF
@@ -5896,7 +5891,7 @@ b
 _
 LING 204Language and Society5 ÊW*!
 TR∞	∆
-"Ng, Sara Blalock*TBA1l±ç~S@8KHKbFTF SSC
+"Ng, Sara Blalock*TBA1Å˛ ™éK@8KHKbFTF SSC
 c
 LING 207Language and Brain5 £^*'
 TRË˛"Jantzen, McNeel Gordon*TBA1ñT>å˚u@8KHKbFTF SCI
@@ -5920,7 +5915,7 @@ w
 MWFÍ‚	"Denham, Kristin E.*TBA1`¶1 @8HZPQbFTFj;LING 201 or ANTH 247 or HNRS 217; or instructor permission.
 j
 LING 402Topics in Linguistics5 Ém*!
-TRË˛"Ng, Sara Blalock*TBA1sgZ≥Í@8HZPQbFTFjLING 310
+TRË˛"Ng, Sara Blalock*TBA1}˙⁄‚`A@8HZPQbFTFjLING 310
 z
 LING 415Neurophysiology of Language5 ¥c*'
 TR¯
@@ -5966,7 +5961,7 @@ Z
 é"Walker, Lucas Caleb*TBA1âøVeör@8HZPQbFTF WP3jENG 101 or equivalent
 Œ
 MGMT 359Busi Sustain Prin and Pract4 ôl*$
-TRË˛"Young, Scott Thomas*TBA1&ü€∞£@8HZMJbFTF WP1j_College of the Environment major or Business and Sustainability major or instructor permission.
+TRË˛"Young, Scott Thomas*TBA1-∂Ò”b@8HZMJbFTF WP1j_College of the Environment major or Business and Sustainability major or instructor permission.
 Å
 MGMT 382Business and Its Environment4 ãU* 
 TR∞	∆
@@ -6019,7 +6014,7 @@ ZMJ PQbFTF PBEXjKMajors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 32
 "Nordin, David*TBA1	˘Å0!?@8(H(ZMJ PQbFTFjKMajors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321.
 ¨
 MGMT 495Strategic Management4 ¶Z*
-MWË˛"Kim, Jongwook*TBA1pá—≠@@8(H(ZMJ PQbFTFjKMajors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321.
+MWË˛"Kim, Jongwook*TBA1ﬁó«V@8(H(ZMJ PQbFTFjKMajors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321.
 ª
 MIS 220Intro:Busnss Comptr Syst w/lab2 àO*$
 T¯
@@ -6166,7 +6161,7 @@ RPer/Cr $37.75ZPRbFTF
 ¥
 MACS 111Curr. Topics Marine Science I1 ˙]* 
 M‹é"Cooper, W. James*TBA*
-M‹é"Olson, Brady*TBA1)4dˆ`@8HbFTFj1Admission to the Marine Science Scholars Program.
+M‹é"Olson, Brady*TBA1      @8HbFTFj1Admission to the Marine Science Scholars Program.
 ù
 MACS 112Cur. Topics Marine Science II1 ˚]*'
 M‹é"Whitney, Nina Millicent*TBA1CëÍ=©@8HbFTFj1Admission to the Marine Science Scholars Program.
@@ -6306,7 +6301,7 @@ w
 TBD"Sobocinski, Kathryn Louise*TBA81:7 hß	@8HZOVbFTFjInstructor permission.
 É
 MACS 495Marine/Coastal Sci Internship1 TO 10 úa*
-TBD"Cooper, W. James*TBA81)4dˆ`@8HZOVbFTFjInstructor permission.
+TBD"Cooper, W. James*TBA81      @8HZOVbFTFjInstructor permission.
 à
 MACS 495Marine/Coastal Sci Internship1 TO 10 ùa*#
 TBD"Roland, Emily Carlson*TBA81* ™âÕ	@8HZOVbFTFjInstructor permission.
@@ -6373,8 +6368,7 @@ ZOV MJ PQbFTFj#MKTG 483 and instructor permission.
 “
 MKTG 489Marketing Mgt and Strategy4 ¨P*
 TR¯
-é"Love, Ed*TBA1®ı+j˝
-@8#H#ZOV JR SR MJ PQbFTFjgMajors only; MKTG 381; MKTG 382; and two 400-level marketing courses (excluding MKTG 480 and MKTG 490).
+é"Love, Ed*TBA1"ê.´Ú@8#H#ZOV JR SR MJ PQbFTFjgMajors only; MKTG 381; MKTG 382; and two 400-level marketing courses (excluding MKTG 480 and MKTG 490).
 π
 MKTG 490MKTG Customized Internship1 TO 4 ØP*%
 TBD"Armstrong Soule, Cat*PH OFC810?æwD|@8
@@ -6437,12 +6431,12 @@ RPer/Cr $25.00ZGR GR PB PM MJ S/UbFTFj'Approval of the Internship Coordinator
 MTWRFÃ˛"Patel, Nicole*TBA1D{ à¨o@8-H-bFTFj≥NOTE: This course will fulfill 5 credits towards financial aid and veterans benefits requirements only. No credit will be allowed toward the graduation requirement of 180 credits.
 ê
 MATH 099Introductory Algebra5 ◊]* 
-MTWRF∞	‚	"Clark, Katie*TBA1Ã˝Êª¯¿@8-H-bFTFj≥NOTE: This course will fulfill 5 credits towards financial aid and veterans benefits requirements only. No credit will be allowed toward the graduation requirement of 180 credits.
+MTWRF∞	‚	"Clark, Katie*TBA1=ôay˜Õ@8-H-bFTFj≥NOTE: This course will fulfill 5 credits towards financial aid and veterans benefits requirements only. No credit will be allowed toward the graduation requirement of 180 credits.
 ê
 MATH 099Introductory Algebra5 øa* 
 MTWRFî
 ∆
-"Clark, Katie*TBA1Ã˝Êª¯¿@8-H-bFTFj≥NOTE: This course will fulfill 5 credits towards financial aid and veterans benefits requirements only. No credit will be allowed toward the graduation requirement of 180 credits.
+"Clark, Katie*TBA1=ôay˜Õ@8-H-bFTFj≥NOTE: This course will fulfill 5 credits towards financial aid and veterans benefits requirements only. No credit will be allowed toward the graduation requirement of 180 credits.
 é
 MATH 099Introductory Algebra5 ôf*
 MTWRF¯
@@ -6752,7 +6746,8 @@ Chao, Zhen*TBA1?sk	3@8#H#ZPQbFTFj-Math 204; Math 224 recommended or concurr
 "Borowski, Rebecca*BH 4041:7√Vò|@8HZPQbFTFj#A grade of C or better in MATH 372.
 ’
 MATH 381Teaching K-8 Mathematics I4 ≥N*
-TR†∂"	Chen, Liz*BH 4041gfffff@8HZED PQbFTF QSRjÍMATH 111 or MATH 112 or college intermediate algebra course with a C or better or suitable math assessment score; a C or better in one of ELED 305, ELED 372, SPED 420, ECE 391; prerequisites must have been met within the last 5 years.
+TR†∂"	Chen, Liz*BH 4041ﬂ%∏‹%∏
+@8HZED PQbFTF QSRjÍMATH 111 or MATH 112 or college intermediate algebra course with a C or better or suitable math assessment score; a C or better in one of ELED 305, ELED 372, SPED 420, ECE 391; prerequisites must have been met within the last 5 years.
 ⁄
 MATH 381Teaching K-8 Mathematics I4 «Q*%
 TRË˛"Borowski, Rebecca*BH 4041:7√Vò|@8HZPQbFTF QSRjÍMATH 111 or MATH 112 or college intermediate algebra course with a C or better or suitable math assessment score; a C or better in one of ELED 305, ELED 372, SPED 420, ECE 391; prerequisites must have been met within the last 5 years.
@@ -6761,11 +6756,12 @@ Chao, Zhen*TBA1?sk	3@8#H#ZPQbFTFj-Math 204; Math 224 recommended or concurr
 MWË˛"Rupe, Katie*BH 4041‘ÖÒ*Â@8HZPQbFTF QSRjMATH 381 with a C or better
 Ü
 MATH 382Teaching K-8 Mathematics II4 ¥N* 
-MW†∂"Clark, Katie*BH 4041Ã˝Êª¯¿@8HZPQbFTF QSRjMATH 381 with a C or better
+MW†∂"Clark, Katie*BH 4041=ôay˜Õ@8HZPQbFTF QSRjMATH 381 with a C or better
 É
 MATH 383Teaching K-8 Mathematics4 üQ*
 TR∞	∆
-"	Chen, Liz*BH 4041¯Écíál@8HZPQbFTFj"MATH 382 with a C or better at WWU
+"	Chen, Liz*BH 4041ﬂ%∏‹%∏
+@8HZPQbFTFj"MATH 382 with a C or better at WWU
 à
 MATH 383Teaching K-8 Mathematics4 ¶V*"
 MW¯
@@ -6846,7 +6842,7 @@ z
 TBD"Nyman, Adam*BH OFC81	p p @8HZGR GR PB PM S/UbFTFjadvancement to candidacy
 m
 MATH 699Continuous Enrollment2 Ñ`*"
-TBD"Patrick, David L.*BH OFC81iè®%‹ï@8
+TBD"Patrick, David L.*BH OFC81_^ÁÏ»≤@8
 H
 ZOV GR GR PB PMbFTF
 ë
@@ -7165,12 +7161,12 @@ RFlat Fee $291.24ZMJbFTFj1music major; minimum applied performance audition
 MUS 214DBassoon2 √S*
 TBD"Nelson, Pat*PA 0318*!
 TBD"Gholami, Mehrdad*PA OFC8*
-TBD"Staff*PA 03181Úã%øXÚ@8HRFlat Fee $582.48ZMJbFTFj1music major; minimum applied performance audition
+TBD"Staff*PA 03181YKÀ<‘@8HRFlat Fee $582.48ZMJbFTFj1music major; minimum applied performance audition
 Õ
 MUS 214DBassoon1 ƒS*
 TBD"Nelson, Pat*PA 0318*!
 TBD"Gholami, Mehrdad*PA OFC8*
-TBD"Staff*PA 03181Úã%øXÚ@8HRFlat Fee $291.24ZMJbFTFj1music major; minimum applied performance audition
+TBD"Staff*PA 03181YKÀ<‘@8HRFlat Fee $291.24ZMJbFTFj1music major; minimum applied performance audition
 µ
 MUS 214E	Saxophone2 ≈S*!
 TBD"Winkler, Fred A.*PA 1688*#
@@ -7414,7 +7410,7 @@ t
 TBD"Dudenbostel, Heather Christian*PA 01681ê[≠ê[≠@8HbFTFjby audition
 ¢
 MUS 281App. Chamb. Ens: Bassoon Ensem1 TO 2 £c*
-F¿Ú"Nelson, Pat*PA 1551Úã%øXÚ@8
+F¿Ú"Nelson, Pat*PA 1551—ôom@8
 H
 bFTFj:Audition required except for Percussion Ensemble students.
 û
@@ -7550,7 +7546,7 @@ RFlat Fee $582.48ZMJbFTFj music major; upper-division exam
 MUS 314DBassoon1 TO 4 ﬂS*
 TBD"Nelson, Pat*PA 0318*!
 TBD"Gholami, Mehrdad*PA OFC8*
-TBD"Staff*PA 03181Úã%øXÚ@8
+TBD"Staff*PA 03181—ôom@8
 H
 RFlat Fee $582.48ZMJbFTFj music major; upper-division exam
 ©
@@ -7824,7 +7820,7 @@ RFlat Fee $582.48ZMJbFTFj music major; upper-division exam
 MUS 414DBassoon1 TO 4 S*
 TBD"Nelson, Pat*PA 0318*!
 TBD"Gholami, Mehrdad*PA OFC8*
-TBD"Staff*PA 03181Úã%øXÚ@8
+TBD"Staff*PA 03181—ôom@8
 H
 RFlat Fee $582.48ZMJbFTFj music major; upper-division exam
 ©
@@ -8184,7 +8180,7 @@ H
 ZGR GR PB PM S/UbFTF
 l
 MUS 699Continuous Enrollment2 ˙P*"
-TBD"Patrick, David L.*PA OFC81_^ÁÏ»≤@8
+TBD"Patrick, David L.*PA OFC81uÂ…:W@8
 H
 ZPR GR GR PB PMbFTF
 ¥
@@ -8355,7 +8351,7 @@ m
 TRÃ˛"Aceves, Melanie Paloma*SV 2018HRFlat Fee $30.00ZMJ S/UbFTFjKinesiology majors only.
 è
 PA 107Beginning Swimming1 ¶`*&
-TR†“"Williams, Richelle*SV 1081˙˘˘˘˘˘@8HRFlat Fee $30.00ZMJ S/UbFTFjKinesiology majors only.
+TR†“"Williams, Richelle*SV 1081ª∫∫∫∫∫@8HRFlat Fee $30.00ZMJ S/UbFTFjKinesiology majors only.
 ú
 PA 108Beginning Weight Training1 ’\*,
 TRËö"Morton, Tiffany Michelle*CV 1051oﬂÈ	@8HRFlat Fee $30.00ZMJ S/UbFTFjKinesiology majors only.
@@ -8434,11 +8430,12 @@ RFlat Fee $30.00ZMJ S/UbFTFjKinesiology majors only.
 @8	H	RFlat Fee $30.00ZMJ S/UbFTFjDCourt or cross-training shoes are required. Kinesiology majors only.
 á
 PA 152Beginning Kickboxing1 Æ`*
-TRÃ˛"Eis, Rob*CV 2101ë)ë)@8HRFlat Fee $30.00ZMJ S/UbFTFjKinesiology majors only.
+TRÃ˛"Eis, Rob*CV 2101;Ú
+›V‚@8HRFlat Fee $30.00ZMJ S/UbFTFjKinesiology majors only.
 â
 PA 168Beginning Martial Arts1 •\*
-MWÃ˛"Eis, Rob*CV 2101;Ú
-›V‚@8HRFlat Fee $30.00ZMJ S/UbFTFjKinesiology majors only.
+MWÃ˛"Eis, Rob*CV 2101›››››]
+@8HRFlat Fee $30.00ZMJ S/UbFTFjKinesiology majors only.
 Ñ
 PE 181Intercollegiate Basketball2 ÈR*&
 TBD"Dolfo, Carmen Annette*CV OFC813ƒï Óë@8HZOV S/UbFTFjInstructor permission.
@@ -8663,7 +8660,7 @@ y
 PHYS 224Modern Physics I3 ÍO* 
 MWFî
 ∆
-"Sandelin, Kate*TBA1ËÓA&⁄H	@8(H(ZPQbFTFjPHYS 163; PHYS 220; MATH 204.
+"Sandelin, Kate*TBA1ÕÊ´ﬂ»X@8(H(ZPQbFTFjPHYS 163; PHYS 220; MATH 204.
 À
 PHYS 326Tools & Data Analysis in Phys3 ïU*
 TWËö"From, Milton*TBA*
@@ -9023,8 +9020,7 @@ V
 ñ
 PSY 311Human Memory5 ∏^*
 MWæ∂"Warren, Mike*TBA*
-Fæ∂"Warren, Mike*TBA1H1ﬁØ 
-@8HRFlat Fee $12.38ZPQbFTFjPSY 210 and PSY 305
+Fæ∂"Warren, Mike*TBA1	‹öp@8HRFlat Fee $12.38ZPQbFTFjPSY 210 and PSY 305
 {
 PSY 321Learning5 ‡`*)
 MWFæ∂"Seifert, Matthew Steven*TBA1Xs)‰Y⁄@8HZMJ PQbFTFjPSY 220; PSY 305 or BNS 301.
@@ -9033,10 +9029,10 @@ x
 MWFæ∂"Seifert, Matthew Steven*TBA1Xs)‰Y⁄@8HZPQbFTFjPSY 220; PSY 305 or BNS 301.
 Ó
 PSY 323Psychopharmacology5 ™^*
-MWFÍ‚	"Grimm, Jeff*TBA1Ø®+Íä∫@8HRFlat Fee $17.62ZPQbFTFjÇPSY 220; PSY 305 or BNS 301; or instructor permission. Available to Sport Psychology majors and minors with instructor permission.
+MWFÍ‚	"Grimm, Jeff*TBA1qßuNÅ1@8HRFlat Fee $17.62ZPQbFTFjÇPSY 220; PSY 305 or BNS 301; or instructor permission. Available to Sport Psychology majors and minors with instructor permission.
 Ò
 PSY 323Psychopharmacology5 ¯d*
-MWFÍ‚	"Grimm, Jeff*TBA1Ø®+Íä∫@8HRFlat Fee $17.62ZMJ PQbFTFjÇPSY 220; PSY 305 or BNS 301; or instructor permission. Available to Sport Psychology majors and minors with instructor permission.
+MWFÍ‚	"Grimm, Jeff*TBA1qßuNÅ1@8HRFlat Fee $17.62ZMJ PQbFTFjÇPSY 220; PSY 305 or BNS 301; or instructor permission. Available to Sport Psychology majors and minors with instructor permission.
 »
 PSY 334Cognitive Development5 ˜f* 
 MWFÍ‚	"Riggs, Anne E.*TBA1≈52Ã	@8HZPQbFTFjhPSY 230; PSY 305 or BNS 301. Available to Sport Psychology majors and minors with instructor permission.
@@ -9344,7 +9340,7 @@ ZOV PQbFTFj"SALI 201 or instructor permission.
 MWF†∂"Stephenson, Norda*SL 240S1PÀPÀ@8HRFlat Fee $12.55ZOV PQbFTF LSCIjsMATH 111 or MATH 112 or college intermediate algebra course with a C or better or a suitable math assessment score.
 ˙
 SCED 201Matter&Energy in Physcl Systms4 Åc*$
-MWFË˛"Sandelin, Kate*SL 240S1ËÓA&⁄H	@8HRFlat Fee $12.55ZOV PQbFTF LSCIjsMATH 111 or MATH 112 or college intermediate algebra course with a C or better or a suitable math assessment score.
+MWFË˛"Sandelin, Kate*SL 240S1ÕÊ´ﬂ»X@8HRFlat Fee $12.55ZOV PQbFTF LSCIjsMATH 111 or MATH 112 or college intermediate algebra course with a C or better or a suitable math assessment score.
 ß
 SCED 202Matter&Energy in Earth Systems4 ‹Y*%
 MWF¯
@@ -9363,7 +9359,7 @@ t
 MWFË˛"Dudley, Lauren*SL 2301ˆ(\è¬ı@8HRFlat Fee $23.00ZOVbFTFjôCompletion of Natural Science GURs, including SCED 201 (SCED 202, SCED 203, and SCED 204 are highly desired GURs); ELED 305 or SPED 420 with concurrency.
 Ë
 SCED 481Fundamentals Teaching Science2 ˛P*
-T‹Ú"Burgess, Don*SL 2101p‰Fn‰F@8HRFlat Fee $23.00bFTFjsCompletion of¬†science GUR courses or concurrent if also registered for final science GUR or instructor permission.
+T‹Ú"Burgess, Don*SL 2101ù¥V≈À¯@8HRFlat Fee $23.00bFTFjsCompletion of¬†science GUR courses or concurrent if also registered for final science GUR or instructor permission.
 ò
 SCED 490Lab/Field Exp Elemen Science3 ˇP*1
 TRFŒ	å"Acevedo-Gutierrez, Alejandro*SL 2301—ı‚ô‡
@@ -9415,7 +9411,7 @@ n
 TR¿÷"Pyscher, Tracey Michelle*TBA1˜k0Nø@8HZEDbFTF
 b
 SEC 425Dev Readng,Writng & Learning4 ◊U*
-TW†∂"Burgess, Don*TBA1p‰Fn‰F@8HZEDbFTF
+TW†∂"Burgess, Don*TBA1ù¥V≈À¯@8HZEDbFTF
 e
 SEC 425Dev Readng,Writng & Learning4 éW* 
 TR†∂"Pollock, Laurie*TBA1öôôôô…@8HZEDbFTF
@@ -9431,7 +9427,7 @@ e
 "Ozdogu, Devin Kazim*TBA1˜]ƒ*ë˜@8HbFTFj2Admission to Secondary Education, co-req: SEC 410.
 Ñ
 SEC 431Sec School Methods II4 ‡N*
-TWË˛"Burgess, Don*TBA1p‰Fn‰F@8HZED PQbFTFj$SEC 410 and SEC 430 (or equivalent).
+TWË˛"Burgess, Don*TBA1ù¥V≈À¯@8HZED PQbFTFj$SEC 410 and SEC 430 (or equivalent).
 ã
 SEC 431Sec School Methods II4 ¢S*$
 TR¿÷"Ozdogu, Devin Kazim*TBA1^æœe·@8HZED PQbFTFj$SEC 410 and SEC 430 (or equivalent).
@@ -9598,7 +9594,7 @@ Helms, Ron*TBA134*ÑZ	@8HZMJ PQbFTFj{Any course from: SOC 221, SOC 234, SOC
 MWFÍ‚	"	Ben, Ruby*TBA1)=Œ¯#L@8HZMJ PQbFTFj{Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.
 ·
 SOC 397USoc Indig Ppl Native Nations5 Ök*
-MWFñé"	Ben, Ruby*TBA1)=Œ¯#L@8HZMJ PQbFTFj{Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.
+MWFñé"	Ben, Ruby*TBA1◊çy'5@8HZMJ PQbFTFj{Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.
 á
 SOC 423General Linear Modeling in R5 Ük*"
 MWFÍ‚	"Pendergast, Phil*TBA1~œ-qÍ˜@8HZMJ PQbFTFjSOC 304; SOC¬†306; SOC¬†320
@@ -9747,7 +9743,7 @@ i
 TR‹Ú"Hart, Jeffery LeRoy*TBA1p›üúKb@8-H-ZOVbFTF
 Ã
 SPED 452Applied Behavior Analysis5 ¯e*!
-MW¿÷"Lambert, Charles*TBA1®#ƒ6≠∏@8HRFlat Fee $14.87ZOVbFTFjUAdmission to Woodring College of Education; instructor permission; override required.
+MW¿÷"Lambert, Charles*TBA1’dÄ9ÀÊ@8HRFlat Fee $14.87ZOVbFTFjUAdmission to Woodring College of Education; instructor permission; override required.
 ”
 SPED 457Students w/ Disabilities5 ¸d*!
 TR‹Ú"Lambert, Charles*TBA1®#ƒ6≠∏@8HRFlat Fee $16.17ZOVbFTFj]Admisssion to Woodring College of Education teacher education major or instructor permission.
@@ -9856,7 +9852,7 @@ x
 TR‹‘"Monaghan, Sarah Jo*TBA1æÉ08±@8-H-RFlat Fee $10.00ZMJbFTF
 ù
 THTR 255Mainstage Season: Crew1 TO 2 µR* 
-T∞	‚	"Harris, Kevin*PA 3991õÓ`ø’∆@8HZ	OV S/U PQbFTFj/THTR 210 or THTR 212; or instructor permission.
+T∞	‚	"Harris, Kevin*PA 3991Øzπ@@8HZ	OV S/U PQbFTFj/THTR 210 or THTR 212; or instructor permission.
 è
 THTR 255Mainstage Season: Crew1 TO 2 ƒi*
 TBD"Anisman, Ezra*TBA88
@@ -10246,4 +10242,4 @@ _
 u
 WGSS 358Women of Color in the U.S.5 öj*
 TR¯
-é"	Lee, Jean*TBA1qÜg¯p@8HZPQbFTFjHIST 104 or WGSS 211.Ç™Àµõ≥Àê
+é"	Lee, Jean*TBA1qÜg¯p@8HZPQbFTFjHIST 104 or WGSS 211.∆Ã’µ¢œÃ
