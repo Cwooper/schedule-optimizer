@@ -12,6 +12,7 @@ import (
 
 	"github.com/cwooper/schedule-optimizer/internal/generator"
 	"github.com/cwooper/schedule-optimizer/internal/models"
+	"github.com/cwooper/schedule-optimizer/internal/scraper"
 	"github.com/cwooper/schedule-optimizer/internal/utils"
 )
 
@@ -26,6 +27,11 @@ func init() {
 }
 
 func main() {
+	if len(os.Args) > 1 && os.Args[1] == "update-courses" {
+		UpdateCoursesHandler()
+		return
+	}
+
 	port := getPort()
 
 	// Serve static files from the frontend directory
@@ -104,6 +110,15 @@ func getPort() string {
 		port = "8080" // default port if not specified
 	}
 	return port
+}
+
+func UpdateCoursesHandler() {
+	err := scraper.UpdateCourses()
+	if err != nil {
+		log.Printf("Error updating courses: %v", err)
+	} else {
+		log.Println("Courses updated successfully")
+	}
 }
 
 // ----------------------- SCHEDULE TESTING BELOW -----------------------------

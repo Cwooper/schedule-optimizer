@@ -22,8 +22,8 @@ const (
 	MAX_INPUT_COURSES = 13 // Maximum courses a user an input to be combined
 
 	MAX_SUBJECT_WAIT = 30 // Days
-	MAX_COURSE_WAIT  = 2  // Days
 	MAX_TERM_WAIT    = 10 // Days
+	MAX_COURSE_WAIT  = 1  // Days
 
 	// One Schedule is about 2KB. 2000 Schedules is 4MB.
 	MAX_OUTPUT_SCHEDULES = 2000
