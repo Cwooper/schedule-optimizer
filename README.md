@@ -8,6 +8,8 @@ and personal use. All data provided by this project is for
 informational purposes only and should not be considered official
 or binding. Use at your own discretion.
 
+Currently hosted live at [cwooper.me](https://cwooper.me/schedule-optimizer)
+
 ## Requirements
 
 ### Frontend
