@@ -6,6 +6,7 @@ const courseList = document.getElementById('courseList'); // List element for di
 let courses = []; // Array to store courses
 let forceList = []; // Array to store forced courses
 let schedule = []; // Array to hold the schedule
+let asyncCourses = []; // Array to hold async/tbd courses
 let all_schedules = [];
 let current_schedule = 0;
 
@@ -121,6 +122,11 @@ function generateJSON() {
       const sizeInBytes = new Blob([jsonString]).size;
       console.log("JSON size:", sizeInBytes, "bytes");
 
+      // Clear async courses if their previously were some.
+      if (asyncCourses.length > 0) {
+        clearAsyncCourses();
+      }
+
       const errorMessage = document.getElementById('errorMessage');
       let messages = [];
 
@@ -137,6 +143,11 @@ function generateJSON() {
         errorMessage.style.display = 'block';
       } else {
         errorMessage.style.display = 'none';
+      }
+
+      asyncCourses = response.Asyncs;
+      if (asyncCourses && asyncCourses.length > 0) {
+        displayAsyncCourses();
       }
 
       if (response.Schedules) {
@@ -269,6 +280,9 @@ function addCoursesToCalendar(schedule) {
 function displaySchedule(schedule) {
   clearSchedule();
   addCoursesToCalendar(schedule);
+  if (asyncCourses && asyncCourses.length > 0) {
+    displayAsyncCourses();
+  }
 }
 
 function clearSchedule() {
@@ -314,7 +328,7 @@ function course_to_str(course, session) {
   let result = `Course: ${course.Subject} - ${course.Title}<br>
     CRN: ${course.CRN}<br>`;
 
-    result += course.GPA ? `Average GPA: ${Number(course.GPA).toFixed(2)}<br>` : '';
+  result += course.GPA ? `Average GPA: ${Number(course.GPA).toFixed(2)}<br>` : '';
 
   result += `Credits: ${course.Credits}<br><br>`;
 
@@ -462,6 +476,37 @@ function displaySchedulePopup(schedule) {
   schedulePopup.appendChild(popupHeader);
   schedulePopup.appendChild(popupBody)
   document.body.appendChild(schedulePopup);
+}
+
+function clearAsyncCourses() {
+  const asyncCoursesList = document.getElementById('async-courses-list');
+  asyncCoursesList.innerHTML = '';
+  document.getElementById('async-courses-container').style.display = 'none';
+}
+
+function displayAsyncCourses() {
+  const asyncCoursesContainer = document.getElementById('async-courses-container');
+  const asyncCoursesList = document.getElementById('async-courses-list');
+  clearAsyncCourses();
+
+  if (!asyncCourses || asyncCourses.length === 0) {
+    asyncCoursesContainer.style.display = 'none';
+    return;
+  }
+
+  asyncCoursesContainer.style.display = 'block';
+  asyncCourses.forEach(course => {
+    const courseElement = document.createElement('div');
+    courseElement.classList.add('async-course-item');
+    courseElement.innerHTML = `<strong>${course.Subject} - ${course.Title}</strong><br>CRN: ${course.CRN}`;
+    
+    courseElement.addEventListener('click', () => {
+      // Assuming the first session is the async one
+      displayPopup(course, course.Sessions[0]);
+    });
+
+    asyncCoursesList.appendChild(courseElement);
+  });
 }
 
 function sortSchedules() {
