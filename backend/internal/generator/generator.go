@@ -3,7 +3,6 @@ package generator
 
 import (
 	"fmt"
-	"log"
 	"path/filepath"
 	"regexp"
 	"sort"
