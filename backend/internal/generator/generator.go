@@ -46,7 +46,7 @@ func NewGenerator() *Generator {
 // This takes can takes a "dirty request" directly from a user
 func GenerateResponse(req models.RawRequest) *models.Response {
 	g := NewGenerator()
-	
+
 	if len(req.Courses) > utils.MAX_INPUT_COURSES || len(req.Forced) > utils.MAX_INPUT_COURSES {
 		errString := fmt.Sprintf("Cannot input more than %d courses", utils.MAX_INPUT_COURSES)
 		g.response.Errors = append(g.response.Errors, errString)
@@ -164,19 +164,18 @@ func (g *Generator) generateCourses(term string) {
 				"Course not offered this term: "+courseRequest)
 		}
 	}
-
 	// Verify that we found the forced course
 	for _, forceRequest := range g.cleanedForcedNames {
 		found := false
-		for _, course := range g.courses {
+		for _, course := range courses {
 			if course.Subject == forceRequest {
 				found = true
 				break
 			}
 		}
 		if !found {
-			g.response.Warnings = append(g.response.Warnings,
-				"Could not force: "+forceRequest)
+			errString := "Could not force " + forceRequest + " (could not find course)"
+			g.response.Warnings = append(g.response.Warnings, errString)
 		}
 	}
 
