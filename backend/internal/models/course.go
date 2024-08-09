@@ -90,3 +90,13 @@ func sessionsConflict(s1, s2 Session) bool {
 func timesConflict(start1, end1, start2, end2 int) bool {
 	return (((start1 >= start2) && (start1 <= end2)) || ((end1 >= start2) && (end1 <= end2)))
 }
+
+// Returns true if a course has any tbd or async times.
+func HasAsyncOrTBD(course Course) bool {
+	for _, session := range course.Sessions {
+		if session.IsAsync || session.IsTimeTBD {
+			return true
+		}
+	}
+	return false
+}

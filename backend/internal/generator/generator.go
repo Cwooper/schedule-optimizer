@@ -3,6 +3,7 @@ package generator
 
 import (
 	"fmt"
+	"log"
 	"path/filepath"
 	"regexp"
 	"sort"
@@ -143,7 +144,6 @@ func (g *Generator) generateCourses(term string) {
 	}
 
 	courseList := protoutils.ProtoToCourses(proto)
-
 	courses := make([]models.Course, 0)
 
 	// Search for the necessary courses of cleaned names
@@ -152,7 +152,12 @@ func (g *Generator) generateCourses(term string) {
 		for _, course := range courseList {
 			if course.Subject == courseRequest {
 				found = true
-				courses = append(courses, course)
+				// If the course doesn't have a time to test, don't include it
+				if models.HasAsyncOrTBD(course) {
+					g.response.Asyncs = append(g.response.Asyncs, course)
+				} else {
+					courses = append(courses, course)
+				}
 			}
 		}
 		if !found {
@@ -161,9 +166,10 @@ func (g *Generator) generateCourses(term string) {
 		}
 	}
 
+	// Verify that we found the forced course
 	for _, forceRequest := range g.cleanedForcedNames {
 		found := false
-		for _, course := range courseList {
+		for _, course := range g.courses {
 			if course.Subject == forceRequest {
 				found = true
 				break
@@ -171,7 +177,7 @@ func (g *Generator) generateCourses(term string) {
 		}
 		if !found {
 			g.response.Warnings = append(g.response.Warnings,
-				"Course not offered this term: "+forceRequest)
+				"Could not force: "+forceRequest)
 		}
 	}
 
@@ -203,10 +209,15 @@ func (g *Generator) generateSchedules(req models.RawRequest) {
 	}
 
 	schedules := Combinations(scheduleRequest)
+	if len(schedules) == 0 {
+		g.response.Errors = append(g.response.Errors, "No possible schedules found")
+		return
+	}
+
 	// Remove schedules that don't have the forced courses
 	schedules = filterSchedules(schedules, g.cleanedForcedNames)
 	if len(schedules) == 0 {
-		g.response.Errors = append(g.response.Errors, "No possible schedules found")
+		g.response.Errors = append(g.response.Errors, "No possible schedules found after forcing courses")
 		return
 	}
 
