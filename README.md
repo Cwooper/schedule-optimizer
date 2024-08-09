@@ -12,9 +12,12 @@ Currently hosted live at [cwooper.me](https://cwooper.me/schedule-optimizer)
 
 To use the live website, try entering a few classes:
 
-- CSCI 301
-- CSCI 241
-- CSCI 247
+- MATH 099
+- ENG 321
+- CSCI 141
+- CSCI 145
+
+Try changing the Minimum Courses per schedule to 3.
 
 Press Submit and view your options!
 
