@@ -123,7 +123,7 @@ function generateJSON() {
       console.log("JSON size:", sizeInBytes, "bytes");
 
       // Clear async courses if their previously were some.
-      if (asyncCourses.length > 0) {
+      if (asyncCourses && asyncCourses.length > 0) {
         clearAsyncCourses();
       }
 
