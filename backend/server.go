@@ -8,7 +8,10 @@ import (
 	"net/http"
 	"os"
 	"runtime/debug"
+	"sync"
 	"time"
+
+	"github.com/robfig/cron"
 
 	"github.com/cwooper/schedule-optimizer/internal/generator"
 	"github.com/cwooper/schedule-optimizer/internal/models"
@@ -18,30 +21,41 @@ import (
 
 // ----------------------------- SERVER BELOW -----------------------------
 
+var (
+	isUpdating  bool
+	updateMutex sync.RWMutex
+)
+
 func init() {
 	// Set initial GC percentage
 	debug.SetGCPercent(50)
-
 	// Set soft memory limit
 	debug.SetMemoryLimit(2 << 30) // 2GB
 }
 
 func main() {
+	// Optionally run update-courses with update-courses
+	// This is NOT Safe is a server is running.
 	if len(os.Args) > 1 && os.Args[1] == "update-courses" {
 		UpdateCoursesHandler()
 		return
 	}
 
-	port := getPort()
+	updateSchedule := fmt.Sprintf("0 %s %s * * *", utils.UPDATE_MIN, utils.UPDATE_HOUR)
+	c := cron.New()
+	c.AddFunc(updateSchedule, func() {
+		log.Println("Starting scheduled course update.")
+		UpdateCoursesHandler()
+	})
+	c.Start()
 
-	// Serve static files from the frontend directory
+	port := getPort()
 	fs := http.FileServer(http.Dir("../frontend"))
 
 	http.HandleFunc("/schedule-optimizer/", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == "POST" {
 			handleScheduleOptimizer(w, r)
 		} else {
-			// For GET and other methods, serve static files
 			if r.URL.Path == "/schedule-optimizer/" {
 				http.ServeFile(w, r, "../frontend/index.html")
 			} else {
@@ -51,11 +65,26 @@ func main() {
 	})
 
 	log.Printf("Server starting on port %s\n", port)
+	nextRun := c.Entries()[0].Next
+	log.Printf("Next scheduled run: %s", nextRun.Format(time.RFC3339))
 	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
 
 // Handles POST requests to /schedule-optimizer
 func handleScheduleOptimizer(w http.ResponseWriter, r *http.Request) {
+	updateMutex.RLock()
+	updating := isUpdating
+	updateMutex.RUnlock()
+
+	if updating {
+		errorResp := models.Response{
+			Errors: []string{"Please wait one minute... Updating course data."},
+		}
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(errorResp)
+		return
+	}
+
 	var request models.RawRequest
 	err := json.NewDecoder(r.Body).Decode(&request)
 	if err != nil {
@@ -64,19 +93,15 @@ func handleScheduleOptimizer(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Create a context with a 1-second timeout
+	// Context with an n second timeout
 	ctx, cancel := context.WithTimeout(r.Context(), utils.SERVER_TIMEOUT_SECS*time.Second)
 	defer cancel()
 
-	// Create a channel to receive the response
 	respChan := make(chan *models.Response)
-
-	// Run GenerateResponse in a goroutine
 	go func() {
 		respChan <- generator.GenerateResponse(request)
 	}()
 
-	// Wait for either the response or a timeout
 	select {
 	case resp := <-respChan:
 		// If we get a response within the timeout, send it
@@ -113,6 +138,25 @@ func getPort() string {
 }
 
 func UpdateCoursesHandler() {
+	updateMutex.Lock()
+	checkUpdating := isUpdating
+	updateMutex.Unlock()
+	// Check for updating twice before finished previous update
+	if checkUpdating {
+		log.Println("Tried to update while already updating.")
+		os.Exit(1)
+	}
+	// We are currently updating
+	updateMutex.Lock()
+	isUpdating = true
+	updateMutex.Unlock()
+
+	defer func() {
+		updateMutex.Lock()
+		isUpdating = false
+		updateMutex.Unlock()
+	}()
+
 	err := scraper.UpdateCourses()
 	if err != nil {
 		log.Printf("Error updating courses: %v", err)

@@ -4,6 +4,7 @@ go 1.22.5
 
 require (
 	github.com/PuerkitoBio/goquery v1.9.2
+	github.com/robfig/cron v1.2.0
 	google.golang.org/protobuf v1.34.2
 )
 

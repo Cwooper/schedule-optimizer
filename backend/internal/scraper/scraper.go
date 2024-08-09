@@ -3,6 +3,7 @@ package scraper
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -172,7 +173,7 @@ func getCourses(subjects []string, term, year string) Result {
 		existingProto, err := utils.LoadCoursesProtobuf(termFile)
 		if err != nil {
 			return Result{
-				Term: term,
+				Term:  term,
 				Error: fmt.Errorf("failed to load existing protobuf: %w", err),
 			}
 		}
@@ -181,7 +182,7 @@ func getCourses(subjects []string, term, year string) Result {
 		if time.Since(pullTime) < utils.MAX_COURSE_WAIT*24*time.Hour {
 			courseList := protoutils.ProtoToCourses(existingProto)
 			return Result{
-				Term: term,
+				Term:  term,
 				Count: len(courseList),
 			}
 		}
@@ -197,12 +198,12 @@ func getCourses(subjects []string, term, year string) Result {
 	err = gpa.GenerateGPA(&courseList)
 	if err != nil {
 		return Result{
-			Term: term,
+			Term:  term,
 			Error: fmt.Errorf("failed to generate gpa for course list: %w", err),
 		}
 	}
 	duration := time.Since(start)
-	fmt.Printf("GenerateGPA for %s took %v to execute\n", term, duration)
+	log.Printf("	GenerateGPA for %s took %v to execute\n", term, duration)
 
 	protobuf := protoutils.CoursesToProto(courseList)
 	protobuf.PullTimestamp = timestamppb.Now()
@@ -210,15 +211,15 @@ func getCourses(subjects []string, term, year string) Result {
 	// Save the protobuf
 	if err := utils.SaveCoursesProtobuf(protobuf, termFile); err != nil {
 		return Result{
-			Term: term, 
+			Term:  term,
 			Error: fmt.Errorf("failed to save protobuf for term %s: %w", term, err),
 		}
 	}
 
-	fmt.Printf("%v: Found and saved %d courses to %v\n", term, len(courseList), termFile)
+	log.Printf("%v: Found and saved %d courses to %v\n", term, len(courseList), termFile)
 
 	return Result{
-		Term: term, 
+		Term:  term,
 		Count: len(courseList),
 	}
 }
@@ -246,8 +247,8 @@ func UpdateCourses() error {
 		return fmt.Errorf("failed to filter terms list: %w", err)
 	}
 
-	fmt.Printf("Found %d subjects\n", len(subjects))
-	fmt.Printf("Current terms: %v\n", terms)
+	log.Printf("	Found %d subjects\n", len(subjects))
+	log.Printf("	Current terms: %v\n", terms)
 
 	var wg sync.WaitGroup
 	results := make(chan Result, len(terms))
@@ -273,6 +274,6 @@ func UpdateCourses() error {
 		totalCount += result.Count
 	}
 
-	fmt.Printf("Found %d total courses\n", totalCount)
+	log.Printf("	Found %d total courses\n", totalCount)
 	return nil
 }
