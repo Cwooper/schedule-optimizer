@@ -47,15 +47,13 @@ HZOV GR GR MJ S/UbHYBDj9Admission to the AHE program or permission of instruc
 @8@ZOVbASNC BCGM OL
 t
 ANTH 201Intro to Cultural Anthropology5 ”Î*!
-N/A"Fisher, Jae*ONLINE ASNC01ıæ‘ò}à
-@8@HZOVbASNC OL SSC
+N/A"Fisher, Jae*ONLINE ASNC01l¡l¡V@8@HZOVbASNC OL SSC
 {
 ANTH 215Intro Biological Anthro w/lab5 ¸Ì*(
 N/A"Felker, Fiona Mari*ONLINE ASNC01Î¨%QLi@8@HZOVbASNC LSCI OL
 Ç
 ANTH 301Anthropological Theory5 ≥Î*!
-N/A"Fisher, Jae*ONLINE ASNC01ıæ‘ò}à
-@8@HZOV PQbASNC OLjANTH 201 or HNRS 203.
+N/A"Fisher, Jae*ONLINE ASNC01l¡l¡V@8@HZOV PQbASNC OLjANTH 201 or HNRS 203.
 ≈
 ANTH 312Field Course in Archaeology12 ªÓ*(
 TBD"Ek Romero, Jerald David*AH 31781Xv„¡i"@8@H˛ˇˇˇˇˇˇˇˇRFlat Fee $600.00ZOV PQbFTFj4ANTH 210 or equivalent and permission of instructor.
@@ -209,12 +207,11 @@ s
 ∏
 CHIN 237Interm Chin Lang & Culture Stu15 ıÓ*
 TBD"Liu, Claudia*TBA8*
-TBD"Wu, Julian Siyuan*TBA81°0VÙ
-@8@HRFlat Fee $1557.40ZOVbFTF TRVLjCHIN 103 or equivalent.
+TBD"Wu, Julian Siyuan*TBA81o¶¯,Ò@8@HRFlat Fee $1557.40ZOVbFTF TRVLjCHIN 103 or equivalent.
 û
 CHIN 337Adv Chin Lang & Culture Study15 ˆÓ*
 TBD"Liu, Claudia*TBA8*
-TBD"Wu, Julian Siyuan*TBA81µçÚÖ”	@8@HRFlat Fee $1557.40ZOVbFTF TRVL
+TBD"Wu, Julian Siyuan*TBA81o¶¯,Ò@8@HRFlat Fee $1557.40ZOVbFTF TRVL
 Ä
 CD 280Coaching Pract - Basketball2 Ñ*
 TBD"Dominguez, Tony*TBA81ª◊ΩÓuØ@8
@@ -406,8 +403,7 @@ Mare, Shri*CF OFC81˘úè¡˘@8@HRPer/Cr $26.44ZOV S/UbFTFjInstructor perm
 i
 DNC 232Movements for Change3 …Î* 
 N/A"
-Kuntz, Pam*ONLINE ASNC01„¯Ô
-@8@HZOVbACGM ASNC OL
+Kuntz, Pam*ONLINE ASNC01«∑Tªj›@8@HZOVbACGM ASNC OL
 ÿ
 DSCI 205Business Statistics4 ‘Ò*(
 N/A"Morgans, Brian Lee*ONLINE ASNC01 p®eOù@8#@HZOV PQbASNC OLjgMATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score.
@@ -473,7 +469,7 @@ s
 EDAD 536Topics in Ed Ldrshp & Finance4 ìÓ*)
 MWÃ∆
 "
-Bruce, Tim*Distance Learning1MØ@scÿ	@8@HRPer/Cr $426.00ZOV GR PB PM MJbDLEX OL SYNC
+Bruce, Tim*Distance Learning1      @8@HRPer/Cr $426.00ZOV GR PB PM MJbDLEX OL SYNC
 ’
 EDAD 541Theory in Education Leadership4 ÿÌ*4
 MW†ö"Larsen, Donald Edward*Distance Learning1∫]+'<”@8@H
@@ -488,12 +484,12 @@ HRPer/Cr $426.00ZOV GR PB PM MJbEVEX FTFj!Admission to Doctor of Education.
 ª
 EDAD 658Research Institute II5 ∆Ó*+
 TBD"
-Bruce, Tim*Everett EESP Extention81ªªªªªª@8@
+Bruce, Tim*Everett EESP Extention81      @8@
 HRPer/Cr $426.00ZOV GR PB PM PQbEVEX FTFj+Admission to Doctor of Education; EDAD 650.
 «
 EDAD 670Doctoral Proposal Defense1 TO 15 ®Ú*+
 TBD"
-Bruce, Tim*Everett EESP Extention81MØ@scÿ	@8@HRPer/Cr $426.00ZOV GR PB PM MJ S/UbASNC EVEX OL SSTj!Admission to Doctor of Education.
+Bruce, Tim*Everett EESP Extention81      @8@HRPer/Cr $426.00ZOV GR PB PM MJ S/UbASNC EVEX OL SSTj!Admission to Doctor of Education.
 ê
 EECE 111Circuit Analysis I4 ·Ò*#
 N/A"Zang, Yuzhang*ONLINE ASNC01Í{.í≥@8@HRFlat Fee $138.41ZOV PQbASNC OLjMATH 125; PHYS 162.
@@ -754,7 +750,8 @@ s
 õ
 ENVS 203Physical Geography4 ªÒ*!
 MTWRFÑ∂"
-Bach, Andy*AH 0041ÂFn‰Fn@8P@	HGZOVbFTF LSCIj4Minimum of one university-level natural science GUR.
+Bach, Andy*AH 0041
+Ä∞b$ˆ@8P@	HGZOVbFTF LSCIj4Minimum of one university-level natural science GUR.
 ®
 ENVS 203Physical Geography4 ”Ò**
 N/A"Albertson, Zander E.*ONLINE ASNC01ÏÚ∞c
@@ -916,7 +913,7 @@ D
 TBD"Staff*TBA88HZOV GRbFTF
 É
 GRAD 699Continuous Enrollment1 ìÌ*#
-TBD"Barr, Michael Charles*TBA81gffff¶@8d@HGRFlat Fee $50.00ZOV GR PB PM S/UbFTF
+TBD"Barr, Michael Charles*TBA81π≤Ü—~@8d@HGRFlat Fee $50.00ZOV GR PB PM S/UbFTF
 w
 HLED 210Intro to Public Health4 √Ì*,
 N/A"Bennett, Steve Woodrow*ONLINE ASNC01)=Œ¯#L@82@H*ZOVbASNC OL SSC
@@ -963,7 +960,7 @@ i
 TBD"Costanzo, Susan*BH OFC81∫sµä{¿@8HZOVbFTFjGraduate status.
 a
 HIST 699Continous Enrollment2 ‹Í*
-TBD"Patrick, David L.*TBA81qÀØÍ˝-@8HZOV GRbFTF
+TBD"Patrick, David L.*TBA81ë´u·	π@8HZOV GRbFTF
 É
 HNRS 105Human Exp. Post-modernity4 åÔ* 
 TBD"Laso, Francisco J.*TBA81©)∞C˛≠@8@HRFlat Fee $2896.56ZOVbACGM FTF TRVL
@@ -1442,7 +1439,7 @@ k
 Á
 PSY 323Psychopharmacology5 ∞Ï*!
 MTWR∞	∆
-"Grimm, Jeff*AW 2031Ø®+Íä∫@8@HZOV PQbFTFjÇPSY 220; PSY 305 or BNS 301; or instructor permission. Available to Sport Psychology majors and minors with instructor permission.
+"Grimm, Jeff*AW 2031qßuNÅ1@8@HZOV PQbFTFjÇPSY 220; PSY 305 or BNS 301; or instructor permission. Available to Sport Psychology majors and minors with instructor permission.
 ›
 PSY 334Cognitive Development5 ˜Ì*+
 N/A"Harmon, Chelsea Marie*ONLINE ASNC01ÆG·zÆ@8@HZOV PQbASNC OLjhPSY 230; PSY 305 or BNS 301. Available to Sport Psychology majors and minors with instructor permission.
@@ -1465,7 +1462,7 @@ k
 PSY 441Seminar in Cross-Cultural Psyc5 àÔ* 
 MTWR¯
 é"
-King, Jeff*AW 4121Ñi-ÊE›@8@H
+King, Jeff*AW 4121∆» Kå¨¸?8@H
 RFlat Fee $11.00ZOV PQbFTF WP2jUPSY 307; and one course from: PSY 341, PSY 342, PSY 343, PSY 344, PSY 345 or PSY 346.
 ≥
 PSY 451Seminar Mental Health Topics5 ¶Î*'
@@ -1728,4 +1725,4 @@ b
 N/A"Deylami, Shirin Sedigh*ONLINE ASNC01trrrrR@8@H	ZOVbACGM ASNC OL
 ª
 WGSS 320Media & Feminisms5 –Ì*'
-N/A"Mihai, Mariangela*ONLINE ASNC013©à‰§@8@HZOVbASNC BCGM OLjKWGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.¬Ã’µºî√Æ
+N/A"Mihai, Mariangela*ONLINE ASNC013©à‰§@8@HZOVbASNC BCGM OLjKWGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.ô„’µ∑ü·_

@@ -77,14 +77,14 @@ Fully Transfer backend:
 
 Extra:
 
-- [ ] Multithread WebScraper, GPA Processing
-- [ ] Optimize Forced Courses
-- [ ] If User Asks for the same schedule twice, don't send POST request.
-- [ ] Add Async/TBD table to frontend calendar
+- [x] Multithread WebScraper, GPA Processing
+- [x] Add Async/TBD table to frontend calendar
+- [x] Automatic Web Scraping/Course Updating
 - [ ] Create Dijkstra Map Weighing
   - [ ] Visualize something in Go WASM
   - [ ] Create Paths between classes per schedule
-- [ ] Fuzzy search a "Did you Mean:" when course not found
-- [ ] Redo Calendar in Go WASM?
 - [ ] Port frontend to React (Konnor)
 - [ ] Weight customizability on frontend
+- [ ] If User Asks for the same schedule twice, don't send POST request.
+- [ ] Fuzzy search a "Did you Mean:" when course not found
+- [ ] Redo Calendar in Go WASM?
