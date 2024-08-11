@@ -69,6 +69,7 @@ Create a directory for the Go module cache and set appropriate permissions:
 ```bash
 sudo mkdir -p /var/lib/go-cache
 sudo chown www-data:www-data /var/lib/go-cache
+sudo chown -R www-data:www-data /var/www/schedule-optimizer/data/
 ```
 
 ## 3. Configure Apache2
