@@ -94,13 +94,13 @@ func GenerateResponse(req models.RawRequest) *models.Response {
 	// Clamp and verify that the bounds work
 	req.Min, req.Max = clampBounds(req.Min, req.Max)
 	if len(g.courses) < req.Min {
-		errString := fmt.Sprintf("Cannot generate %d minimum size schedule "+
-			"with %d courses", req.Min, len(g.courses))
+		errString := fmt.Sprintf("Could not generate schedules with Minimum set to %d "+
+			" (%d courses found).", req.Min, len(g.courses))
 		g.response.Errors = append(g.response.Errors, errString)
 		return g.response
 	}
 	if len(req.Forced) > req.Max {
-		errString := fmt.Sprintf("Cannot force more than %d courses", req.Max)
+		errString := fmt.Sprintf("Cannot force more than %d courses.", req.Max)
 		g.response.Errors = append(g.response.Errors, errString)
 		return g.response
 	}
@@ -170,7 +170,7 @@ func (g *Generator) generateCourses(term string) {
 		}
 		if !found {
 			g.response.Warnings = append(g.response.Warnings,
-				"Course not offered this term: "+courseRequest)
+				courseRequest + " is not offered this term.")
 		}
 	}
 
