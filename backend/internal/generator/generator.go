@@ -84,6 +84,13 @@ func GenerateResponse(req models.RawRequest) *models.Response {
 		}
 	}
 
+	// TODO: find conflicting asyncs (by course name)
+	// 		 then find maximum possible asyncs together
+	//       then subtract len(possibleAsyncs) from req.Min (clamp to 1)
+	if len(g.response.Asyncs) > 0 { // currently works to alleviate some
+		req.Min -= 1 // should be handled by clampBounds
+	}
+
 	// Clamp and verify that the bounds work
 	req.Min, req.Max = clampBounds(req.Min, req.Max)
 	if len(g.courses) < req.Min {
@@ -166,6 +173,7 @@ func (g *Generator) generateCourses(term string) {
 				"Course not offered this term: "+courseRequest)
 		}
 	}
+
 	// Verify that we found the forced course
 	for _, forceRequest := range g.cleanedForcedNames {
 		found := false
