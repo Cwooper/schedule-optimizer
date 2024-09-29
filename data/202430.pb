@@ -4,7 +4,7 @@ c
 N/A"Li, Shuo*ONLINE ASNC01ÓÑEÏÈN@82@ HZOVbASNC OL
 u
 ACCT 245Managerial Accounting4 ·Ï*"
-N/A"Dolar, Burak*ONLINE ASNC01Mï:RH@8<@.HZOV PQbASNC OLjACCT 240
+N/A"Dolar, Burak*ONLINE ASNC01Mï:RH@8<@-HZOV PQbASNC OLjACCT 240
 î
 ACCT 470Law of Commcl Transactions I4 ∂Í*)
 TR†∂"Newman, Shawn T.*ONLINE SYNC16^∫I@8#@HZOV MJbOL SYNC WP1jMajors Only. MGMT 271
@@ -37,7 +37,7 @@ HZOV GR GR MJ S/UbHYBDj9Admission to the AHE program or permission of instruc
 ASLC 101Elementary ASL/Culture5 ﬂ*"
 Mî
 "Boyd, Linda Sue*MH 154*
-N/A"Staff*ONLINE ASNC01Õu±â˘Æ@8@HZOVb	ACGM HYBD
+N/A"Staff*ONLINE ASNC01Õu±â˘Æ@8@HZOVb	ACGM HYBD
 }
 ANTH 102Introduction to Human Origins5 ËÎ*+
 N/A"Rollins, Alyson Marie*ONLINE ASNC01Ìjè…	@8@HZOVbASNC OL SSC
@@ -45,15 +45,15 @@ HZOV GR GR MJ S/UbHYBDj9Admission to the AHE program or permission of instruc
 ANTH 104American Mosaic:US Cultures4 îÒ*-
 N/A"Bocast, Brooke Schwartz*ONLINE ASNC01‘≈ø#≤Ñ
 @8@ZOVbASNC BCGM OL
-t
-ANTH 201Intro to Cultural Anthropology5 ”Î*!
-N/A"Fisher, Jae*ONLINE ASNC01l¡l¡V@8@HZOVbASNC OL SSC
+u
+ANTH 201Intro to Cultural Anthropology5 ”Î*"
+N/A"Fisher, Ella*ONLINE ASNC01l¡l¡V@8@HZOVbASNC OL SSC
 {
 ANTH 215Intro Biological Anthro w/lab5 ¸Ì*(
 N/A"Felker, Fiona Mari*ONLINE ASNC01Î¨%QLi@8@HZOVbASNC LSCI OL
-Ç
-ANTH 301Anthropological Theory5 ≥Î*!
-N/A"Fisher, Jae*ONLINE ASNC01l¡l¡V@8@HZOV PQbASNC OLjANTH 201 or HNRS 203.
+É
+ANTH 301Anthropological Theory5 ≥Î*"
+N/A"Fisher, Ella*ONLINE ASNC01l¡l¡V@8@HZOV PQbASNC OLjANTH 201 or HNRS 203.
 ≈
 ANTH 312Field Course in Archaeology12 ªÓ*(
 TBD"Ek Romero, Jerald David*AH 31781Xv„¡i"@8@H˛ˇˇˇˇˇˇˇˇRFlat Fee $600.00ZOV PQbFTFj4ANTH 210 or equivalent and permission of instructor.
@@ -62,7 +62,7 @@ t
 N/A"Weitz, Andrew*ONLINE ASNC01Â5î◊P@8@HZOV PQbASNC OL QSRj-ANTH 201 or HNRS 203 or ANTH 210 or ANTH 215.
 ê
 ANTH 353Sex and Gender in Culture5 æÎ*'
-N/A"Mihai, Mariangela*ONLINE ASNC01”A‘Ae@8@HZOV PQbASNC BCGM OLjANTH 201 or HNRS 203.
+N/A"Mihai, Mariangela*ONLINE ASNC01”A‘Ae@8@HZOV PQbASNC BCGM OLjANTH 201 or HNRS 203.
 ô
 ANTH 361American Indian Perspectives5 îÓ*-
 N/A"Shepard, Michael Andrew*ONLINE ASNC01ºﬁ˚å‘ˇ@8@H	ZOV PQbASNC BCGM OLjANTH 201 or HNRS 203.
@@ -86,9 +86,10 @@ Internship5 TO 10 ÿÎ*"
 à
 ANTH 496Portfolio Assembly1 ¡Ì*(
 TBD"Ek Romero, Jerald David*AH OFC88@HZOV SR MJ S/UbFTFjSenior status in anthropology.
-Ö
-ANTH 496Portfolio Assembly1 öÔ*
-TBD"Fisher, Jae*AH OFC81l¡l¡V@8@HZOV SR MJ S/UbFTFjSenior status in anthropology.
+Ü
+ANTH 496Portfolio Assembly1 öÔ*
+TBD"Fisher, Ella*AH OFC81ıæ‘ò}à
+@8@HZOV SR MJ S/UbFTFjSenior status in anthropology.
 á
 ANTH 496Portfolio Assembly1 ËÒ*
 TBD"Weitz, Andrew*AH OFC81Â5î◊P@8@HZOV SR MJ S/UbFTFjSenior status in anthropology.
@@ -207,11 +208,12 @@ s
 ∏
 CHIN 237Interm Chin Lang & Culture Stu15 ıÓ*
 TBD"Liu, Claudia*TBA8*
-TBD"Wu, Julian Siyuan*TBA81o¶¯,Ò@8@HRFlat Fee $1557.40ZOVbFTF TRVLjCHIN 103 or equivalent.
+TBD"Wu, Julian Siyuan*TBA81°0VÙ
+@8@HRFlat Fee $1557.40ZOVbFTF TRVLjCHIN 103 or equivalent.
 û
 CHIN 337Adv Chin Lang & Culture Study15 ˆÓ*
 TBD"Liu, Claudia*TBA8*
-TBD"Wu, Julian Siyuan*TBA81o¶¯,Ò@8@HRFlat Fee $1557.40ZOVbFTF TRVL
+TBD"Wu, Julian Siyuan*TBA81Å˛ ™éK@8@HRFlat Fee $1557.40ZOVbFTF TRVL
 Ä
 CD 280Coaching Pract - Basketball2 Ñ*
 TBD"Dominguez, Tony*TBA81ª◊ΩÓuØ@8
@@ -291,7 +293,7 @@ y
 TBD"Cooper, Megan B.*TBA81      @8@	HZOV GR PB PM S/U PQbFTFjCSD 505
 j
 CSD 699Continuous Enrollment2 “Î*
-TBD"Patrick, David L.*TBA81uÂ…:W@8HZOV GR GR PB PMbFTF
+TBD"Patrick, David L.*TBA81iè®%‹ï@8HZOV GR GR PB PMbFTF
 o
 COMM 220Communication Theory5 óÎ*&
 N/A"Gomez, Stephanie*ONLINE ASNC01ŸËl"±-@8(@%HZOVbASNC HUM OL
@@ -412,7 +414,7 @@ Kuntz, Pam*ONLINE ASNC01«∑Tªj›@8@HZOVbACGM ASNC OL
 N/A"Kim, Ilhyung*ONLINE ASNC012ﬁ©n·@89@6HZOV PQbASNC OLj/MATH 157 or MATH 124 or MATH 138; and DSCI 205.
 ä
 DSGN 211Foundations of Visual Comm3 ÚÌ**
-N/A"de Almeida, Cristina*ONLINE ASNC01òh⁄•z	@8<@HRFlat Fee $12.25ZOVbASNC HUM OL
+N/A"de Almeida, Cristina*ONLINE ASNC01òh⁄•z	@8<@HRFlat Fee $12.25ZOVbASNC HUM OL
 
 DSGN 249Graphic Design Concepts4 ﬁÒ*&
 N/A"McConnell, Jonny*ONLINE ASNC01rÍ˜‹ß
@@ -462,9 +464,6 @@ Sula, Ozan*ONLINE ASNC01Ó_JB≤@8@HZOV PQbASNC CF-E OLjJECON 206 and ECON
 é"Query, Jason Alan*PH 244*
 R¯
 é"Staff*PH 0471∞T4}Âq@8@HZOV PQbFTF WP3j#ECON 306 or ECON 309; and ECON 375.
-s
-EDUC 309Storytelling4 ¥Î*1
-N/A"Vohs, Rosemary Amanda Scott*ONLINE ASNC01‘›™©Øë@8@HZOVbASNC BCOM OL
 ò
 EDAD 536Topics in Ed Ldrshp & Finance4 ìÓ*)
 MWÃ∆
@@ -484,12 +483,12 @@ HRPer/Cr $426.00ZOV GR PB PM MJbEVEX FTFj!Admission to Doctor of Education.
 ª
 EDAD 658Research Institute II5 ∆Ó*+
 TBD"
-Bruce, Tim*Everett EESP Extention81      @8@
+Bruce, Tim*Everett EESP Extention81;,ò™∑@8@
 HRPer/Cr $426.00ZOV GR PB PM PQbEVEX FTFj+Admission to Doctor of Education; EDAD 650.
 «
 EDAD 670Doctoral Proposal Defense1 TO 15 ®Ú*+
 TBD"
-Bruce, Tim*Everett EESP Extention81      @8@HRPer/Cr $426.00ZOV GR PB PM MJ S/UbASNC EVEX OL SSTj!Admission to Doctor of Education.
+Bruce, Tim*Everett EESP Extention81;,ò™∑@8@HRPer/Cr $426.00ZOV GR PB PM MJ S/UbASNC EVEX OL SSTj!Admission to Doctor of Education.
 ê
 EECE 111Circuit Analysis I4 ·Ò*#
 N/A"Zang, Yuzhang*ONLINE ASNC01Í{.í≥@8@HRFlat Fee $138.41ZOV PQbASNC OLjMATH 125; PHYS 162.
@@ -601,7 +600,7 @@ y
 ô
 ESCI 225Beginning Ecology4 ˚* 
 N/A"
-Bunn, Andy*ONLINE ASNC01Ÿé&˜Uò@8(@H	RFlat Fee $97.00ZOV PQbASNC OL SCIjMATH 112 with a C- or better.
+Bunn, Andy*ONLINE ASNC01B¯m›õÔ@8(@H	RFlat Fee $97.00ZOV PQbASNC OL SCIjMATH 112 with a C- or better.
 €
 ESCI 302Environmental Disturbances4 ∂Ì*&
 N/A"Rybczyk, John M.*ONLINE ASNC01e9Â£R@8@HZOV PQbASNC OLjeCHEM 161; BIOL 101 or BIOL 204; MATH 114 or suitable math assessment score; or instructor permission.
@@ -634,7 +633,7 @@ n
 w
 	ESCI 498B
 Internship1 TO 15 ©Î*
-TBD"	Weber, Ed*ES OFC81e†ÊWj	@8d@$H@ZOV S/UbFTFjPermission of instructor.
+TBD"	Weber, Ed*ES OFC81e†ÊWj	@8d@&H>ZOV S/UbFTFjPermission of instructor.
 ç
 	ESCI 498B
 Internship1 TO 15 ÈÔ**
@@ -790,7 +789,7 @@ HRFlat Fee $1349.00ZOVbFTF TRVLjInstructor permission.
 \
 	ENVS 498B
 Internship1 TO 15 àÏ*
-TBD"	Weber, Ed*TBA81e†ÊWj	@82@HZ	OV MJ S/UbFTF
+TBD"	Weber, Ed*TBA81e†ÊWj	@82@HZ	OV MJ S/UbFTF
 t
 	ENVS 498B
 Internship1 TO 15 ”Ï**
@@ -1010,7 +1009,7 @@ n
 Gosen, Joe*CF 2021V™1‘≠f@8@HRFlat Fee $15.00ZOV PQbFTFj)JOUR 207; basic knowledge of photography.
 ã
 JOUR 340History of U.S. Journalism4  Î*%
-N/A"Webb, Sheila M.*ONLINE ASNC01Ë¨“∆T@8<@H+ZOV JR SRbASNC HUM OLjjunior standing
+N/A"Webb, Sheila M.*ONLINE ASNC01Ë¨“∆T@8<@H,ZOV JR SRbASNC HUM OLjjunior standing
 Ü
 JOUR 430Field Internship6 ÆÎ*
 TBD"O'Donovan, Betsy*TBA81ïı¬„Af	@8
@@ -1279,10 +1278,10 @@ v
 j
 MUS 106Intro to Hip-Hop3 ñÌ*&
 N/A"Senger, Lucas G.*ONLINE ASNC01∆J?ÑÊò
-@8@HZOVbASNC HUM OL
+@8@HZOVbASNC HUM OL
 q
 MUS 108Survey of Video Game Music3 “Ï*#
-N/A"Yoder, Rachel*ONLINE ASNC01LÙw≤Z@8#@!HZOVbASNC HUM OL
+N/A"Yoder, Rachel*ONLINE ASNC01LÙw≤Z@8#@ HZOVbASNC HUM OL
 s
 MUS 109Icon. Mus. in Icon. Films3 ∏Ì*&
 N/A"Camacho, Gustavo*ONLINE ASNC01‘%Ø∞»ü@8#@H	ZOVbASNC HUM OL
@@ -1365,7 +1364,7 @@ H&ZOV PQbFTF SCIj7MATH 115 or MATH 118 or suitable math assessment score.
 PHYS 161Physics with Calculus I5 ‰Ï*$
 MTWRË˛"Sandelin, Kate*CF 105*
 TRî
-™"Staff*CF 3021ËÓA&⁄H	@8(@HRFlat Fee $65.24ZOV PQbFTF LSCIjKMATH 124 or concurrent OR MATH 134 or concurrent OR MATH 138 or concurrent.
+™"Staff*CF 3021ÕÊ´ﬂ»X@8(@HRFlat Fee $65.24ZOV PQbFTF LSCIjKMATH 124 or concurrent OR MATH 134 or concurrent OR MATH 138 or concurrent.
 ı
 PHYS 162Physics with Calculus II5 ÂÏ*&
 MTWRË˛"Riemann, Andreas*CF 105*
@@ -1462,7 +1461,7 @@ k
 PSY 441Seminar in Cross-Cultural Psyc5 àÔ* 
 MTWR¯
 é"
-King, Jeff*AW 4121∆» Kå¨¸?8@H
+King, Jeff*AW 4121t	d£˝@8@H
 RFlat Fee $11.00ZOV PQbFTF WP2jUPSY 307; and one course from: PSY 341, PSY 342, PSY 343, PSY 344, PSY 345 or PSY 346.
 ≥
 PSY 451Seminar Mental Health Topics5 ¶Î*'
@@ -1725,4 +1724,4 @@ b
 N/A"Deylami, Shirin Sedigh*ONLINE ASNC01trrrrR@8@H	ZOVbACGM ASNC OL
 ª
 WGSS 320Media & Feminisms5 –Ì*'
-N/A"Mihai, Mariangela*ONLINE ASNC013©à‰§@8@HZOVbASNC BCGM OLjKWGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.ô„’µ∑ü·_
+N/A"Mihai, Mariangela*ONLINE ASNC013©à‰§@8@HZOVbASNC BCGM OLjKWGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.¥‡‚∑»§õŸ
