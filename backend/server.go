@@ -72,6 +72,7 @@ func main() {
 
 // Handles POST requests to /schedule-optimizer
 func handleScheduleOptimizer(w http.ResponseWriter, r *http.Request) {
+	// Checks if the server is currently updating data and sends error if so
 	updateMutex.RLock()
 	updating := isUpdating
 	updateMutex.RUnlock()
@@ -85,6 +86,7 @@ func handleScheduleOptimizer(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// If w're not updating, continue with the request and generate schedules'
 	var request models.RawRequest
 	err := json.NewDecoder(r.Body).Decode(&request)
 	if err != nil {
@@ -93,7 +95,7 @@ func handleScheduleOptimizer(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Context with an n second timeout
+	// Context with an n second timeout for extra-large queries
 	ctx, cancel := context.WithTimeout(r.Context(), utils.SERVER_TIMEOUT_SECS*time.Second)
 	defer cancel()
 
@@ -137,6 +139,8 @@ func getPort() string {
 	return port
 }
 
+// Attempts to update the course data by webscraping (if necessary)
+// updateMutex assures thread safety and allows for continued uptime.
 func UpdateCoursesHandler() {
 	updateMutex.Lock()
 	checkUpdating := isUpdating
@@ -165,48 +169,3 @@ func UpdateCoursesHandler() {
 	}
 }
 
-// ----------------------- SCHEDULE TESTING BELOW -----------------------------
-
-// Tester function for generating schedules via terminal
-// func main() {
-// 	courses := []string{"CSCI 330", "CSCI 345", "CSCI 367", "CSCI 305",
-// 		"CSCI 145", "MATH 204", "CSCI 141", "CSCI 241", "CSCI 247"}
-// 	forced := []string{}
-// 	req := models.RawRequest{
-// 		Courses: courses,
-// 		Forced:  forced,
-// 		Term:    "202440",
-// 		Min:     6,
-// 		Max:     7,
-// 	}
-// 	g := generator.NewGenerator()
-// 	response := g.GenerateResponse(req)
-// 	fmt.Printf("\nErrors: \n\n")
-// 	for _, err := range response.Errors {
-// 		fmt.Printf("%v\n", err)
-// 	}
-
-// 	fmt.Printf("\nWarnings: \n\n")
-// 	for _, warning := range response.Warnings {
-// 		fmt.Printf("%v\n", warning)
-// 	}
-
-// 	fmt.Printf("\nSchedules (%v): \n\n", len(response.Schedules))
-// 	for _, schedule := range response.Schedules[:3] {
-// 		fmt.Println("Courses: ")
-// 		for _, course := range schedule.Courses {
-// 			fmt.Printf("%v: ", course.Subject)
-// 			for _, session := range course.Sessions {
-// 				fmt.Printf("%v ", session)
-// 			}
-// 			fmt.Println()
-// 		}
-// 		fmt.Printf("Weights: %v\n", schedule.Weights)
-// 		fmt.Printf("Score: %v\n", schedule.Score)
-// 		fmt.Println()
-// 	}
-
-// 	bytesResponse, _ := json.Marshal(response)
-// 	size := uintptr(cap(bytesResponse))*unsafe.Sizeof(bytesResponse) + unsafe.Sizeof(response)
-// 	fmt.Printf("Size of response: %v KB\n", size/1000)
-// }

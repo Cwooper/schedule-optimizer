@@ -1,6 +1,8 @@
 package generator
 
-import "github.com/cwooper/schedule-optimizer/internal/models"
+import (
+	"github.com/cwooper/schedule-optimizer/internal/models"
+)
 
 type ScheduleRequest struct {
 	Courses   []models.Course
@@ -9,7 +11,7 @@ type ScheduleRequest struct {
 	Max       int
 }
 
-// Returns all possible schedules given the
+// Returns all possible schedules given the scheduleRequest
 func Combinations(scheduleRequest ScheduleRequest) []models.Schedule {
 	courses := scheduleRequest.Courses
 	conflicts := createConflictMap(scheduleRequest.Conflicts)
@@ -17,7 +19,7 @@ func Combinations(scheduleRequest ScheduleRequest) []models.Schedule {
 	max := scheduleRequest.Max
 
 	if max > len(courses) {
-		return nil
+		max = len(courses)
 	}
 
 	result := [][]models.Course{}
@@ -44,6 +46,7 @@ func Combinations(scheduleRequest ScheduleRequest) []models.Schedule {
 	}
 
 	combine(0, []models.Course{})
+
 	return courseListsToSchedules(result)
 }
 

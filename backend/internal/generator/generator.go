@@ -52,6 +52,7 @@ func GenerateResponse(req models.RawRequest) *models.Response {
 		g.response.Errors = append(g.response.Errors, errString)
 		return g.response
 	}
+
 	// Clean the course Names
 	g.cleanedCourseNames = g.cleanCourseNames(req.Courses)
 	if len(g.response.Errors) > 0 {
@@ -68,6 +69,7 @@ func GenerateResponse(req models.RawRequest) *models.Response {
 		return g.response
 	}
 
+	// Verify that the forced courses were found in the output
 	for i, forceName := range g.cleanedForcedNames {
 		found := false
 		for _, course := range g.courses {
