@@ -14,14 +14,16 @@ function addCourse() {
   const courseName = courseSelect.value; // Get selected class name
   const section = sectionNumber.value; // Get section number
   const errorMessage = document.getElementById('errorMessage'); // Get the error message element
-  errorMessage.textContent = '';
+  errorMessage.style.display = 'none';
 
   if (courses.includes(`${courseName} ${section}`)) {
+    errorMessage.style.display = 'block';
     errorMessage.textContent = 'Duplicate Course Entered.';
     return;
   }
 
   if (!sectionNumber.checkValidity()) {
+    errorMessage.style.display = 'block';
     errorMessage.textContent = 'Please enter a valid section number.';
     return;
   }
@@ -46,7 +48,7 @@ function addCourse() {
     const removeButton = document.createElement('button');
     removeButton.textContent = '–';
     removeButton.addEventListener('click', function () {
-      errorMessage.textContent = '';
+      errorMessage.style.display = 'none';
       courses.splice(courses.indexOf(`${courseName} ${section}`), 1); // Remove class from array
       forceList.splice(courses.indexOf(`${courseName} ${section}`), 1);
       li.remove(); // Remove list item from the DOM
@@ -70,22 +72,22 @@ function addCourse() {
     }
 
     // Clear any previous error message
-    errorMessage.textContent = '';
+    errorMessage.style.display = 'none';
   } else {
     // Display an error message if all values are not provided or total classes exceed 6
+    errorMessage.style.display = 'block';
     errorMessage.textContent = 'Ensure you have less than 13 classes added.';
   }
 }
 
 // Function to generate JSON from the classes array
 function generateJSON() {
-  const min = minSelect.value; // Get min value
+  let min = minSelect.value; // Get min value
   const max = maxSelect.value; // Get max value
   const term = termSelect.value; // Get term value
   const quarter = quarterSelect.value; // Get quarter valueif (className && section && min && max && term && quarter) { // Check if all values are provided
-  if (courses.length < min) {
-    errorMessage.innerHTML += "Cannot have less courses than minimum courses in a schedule.";
-    return;
+  if (courses.length < min) { // Lowering minium vaue to 1 if there are less courses than min rather than error
+    min = courses.length
   }
 
   if (forceList.length > max) {
@@ -305,10 +307,11 @@ function clearSchedule() {
 function nextSchedule() {
   if (current_schedule + 1 < all_schedules.length) {
     current_schedule++;
-    errorMessage.textContent = "";
+    errorMessage.style.display = 'none';
     displaySchedule(all_schedules[current_schedule]);
   } else {
     const errorMessage = document.getElementById('errorMessage');
+    errorMessage.style.display = 'block';
     errorMessage.textContent = "You are at the end of the schedules";
   }
 }
@@ -316,10 +319,11 @@ function nextSchedule() {
 function prevSchedule() {
   if (current_schedule - 1 > -1) {
     current_schedule--;
-    errorMessage.textContent = "";
+    errorMessage.style.display = 'none';
     displaySchedule(all_schedules[current_schedule]);
   } else {
     const errorMessage = document.getElementById('errorMessage');
+    errorMessage.style.display = 'block';
     errorMessage.textContent = "You are at the beginning of the schedules";
   }
 }
@@ -499,7 +503,7 @@ function displayAsyncCourses() {
     const courseElement = document.createElement('div');
     courseElement.classList.add('async-course-item');
     courseElement.innerHTML = `<strong>${course.Subject} - ${course.Title}</strong><br>CRN: ${course.CRN}`;
-    
+
     courseElement.addEventListener('click', () => {
       // Assuming the first session is the async one
       displayPopup(course, course.Sessions[0]);
