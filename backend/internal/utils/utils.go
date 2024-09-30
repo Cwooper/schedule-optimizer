@@ -31,6 +31,7 @@ const (
 	// One Schedule is about 2KB. 2000 Schedules is 4MB.
 	MAX_OUTPUT_SCHEDULES = 2000
 	SERVER_TIMEOUT_SECS  = 2 // Server will timeout after x seconds
+	MAX_OUTPUT_COURSES   = 20 // Courses to send back upong a fuzzy search
 
 	TIME_FORMAT = "2006-01-02 15:04:05"
 

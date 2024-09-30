@@ -29,6 +29,7 @@ type Course struct {
 	Restrictions   string    // Any noted restrictions
 	Attributes     string    // Any noted attributes
 	Prerequisites  string    // Any noted prerequisites
+	CourseString   string    // The course as a string for searching
 }
 
 // Initialize fully empty course
@@ -47,6 +48,7 @@ func NewCourse() *Course {
 		Restrictions:   "",
 		Attributes:     "",
 		Prerequisites:  "",
+		CourseString:   "",
 	}
 }
 

@@ -16,6 +16,7 @@ import (
 	"github.com/cwooper/schedule-optimizer/internal/generator"
 	"github.com/cwooper/schedule-optimizer/internal/models"
 	"github.com/cwooper/schedule-optimizer/internal/scraper"
+	"github.com/cwooper/schedule-optimizer/internal/search"
 	"github.com/cwooper/schedule-optimizer/internal/utils"
 )
 
@@ -95,6 +96,30 @@ func handleScheduleOptimizer(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if request.SearchTerm != "" { // Fuzzy search
+		Search(w, r, request)
+	} else if len(request.Courses) > 0 { // Schedule Generator
+		ScheduleGenerator(w, r, request)
+	} else { // Unknown
+		errorResp := models.Response{
+			Errors: []string{"Error parsing your request (not search or schedule generator?)"},
+		}
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusBadRequest)
+		json.NewEncoder(w).Encode(errorResp)
+	}
+}
+
+// Fuzzy search for courses
+func Search(w http.ResponseWriter, r *http.Request, request models.RawRequest) {
+	resp := search.SearchCourses(request.SearchTerm, request.Term)
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(resp)
+}
+
+// Generate schedules
+func ScheduleGenerator(w http.ResponseWriter, r *http.Request, request models.RawRequest) {
 	// Context with an n second timeout for extra-large queries
 	ctx, cancel := context.WithTimeout(r.Context(), utils.SERVER_TIMEOUT_SECS*time.Second)
 	defer cancel()

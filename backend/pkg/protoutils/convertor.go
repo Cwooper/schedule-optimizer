@@ -42,6 +42,7 @@ func CourseToProto(course models.Course) *pb.Course {
 		Restrictions:   course.Restrictions,
 		Attributes:     course.Attributes,
 		Prerequisites:  course.Prerequisites,
+		CourseString:   course.CourseString,
 	}
 }
 
@@ -61,6 +62,7 @@ func ProtoToCourse(pbCourse *pb.Course) models.Course {
 		Restrictions:   pbCourse.Restrictions,
 		Attributes:     pbCourse.Attributes,
 		Prerequisites:  pbCourse.Prerequisites,
+		CourseString:   pbCourse.CourseString,
 	}
 }
 

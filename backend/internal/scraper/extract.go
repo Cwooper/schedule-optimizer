@@ -279,6 +279,22 @@ func getCoursesFromTables(doc *goquery.Document) ([]models.Course, error) {
 	return courses, nil
 }
 
+// Formatted as "Subject|Title|Professor(s)|..."
+func courseToCourseString(course models.Course) string {
+	var instructors []string
+
+	for _, session := range course.Sessions {
+		instructors = append(instructors, session.Instructor)
+	}
+
+	instructorString := strings.Join(instructors, "|")
+	allStrings := []string{course.Subject, course.Title, instructorString}
+
+	result := strings.Join(allStrings, "|")
+
+	return strings.ToUpper(result)
+}
+
 // Returns all of the courses found at the given url specified
 // by the subject, term and year
 func getSubjectFromURL(subject, term, year string) ([]models.Course, error) {
@@ -323,6 +339,10 @@ func getSubjectFromURL(subject, term, year string) ([]models.Course, error) {
 	courses, err := getCoursesFromTables(doc)
 	if err != nil {
 		return nil, fmt.Errorf("failed to get courses from tables: %w", err)
+	}
+
+	for i := range courses {
+		courses[i].CourseString = courseToCourseString(courses[i])
 	}
 
 	return courses, nil
