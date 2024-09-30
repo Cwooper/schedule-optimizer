@@ -4,6 +4,7 @@ go 1.22.5
 
 require (
 	github.com/PuerkitoBio/goquery v1.9.2
+	github.com/lithammer/fuzzysearch v1.1.8
 	github.com/robfig/cron v1.2.0
 	google.golang.org/protobuf v1.34.2
 )
@@ -11,4 +12,5 @@ require (
 require (
 	github.com/andybalholm/cascadia v1.3.2 // indirect
 	golang.org/x/net v0.24.0 // indirect
+	golang.org/x/text v0.14.0 // indirect
 )

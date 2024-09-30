@@ -95,15 +95,16 @@ function generateJSON() {
     return;
   }
 
-  const scheduleinfo = {
+  const jsonObject = {
     Courses: courses,
     Forced: forceList,
     Min: parseInt(min),
     Max: parseInt(max),
-    Term: term + quarter
+    Term: term + quarter,
+    SearchTerm: ""
   };
 
-  schedule = (scheduleinfo);
+  schedule = (jsonObject);
   const json = JSON.stringify(schedule); // Convert classes array to JSON string
   console.log(`Sending: ${json}`); // Output JSON string to the console
 
@@ -502,7 +503,7 @@ function displayAsyncCourses() {
   asyncCourses.forEach(course => {
     const courseElement = document.createElement('div');
     courseElement.classList.add('async-course-item');
-    courseElement.innerHTML = `<strong>${course.Subject} - ${course.Title}</strong><br>CRN: ${course.CRN}`;
+    courseElement.innerHTML = `<strong>${course.Subject} - ${course.Title} - ${course.Sessions[0].Instructor}</strong><br>CRN: ${course.CRN}`;
 
     courseElement.addEventListener('click', () => {
       // Assuming the first session is the async one
@@ -551,6 +552,126 @@ function updateSort() {
   sortSchedules();
   current_schedule = 0;
   displaySchedule(all_schedules[current_schedule]);
+}
+
+
+let searchCourses = []
+
+function clearSearchCourses() {
+  const searchCoursesList = document.getElementById('search-courses-list');
+  searchCoursesList.innerHTML = '';
+}
+
+function displaySearchCourses() {
+  const searchCoursesList = document.getElementById('search-courses-list');
+  clearSearchCourses();
+
+  if (!searchCourses || searchCourses.length === 0) {
+    searchCoursesList.innerHTML = '<p>No results found.</p>';
+    return;
+  }
+
+  searchCourses.forEach(course => {
+    const courseElement = document.createElement('div');
+    courseElement.classList.add('search-course-item');
+    courseElement.innerHTML = `<strong>${course.Subject} - ${course.Title} - ${course.Sessions[0].Instructor}</strong><br>CRN: ${course.CRN}`;
+
+    courseElement.addEventListener('click', () => {
+      // Assuming the first session is the one we want // TODO: add all sessions
+      displayPopup(course, course.Sessions[0]);
+    });
+
+    searchCoursesList.appendChild(courseElement);
+  });
+}
+
+function search() {
+  const searchBox = document.getElementById('searchBox');
+  let searchText = searchBox.value
+  if (!searchText) {
+    return
+  }
+  searchBox.value = ''; // Clear the box
+
+  // generate a json with the searchText
+  const term = searchTermSelect.value; // Get term value
+  const quarter = searchQuarterSelect.value; // Get quarter value
+
+
+  const jsonObject = {
+    Courses: [],
+    Forced: [],
+    Min: 0,
+    Max: 0,
+    Term: term + quarter,
+    SearchTerm: searchText
+  };
+
+  schedule = (jsonObject);
+  const json = JSON.stringify(schedule); // Convert classes array to JSON string
+  console.log(`Sending: ${json}`); // Output JSON string to the console
+
+  fetch('/schedule-optimizer/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: json
+  })
+    .then(response => response.json())
+    .then(response => {
+      // Display the response in the console
+      console.log('Response:', response);
+
+      // Size of JSON (should be less than 2MB ever)
+      const jsonString = JSON.stringify(response);
+      const sizeInBytes = new Blob([jsonString]).size;
+      console.log("JSON size:", sizeInBytes, "bytes");
+
+      // Clear previous courses if their previously were some.
+      if (searchCourses && searchCourses.length > 0) {
+        clearSearchCourses();
+      }
+
+      const errorMessage = document.getElementById('errorMessage');
+      let messages = [];
+
+      if (response.Errors && response.Errors.length > 0) {
+        messages = messages.concat(response.Errors);
+      }
+
+      if (response.Warnings && response.Warnings.length > 0) {
+        messages = messages.concat(response.Warnings);
+      }
+
+      if (messages.length > 0) {
+        errorMessage.innerHTML = messages.join("<br>");
+        errorMessage.style.display = 'block';
+      } else {
+        errorMessage.style.display = 'none';
+      }
+
+      searchCourses = response.Courses;
+      if (searchCourses && searchCourses.length > 0) {
+        displaySearchCourses();
+      } else {
+        const searchCoursesList = document.getElementById('search-courses-list');
+        searchCoursesList.innerHTML = '<p>No results found.</p>';
+      }
+    })
+    .catch(error => {
+      // Handle any errors
+      console.error('Error:', error);
+      const errorMessage = document.getElementById('errorMessage');
+      errorMessage.innerHTML = 'An error occurred while processing your request.';
+      errorMessage.style.display = 'block';
+    });
+}
+
+function handleSearchKeyPress(event) {
+  if (event.keyCode === 13) { // Check for pressing Enter
+    search() // search for the item
+  }
 }
 
 // Fetch the class names from subjects.txt and populate the dropdown menu

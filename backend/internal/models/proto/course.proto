@@ -30,6 +30,7 @@ message Course {
   string restrictions = 11;
   string attributes = 12;
   string prerequisites = 13;
+  string course_string = 14;
 }
 
 message CourseList {
