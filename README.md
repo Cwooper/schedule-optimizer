@@ -99,5 +99,5 @@ Extra:
 - [ ] Port frontend to React (Konnor)
 - [ ] Weight customizability on frontend
 - [ ] If User Asks for the same schedule twice, don't send POST request.
-- [ ] Fuzzy search a "Did you Mean:" when course not found
+- [x] Fuzzy search courses
 - [ ] Redo Calendar in Go WASM?
