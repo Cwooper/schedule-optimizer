@@ -40,7 +40,7 @@ func SearchCourses(searchTerm string, term string) models.Response {
 
 	// Perform fuzzy search on each course
 	for i := range courseList {
-		score := fuzzy.RankMatch(searchTerm, courseList[i].CourseString)
+		score := fuzzy.LevenshteinDistance(searchTerm, courseList[i].CourseString)
 		if score != -1 {
 			matches = append(matches, Match{
 				Course: courseList[i],
