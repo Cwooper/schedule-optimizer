@@ -1,0 +1,131 @@
+/* src/components/SchedulePlanner/SchedulePlanner.module.css */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .formControls {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .dropdowns {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f3f4f6;
+    border-radius: 0.5rem;
+  }
+  
+  .dropdownGroup {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .selectWrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .selectWrapper select {
+    appearance: none;
+    padding: 0.5rem 2rem 0.5rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    background-color: white;
+    cursor: pointer;
+    min-width: 120px;
+  }
+  
+  .dropdownIcon {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1rem;
+    pointer-events: none;
+    color: #6b7280;
+  }
+  
+  .courseSection {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .courseHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .addButton {
+    background-color: #003f87;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+  }
+  
+  .courseList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .courseItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #f9fafb;
+    border-radius: 0.375rem;
+  }
+  
+  .forceButton {
+    padding: 0.25rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    background-color: white;
+  }
+  
+  .forceButton.forced {
+    background-color: #003f87;
+    color: white;
+    border-color: #003f87;
+  }
+  
+  .scheduleActions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .actionButton {
+    padding: 0.5rem 1rem;
+    background-color: white;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    flex: 1;
+  }
+  
+  .scheduleGlance {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    min-height: 300px;
+  }
+  
+  .schedulePreview {
+    margin-top: 1rem;
+    background-color: #f9fafb;
+    border-radius: 0.375rem;
+    min-height: 200px;
+    padding: 1rem;
+  }
