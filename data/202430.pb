@@ -47,8 +47,7 @@ HZOV GR GR MJ S/UbHYBDj9Admission to the AHE program or permission of instruc
 @8@ZOVbASNC BCGM OLr<ANTH 104|AMERICAN MOSAIC:US CULTURES|BOCAST, BROOKE SCHWARTZ
 ´
 ANTH 201Intro to Cultural Anthropology5 ”Î*"
-N/A"Fisher, Ella*ONLINE ASNC01ıæ‘ò}à
-@8@HZOVbASNC OL SSCr4ANTH 201|INTRO TO CULTURAL ANTHROPOLOGY|FISHER, ELLA
+N/A"Fisher, Ella*ONLINE ASNC01l¡l¡V@8@HZOVbASNC OL SSCr4ANTH 201|INTRO TO CULTURAL ANTHROPOLOGY|FISHER, ELLA
 ∂
 ANTH 215Intro Biological Anthro w/lab5 ¸Ì*(
 N/A"Felker, Fiona Mari*ONLINE ASNC01Î¨%QLi@8@HZOVbASNC LSCI OLr9ANTH 215|INTRO BIOLOGICAL ANTHRO W/LAB|FELKER, FIONA MARI
@@ -185,11 +184,21 @@ v
 ß
 C/AM 200An Introduction to Canada5 éÌ*%
 N/A"Rossiter, David*ONLINE ASNC01PbX9¥@8@HZOVbASNC OL SSCr2C/AM 200|AN INTRODUCTION TO CANADA|ROSSITER, DAVID
+∂
+CHEM 161General Chemistry I W/Lab5 †Ì*,
+MTWRË˛"Rindal, Hope Elizabeth*SL 140**
+TRî
+é"Rindal, Hope Elizabeth*IS 3301¥ÿ“hï@80@HRFlat Fee $50.00ZOV PQbFTF LSCIj+MATH 114 or suitable math assessment score.rPCHEM 161|GENERAL CHEMISTRY I W/LAB|RINDAL, HOPE ELIZABETH|RINDAL, HOPE ELIZABETH
 é
 CHEM 162General Chemistry II W/Lab5 °Ì**
 MTWRË˛"Cully, Amy Francesca*SL 140*(
 TRî
 é"Cully, Amy Francesca*IS 3401ıc?ˆc@80@HRFlat Fee $60.00ZOV PQbFTF LSCIj	CHEM 161.rMCHEM 162|GENERAL CHEMISTRY II W/LAB|CULLY, AMY FRANCESCA|CULLY, AMY FRANCESCA
+Ä
+CHEM 163General Chemistry III W/Lab5 ¢Ì*&
+MTWRË‡"Emory, Steven R.*SL 120*$
+MWî
+é"Emory, Steven R.*IS 4401J⁄J¥::	@8 @HRFlat Fee $60.00ZOV PQbFTF LSCIj	CHEM 162.rFCHEM 163|GENERAL CHEMISTRY III W/LAB|EMORY, STEVEN R.|EMORY, STEVEN R.
 π
 CHEM 251Elementary Organic Chem w/lab5 ¬Î*/
 TRË˛"Griffith, Jennifer Kristine*SL 130*.
@@ -210,7 +219,7 @@ v
 Ä
 CHIN 237Interm Chin Lang & Culture Stu15 ıÓ*
 TBD"Liu, Claudia*TBA8*
-TBD"Wu, Julian Siyuan*TBA81Å˛ ™éK@8@HRFlat Fee $1557.40ZOVbFTF TRVLjCHIN 103 or equivalent.rFCHIN 237|INTERM CHIN LANG & CULTURE STU|LIU, CLAUDIA|WU, JULIAN SIYUAN
+TBD"Wu, Julian Siyuan*TBA81o¶¯,Ò@8@HRFlat Fee $1557.40ZOVbFTF TRVLjCHIN 103 or equivalent.rFCHIN 237|INTERM CHIN LANG & CULTURE STU|LIU, CLAUDIA|WU, JULIAN SIYUAN
 Â
 CHIN 337Adv Chin Lang & Culture Study15 ˆÓ*
 TBD"Liu, Claudia*TBA8*
@@ -285,7 +294,7 @@ RFlat Fee $26.00ZOV GR GR PB PM S/UbFTFj≥CSD 371, CSD 462 or permission of i
 TBD"Diedesch, Anna C.*TBA81èÛÀ˜Ù.@8@ZOV GR GR PB PM S/UbFTFjÔSecond-year graduate status; completion of plan of study; instructor permission; B in last clinic and a minimum of 200 clinic hours; enroll in clinic the quarter prior to internship and have all administrative and clinical records current.r8CSD 598|INTERN IN SPEECH/LANG PATH/AUD|DIEDESCH, ANNA C.
 †
 CSD 598Intern in Speech/Lang Path/Aud1 TO 4 ÙÔ*
-TBD"Burgess, Dawn*TBA81p‰Fn‰F@8HZOV GR GR PB PM S/UbFTFjÔSecond-year graduate status; completion of plan of study; instructor permission; B in last clinic and a minimum of 200 clinic hours; enroll in clinic the quarter prior to internship and have all administrative and clinical records current.r4CSD 598|INTERN IN SPEECH/LANG PATH/AUD|BURGESS, DAWN
+TBD"Burgess, Dawn*TBA81ù¥V≈À¯@8HZOV GR GR PB PM S/UbFTFjÔSecond-year graduate status; completion of plan of study; instructor permission; B in last clinic and a minimum of 200 clinic hours; enroll in clinic the quarter prior to internship and have all administrative and clinical records current.r4CSD 598|INTERN IN SPEECH/LANG PATH/AUD|BURGESS, DAWN
 [
 CSD 690Thesis1 TO 9 ∫Í*
 TBD"Staff*TBA88HZOV GR MJbFTFrCSD 690|THESIS|STAFF
@@ -406,7 +415,8 @@ Mare, Shri*CF OFC81˘úè¡˘@8@HRPer/Cr $26.44ZOV S/UbFTFjInstructor perm
 í
 DNC 232Movements for Change3 …Î* 
 N/A"
-Kuntz, Pam*ONLINE ASNC01«∑Tªj›@8@HZOVbACGM ASNC OLr'DNC 232|MOVEMENTS FOR CHANGE|KUNTZ, PAM
+Kuntz, Pam*ONLINE ASNC01„¯Ô
+@8@HZOVbACGM ASNC OLr'DNC 232|MOVEMENTS FOR CHANGE|KUNTZ, PAM
 â
 DSCI 205Business Statistics4 ‘Ò*(
 N/A"Morgans, Brian Lee*ONLINE ASNC01 p®eOù@8#@HZOV PQbASNC OLjgMATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score.r/DSCI 205|BUSINESS STATISTICS|MORGANS, BRIAN LEE
@@ -484,12 +494,12 @@ HRPer/Cr $426.00ZOV GR PB PM MJbEVEX FTFj!Admission to Doctor of Education.r
 Ê
 EDAD 658Research Institute II5 ∆Ó*+
 TBD"
-Bruce, Tim*Everett EESP Extention81      @8@
+Bruce, Tim*Everett EESP Extention81ªªªªªª@8@
 HRPer/Cr $426.00ZOV GR PB PM PQbEVEX FTFj+Admission to Doctor of Education; EDAD 650.r)EDAD 658|RESEARCH INSTITUTE II|BRUCE, TIM
 ˆ
 EDAD 670Doctoral Proposal Defense1 TO 15 ®Ú*+
 TBD"
-Bruce, Tim*Everett EESP Extention81      @8@HRPer/Cr $426.00ZOV GR PB PM MJ S/UbASNC EVEX OL SSTj!Admission to Doctor of Education.r-EDAD 670|DOCTORAL PROPOSAL DEFENSE|BRUCE, TIM
+Bruce, Tim*Everett EESP Extention81ªªªªªª@8@HRPer/Cr $426.00ZOV GR PB PM MJ S/UbASNC EVEX OL SSTj!Admission to Doctor of Education.r-EDAD 670|DOCTORAL PROPOSAL DEFENSE|BRUCE, TIM
 ª
 EECE 111Circuit Analysis I4 ·Ò*#
 N/A"Zang, Yuzhang*ONLINE ASNC01Í{.í≥@8@HRFlat Fee $138.41ZOV PQbASNC OLjMATH 125; PHYS 162.r)EECE 111|CIRCUIT ANALYSIS I|ZANG, YUZHANG
@@ -601,7 +611,7 @@ ZOV GR GR PB PM MJbFTFr#ENG 699|CONTINUOUS ENROLLMENT|STAFF
 ¿
 ESCI 225Beginning Ecology4 ˚* 
 N/A"
-Bunn, Andy*ONLINE ASNC01Ÿé&˜Uò@8(@H	RFlat Fee $97.00ZOV PQbASNC OL SCIjMATH 112 with a C- or better.r%ESCI 225|BEGINNING ECOLOGY|BUNN, ANDY
+Bunn, Andy*ONLINE ASNC01B¯m›õÔ@8(@H	RFlat Fee $97.00ZOV PQbASNC OL SCIjMATH 112 with a C- or better.r%ESCI 225|BEGINNING ECOLOGY|BUNN, ANDY
 ë
 ESCI 302Environmental Disturbances4 ∂Ì*&
 N/A"Rybczyk, John M.*ONLINE ASNC01e9Â£R@8@HZOV PQbASNC OLjeCHEM 161; BIOL 101 or BIOL 204; MATH 114 or suitable math assessment score; or instructor permission.r4ESCI 302|ENVIRONMENTAL DISTURBANCES|RYBCZYK, JOHN M.
@@ -750,8 +760,7 @@ ZOV GR GR PB PMbFTFr$ESCI 699|CONTINUOUS ENROLLMENT|STAFF
 √
 ENVS 203Physical Geography4 ªÒ*!
 MTWRFÑ∂"
-Bach, Andy*AH 0041
-Ä∞b$ˆ@8P@	HGZOVbFTF LSCIj4Minimum of one university-level natural science GUR.r&ENVS 203|PHYSICAL GEOGRAPHY|BACH, ANDY
+Bach, Andy*AH 0041ÂFn‰Fn@8P@	HGZOVbFTF LSCIj4Minimum of one university-level natural science GUR.r&ENVS 203|PHYSICAL GEOGRAPHY|BACH, ANDY
 ⁄
 ENVS 203Physical Geography4 ”Ò**
 N/A"Albertson, Zander E.*ONLINE ASNC01ÏÚ∞c
@@ -960,7 +969,7 @@ ASNC OL USjsophomore standingr5HIST 391|HISTORY OF PACIFIC NORTHWEST|SELTZ, JEN
 TBD"Costanzo, Susan*BH OFC81∫sµä{¿@8HZOVbFTFjGraduate status.rHIST 690|THESIS|COSTANZO, SUSAN
 í
 HIST 699Continous Enrollment2 ‹Í*
-TBD"Patrick, David L.*TBA81iè®%‹ï@8HZOV GRbFTFr/HIST 699|CONTINOUS ENROLLMENT|PATRICK, DAVID L.
+TBD"Patrick, David L.*TBA81_^ÁÏ»≤@8HZOV GRbFTFr/HIST 699|CONTINOUS ENROLLMENT|PATRICK, DAVID L.
 ∫
 HNRS 105Human Exp. Post-modernity4 åÔ* 
 TBD"Laso, Francisco J.*TBA81©)∞C˛≠@8@HRFlat Fee $2896.56ZOVbACGM FTF TRVLr5HNRS 105|HUMAN EXP. POST-MODERNITY|LASO, FRANCISCO J.
@@ -1347,9 +1356,9 @@ HZ	OV MJ S/UbASNC OLj?Admission to the RN-to-BSN program or permission of inst
 PHIL 364History of Philosophy: Greek3 •Ò*'
 TRË∞	"Wasserman, Ryan Jon*BH 2251ı¶7ΩÈM@8(@
 HZOV PQbFTFj"Any Philosophy course or HNRS 201.r9PHIL 364|HISTORY OF PHILOSOPHY: GREEK|WASSERMAN, RYAN JON
-å
-PE 104Beginning Yoga1 ≠Ò**
-MWË‡"Aceves, Melanie Paloma*SV 2228@HZOV S/UbFTFr,PE 104|BEGINNING YOGA|ACEVES, MELANIE PALOMA
+ô
+PE 104Beginning Yoga1 ≠Ò*,
+MWË‡"Williams, Melanie Paloma*SV 2221SÄÓ∞≠\@8@HZOV S/UbFTFr.PE 104|BEGINNING YOGA|WILLIAMS, MELANIE PALOMA
 Ø
 PE 108Beginning Weight Training1 —Ï*,
 TRË‡"Morton, Tiffany Michelle*CV 1051oﬂÈ	@8@HZOV S/UbFTFr9PE 108|BEGINNING WEIGHT TRAINING|MORTON, TIFFANY MICHELLE
@@ -1405,10 +1414,12 @@ H
 RPer/Cr $74.74 Flat Fee $49.83ZOV PQbFTFjPME 371r*PME 495|DIRECTED RESEARCH IN PME|GAO, PENG
 â
 PSY 116Human Sexuality5 ﬂÏ*!
-N/A"Graham, Jim*ONLINE ASNC01`Â–"€˘@8@HZOVbASNC OL SSCr#PSY 116|HUMAN SEXUALITY|GRAHAM, JIM
+N/A"Graham, Jim*ONLINE ASNC01Üß¬S·)
+@8@HZOVbASNC OL SSCr#PSY 116|HUMAN SEXUALITY|GRAHAM, JIM
 â
 PSY 116Human Sexuality5 üÓ*!
-N/A"Graham, Jim*ONLINE ASNC01`Â–"€˘@8@H
+N/A"Graham, Jim*ONLINE ASNC01Üß¬S·)
+@8@H
 ZOVbASNC OL SSCr#PSY 116|HUMAN SEXUALITY|GRAHAM, JIM
 †
 PSY 119Psychology of Gender4 †Î*'
@@ -1452,7 +1463,8 @@ HZOV PQbOL SYNCjPSY 101r0PSY 240|SOCIAL PSYCHOLOGY|DEVENPORT, JENNIFER L.
 N/A"McCabe, Jennifer*ONLINE ASNC01≥Ã@8@HZOV PQbASNC OLjPSY 240, PSY 250 and PSY 305.r5PSY 376|PSYCH ROMANTIC RELATIONSHIPS|MCCABE, JENNIFER
 Î
 PSY 411Seminar in Cognition5 ìÎ*"
-MTWR†ö"Warren, Mike*AW 4121	‹öp@8@H	ZOV PQbFTF WP2jUPSY 307; and one course from: PSY 310, PSY 311, PSY 315, PSY 318, PSY 319 or PSY 320.r)PSY 411|SEMINAR IN COGNITION|WARREN, MIKE
+MTWR†ö"Warren, Mike*AW 4121H1ﬁØ 
+@8@H	ZOV PQbFTF WP2jUPSY 307; and one course from: PSY 310, PSY 311, PSY 315, PSY 318, PSY 319 or PSY 320.r)PSY 411|SEMINAR IN COGNITION|WARREN, MIKE
 á
 PSY 430Seminar in Developmental Psych5 ¯Ì*-
 N/A"Gonzalez, Antonya Marie*ONLINE ASNC01À#BSÌ@8@HZOV PQbASNC OL WP2jCPSY 307; and one course from: PSY 334, PSY 335, PSY 336 or PSY 338.r>PSY 430|SEMINAR IN DEVELOPMENTAL PSYCH|GONZALEZ, ANTONYA MARIE
@@ -1626,7 +1638,7 @@ HUM MIX OLj	SPAN 202.r4SPAN 203|INTERMEDIATE SPANISH|CARBAJAL, AMY R.|STAFF
 N/A"Foreman-Murray, Lindsay*ONLINE ASNC019qê@8@HZOVbASNC BCGM OL WP3r?SPED 310|EDUCATION, CULTURE, AND EQUITY|FOREMAN-MURRAY, LINDSAY
 Ö
 SPED 457Students w/ Disabilities5 ≥Ó*&
-N/A"Lambert, Charles*ONLINE ASNC01®#ƒ6≠∏@8"@HZOV EDbASNC OLj]Admisssion to Woodring College of Education teacher education major or instructor permission.r2SPED 457|STUDENTS W/ DISABILITIES|LAMBERT, CHARLES
+N/A"Lambert, Charles*ONLINE ASNC01’dÄ9ÀÊ@8"@HZOV EDbASNC OLj]Admisssion to Woodring College of Education teacher education major or instructor permission.r2SPED 457|STUDENTS W/ DISABILITIES|LAMBERT, CHARLES
 ü
 SPED 480Prac III -Ind/grp Interv, Read3  Ò*$
 MTWR¢Ã"Styer, Candice*MH OFC*
@@ -1723,4 +1735,4 @@ ZOVbFTFjInstructor permission.r&UEPP 498C|SENIOR PROJECT|ABEL, TROY D.
 N/A"Deylami, Shirin Sedigh*ONLINE ASNC01trrrrR@8@H	ZOVbACGM ASNC OLr:WGSS 213|INTRO TO SEXUALITY STUDIES|DEYLAMI, SHIRIN SEDIGH
 È
 WGSS 320Media & Feminisms5 –Ì*'
-N/A"Mihai, Mariangela*ONLINE ASNC013©à‰§@8@HZOVbASNC BCGM OLjKWGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.r,WGSS 320|MEDIA & FEMINISMS|MIHAI, MARIANGELA úË∑„Ÿ≤›
+N/A"Mihai, Mariangela*ONLINE ASNC013©à‰§@8@HZOVbASNC BCGM OLjKWGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.r,WGSS 320|MEDIA & FEMINISMS|MIHAI, MARIANGELA»÷üπæÈ©
