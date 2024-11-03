@@ -17,23 +17,20 @@ Hao, Yamin*PH 1461V%ºSà<@8?@;HZOVbFTFr(ACCT 240|FINANCIAL ACCOUNTING|HAO, Y
 MWË˛"Li, Shuo*HH 3531ÓÑEÏÈN@8?@=HZOVbFTFr&ACCT 240|FINANCIAL ACCOUNTING|LI, SHUO
 ô
 ACCT 245Managerial Accounting4 ëN*
-TRË˛"Liu, Zander*AH 0041°0VÙ
-@8<@5HZOV PQbFTFjACCT 240r*ACCT 245|MANAGERIAL ACCOUNTING|LIU, ZANDER
+TRË˛"Liu, Zander*AH 0041µçÚÖ”	@8<@5HZOV PQbFTFjACCT 240r*ACCT 245|MANAGERIAL ACCOUNTING|LIU, ZANDER
 ô
 ACCT 245Managerial Accounting4 ñN*
 TR¯
-é"Liu, Zander*BI 2341°0VÙ
-@8<@:HZOV PQbFTFjACCT 240r*ACCT 245|MANAGERIAL ACCOUNTING|LIU, ZANDER
+é"Liu, Zander*BI 2341µçÚÖ”	@8<@:HZOV PQbFTFjACCT 240r*ACCT 245|MANAGERIAL ACCOUNTING|LIU, ZANDER
 õ
 ACCT 245Managerial Accounting4 ôO* 
 MWË˛"Smith, Steve*FI 2381QÁAÎÄ€@8<@3H	ZOV PQbFTFjACCT 240r+ACCT 245|MANAGERIAL ACCOUNTING|SMITH, STEVE
 °
 	ACCT 297AIndv. Income Taxes Practicum4 ⁄m*"
-N/A"Smith, Steve*ONLINE ASNC01óEO& @8#@HZOVbHYBDr3ACCT 297A|INDV. INCOME TAXES PRACTICUM|SMITH, STEVE
+N/A"Smith, Steve*ONLINE ASNC01ı¥%õ—@8#@HZOVbHYBDr3ACCT 297A|INDV. INCOME TAXES PRACTICUM|SMITH, STEVE
 ï
 	ACCT 297AIndv. Income Taxes Practicum4 Îq*
-TBD"Liu, Zander*TBA81°0VÙ
-@8#H#ZOVbHYBDr2ACCT 297A|INDV. INCOME TAXES PRACTICUM|LIU, ZANDER
+TBD"Liu, Zander*TBA81µçÚÖ”	@8#H#ZOVbHYBDr2ACCT 297A|INDV. INCOME TAXES PRACTICUM|LIU, ZANDER
 ›
 ACCT 321Accounting Info Systems I4 ö^*&
 MWË˛"Drum, Dawna Marie*PH 210B1u≠≤·ài@8#@H
@@ -88,7 +85,7 @@ H
 Z	OV MJ S/UbFTFjKMajors Only. ACCT 341; minimum 2.75 GPA in 300/400-level accounting coursesr3ACCT 490|INTERNSHIP IN ACCOUNTING|TAYLOR, AUDREY G.
 ’
 ACCT 491Accounting Internship2 TO 4 ©f*
-TBD"Smith, Steve*PH OFC81±;¥˝=@8@HZOV PQbFTFj@ACCT 342 and instructor permission; Accounting, BS major status.r+ACCT 491|ACCOUNTING INTERNSHIP|SMITH, STEVE
+TBD"Smith, Steve*PH OFC81ı¥%õ—@8@HZOV PQbFTFj@ACCT 342 and instructor permission; Accounting, BS major status.r+ACCT 491|ACCOUNTING INTERNSHIP|SMITH, STEVE
 ∫
 AHE 501Understanding Ed. Research4 Ùf*+
 S∞	Ú"Thibou, Shevell Shardene*AW 405*
@@ -458,9 +455,9 @@ HRFlat Fee $48.10ZOV MJbFTFjAdmission to BFA Programr.ART 492|BFA PROJECT /
 MWÑÙ"Petrenko, Sasha*AA 152*
 MWÑÙ"Staff*FI 2301VE",@8@
 HRFlat Fee $61.50ZOV MJbFTFj,Acceptance into the Studio Art¬†BFA program.r0ART 498|BFA STUDIO SEMINAR|PETRENKO, SASHA|STAFF
-«
+ 
 A/HI 212History of Western Art II3 §m*/
-MW‹‘"Berzal de Dios, Jimena Ines*FI 2381AYõˆì@82@2RFlat Fee $11.28ZOVbFTF HUMr>A/HI 212|HISTORY OF WESTERN ART II|BERZAL DE DIOS, JIMENA INES
+MW‹‘"Berzal de Dios, Jimena Ines*FI 2381AYõˆì@82@2RFlat Fee $11.28ZOV MJbFTF HUMr>A/HI 212|HISTORY OF WESTERN ART II|BERZAL DE DIOS, JIMENA INES
 ∆
 A/HI 241Visual Cult W Eur/America 20C3 ßm*)
 TRË‡"Witkowski, Jacqueline*MH 1381ãè”	@8¥@§HRFlat Fee $4.84ZOVbFTF HUMr<A/HI 241|VISUAL CULT W EUR/AMERICA 20C|WITKOWSKI, JACQUELINE
@@ -555,7 +552,7 @@ Disruption4 úZ*&
 
 BNS 328Tech in Behav Neuroscience4 ô`*
 Tî
-Ú"Rose, Jackie*AI 5371‘›™©Øë@8
+Ú"Rose, Jackie*AI 5371v∆R@8
 @HRFlat Fee $94.61ZOV MJ PQbFTFjBBIOL 205, BNS 301, CHEM 163 and PSY 220; or instructor permission.r/BNS 328|TECH IN BEHAV NEUROSCIENCE|ROSE, JACKIE
 Ñ
 BNS 328Tech in Behav Neuroscience4 ˚k*)
@@ -869,7 +866,7 @@ RFlat Fee $31.00ZOV MJ PQbFTFj+BIOL 348 or BIOL 206; CHEM 161 or CHEM 175.r=B
 TBD"Staff*BI OFC81Â5î◊P@8HZOVbFTFr)BIOL 400|DIRECTED INDEPENDENT STUDY|STAFF
 Ã
 BIOL 404Evolution and Development3 ¥n*%
-MWFËö"Cooper, W. James*BI 4151)4dˆ`@8@HZOV MJ PQbFTF WP3j!BIOL 206; BIOL 321 or concurrent.r3BIOL 404|EVOLUTION AND DEVELOPMENT|COOPER, W. JAMES
+MWFËö"Cooper, W. James*BI 4151      @8@HZOV MJ PQbFTF WP3j!BIOL 206; BIOL 321 or concurrent.r3BIOL 404|EVOLUTION AND DEVELOPMENT|COOPER, W. JAMES
 À
 BIOL 410Animal Behavior4 ˘m*$
 TR¯
@@ -914,7 +911,7 @@ RFlat Fee $31.00ZOV MJ PQbFTFj+BIOL 348 or BIOL 206; CHEM 161 or CHEM 175.r=B
 ≤
 	BIOL 497YImmunobiology4 ¬n*+
 MWF¯
-"Snyder, Annelise Grace*BI 3541¯Jl#ò@8@	HZOV MJ PQbFTFjBIOL 321 and BIOL 323r.BIOL 497Y|IMMUNOBIOLOGY|SNYDER, ANNELISE GRACE
+"Snyder, Annelise Grace*BI 3541|{{{{{@8@	HZOV MJ PQbFTFjBIOL 321 and BIOL 323r.BIOL 497Y|IMMUNOBIOLOGY|SNYDER, ANNELISE GRACE
 ™
 BIOL 498Teaching Practicum1 TO 4 ˆN*
 TBD"Staff*BI OFC88@H	ZOV S/UbFTFj1Phase II in Biology and permission of instructor.r!BIOL 498|TEACHING PRACTICUM|STAFF
@@ -1017,12 +1014,12 @@ RFlat Fee $31.00ZOV MJ PQbFTFj+BIOL 348 or BIOL 206; CHEM 161 or CHEM 175.r=B
 TBD"Strom, Suzanne L.*BI OFC81ñ{aπß@8@HZOV GR GR PB PM S/UbFTFjPermission of thesis advisor.r*BIOL 690|THESIS RESEARCH|STROM, SUZANNE L.
 ü
 BIOL 699Continuous Enrollment2 åQ*"
-TBD"Patrick, David L.*BI OFC81_^ÁÏ»≤@8
+TBD"Patrick, David L.*BI OFC81ë´u·	π@8
 H
 ZOV GR GR PB PMbFTFr0BIOL 699|CONTINUOUS ENROLLMENT|PATRICK, DAVID L.
 ü
 BIOL 699Continuous Enrollment2 è[*"
-TBD"Patrick, David L.*BI OFC81_^ÁÏ»≤@8
+TBD"Patrick, David L.*BI OFC81ë´u·	π@8
 H
 ZOV GR GR PB PMbFTFr0BIOL 699|CONTINUOUS ENROLLMENT|PATRICK, DAVID L.
 •
@@ -1270,7 +1267,7 @@ RFlat Fee $45.00Z	OV S/U PQbFTFj4CHEM 351 or concurrent and permission of inst
 MTWFËö"Antos, John Matthew*SL 1301‘ˆ%ƒJÇ@8<@9HZOV PQbFTFjCHEM 351r.CHEM 352|ORGANIC CHEMISTRY|ANTOS, JOHN MATTHEW
 î
 CHEM 353Organic Chemistry3 æX*!
-MWF†“"Larsen, Mike*SL 1301∫]+'<”@8<@H ZOV PQbFTFjCHEM 352r'CHEM 353|ORGANIC CHEMISTRY|LARSEN, MIKE
+MWF†“"Larsen, Mike*SL 1301é¬ı(\è@8<@H ZOV PQbFTFjCHEM 352r'CHEM 353|ORGANIC CHEMISTRY|LARSEN, MIKE
 Ê
 CHEM 354Organic Chemistry Lab I3 ùO*#
 F¯
@@ -1302,7 +1299,7 @@ RFlat Fee $45.00Z	OV S/U PQbFTFj4CHEM 351 or concurrent and permission of inst
 MWF∞	‚	"Antos, John Matthew*ES 0801‘ˆ%ƒJÇ@8@	HZOV PQbFTFjCHEM 471; instructor permissionr1CHEM 425S|PROTEIN ENGINEERING|ANTOS, JOHN MATTHEW
 ©
 CHEM 426Chemistry of Macromolecules3 Êd*!
-MWFÃ˛"Larsen, Mike*MH 1031      @8@HZOV PQbFTFj	CHEM 353.r1CHEM 426|CHEMISTRY OF MACROMOLECULES|LARSEN, MIKE
+MWFÃ˛"Larsen, Mike*MH 1031∫]+'<”@8@HZOV PQbFTFj	CHEM 353.r1CHEM 426|CHEMISTRY OF MACROMOLECULES|LARSEN, MIKE
 Œ
 CHEM 441Advanced Inorganic Chemistry4 ‰O*+
 MTWFÃ˛"Scheuermann, Margaret*IS 2441pQ¬˙%@8@HZOV MJ PQbFTFjCHEM 462 or concurrentr;CHEM 441|ADVANCED INORGANIC CHEMISTRY|SCHEUERMANN, MARGARET
@@ -1377,7 +1374,7 @@ ZOV MJbFTF WP3joSix credits of Chemistry research courses, advancement to depa
 TBD"Staff*CB OFC81÷—Ê}ä@8@ZOV GR GR PB PM PQbFTFjCHEM 463r*CHEM 511|ADVANCED LABORATORY METHODS|STAFF
 Õ
 CHEM 526Chemistry of Macromolecules3 Ád*!
-MWFÃ˛"Larsen, Mike*MH 1031∫]+'<”@8@HZOV G-CHEM GR PB PM MJbFTFjGraduate status in Chemistry.r1CHEM 526|CHEMISTRY OF MACROMOLECULES|LARSEN, MIKE
+MWFÃ˛"Larsen, Mike*MH 1031é¬ı(\è@8@HZOV G-CHEM GR PB PM MJbFTFjGraduate status in Chemistry.r1CHEM 526|CHEMISTRY OF MACROMOLECULES|LARSEN, MIKE
 Ó
 CHEM 576Cancer Biology Curr. Therap.3 ›j*/
 MWFËö"Anthony-Cahill, Spencer J.*SL 1501¡ûqOò#@8@HZOV GR PB PM S/U PQbFTFj#CHEM 375 or CHEM 471 or equivalent.r@CHEM 576|CANCER BIOLOGY CURR. THERAP.|ANTHONY-CAHILL, SPENCER J.
@@ -1407,7 +1404,7 @@ H
 ZOV GR GR PB PMbFTFr$CHEM 699|CONTINUOUS ENROLLMENT|STAFF
 ¥
 CHIN 102First-Year Chinese5 ÙO*!
-MWFË‡"Liu, Claudia*MH 0221Å˛ ™éK@8@H
+MWFË‡"Liu, Claudia*MH 0221µçÚÖ”	@8@H
 RFlat Fee $5.00ZOV PQbFTFjCHIN 101 or equivalentr(CHIN 102|FIRST-YEAR CHINESE|LIU, CLAUDIA
 ¥
 CHIN 102First-Year Chinese5 ıO*!
@@ -1573,7 +1570,7 @@ ZOV GR GR PB PM MJbFTFrCSD 690|THESIS|STAFF
 TBD"Cooper, Megan B.*AI OFC81      @8@ZOV GR PB PM S/U PQbFTFjCSD 505r/CSD 692|FOURTH YEAR EXTERNSHIP|COOPER, MEGAN B.
 î
 CSD 699Continuous Enrollment2 ≤P*"
-TBD"Patrick, David L.*AI OFC81ë´u·	π@8HZOV GRbFTFr/CSD 699|CONTINUOUS ENROLLMENT|PATRICK, DAVID L.
+TBD"Patrick, David L.*AI OFC81qÀØÍ˝-@8HZOV GRbFTFr/CSD 699|CONTINUOUS ENROLLMENT|PATRICK, DAVID L.
 –
 COMM 101Fundamentals of Speech4 üO*#
 MWFÑ∂"Hays, Jennifer*CF 231*#
@@ -1701,8 +1698,7 @@ FTF SL SSCr3COMM 228|ORGANIZATIONAL COMMUNICATION|DANIELS, RITA
 "Vohs, Rosemary Amanda Scott*CF 2291‘›™©Øë@8@HZOV PQbFTFj.COMM 101 or COMM 235 or instructor permission.r=COMM 331|ADVANCED PUBLIC SPEAKING|VOHS, ROSEMARY AMANDA SCOTT
 ∏
 COMM 342Video Workshop3 ¿l*'
-TR§ó"Miller, Mark Joseph*MH 0311π)Fõ
-@8@HZ	OV S/U PQbFTFj!COMM 240 or JOUR 190 or COMM 260.r+COMM 342|VIDEO WORKSHOP|MILLER, MARK JOSEPH
+TR§ó"Miller, Mark Joseph*MH 0311ÌXÅ0“é@8@HZ	OV S/U PQbFTFj!COMM 240 or JOUR 190 or COMM 260.r+COMM 342|VIDEO WORKSHOP|MILLER, MARK JOSEPH
 ®
 COMM 350Emerging Commun Technology5 œZ*(
 TRà‰"Lind, Jason Fredrick*CF 0241™\ç ’®@8@HZOVbFTFr8COMM 350|EMERGING COMMUN TECHNOLOGY|LIND, JASON FREDRICK
@@ -2025,7 +2021,7 @@ RPer/Cr $20.25ZOV MJ PQbFTFjCSCI 330; CSCI 367 recommended.r-CSCI 412|MOBILE
 MTWF∞	‚	"Idriss, Tarek*FI 2381G·zÆ	@8#@"HRPer/Cr $20.25ZOV MJ PQbFTFj	CSCI 347.r(CSCI 447|OPERATING SYSTEMS|IDRISS, TAREK
 ß
 CSCI 462OS Device Drivers4 ﬂl*"
-MTWFÑ∂"Nelson, Phil*CF 2271—ôom@8@HRPer/Cr $20.25ZOV MJ PQbFTFjCSCI 447r'CSCI 462|OS DEVICE DRIVERS|NELSON, PHIL
+MTWFÑ∂"Nelson, Phil*CF 22712ÏÍG@8@HRPer/Cr $20.25ZOV MJ PQbFTFjCSCI 447r'CSCI 462|OS DEVICE DRIVERS|NELSON, PHIL
 À
 CSCI 476Computer Vision4 °n*(
 TR¯
@@ -2112,7 +2108,7 @@ Hao, Qiang*CF OFC81l±ç~S@8HRPer/Cr $26.44ZOV S/UbFTFjInstructor permis
 ™"Idriss, Tarek*ES 0801G·zÆ	@8#@HRPer/Cr $20.25ZOV GR GR PB PM MJ PQbFTFj"CSCI 347; CSCI 367 is recommended.r1CSCI 509|OPERATING SYSTEM INTERNALS|IDRISS, TAREK
 √
 CSCI 513Systems Programming4 „l*"
-MTWFÑ∂"Nelson, Phil*CF 22712ÏÍG@8
+MTWFÑ∂"Nelson, Phil*CF 2271YKÀ<‘@8
 @HRPer/Cr $20.25ZOV GR GR PB PM MJ PQbFTFjCSCI 447 or CSCI 509r)CSCI 513|SYSTEMS PROGRAMMING|NELSON, PHIL
 ≈
 CSCI 526Human-Centered Design4 ·l*'
@@ -2225,7 +2221,8 @@ Kuntz, Pam*CM B1„¯Ô
 DNC 231Introduction to Dance History3 ÷e*
 MWî
 å"
-Kuntz, Pam*OM 5801«∑Tªj›@8@HRFlat Fee $15.00ZOVbCCOM FTFr0DNC 231|INTRODUCTION TO DANCE HISTORY|KUNTZ, PAM
+Kuntz, Pam*OM 5801„¯Ô
+@8@HRFlat Fee $15.00ZOVbCCOM FTFr0DNC 231|INTRODUCTION TO DANCE HISTORY|KUNTZ, PAM
 •
 DNC 232Movements for Change3 È\* 
 N/A"
@@ -2281,12 +2278,12 @@ HZOV GR PB PM MJ PQbFTFjLGraduate status; MATH 204; MATH 224; and MATH 341; o
 DSCI 205Business Statistics4 «P*&
 MFæ∂"Zhang, George*ONLINE SYNC* 
 MFæ∂"Su, Sue*ONLINE SYNC* 
-Wæ∂"Zhang, George*BH 1051Í{.í≥@8Z@H=ZOV PQbHYBDjgMATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score.r@DSCI 205|BUSINESS STATISTICS|ZHANG, GEORGE|SU, SUE|ZHANG, GEORGE
+Wæ∂"Zhang, George*BH 1051Í≠√p†@8Z@H=ZOV PQbHYBDjgMATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score.r@DSCI 205|BUSINESS STATISTICS|ZHANG, GEORGE|SU, SUE|ZHANG, GEORGE
 ÿ
 DSCI 205Business Statistics4 »P*&
 MFË‡"Zhang, George*ONLINE SYNC* 
 MFË‡"Su, Sue*ONLINE SYNC* 
-WË‡"Zhang, George*BH 1051Í{.í≥@8Z@KHZOV PQbHYBDjgMATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score.r@DSCI 205|BUSINESS STATISTICS|ZHANG, GEORGE|SU, SUE|ZHANG, GEORGE
+WË‡"Zhang, George*BH 1051Í≠√p†@8Z@KHZOV PQbHYBDjgMATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score.r@DSCI 205|BUSINESS STATISTICS|ZHANG, GEORGE|SU, SUE|ZHANG, GEORGE
 ˆ
 DSCI 305Applied Bus Stats & Analytics4 §Q* 
 MWñé"Kim, Ilhyung*AW 204*
@@ -2453,8 +2450,7 @@ ZOV ED MJ IP PQbFTFjELED 425 and ELED 470.r2ECE 496|INTERNSHIP - PRIMARY|TIMM
 å"Sapin, Julia Elizabeth*MH 1381ıÎª «@8@RFlat Fee $2.22ZOVbACGM FTFr;EAST 271|VISUAL CULTURE IN EAST ASIA|SAPIN, JULIA ELIZABETH
 Ò
 EAST 367Chinese Lit in Translation5 ⁄a*&
-MWFË‡"Wu, Julian Siyuan*BH 1511·¢'˜≥
-@8@HZOV PQbFTFjIEAST 201 or EAST 202 or CHIN 103 or HUMA 277 or permission of instructor.r5EAST 367|CHINESE LIT IN TRANSLATION|WU, JULIAN SIYUAN
+MWFË‡"Wu, Julian Siyuan*BH 1511[∞[∞@8@HZOV PQbFTFjIEAST 201 or EAST 202 or CHIN 103 or HUMA 277 or permission of instructor.r5EAST 367|CHINESE LIT IN TRANSLATION|WU, JULIAN SIYUAN
 Ì
 EAST 368Japanese Lit in Translation5 ƒd*)
 MWFñé"Tomasi, Massimiliano*MH 1561ß,∏◊ô∫	@8@HZOV PQbFTFj=EAST 201 or EAST 202 or HUMA 275 or permission of instructor.r9EAST 368|JAPANESE LIT IN TRANSLATION|TOMASI, MASSIMILIANO
@@ -2464,7 +2460,7 @@ ZOV ED MJ IP PQbFTFjELED 425 and ELED 470.r2ECE 496|INTERNSHIP - PRIMARY|TIMM
 è
 ECON 101Markets and Society4 Êj*!
 MWFî
-å"Hodges, Hart*PH 1461å%øXÚã@8d@VHZOVbFTF SSCr)ECON 101|MARKETS AND SOCIETY|HODGES, HART
+å"Hodges, Hart*PH 1461S¶«°í@8d@VHZOVbFTF SSCr)ECON 101|MARKETS AND SOCIETY|HODGES, HART
 ‡
 ECON 206Intro to Microeconomics4 ΩN*&
 TRË˛"Kahnamoui, Farrokh*PH 2281≥TÅ	Ë@8<@0HZOV PQbFTF SSCj9MATH 112 or equivalent or suitable math assessment score.r3ECON 206|INTRO TO MICROECONOMICS|KAHNAMOUI, FARROKH
@@ -2592,11 +2588,13 @@ School Law4 éT*3
 €
 EDAD 552Plan for Curriculum Administ4 ∞V*(
 R§Ç"
-Bruce, Tim*Distance Learning1éO_[,@8@HRPer/Cr $426.00ZOV GR GR PB PM MJbDLEX OL SYNCjGraduate statusr0EDAD 552|PLAN FOR CURRICULUM ADMINIST|BRUCE, TIM
+Bruce, Tim*Distance Learning1◊£p=
+◊@8@HRPer/Cr $426.00ZOV GR GR PB PM MJbDLEX OL SYNCjGraduate statusr0EDAD 552|PLAN FOR CURRICULUM ADMINIST|BRUCE, TIM
 µ
 EDAD 552Plan for Curriculum Administ4 ôY*
 T§Ç"
-Bruce, Tim*MH 0171éO_[,@8@
+Bruce, Tim*MH 0171◊£p=
+◊@8@
 HZOV GR GR PB PMbHYBDjGraduate statusr0EDAD 552|PLAN FOR CURRICULUM ADMINIST|BRUCE, TIM
 Ü
 EDAD 592Field Exp:Admin for Principal4 ÷Q*&
@@ -2612,7 +2610,8 @@ HRPer/Cr $426.00ZOV GR GR PB PM MJ S/UbDLEX FTFjPermission of instructor.rF
 Ä
 EDAD 647Semnrs for Schl Distr Leaders4 ’k*+
 TBD"
-Bruce, Tim*Everett EESP Extention81éO_[,@8@HRPer/Cr $426.00ZOV GR GR PB PMb	EVEX HYBDj5Master's degree; admission to superintendent program.r1EDAD 647|SEMNRS FOR SCHL DISTR LEADERS|BRUCE, TIM
+Bruce, Tim*Everett EESP Extention81◊£p=
+◊@8@HRPer/Cr $426.00ZOV GR GR PB PMb	EVEX HYBDj5Master's degree; admission to superintendent program.r1EDAD 647|SEMNRS FOR SCHL DISTR LEADERS|BRUCE, TIM
 ◊
 EDAD 654Quantitative Research5 Øc*-
 TBD"Bruner, Carl*Everett EESP Extention88@
@@ -3017,11 +3016,10 @@ Kidd, Abby*HU 105*
 WÍ‚	"Owensby, Kat*HU 105*
 MFÍ‚	"Staff*MH 0151/∫Ë¢ã.
 @8@HRFlat Fee $8.14ZOVbACOM FTFj+May not be taken concurrently with ENG 100.r7ENG 101|WRITING YOUR WAY THROUGH WWU|OWENSBY, KAT|STAFF
-¯
-ENG 101Writing Your Way Through WWU5 ùP*
-FÍ‚	"
-Cox, Emily*HU 105*
-MWÍ‚	"Staff*MH 0171êßyJê	@8@HRFlat Fee $8.14ZOVbACOM FTFj+May not be taken concurrently with ENG 100.r5ENG 101|WRITING YOUR WAY THROUGH WWU|COX, EMILY|STAFF
+Ñ
+ENG 101Writing Your Way Through WWU5 ùP*#
+FÍ‚	"Cox, Emily Helen*HU 105*
+MWÍ‚	"Staff*MH 0171êßyJê	@8@HRFlat Fee $8.14ZOVbACOM FTFj+May not be taken concurrently with ENG 100.r;ENG 101|WRITING YOUR WAY THROUGH WWU|COX, EMILY HELEN|STAFF
 Ä
 ENG 101Writing Your Way Through WWU5 ûP*"
 Mî
@@ -3550,13 +3548,13 @@ Moran, Ian*SL 1201ÆG·zÆ@8@HZOV MJ PQbFTFj!ESCI 455 or instructor permiss
 å"Bodensteiner, Leo R.*IS 2441‚|Œ«‡@8@ZOV EN SR MJbCPST FTF WP3jQSenior status and College of the Environment admission; or instructor permission.r3ESCI 493|ENV IMPACT ASSESSMENT|BODENSTEINER, LEO R.
 Û
 ESCI 493Env Impact Assessment5 ‡[*!
-TàÇ"Lawrence, Amy*Everett1Õ“…ÆÙ@8@HZOV EN SRbEVEX HYBD WP3jQSenior status and College of the Environment admission; or instructor permission.r,ESCI 493|ENV IMPACT ASSESSMENT|LAWRENCE, AMY
+TàÇ"Lawrence, Amy*Everett1      @8@HZOV EN SRbEVEX HYBD WP3jQSenior status and College of the Environment admission; or instructor permission.r,ESCI 493|ENV IMPACT ASSESSMENT|LAWRENCE, AMY
 ã
 ESCI 493Env Impact Assessment5 ·[*6
-TàÇ"Lawrence, Amy*Port Angeles-State Supported1Õ“…ÆÙ@8@HZOV EN SR MJbHYBD PAEX WP3jQSenior status and College of the Environment admission; or instructor permission.r,ESCI 493|ENV IMPACT ASSESSMENT|LAWRENCE, AMY
+TàÇ"Lawrence, Amy*Port Angeles-State Supported1      @8@HZOV EN SR MJbHYBD PAEX WP3jQSenior status and College of the Environment admission; or instructor permission.r,ESCI 493|ENV IMPACT ASSESSMENT|LAWRENCE, AMY
 à
 ESCI 493Env Impact Assessment5 ‚[*3
-TàÇ"Lawrence, Amy*Poulsbo - State Supported1Õ“…ÆÙ@8@HZOV EN SR MJbHYBD PBEX WP3jQSenior status and College of the Environment admission; or instructor permission.r,ESCI 493|ENV IMPACT ASSESSMENT|LAWRENCE, AMY
+TàÇ"Lawrence, Amy*Poulsbo - State Supported1      @8@HZOV EN SR MJbHYBD PBEX WP3jQSenior status and College of the Environment admission; or instructor permission.r,ESCI 493|ENV IMPACT ASSESSMENT|LAWRENCE, AMY
 –
 ESCI 494Marine Conservation5 áW*$
 TR¯
@@ -3695,7 +3693,7 @@ Internship1 TO 15 üQ*%
 	ESCI 498B
 Internship1 TO 15 ÷R*
 TBD"
-Bunn, Andy*ES OFC81Ÿé&˜Uò@8
+Bunn, Andy*ES OFC81B¯m›õÔ@8
 @HZOV S/UbFTFjPermission of instructor.rESCI 498B|INTERNSHIP|BUNN, ANDY
 ú
 	ESCI 498B
@@ -3874,7 +3872,7 @@ Bunn, Andy*ES OFC81Ÿé&˜Uò@8HZOVbFTFr#ESCI 498C|SENIOR PROJECT|BUNN, ANDY
 “
 ESCI 535Advanced Landscape Ecology4 ≈j*
 MWÃ‚	"
-Bunn, Andy*AH 0121Ÿé&˜Uò@8
+Bunn, Andy*AH 0121B¯m›õÔ@8
 @HZOV GR GR PB PM PQbFTFj-ESCI 325; ESCI 340 or BIOL 340 or equivalent.r.ESCI 535|ADVANCED LANDSCAPE ECOLOGY|BUNN, ANDY
 ”
 ESCI 542Remote Sensing5 ƒR*%
@@ -3917,7 +3915,7 @@ Moran, Ian*SL 1201ÆG·zÆ@8HZOV GR GR PB PM PQbFTFj-ESCI 455 or ESCI 555 or
 —
 ESCI 599Seminar: Machine Learning2 äa* 
 N/A"
-Bunn, Andy*ONLINE ASNC01Ÿé&˜Uò@8@HRPer/Cr $381.00ZOV GR GR PB PM MJ S/UbASNC OL SSTjGraduate status.r-ESCI 599|SEMINAR: MACHINE LEARNING|BUNN, ANDY
+Bunn, Andy*ONLINE ASNC01B¯m›õÔ@8@HRPer/Cr $381.00ZOV GR GR PB PM MJ S/UbASNC OL SSTjGraduate status.r-ESCI 599|SEMINAR: MACHINE LEARNING|BUNN, ANDY
 …
 ESCI 690Thesis Research1 TO 12 æP*$
 TBD"Bingham, Brian Lynn*ES OFC81ûbY?Ò
@@ -4119,13 +4117,14 @@ ZOVbFTFr0ESCI 699|CONTINUOUS ENROLLMENT|PATRICK, DAVID L.
 ù
 ENVS 325Mountain Geography4 §k* 
 MTWFÃ˛"
-Bach, Andy*CF 1251áqø.©|@82@2ZOV PQbFTFjENVS 203 or GEOL 211r&ENVS 325|MOUNTAIN GEOGRAPHY|BACH, ANDY
+Bach, Andy*CF 1251
+Ä∞b$ˆ@82@2ZOV PQbFTFjENVS 203 or GEOL 211r&ENVS 325|MOUNTAIN GEOGRAPHY|BACH, ANDY
 ß
 ENVS 327The Soil Environment4 ¸Z* 
 MTWFî
 ∆
 "
-Bach, Andy*SL 1301tä∂<@8K@8HZOV MJ PQbFTFjENVS 203 or GEOL 211.r(ENVS 327|THE SOIL ENVIRONMENT|BACH, ANDY
+Bach, Andy*SL 1301áqø.©|@8K@8HZOV MJ PQbFTFjENVS 203 or GEOL 211.r(ENVS 327|THE SOIL ENVIRONMENT|BACH, ANDY
 ˘
 ENVS 331Geographies of Canada4 ïU*#
 MW∞	∆
@@ -4409,7 +4408,7 @@ r
 Å
 ENVS 690Thesis1 TO 12 ŒW*
 TBD"
-Bach, Andy*AH OFC81áqø.©|@8@HZOV GR GR PM S/UbFTFjÇAdvancement to candidacy for the Master's degree and appointment of thesis advisor and thesis committee. Permission of instructor.rENVS 690|THESIS|BACH, ANDY
+Bach, Andy*AH OFC81tä∂<@8@HZOV GR GR PM S/UbFTFjÇAdvancement to candidacy for the Master's degree and appointment of thesis advisor and thesis committee. Permission of instructor.rENVS 690|THESIS|BACH, ANDY
 ì
 ENVS 690Thesis1 TO 12 –W*$
 TBD"Darby, Kate Jenifer*AH OFC812çY˘≤ú	@8@HZOV GR GR PM S/UbFTFjÇAdvancement to candidacy for the Master's degree and appointment of thesis advisor and thesis committee. Permission of instructor.r#ENVS 690|THESIS|DARBY, KATE JENIFER
@@ -4575,8 +4574,7 @@ ZOV S/UbFTFj<FAIR 221J or creative writing course or instructor permissior5FAI
 TR‹∏"	Tag, Stan*FA 3381UUUUUï@8@RFlat Fee $13.62ZOV S/UbFTFj6FAIR 201A and FAIR 202A, and 300-level writing course.r$FAIR 422J|ART OF THE ESSAY|TAG, STAN
 Ú
 	FAIR 422KAdvanced Legal Writing5 ∫e**
-TR∞	å"Anderson, Maren Kristi*FA 3181‚zÆG·
-@8@HRFlat Fee $11.06Z	OV S/U PQbFTFj2FAIR 311B and FAIR 322K; or instructor permission.r7FAIR 422K|ADVANCED LEGAL WRITING|ANDERSON, MAREN KRISTI
+TR∞	å"Anderson, Maren Kristi*FA 3181i“Ü;@8@HRFlat Fee $11.06Z	OV S/U PQbFTFj2FAIR 311B and FAIR 322K; or instructor permission.r7FAIR 422K|ADVANCED LEGAL WRITING|ANDERSON, MAREN KRISTI
 Ÿ
 	FAIR 440NEthnoecology4 πe*(
 TRË˛"Tuxill, John Douglas*FA 3408@H¸ˇˇˇˇˇˇˇˇRFlat Fee $10.00ZOV S/UbFTFj4FAIR 206A or equivalent or permission of instructor.r+FAIR 440N|ETHNOECOLOGY|TUXILL, JOHN DOUGLAS
@@ -4696,24 +4694,28 @@ ZOV JR SR MJbFTFj&Majors Only. Permission of instructor.r/FIN 490|INTERNSHIP I
 GEOL 101Introduction to Geology4 ⁄N*
 TRî
 å"Sas, Mai*CF 120*
-W†∂"Staff*ES 1131˙V8Ì∞o	@8@HRFlat Fee $35.00ZOV PQbFTF LSCIjRMATH 107 or MATH 112 with concurrency or higher or suitable math assessment score.r/GEOL 101|INTRODUCTION TO GEOLOGY|SAS, MAI|STAFF
+W†∂"Staff*ES 1131™çºÛ∑
+@8@HRFlat Fee $35.00ZOV PQbFTF LSCIjRMATH 107 or MATH 112 with concurrency or higher or suitable math assessment score.r/GEOL 101|INTRODUCTION TO GEOLOGY|SAS, MAI|STAFF
 ó
 GEOL 101Introduction to Geology4 €N*
 TRî
 å"Sas, Mai*CF 120*
-WË˛"Staff*ES 1131˙V8Ì∞o	@8@HRFlat Fee $35.00ZOV PQbFTF LSCIjRMATH 107 or MATH 112 with concurrency or higher or suitable math assessment score.r/GEOL 101|INTRODUCTION TO GEOLOGY|SAS, MAI|STAFF
+WË˛"Staff*ES 1131™çºÛ∑
+@8@HRFlat Fee $35.00ZOV PQbFTF LSCIjRMATH 107 or MATH 112 with concurrency or higher or suitable math assessment score.r/GEOL 101|INTRODUCTION TO GEOLOGY|SAS, MAI|STAFF
 ï
 GEOL 101Introduction to Geology4 ·P*
 TRî
 å"Sas, Mai*CF 120*
 W∞	∆
-"Staff*ES 1131˙V8Ì∞o	@8@RFlat Fee $35.00ZOV PQbFTF LSCIjRMATH 107 or MATH 112 with concurrency or higher or suitable math assessment score.r/GEOL 101|INTRODUCTION TO GEOLOGY|SAS, MAI|STAFF
+"Staff*ES 1131™çºÛ∑
+@8@RFlat Fee $35.00ZOV PQbFTF LSCIjRMATH 107 or MATH 112 with concurrency or higher or suitable math assessment score.r/GEOL 101|INTRODUCTION TO GEOLOGY|SAS, MAI|STAFF
 ó
 GEOL 101Introduction to Geology4 èQ*
 TRî
 å"Sas, Mai*CF 120*
 W¯
-é"Staff*ES 1131˙V8Ì∞o	@8@HRFlat Fee $35.00ZOV PQbFTF LSCIjRMATH 107 or MATH 112 with concurrency or higher or suitable math assessment score.r/GEOL 101|INTRODUCTION TO GEOLOGY|SAS, MAI|STAFF
+é"Staff*ES 1131™çºÛ∑
+@8@HRFlat Fee $35.00ZOV PQbFTF LSCIjRMATH 107 or MATH 112 with concurrency or higher or suitable math assessment score.r/GEOL 101|INTRODUCTION TO GEOLOGY|SAS, MAI|STAFF
 Ø
 GEOL 101Introduction to Geology4 œS*(
 TRË‡"Foreman, Brady Zangs*FR 201*
@@ -4819,7 +4821,7 @@ ZOV JR SR MJbFTFj&Majors Only. Permission of instructor.r/FIN 490|INTERNSHIP I
 Ô
 GEOL 213GIS in Geology3 ÀV*
 MW†ò"
-Chan, Jeni*ES 2301ñÁ»F@8@HRFlat Fee $35.00ZOV PQbFTFj]One course from or concurrent: GEOL 101, GEOL 211, GEOL 211A, ENVS 203, HNRS 212 or SCED 202.r"GEOL 213|GIS IN GEOLOGY|CHAN, JENI
+Chan, Jeni*ES 2301,¢B0:@8@HRFlat Fee $35.00ZOV PQbFTFj]One course from or concurrent: GEOL 101, GEOL 211, GEOL 211A, ENVS 203, HNRS 212 or SCED 202.r"GEOL 213|GIS IN GEOLOGY|CHAN, JENI
 √
 GEOL 252The Earth and Its Weather4 ‡k*&
 TRËƒ	"Thomas, Paul Allen*ES 2181ç]‘Ø@8@RFlat Fee $35.00ZOV PQbFTF LSCIjMATH 112r5GEOL 252|THE EARTH AND ITS WEATHER|THOMAS, PAUL ALLEN
@@ -4980,7 +4982,7 @@ x
 GEOL 595Intro to Graduate Research3 „N*
 M‹Ú"Clark, Doug*ES 213*
 T¿∏"Staff*ES 080*
-F∞	‚	"Staff*ES 0701=ôay˜Õ@8@HRFlat Fee $30.00ZOV GR GR PB PM MJ S/UbFTFj"Graduate status in the department.r;GEOL 595|INTRO TO GRADUATE RESEARCH|CLARK, DOUG|STAFF|STAFF
+F∞	‚	"Staff*ES 0701[mGì˚*@8@HRFlat Fee $30.00ZOV GR GR PB PM MJ S/UbFTFj"Graduate status in the department.r;GEOL 595|INTRO TO GRADUATE RESEARCH|CLARK, DOUG|STAFF|STAFF
 ı
 	GEOL 597UGeological Climate Change4 Ïk*"
 TRË˛"Saenger, Casey*ES 2231¨Rd˙uê	@8
@@ -4996,7 +4998,7 @@ x
 TBD"Caplan-Auerbach, Jackie*ES OFC81áqø.©|@8HZOV GR GR PB PMbFTFr'GEOL 690|THESIS|CAPLAN-AUERBACH, JACKIE
 }
 GEOL 690Thesis2 TO 15 ∑Q*
-TBD"Clark, Doug*ES OFC81=ôay˜Õ@8@HZOV GR GR PB PMbFTFrGEOL 690|THESIS|CLARK, DOUG
+TBD"Clark, Doug*ES OFC81Ã˝Êª¯¿@8@HZOV GR GR PB PMbFTFrGEOL 690|THESIS|CLARK, DOUG
 á
 GEOL 690Thesis2 TO 15 ∏Q*"
 TBD"Dahl, Robyn Mieko*ES OFC81˜%lU3Ä@8HZOV GR GR PB PMbFTFr!GEOL 690|THESIS|DAHL, ROBYN MIEKO
@@ -5042,8 +5044,7 @@ x
 TBD"Saenger, Casey*ES OFC81¨Rd˙uê	@8@HZOV GR GR PB PMbFTFrGEOL 690|THESIS|SAENGER, CASEY
 w
 GEOL 690Thesis2 TO 15 ûb*
-TBD"Sas, Mai*ES OFC81≠ÈöÆÈö
-@8@HZOV GR GR PB PMbFTFrGEOL 690|THESIS|SAS, MAI
+TBD"Sas, Mai*ES OFC81˙V8Ì∞o	@8@HZOV GR GR PB PMbFTFrGEOL 690|THESIS|SAS, MAI
 
 GEOL 690Thesis2 TO 15 üb*
 TBD"Schermer, Liz*ES OFC81ö∫‹˛ C@8HZOV GR GR PB PMbFTFrGEOL 690|THESIS|SCHERMER, LIZ
@@ -5055,7 +5056,7 @@ w
 MWFË‡"Winter, Julie Marie*MH 1121ºæÎªæÎ	@8@HRFlat Fee $5.00ZOV PQbFTFjGERM 101 or equivalentr.GERM 102|ELEMENTARY GERMAN|WINTER, JULIE MARIE
 æ
 GERM 102Elementary German5 ëQ*(
-MWFÍ‚	"Sebastian, Marianne*MH 2311–ó∏:î@8@RFlat Fee $5.00ZOV PQbFTFjGERM 101 or equivalentr.GERM 102|ELEMENTARY GERMAN|SEBASTIAN, MARIANNE
+MWFÍ‚	"Sebastian, Marianne*MH 2311~‡~‡@8@RFlat Fee $5.00ZOV PQbFTFjGERM 101 or equivalentr.GERM 102|ELEMENTARY GERMAN|SEBASTIAN, MARIANNE
 “
 GERM 202Intermediate German5 ﬁO*'
 MWFË‡"Partsch, Cornelius*MH 0211°0VÙ
@@ -5088,7 +5089,7 @@ w
 TBD"Fiero, Petra S.*TBA81˛≈ÙÅÑï	@8@HZOV S/UbFTFj?6 credits upper-division German; written department permission.r6GERM 425|TEACH-LEARN ELEMENTARY GERMAN|FIERO, PETRA S.
 ª
 GRAD 699Continuous Enrollment1 ø[*&
-TBD"Barr, Michael Charles*OM OFC81*∆˝∫§@8d@PHRFlat Fee $50.00ZOV GR PB PM S/UbFTFr4GRAD 699|CONTINUOUS ENROLLMENT|BARR, MICHAEL CHARLES
+TBD"Barr, Michael Charles*OM OFC81π≤Ü—~@8d@PHRFlat Fee $50.00ZOV GR PB PM S/UbFTFr4GRAD 699|CONTINUOUS ENROLLMENT|BARR, MICHAEL CHARLES
 ò
 GREK 102Elementary Greek5 ﬂQ*$
 MWFÍ‚	"Stayskal, Byron*MH 0131!vÁ(@8@HZOV PQbFTFjGREK 101r)GREK 102|ELEMENTARY GREEK|STAYSKAL, BYRON
@@ -5306,7 +5307,7 @@ FTF US US2jjunior standingr3HIST 390|US & INTERNATIONAL TERRORISM|CHARD, DANIEL
 @HZOV GR GR PB PMbFTFjGraduate status.rHIST 690|THESIS|COSTANZO, SUSAN
 ù
 HIST 699Continous Enrollment2 µk*"
-TBD"Patrick, David L.*BH OFC81uÂ…:W@8
+TBD"Patrick, David L.*BH OFC81iè®%‹ï@8
 H
 ZOV GR GR PB PMbFTFr/HIST 699|CONTINOUS ENROLLMENT|PATRICK, DAVID L.
  
@@ -5411,7 +5412,7 @@ ZOV JR SRbFTFj Admission to the Honors College.r=HNRS 350|BLACK FEMINIST SCIEN
 ü
 HNRS 350Skulls3 ÷f*%
 MW¯
-"Cooper, W. James*OM 330B1)4dˆ`@8@ZOV JR SRbFTFj Admission to the Honors College.r HNRS 350|SKULLS|COOPER, W. JAMES
+"Cooper, W. James*OM 330B1      @8@ZOV JR SRbFTFj Admission to the Honors College.r HNRS 350|SKULLS|COOPER, W. JAMES
 ∆
 HNRS 350Writing the Self in Nature3 æf*#
 MWF∞	‚	"Dugger, Julie*OM 330B1ÎA%«-â	@8@ZOV JR SRbFTF WP3j Admission to the Honors College.r1HNRS 350|WRITING THE SELF IN NATURE|DUGGER, JULIE
@@ -5702,7 +5703,8 @@ HRFlat Fee $6.74ZOV GR GR PB PMbFTFj,Graduate status or permission of instru
 MW∞	®
 "Mart, Paul Loren*TBA* 
 F≤
-™"Mart, Paul Loren*TBA1˚k]°πù@8@H
+™"Mart, Paul Loren*TBA1û#P¥’
+@8@H
 ZOV CEbFTFr9IEP 052|LEVEL 5 READING|MART, PAUL LOREN|MART, PAUL LOREN
  
 IEP 103Level 5 Academic Writing5 òj*"
@@ -5712,30 +5714,31 @@ ZOV CEbFTFj-IEP Level 4 or instructor/program permission.r1IEP 103|LEVEL 5 ACA
 ’
 IEP 105Level 5 Academic Comm/Inquiry5 ôj*#
 MTWR≤
-™"Mart, Paul Loren*TBA1|@¡5b«@8@H
+™"Mart, Paul Loren*TBA1ÜRÏ∏Ö@8@H
 ZOV CEbFTFj-IEP Level 4 or instructor/program permission.r6IEP 105|LEVEL 5 ACADEMIC COMM/INQUIRY|MART, PAUL LOREN
 …
 IEP 112Level 6 Academic Reading5 öj*#
 MTWR≤
-™"Mart, Paul Loren*TBA1|@¡5b«@8HZOV CEbFTFj-IEP Level 5 or instructor/program permission.r1IEP 112|LEVEL 6 ACADEMIC READING|MART, PAUL LOREN
+™"Mart, Paul Loren*TBA1˚k]°πù@8HZOV CEbFTFj-IEP Level 5 or instructor/program permission.r1IEP 112|LEVEL 6 ACADEMIC READING|MART, PAUL LOREN
 ˘
 IEP 112Level 6 Academic Reading5 Çp*!
 MW∞	®
 "Mart, Paul Loren*TBA* 
 F≤
-™"Mart, Paul Loren*TBA1|@¡5b«@8@HZOVbFTFj-IEP Level 5 or instructor/program permission.rBIEP 112|LEVEL 6 ACADEMIC READING|MART, PAUL LOREN|MART, PAUL LOREN
+™"Mart, Paul Loren*TBA1˚k]°πù@8@HZOVbFTFj-IEP Level 5 or instructor/program permission.rBIEP 112|LEVEL 6 ACADEMIC READING|MART, PAUL LOREN|MART, PAUL LOREN
 ‘
 IEP 113Level 6 Acadmc Writing/Grammar5 õj*"
 TRF∞	®
-"Mart, Paul Loren*TBA1|@¡5b«@8HZOV CEbFTFj-IEP Level 5 or instructor/program permission.r7IEP 113|LEVEL 6 ACADMC WRITING/GRAMMAR|MART, PAUL LOREN
+"Mart, Paul Loren*TBA1˚k]°πù@8HZOV CEbFTFj-IEP Level 5 or instructor/program permission.r7IEP 113|LEVEL 6 ACADMC WRITING/GRAMMAR|MART, PAUL LOREN
 ”
 IEP 113Level 6 Acadmc Writing/Grammar5 Ép*"
 TRF∞	®
-"Mart, Paul Loren*TBA1|@¡5b«@8@HZOVbFTFj-IEP Level 5 or instructor/program permission.r7IEP 113|LEVEL 6 ACADMC WRITING/GRAMMAR|MART, PAUL LOREN
+"Mart, Paul Loren*TBA1˚k]°πù@8@HZOVbFTFj-IEP Level 5 or instructor/program permission.r7IEP 113|LEVEL 6 ACADMC WRITING/GRAMMAR|MART, PAUL LOREN
 œ
 IEP 115Level 6 Topics in Acad Comm5 új*#
 MTWR≤
-™"Mart, Paul Loren*TBA1˚k]°πù@8HZOV CEbFTFj-IEP Level 5 or instructor/program permission.r4IEP 115|LEVEL 6 TOPICS IN ACAD COMM|MART, PAUL LOREN
+™"Mart, Paul Loren*TBA1û#P¥’
+@8HZOV CEbFTFj-IEP Level 5 or instructor/program permission.r4IEP 115|LEVEL 6 TOPICS IN ACAD COMM|MART, PAUL LOREN
 ≥
 IBUS 370Intro to International Busns4 êT*"
 MW∞	∆
@@ -5748,7 +5751,8 @@ Lim, Eunah*CF 2261p±&¡Œ
 ø
 IBUS 470International Business Ops4 ïV*!
 MW∞	∆
-"Kim, Jongwook*AH 0171öôôôôô@8@HZOV MJ PQb
+"Kim, Jongwook*AH 0171ŸÇ-ÿÇ≠
+@8@HZOV MJ PQb
 CF FTF WP3jMajors only; IBUS 370.r1IBUS 470|INTERNATIONAL BUSINESS OPS|KIM, JONGWOOK
 „
 IBUS 473Exporting & Intl Export Ops4 ëS*
@@ -5821,7 +5825,7 @@ ZOV PQbACGM FTFj	JAPN 301.r*JAPN 302|3RD-YEAR JAPANESE|NEGISHI, MAKOTO
 ‹5@8@HZOV PQbFTFj"JAPN 301 or instructor permission.r-JAPN 314|JAPANESE PHONETICS|DEGUCHI, MASANORI
 Ã
 JAPN 403Topics in Japanese Thought5 Ãj*"
-MWFË‡"Walker, Tyler*BH 1141Lå¨ºƒ»@8@HZOV PQbFTF WP3j(B- in JAPN 303 or instructor permission.r1JAPN 403|TOPICS IN JAPANESE THOUGHT|WALKER, TYLER
+MWFË‡"Walker, Tyler*BH 1141ƒ®·oSå@8@HZOV PQbFTF WP3j(B- in JAPN 303 or instructor permission.r1JAPN 403|TOPICS IN JAPANESE THOUGHT|WALKER, TYLER
 ›
 JAPN 425Teach Learn Elem Japn2 ˆQ*"
 TBD"Tomasi, Massimiliano*TBA81ß,∏◊ô∫	@8@HZ	OV S/U PQbFTFj<Written permission of department; JAPN 303 with B or better.r3JAPN 425|TEACH LEARN ELEM JAPN|TOMASI, MASSIMILIANO
@@ -5848,7 +5852,7 @@ ZOV PQbACGM FTFj	JAPN 301.r*JAPN 302|3RD-YEAR JAPANESE|NEGISHI, MAKOTO
 JOUR 207Newswriting4 „S*
 TR¯
 é"
-Shaw, Jeff*CF 1611àJGˆ@8@RFlat Fee $3.55ZOVbBCOM FTFj%basic word processing skills requiredrJOUR 207|NEWSWRITING|SHAW, JEFF
+Shaw, Jeff*CF 1611Ï°!€®Ω@8@RFlat Fee $3.55ZOVbBCOM FTFj%basic word processing skills requiredrJOUR 207|NEWSWRITING|SHAW, JEFF
 »
 JOUR 207Newswriting4 ‰S**
 MW∞	∆
@@ -5934,14 +5938,14 @@ ZOV PQbFTFjYJOUR 207; JOUR 307 or JOUR 380; one newspaper staff course, and pe
 î
 JOUR 421Klipsun Staff4 ÌS*
 MW¯
-é"Watt, Peggy*CF 2271éÏÛqR@8@
+é"Watt, Peggy*CF 2271£Ì4@8@
 HRFlat Fee $10.00ZOV SR PQbFTF WP3j{Senior status; JOUR 207; JOUR 307 or JOUR 380; and one newspaper staff course. May not be taken concurrently with JOUR 404.r"JOUR 421|KLIPSUN STAFF|WATT, PEGGY
 í
 JOUR 422Klipsun Editorship5 ÓS*
 MW¯
 é"Watt, Peggy*CF 227*
 F¯
-é"Watt, Peggy*CF OFC1éÏÛqR@8HZOV MJ PQbFTFjZJOUR 207; JOUR 307 or JOUR 380; one periodical staff course, and permission of instructor.r3JOUR 422|KLIPSUN EDITORSHIP|WATT, PEGGY|WATT, PEGGY
+é"Watt, Peggy*CF OFC1£Ì4@8HZOV MJ PQbFTFjZJOUR 207; JOUR 307 or JOUR 380; one periodical staff course, and permission of instructor.r3JOUR 422|KLIPSUN EDITORSHIP|WATT, PEGGY|WATT, PEGGY
 µ
 JOUR 430Field Internship6 ÙS* 
 TBD"Harris, John M.*CF OFC81õÓ`ø’∆@8
@@ -6312,7 +6316,7 @@ ZOV GR GR PB PM MJ S/U PQbFTFjBKIN 520, topic approval form submitted, and ins
 TBD"Robey, Nathan*CV OFC81‚8é„8é@8HZOV GR GR PB PM MJ S/U PQbFTFjBKIN 520, topic approval form submitted, and instructor permission.rKIN 690|THESIS|ROBEY, NATHAN
 õ
 KIN 699Continuous Enrollment2 ûS*"
-TBD"Patrick, David L.*CV OFC81qÀØÍ˝-@8HZOV GR MJ S/UbFTFr/KIN 699|CONTINUOUS ENROLLMENT|PATRICK, DAVID L.
+TBD"Patrick, David L.*CV OFC81iè®%‹ï@8HZOV GR MJ S/UbFTFr/KIN 699|CONTINUOUS ENROLLMENT|PATRICK, DAVID L.
 £
 LAT 102Elementary Latin5 ﬁQ*+
 MWFÍ‚	"Krause, Miller Stanley*MH 0221fF(
@@ -6382,7 +6386,7 @@ FTF SL SSCr9LDST 101|INTRO LEADERSHIP STUDIES|DIAZ, HOLLY DIANE|STAFF
 Õ
 LIBR 341Academic Literacies Practicum1 µn*#
 TBD"Stephan, Elizabeth*WL OFC8*
-N/A"Staff*ONLINE ASNC01›^Œ¡≤@8HZOV S/UbHYBDr?LIBR 341|ACADEMIC LITERACIES PRACTICUM|STEPHAN, ELIZABETH|STAFF
+N/A"Staff*ONLINE ASNC01œÛ<œÛ< @8HZOV S/UbHYBDr?LIBR 341|ACADEMIC LITERACIES PRACTICUM|STEPHAN, ELIZABETH|STAFF
 p
 LIBR 400Independent Study1 TO 15  c*
 TBD"Staff*WL OFC88HZOVbFTFr LIBR 400|INDEPENDENT STUDY|STAFF
@@ -6453,16 +6457,14 @@ p
 MGMT 311Intro to Mgmt & Organztl Behav4 îR*
 TR¯
 é"Warren, Meg*AW 203*
-N/A"Staff*ONLINE ASNC01H1ﬁØ 
-@8(@$HZOVbHYBDr9MGMT 311|INTRO TO MGMT & ORGANZTL BEHAV|WARREN, MEG|STAFF
+N/A"Staff*ONLINE ASNC01â≥Özº	@8(@$HZOVbHYBDr9MGMT 311|INTRO TO MGMT & ORGANZTL BEHAV|WARREN, MEG|STAFF
 ¬
 MGMT 311Intro to Mgmt & Organztl Behav4 ïR* 
 TRË˛"Kanov, Jason*AH 030*
 N/A"Staff*ONLINE ASNC01Ã“ÀaI÷@8(@(ZOVbHYBDr:MGMT 311|INTRO TO MGMT & ORGANZTL BEHAV|KANOV, JASON|STAFF
 ¢
 MGMT 311Intro to Mgmt & Organztl Behav4 ñR*!
-N/A"Warren, Meg*ONLINE ASNC01H1ﬁØ 
-@8(@(ZOVbASNC OLr3MGMT 311|INTRO TO MGMT & ORGANZTL BEHAV|WARREN, MEG
+N/A"Warren, Meg*ONLINE ASNC01â≥Özº	@8(@(ZOVbASNC OLr3MGMT 311|INTRO TO MGMT & ORGANZTL BEHAV|WARREN, MEG
 ™
 MGMT 311Intro to Mgmt & Organztl Behav4 …h*$
 N/A"Bedi, Akanksha*ONLINE ASNC01 ùb∫6¸@8(@'HZOVbASNC OLr6MGMT 311|INTRO TO MGMT & ORGANZTL BEHAV|BEDI, AKANKSHA
@@ -6525,7 +6527,7 @@ Lim, Eunah*CF 2261p±&¡Œ
 é"Nordin, David*AW 3051	˘Å0!?@8(@H ZOV MJ PQbFTFjKMajors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321.r+MGMT 495|STRATEGIC MANAGEMENT|NORDIN, DAVID
 ·
 MGMT 495Strategic Management4 —\*!
-MWË˛"Kim, Jongwook*CF 2251VñóI-	@8(@HZOV MJ PQbFTFjKMajors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321.r+MGMT 495|STRATEGIC MANAGEMENT|KIM, JONGWOOK
+MWË˛"Kim, Jongwook*CF 2251      @8(@HZOV MJ PQbFTFjKMajors Only. MGMT 311, FIN 341, MKTG 380, OPS 360, and MIS 320 or ACCT 321.r+MGMT 495|STRATEGIC MANAGEMENT|KIM, JONGWOOK
 £
 MIS 220Intro:Busnss Comptr Syst w/lab2 ïO*(
 FÑ∂"Baker, Katherine Rose*PH 210*
@@ -7009,7 +7011,7 @@ Nimtz, Jen*OM 4831õK}tñ\@82@.HZOV PQbFTF QSRj¬MATH 99 or college intermedi
 MTWRFÑ∂"Grimes, Erin Hypatia*OM 58010ç”0	@8#@HZOV PQbFTF QSRj¬MATH 99 or college intermediate algebra course with a C- or better or suitable math assessment score. Note: Neither MATH 106, MATH 107 nor MATH 108 is an acceptable prerequisite for this course.r;MATH 112|FUNCTIONS & ALGEBRAIC METHODS|GRIMES, ERIN HYPATIA
 …
 MATH 114Precalculus I5 öN*#
-MTWRFÑ∂"Clark, Katie*MH 1391Ã˝Êª¯¿@8(@'HZOV PQbFTF QSRj?MATH 112 with a C- or better or suitable math assessment score.r#MATH 114|PRECALCULUS I|CLARK, KATIE
+MTWRFÑ∂"Clark, Katie*MH 1391=ôay˜Õ@8(@'HZOV PQbFTF QSRj?MATH 112 with a C- or better or suitable math assessment score.r#MATH 114|PRECALCULUS I|CLARK, KATIE
 ◊
 MATH 114Precalculus I5 õN**
 MTWRFÑ∂"Sweet, Kevin Andrew*MH 1051Ümvä˜ @8#@HZOV PQbFTF QSRj?MATH 112 with a C- or better or suitable math assessment score.r*MATH 114|PRECALCULUS I|SWEET, KEVIN ANDREW
@@ -7181,8 +7183,7 @@ Chao, Zhen*BH 2251®ª1<@8#@ HZOV PQbFTFj*MATH 125 or MATH 135; MATH 224 re
 Chao, Zhen*BH 2271 SÜπÏ@8#@HZOV PQbFTFj!MATH 125 or MATH 135, or MATH 138r2MATH 224|MULTIVARIABLE CALC & GEOMTRY I|CHAO, ZHEN
 Õ
 MATH 224Multivariable Calc & Geomtry I5 ÆN*%
-MTWRF∞	‚	"Schwartz, Greg*OM 5851G+™ÜA
-@8#@"HZOV PQbFTFj!MATH 125 or MATH 135, or MATH 138r6MATH 224|MULTIVARIABLE CALC & GEOMTRY I|SCHWARTZ, GREG
+MTWRF∞	‚	"Schwartz, Greg*OM 5851>¨;Ò˝@8#@"HZOV PQbFTFj!MATH 125 or MATH 135, or MATH 138r6MATH 224|MULTIVARIABLE CALC & GEOMTRY I|SCHWARTZ, GREG
 œ
 MATH 224Multivariable Calc & Geomtry I5 ‹Q*&
 MTWRF¯
@@ -7269,7 +7270,7 @@ Chao, Zhen*BH 2271 SÜπÏ@8#@HZOV PQbFTFj!MATH 125 or MATH 135, or MATH 138
 «
 MATH 373Teaching P-3 Mathematics III4 òc*
 MW∞	∆
-"	Chen, Liz*BH 4041gfffff@8@HˇˇˇˇˇˇˇˇˇZOV PQbFTFj#A grade of C or better in MATH 372.r/MATH 373|TEACHING P-3 MATHEMATICS III|CHEN, LIZ
+"	Chen, Liz*BH 4041¯Écíál@8@HˇˇˇˇˇˇˇˇˇZOV PQbFTFj#A grade of C or better in MATH 372.r/MATH 373|TEACHING P-3 MATHEMATICS III|CHEN, LIZ
 ì
 MATH 381Teaching K-8 Mathematics I4 ≥N*"
 TR†∂"Mock, Janet K.*BH 4041ı•ÇV_j@8@	HZOV ED PQbFTF QSRjÍMATH 111 or MATH 112 or college intermediate algebra course with a C or better or suitable math assessment score; a C or better in one of ELED 305, ELED 372, SPED 420, ECE 391; prerequisites must have been met within the last 5 years.r2MATH 381|TEACHING K-8 MATHEMATICS I|MOCK, JANET K.
@@ -7370,7 +7371,7 @@ ZOV GR GR PB PMbFTFjGraduate status.r3MATH 582|TEACHING CORE COLLEGE MATH|AMI
 TBD"Amiran, Edoh Y.*BH OFC81{†ëƒ@8@HZOV GR GR PB PM S/UbFTFjadvancement to candidacyr)MATH 691|REQUIRED PROJECT|AMIRAN, EDOH Y.
 ü
 MATH 699Continuous Enrollment2 ”c*"
-TBD"Patrick, David L.*BH OFC81ë´u·	π@8
+TBD"Patrick, David L.*BH OFC81_^ÁÏ»≤@8
 H
 ZOV GR GR PB PMbFTFr0MATH 699|CONTINUOUS ENROLLMENT|PATRICK, DAVID L.
 ∆
@@ -7691,12 +7692,12 @@ RFlat Fee $273.72ZOV MJbFTFj1music major; minimum applied performance auditio
 MUS 214DBassoon2 üT*
 TBD"Nelson, Pat*PA 0318*!
 TBD"Gholami, Mehrdad*PA OFC8*
-TBD"Staff*PA 03181—ôom@8@HRFlat Fee $547.44ZOV MJbFTFj1music major; minimum applied performance auditionr3MUS 214D|BASSOON|NELSON, PAT|GHOLAMI, MEHRDAD|STAFF
+TBD"Staff*PA 03181Úã%øXÚ@8@HRFlat Fee $547.44ZOV MJbFTFj1music major; minimum applied performance auditionr3MUS 214D|BASSOON|NELSON, PAT|GHOLAMI, MEHRDAD|STAFF
 Ö
 MUS 214DBassoon1 †T*
 TBD"Nelson, Pat*PA 0318*!
 TBD"Gholami, Mehrdad*PA OFC8*
-TBD"Staff*PA 03181—ôom@8HRFlat Fee $273.72ZOV MJbFTFj1music major; minimum applied performance auditionr3MUS 214D|BASSOON|NELSON, PAT|GHOLAMI, MEHRDAD|STAFF
+TBD"Staff*PA 03181Úã%øXÚ@8HRFlat Fee $273.72ZOV MJbFTFj1music major; minimum applied performance auditionr3MUS 214D|BASSOON|NELSON, PAT|GHOLAMI, MEHRDAD|STAFF
 
 MUS 214E	Saxophone2 °T*!
 TBD"Winkler, Fred A.*PA 0318*#
@@ -7931,7 +7932,7 @@ Ray, James*PA 1551†Í†Í@82@HZOVbFTFr"MUS 273|STRING SINFONIA|RAY, JAMES
 TBD"Dudenbostel, Heather Christian*PA OFC81ê[≠ê[≠@8HZOVbFTFjby auditionr5MUS 278|OPERA WORKSHOP|DUDENBOSTEL, HEATHER CHRISTIAN
 Æ
 MUS 281App. Chamb. Ens: Bassoon Ensem0 TO 2 ûi*
-F¿Ú"Nelson, Pat*PA 1551—ôom@8
+F¿Ú"Nelson, Pat*PA 15512ÏÍG@8
 @HZOVbFTFjBy audition.r2MUS 281|APP. CHAMB. ENS: BASSOON ENSEM|NELSON, PAT
 •
 MUS 281Chamber Music: Brass0 TO 2 ÉZ*$
@@ -8050,7 +8051,7 @@ RFlat Fee $547.44ZOV MJbFTFj music major; upper-division examrJMUS 313D|DOUBL
 MUS 314DBassoon1 TO 4 ºT*
 TBD"Nelson, Pat*PA 0318*!
 TBD"Gholami, Mehrdad*PA OFC8*
-TBD"Staff*PA 03181—ôom@8
+TBD"Staff*PA 031812ÏÍG@8
 @H	RFlat Fee $547.44ZOV MJbFTFj music major; upper-division examr3MUS 314D|BASSOON|NELSON, PAT|GHOLAMI, MEHRDAD|STAFF
 ‰
 MUS 314E	Saxophone1 TO 4 ΩT*!
@@ -8679,7 +8680,7 @@ ZOV GR PB PMbFTFjlGraduate or post-baccalaureate level. Advanced applied skill
 @HZOV GR GR PB PM S/UbFTFr&MUS 690|THESIS|DUDENBOSTEL, RYAN KEITH
 ù
 MUS 699Continuous Enrollment2 ≠Q*"
-TBD"Patrick, David L.*PA OFC81qÀØÍ˝-@8
+TBD"Patrick, David L.*PA OFC81ë´u·	π@8
 H
 ZOV GR GR PB PMbFTFr/MUS 699|CONTINUOUS ENROLLMENT|PATRICK, DAVID L.
 
@@ -8725,7 +8726,7 @@ ZOV MJ PQbHYBD WP3j!NURS 301; co-requisite: NURS 403.rONURS 402|TRANSLATIONAL 
 MW∞	∆
 "Hua, Stella*ES 100*&
 MW∞	∆
-"Morgans, Brian Lee*ES 1001€@ßt⁄@8F@.HZOV PQbFTFj8DSCI 205, ACCT 245, C- or better; spreadsheet competencyr<OPS 360|OPERATIONS MANAGEMENT|HUA, STELLA|MORGANS, BRIAN LEE
+"Morgans, Brian Lee*ES 1001«Oãm¸¥@8F@.HZOV PQbFTFj8DSCI 205, ACCT 245, C- or better; spreadsheet competencyr<OPS 360|OPERATIONS MANAGEMENT|HUA, STELLA|MORGANS, BRIAN LEE
 ä
 OPS 360Operations Management4 ÕP*#
 TR¯
@@ -8772,7 +8773,7 @@ HZOV MJ PQbFTF WP1j&OPS 360 or MFGE 341; major restricted.r-OPS 460|DESIGNING
 MW¯
 é"Hua, Stella*AW 205*&
 MW¯
-é"Morgans, Brian Lee*AW 2051˝%À_≤@8@HZOV MJ PQbFTF WP1j&OPS 360 or MFGE 341; major restricted.rEOPS 466|SUPPLY CHAIN MGMT &PROCUREMENT|HUA, STELLA|MORGANS, BRIAN LEE
+é"Morgans, Brian Lee*AW 2051«Oãm¸¥@8@HZOV MJ PQbFTF WP1j&OPS 360 or MFGE 341; major restricted.rEOPS 466|SUPPLY CHAIN MGMT &PROCUREMENT|HUA, STELLA|MORGANS, BRIAN LEE
 Õ
 OPS 468Global Supply Chain Strategy4 õR*
 MW†∂"Haug, Peter*PH 1041í¥Æ/Û
@@ -8793,10 +8794,10 @@ CF FTF WP1j&OPS 360 or MFGE 341; major restricted.r0OPS 468|GLOBAL SUPPLY CHAIN 
 MWFÃ˛"Howard-Snyder, Frances*BH 4191¯Jl#ò@8-@+HZOVbFTF HUMr3PHIL 112|INTRO: MORAL ISSUES|HOWARD-SNYDER, FRANCES
 Ø
 PHIL 113Intro: Philosophy of Religion3 ∂e*'
-MWF‹é"Howard-Snyder, Dan*BH 4191⁄◊¶@å@8-@'HZOVbFTF HUMr9PHIL 113|INTRO: PHILOSOPHY OF RELIGION|HOWARD-SNYDER, DAN
+MWF‹é"Howard-Snyder, Dan*BH 4191¯Jl#ò@8-@'HZOVbFTF HUMr9PHIL 113|INTRO: PHILOSOPHY OF RELIGION|HOWARD-SNYDER, DAN
 Ø
 PHIL 113Intro: Philosophy of Religion3 ∏e*'
-MWF¿Ú"Howard-Snyder, Dan*BH 4191⁄◊¶@å@8-@$H	ZOVbFTF HUMr9PHIL 113|INTRO: PHILOSOPHY OF RELIGION|HOWARD-SNYDER, DAN
+MWF¿Ú"Howard-Snyder, Dan*BH 4191¯Jl#ò@8-@$H	ZOVbFTF HUMr9PHIL 113|INTRO: PHILOSOPHY OF RELIGION|HOWARD-SNYDER, DAN
 ≤
 PHIL 114Intro: Knowledge & Reality3 ÄU*+
 TR∞	£
@@ -8838,21 +8839,21 @@ CF FTF WP1j&OPS 360 or MFGE 341; major restricted.r0OPS 468|GLOBAL SUPPLY CHAIN 
 ‡
 PA 101Beg. Strength & Conditioning1 û_*,
 TRÑ∂"Morton, Tiffany Michelle*CV 1011oﬂÈ	@8HRFlat Fee $30.00Z	OV MJ S/UbFTFjKinesiology majors only.r<PA 101|BEG. STRENGTH & CONDITIONING|MORTON, TIFFANY MICHELLE
-∑
-PA 104Beginning Yoga1 ü_**
-MWËö"Aceves, Melanie Paloma*SV 2018@RFlat Fee $30.00Z	OV MJ S/UbFTFjKinesiology majors only.r,PA 104|BEGINNING YOGA|ACEVES, MELANIE PALOMA
-∑
-PA 104Beginning Yoga1 †_**
-MWÃ˛"Aceves, Melanie Paloma*SV 2018@RFlat Fee $30.00Z	OV MJ S/UbFTFjKinesiology majors only.r,PA 104|BEGINNING YOGA|ACEVES, MELANIE PALOMA
-π
-PA 104Beginning Yoga1 ¢_**
-TRËö"Aceves, Melanie Paloma*SV 2018@HRFlat Fee $30.00Z	OV MJ S/UbFTFjKinesiology majors only.r,PA 104|BEGINNING YOGA|ACEVES, MELANIE PALOMA
-π
-PA 104Beginning Yoga1 £_**
-TRÃ˛"Aceves, Melanie Paloma*SV 2018@HRFlat Fee $30.00Z	OV MJ S/UbFTFjKinesiology majors only.r,PA 104|BEGINNING YOGA|ACEVES, MELANIE PALOMA
+ƒ
+PA 104Beginning Yoga1 ü_*,
+MWËö"Williams, Melanie Paloma*SV 2011ª∫∫∫∫∫@8@RFlat Fee $30.00Z	OV MJ S/UbFTFjKinesiology majors only.r.PA 104|BEGINNING YOGA|WILLIAMS, MELANIE PALOMA
+ƒ
+PA 104Beginning Yoga1 †_*,
+MWÃ˛"Williams, Melanie Paloma*SV 2011ª∫∫∫∫∫@8@RFlat Fee $30.00Z	OV MJ S/UbFTFjKinesiology majors only.r.PA 104|BEGINNING YOGA|WILLIAMS, MELANIE PALOMA
+∆
+PA 104Beginning Yoga1 ¢_*,
+TRËö"Williams, Melanie Paloma*SV 2011ª∫∫∫∫∫@8@HRFlat Fee $30.00Z	OV MJ S/UbFTFjKinesiology majors only.r.PA 104|BEGINNING YOGA|WILLIAMS, MELANIE PALOMA
+∆
+PA 104Beginning Yoga1 £_*,
+TRÃ˛"Williams, Melanie Paloma*SV 2011ª∫∫∫∫∫@8@HRFlat Fee $30.00Z	OV MJ S/UbFTFjKinesiology majors only.r.PA 104|BEGINNING YOGA|WILLIAMS, MELANIE PALOMA
 ¬
 PA 107Beginning Swimming1 ˛c*&
-TR†“"Williams, Richelle*SV 1081˙˘˘˘˘˘@8@HRFlat Fee $30.00Z	OV MJ S/UbFTFjKinesiology majors only.r,PA 107|BEGINNING SWIMMING|WILLIAMS, RICHELLE
+TR†“"Williams, Richelle*SV 1081ª∫∫∫∫∫@8@HRFlat Fee $30.00Z	OV MJ S/UbFTFjKinesiology majors only.r,PA 107|BEGINNING SWIMMING|WILLIAMS, RICHELLE
 ‹
 PA 108Beginning Weight Training1 §_*,
 TRËö"Morton, Tiffany Michelle*CV 1051oﬂÈ	@8@HRFlat Fee $30.00Z	OV MJ S/UbFTFjKinesiology majors only.r9PA 108|BEGINNING WEIGHT TRAINING|MORTON, TIFFANY MICHELLE
@@ -8929,10 +8930,12 @@ RFlat Fee $30.00Z	OV MJ S/UbFTFjKinesiology majors only.r6PA 134|BEGINNING PI
 @8	@	RFlat Fee $30.00Z	OV MJ S/UbFTFjDCourt or cross-training shoes are required. Kinesiology majors only.r6PA 145|BEGINNING VOLLEYBALL|MACINTYRE WITT, JILL MARIE
 ≤
 PA 152Beginning Kickboxing1 Üd*
-TRÃ˛"Eis, Rob*CV 2101ë)ë)@8@HRFlat Fee $30.00Z	OV MJ S/UbFTFjKinesiology majors only.r$PA 152|BEGINNING KICKBOXING|EIS, ROB
+TRÃ˛"Eis, Rob*CV 2101;Ú
+›V‚@8@HRFlat Fee $30.00Z	OV MJ S/UbFTFjKinesiology majors only.r$PA 152|BEGINNING KICKBOXING|EIS, ROB
 ∂
 PA 168Beginning Martial Arts1 È^*
-MWÃ˛"Eis, Rob*CV 2101ë)ë)@8@HRFlat Fee $30.00Z	OV MJ S/UbFTFjKinesiology majors only.r&PA 168|BEGINNING MARTIAL ARTS|EIS, ROB
+MWÃ˛"Eis, Rob*CV 2101;Ú
+›V‚@8@HRFlat Fee $30.00Z	OV MJ S/UbFTFjKinesiology majors only.r&PA 168|BEGINNING MARTIAL ARTS|EIS, ROB
 »
 PE 101Beg. Strength & Conditioning1 ≥Z*,
 MWÑ∂"Morton, Tiffany Michelle*CV 1011oﬂÈ	@8@HRPer/Cr $298.00ZOV S/UbFTF SSTr<PE 101|BEG. STRENGTH & CONDITIONING|MORTON, TIFFANY MICHELLE
@@ -8943,21 +8946,21 @@ RFlat Fee $30.00Z	OV MJ S/UbFTFjKinesiology majors only.r6PA 134|BEGINNING PI
 »
 PE 101Beg. Strength & Conditioning1 ©_*,
 TRÑ∂"Morton, Tiffany Michelle*CV 1011oﬂÈ	@8@HRPer/Cr $298.00ZOV S/UbFTF SSTr<PE 101|BEG. STRENGTH & CONDITIONING|MORTON, TIFFANY MICHELLE
-ù
-PE 104Beginning Yoga1 ¥Z**
-MWËö"Aceves, Melanie Paloma*SV 2018@RPer/Cr $298.00ZOV S/UbFTF SSTr,PE 104|BEGINNING YOGA|ACEVES, MELANIE PALOMA
-ù
-PE 104Beginning Yoga1 µZ**
-MWÃ˛"Aceves, Melanie Paloma*SV 2018@RPer/Cr $298.00ZOV S/UbFTF SSTr,PE 104|BEGINNING YOGA|ACEVES, MELANIE PALOMA
-ü
-PE 104Beginning Yoga1 ∂Z**
-TRËö"Aceves, Melanie Paloma*SV 2018@	HRPer/Cr $298.00ZOV S/UbFTF SSTr,PE 104|BEGINNING YOGA|ACEVES, MELANIE PALOMA
-®
-PE 104Beginning Yoga1 ∑Z**
-TRÃ˛"Aceves, Melanie Paloma*SV 2018@HˇˇˇˇˇˇˇˇˇRPer/Cr $298.00ZOV S/UbFTF SSTr,PE 104|BEGINNING YOGA|ACEVES, MELANIE PALOMA
+™
+PE 104Beginning Yoga1 ¥Z*,
+MWËö"Williams, Melanie Paloma*SV 2011˙˘˘˘˘˘@8@RPer/Cr $298.00ZOV S/UbFTF SSTr.PE 104|BEGINNING YOGA|WILLIAMS, MELANIE PALOMA
+™
+PE 104Beginning Yoga1 µZ*,
+MWÃ˛"Williams, Melanie Paloma*SV 2011˙˘˘˘˘˘@8@RPer/Cr $298.00ZOV S/UbFTF SSTr.PE 104|BEGINNING YOGA|WILLIAMS, MELANIE PALOMA
+¨
+PE 104Beginning Yoga1 ∂Z*,
+TRËö"Williams, Melanie Paloma*SV 2011˙˘˘˘˘˘@8@	HRPer/Cr $298.00ZOV S/UbFTF SSTr.PE 104|BEGINNING YOGA|WILLIAMS, MELANIE PALOMA
+µ
+PE 104Beginning Yoga1 ∑Z*,
+TRÃ˛"Williams, Melanie Paloma*SV 2011˙˘˘˘˘˘@8@HˇˇˇˇˇˇˇˇˇRPer/Cr $298.00ZOV S/UbFTF SSTr.PE 104|BEGINNING YOGA|WILLIAMS, MELANIE PALOMA
 ¶
 PE 107Beginning Swimming1 Ç^*&
-TR†“"Williams, Richelle*SV 1081SÄÓ∞≠\@8	@	RPer/Cr $298.00ZOV S/UbFTF SSTr,PE 107|BEGINNING SWIMMING|WILLIAMS, RICHELLE
+TR†“"Williams, Richelle*SV 1081ª∫∫∫∫∫@8	@	RPer/Cr $298.00ZOV S/UbFTF SSTr,PE 107|BEGINNING SWIMMING|WILLIAMS, RICHELLE
 ¬
 PE 108Beginning Weight Training1 ªZ*,
 TRËö"Morton, Tiffany Michelle*CV 1051oﬂÈ	@8@HRPer/Cr $298.00ZOV S/UbFTF SSTr9PE 108|BEGINNING WEIGHT TRAINING|MORTON, TIFFANY MICHELLE
@@ -9040,7 +9043,8 @@ RPer/Cr $298.00ZOV S/UbFTF SSTr<PE 119|INTRO TO INDOOR ROCK CLIMBING|SIEGFRIE
 TRÃ˛"Eis, Rob*CV 2101ë)ë)@8@HRPer/Cr $298.00ZOV S/UbFTF SSTr$PE 152|BEGINNING KICKBOXING|EIS, ROB
 ú
 PE 168Beginning Martial Arts1 ≠_*
-MWÃ˛"Eis, Rob*CV 2101ë)ë)@8@HRPer/Cr $298.00ZOV S/UbFTF SSTr&PE 168|BEGINNING MARTIAL ARTS|EIS, ROB
+MWÃ˛"Eis, Rob*CV 2101;Ú
+›V‚@8@HRPer/Cr $298.00ZOV S/UbFTF SSTr&PE 168|BEGINNING MARTIAL ARTS|EIS, ROB
 ø
 PE 181Intercollegiate Basketball2 ¬S*&
 TBD"Dolfo, Carmen Annette*CV OFC813ƒï Óë@8@H
@@ -9109,7 +9113,7 @@ ZOV S/UbFTFjInstructor permission.r1PE 190|INTERCOLLEGIATE ROWING|FUCHS, JOHN
 é"Staff*CF 3151Bë6«Ö@8@HRFlat Fee $47.43ZOV PQbFTF LSCIj5MATH 107 or higher or suitable math assessment score.r8PHYS 104|PHYSICS APPLICATIONS|PEDEN, BRANDON MARCH|STAFF
 Ÿ
 PHYS 114Principles of Physics I5 ëP*%
-MTWRFÑ∂"Sandelin, Kate*CF 1101ËÓA&⁄H	@8f@RHZOV PQbFTF SCIj7MATH 115 or MATH 118 or suitable math assessment score.r/PHYS 114|PRINCIPLES OF PHYSICS I|SANDELIN, KATE
+MTWRFÑ∂"Sandelin, Kate*CF 1101ÕÊ´ﬂ»X@8f@RHZOV PQbFTF SCIj7MATH 115 or MATH 118 or suitable math assessment score.r/PHYS 114|PRINCIPLES OF PHYSICS I|SANDELIN, KATE
 Û
 PHYS 115Principles of Physics II w/lab5 €Z*)
 MWRFËö"Roe, Ellis Turnbull*CF 120*
@@ -9621,11 +9625,11 @@ RFlat Fee $157.00ZOV MJ PQbFTF WP2jPME 342; PME 471; PME 491.r2PME 492|PME C
 Ö
 PSY 305Scientific Thinking & Writing5 ûc* 
 MWÍ‚	"Warren, Mike*AI 194*
-FÍ‚	"Staff*CF 0261	‹öp@8@HRFlat Fee $11.64ZOV JR SR MJ PQbFTF WP3j&PSY 203 and declared Psychology major.r8PSY 305|SCIENTIFIC THINKING & WRITING|WARREN, MIKE|STAFF
+FÍ‚	"Staff*CF 0261â≥Özº	@8@HRFlat Fee $11.64ZOV JR SR MJ PQbFTF WP3j&PSY 203 and declared Psychology major.r8PSY 305|SCIENTIFIC THINKING & WRITING|WARREN, MIKE|STAFF
 É
 PSY 305Scientific Thinking & Writing5 üc* 
 MWæ∂"Warren, Mike*AW 410*
-Fæ∂"Staff*CF 0261	‹öp@8@RFlat Fee $11.64ZOV JR SR MJ PQbFTF WP3j&PSY 203 and declared Psychology major.r8PSY 305|SCIENTIFIC THINKING & WRITING|WARREN, MIKE|STAFF
+Fæ∂"Staff*CF 0261â≥Özº	@8@RFlat Fee $11.64ZOV JR SR MJ PQbFTF WP3j&PSY 203 and declared Psychology major.r8PSY 305|SCIENTIFIC THINKING & WRITING|WARREN, MIKE|STAFF
 Ú
 PSY 306Correlational Research & Stats5 †c*+
 MWFæ∂"Warren, Michael Thomas*AW 4031	‹öp@8(@'HRFlat Fee $11.64ZOV MJ PQbFTFj&PSY 305 and declared Psychology major.r=PSY 306|CORRELATIONAL RESEARCH & STATS|WARREN, MICHAEL THOMAS
@@ -9648,10 +9652,10 @@ RFlat Fee $157.00ZOV MJ PQbFTF WP2jPME 342; PME 471; PME 491.r2PME 492|PME C
 MWFñé"Hyman, Ira E.*AW 3031¸‰]349@8@RFlat Fee $11.64ZOV PQbFTFjPSY 210 and PSY 305r"PSY 311|HUMAN MEMORY|HYMAN, IRA E.
 ó
 PSY 321Learning5 ˘d*!
-MWFñé"Rose, Jackie*CV 2651]t—E]@8@H	ZOV MJ PQbFTFjPSY 220; PSY 305 or BNS 301.rPSY 321|LEARNING|ROSE, JACKIE
+MWFñé"Rose, Jackie*CV 2651ù/éåA«	@8@H	ZOV MJ PQbFTFjPSY 220; PSY 305 or BNS 301.rPSY 321|LEARNING|ROSE, JACKIE
 î
 PSY 321Learning5 âl*!
-MWFñé"Rose, Jackie*CV 2651]t—E]@8@	HZOV PQbFTFjPSY 220; PSY 305 or BNS 301.rPSY 321|LEARNING|ROSE, JACKIE
+MWFñé"Rose, Jackie*CV 2651ù/éåA«	@8@	HZOV PQbFTFjPSY 220; PSY 305 or BNS 301.rPSY 321|LEARNING|ROSE, JACKIE
 ˝
 PSY 322
 Motivation5 ˙d*!
@@ -9729,8 +9733,7 @@ Motivation5 çl*!
 MWî
 å"Warren, Mike*AI 194*
 Fî
-å"Staff*CF 0261H1ﬁØ 
-@8@H˛ˇˇˇˇˇˇˇˇRFlat Fee $11.64ZOV PQbFTF WP2j9PSY 307; and one course from PSY 351, PSY 354 or PSY 359.r7PSY 451|SEMINAR MENTAL HEALTH TOPICS|WARREN, MIKE|STAFF
+å"Staff*CF 0261	‹öp@8@H˛ˇˇˇˇˇˇˇˇRFlat Fee $11.64ZOV PQbFTF WP2j9PSY 307; and one course from PSY 351, PSY 354 or PSY 359.r7PSY 451|SEMINAR MENTAL HEALTH TOPICS|WARREN, MIKE|STAFF
 å
 PSY 451Seminar Mental Health Topics5 ∆R*+
 MW†∂"Gilbert, Brennan Daniel*AW 4121#ª”u9@8@HˇˇˇˇˇˇˇˇˇRFlat Fee $11.64ZOV PQbFTF WP2j9PSY 307; and one course from PSY 351, PSY 354 or PSY 359.r<PSY 451|SEMINAR MENTAL HEALTH TOPICS|GILBERT, BRENNAN DANIEL
@@ -9886,7 +9889,7 @@ HZOV GR GR PB PM MJbASNC EVEX OLrIRC 594|PSYCHIATRIC DISABILITIES|KUWADA, BRE
 É
 REL 232Myth and Folklore5 ‚j*
 MWFñé"
-Moore, Tom*HU 1021t+ÛM‘‚@8-@-ZOVbFTF HUMr$REL 232|MYTH AND FOLKLORE|MOORE, TOM
+Moore, Tom*HU 10216=	(X”	@8-@-ZOVbFTF HUMr$REL 232|MYTH AND FOLKLORE|MOORE, TOM
 ô
 REL 283Religion and Globalization5 øj*
 TR¯
@@ -9969,7 +9972,7 @@ RFlat Fee $21.90ZOV PQbFTF LSCIj%SCED 201 or permission of instructor.r8SCED 
 MWFË˛"Dudley, Lauren*SL 2301ˆ(\è¬ı@8@RFlat Fee $21.90ZOVbFTFjØCompletion of Natural Science GURs, including SCED 201 or permission of instructor; SCED 202, SCED 203, and SCED 204 are highly desired GURs; ELED 370 or ELED 372 or SPED 420.r3SCED 480|METHODS/CURRICULUM ELEM SCH|DUDLEY, LAUREN
 Ï
 SCED 481Fundamentals Teaching Science2 ≤Q*
-M†∂"Burgess, Don*SL 2301p‰Fn‰F@8@HRFlat Fee $21.90ZOV PQbFTFj9CHEM 163 or CHEM 225 or GEOL 212 or BIOL 206 or PHYS 163.r3SCED 481|FUNDAMENTALS TEACHING SCIENCE|BURGESS, DON
+M†∂"Burgess, Don*SL 2301ù¥V≈À¯@8@HRFlat Fee $21.90ZOV PQbFTFj9CHEM 163 or CHEM 225 or GEOL 212 or BIOL 206 or PHYS 163.r3SCED 481|FUNDAMENTALS TEACHING SCIENCE|BURGESS, DON
 »
 SCED 490Lab/Field Exp Elemen Science3 ≥Q*&
 TRFŒ	å"Stredicke, Lauren*SL 2301Õ6-ﬁÌW@8@HRFlat Fee $21.90ZOV ED PQbFTFjSCED 480r7SCED 490|LAB/FIELD EXP ELEMEN SCIENCE|STREDICKE, LAUREN
@@ -10028,7 +10031,7 @@ ZOV EDbFTFr(SEC 400|DIRECTED INDEPENDENT STUDY|STAFF
 "Staff*MH OFC1¥€”kÙ@8@HZOV EDbFTFj2Admission to Secondary Education, co-req: SEC 410.r8SEC 430|SEC SCHOOL METHODS I|MCCLANAHAN, LAUREN G.|STAFF
 ∏
 SEC 431Sec School Methods II4 ‰N* 
-TWË˛"Burgess, Don*MH 2391p‰Fn‰F@8@HZOV ED PQbFTFj$SEC 410 and SEC 430 (or equivalent).r*SEC 431|SEC SCHOOL METHODS II|BURGESS, DON
+TWË˛"Burgess, Don*MH 2391ù¥V≈À¯@8@HZOV ED PQbFTFj$SEC 410 and SEC 430 (or equivalent).r*SEC 431|SEC SCHOOL METHODS II|BURGESS, DON
 æ
 SEC 431Sec School Methods II4 ¸S*#
 TRË˛"Pollock, Laurie*MH 0151öôôôô…@8@HZOV ED PQbFTFj$SEC 410 and SEC 430 (or equivalent).r-SEC 431|SEC SCHOOL METHODS II|POLLOCK, LAURIE
@@ -10065,7 +10068,7 @@ HZOV GR ED GR PB PMbFTFr3SEC 525|CONTENT READ, WRITE, COMMUNIC|TAUZEL, BRIAN
 HZOV ED GR PB PM S/U PQbFTFjSEC 501.r*SEC 692|GRAD RESEARCH I|WARE, MOLLY NOELLE
 ù
 SEC 699Continuous Enrollment2 üR*"
-TBD"Patrick, David L.*MH OFC81ë´u·	π@8
+TBD"Patrick, David L.*MH OFC81iè®%‹ï@8
 H
 ZOV GR GR PB PMbFTFr/SEC 699|CONTINUOUS ENROLLMENT|PATRICK, DAVID L.
 £
@@ -10130,7 +10133,7 @@ ZOVbFTFr5SMNR 201|CREATIVITY: SHAPING YOUR STORY|SASAKI, BRYCE
 ◊@8@HZOV PQbFTF QSRjôMATH 107 or MATH 112 or equivalent; And any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271 or instructor permission.r.SOC 304|STATISTICS FOR SOCIOLOGY|ZAIDI, BATOOL
 ˇ
 SOC 306Soc. Research Methods5 ÑV*
-MWFÍ‚	"	Ben, Ruby*AH 0181^W1î˘Ò@8@ZOV PQbFTF WP1jqAny course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271 or instructor permission.r'SOC 306|SOC. RESEARCH METHODS|BEN, RUBY
+MWFÍ‚	"	Ben, Ruby*AH 0181◊çy'5@8@ZOV PQbFTF WP1jqAny course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271 or instructor permission.r'SOC 306|SOC. RESEARCH METHODS|BEN, RUBY
 ê
 SOC 306Soc. Research Methods5 ¸e*%
 TRË˛"Feinberg, Seth L.*MH 0171f[¡∫Wä@8@HZOV PQbFTF WP1jqAny course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271 or instructor permission.r/SOC 306|SOC. RESEARCH METHODS|FEINBERG, SETH L.
@@ -10198,7 +10201,7 @@ Helms, Ron*AH 030134*ÑZ	@8@HZOV PQbFTFjqAny course from: SOC 221, SOC 234
 "Ten Eyck, Toby*AH 0301±XÆlÖÉ@8@#H˚ˇˇˇˇˇˇˇˇZOV PQbFTFjqAny course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271 or instructor permission.r+SOC 381|SOCIOLOGY OF CULTURE|TEN EYCK, TOBY
 ñ
 SOC 397USoc Indig Ppl Native Nations5 …n*
-MWñÚ"	Ben, Ruby*AH 0041^W1î˘Ò@8@HZOV PQbFTFj{Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.r/SOC 397U|SOC INDIG PPL NATIVE NATIONS|BEN, RUBY
+MWñÚ"	Ben, Ruby*AH 0041QÁAÎÄ€@8@HZOV PQbFTFj{Any course from: SOC 221, SOC 234, SOC 251, SOC 255, SOC 260, SOC 268, SOC 269, SOC 271, HNRS 252 or instructor permission.r/SOC 397U|SOC INDIG PPL NATIVE NATIONS|BEN, RUBY
 ™
 SOC 400Directed Independent Study1 TO 15 ±i*#
 TBD"Anderson, Kristin Lee*TBA81i“Ü;@8HZOV MJbHYBDr8SOC 400|DIRECTED INDEPENDENT STUDY|ANDERSON, KRISTIN LEE
@@ -10229,7 +10232,7 @@ Helms, Ron*AH 030134*ÑZ	@8@HZOV PQbFTFjqAny course from: SOC 221, SOC 234
 TBD"Mogford, Liz*AH OFC81|¬Qp≠'@8@HZ	OV MJ S/UbFTFjPermission of instructor.r2SOC 480|LEARNING & TEACHING SOCIOLOGY|MOGFORD, LIZ
 µ
 SOC 480Learning & Teaching Sociology2 TO 5 °p*
-TBD"	Ben, Ruby*AH OFC81,Qªµ+@8HZOV S/UbFTFjPermission of instructor.r/SOC 480|LEARNING & TEACHING SOCIOLOGY|BEN, RUBY
+TBD"	Ben, Ruby*AH OFC81QÁAÎÄ€@8HZOV S/UbFTFjPermission of instructor.r/SOC 480|LEARNING & TEACHING SOCIOLOGY|BEN, RUBY
 §
 SOC 481Research Assistanship2 TO 5 õd*%
 TBD"Whitley, Cameron Thomas*TBA81Æ Ë%C@8
@@ -10432,7 +10435,8 @@ ZOVbFTF HUMr9THTR 101|INTRO TO ART OF THE THEATRE|FULLER, SHAWN LORANE
 @8@HZOVbFTFr(THTR 111|BASIC VISUAL DESIGN|GUPTA, DIPU
 ò
 THTR 160Introduction to Acting3 ÇR*$
-WFæ∂"Mac, Ericka Lynn*PA 3991fffffÜ@8@H	ZOVbFTFr0THTR 160|INTRODUCTION TO ACTING|MAC, ERICKA LYNN
+WFæ∂"Mac, Ericka Lynn*PA 39912¬ëL#
+@8@H	ZOVbFTFr0THTR 160|INTRODUCTION TO ACTING|MAC, ERICKA LYNN
 ¥
 THTR 160Introduction to Acting3 òS*2
 TRæ∂"Dudenbostel, Heather Christian*PA 3991ê[≠ê[≠@8@H
@@ -10836,4 +10840,4 @@ Elia, Nada*IS 2441¢ãñU
 "Daniels, Rita*MH 1051ì“øL@8@HZOV PQbBCGM FTFjKWGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.r5WGSS 320|GENDER IN CROSS-CULTURAL PERSP|DANIELS, RITA
 º
 WGSS 350Feminist & Queer Methodologies5 ø^*#
-MWFñé"Cerretti, Josh*MH 1131FI†˛l@8@HZOVbFTF WP3jSophomore status.r6WGSS 350|FEMINIST & QUEER METHODOLOGIES|CERRETTI, JOSHÕúË∑¥Ù¸ü
+MWFñé"Cerretti, Josh*MH 1131FI†˛l@8@HZOVbFTF WP3jSophomore status.r6WGSS 350|FEMINIST & QUEER METHODOLOGIES|CERRETTI, JOSHÕ÷üπƒù¡N
