@@ -1,11 +1,13 @@
-// src/components/SchedulePlanner/SchedulePlanner.tsx
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './SchedulePlanner.module.css';
-import { ChevronDown } from 'lucide-react';
+import QuarterSelector from '../QuarterSelector/QuarterSelector';
+import CourseSelector from '../CourseSelector/CourseSelector';
+import SchedulePreview from '../SchedulePreview/SchedulePreview';
 
 interface Course {
   id: number;
-  name: string;
+  subject: string;
+  code: string;
   force: boolean;
 }
 
@@ -15,131 +17,114 @@ interface ScheduleData {
   minCredits: string;
   maxCredits: string;
   courses: Course[];
+  currentScheduleIndex: number;
+  totalSchedules: number;
 }
 
-interface SchedulePlannerProps {
-  scheduleData: ScheduleData;
-  setScheduleData: React.Dispatch<React.SetStateAction<ScheduleData>>;
-}
+const SchedulePlanner: React.FC = () => {
+  const [scheduleData, setScheduleData] = useState<ScheduleData>({
+    quarter: '',
+    year: '',
+    minCredits: '',
+    maxCredits: '',
+    courses: [],
+    currentScheduleIndex: 0,
+    totalSchedules: 0
+  });
 
-const SchedulePlanner: React.FC<SchedulePlannerProps> = ({ scheduleData, setScheduleData }) => {
-  const addCourse = () => {
+  const handleQuarterUpdate = (field: string, value: string) => {
     setScheduleData(prev => ({
       ...prev,
-      courses: [...prev.courses, { id: prev.courses.length + 1, name: `Course ${prev.courses.length + 1}`, force: false }]
+      [field]: value
     }));
   };
 
-  const toggleForce = (courseId: number) => {
+  const handleAddCourse = (subject: string, code: string) => {
+    setScheduleData(prev => ({
+      ...prev,
+      courses: [
+        ...prev.courses,
+        {
+          id: Date.now(),
+          subject,
+          code,
+          force: false
+        }
+      ]
+    }));
+  };
+
+  const handleRemoveCourse = (id: number) => {
+    setScheduleData(prev => ({
+      ...prev,
+      courses: prev.courses.filter(course => course.id !== id)
+    }));
+  };
+
+  const handleToggleForce = (id: number) => {
     setScheduleData(prev => ({
       ...prev,
       courses: prev.courses.map(course =>
-        course.id === courseId ? { ...course, force: !course.force } : course
+        course.id === id 
+          ? { ...course, force: !course.force }
+          : course
       )
+    }));
+  };
+
+  const handleNavigateSchedule = (direction: 'prev' | 'next') => {
+    setScheduleData(prev => ({
+      ...prev,
+      currentScheduleIndex: direction === 'next'
+        ? Math.min(prev.currentScheduleIndex + 1, prev.totalSchedules - 1)
+        : Math.max(prev.currentScheduleIndex - 1, 0)
     }));
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.formControls}>
-        <div className={styles.dropdowns}>
-          <div className={styles.dropdownGroup}>
-            <label>Quarter:</label>
-            <div className={styles.selectWrapper}>
-              <select
-                value={scheduleData.quarter}
-                onChange={(e) => setScheduleData(prev => ({ ...prev, quarter: e.target.value }))}
-              >
-                <option value="">Select Quarter</option>
-                <option value="fall">Fall</option>
-                <option value="winter">Winter</option>
-                <option value="spring">Spring</option>
-                <option value="summer">Summer</option>
-              </select>
-              <ChevronDown className={styles.dropdownIcon} />
-            </div>
-          </div>
+        <QuarterSelector
+          quarter={scheduleData.quarter}
+          year={scheduleData.year}
+          minCredits={scheduleData.minCredits}
+          maxCredits={scheduleData.maxCredits}
+          onUpdate={handleQuarterUpdate}
+        />
 
-          <div className={styles.dropdownGroup}>
-            <label>Year:</label>
-            <div className={styles.selectWrapper}>
-              <select
-                value={scheduleData.year}
-                onChange={(e) => setScheduleData(prev => ({ ...prev, year: e.target.value }))}
-              >
-                <option value="">Select Year</option>
-                {[2024, 2025, 2026, 2027, 2028].map(year => (
-                  <option key={year} value={year}>{year}</option>
-                ))}
-              </select>
-              <ChevronDown className={styles.dropdownIcon} />
-            </div>
-          </div>
-
-          <div className={styles.dropdownGroup}>
-            <label>Min:</label>
-            <div className={styles.selectWrapper}>
-              <select
-                value={scheduleData.minCredits}
-                onChange={(e) => setScheduleData(prev => ({ ...prev, minCredits: e.target.value }))}
-              >
-                <option value="">Min Credits</option>
-                {Array.from({ length: 20 }, (_, i) => i + 1).map(num => (
-                  <option key={num} value={num}>{num}</option>
-                ))}
-              </select>
-              <ChevronDown className={styles.dropdownIcon} />
-            </div>
-          </div>
-
-          <div className={styles.dropdownGroup}>
-            <label>Max:</label>
-            <div className={styles.selectWrapper}>
-              <select
-                value={scheduleData.maxCredits}
-                onChange={(e) => setScheduleData(prev => ({ ...prev, maxCredits: e.target.value }))}
-              >
-                <option value="">Max Credits</option>
-                {Array.from({ length: 20 }, (_, i) => i + 1).map(num => (
-                  <option key={num} value={num}>{num}</option>
-                ))}
-              </select>
-              <ChevronDown className={styles.dropdownIcon} />
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.courseSection}>
-          <div className={styles.courseHeader}>
-            <h3>Subject/CRN</h3>
-            <button onClick={addCourse} className={styles.addButton}>Add</button>
-          </div>
-          
-          <div className={styles.courseList}>
-            {scheduleData.courses.map((course) => (
-              <div key={course.id} className={styles.courseItem}>
-                <span>{course.name}</span>
-                <button
-                  onClick={() => toggleForce(course.id)}
-                  className={`${styles.forceButton} ${course.force ? styles.forced : ''}`}
-                >
-                  Force
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
+        <CourseSelector
+          courses={scheduleData.courses}
+          onAddCourse={handleAddCourse}
+          onRemoveCourse={handleRemoveCourse}
+          onToggleForce={handleToggleForce}
+        />
 
         <div className={styles.scheduleActions}>
-          <button className={styles.actionButton}>Prev</button>
-          <button className={styles.actionButton}>Weights/Sort by</button>
-          <button className={styles.actionButton}>Next</button>
+          <button
+            onClick={() => handleNavigateSchedule('prev')}
+            disabled={scheduleData.currentScheduleIndex === 0}
+            className={styles.actionButton}
+          >
+            Prev
+          </button>
+          
+          <button className={styles.actionButton}>
+            Weights/Sort by
+          </button>
+          
+          <button
+            onClick={() => handleNavigateSchedule('next')}
+            disabled={scheduleData.currentScheduleIndex === scheduleData.totalSchedules - 1}
+            className={styles.actionButton}
+          >
+            Next
+          </button>
         </div>
 
         <div className={styles.scheduleGlance}>
           <h3>Schedule at a glance...</h3>
           <div className={styles.schedulePreview}>
-            {/* Schedule preview content will go here */}
+            <SchedulePreview />
           </div>
         </div>
       </div>
