@@ -110,7 +110,7 @@ const SchedulePlanner: React.FC = () => {
           </button>
           
           <button className={styles.actionButton}>
-            Weights/Sort by
+            Weights & Sort
           </button>
           
           <button
