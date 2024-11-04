@@ -3,6 +3,8 @@ import styles from "./SchedulePlanner.module.css";
 import QuarterSelector from "../QuarterSelector/QuarterSelector";
 import CourseSelector from "../CourseSelector/CourseSelector";
 import SchedulePreview from "../SchedulePreview/SchedulePreview";
+import { Schedule, Course as BackendCourse } from "../../types/types";
+import { submitSchedule } from "../../services/schedule-service";
 
 interface Course {
   id: number;
@@ -19,18 +21,28 @@ interface ScheduleData {
   courses: Course[];
   currentScheduleIndex: number;
   totalSchedules: number;
+  schedules: Schedule[];
+  warnings: string[];
+  errors: string[];
+  asyncCourses: BackendCourse[];
 }
 
 const SchedulePlanner: React.FC = () => {
   const [scheduleData, setScheduleData] = useState<ScheduleData>({
     quarter: "",
     year: "",
-    minCredits: "3", // Set default to 3
-    maxCredits: "3", // Set default to 3
+    minCredits: "3",
+    maxCredits: "3",
     courses: [],
     currentScheduleIndex: 0,
     totalSchedules: 0,
+    schedules: [],
+    warnings: [],
+    errors: [],
+    asyncCourses: [],
   });
+
+  const [error, setError] = useState<string | null>(null);
 
   const handleQuarterUpdate = (field: string, value: string) => {
     setScheduleData((prev) => ({
@@ -92,22 +104,44 @@ const SchedulePlanner: React.FC = () => {
 
   const handleScheduleSubmit = async () => {
     try {
-      console.log("Submitting Schedule...")
-      // Your POST request logic here
-      // Example:
-      // await fetch('/api/schedule', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({
-      //     courses: scheduleData.courses,
-      //     minCredits: scheduleData.minCredits,
-      //     maxCredits: scheduleData.maxCredits,
-      //     // ... other data
-      //   })
-      // });
+      setError(null);
+      const request = {
+        Courses: scheduleData.courses.map(
+          (course) => `${course.subject}${course.code}`
+        ),
+        Forced: scheduleData.courses
+          .filter((course) => course.force)
+          .map((course) => `${course.subject}${course.code}`),
+        Min: parseInt(scheduleData.minCredits),
+        Max: parseInt(scheduleData.maxCredits),
+        Term: `${scheduleData.year}${scheduleData.quarter}`,
+        SearchTerm: "",
+      };
+
+      const response = await submitSchedule(request);
+
+      setScheduleData((prev) => ({
+        ...prev,
+        schedules: response.Schedules || [],
+        totalSchedules: response.Schedules?.length || 0,
+        currentScheduleIndex: 0,
+        warnings: response.Warnings || [],
+        errors: response.Errors || [],
+        asyncCourses: response.Asyncs || [],
+      }));
+
+      // Display warnings if any
+      if (response.Warnings?.length) {
+        setError(response.Warnings.join(". "));
+      }
+
+      // Display errors if any
+      if (response.Errors?.length) {
+        setError(response.Errors.join(". "));
+      }
     } catch (error) {
       console.error("Failed to submit schedule:", error);
-      // Handle error appropriately
+      setError("Failed to generate schedules. Please try again.");
     }
   };
 
@@ -133,6 +167,11 @@ const SchedulePlanner: React.FC = () => {
         />
 
         <div className={styles.scheduleGlance}>
+          {error && (
+            <div className="mx-4 mb-4 p-4 rounded-lg bg-red-100 text-red-700 border border-red-300">
+              {error}
+            </div>
+          )}
           <div className={styles.scheduleActions}>
             <button
               onClick={() => handleNavigateSchedule("prev")}
@@ -156,7 +195,13 @@ const SchedulePlanner: React.FC = () => {
             </button>
           </div>
           <div className={styles.schedulePreview}>
-            <SchedulePreview />
+            <SchedulePreview
+              schedule={
+                scheduleData.schedules[scheduleData.currentScheduleIndex]
+              }
+              warnings={scheduleData.warnings}
+              errors={scheduleData.errors}
+            />
           </div>
         </div>
       </div>
