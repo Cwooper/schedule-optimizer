@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { X } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import styles from "./CourseSelector.module.css";
+import { X } from "lucide-react";
 
 interface Course {
   id: number;
@@ -13,6 +14,9 @@ interface CourseSelectorProps {
   onAddCourse: (subject: string, code: string) => void;
   onRemoveCourse: (id: number) => void;
   onToggleForce: (id: number) => void;
+  minCredits: string;
+  maxCredits: string;
+  onCreditUpdate: (field: 'minCredits' | 'maxCredits', value: string) => void;
 }
 
 const CourseSelector: React.FC<CourseSelectorProps> = ({
@@ -20,13 +24,34 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
   onAddCourse,
   onRemoveCourse,
   onToggleForce,
+  minCredits,
+  maxCredits,
+  onCreditUpdate,
 }) => {
-  const [selectedSubject, setSelectedSubject] = useState('');
-  const [courseCode, setCourseCode] = useState('');
-  const [error, setError] = useState('');
+  const [selectedSubject, setSelectedSubject] = useState("");
+  const [courseCode, setCourseCode] = useState("");
+  const [error, setError] = useState("");
 
-  // TODO: This would come from subjects.txt
-  const subjects = ['CSCI', 'MATH', 'PHYS', 'CHEM'];
+  // Set default credits on component mount
+  useEffect(() => {
+    if (!minCredits) {
+      onCreditUpdate('minCredits', '3');
+    }
+    if (!maxCredits) {
+      onCreditUpdate('maxCredits', '3');
+    }
+  }, []);
+
+  const subjects = [
+    "ACCT",
+    "ANTH",
+    "ART",
+    "BIOL",
+    "CHEM",
+    "CSCI",
+    "MATH",
+    "PHYS",
+  ];
 
   const validateCourseCode = (code: string) => {
     const regex = /^\d{3}[A-Z]?$/;
@@ -36,75 +61,78 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedSubject) {
-      setError('Please select a subject');
+      setError("Please select a subject");
       return;
     }
     if (!validateCourseCode(courseCode)) {
-      setError('Course code must be 3 digits optionally followed by a letter');
+      setError("Course code must be 3 digits optionally followed by a letter");
+      return;
+    }
+
+    // Check if we've reached the maximum number of courses
+    if (courses.length >= 9) {
+      setError("Maximum of 9 courses allowed");
       return;
     }
     
     onAddCourse(selectedSubject, courseCode);
-    setCourseCode('');
-    setError('');
+    setCourseCode("");
+    setError("");
   };
 
   return (
-    <div className="p-4">
-      <h3 className="text-lg font-semibold mb-4">Course Selection</h3>
-      
-      <form onSubmit={handleSubmit} className="flex gap-4 mb-4">
-        <div className="relative">
-          <select
-            value={selectedSubject}
-            onChange={(e) => setSelectedSubject(e.target.value)}
-            className="pl-3 pr-8 py-2 border rounded-md appearance-none bg-white"
-          >
-            <option value="">Select Subject</option>
-            {subjects.map(subject => (
-              <option key={subject} value={subject}>{subject}</option>
-            ))}
-          </select>
-        </div>
+    <>
+      <form onSubmit={handleSubmit} className={styles.container}>
+        <select
+          value={selectedSubject}
+          onChange={(e) => setSelectedSubject(e.target.value)}
+          className={styles.select}
+        >
+          <option value="">Select Subject</option>
+          {subjects.map((subject) => (
+            <option key={subject} value={subject}>
+              {subject}
+            </option>
+          ))}
+        </select>
 
         <input
           type="text"
           value={courseCode}
           onChange={(e) => setCourseCode(e.target.value.toUpperCase())}
-          placeholder="Code (e.g. 301A)"
-          className="pl-3 pr-3 py-2 border rounded-md"
+          placeholder="Course Number"
+          className={styles.input}
         />
 
-        <button
-          type="submit"
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+        <button 
+          type="submit" 
+          className={styles.addButton}
+          disabled={courses.length >= 9}
         >
-          Add Course
+          Add
         </button>
       </form>
 
-      {error && (
-        <p className="text-red-500 text-sm mb-4">{error}</p>
-      )}
+      {error && <p className={styles.error}>{error}</p>}
 
-      <div className="space-y-2">
+      <div className={styles.courseList}>
         {courses.map((course) => (
-          <div key={course.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-md">
-            <span className="font-medium">{course.subject} {course.code}</span>
-            <div className="flex items-center gap-2">
+          <div key={course.id} className={styles.courseItem}>
+            <span>
+              {course.subject} {course.code}
+            </span>
+            <div className={styles.courseActions}>
               <button
                 onClick={() => onToggleForce(course.id)}
-                className={`px-3 py-1 rounded-md text-sm ${
-                  course.force 
-                    ? 'bg-indigo-600 text-white' 
-                    : 'bg-gray-200 text-gray-700'
+                className={`${styles.forceButton} ${
+                  course.force ? styles.forced : ""
                 }`}
               >
                 Force
               </button>
               <button
                 onClick={() => onRemoveCourse(course.id)}
-                className="p-1 text-gray-500 hover:text-red-500"
+                className={styles.removeButton}
               >
                 <X className="w-4 h-4" />
               </button>
@@ -112,7 +140,7 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

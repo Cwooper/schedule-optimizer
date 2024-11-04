@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import styles from './SchedulePlanner.module.css';
-import QuarterSelector from '../QuarterSelector/QuarterSelector';
-import CourseSelector from '../CourseSelector/CourseSelector';
-import SchedulePreview from '../SchedulePreview/SchedulePreview';
+import React, { useState } from "react";
+import styles from "./SchedulePlanner.module.css";
+import QuarterSelector from "../QuarterSelector/QuarterSelector";
+import CourseSelector from "../CourseSelector/CourseSelector";
+import SchedulePreview from "../SchedulePreview/SchedulePreview";
 
 interface Course {
   id: number;
@@ -23,24 +23,24 @@ interface ScheduleData {
 
 const SchedulePlanner: React.FC = () => {
   const [scheduleData, setScheduleData] = useState<ScheduleData>({
-    quarter: '',
-    year: '',
-    minCredits: '',
-    maxCredits: '',
+    quarter: "",
+    year: "",
+    minCredits: "3", // Set default to 3
+    maxCredits: "3", // Set default to 3
     courses: [],
     currentScheduleIndex: 0,
-    totalSchedules: 0
+    totalSchedules: 0,
   });
 
   const handleQuarterUpdate = (field: string, value: string) => {
-    setScheduleData(prev => ({
+    setScheduleData((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
   const handleAddCourse = (subject: string, code: string) => {
-    setScheduleData(prev => ({
+    setScheduleData((prev) => ({
       ...prev,
       courses: [
         ...prev.courses,
@@ -48,36 +48,45 @@ const SchedulePlanner: React.FC = () => {
           id: Date.now(),
           subject,
           code,
-          force: false
-        }
-      ]
+          force: false,
+        },
+      ],
     }));
   };
 
   const handleRemoveCourse = (id: number) => {
-    setScheduleData(prev => ({
+    setScheduleData((prev) => ({
       ...prev,
-      courses: prev.courses.filter(course => course.id !== id)
+      courses: prev.courses.filter((course) => course.id !== id),
     }));
   };
 
   const handleToggleForce = (id: number) => {
-    setScheduleData(prev => ({
+    setScheduleData((prev) => ({
       ...prev,
-      courses: prev.courses.map(course =>
-        course.id === id 
-          ? { ...course, force: !course.force }
-          : course
-      )
+      courses: prev.courses.map((course) =>
+        course.id === id ? { ...course, force: !course.force } : course
+      ),
     }));
   };
 
-  const handleNavigateSchedule = (direction: 'prev' | 'next') => {
-    setScheduleData(prev => ({
+  const handleNavigateSchedule = (direction: "prev" | "next") => {
+    setScheduleData((prev) => ({
       ...prev,
-      currentScheduleIndex: direction === 'next'
-        ? Math.min(prev.currentScheduleIndex + 1, prev.totalSchedules - 1)
-        : Math.max(prev.currentScheduleIndex - 1, 0)
+      currentScheduleIndex:
+        direction === "next"
+          ? Math.min(prev.currentScheduleIndex + 1, prev.totalSchedules - 1)
+          : Math.max(prev.currentScheduleIndex - 1, 0),
+    }));
+  };
+
+  const handleCreditUpdate = (
+    field: "minCredits" | "maxCredits",
+    value: string
+  ) => {
+    setScheduleData((prev) => ({
+      ...prev,
+      [field]: value,
     }));
   };
 
@@ -91,36 +100,39 @@ const SchedulePlanner: React.FC = () => {
           maxCredits={scheduleData.maxCredits}
           onUpdate={handleQuarterUpdate}
         />
-
         <CourseSelector
           courses={scheduleData.courses}
           onAddCourse={handleAddCourse}
           onRemoveCourse={handleRemoveCourse}
           onToggleForce={handleToggleForce}
+          minCredits={scheduleData.minCredits}
+          maxCredits={scheduleData.maxCredits}
+          onCreditUpdate={handleCreditUpdate}
         />
 
         <div className={styles.scheduleGlance}>
           <div className={styles.scheduleActions}>
-          <button
-            onClick={() => handleNavigateSchedule('prev')}
-            disabled={scheduleData.currentScheduleIndex === 0}
-            className={styles.actionButton}
-          >
-            Prev
-          </button>
-          
-          <button className={styles.actionButton}>
-            Weights & Sort
-          </button>
-          
-          <button
-            onClick={() => handleNavigateSchedule('next')}
-            disabled={scheduleData.currentScheduleIndex === scheduleData.totalSchedules - 1}
-            className={styles.actionButton}
-          >
-            Next
-          </button>
-        </div>
+            <button
+              onClick={() => handleNavigateSchedule("prev")}
+              disabled={scheduleData.currentScheduleIndex === 0}
+              className={styles.actionButton}
+            >
+              Prev
+            </button>
+
+            <button className={styles.actionButton}>Weights & Sort</button>
+
+            <button
+              onClick={() => handleNavigateSchedule("next")}
+              disabled={
+                scheduleData.currentScheduleIndex ===
+                scheduleData.totalSchedules - 1
+              }
+              className={styles.actionButton}
+            >
+              Next
+            </button>
+          </div>
           <div className={styles.schedulePreview}>
             <SchedulePreview />
           </div>

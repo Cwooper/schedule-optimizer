@@ -1,4 +1,3 @@
-/* styles/global.css */
 @import './variables.css';
 
 /* Reset and base styles */
@@ -8,50 +7,61 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+  font-size: 16px;
+}
+
 body {
   font-family: var(--font-family);
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
   color: var(--color-text);
   background-color: var(--color-background);
+  min-height: 100%;
 }
 
 /* App layout */
 .app {
   min-height: 100vh;
   background-color: var(--color-background);
+  display: flex;
+  flex-direction: column;
 }
 
 .main-content {
-  padding-top: var(--spacing-md);
+  flex: 1;
+  width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: var(--spacing-lg);
+  padding: var(--container-padding);
 }
 
 /* Form elements */
 select {
   appearance: none;
+  width: 100%;
   padding: var(--spacing-sm) var(--spacing-xl) var(--spacing-sm) var(--spacing-sm);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
   background-color: var(--color-white);
   cursor: pointer;
-  min-width: 120px;
   font-size: var(--font-size-base);
 }
 
 button {
   cursor: pointer;
   font-size: var(--font-size-base);
-  transition: all 0.2s ease;
+  transition: all var(--transition-base);
+  white-space: nowrap;
 }
 
 /* Common utility classes */
 .container {
+  width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--spacing-md);
+  padding: 0 var(--container-padding);
 }
 
 /* Shared component styles */
@@ -60,6 +70,7 @@ button {
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
   padding: var(--spacing-md);
+  width: 100%;
 }
 
 .button-primary {
@@ -68,6 +79,11 @@ button {
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--border-radius);
   border: none;
+  width: auto;
+  min-height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button-secondary {
@@ -76,6 +92,10 @@ button {
   padding: var(--spacing-sm) var(--spacing-md);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
+  min-height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Layout utilities */
@@ -85,6 +105,10 @@ button {
 
 .flex-col {
   flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .items-center {
@@ -104,11 +128,13 @@ button {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
+  width: 100%;
 }
 
 .form-label {
   font-weight: var(--font-weight-medium);
   color: var(--color-text);
+  white-space: nowrap;
 }
 
 /* Schedule specific styles */
@@ -118,4 +144,73 @@ button {
   min-height: 200px;
   padding: var(--spacing-md);
   margin-top: var(--spacing-md);
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .flex {
+    flex-wrap: wrap;
+  }
+
+  .card {
+    padding: var(--spacing-sm);
+  }
+
+  .form-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button-primary,
+  .button-secondary {
+    width: 100%;
+  }
+
+  .gap-md {
+    gap: var(--spacing-sm);
+  }
+
+  /* Adjust horizontal scrolling for schedule preview on mobile */
+  .schedule-preview {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  /* Make buttons more touch-friendly */
+  button {
+    min-height: 44px; /* iOS minimum touch target size */
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+}
+
+/* Additional utility classes for responsive design */
+.hide-on-mobile {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.show-on-mobile {
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) {
+  /* Larger touch targets */
+  select,
+  button,
+  input {
+    min-height: 44px;
+  }
+
+  /* Remove hover states on touch devices */
+  .button-primary:hover,
+  .button-secondary:hover {
+    transform: none;
+  }
 }
