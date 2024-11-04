@@ -99,7 +99,8 @@ const SchedulePlanner: React.FC = () => {
           onToggleForce={handleToggleForce}
         />
 
-        <div className={styles.scheduleActions}>
+        <div className={styles.scheduleGlance}>
+          <div className={styles.scheduleActions}>
           <button
             onClick={() => handleNavigateSchedule('prev')}
             disabled={scheduleData.currentScheduleIndex === 0}
@@ -120,9 +121,6 @@ const SchedulePlanner: React.FC = () => {
             Next
           </button>
         </div>
-
-        <div className={styles.scheduleGlance}>
-          <h3>Schedule at a glance...</h3>
           <div className={styles.schedulePreview}>
             <SchedulePreview />
           </div>
