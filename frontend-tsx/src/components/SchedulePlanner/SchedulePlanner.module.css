@@ -38,7 +38,7 @@
 .schedulePreview {
   background-color: var(--color-neutral-50);
   border-radius: var(--radius-lg);
-  min-height: 550px;
+  min-height: 650px;
   width: 100%;
   padding: var(--spacing-4);
 }

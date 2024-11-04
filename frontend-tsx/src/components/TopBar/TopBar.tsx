@@ -2,21 +2,19 @@
 import React from "react";
 import styles from "./TopBar.module.css";
 
+// src/components/TopBar/TopBar.tsx
 interface TopBarProps {
   onHelpClick?: () => void;
+  onAboutClick?: () => void; // Add this line
 }
 
-const TopBar: React.FC<TopBarProps> = ({ onHelpClick }) => {
+const TopBar: React.FC<TopBarProps> = ({ onHelpClick, onAboutClick }) => {
   const handleHelpClick = () => {
-    const helpPopup = document.getElementById("help-popup");
-    const backdrop = document.getElementById("backdrop");
+    alert("TODO Help menu.");
+  };
 
-    if (helpPopup && backdrop) {
-      helpPopup.classList.remove("hidden");
-      helpPopup.classList.add("block");
-      backdrop.classList.remove("hidden");
-      backdrop.classList.add("block");
-    }
+  const handleAboutClick = () => {
+    alert("TODO About this application.");
   };
 
   return (
@@ -24,13 +22,22 @@ const TopBar: React.FC<TopBarProps> = ({ onHelpClick }) => {
       <nav className={styles.container}>
         <div className={styles.content}>
           <h1 className={styles.title}>WWU Schedule Optimizer</h1>
-          <button
-            className={`btn btn-primary ${styles.helpButton}`}
-            onClick={onHelpClick || handleHelpClick}
-            title="Display Help Menu"
-          >
-            Help
-          </button>
+          <div className={styles.buttonGroup}>
+            <button
+              className={`btn btn-primary ${styles.actionButton}`}
+              onClick={onAboutClick || handleAboutClick}
+              title="About this application"
+            >
+              About
+            </button>
+            <button
+              className={`btn btn-primary ${styles.helpButton}`}
+              onClick={onHelpClick || handleHelpClick}
+              title="Display Help Menu"
+            >
+              Help
+            </button>
+          </div>
         </div>
       </nav>
     </header>

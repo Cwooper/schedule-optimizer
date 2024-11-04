@@ -90,6 +90,27 @@ const SchedulePlanner: React.FC = () => {
     }));
   };
 
+  const handleScheduleSubmit = async () => {
+    try {
+      console.log("Submitting Schedule...")
+      // Your POST request logic here
+      // Example:
+      // await fetch('/api/schedule', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({
+      //     courses: scheduleData.courses,
+      //     minCredits: scheduleData.minCredits,
+      //     maxCredits: scheduleData.maxCredits,
+      //     // ... other data
+      //   })
+      // });
+    } catch (error) {
+      console.error("Failed to submit schedule:", error);
+      // Handle error appropriately
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.formControls}>
@@ -108,6 +129,7 @@ const SchedulePlanner: React.FC = () => {
           minCredits={scheduleData.minCredits}
           maxCredits={scheduleData.maxCredits}
           onCreditUpdate={handleCreditUpdate}
+          onSubmitSchedule={handleScheduleSubmit}
         />
 
         <div className={styles.scheduleGlance}>
