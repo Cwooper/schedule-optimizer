@@ -17,7 +17,7 @@
   align-items: center;
   padding: 1rem;
   background-color: #f3f4f6;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
 }
 
 .dropdownGroup {
@@ -35,7 +35,7 @@
   appearance: none;
   padding: 0.5rem 2rem 0.5rem 0.75rem;
   border: 1px solid #d1d5db;
-  border-radius: 0.375rem;
+  border-radius: 0.75rem;
   background-color: white;
   cursor: pointer;
   min-width: 120px;
@@ -54,7 +54,7 @@
 
 .courseSection {
   border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   padding: 1rem;
 }
 
@@ -69,7 +69,7 @@
   background-color: #003f87;
   color: white;
   padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
+  border-radius: 0.75rem;
   font-weight: 500;
 }
 
@@ -85,13 +85,13 @@
   align-items: center;
   padding: 0.5rem;
   background-color: #f9fafb;
-  border-radius: 0.375rem;
+  border-radius: 0.75rem;
 }
 
 .forceButton {
   padding: 0.25rem 0.75rem;
   border: 1px solid #d1d5db;
-  border-radius: 0.25rem;
+  border-radius: 0.75rem;
   background-color: white;
 }
 
@@ -111,21 +111,23 @@
   padding: 0.5rem 1rem;
   background-color: white;
   border: 1px solid #d1d5db;
-  border-radius: 0.375rem;
+  border-radius: 0.75rem;
   flex: 1;
 }
 
 .scheduleGlance {
   border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   padding: 1rem;
-  min-height: 300px;
+  min-height: 550px;
+  min-width: 850px;
 }
 
 .schedulePreview {
   margin-top: 1rem;
   background-color: #f9fafb;
-  border-radius: 0.375rem;
-  min-height: 200px;
+  border-radius: 0.75rem;
+  min-height: 550px;
+  min-width: 850px;
   padding: 1rem;
 }
