@@ -1,59 +1,33 @@
 /* CourseSelector.module.css */
-
 .container {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  padding: 1rem;
+  gap: var(--spacing-4);
+  padding: var(--spacing-4);
   align-items: center;
   justify-content: center;
   background-color: white;
-  border-radius: 0.75rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  margin-top: 1rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .select {
-  padding: 0.5rem 2rem 0.5rem 0.75rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.75rem;
-  background-color: white;
-  font-size: 0.875rem;
   width: 150px;
-  appearance: none;
-  cursor: pointer;
 }
 
 .input {
-  padding: 0.5rem 0.75rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.75rem;
-  background-color: white;
-  font-size: 0.875rem;
   width: 150px;
 }
 
 .addButton {
-  padding: 0.5rem 1rem;
-  background-color: #4085d4;
-  color: white;
-  border-radius: 0.75rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s;
   min-width: 100px;
-}
-
-.addButton:hover {
-  background-color: #05438a;
 }
 
 .courseList {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-3);
   width: 100%;
   max-width: 600px;
   margin-left: auto;
@@ -64,61 +38,81 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-weight: bold;
-  padding: 0.75rem;
-  background-color: #d4e5fa;
-  border: 1px solid #d1d5db;
-  border-radius: 0.75rem;
-  transition: background-color 0.2s;
+  padding: var(--spacing-3);
+  background-color: var(--color-primary-50);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+  position: relative;
+  border: 1px solid var(--color-neutral-200);
+  overflow: hidden;
 }
 
-.courseItem.forced {
-  border: 3px solid #ff0000;
+.courseItem.forced::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--color-error);
+  border-radius: calc(var(--radius-lg) - 1px);
+  pointer-events: none;
+}
+
+.courseText {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-neutral-900);
 }
 
 .courseActions {
   display: flex;
-  gap: 0.5rem;
+  gap: var(--spacing-2);
+  flex-shrink: 0;
 }
 
-.forceButton {
-  padding: 0.25rem 0.75rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.75rem;
-  background-color: white;
-  font-size: 0.75rem;
-  transition: all 0.2s;
-  cursor: pointer;
-}
-
-.forceButton.forceButtonActive {
-  background-color: #003f87;
-  color: white;
-  border-color: #003f87;
-}
-
+.forceButton,
 .removeButton {
-  padding: 0.25rem 0.75rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.75rem;
-  background-color: white;
-  font-size: 0.875rem;
-  color: #6b7280;
-  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-1) var(--spacing-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-base);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
   cursor: pointer;
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
+  border: 1px solid var(--button-secondary-border);
+}
+
+.forceButton:hover:not(:disabled),
+.removeButton:hover:not(:disabled) {
+  background-color: var(--button-secondary-hover-bg);
+  border-color: var(--button-secondary-hover-border);
+}
+
+.forceButtonActive {
+  background-color: var(--color-primary-700) !important;
+  color: white !important;
+  border-color: var(--color-primary-700) !important;
+}
+
+.forceButtonActive:hover {
+  background-color: var(--color-primary-800) !important;
+  border-color: var(--color-primary-800) !important;
 }
 
 .removeButton:hover {
-  color: #ef4444;
-  background-color: #fee2e2;
+  color: var(--color-error);
+  background-color: var(--color-neutral-50);
+  border-color: var(--color-error);
 }
 
 .error {
-  color: #ef4444;
-  font-size: 0.875rem;
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
   text-align: center;
   width: 100%;
-  margin-top: 0.5rem;
+  margin-top: var(--spacing-2);
 }
 
 /* Media query for mobile devices */
@@ -126,6 +120,7 @@
   .container {
     flex-direction: column;
     align-items: stretch;
+    padding: var(--spacing-3);
   }
 
   .select,
@@ -133,17 +128,28 @@
     width: 100%;
   }
 
-  .addButton {
-    width: 100%;
+  .courseItem {
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-3);
+    gap: var(--spacing-2);
   }
 
-  .courseItem {
-    flex-direction: column;
-    align-items: stretch;
-    text-align: center;
+  .courseText {
+    font-size: var(--font-size-sm);
   }
 
   .courseActions {
-    justify-content: center;
+    display: flex;
+    gap: var(--spacing-2);
+    flex-shrink: 0;
+  }
+
+  .forceButton,
+  .removeButton {
+    padding: var(--spacing-1) var(--spacing-2);
+    min-width: auto;
   }
 }

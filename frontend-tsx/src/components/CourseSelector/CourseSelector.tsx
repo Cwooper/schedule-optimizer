@@ -31,7 +31,6 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
   const [courseCode, setCourseCode] = useState("");
   const [error, setError] = useState("");
 
-  // Set default credits on component mount
   useEffect(() => {
     if (!minCredits) {
       onCreditUpdate("minCredits", "3");
@@ -68,7 +67,6 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
       return;
     }
 
-    // Check if we've reached the maximum number of courses
     if (courses.length >= 9) {
       setError("Maximum of 9 courses allowed");
       return;
@@ -85,7 +83,7 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
         <select
           value={selectedSubject}
           onChange={(e) => setSelectedSubject(e.target.value)}
-          className={styles.select}
+          className={`select ${styles.select}`}
         >
           <option value="">Select Subject</option>
           {subjects.map((subject) => (
@@ -100,12 +98,12 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
           value={courseCode}
           onChange={(e) => setCourseCode(e.target.value.toUpperCase())}
           placeholder="Course Number"
-          className={styles.input}
+          className={`input ${styles.input}`}
         />
 
         <button
           type="submit"
-          className={styles.addButton}
+          className={`btn btn-primary ${styles.addButton}`}
           disabled={courses.length >= 9}
         >
           Add
@@ -128,7 +126,7 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
             <div className={styles.courseActions}>
               <button
                 onClick={() => onToggleForce(course.id)}
-                className={`${styles.forceButton} ${
+                className={`btn btn-secondary ${styles.forceButton} ${
                   course.force ? styles.forceButtonActive : ""
                 }`}
               >
@@ -136,7 +134,7 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
               </button>
               <button
                 onClick={() => onRemoveCourse(course.id)}
-                className={styles.removeButton}
+                className={`btn btn-secondary ${styles.removeButton}`}
               >
                 −
               </button>

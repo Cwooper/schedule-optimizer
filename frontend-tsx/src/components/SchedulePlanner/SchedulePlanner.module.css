@@ -2,132 +2,70 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: var(--spacing-4);
 }
 
 .formControls {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: var(--spacing-3);
 }
 
-.dropdowns {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-  padding: 1rem;
-  background-color: #f3f4f6;
-  border-radius: 0.75rem;
-}
-
-.dropdownGroup {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.selectWrapper {
-  position: relative;
-  display: inline-block;
-}
-
-.selectWrapper select {
-  appearance: none;
-  padding: 0.5rem 2rem 0.5rem 0.75rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.75rem;
-  background-color: white;
-  cursor: pointer;
-  min-width: 120px;
-}
-
-.dropdownIcon {
-  position: absolute;
-  right: 0.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1rem;
-  height: 1rem;
-  pointer-events: none;
-  color: #6b7280;
-}
-
-.courseSection {
-  border: 1px solid #e5e7eb;
-  border-radius: 0.75rem;
-  padding: 1rem;
-}
-
-.courseHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.addButton {
-  background-color: #003f87;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.75rem;
-  font-weight: 500;
-}
-
-.courseList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.courseItem {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem;
-  background-color: #f9fafb;
-  border-radius: 0.75rem;
-}
-
-.forceButton {
-  padding: 0.25rem 0.75rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.75rem;
-  background-color: white;
-}
-
-.forceButton.forced {
-  background-color: #003f87;
-  color: white;
-  border-color: #003f87;
+.scheduleGlance {
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-4);
+  min-height: 550px;
+  width: 100%;
+  overflow-x: auto;
 }
 
 .scheduleActions {
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+  flex-wrap: nowrap; /* Prevent wrapping */
+  width: 100%;
 }
 
 .actionButton {
-  padding: 0.5rem 1rem;
-  background-color: white;
-  border: 1px solid #d1d5db;
-  border-radius: 0.75rem;
   flex: 1;
-}
-
-.scheduleGlance {
-  border: 1px solid #e5e7eb;
-  border-radius: 0.75rem;
-  padding: 1rem;
-  min-height: 550px;
-  min-width: 850px;
+  white-space: nowrap;
+  min-width: auto !important; /* Override any global styles */
 }
 
 .schedulePreview {
-  margin-top: 1rem;
-  background-color: #f9fafb;
-  border-radius: 0.75rem;
+  background-color: var(--color-neutral-50);
+  border-radius: var(--radius-lg);
   min-height: 550px;
-  min-width: 850px;
-  padding: 1rem;
+  width: 100%;
+  padding: var(--spacing-4);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-2);
+  }
+
+  .scheduleGlance {
+    padding: var(--spacing-2);
+    min-height: 400px;
+  }
+
+  .schedulePreview {
+    min-height: 400px;
+    padding: var(--spacing-2);
+  }
+
+  .scheduleActions {
+    gap: var(--spacing-2);
+  }
+
+  .actionButton {
+    padding-left: var(--spacing-2);
+    padding-right: var(--spacing-2);
+    font-size: var(--font-size-sm);
+  }
 }
