@@ -1,5 +1,4 @@
 import React from 'react';
-import { ChevronDown } from 'lucide-react';
 
 interface QuarterSelectorProps {
   quarter: string;
@@ -32,7 +31,6 @@ const QuarterSelector: React.FC<QuarterSelectorProps> = ({
             <option value="spring">Spring</option>
             <option value="summer">Summer</option>
           </select>
-          <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500" />
         </div>
       </div>
 
@@ -49,7 +47,6 @@ const QuarterSelector: React.FC<QuarterSelectorProps> = ({
               <option key={year} value={year}>{year}</option>
             ))}
           </select>
-          <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500" />
         </div>
       </div>
 
@@ -66,7 +63,6 @@ const QuarterSelector: React.FC<QuarterSelectorProps> = ({
               <option key={num} value={num}>{num}</option>
             ))}
           </select>
-          <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500" />
         </div>
       </div>
 
@@ -83,7 +79,6 @@ const QuarterSelector: React.FC<QuarterSelectorProps> = ({
               <option key={num} value={num}>{num}</option>
             ))}
           </select>
-          <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500" />
         </div>
       </div>
     </div>
