@@ -1,6 +1,6 @@
 // src/components/TopBar/TopBar.tsx
-import React from 'react';
-import styles from './TopBar.module.css';
+import React from "react";
+import styles from "./TopBar.module.css";
 
 interface TopBarProps {
   onHelpClick?: () => void;
@@ -8,14 +8,14 @@ interface TopBarProps {
 
 const TopBar: React.FC<TopBarProps> = ({ onHelpClick }) => {
   const handleHelpClick = () => {
-    const helpPopup = document.getElementById('help-popup');
-    const backdrop = document.getElementById('backdrop');
-    
+    const helpPopup = document.getElementById("help-popup");
+    const backdrop = document.getElementById("backdrop");
+
     if (helpPopup && backdrop) {
-      helpPopup.classList.remove('hidden');
-      helpPopup.classList.add('block');
-      backdrop.classList.remove('hidden');
-      backdrop.classList.add('block');
+      helpPopup.classList.remove("hidden");
+      helpPopup.classList.add("block");
+      backdrop.classList.remove("hidden");
+      backdrop.classList.add("block");
     }
   };
 
@@ -23,11 +23,9 @@ const TopBar: React.FC<TopBarProps> = ({ onHelpClick }) => {
     <header className={styles.topbar}>
       <nav className={styles.container}>
         <div className={styles.content}>
-          <h1 className={styles.title}>
-            WWU Schedule Optimizer
-          </h1>
+          <h1 className={styles.title}>WWU Schedule Optimizer</h1>
           <button
-            className={styles.helpButton}
+            className={`btn btn-primary ${styles.helpButton}`}
             onClick={onHelpClick || handleHelpClick}
             title="Display Help Menu"
           >

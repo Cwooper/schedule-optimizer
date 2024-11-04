@@ -2,50 +2,49 @@
 .topbar {
   width: 100%;
   background-color: white;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--color-neutral-200);
 }
 
 .container {
-  max-width: 80rem; /* 1280px */
+  max-width: 80rem;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 var(--spacing-4);
 }
 
 .content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 4rem; /* 64px */
+  height: 4rem;
 }
 
 .title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #003f87; /* WWU Blue */
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-700);
 }
 
+/* Add styles to prevent help button from stretching */
 .helpButton {
-  padding: 0.5rem 1rem;
-  background-color: #003f87;
-  color: white;
-  border-radius: 0.75rem;
-  font-weight: 500;
-  transition: background-color 0.2s;
+  width: auto !important; /* Override any global responsive styles */
+  min-width: 80px;
+  white-space: nowrap;
 }
 
-.helpButton:hover {
-  background-color: #002d62;
+@media (max-width: 768px) {
+  .title {
+    font-size: var(--font-size-lg);
+  }
 }
 
-/* Responsive adjustments */
 @media (min-width: 640px) {
   .container {
-    padding: 0 1.5rem;
+    padding: 0 var(--spacing-6);
   }
 }
 
 @media (min-width: 1024px) {
   .container {
-    padding: 0 2rem;
+    padding: 0 var(--spacing-8);
   }
 }

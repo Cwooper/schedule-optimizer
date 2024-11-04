@@ -50,7 +50,7 @@ const SchedulePreview = () => {
           events={sampleEvents}
           headers={customHeaders}
           width={800}
-          height={500}
+          height={600}
         />
       </div>
     </div>
