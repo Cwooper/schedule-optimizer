@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, X, Plus } from 'lucide-react';
+import { X } from 'lucide-react';
 
 interface Course {
   id: number;
@@ -65,14 +65,13 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
               <option key={subject} value={subject}>{subject}</option>
             ))}
           </select>
-          <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500" />
         </div>
 
         <input
           type="text"
           value={courseCode}
           onChange={(e) => setCourseCode(e.target.value.toUpperCase())}
-          placeholder="Course Code (e.g. 301A)"
+          placeholder="Code (e.g. 301A)"
           className="pl-3 pr-3 py-2 border rounded-md"
         />
 
@@ -80,8 +79,7 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
           type="submit"
           className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
         >
-          <Plus className="w-4 h-4" />
-          Add
+          Add Course
         </button>
       </form>
 
