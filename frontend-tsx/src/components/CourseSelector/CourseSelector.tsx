@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styles from "./CourseSelector.module.css";
-import { X } from "lucide-react";
 
 interface Course {
   id: number;
@@ -16,7 +15,7 @@ interface CourseSelectorProps {
   onToggleForce: (id: number) => void;
   minCredits: string;
   maxCredits: string;
-  onCreditUpdate: (field: 'minCredits' | 'maxCredits', value: string) => void;
+  onCreditUpdate: (field: "minCredits" | "maxCredits", value: string) => void;
 }
 
 const CourseSelector: React.FC<CourseSelectorProps> = ({
@@ -35,10 +34,10 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
   // Set default credits on component mount
   useEffect(() => {
     if (!minCredits) {
-      onCreditUpdate('minCredits', '3');
+      onCreditUpdate("minCredits", "3");
     }
     if (!maxCredits) {
-      onCreditUpdate('maxCredits', '3');
+      onCreditUpdate("maxCredits", "3");
     }
   }, []);
 
@@ -74,7 +73,7 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
       setError("Maximum of 9 courses allowed");
       return;
     }
-    
+
     onAddCourse(selectedSubject, courseCode);
     setCourseCode("");
     setError("");
@@ -104,8 +103,8 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
           className={styles.input}
         />
 
-        <button 
-          type="submit" 
+        <button
+          type="submit"
           className={styles.addButton}
           disabled={courses.length >= 9}
         >
@@ -117,15 +116,20 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
 
       <div className={styles.courseList}>
         {courses.map((course) => (
-          <div key={course.id} className={styles.courseItem}>
-            <span>
+          <div
+            key={course.id}
+            className={`${styles.courseItem} ${
+              course.force ? styles.forced : ""
+            }`}
+          >
+            <span className={styles.courseText}>
               {course.subject} {course.code}
             </span>
             <div className={styles.courseActions}>
               <button
                 onClick={() => onToggleForce(course.id)}
                 className={`${styles.forceButton} ${
-                  course.force ? styles.forced : ""
+                  course.force ? styles.forceButtonActive : ""
                 }`}
               >
                 Force
@@ -134,7 +138,7 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
                 onClick={() => onRemoveCourse(course.id)}
                 className={styles.removeButton}
               >
-                <X className="w-4 h-4" />
+                −
               </button>
             </div>
           </div>
