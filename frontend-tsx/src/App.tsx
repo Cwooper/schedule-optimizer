@@ -1,8 +1,8 @@
-import React from 'react';
-import './styles/variables.css';
-import './styles/global.css';
-import TopBar from './components/TopBar/TopBar';
-import SchedulePlanner from './components/SchedulePlanner/SchedulePlanner';
+import React from "react";
+import "./styles/variables.css";
+import "./styles/global.css";
+import TopBar from "./components/TopBar/TopBar";
+import SchedulePlanner from "./components/SchedulePlanner/SchedulePlanner";
 
 const App: React.FC = () => {
   return (

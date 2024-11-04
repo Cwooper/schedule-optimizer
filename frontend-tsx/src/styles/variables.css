@@ -1,57 +1,71 @@
-/* styles/variables.css */
 :root {
-    /* Colors */
-    --color-primary: #003f87;        /* WWU Blue */
-    --color-primary-dark: #002d62;   /* Darker blue for hover states */
-    --color-text: #1f2937;          /* Dark gray for text */
-    --color-text-light: #6b7280;    /* Lighter gray for secondary text */
-    --color-background: #ffffff;     /* White background */
-    --color-background-alt: #f3f4f6; /* Light gray for alternate backgrounds */
-    --color-border: #e5e7eb;        /* Light gray for borders */
-    --color-white: #ffffff;
-  
-    /* Typography */
-    --font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-    --font-size-sm: 0.875rem;      /* 14px */
-    --font-size-base: 1rem;        /* 16px */
-    --font-size-lg: 1.125rem;      /* 18px */
-    --font-size-xl: 1.25rem;       /* 20px */
-    --font-size-2xl: 1.5rem;       /* 24px */
-    
-    --font-weight-normal: 400;
-    --font-weight-medium: 500;
-    --font-weight-bold: 700;
-    
-    --line-height-base: 1.5;
-    --line-height-tight: 1.25;
-  
-    /* Spacing */
-    --spacing-xs: 0.25rem;         /* 4px */
-    --spacing-sm: 0.5rem;          /* 8px */
-    --spacing-md: 1rem;            /* 16px */
-    --spacing-lg: 1.5rem;          /* 24px */
-    --spacing-xl: 2rem;            /* 32px */
-    --spacing-2xl: 2.5rem;         /* 40px */
-  
-    /* Layout */
-    --max-width: 1200px;
-    --header-height: 4rem;         /* 64px */
-    
-    /* Borders */
-    --border-radius: 0.375rem;     /* 6px */
-    --border-radius-lg: 0.5rem;    /* 8px */
-    
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-    
-    /* Transitions */
-    --transition-base: 200ms ease-in-out;
+  /* Breakpoints */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  /* Colors */
+  --color-primary: #003f87;
+  --color-primary-dark: #002d62;
+  --color-text: #1f2937;
+  --color-text-light: #6b7280;
+  --color-background: #ffffff;
+  --color-background-alt: #f3f4f6;
+  --color-border: #e5e7eb;
+  --color-white: #ffffff;
+
+  /* Typography */
+  --font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.5rem; /* 24px */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --line-height-base: 1.5;
+  --line-height-tight: 1.25;
+
+  /* Spacing */
+  --spacing-2xs: 0.125rem; /* 2px */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem; /* 8px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 2.5rem; /* 40px */
+
+  /* Layout */
+  --max-width: 1200px;
+  --header-height: 4rem;
+  --container-padding: var(--spacing-md);
+
+  /* Borders */
+  --border-radius: 0.375rem;
+  --border-radius-lg: 0.5rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+
+  /* Transitions */
+  --transition-base: 200ms ease-in-out;
+}
+
+@media (max-width: 768px) {
+  :root {
+    /* Adjust spacing for mobile */
+    --container-padding: var(--spacing-sm);
+    --spacing-lg: 1rem;
+    --spacing-xl: 1.5rem;
+    --spacing-2xl: 2rem;
+
+    /* Adjust font sizes for mobile */
+    --font-size-2xl: 1.25rem;
+    --font-size-xl: 1.125rem;
+    --font-size-lg: 1rem;
   }
-  
-  /* Dark mode variables if needed */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      /* Add dark mode variables here if you plan to support dark mode */
-    }
-  }
+}
