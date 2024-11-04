@@ -12,7 +12,6 @@ interface QuarterSelectorProps {
 interface Quarter {
   name: string;
   year: number;
-  startDate: Date;
   registrationDate: Date; // Added registration date
 }
 
@@ -33,27 +32,23 @@ const QuarterSelector: React.FC<QuarterSelectorProps> = ({
 
       quarters.push(
         {
-          name: "Fall",
+          name: "40",
           year: baseYear,
-          startDate: new Date(baseYear, 8, 20), // Sept 20th - actual start
           registrationDate: new Date(baseYear, 6, 1), // July 1st - registration
         },
         {
-          name: "Winter",
+          name: "10",
           year: baseYear + 1,
-          startDate: new Date(baseYear + 1, 0, 3), // Jan 3rd - actual start
           registrationDate: new Date(baseYear, 9, 1), // Oct 1st - registration
         },
         {
-          name: "Spring",
+          name: "20",
           year: baseYear + 1,
-          startDate: new Date(baseYear + 1, 2, 27), // March 27th - actual start
           registrationDate: new Date(baseYear + 1, 1, 1), // Feb 1st - registration
         },
         {
-          name: "Summer",
+          name: "30",
           year: baseYear + 1,
-          startDate: new Date(baseYear + 1, 5, 20), // June 20th - actual start
           registrationDate: new Date(baseYear + 1, 4, 1), // May 1st - registration
         }
       );
@@ -107,10 +102,10 @@ const QuarterSelector: React.FC<QuarterSelectorProps> = ({
           className={styles.select}
         >
           <option value="">Select Quarter</option>
-          <option value="Fall">Fall</option>
-          <option value="Winter">Winter</option>
-          <option value="Spring">Spring</option>
-          <option value="Summer">Summer</option>
+          <option value="40">Fall</option>
+          <option value="10">Winter</option>
+          <option value="20">Spring</option>
+          <option value="30">Summer</option>
         </select>
       </div>
 

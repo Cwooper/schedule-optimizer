@@ -51,14 +51,14 @@ func main() {
 	c.Start()
 
 	port := getPort()
-	fs := http.FileServer(http.Dir("../frontend"))
+	fs := http.FileServer(http.Dir("../build"))
 
 	http.HandleFunc("/schedule-optimizer/", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == "POST" {
 			handleScheduleOptimizer(w, r)
 		} else {
 			if r.URL.Path == "/schedule-optimizer/" {
-				http.ServeFile(w, r, "../frontend/index.html")
+				http.ServeFile(w, r, "../build/index.html")
 			} else {
 				http.StripPrefix("/schedule-optimizer/", fs).ServeHTTP(w, r)
 			}
@@ -193,4 +193,3 @@ func UpdateCoursesHandler() {
 		log.Println("Courses updated successfully")
 	}
 }
-

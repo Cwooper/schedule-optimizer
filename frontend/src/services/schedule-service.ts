@@ -66,6 +66,8 @@ export const submitSchedule = async (
   request: ScheduleRequest
 ): Promise<ScheduleResponse> => {
   try {
+    console.log("Request: ", request);
+
     const response = await fetch("/schedule-optimizer/", {
       method: "POST",
       headers: {
@@ -79,6 +81,7 @@ export const submitSchedule = async (
     }
 
     const data: ScheduleResponse = await response.json();
+    console.log("Response: ", data);
     return data;
   } catch (error) {
     console.error("Error submitting schedule:", error);
