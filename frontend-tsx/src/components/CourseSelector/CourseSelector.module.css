@@ -23,6 +23,24 @@
   min-width: 100px;
 }
 
+.courseListContainer {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Update this class to handle alignment */
+.submitButtonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacing-3);
+}
+
 .courseList {
   display: flex;
   flex-direction: column;

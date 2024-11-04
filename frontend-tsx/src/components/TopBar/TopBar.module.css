@@ -24,6 +24,18 @@
   color: var(--color-primary-700);
 }
 
+.buttonGroup {
+  display: flex;
+  gap: var(--spacing-2);
+  align-items: center;
+}
+
+.actionButton {
+  width: auto !important;
+  min-width: 80px;
+  white-space: nowrap;
+}
+
 /* Add styles to prevent help button from stretching */
 .helpButton {
   width: auto !important; /* Override any global responsive styles */
