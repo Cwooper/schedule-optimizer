@@ -1,8 +1,9 @@
 // src/App.tsx
-import React, { useState } from 'react';
-import './styles/variables.css';
-import './styles/global.css';
-import TopBar from './components/TopBar/TopBar';
+import React, { useState } from "react";
+import "./styles/variables.css";
+import "./styles/global.css";
+import TopBar from "./components/TopBar/TopBar";
+import SchedulePreview from "./components/SchedulePreview/SchedulePreview";
 
 interface Course {
   id: number;
@@ -24,67 +25,64 @@ interface ScheduleState {
 const App: React.FC = () => {
   // Initialize state with default values
   const [scheduleState, setScheduleState] = useState<ScheduleState>({
-    quarter: '',
-    year: '',
-    minCredits: '',
-    maxCredits: '',
+    quarter: "",
+    year: "",
+    minCredits: "",
+    maxCredits: "",
     courses: [
-      { id: 1, name: '', force: false },
-      { id: 2, name: '', force: false }
+      { id: 1, name: "", force: false },
+      { id: 2, name: "", force: false },
     ],
     currentScheduleIndex: 0,
-    totalSchedules: 0
+    totalSchedules: 0,
   });
 
   const handleAddCourse = () => {
-    setScheduleState(prev => ({
+    setScheduleState((prev) => ({
       ...prev,
       courses: [
         ...prev.courses,
-        { 
-          id: prev.courses.length + 1, 
-          name: '', 
-          force: false 
-        }
-      ]
+        {
+          id: prev.courses.length + 1,
+          name: "",
+          force: false,
+        },
+      ],
     }));
   };
 
   const handleForceToggle = (courseId: number) => {
-    setScheduleState(prev => ({
+    setScheduleState((prev) => ({
       ...prev,
-      courses: prev.courses.map(course =>
-        course.id === courseId 
-          ? { ...course, force: !course.force }
-          : course
-      )
+      courses: prev.courses.map((course) =>
+        course.id === courseId ? { ...course, force: !course.force } : course
+      ),
     }));
   };
 
   const handleInputChange = (field: keyof ScheduleState, value: string) => {
-    setScheduleState(prev => ({
+    setScheduleState((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
   const handleCourseChange = (courseId: number, value: string) => {
-    setScheduleState(prev => ({
+    setScheduleState((prev) => ({
       ...prev,
-      courses: prev.courses.map(course =>
-        course.id === courseId
-          ? { ...course, name: value }
-          : course
-      )
+      courses: prev.courses.map((course) =>
+        course.id === courseId ? { ...course, name: value } : course
+      ),
     }));
   };
 
-  const handleNavigateSchedule = (direction: 'prev' | 'next') => {
-    setScheduleState(prev => ({
+  const handleNavigateSchedule = (direction: "prev" | "next") => {
+    setScheduleState((prev) => ({
       ...prev,
-      currentScheduleIndex: direction === 'next'
-        ? Math.min(prev.currentScheduleIndex + 1, prev.totalSchedules - 1)
-        : Math.max(prev.currentScheduleIndex - 1, 0)
+      currentScheduleIndex:
+        direction === "next"
+          ? Math.min(prev.currentScheduleIndex + 1, prev.totalSchedules - 1)
+          : Math.max(prev.currentScheduleIndex - 1, 0),
     }));
   };
 
@@ -97,9 +95,9 @@ const App: React.FC = () => {
           <div className="flex gap-md">
             <div className="form-group">
               <label className="form-label">Quarter:</label>
-              <select 
+              <select
                 value={scheduleState.quarter}
-                onChange={(e) => handleInputChange('quarter', e.target.value)}
+                onChange={(e) => handleInputChange("quarter", e.target.value)}
               >
                 <option value="">Select</option>
                 <option value="Fall">Fall</option>
@@ -111,39 +109,49 @@ const App: React.FC = () => {
 
             <div className="form-group">
               <label className="form-label">Year:</label>
-              <select 
+              <select
                 value={scheduleState.year}
-                onChange={(e) => handleInputChange('year', e.target.value)}
+                onChange={(e) => handleInputChange("year", e.target.value)}
               >
                 <option value="">Select</option>
-                {[2024, 2025, 2026, 2027].map(year => (
-                  <option key={year} value={year}>{year}</option>
+                {[2024, 2025, 2026, 2027].map((year) => (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
                 ))}
               </select>
             </div>
 
             <div className="form-group">
               <label className="form-label">Min:</label>
-              <select 
+              <select
                 value={scheduleState.minCredits}
-                onChange={(e) => handleInputChange('minCredits', e.target.value)}
+                onChange={(e) =>
+                  handleInputChange("minCredits", e.target.value)
+                }
               >
                 <option value="">Select</option>
-                {Array.from({ length: 20 }, (_, i) => i + 1).map(num => (
-                  <option key={num} value={num}>{num}</option>
+                {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
+                  <option key={num} value={num}>
+                    {num}
+                  </option>
                 ))}
               </select>
             </div>
 
             <div className="form-group">
               <label className="form-label">Max:</label>
-              <select 
+              <select
                 value={scheduleState.maxCredits}
-                onChange={(e) => handleInputChange('maxCredits', e.target.value)}
+                onChange={(e) =>
+                  handleInputChange("maxCredits", e.target.value)
+                }
               >
                 <option value="">Select</option>
-                {Array.from({ length: 20 }, (_, i) => i + 1).map(num => (
-                  <option key={num} value={num}>{num}</option>
+                {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
+                  <option key={num} value={num}>
+                    {num}
+                  </option>
                 ))}
               </select>
             </div>
@@ -161,17 +169,24 @@ const App: React.FC = () => {
 
           <div className="flex flex-col gap-md">
             {scheduleState.courses.map((course) => (
-              <div key={course.id} className="flex items-center justify-between">
+              <div
+                key={course.id}
+                className="flex items-center justify-between"
+              >
                 <input
                   type="text"
                   value={course.name}
-                  onChange={(e) => handleCourseChange(course.id, e.target.value)}
+                  onChange={(e) =>
+                    handleCourseChange(course.id, e.target.value)
+                  }
                   placeholder="Enter course or CRN"
                   className="form-input"
                 />
                 <button
                   onClick={() => handleForceToggle(course.id)}
-                  className={`button-secondary ${course.force ? 'button-forced' : ''}`}
+                  className={`button-secondary ${
+                    course.force ? "button-forced" : ""
+                  }`}
                 >
                   Force
                 </button>
@@ -182,22 +197,23 @@ const App: React.FC = () => {
 
         {/* Navigation and Schedule Preview */}
         <div className="flex justify-between gap-md mt-4">
-          <button 
+          <button
             className="button-secondary"
-            onClick={() => handleNavigateSchedule('prev')}
+            onClick={() => handleNavigateSchedule("prev")}
             disabled={scheduleState.currentScheduleIndex === 0}
           >
             Prev
           </button>
-          
-          <button className="button-secondary">
-            Weights/Sort by
-          </button>
-          
-          <button 
+
+          <button className="button-secondary">Weights/Sort by</button>
+
+          <button
             className="button-secondary"
-            onClick={() => handleNavigateSchedule('next')}
-            disabled={scheduleState.currentScheduleIndex === scheduleState.totalSchedules - 1}
+            onClick={() => handleNavigateSchedule("next")}
+            disabled={
+              scheduleState.currentScheduleIndex ===
+              scheduleState.totalSchedules - 1
+            }
           >
             Next
           </button>
@@ -205,9 +221,11 @@ const App: React.FC = () => {
 
         {/* Schedule Preview */}
         <div className="card mt-4">
-          <h2 className="text-xl font-semibold mb-4">Schedule at a glance...</h2>
+          <h2 className="text-xl font-semibold mb-4">
+            Schedule at a glance...
+          </h2>
           <div className="schedule-preview">
-            {/* Schedule preview content will go here */}
+            <SchedulePreview />
           </div>
         </div>
       </main>
