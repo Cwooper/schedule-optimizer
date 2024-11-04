@@ -107,11 +107,11 @@ const SchedulePlanner: React.FC = () => {
       setError(null);
       const request = {
         Courses: scheduleData.courses.map(
-          (course) => `${course.subject}${course.code}`
+          (course) => `${course.subject} ${course.code}`
         ),
         Forced: scheduleData.courses
           .filter((course) => course.force)
-          .map((course) => `${course.subject}${course.code}`),
+          .map((course) => `${course.subject} ${course.code}`),
         Min: parseInt(scheduleData.minCredits),
         Max: parseInt(scheduleData.maxCredits),
         Term: `${scheduleData.year}${scheduleData.quarter}`,
