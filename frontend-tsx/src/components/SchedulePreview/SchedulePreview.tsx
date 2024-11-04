@@ -1,6 +1,6 @@
-import React from 'react';
-import { Schedule } from '@konnorkooi/schedule-glance';
-import '@konnorkooi/schedule-glance/dist/index.css';
+import React from "react";
+import { Schedule } from "@konnorkooi/schedule-glance";
+import "@konnorkooi/schedule-glance/dist/index.css";
 
 const SchedulePreview = () => {
   // Example events to demonstrate the schedule
@@ -12,7 +12,7 @@ const SchedulePreview = () => {
       end: "10:50",
       color: "#acddef", // Indigo color for WWU theme
       title: "CSCI 241",
-      body: "Data Structures"
+      body: "Data Structures",
     },
     {
       id: "2",
@@ -21,7 +21,7 @@ const SchedulePreview = () => {
       end: "11:50",
       color: "#caf1de", // Blue color for variety
       title: "MATH 204",
-      body: "Linear Algebra"
+      body: "Linear Algebra",
     },
     {
       id: "3",
@@ -30,8 +30,8 @@ const SchedulePreview = () => {
       end: "14:20",
       color: "#ffe7c7", // Purple color for contrast
       title: "CSCI 305",
-      body: "Algorithm Analysis"
-    }
+      body: "Algorithm Analysis",
+    },
   ];
 
   // Custom headers for Monday-Friday schedule
@@ -40,13 +40,13 @@ const SchedulePreview = () => {
     { label: "Tue", dayIndex: 1 },
     { label: "Wed", dayIndex: 2 },
     { label: "Thu", dayIndex: 3 },
-    { label: "Fri", dayIndex: 4 }
+    { label: "Fri", dayIndex: 4 },
   ];
 
   return (
     <div className="w-full max-w-4xl mx-auto p-4">
       <div className="bg-white rounded-lg shadow-md">
-        <Schedule 
+        <Schedule
           events={sampleEvents}
           headers={customHeaders}
           width={800}
