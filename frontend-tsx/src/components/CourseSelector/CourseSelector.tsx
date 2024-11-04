@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./CourseSelector.module.css";
+import SubmitButton from './SubmitButton';
 
 interface Course {
   id: number;
@@ -16,6 +17,7 @@ interface CourseSelectorProps {
   minCredits: string;
   maxCredits: string;
   onCreditUpdate: (field: "minCredits" | "maxCredits", value: string) => void;
+  onSubmitSchedule: () => Promise<void>;  // Add this prop for schedule submission
 }
 
 const CourseSelector: React.FC<CourseSelectorProps> = ({
@@ -26,6 +28,7 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
   minCredits,
   maxCredits,
   onCreditUpdate,
+  onSubmitSchedule,
 }) => {
   const [selectedSubject, setSelectedSubject] = useState("");
   const [courseCode, setCourseCode] = useState("");
@@ -41,14 +44,7 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
   }, []);
 
   const subjects = [
-    "ACCT",
-    "ANTH",
-    "ART",
-    "BIOL",
-    "CHEM",
-    "CSCI",
-    "MATH",
-    "PHYS",
+    "ACCT", "ANTH", "ART", "BIOL", "CHEM", "CSCI", "MATH", "PHYS",
   ];
 
   const validateCourseCode = (code: string) => {
@@ -56,7 +52,7 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
     return regex.test(code);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleAddCourse = (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedSubject) {
       setError("Please select a subject");
@@ -78,8 +74,8 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit} className={styles.container}>
+    <div>
+      <form onSubmit={handleAddCourse} className={styles.container}>
         <select
           value={selectedSubject}
           onChange={(e) => setSelectedSubject(e.target.value)}
@@ -109,40 +105,47 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
           Add
         </button>
       </form>
+      {error && <div className={styles.error}>{error}</div>}
 
-      {error && <p className={styles.error}>{error}</p>}
-
-      <div className={styles.courseList}>
-        {courses.map((course) => (
-          <div
-            key={course.id}
-            className={`${styles.courseItem} ${
-              course.force ? styles.forced : ""
-            }`}
-          >
-            <span className={styles.courseText}>
-              {course.subject} {course.code}
-            </span>
-            <div className={styles.courseActions}>
-              <button
-                onClick={() => onToggleForce(course.id)}
-                className={`btn btn-secondary ${styles.forceButton} ${
-                  course.force ? styles.forceButtonActive : ""
-                }`}
-              >
-                Force
-              </button>
-              <button
-                onClick={() => onRemoveCourse(course.id)}
-                className={`btn btn-secondary ${styles.removeButton}`}
-              >
-                −
-              </button>
+      <div className={styles.courseListContainer}>
+        <div className={styles.courseList}>
+          {courses.map((course) => (
+            <div
+              key={course.id}
+              className={`${styles.courseItem} ${course.force ? styles.forced : ""}`}
+            >
+              <span className={styles.courseText}>
+                {course.subject} {course.code}
+              </span>
+              <div className={styles.courseActions}>
+                <button
+                  className={`${styles.forceButton} ${course.force ? styles.forceButtonActive : ""}`}
+                  onClick={() => onToggleForce(course.id)}
+                  title={course.force ? "Unforce course" : "Force course"}
+                >
+                  Force
+                </button>
+                <button
+                  className={styles.removeButton}
+                  onClick={() => onRemoveCourse(course.id)}
+                  title="Remove course"
+                >
+                  Remove
+                </button>
+              </div>
             </div>
+          ))}
+        </div>
+        {courses.length > 0 && (
+          <div className={styles.submitButtonContainer}>
+            <SubmitButton
+              onSubmit={onSubmitSchedule}
+              disabled={courses.length === 0}
+            />
           </div>
-        ))}
+        )}
       </div>
-    </>
+    </div>
   );
 };
 
