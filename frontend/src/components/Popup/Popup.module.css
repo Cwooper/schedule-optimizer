@@ -1,4 +1,70 @@
 /* src/components/Popup/Popup.module.css */
+
+/* Base Popup Styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--popup-z-index, 1000);
+  padding: var(--spacing-4);
+}
+
+.popup {
+  background-color: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  min-width: 300px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: auto;
+  animation: popupFadeIn 0.2s ease-out;
+}
+
+.title {
+  padding: var(--spacing-4);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  border-bottom: 1px solid var(--color-neutral-200);
+  color: var(--color-primary-600);
+  text-align: center;
+}
+
+.content {
+  padding: var(--spacing-4);
+}
+
+.closeButton {
+  position: absolute;
+  top: var(--spacing-2);
+  right: var(--spacing-2);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: transparent;
+  font-size: var(--font-size-xl);
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-neutral-600);
+  transition: all var(--transition-base);
+}
+
+.closeButton:hover {
+  background-color: var(--color-neutral-100);
+  color: var(--color-neutral-900);
+}
+
+/* Content Styles */
 .aboutContent,
 .helpContent {
   max-width: 800px;
@@ -39,6 +105,7 @@
   margin-bottom: var(--spacing-6);
 }
 
+/* Footer and Creator Styles */
 .footer {
   margin-top: var(--spacing-6);
   padding-top: var(--spacing-4);
@@ -47,68 +114,83 @@
   color: var(--color-neutral-600);
 }
 
-/* src/components/Popup/Popup.module.css */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+.creators {
   display: flex;
   justify-content: center;
-  align-items: center;
-  z-index: var(--popup-z-index, 1000);
-  padding: var(--spacing-4);
+  gap: var(--spacing-4);
+  margin: var(--spacing-4) 0;
 }
 
-.popup {
-  background-color: white;
+.creator {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-2) var(--spacing-4);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-50),
+    var(--color-primary-100)
+  );
+  border: 1px solid var(--color-primary-200);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  position: relative;
-  min-width: 300px;
-  max-width: 90vw;
-  max-height: 90vh;
-  overflow: auto;
-  animation: popupFadeIn 0.2s ease-out;
+  color: var(--color-primary-700);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.title {
-  padding: var(--spacing-4);
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
-  border-bottom: 1px solid var(--color-neutral-200);
+.creator:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-100),
+    var(--color-primary-200)
+  );
 }
 
-.content {
-  padding: var(--spacing-4);
-}
-
-.closeButton {
-  position: absolute;
-  top: var(--spacing-2);
-  right: var(--spacing-2);
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-full);
-  border: none;
-  background: transparent;
-  font-size: var(--font-size-xl);
-  line-height: 1;
-  cursor: pointer;
-  display: flex;
+.creatorLink {
+  text-decoration: none;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  color: var(--color-neutral-600);
-  transition: all var(--transition-base);
+  padding: var(--spacing-2) var(--spacing-4);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-50),
+    var(--color-primary-100)
+  );
+  border: 1px solid var(--color-primary-200);
+  border-radius: var(--radius-lg);
+  color: var(--color-primary-700);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.closeButton:hover {
-  background-color: var(--color-neutral-100);
-  color: var(--color-neutral-900);
+.creatorLink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-100),
+    var(--color-primary-200)
+  );
+  text-decoration: none;
+  color: var(--color-primary-800);
 }
 
+.disclaimer {
+  text-align: center;
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-4);
+  background-color: var(--color-neutral-50);
+  border-radius: var(--radius-lg);
+  margin-top: var(--spacing-4);
+  border: 1px solid var(--color-neutral-200);
+}
+
+/* Animation */
 @keyframes popupFadeIn {
   from {
     opacity: 0;
@@ -133,5 +215,10 @@
 
   .title {
     padding: var(--spacing-3);
+  }
+
+  .creators {
+    flex-direction: column;
+    gap: var(--spacing-2);
   }
 }
