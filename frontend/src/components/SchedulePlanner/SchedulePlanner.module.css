@@ -15,7 +15,7 @@
   border: 1px solid var(--color-neutral-200);
   border-radius: var(--radius-lg);
   padding: var(--spacing-4);
-  min-height: 550px;
+  min-height: 675px;
   width: 100%;
   overflow-x: auto;
 }
@@ -38,7 +38,7 @@
 .schedulePreview {
   background-color: var(--color-neutral-50);
   border-radius: var(--radius-lg);
-  min-height: 650px;
+  min-height: 700px;
   width: 100%;
   padding: var(--spacing-4);
 }

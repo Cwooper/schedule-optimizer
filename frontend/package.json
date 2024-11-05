@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@konnorkooi/schedule-glance": "^1.1.1",
+    "@konnorkooi/schedule-glance": "^1.2.0",
     "lucide-react": "^0.263.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
