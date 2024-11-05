@@ -1,4 +1,14 @@
 // src/types/types.ts
+
+export interface WeightConfig {
+  importance: number;
+  idealValue?: number;
+}
+
+export interface WeightsState {
+  [key: string]: WeightConfig;
+}
+
 export interface Course {
   Subject: string;
   Title: string;
@@ -46,6 +56,10 @@ export interface Schedule {
   Score: number;
   Courses: Course[];
   Weights: Weight[];
+  StartTime?: number;
+  EndTime?: number;
+  GapTime?: number;
+  AverageGPA?: number;
 }
 
 export interface Weight {
