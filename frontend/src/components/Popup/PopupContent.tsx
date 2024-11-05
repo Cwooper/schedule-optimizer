@@ -1,4 +1,3 @@
-// src/components/Popup/PopupContent.tsx
 import React from "react";
 import styles from "./Popup.module.css";
 
@@ -24,14 +23,32 @@ export const AboutContent: React.FC = () => {
       </ul>
 
       <p>
-        <br />
         <strong>Last Updated:</strong> {new Date().toLocaleDateString()}
       </p>
 
       <div className={styles.footer}>
-        <p>Created by Cooper Morgan and Konnor Kooi.</p>
+        <p>Created by:</p>
+        <div className={styles.creators}>
+          <a
+            href="https://cwooper.me"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.creatorLink}
+          >
+            Cooper Morgan
+          </a>
+          <a
+            href="https://konnorkooi.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.creatorLink}
+          >
+            Konnor Kooi
+          </a>
+        </div>
       </div>
-      <div className={styles.footer}>
+
+      <div className={styles.disclaimer}>
         <p>
           This project is not affiliated with Western Washington University. It
           is an independent initiative developed solely for educational and

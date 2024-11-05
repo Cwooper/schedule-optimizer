@@ -1,10 +1,10 @@
-// src/components/SchedulePreview/SchedulePreview.tsx
-import React from "react";
+import React, { useState } from "react";
 import { Schedule } from "@konnorkooi/schedule-glance";
 import "@konnorkooi/schedule-glance/dist/index.css";
 import type { Schedule as ISchedule } from "../../types/types";
 import { generateScheduleEvents } from "../../services/schedule-service";
 import styles from "./SchedulePreview.module.css";
+import EventPopup from "./EventPopup";
 
 interface SchedulePreviewProps {
   schedule?: ISchedule;
@@ -19,6 +19,16 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
   errors = [],
   showMessages = false,
 }) => {
+  const [popupState, setPopupState] = useState<{
+    isOpen: boolean;
+    courseData?: any;
+    sessionData?: any;
+  }>({
+    isOpen: false,
+    courseData: null,
+    sessionData: null,
+  });
+
   const customHeaders = [
     { label: "Mon", dayIndex: 0 },
     { label: "Tue", dayIndex: 1 },
@@ -28,6 +38,10 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
   ];
 
   const events = schedule ? generateScheduleEvents(schedule) : [];
+
+  const handlePopupClose = () => {
+    setPopupState({ isOpen: false, courseData: null, sessionData: null });
+  };
 
   return (
     <div className={styles.container}>
@@ -55,7 +69,40 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
           headers={customHeaders}
           width={800}
           height={600}
+          useDefaultPopup={false}
+          customPopupHandler={(event) => {
+            const [crn, days] = event.id.split("-");
+
+            // Convert schedule-glance event back to our course/session model
+            const courseData = schedule?.Courses.find(
+              (course) => String(course.CRN) === String(crn)
+            );
+
+            const sessionData = courseData?.Sessions.find(
+              (session) => session.Days === days
+            );
+
+            if (courseData && sessionData) {
+              setPopupState({
+                isOpen: true,
+                courseData,
+                sessionData,
+              });
+            }
+            return null;
+          }}
         />
+
+        {popupState.isOpen &&
+          popupState.courseData &&
+          popupState.sessionData && (
+            <EventPopup
+              course={popupState.courseData}
+              session={popupState.sessionData}
+              isOpen={popupState.isOpen}
+              onClose={handlePopupClose}
+            />
+          )}
       </div>
     </div>
   );

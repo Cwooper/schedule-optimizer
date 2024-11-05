@@ -17,6 +17,24 @@ const BASE_COLORS = [
   "#E8FFD6", // Light Yellow-Green
 ];
 
+const getInstructor = (currentSession: any, allSessions: any[]): string => {
+  if (
+    currentSession.Instructor &&
+    currentSession.Instructor.toLowerCase() !== "staff"
+  ) {
+    return currentSession.Instructor;
+  }
+
+  // Look for non-"Staff" instructor in other sessions
+  const otherInstructor = allSessions.find(
+    (s: any) => s.Instructor && s.Instructor.toLowerCase() !== "staff"
+  );
+
+  return otherInstructor
+    ? otherInstructor.Instructor
+    : currentSession.Instructor;
+};
+
 export const generateScheduleEvents = (schedule: Schedule): ScheduleEvent[] => {
   const events: ScheduleEvent[] = [];
   let colorIndex = 0;
@@ -27,7 +45,6 @@ export const generateScheduleEvents = (schedule: Schedule): ScheduleEvent[] => {
         return;
       }
 
-      // Convert days string to array of day indices (0 = Monday, 4 = Friday)
       const dayMap: { [key: string]: number } = {
         M: 0,
         T: 1,
@@ -37,7 +54,6 @@ export const generateScheduleEvents = (schedule: Schedule): ScheduleEvent[] => {
       };
       const days = Array.from(session.Days).map((day) => dayMap[day]);
 
-      // Format time
       const formatTime = (time: number): string => {
         const hours = Math.floor(time / 100);
         const minutes = time % 100;
@@ -46,14 +62,17 @@ export const generateScheduleEvents = (schedule: Schedule): ScheduleEvent[] => {
           .padStart(2, "0")}`;
       };
 
+      // Get the best instructor to display
+      const displayInstructor = getInstructor(session, course.Sessions);
+
       events.push({
-        id: `${course.CRN}-${session.Days}`,
+        id: `${String(course.CRN)}-${session.Days}`,
         days,
         start: formatTime(session.StartTime),
         end: formatTime(session.EndTime),
         color: BASE_COLORS[colorIndex % BASE_COLORS.length],
         title: `${course.Subject}`,
-        body: `${session.Instructor}\n${course.CRN}\n${session.Location}`,
+        body: `${displayInstructor}\n${session.Location}`,
       });
     });
     colorIndex++;
