@@ -110,7 +110,16 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
       return;
     }
 
-    // TODO: add a check for duplicate course name
+    // Check for duplicate course
+    const isDuplicate = courses.some(
+      (course) =>
+        course.subject === selectedSubject && course.code === courseCode
+    );
+
+    if (isDuplicate) {
+      setError(`${selectedSubject} ${courseCode} has already been added`);
+      return;
+    }
 
     onAddCourse(selectedSubject, courseCode);
     setCourseCode("");
