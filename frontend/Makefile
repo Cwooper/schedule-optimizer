@@ -25,7 +25,7 @@ build: install
 	# Create build directory if it doesn't exist
 	mkdir -p $(BUILD_DIR)
 	# Move the built files to the build directory
-	cp -r dist/* $(BUILD_DIR)/
+	mv -r dist/* $(BUILD_DIR)/
 
 # Run development server
 .PHONY: run
