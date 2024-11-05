@@ -66,6 +66,88 @@
   padding: var(--spacing-4);
 }
 
+/* Search Section Styles */
+.searchSection {
+  width: 100%;
+  background-color: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-4);
+  margin-top: var(--spacing-4);
+}
+
+.searchHeader {
+  margin-bottom: var(--spacing-4);
+  padding-bottom: var(--spacing-3);
+  border-bottom: 1px solid var(--color-neutral-200);
+}
+
+.searchTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-700);
+  margin-bottom: var(--spacing-2);
+}
+
+.searchDescription {
+  font-size: var(--font-size-sm);
+  color: var(--color-neutral-600);
+  line-height: var(--line-height-relaxed);
+}
+
+.searchForm {
+  display: flex;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
+}
+
+.searchInput {
+  flex: 1;
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: var(--font-size-sm);
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 2px var(--color-primary-100);
+}
+
+.searchInput:disabled {
+  background-color: var(--color-neutral-100);
+  cursor: not-allowed;
+}
+
+.searchButton {
+  padding: var(--spacing-2) var(--spacing-4);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: white;
+  background-color: var(--color-primary-600);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  min-width: 100px;
+}
+
+.searchButton:hover:not(:disabled) {
+  background-color: var(--color-primary-700);
+}
+
+.searchButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background-color: var(--color-neutral-400);
+}
+
+.searchResults {
+  margin-top: var(--spacing-4);
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
   .container {
@@ -90,5 +172,17 @@
     padding-left: var(--spacing-2);
     padding-right: var(--spacing-2);
     font-size: var(--font-size-sm);
+  }
+
+  .searchSection {
+    padding: var(--spacing-3);
+  }
+
+  .searchForm {
+    flex-direction: column;
+  }
+
+  .searchButton {
+    width: 100%;
   }
 }
