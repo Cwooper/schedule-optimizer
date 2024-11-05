@@ -1,21 +1,12 @@
 // src/components/TopBar/TopBar.tsx
-import React from "react";
+import React, { useState } from "react";
 import styles from "./TopBar.module.css";
+import Popup from "../Popup/Popup";
+import { AboutContent, HelpContent } from "../Popup/PopupContent";
 
-// src/components/TopBar/TopBar.tsx
-interface TopBarProps {
-  onHelpClick?: () => void;
-  onAboutClick?: () => void; // Add this line
-}
-
-const TopBar: React.FC<TopBarProps> = ({ onHelpClick, onAboutClick }) => {
-  const handleHelpClick = () => {
-    alert("TODO Help menu.");
-  };
-
-  const handleAboutClick = () => {
-    alert("TODO About this application.");
-  };
+const TopBar: React.FC = () => {
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const [isHelpOpen, setIsHelpOpen] = useState(false);
 
   return (
     <header className={styles.topbar}>
@@ -25,14 +16,14 @@ const TopBar: React.FC<TopBarProps> = ({ onHelpClick, onAboutClick }) => {
           <div className={styles.buttonGroup}>
             <button
               className={`btn btn-primary ${styles.actionButton}`}
-              onClick={onAboutClick || handleAboutClick}
+              onClick={() => setIsAboutOpen(true)}
               title="About this application"
             >
               About
             </button>
             <button
               className={`btn btn-primary ${styles.helpButton}`}
-              onClick={onHelpClick || handleHelpClick}
+              onClick={() => setIsHelpOpen(true)}
               title="Display Help Menu"
             >
               Help
@@ -40,6 +31,22 @@ const TopBar: React.FC<TopBarProps> = ({ onHelpClick, onAboutClick }) => {
           </div>
         </div>
       </nav>
+
+      <Popup
+        isOpen={isAboutOpen}
+        onClose={() => setIsAboutOpen(false)}
+        width="600px"
+      >
+        <AboutContent />
+      </Popup>
+
+      <Popup
+        isOpen={isHelpOpen}
+        onClose={() => setIsHelpOpen(false)}
+        width="800px"
+      >
+        <HelpContent />
+      </Popup>
     </header>
   );
 };
