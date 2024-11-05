@@ -1,0 +1,137 @@
+/* src/components/Popup/Popup.module.css */
+.aboutContent,
+.helpContent {
+  max-width: 800px;
+}
+
+.aboutContent h2,
+.helpContent h2 {
+  color: var(--color-primary-700);
+  margin-bottom: var(--spacing-4);
+}
+
+.aboutContent h3,
+.helpContent h3 {
+  color: var(--color-primary-600);
+  margin: var(--spacing-4) 0 var(--spacing-2);
+}
+
+.aboutContent p,
+.helpContent p {
+  margin-bottom: var(--spacing-3);
+  line-height: var(--line-height-loose);
+}
+
+.aboutContent ul,
+.helpContent ul,
+.helpContent ol {
+  padding-left: var(--spacing-6);
+  margin-bottom: var(--spacing-3);
+}
+
+.aboutContent li,
+.helpContent li {
+  margin-bottom: var(--spacing-2);
+  line-height: var(--line-height-loose);
+}
+
+.helpSection {
+  margin-bottom: var(--spacing-6);
+}
+
+.footer {
+  margin-top: var(--spacing-6);
+  padding-top: var(--spacing-4);
+  border-top: 1px solid var(--color-neutral-200);
+  text-align: center;
+  color: var(--color-neutral-600);
+}
+
+/* src/components/Popup/Popup.module.css */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--popup-z-index, 1000);
+  padding: var(--spacing-4);
+}
+
+.popup {
+  background-color: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  min-width: 300px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: auto;
+  animation: popupFadeIn 0.2s ease-out;
+}
+
+.title {
+  padding: var(--spacing-4);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  border-bottom: 1px solid var(--color-neutral-200);
+}
+
+.content {
+  padding: var(--spacing-4);
+}
+
+.closeButton {
+  position: absolute;
+  top: var(--spacing-2);
+  right: var(--spacing-2);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: transparent;
+  font-size: var(--font-size-xl);
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-neutral-600);
+  transition: all var(--transition-base);
+}
+
+.closeButton:hover {
+  background-color: var(--color-neutral-100);
+  color: var(--color-neutral-900);
+}
+
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .popup {
+    width: 95vw !important;
+    margin: var(--spacing-2);
+  }
+
+  .content {
+    padding: var(--spacing-3);
+  }
+
+  .title {
+    padding: var(--spacing-3);
+  }
+}
