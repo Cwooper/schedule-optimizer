@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./CourseSelector.module.css";
-import SubmitButton from './SubmitButton';
+import SubmitButton from "./SubmitButton";
 
 interface Course {
   id: number;
@@ -17,7 +17,27 @@ interface CourseSelectorProps {
   minCredits: string;
   maxCredits: string;
   onCreditUpdate: (field: "minCredits" | "maxCredits", value: string) => void;
-  onSubmitSchedule: () => Promise<void>;  // Add this prop for schedule submission
+  onSubmitSchedule: () => Promise<void>;
+}
+
+// Using fetch to get the subjects from the server
+async function fetchSubjects(): Promise<string[]> {
+  try {
+    const response = await fetch("/schedule-optimizer/subjects");
+    if (!response.ok) {
+      throw new Error("Failed to fetch subjects");
+    }
+    const text = await response.text();
+    return text
+      .split("\n")
+      .slice(1) // Skip the first line which contains the header/comment
+      .filter((line: string) => line.trim()) // Remove empty lines
+      .map((line: string) => line.trim())
+      .sort(); // Sort alphabetically
+  } catch (error) {
+    console.error("Error fetching subjects:", error);
+    throw error;
+  }
 }
 
 const CourseSelector: React.FC<CourseSelectorProps> = ({
@@ -33,6 +53,16 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
   const [selectedSubject, setSelectedSubject] = useState("");
   const [courseCode, setCourseCode] = useState("");
   const [error, setError] = useState("");
+  const [subjects, setSubjects] = useState<string[]>([
+    "ACCT",
+    "ANTH",
+    "ART",
+    "BIOL",
+    "CHEM",
+    "CSCI",
+    "MATH",
+    "PHYS", // Default subjects as fallback
+  ]);
 
   useEffect(() => {
     if (!minCredits) {
@@ -43,9 +73,21 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
     }
   }, []);
 
-  const subjects = [
-    "ACCT", "ANTH", "ART", "BIOL", "CHEM", "CSCI", "MATH", "PHYS",
-  ];
+  // Load subjects from the server
+  useEffect(() => {
+    const loadSubjects = async () => {
+      try {
+        const subjectList = await fetchSubjects();
+        setSubjects(subjectList);
+      } catch (error) {
+        console.error("Error loading subjects:", error);
+        setError("Error loading course subjects. Using default subject list.");
+        // Keep using the default subjects if there's an error
+      }
+    };
+
+    loadSubjects();
+  }, []);
 
   const validateCourseCode = (code: string) => {
     const regex = /^\d{3}[A-Z]?$/;
@@ -112,14 +154,18 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
           {courses.map((course) => (
             <div
               key={course.id}
-              className={`${styles.courseItem} ${course.force ? styles.forced : ""}`}
+              className={`${styles.courseItem} ${
+                course.force ? styles.forced : ""
+              }`}
             >
               <span className={styles.courseText}>
                 {course.subject} {course.code}
               </span>
               <div className={styles.courseActions}>
                 <button
-                  className={`${styles.forceButton} ${course.force ? styles.forceButtonActive : ""}`}
+                  className={`${styles.forceButton} ${
+                    course.force ? styles.forceButtonActive : ""
+                  }`}
                   onClick={() => onToggleForce(course.id)}
                   title={course.force ? "Unforce course" : "Force course"}
                 >
