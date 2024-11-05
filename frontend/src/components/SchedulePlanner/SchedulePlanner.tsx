@@ -1,17 +1,17 @@
-// src/components/SchedulePlanner/SchedulePlanner.tsx
 import React, { useState, useRef } from "react";
-import styles from "./SchedulePlanner.module.css";
-import QuarterSelector from "../QuarterSelector/QuarterSelector";
-import CourseSelector from "../CourseSelector/CourseSelector";
-import SchedulePreview from "../SchedulePreview/SchedulePreview";
-import {
+import type {
+  Course,
   Schedule,
-  Course as BackendCourse,
   ScheduleRequest,
+  ScheduleResponse,
 } from "../../types/types";
-import { submitSchedule } from "../../services/schedule-service";
+import CourseSelector from "../CourseSelector/CourseSelector";
+import QuarterSelector from "../QuarterSelector/QuarterSelector";
+import SchedulePreview from "../SchedulePreview/SchedulePreview";
+import CourseList from "../CourseList/CourseList";
+import styles from "./SchedulePlanner.module.css";
 
-interface Course {
+interface CourseItem {
   id: number;
   subject: string;
   code: string;
@@ -23,13 +23,15 @@ interface ScheduleData {
   year: string;
   minCredits: string;
   maxCredits: string;
-  courses: Course[];
+  courses: CourseItem[];
   currentScheduleIndex: number;
   totalSchedules: number;
   schedules: Schedule[];
   warnings: string[];
   errors: string[];
-  asyncCourses: BackendCourse[];
+  asyncCourses: Course[];
+  searchResults: Course[];
+  isSearching: boolean;
 }
 
 const SchedulePlanner: React.FC = () => {
@@ -45,20 +47,29 @@ const SchedulePlanner: React.FC = () => {
     warnings: [],
     errors: [],
     asyncCourses: [],
+    searchResults: [],
+    isSearching: false,
   });
 
-  // Keep track of the last submitted request
+  const [searchText, setSearchText] = useState("");
   const lastRequest = useRef<ScheduleRequest | null>(null);
 
-  const createScheduleRequest = (data: ScheduleData): ScheduleRequest => ({
-    Courses: data.courses.map((course) => `${course.subject} ${course.code}`),
-    Forced: data.courses
+  const createScheduleRequest = (
+    courses: CourseItem[],
+    minCredits: string,
+    maxCredits: string,
+    year: string,
+    quarter: string,
+    searchTerm = ""
+  ): ScheduleRequest => ({
+    Courses: courses.map((course) => `${course.subject} ${course.code}`),
+    Forced: courses
       .filter((course) => course.force)
       .map((course) => `${course.subject} ${course.code}`),
-    Min: parseInt(data.minCredits),
-    Max: parseInt(data.maxCredits),
-    Term: `${data.year}${data.quarter}`,
-    SearchTerm: "",
+    Min: parseInt(minCredits),
+    Max: parseInt(maxCredits),
+    Term: `${year}${quarter}`,
+    SearchTerm: searchTerm,
   });
 
   const areRequestsEqual = (
@@ -135,22 +146,42 @@ const SchedulePlanner: React.FC = () => {
     }));
   };
 
+  const submitRequest = async (
+    request: ScheduleRequest
+  ): Promise<ScheduleResponse> => {
+    const response = await fetch("/schedule-optimizer/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(request),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    return await response.json();
+  };
+
   const handleScheduleSubmit = async () => {
     try {
-      const newRequest = createScheduleRequest(scheduleData);
+      const newRequest = createScheduleRequest(
+        scheduleData.courses,
+        scheduleData.minCredits,
+        scheduleData.maxCredits,
+        scheduleData.year,
+        scheduleData.quarter
+      );
 
-      // Check if this request is identical to the last one
       if (
         lastRequest.current &&
         areRequestsEqual(lastRequest.current, newRequest)
       ) {
-        // Skip submission if nothing has changed
         return;
       }
 
-      const response = await submitSchedule(newRequest);
-
-      // Update the last request reference
+      const response = await submitRequest(newRequest);
       lastRequest.current = newRequest;
 
       setScheduleData((prev) => ({
@@ -158,15 +189,53 @@ const SchedulePlanner: React.FC = () => {
         schedules: response.Schedules || [],
         totalSchedules: response.Schedules?.length || 0,
         currentScheduleIndex: 0,
-        warnings: response.Warnings?.length ? response.Warnings : [],
-        errors: response.Errors?.length ? response.Errors : [],
+        warnings: response.Warnings || [],
+        errors: response.Errors || [],
         asyncCourses: response.Asyncs || [],
+        searchResults: [],
       }));
     } catch (error) {
       console.error("Failed to submit schedule:", error);
       setScheduleData((prev) => ({
         ...prev,
         errors: ["Failed to generate schedules. Please try again."],
+      }));
+    }
+  };
+
+  const handleSearch = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!searchText.trim() || !scheduleData.quarter || !scheduleData.year)
+      return;
+
+    setScheduleData((prev) => ({ ...prev, isSearching: true }));
+
+    try {
+      const searchRequest = createScheduleRequest(
+        [],
+        "0",
+        "0",
+        scheduleData.year,
+        scheduleData.quarter,
+        searchText
+      );
+
+      const response = await submitRequest(searchRequest);
+
+      setScheduleData((prev) => ({
+        ...prev,
+        searchResults: response.Courses || [],
+        warnings: response.Warnings || [],
+        errors: response.Errors || [],
+        isSearching: false,
+      }));
+    } catch (error) {
+      console.error("Search failed:", error);
+      setScheduleData((prev) => ({
+        ...prev,
+        errors: ["Failed to search courses. Please try again."],
+        searchResults: [],
+        isSearching: false,
       }));
     }
   };
@@ -181,6 +250,7 @@ const SchedulePlanner: React.FC = () => {
           maxCredits={scheduleData.maxCredits}
           onUpdate={handleQuarterUpdate}
         />
+
         <CourseSelector
           courses={scheduleData.courses}
           onAddCourse={handleAddCourse}
@@ -199,7 +269,7 @@ const SchedulePlanner: React.FC = () => {
               disabled={scheduleData.currentScheduleIndex === 0}
               className={styles.actionButton}
             >
-              Prev
+              Previous
             </button>
 
             <button className={styles.actionButton}>Weights & Sort</button>
@@ -215,6 +285,7 @@ const SchedulePlanner: React.FC = () => {
               Next
             </button>
           </div>
+
           <div className={styles.schedulePreview}>
             <SchedulePreview
               schedule={
@@ -226,6 +297,52 @@ const SchedulePlanner: React.FC = () => {
               asyncCourses={scheduleData.asyncCourses}
             />
           </div>
+        </div>
+
+        {/* Search Section */}
+        <div className={styles.searchSection}>
+          <div className={styles.searchHeader}>
+            <h3 className={styles.searchTitle}>Course Search</h3>
+            <p className={styles.searchDescription}>
+              Search for courses by subject, title, or instructor. View detailed
+              course information before adding to your schedule.
+            </p>
+          </div>
+          <form onSubmit={handleSearch} className={styles.searchForm}>
+            <input
+              type="text"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              placeholder="Search for courses..."
+              className={styles.searchInput}
+              disabled={
+                scheduleData.isSearching ||
+                !scheduleData.quarter ||
+                !scheduleData.year
+              }
+            />
+            <button
+              type="submit"
+              className={styles.searchButton}
+              disabled={
+                scheduleData.isSearching ||
+                !scheduleData.quarter ||
+                !scheduleData.year
+              }
+            >
+              {scheduleData.isSearching ? "Searching..." : "Search"}
+            </button>
+          </form>
+
+          {scheduleData.searchResults.length > 0 && (
+            <div className={styles.searchResults}>
+              <CourseList
+                courses={scheduleData.searchResults}
+                title="Search Results"
+                emptyMessage="No courses found matching your search."
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>
