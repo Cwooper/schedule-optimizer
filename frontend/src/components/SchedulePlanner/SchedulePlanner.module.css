@@ -25,14 +25,37 @@
   justify-content: space-between;
   gap: var(--spacing-4);
   margin-bottom: var(--spacing-4);
-  flex-wrap: nowrap; /* Prevent wrapping */
+  flex-wrap: nowrap;
   width: 100%;
 }
 
 .actionButton {
   flex: 1;
-  white-space: nowrap;
-  min-width: auto !important; /* Override any global styles */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2) var(--spacing-4);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-base);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  cursor: pointer;
+  background-color: var(--color-primary-600);
+  color: white;
+  border: none;
+  min-width: 100px;
+  height: 40px;
+}
+
+.actionButton:hover:not(:disabled) {
+  background-color: var(--color-primary-700);
+}
+
+.actionButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background-color: var(--color-neutral-400);
 }
 
 .schedulePreview {
