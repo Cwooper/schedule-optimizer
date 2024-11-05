@@ -104,12 +104,12 @@ Extra:
 
 Frontend TODOs:
 
-- [ ] Course Popups
-- [ ] Better automatic sizing
-- [ ] Async Courses
+- [x] Course Popups
+- [x] Better automatic sizing
+- [x] Async Courses
 - [ ] Fuzzy Search
   - [ ] Better backend fuzzy search
-- [ ] Duplicate course checking before adding
+- [x] Duplicate course checking before adding
 - [ ] Dark Mode button
 - [ ] Sort and Weighting menu popup
   - [ ] Sort schedules
