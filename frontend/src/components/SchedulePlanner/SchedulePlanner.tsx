@@ -1,10 +1,14 @@
 // src/components/SchedulePlanner/SchedulePlanner.tsx
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./SchedulePlanner.module.css";
 import QuarterSelector from "../QuarterSelector/QuarterSelector";
 import CourseSelector from "../CourseSelector/CourseSelector";
 import SchedulePreview from "../SchedulePreview/SchedulePreview";
-import { Schedule, Course as BackendCourse } from "../../types/types";
+import {
+  Schedule,
+  Course as BackendCourse,
+  ScheduleRequest,
+} from "../../types/types";
 import { submitSchedule } from "../../services/schedule-service";
 
 interface Course {
@@ -42,6 +46,36 @@ const SchedulePlanner: React.FC = () => {
     errors: [],
     asyncCourses: [],
   });
+
+  // Keep track of the last submitted request
+  const lastRequest = useRef<ScheduleRequest | null>(null);
+
+  const createScheduleRequest = (data: ScheduleData): ScheduleRequest => ({
+    Courses: data.courses.map((course) => `${course.subject} ${course.code}`),
+    Forced: data.courses
+      .filter((course) => course.force)
+      .map((course) => `${course.subject} ${course.code}`),
+    Min: parseInt(data.minCredits),
+    Max: parseInt(data.maxCredits),
+    Term: `${data.year}${data.quarter}`,
+    SearchTerm: "",
+  });
+
+  const areRequestsEqual = (
+    req1: ScheduleRequest,
+    req2: ScheduleRequest
+  ): boolean => {
+    return (
+      JSON.stringify(req1.Courses.sort()) ===
+        JSON.stringify(req2.Courses.sort()) &&
+      JSON.stringify(req1.Forced.sort()) ===
+        JSON.stringify(req2.Forced.sort()) &&
+      req1.Min === req2.Min &&
+      req1.Max === req2.Max &&
+      req1.Term === req2.Term &&
+      req1.SearchTerm === req2.SearchTerm
+    );
+  };
 
   const handleQuarterUpdate = (field: string, value: string) => {
     setScheduleData((prev) => ({
@@ -103,20 +137,21 @@ const SchedulePlanner: React.FC = () => {
 
   const handleScheduleSubmit = async () => {
     try {
-      const request = {
-        Courses: scheduleData.courses.map(
-          (course) => `${course.subject} ${course.code}`
-        ),
-        Forced: scheduleData.courses
-          .filter((course) => course.force)
-          .map((course) => `${course.subject} ${course.code}`),
-        Min: parseInt(scheduleData.minCredits),
-        Max: parseInt(scheduleData.maxCredits),
-        Term: `${scheduleData.year}${scheduleData.quarter}`,
-        SearchTerm: "",
-      };
+      const newRequest = createScheduleRequest(scheduleData);
 
-      const response = await submitSchedule(request);
+      // Check if this request is identical to the last one
+      if (
+        lastRequest.current &&
+        areRequestsEqual(lastRequest.current, newRequest)
+      ) {
+        // Skip submission if nothing has changed
+        return;
+      }
+
+      const response = await submitSchedule(newRequest);
+
+      // Update the last request reference
+      lastRequest.current = newRequest;
 
       setScheduleData((prev) => ({
         ...prev,
@@ -129,7 +164,6 @@ const SchedulePlanner: React.FC = () => {
       }));
     } catch (error) {
       console.error("Failed to submit schedule:", error);
-      // Update schedule data with error
       setScheduleData((prev) => ({
         ...prev,
         errors: ["Failed to generate schedules. Please try again."],
