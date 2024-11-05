@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import styles from "./SchedulePlanner.module.css";
+import {
+  Clock,
+  Sun,
+  Moon,
+  ArrowDownUp,
+  GraduationCap,
+  Check,
+} from "lucide-react";
+import styles from "./WeightsPopup.module.css";
 import type { Schedule, Course } from "../../types/types";
 
 interface WeightConfig {
@@ -22,47 +30,38 @@ interface DailySession {
   endTime: number;
 }
 
-// Helper function to extract course times from schedule
 const extractScheduleTimes = (courses: Course[]) => {
   let startTime = 2359;
   let endTime = 0;
   let totalGPA = 0;
   let gpaCount = 0;
 
-  // Create a map of sessions by day
   const sessionsByDay: { [key: number]: DailySession[] } = {};
 
-  // First collect all sessions by day
   courses.forEach((course) => {
     course.Sessions.forEach((session) => {
       if (!session.IsAsync && !session.IsTimeTBD) {
-        // Convert day string (e.g., 'MWF') to array of day indices
-        const daysArray = session.Days.split("").map((day) => {
-          // Convert MTWRF to numbers (0-4)
-          const dayMap: { [key: string]: number } = {
-            M: 0,
-            T: 1,
-            W: 2,
-            R: 3,
-            F: 4,
-          };
-          return dayMap[day];
-        });
+        const dayMap: { [key: string]: number } = {
+          M: 0,
+          T: 1,
+          W: 2,
+          R: 3,
+          F: 4,
+        };
 
-        daysArray.forEach((day) => {
-          if (day !== undefined) {
-            // Skip any invalid day characters
-            if (!sessionsByDay[day]) {
-              sessionsByDay[day] = [];
+        session.Days.split("").forEach((day) => {
+          const dayIndex = dayMap[day];
+          if (dayIndex !== undefined) {
+            if (!sessionsByDay[dayIndex]) {
+              sessionsByDay[dayIndex] = [];
             }
-            sessionsByDay[day].push({
+            sessionsByDay[dayIndex].push({
               startTime: session.StartTime,
               endTime: session.EndTime,
             });
           }
         });
 
-        // Update overall start and end times
         if (session.StartTime < startTime) startTime = session.StartTime;
         if (session.EndTime > endTime) endTime = session.EndTime;
       }
@@ -74,18 +73,14 @@ const extractScheduleTimes = (courses: Course[]) => {
     }
   });
 
-  // Calculate average gap time across all days
   let totalGapTime = 0;
   let daysWithClasses = 0;
 
   Object.values(sessionsByDay).forEach((daySessions) => {
     if (daySessions.length > 0) {
       daysWithClasses++;
-
-      // Sort sessions by start time
       daySessions.sort((a, b) => a.startTime - b.startTime);
 
-      // Calculate gaps between sessions for this day
       let dayGapTime = 0;
       for (let i = 1; i < daySessions.length; i++) {
         const gap = daySessions[i].startTime - daySessions[i - 1].endTime;
@@ -93,12 +88,10 @@ const extractScheduleTimes = (courses: Course[]) => {
           dayGapTime += gap;
         }
       }
-
       totalGapTime += dayGapTime;
     }
   });
 
-  // Calculate average gap time per day
   const averageGapTime =
     daysWithClasses > 0 ? totalGapTime / daysWithClasses : 0;
 
@@ -115,21 +108,18 @@ const WeightsPopup: React.FC<WeightsPopupProps> = ({
   onApplyWeights,
   onClose,
 }) => {
-  // Initialize weights with default values (using minutes since midnight)
   const [weights, setWeights] = useState<WeightsState>({
-    "Start Time": { importance: 1, idealValue: 600 }, // 10:00 AM in minutes (9 * 60)
-    "End Time": { importance: 1, idealValue: 780 }, // 1:00 PM in minutes (15 * 60)
+    "Start Time": { importance: 1, idealValue: 600 },
+    "End Time": { importance: 1, idealValue: 780 },
     "Gap Time": { importance: 2, idealValue: 0 },
     GPA: { importance: 2 },
   });
 
-  // Convert HH:MM time string to minutes since midnight
   const timeToMinutes = (timeStr: string): number => {
     const [hours, minutes] = timeStr.split(":").map(Number);
     return hours * 60 + Math.round(minutes / 10) * 10;
   };
 
-  // Convert minutes since midnight to HH:MM format
   const minutesToTime = (totalMinutes: number): string => {
     const hours = Math.floor(totalMinutes / 60);
     const minutes = Math.round((totalMinutes % 60) / 10) * 10;
@@ -138,7 +128,6 @@ const WeightsPopup: React.FC<WeightsPopupProps> = ({
       .padStart(2, "0")}`;
   };
 
-  // Convert military time (HHMM) to minutes since midnight
   const militaryToMinutes = (militaryTime: number): number => {
     const hours = Math.floor(militaryTime / 100);
     const minutes = militaryTime % 100;
@@ -177,12 +166,9 @@ const WeightsPopup: React.FC<WeightsPopupProps> = ({
     let totalImportance = 0;
 
     const times = extractScheduleTimes(schedule.Courses);
-
-    // Convert military time to minutes for comparison
     const startTimeMinutes = militaryToMinutes(times.startTime);
     const endTimeMinutes = militaryToMinutes(times.endTime);
 
-    // Start Time (using 120 minutes as range - 2 hour window)
     if (weights["Start Time"].importance > 0) {
       const score = calculateLinearScore(
         startTimeMinutes,
@@ -193,7 +179,6 @@ const WeightsPopup: React.FC<WeightsPopupProps> = ({
       totalImportance += weights["Start Time"].importance;
     }
 
-    // End Time (using 120 minutes as range - 2 hour window)
     if (weights["End Time"].importance > 0) {
       const score = calculateLinearScore(
         endTimeMinutes,
@@ -204,7 +189,6 @@ const WeightsPopup: React.FC<WeightsPopupProps> = ({
       totalImportance += weights["End Time"].importance;
     }
 
-    // Gap Time (using 60 minutes as range)
     if (weights["Gap Time"].importance > 0) {
       const score = calculateLinearScore(
         times.gapTime,
@@ -215,45 +199,61 @@ const WeightsPopup: React.FC<WeightsPopupProps> = ({
       totalImportance += weights["Gap Time"].importance;
     }
 
-    // GPA
     if (weights["GPA"].importance > 0 && times.averageGPA > 0) {
       const score = times.averageGPA / 4.0;
       totalScore += score * weights["GPA"].importance;
       totalImportance += weights["GPA"].importance;
     }
 
-    const finalScore = totalImportance > 0 ? totalScore / totalImportance : 0;
-    return finalScore;
+    return totalImportance > 0 ? totalScore / totalImportance : 0;
   };
 
   const handleApply = () => {
-    const sortedSchedules = [...schedules].map((schedule) => ({
-      ...schedule,
-      Score: calculateScheduleScore(schedule),
-    }));
-
-    // Sort schedules by score in descending order
-    sortedSchedules.sort((a, b) => (b.Score || 0) - (a.Score || 0));
+    const sortedSchedules = [...schedules]
+      .map((schedule) => ({
+        ...schedule,
+        Score: calculateScheduleScore(schedule),
+      }))
+      .sort((a, b) => (b.Score || 0) - (a.Score || 0));
 
     onApplyWeights(sortedSchedules, weights);
     onClose();
   };
 
+  const getWeightIcon = (category: string) => {
+    switch (category) {
+      case "Start Time":
+        return <Sun className="w-5 h-5" />;
+      case "End Time":
+        return <Moon className="w-5 h-5" />;
+      case "Gap Time":
+        return <ArrowDownUp className="w-5 h-5" />;
+      case "GPA":
+        return <GraduationCap className="w-5 h-5" />;
+      default:
+        return <Clock className="w-5 h-5" />;
+    }
+  };
+
   return (
-    <div className={styles.weightsContainer}>
-      <p className={styles.weightsDescription}>
-        Adjust the importance and ideal values for each scheduling factor.
-        Higher importance values give more weight to that factor.
+    <div className={styles.container}>
+      <p className={styles.description}>
+        Customize your schedule preferences by adjusting the importance and
+        ideal values for each factor. Higher importance values give more weight
+        to that particular aspect of your schedule.
       </p>
 
       <div className={styles.weightsList}>
         {Object.entries(weights).map(([category, config]) => (
-          <div key={category} className={styles.weightItem}>
-            <div className={styles.weightHeader}>{category}</div>
+          <div key={category} className={styles.weightCard}>
+            <div className={styles.cardHeader}>
+              <div className={styles.cardIcon}>{getWeightIcon(category)}</div>
+              <h3 className={styles.cardTitle}>{category}</h3>
+            </div>
 
-            <div className={styles.weightControls}>
+            <div className={styles.controls}>
               <div className={styles.controlGroup}>
-                <label className={styles.weightLabel}>Importance:</label>
+                <label className={styles.label}>Importance:</label>
                 <input
                   type="number"
                   min="0"
@@ -263,13 +263,13 @@ const WeightsPopup: React.FC<WeightsPopupProps> = ({
                   onChange={(e) =>
                     handleWeightChange(category, "importance", e.target.value)
                   }
-                  className={styles.weightInput}
+                  className={styles.input}
                 />
               </div>
 
               {config.idealValue !== undefined && (
                 <div className={styles.controlGroup}>
-                  <label className={styles.weightLabel}>
+                  <label className={styles.label}>
                     {category === "Gap Time"
                       ? "Ideal Gap (mins/day):"
                       : "Ideal Time:"}
@@ -288,7 +288,7 @@ const WeightsPopup: React.FC<WeightsPopupProps> = ({
                           e.target.value
                         )
                       }
-                      className={styles.weightInput}
+                      className={styles.input}
                     />
                   ) : (
                     <input
@@ -302,7 +302,7 @@ const WeightsPopup: React.FC<WeightsPopupProps> = ({
                         )
                       }
                       step="600"
-                      className={styles.weightInput}
+                      className={styles.timeInput}
                     />
                   )}
                 </div>
@@ -312,10 +312,8 @@ const WeightsPopup: React.FC<WeightsPopupProps> = ({
         ))}
       </div>
 
-      <button
-        onClick={handleApply}
-        className={`btn btn-primary ${styles.applyButton}`}
-      >
+      <button onClick={handleApply} className={styles.applyButton}>
+        <Check className="w-5 h-5" />
         Apply Weights
       </button>
     </div>
