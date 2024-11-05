@@ -105,10 +105,12 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
       return;
     }
 
-    if (courses.length >= 9) {
-      setError("Maximum of 9 courses allowed");
+    if (courses.length >= 13) {
+      setError("Maximum of 13 courses allowed");
       return;
     }
+
+    // TODO: add a check for duplicate course name
 
     onAddCourse(selectedSubject, courseCode);
     setCourseCode("");
@@ -142,7 +144,7 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
         <button
           type="submit"
           className={`btn btn-primary ${styles.addButton}`}
-          disabled={courses.length >= 9}
+          disabled={courses.length >= 13}
         >
           Add
         </button>
