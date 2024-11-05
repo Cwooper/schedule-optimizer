@@ -7,14 +7,14 @@ import type {
 } from "../types/types";
 
 const BASE_COLORS = [
-  "#E6F3FF", // Light Blue
-  "#E6FFE6", // Light Green
-  "#FFE6E6", // Light Red
-  "#F2E6FF", // Light Purple
-  "#FFF2E6", // Light Orange
-  "#E6FFF2", // Light Cyan
-  "#FFE6F2", // Light Pink
-  "#F2FFE6", // Light Yellow-Green
+  "#DCE8FF", // Light Blue
+  "#D4FFD4", // Light Green
+  "#FFD6D6", // Light Red
+  "#EBD6FF", // Light Purple
+  "#FFE4CC", // Light Orange
+  "#D6FFF7", // Light Cyan
+  "#FFD6E8", // Light Pink
+  "#E8FFD6", // Light Yellow-Green
 ];
 
 export const generateScheduleEvents = (schedule: Schedule): ScheduleEvent[] => {

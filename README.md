@@ -96,8 +96,21 @@ Extra:
 - [ ] Create Dijkstra Map Weighing
   - [ ] Visualize something in Go WASM
   - [ ] Create Paths between classes per schedule
-- [ ] Port frontend to React (Konnor)
+- [x] Port frontend to React (Konnor too)
+- [x] Fuzzy search courses
 - [ ] Weight customizability on frontend
 - [ ] If User Asks for the same schedule twice, don't send POST request.
-- [x] Fuzzy search courses
 - [ ] Redo Calendar in Go WASM?
+
+Frontend TODOs:
+
+- [ ] Course Popups
+- [ ] Better automatic sizing
+- [ ] Async Courses
+- [ ] Fuzzy Search
+  - [ ] Better backend fuzzy search
+- [ ] Duplicate course checking before adding
+- [ ] Dark Mode button
+- [ ] Sort and Weighting menu popup
+  - [ ] Sort schedules
+  - [ ] Customize weights

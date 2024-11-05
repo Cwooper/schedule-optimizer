@@ -1,21 +1,24 @@
+// src/components/SchedulePreview/SchedulePreview.tsx
 import React from "react";
 import { Schedule } from "@konnorkooi/schedule-glance";
 import "@konnorkooi/schedule-glance/dist/index.css";
 import type { Schedule as ISchedule } from "../../types/types";
 import { generateScheduleEvents } from "../../services/schedule-service";
+import styles from "./SchedulePreview.module.css";
 
 interface SchedulePreviewProps {
   schedule?: ISchedule;
   warnings?: string[];
   errors?: string[];
+  showMessages?: boolean;
 }
 
 const SchedulePreview: React.FC<SchedulePreviewProps> = ({
   schedule,
   warnings = [],
   errors = [],
+  showMessages = false,
 }) => {
-  // Custom headers for Monday-Friday schedule
   const customHeaders = [
     { label: "Mon", dayIndex: 0 },
     { label: "Tue", dayIndex: 1 },
@@ -26,35 +29,27 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
 
   const events = schedule ? generateScheduleEvents(schedule) : [];
 
-  const getMessageType = () => {
-    if (errors.length > 0) return "error";
-    if (warnings.length > 0) return "warning";
-    return null;
-  };
-
-  const getMessage = () => {
-    if (errors.length > 0) return errors.join(". ");
-    if (warnings.length > 0) return warnings.join(". ");
-    return null;
-  };
-
-  const messageType = getMessageType();
-  const message = getMessage();
-
   return (
-    <div className="w-full max-w-4xl mx-auto p-4">
-      {messageType && message && (
+    <div className={styles.container}>
+      {showMessages && (errors.length > 0 || warnings.length > 0) && (
         <div
-          className={`mb-4 p-4 rounded-lg ${
-            messageType === "error"
-              ? "bg-red-100 text-red-700 border border-red-300"
-              : "bg-yellow-100 text-yellow-700 border border-yellow-300"
+          className={`${styles.messageContainer} ${
+            errors.length > 0 ? styles.errorContainer : styles.warningContainer
           }`}
         >
-          {message}
+          {errors.map((error) => (
+            <div key={`error-${error}`} className={styles.message}>
+              {error}
+            </div>
+          ))}
+          {warnings.map((warning) => (
+            <div key={`warning-${warning}`} className={styles.message}>
+              {warning}
+            </div>
+          ))}
         </div>
       )}
-      <div className="bg-white rounded-lg shadow-md">
+      <div className={styles.scheduleContainer}>
         <Schedule
           events={events}
           headers={customHeaders}

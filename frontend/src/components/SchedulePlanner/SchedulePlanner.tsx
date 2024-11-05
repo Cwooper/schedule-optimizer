@@ -1,3 +1,4 @@
+// src/components/SchedulePlanner/SchedulePlanner.tsx
 import React, { useState } from "react";
 import styles from "./SchedulePlanner.module.css";
 import QuarterSelector from "../QuarterSelector/QuarterSelector";
@@ -41,8 +42,6 @@ const SchedulePlanner: React.FC = () => {
     errors: [],
     asyncCourses: [],
   });
-
-  const [error, setError] = useState<string | null>(null);
 
   const handleQuarterUpdate = (field: string, value: string) => {
     setScheduleData((prev) => ({
@@ -104,7 +103,6 @@ const SchedulePlanner: React.FC = () => {
 
   const handleScheduleSubmit = async () => {
     try {
-      setError(null);
       const request = {
         Courses: scheduleData.courses.map(
           (course) => `${course.subject} ${course.code}`
@@ -125,23 +123,17 @@ const SchedulePlanner: React.FC = () => {
         schedules: response.Schedules || [],
         totalSchedules: response.Schedules?.length || 0,
         currentScheduleIndex: 0,
-        warnings: response.Warnings || [],
-        errors: response.Errors || [],
+        warnings: response.Warnings?.length ? response.Warnings : [],
+        errors: response.Errors?.length ? response.Errors : [],
         asyncCourses: response.Asyncs || [],
       }));
-
-      // Display warnings if any
-      if (response.Warnings?.length) {
-        setError(response.Warnings.join(". "));
-      }
-
-      // Display errors if any
-      if (response.Errors?.length) {
-        setError(response.Errors.join(". "));
-      }
     } catch (error) {
       console.error("Failed to submit schedule:", error);
-      setError("Failed to generate schedules. Please try again.");
+      // Update schedule data with error
+      setScheduleData((prev) => ({
+        ...prev,
+        errors: ["Failed to generate schedules. Please try again."],
+      }));
     }
   };
 
@@ -167,11 +159,6 @@ const SchedulePlanner: React.FC = () => {
         />
 
         <div className={styles.scheduleGlance}>
-          {error && (
-            <div className="mx-4 mb-4 p-4 rounded-lg bg-red-100 text-red-700 border border-red-300">
-              {error}
-            </div>
-          )}
           <div className={styles.scheduleActions}>
             <button
               onClick={() => handleNavigateSchedule("prev")}
@@ -201,6 +188,7 @@ const SchedulePlanner: React.FC = () => {
               }
               warnings={scheduleData.warnings}
               errors={scheduleData.errors}
+              showMessages={true} // Control error display
             />
           </div>
         </div>
