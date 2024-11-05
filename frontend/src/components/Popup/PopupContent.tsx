@@ -24,7 +24,6 @@ export const AboutContent: React.FC = () => {
       </ul>
 
       <p>
-        <strong>Version:</strong> 1.0.0
         <br />
         <strong>Last Updated:</strong> {new Date().toLocaleDateString()}
       </p>

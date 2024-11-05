@@ -53,6 +53,17 @@ func main() {
 	port := getPort()
 	fs := http.FileServer(http.Dir("../build"))
 
+	http.HandleFunc("/schedule-optimizer/subjects", func(w http.ResponseWriter, r *http.Request) {
+		content, err := os.ReadFile("../data/subjects.txt")
+		if err != nil {
+			log.Printf("Error reading subjects file: %v", err)
+			http.Error(w, "Error reading subjects file", http.StatusInternalServerError)
+			return
+		}
+		w.Header().Set("Content-Type", "text/plain")
+		w.Write(content)
+	})
+
 	http.HandleFunc("/schedule-optimizer/", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == "POST" {
 			handleScheduleOptimizer(w, r)
