@@ -5,12 +5,14 @@ import type { Schedule as ISchedule } from "../../types/types";
 import { generateScheduleEvents } from "../../services/schedule-service";
 import styles from "./SchedulePreview.module.css";
 import EventPopup from "./EventPopup";
+import CourseList from "../CourseList/CourseList";
 
 interface SchedulePreviewProps {
   schedule?: ISchedule;
   warnings?: string[];
   errors?: string[];
   showMessages?: boolean;
+  asyncCourses?: any[]; // Update this to use proper type from your types file
 }
 
 const SchedulePreview: React.FC<SchedulePreviewProps> = ({
@@ -18,6 +20,7 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
   warnings = [],
   errors = [],
   showMessages = false,
+  asyncCourses = [],
 }) => {
   const [popupState, setPopupState] = useState<{
     isOpen: boolean;
@@ -63,6 +66,7 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
           ))}
         </div>
       )}
+
       <div className={styles.scheduleContainer}>
         <Schedule
           events={events}
@@ -72,12 +76,9 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
           useDefaultPopup={false}
           customPopupHandler={(event) => {
             const [crn, days] = event.id.split("-");
-
-            // Convert schedule-glance event back to our course/session model
             const courseData = schedule?.Courses.find(
               (course) => String(course.CRN) === String(crn)
             );
-
             const sessionData = courseData?.Sessions.find(
               (session) => session.Days === days
             );
@@ -104,6 +105,14 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
             />
           )}
       </div>
+
+      {asyncCourses && asyncCourses.length > 0 && (
+        <CourseList
+          courses={asyncCourses}
+          title="Asynchronous Courses"
+          emptyMessage="No asynchronous courses"
+        />
+      )}
     </div>
   );
 };
