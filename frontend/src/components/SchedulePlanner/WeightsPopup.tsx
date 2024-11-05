@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./SchedulePlanner.module.css";
 import type { Schedule, Course } from "../../types/types";
 
@@ -74,7 +74,6 @@ const extractScheduleTimes = (courses: Course[]) => {
     }
   });
 
-
   // Calculate average gap time across all days
   let totalGapTime = 0;
   let daysWithClasses = 0;
@@ -116,37 +115,34 @@ const WeightsPopup: React.FC<WeightsPopupProps> = ({
   onApplyWeights,
   onClose,
 }) => {
-  const [weights, setWeights] = useState<WeightsState>(() => {
-    const savedWeights = localStorage.getItem("scheduleWeights");
-    return savedWeights
-      ? JSON.parse(savedWeights)
-      : {
-          "Start Time": { importance: 1, idealValue: 900 },
-          "End Time": { importance: 1, idealValue: 1500 },
-          "Gap Time": { importance: 1, idealValue: 30 },
-          GPA: { importance: 1 },
-        };
+  // Initialize weights with default values (using minutes since midnight)
+  const [weights, setWeights] = useState<WeightsState>({
+    "Start Time": { importance: 1, idealValue: 600 }, // 10:00 AM in minutes (9 * 60)
+    "End Time": { importance: 1, idealValue: 780 }, // 1:00 PM in minutes (15 * 60)
+    "Gap Time": { importance: 2, idealValue: 0 },
+    GPA: { importance: 2 },
   });
 
-  useEffect(() => {
-    localStorage.setItem("scheduleWeights", JSON.stringify(weights));
-  }, [weights]);
-
+  // Convert HH:MM time string to minutes since midnight
   const timeToMinutes = (timeStr: string): number => {
     const [hours, minutes] = timeStr.split(":").map(Number);
-    // Round to nearest 10 minutes
-    const roundedMinutes = Math.round(minutes / 10) * 10;
-    return hours * 100 + roundedMinutes;
+    return hours * 60 + Math.round(minutes / 10) * 10;
   };
 
-  const minutesToTime = (minutes: number): string => {
-    const hours = Math.floor(minutes / 100);
-    const mins = minutes % 100;
-    // Ensure minutes are in 10-minute increments
-    const roundedMins = Math.round(mins / 10) * 10;
-    return `${hours.toString().padStart(2, "0")}:${roundedMins
+  // Convert minutes since midnight to HH:MM format
+  const minutesToTime = (totalMinutes: number): string => {
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = Math.round((totalMinutes % 60) / 10) * 10;
+    return `${hours.toString().padStart(2, "0")}:${minutes
       .toString()
       .padStart(2, "0")}`;
+  };
+
+  // Convert military time (HHMM) to minutes since midnight
+  const militaryToMinutes = (militaryTime: number): number => {
+    const hours = Math.floor(militaryTime / 100);
+    const minutes = militaryTime % 100;
+    return hours * 60 + minutes;
   };
 
   const handleWeightChange = (
@@ -182,29 +178,33 @@ const WeightsPopup: React.FC<WeightsPopupProps> = ({
 
     const times = extractScheduleTimes(schedule.Courses);
 
-    // Start Time
+    // Convert military time to minutes for comparison
+    const startTimeMinutes = militaryToMinutes(times.startTime);
+    const endTimeMinutes = militaryToMinutes(times.endTime);
+
+    // Start Time (using 120 minutes as range - 2 hour window)
     if (weights["Start Time"].importance > 0) {
       const score = calculateLinearScore(
-        times.startTime,
+        startTimeMinutes,
         weights["Start Time"].idealValue!,
-        300
+        120
       );
       totalScore += score * weights["Start Time"].importance;
       totalImportance += weights["Start Time"].importance;
     }
 
-    // End Time
+    // End Time (using 120 minutes as range - 2 hour window)
     if (weights["End Time"].importance > 0) {
       const score = calculateLinearScore(
-        times.endTime,
+        endTimeMinutes,
         weights["End Time"].idealValue!,
-        300
+        120
       );
       totalScore += score * weights["End Time"].importance;
       totalImportance += weights["End Time"].importance;
     }
 
-    // Gap Time
+    // Gap Time (using 60 minutes as range)
     if (weights["Gap Time"].importance > 0) {
       const score = calculateLinearScore(
         times.gapTime,
@@ -223,41 +223,6 @@ const WeightsPopup: React.FC<WeightsPopupProps> = ({
     }
 
     const finalScore = totalImportance > 0 ? totalScore / totalImportance : 0;
-
-    console.log("Schedule score calculation:", {
-      startTimeScore:
-        weights["Start Time"].importance > 0
-          ? calculateLinearScore(
-              times.startTime,
-              weights["Start Time"].idealValue!,
-              300
-            )
-          : 0,
-      endTimeScore:
-        weights["End Time"].importance > 0
-          ? calculateLinearScore(
-              times.endTime,
-              weights["End Time"].idealValue!,
-              300
-            )
-          : 0,
-      gapTimeScore:
-        weights["Gap Time"].importance > 0
-          ? calculateLinearScore(
-              times.gapTime,
-              weights["Gap Time"].idealValue!,
-              60
-            )
-          : 0,
-      gpaScore:
-        weights["GPA"].importance > 0 && times.averageGPA > 0
-          ? times.averageGPA / 4.0
-          : 0,
-      totalScore,
-      totalImportance,
-      finalScore,
-    });
-
     return finalScore;
   };
 
@@ -336,7 +301,7 @@ const WeightsPopup: React.FC<WeightsPopupProps> = ({
                           e.target.value
                         )
                       }
-                      step="600" // Set step to 600 seconds (10 minutes)
+                      step="600"
                       className={styles.weightInput}
                     />
                   )}
