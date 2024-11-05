@@ -1,3 +1,4 @@
+// src/components/SchedulePreview/EventPopup.tsx
 import React from "react";
 import Popup from "../Popup/Popup";
 import styles from "./EventPopup.module.css";
@@ -23,6 +24,8 @@ interface EventPopupProps {
     EndTime: number;
     Instructor: string;
     Location: string;
+    IsAsync?: boolean;
+    IsTimeTBD?: boolean;
   };
   isOpen: boolean;
   onClose: () => void;
@@ -37,6 +40,10 @@ const formatTime = (time: number): string => {
 };
 
 const formatDays = (days: string): string => {
+  if (!days || days === "TBD" || days === "N/A") {
+    return days;
+  }
+
   const dayMap: { [key: string]: string } = {
     M: "Monday",
     T: "Tuesday",
@@ -44,12 +51,12 @@ const formatDays = (days: string): string => {
     R: "Thursday",
     F: "Friday",
   };
+
   return Array.from(days)
-    .map((day) => dayMap[day])
+    .map((day) => dayMap[day] || day)
     .join(", ");
 };
 
-// src/components/SchedulePreview/EventPopup.tsx
 const EventPopupContent: React.FC<EventPopupProps> = ({ course, session }) => {
   // Find a non-"Staff" instructor from other sessions if current instructor is "Staff"
   const getInstructor = (currentSession: any, course: any): string => {
@@ -71,6 +78,7 @@ const EventPopupContent: React.FC<EventPopupProps> = ({ course, session }) => {
   };
 
   const displayInstructor = getInstructor(session, course);
+  // Removed unused isAsyncOrTBD variable
 
   return (
     <div>
@@ -94,19 +102,45 @@ const EventPopupContent: React.FC<EventPopupProps> = ({ course, session }) => {
       <div className={styles.section}>
         <h3 className={styles.sectionTitle}>Schedule</h3>
         <div className={styles.detailsList}>
-          <span className={styles.label}>Days:</span>
-          <span className={styles.value}>{formatDays(session.Days)}</span>
+          {session.Days && !session.IsAsync && (
+            <>
+              <span className={styles.label}>Days:</span>
+              {session.Days === "TBD" || session.Days === "N/A" ? (
+                <span className={styles.asyncBadge}>{session.Days}</span>
+              ) : (
+                <span className={styles.value}>{formatDays(session.Days)}</span>
+              )}
+            </>
+          )}
 
-          <span className={styles.label}>Time:</span>
-          <span className={styles.value}>
-            {formatTime(session.StartTime)} - {formatTime(session.EndTime)}
-          </span>
+          {!session.IsTimeTBD &&
+            !session.IsAsync &&
+            Boolean(session.StartTime || session.EndTime) && (
+              <>
+                <span className={styles.label}>Time:</span>
+                <span className={styles.value}>
+                  {formatTime(session.StartTime)} -{" "}
+                  {formatTime(session.EndTime)}
+                </span>
+              </>
+            )}
+
+          {session.IsTimeTBD && (
+            <>
+              <span className={styles.label}>Time:</span>
+              <span className={styles.asyncBadge}>TBD</span>
+            </>
+          )}
+
+          {session.Location && (
+            <>
+              <span className={styles.label}>Location:</span>
+              <span className={styles.highlight}>{session.Location}</span>
+            </>
+          )}
 
           <span className={styles.label}>Instructor:</span>
           <span className={styles.value}>{displayInstructor}</span>
-
-          <span className={styles.label}>Location:</span>
-          <span className={styles.highlight}>{session.Location}</span>
         </div>
       </div>
 

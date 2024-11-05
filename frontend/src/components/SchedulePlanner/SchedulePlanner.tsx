@@ -188,7 +188,8 @@ const SchedulePlanner: React.FC = () => {
               }
               warnings={scheduleData.warnings}
               errors={scheduleData.errors}
-              showMessages={true} // Control error display
+              showMessages={true}
+              asyncCourses={scheduleData.asyncCourses}
             />
           </div>
         </div>
