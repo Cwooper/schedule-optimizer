@@ -148,6 +148,93 @@
   margin-top: var(--spacing-4);
 }
 
+/* Weights Popup Styles */
+.weightsContainer {
+  padding: var(--spacing-4);
+}
+
+.weightsDescription {
+  color: var(--color-neutral-600);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-6);
+  line-height: var(--line-height-relaxed);
+}
+
+.weightsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-6);
+}
+
+.weightItem {
+  background-color: var(--color-neutral-50);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-4);
+}
+
+.weightHeader {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-700);
+  margin-bottom: var(--spacing-3);
+  font-size: var(--font-size-base);
+}
+
+.weightControls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.controlGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.weightLabel {
+  color: var(--color-neutral-700);
+  font-size: var(--font-size-sm);
+  flex: 1;
+}
+
+.weightInput {
+  width: 120px;
+  padding: var(--spacing-2);
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  background-color: white;
+}
+
+.weightInput:focus {
+  outline: none;
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 2px var(--color-primary-100);
+}
+
+.weightInput[type="time"] {
+  padding: calc(var(--spacing-2) - 1px);
+}
+
+.applyButton {
+  width: 100%;
+  margin-top: var(--spacing-4);
+  padding: var(--spacing-3);
+  font-size: var(--font-size-base);
+  background-color: var(--color-primary-600);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color var(--transition-base);
+}
+
+.applyButton:hover {
+  background-color: var(--color-primary-700);
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
   .container {
@@ -183,6 +270,24 @@
   }
 
   .searchButton {
+    width: 100%;
+  }
+
+  .weightsContainer {
+    padding: var(--spacing-3);
+  }
+
+  .weightItem {
+    padding: var(--spacing-3);
+  }
+
+  .controlGroup {
+    flex-direction: column;
+    gap: var(--spacing-2);
+    align-items: flex-start;
+  }
+
+  .weightInput {
     width: 100%;
   }
 }

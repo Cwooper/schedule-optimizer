@@ -4,11 +4,14 @@ import type {
   Schedule,
   ScheduleRequest,
   ScheduleResponse,
+  WeightsState,
 } from "../../types/types";
 import CourseSelector from "../CourseSelector/CourseSelector";
 import QuarterSelector from "../QuarterSelector/QuarterSelector";
 import SchedulePreview from "../SchedulePreview/SchedulePreview";
 import CourseList from "../CourseList/CourseList";
+import Popup from "../Popup/Popup";
+import WeightsPopup from "./WeightsPopup";
 import styles from "./SchedulePlanner.module.css";
 
 interface CourseItem {
@@ -32,6 +35,7 @@ interface ScheduleData {
   asyncCourses: Course[];
   searchResults: Course[];
   isSearching: boolean;
+  customWeights: WeightsState | null;
 }
 
 const SchedulePlanner: React.FC = () => {
@@ -49,8 +53,9 @@ const SchedulePlanner: React.FC = () => {
     asyncCourses: [],
     searchResults: [],
     isSearching: false,
+    customWeights: null,
   });
-
+  const [isWeightsPopupOpen, setIsWeightsPopupOpen] = useState(false);
   const [searchText, setSearchText] = useState("");
   const lastRequest = useRef<ScheduleRequest | null>(null);
 
@@ -184,10 +189,19 @@ const SchedulePlanner: React.FC = () => {
       const response = await submitRequest(newRequest);
       lastRequest.current = newRequest;
 
+      // If we have custom weights, apply them to the new schedules
+      let sortedSchedules = response.Schedules || [];
+      if (scheduleData.customWeights) {
+        sortedSchedules = applyCustomWeights(
+          sortedSchedules,
+          scheduleData.customWeights
+        );
+      }
+
       setScheduleData((prev) => ({
         ...prev,
-        schedules: response.Schedules || [],
-        totalSchedules: response.Schedules?.length || 0,
+        schedules: sortedSchedules,
+        totalSchedules: sortedSchedules.length,
         currentScheduleIndex: 0,
         warnings: response.Warnings || [],
         errors: response.Errors || [],
@@ -201,6 +215,85 @@ const SchedulePlanner: React.FC = () => {
         errors: ["Failed to generate schedules. Please try again."],
       }));
     }
+  };
+
+  const applyCustomWeights = (
+    schedules: Schedule[],
+    weights: WeightsState
+  ): Schedule[] => {
+    const extractTimes = (courses: Course[]) => {
+      let startTime = 2359;
+      let endTime = 0;
+      let totalGapTime = 0;
+      let totalGPA = 0;
+      let gpaCount = 0;
+
+      courses.forEach((course) => {
+        course.Sessions.forEach((session) => {
+          if (!session.IsAsync && !session.IsTimeTBD) {
+            if (session.StartTime < startTime) startTime = session.StartTime;
+            if (session.EndTime > endTime) endTime = session.EndTime;
+          }
+        });
+        if (course.GPA) {
+          totalGPA += course.GPA;
+          gpaCount++;
+        }
+      });
+
+      totalGapTime = endTime - startTime - courses.length * 50;
+
+      return {
+        startTime,
+        endTime,
+        gapTime: Math.max(0, totalGapTime),
+        averageGPA: gpaCount > 0 ? totalGPA / gpaCount : 0,
+      };
+    };
+
+    const calculateScore = (schedule: Schedule): number => {
+      let totalScore = 0;
+      let totalImportance = 0;
+
+      const times = extractTimes(schedule.Courses);
+
+      if (weights["Start Time"].importance > 0) {
+        const score =
+          1 -
+          Math.abs(times.startTime - weights["Start Time"].idealValue!) / 300;
+        totalScore += Math.max(0, score) * weights["Start Time"].importance;
+        totalImportance += weights["Start Time"].importance;
+      }
+
+      if (weights["End Time"].importance > 0) {
+        const score =
+          1 - Math.abs(times.endTime - weights["End Time"].idealValue!) / 300;
+        totalScore += Math.max(0, score) * weights["End Time"].importance;
+        totalImportance += weights["End Time"].importance;
+      }
+
+      if (weights["Gap Time"].importance > 0) {
+        const score =
+          1 - Math.abs(times.gapTime - weights["Gap Time"].idealValue!) / 60;
+        totalScore += Math.max(0, score) * weights["Gap Time"].importance;
+        totalImportance += weights["Gap Time"].importance;
+      }
+
+      if (weights["GPA"].importance > 0 && times.averageGPA > 0) {
+        const score = times.averageGPA / 4.0;
+        totalScore += score * weights["GPA"].importance;
+        totalImportance += weights["GPA"].importance;
+      }
+
+      return totalImportance > 0 ? totalScore / totalImportance : 0;
+    };
+
+    return [...schedules]
+      .map((schedule) => ({
+        ...schedule,
+        Score: calculateScore(schedule),
+      }))
+      .sort((a, b) => (b.Score || 0) - (a.Score || 0));
   };
 
   const handleSearch = async (e: React.FormEvent) => {
@@ -272,7 +365,13 @@ const SchedulePlanner: React.FC = () => {
               Previous
             </button>
 
-            <button className={styles.actionButton}>Weights & Sort</button>
+            <button
+              onClick={() => setIsWeightsPopupOpen(true)}
+              className={styles.actionButton}
+              disabled={scheduleData.schedules.length === 0}
+            >
+              Weights
+            </button>
 
             <button
               onClick={() => handleNavigateSchedule("next")}
@@ -298,6 +397,28 @@ const SchedulePlanner: React.FC = () => {
             />
           </div>
         </div>
+
+        <Popup
+          isOpen={isWeightsPopupOpen}
+          onClose={() => setIsWeightsPopupOpen(false)}
+          title="Schedule Weights"
+          width="400px"
+        >
+          <WeightsPopup
+            schedules={scheduleData.schedules}
+            onApplyWeights={(sortedSchedules, weights) => {
+              setScheduleData((prev) => ({
+                ...prev,
+                schedules: sortedSchedules,
+                currentScheduleIndex: 0,
+                totalSchedules: sortedSchedules.length,
+                customWeights: weights,
+              }));
+              setIsWeightsPopupOpen(false);
+            }}
+            onClose={() => setIsWeightsPopupOpen(false)}
+          />
+        </Popup>
 
         {/* Search Section */}
         <div className={styles.searchSection}>
