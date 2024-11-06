@@ -38,7 +38,7 @@
   --font-size-xl: 1.25rem; /* 20px */
   --font-size-2xl: 1.5rem; /* 24px */
   --font-size-3xl: 1.75rem;
-  --font-size-4xl: 2.0rem;
+  --font-size-4xl: 2rem;
 
   --font-weight-normal: 400;
   --font-weight-medium: 500;
@@ -145,6 +145,14 @@
   --container-width: 1200px;
   --header-height: 4rem;
   --sidebar-width: 280px;
+
+  /* Z-index layers */
+  --z-index-base: 1;
+  --z-index-dropdown: 10;
+  --z-index-sticky: 100;
+  --z-index-modal: 1000;
+  --z-index-popover: 9999;
+  --z-index-tooltip: 10000;
 }
 
 /* Helper classes for the design system */
