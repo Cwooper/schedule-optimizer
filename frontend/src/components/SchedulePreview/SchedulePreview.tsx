@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Schedule } from "@konnorkooi/schedule-glance";
-import { Download, Map } from "lucide-react";
+import { MoreVertical, Download } from "lucide-react";
 import "@konnorkooi/schedule-glance/dist/index.css";
 import type { Schedule as ISchedule } from "../../types/types";
 import { generateScheduleEvents } from "../../services/schedule-service";
@@ -24,7 +24,10 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
   asyncCourses = [],
 }) => {
   const scheduleRef = useRef<any>(null);
-  const [showMap, setShowMap] = useState(false);
+  // const [showMap, setShowMap] = useState(false);
+  const [showActionMenu, setShowActionMenu] = useState(false);
+  const actionButtonRef = useRef<HTMLDivElement>(null);
+
   const [popupState, setPopupState] = useState<{
     isOpen: boolean;
     courseData?: any;
@@ -35,20 +38,24 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
     sessionData: null,
   });
 
+  const events = schedule ? generateScheduleEvents(schedule) : [];
+
   const handleExportSchedule = async () => {
     try {
       await scheduleRef.current?.exportToPng(
         `schedule-${new Date().toISOString()}.png`
       );
+      setShowActionMenu(false);
     } catch (error) {
       console.error("Failed to export schedule:", error);
     }
   };
 
-  const handleShowMap = () => {
-    setShowMap(!showMap);
-    // TODO: map logic here when added
-  };
+  // const handleShowMap = () => {
+  //   setShowMap(!showMap);
+  //   setShowActionMenu(false);
+  //   // Implement map view logic here
+  // };
 
   const customHeaders = [
     { label: "Mon", dayIndex: 0 },
@@ -58,11 +65,25 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
     { label: "Fri", dayIndex: 4 },
   ];
 
-  const events = schedule ? generateScheduleEvents(schedule) : [];
-
   const handlePopupClose = () => {
     setPopupState({ isOpen: false, courseData: null, sessionData: null });
   };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      actionButtonRef.current &&
+      !actionButtonRef.current.contains(event.target as Node)
+    ) {
+      setShowActionMenu(false);
+    }
+  };
+
+  React.useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -85,69 +106,78 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
         </div>
       )}
 
-      <div className={styles.scheduleHeader}>
-        <div className={styles.scheduleTitle}>Schedule Preview</div>
-        <div className={styles.actionButtons}>
+      <div className={styles.scheduleWithActions}>
+        <div ref={actionButtonRef} className={styles.actionMenuContainer}>
           <button
-            onClick={handleExportSchedule}
-            className={styles.actionButton}
+            onClick={() => setShowActionMenu(!showActionMenu)}
+            className={styles.actionMenuButton}
+            title="Schedule Actions"
             disabled={!schedule || !events.length}
-            title="Export Schedule as PNG"
           >
-            <Download className="w-4 h-4 mr-2" />
-            Export
+            <MoreVertical className="w-5 h-5" />
           </button>
-          <button
-            onClick={handleShowMap}
-            className={styles.actionButton}
-            disabled={!schedule || !events.length}
-            title="View Walking Map"
-          >
-            <Map className="w-4 h-4 mr-2" />
-            Map
-          </button>
-        </div>
-      </div>
 
-      <div className={styles.scheduleContainer}>
-        <Schedule
-          ref={scheduleRef}
-          events={events}
-          headers={customHeaders}
-          width={800}
-          height={600}
-          useDefaultPopup={false}
-          emptyStateMessage="No courses selected for this schedule"
-          customPopupHandler={(event) => {
-            const [crn, days] = event.id.split("-");
-            const courseData = schedule?.Courses.find(
-              (course) => String(course.CRN) === String(crn)
-            );
-            const sessionData = courseData?.Sessions.find(
-              (session) => session.Days === days
-            );
-
-            if (courseData && sessionData) {
-              setPopupState({
-                isOpen: true,
-                courseData,
-                sessionData,
-              });
-            }
-            return null;
-          }}
-        />
-
-        {popupState.isOpen &&
-          popupState.courseData &&
-          popupState.sessionData && (
-            <EventPopup
-              course={popupState.courseData}
-              session={popupState.sessionData}
-              isOpen={popupState.isOpen}
-              onClose={handlePopupClose}
-            />
+          {showActionMenu && (
+            <div className={styles.actionMenuDropdown}>
+              <button
+                onClick={handleExportSchedule}
+                className={styles.actionMenuItem}
+                disabled={!schedule || !events.length}
+              >
+                <Download className="w-4 h-4 mr-2" />
+              </button>
+              {/* <button
+                onClick={handleShowMap}
+                className={styles.actionMenuItem}
+                disabled={!schedule || !events.length}
+              >
+                <Map className="w-4 h-4 mr-2" />
+                View Map
+              </button> */}
+            </div>
           )}
+        </div>
+
+        <div className={styles.scheduleContainer}>
+          <Schedule
+            ref={scheduleRef}
+            events={events}
+            headers={customHeaders}
+            width={800}
+            height={600}
+            useDefaultPopup={false}
+            emptyStateMessage="No courses selected for this schedule"
+            customPopupHandler={(event) => {
+              const [crn, days] = event.id.split("-");
+              const courseData = schedule?.Courses.find(
+                (course) => String(course.CRN) === String(crn)
+              );
+              const sessionData = courseData?.Sessions.find(
+                (session) => session.Days === days
+              );
+
+              if (courseData && sessionData) {
+                setPopupState({
+                  isOpen: true,
+                  courseData,
+                  sessionData,
+                });
+              }
+              return null;
+            }}
+          />
+
+          {popupState.isOpen &&
+            popupState.courseData &&
+            popupState.sessionData && (
+              <EventPopup
+                course={popupState.courseData}
+                session={popupState.sessionData}
+                isOpen={popupState.isOpen}
+                onClose={handlePopupClose}
+              />
+            )}
+        </div>
       </div>
 
       {asyncCourses && asyncCourses.length > 0 && (
