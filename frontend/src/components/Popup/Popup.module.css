@@ -13,6 +13,8 @@
   align-items: center;
   z-index: var(--popup-z-index, 1000);
   padding: var(--spacing-4);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 .popup {
