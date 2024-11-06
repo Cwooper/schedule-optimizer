@@ -402,7 +402,7 @@ const SchedulePlanner: React.FC = () => {
           isOpen={isWeightsPopupOpen}
           onClose={() => setIsWeightsPopupOpen(false)}
           title="Schedule Weights"
-          width="400px"
+          width="800px"
         >
           <WeightsPopup
             schedules={scheduleData.schedules}
