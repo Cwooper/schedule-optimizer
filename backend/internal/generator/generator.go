@@ -88,7 +88,9 @@ func GenerateResponse(req models.RawRequest) *models.Response {
 	// 		 then find maximum possible asyncs together
 	//       then subtract len(possibleAsyncs) from req.Min (clamp to 1)
 	if len(g.response.Asyncs) > 0 { // currently works to alleviate some
-		req.Min -= 1 // should be handled by clampBounds
+		g.response.Warnings = append(g.response.Warnings,
+			"Warning: ASYNC courses are not included in the main schedule.")
+		// req.Min -= 1 // should be handled by clampBounds
 	}
 
 	// Clamp and verify that the bounds work
@@ -170,7 +172,7 @@ func (g *Generator) generateCourses(term string) {
 		}
 		if !found {
 			g.response.Warnings = append(g.response.Warnings,
-				courseRequest + " is not offered this term.")
+				courseRequest+" is not offered this term.")
 		}
 	}
 
