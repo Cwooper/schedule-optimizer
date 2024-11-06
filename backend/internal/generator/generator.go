@@ -89,7 +89,7 @@ func GenerateResponse(req models.RawRequest) *models.Response {
 	//       then subtract len(possibleAsyncs) from req.Min (clamp to 1)
 	if len(g.response.Asyncs) > 0 { // currently works to alleviate some
 		g.response.Warnings = append(g.response.Warnings,
-			"ASYNC course generated but not included in main schedule.")
+			"ASYNC course generated below, ASNYC courses are not included in the schedule preview.")
 		// req.Min -= 1 // should be handled by clampBounds
 	}
 
