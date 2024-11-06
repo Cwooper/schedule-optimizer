@@ -23,7 +23,9 @@ import (
 
 // ----------------------------- SERVER BELOW -----------------------------
 
-const SERVER_STATS_PATH = "../data/server_stats.json"
+var (
+	SERVER_STATS_PATH string
+)
 
 var (
 	isUpdating   bool
@@ -32,6 +34,13 @@ var (
 )
 
 func init() {
+	statsFile, err := stats.GetStatsFile()
+	if err != nil {
+		log.Fatalf("Failed to get stats file: %v", err)
+	}
+
+	SERVER_STATS_PATH = statsFile
+
 	// Set initial GC percentage
 	debug.SetGCPercent(50)
 	// Set soft memory limit
