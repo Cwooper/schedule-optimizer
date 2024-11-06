@@ -4,6 +4,7 @@ import { MoreVertical, Download } from "lucide-react";
 import "@konnorkooi/schedule-glance/dist/index.css";
 import type { Schedule as ISchedule } from "../../types/types";
 import { generateScheduleEvents } from "../../services/schedule-service";
+import { generateScheduleFilename } from "../../utils/schedule-utils";
 import styles from "./SchedulePreview.module.css";
 import EventPopup from "./EventPopup";
 import CourseList from "../CourseList/CourseList";
@@ -14,6 +15,8 @@ interface SchedulePreviewProps {
   errors?: string[];
   showMessages?: boolean;
   asyncCourses?: any[];
+  quarter: string;
+  year: string;
 }
 
 const SchedulePreview: React.FC<SchedulePreviewProps> = ({
@@ -22,9 +25,10 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
   errors = [],
   showMessages = false,
   asyncCourses = [],
+  quarter,
+  year,
 }) => {
   const scheduleRef = useRef<any>(null);
-  // const [showMap, setShowMap] = useState(false);
   const [showActionMenu, setShowActionMenu] = useState(false);
   const actionButtonRef = useRef<HTMLDivElement>(null);
 
@@ -42,9 +46,8 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
 
   const handleExportSchedule = async () => {
     try {
-      await scheduleRef.current?.exportToPng(
-        `schedule-${new Date().toISOString()}.png`
-      );
+      const filename = generateScheduleFilename(quarter, year);
+      await scheduleRef.current?.exportToPng(filename);
       setShowActionMenu(false);
     } catch (error) {
       console.error("Failed to export schedule:", error);

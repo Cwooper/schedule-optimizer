@@ -401,6 +401,8 @@ const SchedulePlanner: React.FC = () => {
               errors={scheduleData.errors}
               showMessages={true}
               asyncCourses={scheduleData.asyncCourses}
+              quarter={scheduleData.quarter}
+              year={scheduleData.year}
             />
           </div>
         </div>
