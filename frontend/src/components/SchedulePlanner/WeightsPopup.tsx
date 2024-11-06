@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Clock,
   Sun,
@@ -21,6 +21,7 @@ interface WeightsState {
 
 interface WeightsPopupProps {
   schedules: Schedule[];
+  weights: WeightsState;
   onApplyWeights: (sortedSchedules: Schedule[], weights: WeightsState) => void;
   onClose: () => void;
 }
@@ -105,15 +106,16 @@ const extractScheduleTimes = (courses: Course[]) => {
 
 const WeightsPopup: React.FC<WeightsPopupProps> = ({
   schedules,
+  weights: initialWeights,
   onApplyWeights,
   onClose,
 }) => {
-  const [weights, setWeights] = useState<WeightsState>({
-    "Start Time": { importance: 1, idealValue: 600 },
-    "End Time": { importance: 1, idealValue: 780 },
-    "Gap Time": { importance: 2, idealValue: 0 },
-    GPA: { importance: 2 },
-  });
+  const [weights, setWeights] = useState<WeightsState>(initialWeights);
+
+  // When initialWeights changes, update local state
+  useEffect(() => {
+    setWeights(initialWeights);
+  }, [initialWeights]);
 
   const timeToMinutes = (timeStr: string): number => {
     const [hours, minutes] = timeStr.split(":").map(Number);
