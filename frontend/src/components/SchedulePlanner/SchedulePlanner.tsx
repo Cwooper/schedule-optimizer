@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import type {
   Course,
   Schedule,
@@ -13,6 +13,7 @@ import CourseList from "../CourseList/CourseList";
 import Popup from "../Popup/Popup";
 import WeightsPopup from "./WeightsPopup";
 import styles from "./SchedulePlanner.module.css";
+import { loadCourseState, saveCourseState } from "../../utils/local-storage";
 
 interface CourseItem {
   id: number;
@@ -108,34 +109,45 @@ const SchedulePlanner: React.FC = () => {
   };
 
   const handleAddCourse = (subject: string, code: string) => {
-    setScheduleData((prev) => ({
-      ...prev,
-      courses: [
-        ...prev.courses,
-        {
-          id: Date.now(),
-          subject,
-          code,
-          force: false,
-        },
-      ],
-    }));
+    const newCourse = {
+      id: Date.now(),
+      subject,
+      code,
+      force: false,
+    };
+
+    setScheduleData((prev) => {
+      const updatedCourses = [...prev.courses, newCourse];
+      saveCourseState(updatedCourses); // Save immediately after adding
+      return {
+        ...prev,
+        courses: updatedCourses,
+      };
+    });
   };
 
   const handleRemoveCourse = (id: number) => {
-    setScheduleData((prev) => ({
-      ...prev,
-      courses: prev.courses.filter((course) => course.id !== id),
-    }));
+    setScheduleData((prev) => {
+      const updatedCourses = prev.courses.filter((course) => course.id !== id);
+      saveCourseState(updatedCourses); // Save immediately after removing
+      return {
+        ...prev,
+        courses: updatedCourses,
+      };
+    });
   };
 
   const handleToggleForce = (id: number) => {
-    setScheduleData((prev) => ({
-      ...prev,
-      courses: prev.courses.map((course) =>
+    setScheduleData((prev) => {
+      const updatedCourses = prev.courses.map((course) =>
         course.id === id ? { ...course, force: !course.force } : course
-      ),
-    }));
+      );
+      saveCourseState(updatedCourses); // Save immediately after toggling force
+      return {
+        ...prev,
+        courses: updatedCourses,
+      };
+    });
   };
 
   const handleNavigateSchedule = (direction: "prev" | "next") => {
@@ -157,6 +169,23 @@ const SchedulePlanner: React.FC = () => {
       [field]: value,
     }));
   };
+
+  useEffect(() => {
+    // Load saved courses when component mounts
+    const savedCourses = loadCourseState();
+    if (savedCourses.length > 0) {
+      setScheduleData((prev) => ({
+        ...prev,
+        courses: savedCourses,
+      }));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (scheduleData.courses.length > 0) {
+      saveCourseState(scheduleData.courses);
+    }
+  }, [scheduleData.courses]);
 
   const submitRequest = async (
     request: ScheduleRequest
