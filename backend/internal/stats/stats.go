@@ -127,7 +127,7 @@ func (s *Stats) Load() error {
 
 // startPeriodicSave starts a goroutine that saves stats to disk periodically
 func (s *Stats) startPeriodicSave() {
-	ticker := time.NewTicker(30 * time.Second)
+	ticker := time.NewTicker(5 * time.Minute)
 	for range ticker.C {
 		if err := s.Save(); err != nil {
 			log.Printf("Error saving stats: %v", err)
