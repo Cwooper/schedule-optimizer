@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Schedule } from "@konnorkooi/schedule-glance";
+import { Download, Map } from "lucide-react";
 import "@konnorkooi/schedule-glance/dist/index.css";
 import type { Schedule as ISchedule } from "../../types/types";
 import { generateScheduleEvents } from "../../services/schedule-service";
@@ -12,7 +13,7 @@ interface SchedulePreviewProps {
   warnings?: string[];
   errors?: string[];
   showMessages?: boolean;
-  asyncCourses?: any[]; // Update this to use proper type from your types file
+  asyncCourses?: any[];
 }
 
 const SchedulePreview: React.FC<SchedulePreviewProps> = ({
@@ -22,6 +23,8 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
   showMessages = false,
   asyncCourses = [],
 }) => {
+  const scheduleRef = useRef<any>(null);
+  const [showMap, setShowMap] = useState(false);
   const [popupState, setPopupState] = useState<{
     isOpen: boolean;
     courseData?: any;
@@ -31,6 +34,21 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
     courseData: null,
     sessionData: null,
   });
+
+  const handleExportSchedule = async () => {
+    try {
+      await scheduleRef.current?.exportToPng(
+        `schedule-${new Date().toISOString()}.png`
+      );
+    } catch (error) {
+      console.error("Failed to export schedule:", error);
+    }
+  };
+
+  const handleShowMap = () => {
+    setShowMap(!showMap);
+    // TODO: map logic here when added
+  };
 
   const customHeaders = [
     { label: "Mon", dayIndex: 0 },
@@ -67,13 +85,39 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
         </div>
       )}
 
+      <div className={styles.scheduleHeader}>
+        <div className={styles.scheduleTitle}>Schedule Preview</div>
+        <div className={styles.actionButtons}>
+          <button
+            onClick={handleExportSchedule}
+            className={styles.actionButton}
+            disabled={!schedule || !events.length}
+            title="Export Schedule as PNG"
+          >
+            <Download className="w-4 h-4 mr-2" />
+            Export
+          </button>
+          <button
+            onClick={handleShowMap}
+            className={styles.actionButton}
+            disabled={!schedule || !events.length}
+            title="View Walking Map"
+          >
+            <Map className="w-4 h-4 mr-2" />
+            Map
+          </button>
+        </div>
+      </div>
+
       <div className={styles.scheduleContainer}>
         <Schedule
+          ref={scheduleRef}
           events={events}
           headers={customHeaders}
           width={800}
           height={600}
           useDefaultPopup={false}
+          emptyStateMessage="No courses selected for this schedule"
           customPopupHandler={(event) => {
             const [crn, days] = event.id.split("-");
             const courseData = schedule?.Courses.find(
