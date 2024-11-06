@@ -49,10 +49,7 @@ Press Submit and view your options!
 
     ```bash
     cd frontend
-    npm install     # Install necessary modules
-    npm run build   # Build the frontend to static
-    mv build/ ../   # Move the frontend to front facing
-    cd ../
+    make build
     ```
 
 5. Test the server:
@@ -98,19 +95,21 @@ Extra:
   - [ ] Create Paths between classes per schedule
 - [x] Port frontend to React (Konnor too)
 - [x] Fuzzy search courses
-- [ ] Weight customizability on frontend
-- [ ] If User Asks for the same schedule twice, don't send POST request.
-- [ ] Redo Calendar in Go WASM?
+- [x] Weight customizability on frontend
+- [x] If User Asks for the same schedule twice, don't send POST request.
 
 Frontend TODOs:
 
 - [x] Course Popups
 - [x] Better automatic sizing
 - [x] Async Courses
-- [ ] Fuzzy Search
+  - [x] Fix Async Courses (bandaid)
+  - [ ] Full fix async courses
+- [x] Fuzzy Search
   - [ ] Better backend fuzzy search
 - [x] Duplicate course checking before adding
 - [ ] Dark Mode button
-- [ ] Sort and Weighting menu popup
-  - [ ] Sort schedules
-  - [ ] Customize weights
+- [x] Sort and Weighting menu popup
+  - [x] Sort schedules
+  - [x] Customize weights
+- [ ] png save for `schedule-glance`
