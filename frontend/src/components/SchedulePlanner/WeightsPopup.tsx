@@ -240,9 +240,8 @@ const WeightsPopup: React.FC<WeightsPopupProps> = ({
   return (
     <div className={styles.container}>
       <p className={styles.description}>
-        Customize your schedule preferences by adjusting the importance and
-        ideal values for each factor. Higher importance values give more weight
-        to that particular aspect of your schedule.
+        Adjust importance (0-10) and ideal values for each factor to customize
+        your schedule preferences.
       </p>
 
       <div className={styles.weightsList}>
@@ -315,7 +314,7 @@ const WeightsPopup: React.FC<WeightsPopupProps> = ({
       </div>
 
       <button onClick={handleApply} className={styles.applyButton}>
-        <Check className="w-5 h-5" />
+        <Check size={16} />
         Apply Weights
       </button>
     </div>
