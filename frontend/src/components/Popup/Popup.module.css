@@ -11,7 +11,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: var(--popup-z-index, 1000);
+  z-index: var(--z-index-popover);
   padding: var(--spacing-4);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
@@ -27,6 +27,7 @@
   max-height: 90vh;
   overflow: auto;
   animation: popupFadeIn 0.2s ease-out;
+  z-index: var(--z-index-popover);
 }
 
 .title {
