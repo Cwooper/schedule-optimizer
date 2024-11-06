@@ -36,6 +36,7 @@ interface ScheduleData {
   searchResults: Course[];
   isSearching: boolean;
   customWeights: WeightsState | null;
+  weights: WeightsState;
 }
 
 const SchedulePlanner: React.FC = () => {
@@ -54,6 +55,12 @@ const SchedulePlanner: React.FC = () => {
     searchResults: [],
     isSearching: false,
     customWeights: null,
+    weights: {
+      "Start Time": { importance: 1, idealValue: 600 },
+      "End Time": { importance: 1, idealValue: 780 },
+      "Gap Time": { importance: 2, idealValue: 0 },
+      GPA: { importance: 2 },
+    },
   });
   const [isWeightsPopupOpen, setIsWeightsPopupOpen] = useState(false);
   const [searchText, setSearchText] = useState("");
@@ -191,10 +198,10 @@ const SchedulePlanner: React.FC = () => {
 
       // If we have custom weights, apply them to the new schedules
       let sortedSchedules = response.Schedules || [];
-      if (scheduleData.customWeights) {
+      if (scheduleData.weights) {
         sortedSchedules = applyCustomWeights(
           sortedSchedules,
-          scheduleData.customWeights
+          scheduleData.weights
         );
       }
 
@@ -406,13 +413,14 @@ const SchedulePlanner: React.FC = () => {
         >
           <WeightsPopup
             schedules={scheduleData.schedules}
+            weights={scheduleData.weights}
             onApplyWeights={(sortedSchedules, weights) => {
               setScheduleData((prev) => ({
                 ...prev,
                 schedules: sortedSchedules,
                 currentScheduleIndex: 0,
                 totalSchedules: sortedSchedules.length,
-                customWeights: weights,
+                weights: weights,
               }));
               setIsWeightsPopupOpen(false);
             }}
