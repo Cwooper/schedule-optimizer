@@ -2,8 +2,10 @@ package stats
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 	"strings"
 	"sync"
 	"time"
@@ -138,4 +140,19 @@ func (s *Stats) startPeriodicSave() {
 // Close saves the stats one final time and cleans up
 func (s *Stats) Close() error {
 	return s.Save()
+}
+
+func GetStatsFile() (string, error) {
+    workingDir, err := os.Getwd()
+    if err != nil {
+        return "", fmt.Errorf("failed to get working directory: %v", err)
+    }
+
+    absolutePath := filepath.Join(workingDir, "../data/server_stats.json")
+    absolutePath, err = filepath.Abs(absolutePath)
+    if err != nil {
+        return "", fmt.Errorf("failed to get absolute path: %v", err)
+    }
+
+    return absolutePath, nil
 }
