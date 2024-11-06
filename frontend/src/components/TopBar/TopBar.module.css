@@ -19,9 +19,10 @@
 }
 
 .title {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-bold);
   color: var(--color-primary-700);
+  letter-spacing: -0.025em;
 }
 
 .buttonGroup {
@@ -36,16 +37,15 @@
   white-space: nowrap;
 }
 
-/* Add styles to prevent help button from stretching */
 .helpButton {
-  width: auto !important; /* Override any global responsive styles */
+  width: auto !important;
   min-width: 80px;
   white-space: nowrap;
 }
 
 @media (max-width: 768px) {
   .title {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-xl);
   }
 }
 
