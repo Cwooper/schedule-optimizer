@@ -14,6 +14,7 @@ import Popup from "../Popup/Popup";
 import WeightsPopup from "./WeightsPopup";
 import styles from "./SchedulePlanner.module.css";
 import { loadCourseState, saveCourseState } from "../../utils/local-storage";
+import ServerStats from "../ServerStats/ServerStats";
 
 interface CourseItem {
   id: number;
@@ -505,6 +506,7 @@ const SchedulePlanner: React.FC = () => {
             </div>
           )}
         </div>
+        <ServerStats />
       </div>
     </div>
   );
