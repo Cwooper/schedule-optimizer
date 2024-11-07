@@ -464,8 +464,9 @@ const SchedulePlanner: React.FC = () => {
           <div className={styles.searchHeader}>
             <h3 className={styles.searchTitle}>Course Search</h3>
             <p className={styles.searchDescription}>
-              Search for courses by subject, title, or instructor. View detailed
-              course information before adding to your schedule.
+              Search for courses by subject, title, or instructor. The more
+              accurate the search, the more accurate the results. E.g., "Smith,
+              John" rather than "Smith."
             </p>
           </div>
           <form onSubmit={handleSearch} className={styles.searchForm}>

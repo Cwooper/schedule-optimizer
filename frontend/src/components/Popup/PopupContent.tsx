@@ -49,7 +49,7 @@ export const AboutContent: React.FC = () => {
       </div>
 
       <p className={styles.contributors}>
-        Previous Contributors include Rory Bates, Arne Wiseman, and Ben Huynh.
+        Previous contributors include Rory Bates, Arne Wiseman, and Ben Huynh.
       </p>
 
       <div className={styles.disclaimer}>
