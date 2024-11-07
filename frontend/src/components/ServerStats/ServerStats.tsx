@@ -41,6 +41,9 @@ const ServerStats: React.FC = () => {
   const [stats, setStats] = useState<ServerStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [excludedSubjects, setExcludedSubjects] = useState<Set<string>>(
+    new Set()
+  );
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -62,13 +65,25 @@ const ServerStats: React.FC = () => {
     fetchStats();
   }, []);
 
+  const handleBarClick = (data: any) => {
+    setExcludedSubjects((prev) => {
+      const newExcluded = new Set(prev);
+      newExcluded.add(data.subject);
+      return newExcluded;
+    });
+  };
+
+  const handleResetFilters = () => {
+    setExcludedSubjects(new Set());
+  };
+
   if (loading) {
     return <div className={styles.loading}>Loading statistics...</div>;
   }
 
   if (error || !stats) {
     return (
-      <div className={styles.error}></div>
+      <div className={styles.error}>{error || "Failed to load statistics"}</div>
     );
   }
 
@@ -78,8 +93,9 @@ const ServerStats: React.FC = () => {
       subject,
       count,
     }))
+    .filter((item) => !excludedSubjects.has(item.subject))
     .sort((a, b) => b.count - a.count)
-    .slice(0, 15); // Show top 15 subjects
+    .slice(0, 10); // Show top 15 subjects
 
   const formatDate = (dateStr: string) => {
     const date = new Date(dateStr);
@@ -120,7 +136,19 @@ const ServerStats: React.FC = () => {
       </div>
 
       <div className={styles.chartContainer}>
-        <h3 className={styles.chartTitle}>Top 15 Subjects by Request Count</h3>
+        <div className={styles.chartHeader}>
+          <h3 className={styles.chartTitle}>
+            Top 10 Subjects by Request Count
+          </h3>
+          {excludedSubjects.size > 0 && (
+            <button className={styles.resetButton} onClick={handleResetFilters}>
+              Reset Filters
+            </button>
+          )}
+        </div>
+        <div className={styles.chartSubtitle}>
+          Press a subject to remove it from the chart.
+        </div>
         <div className={styles.chart}>
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
@@ -137,7 +165,12 @@ const ServerStats: React.FC = () => {
               />
               <YAxis />
               <Tooltip />
-              <Bar dataKey="count" fill="var(--color-primary-600)" />
+              <Bar
+                dataKey="count"
+                fill="var(--color-primary-600)"
+                onClick={handleBarClick}
+                cursor="pointer"
+              />
             </BarChart>
           </ResponsiveContainer>
         </div>
