@@ -1,4 +1,5 @@
 # Frontend download, build
 build/
 frontend/node_modules/
+data/server_stats.json
 
