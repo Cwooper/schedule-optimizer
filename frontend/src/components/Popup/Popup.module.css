@@ -228,6 +228,13 @@
   box-shadow: var(--shadow-md);
 }
 
+.contributors {
+  margin-top: var(--spacing-3);
+  font-size: var(--font-size-sm);
+  color: var(--color-neutral-600);
+  text-align: center;
+}
+
 /* Disclaimer section */
 .disclaimer {
   margin-top: var(--spacing-6);
