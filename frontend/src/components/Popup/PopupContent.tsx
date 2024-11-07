@@ -48,6 +48,10 @@ export const AboutContent: React.FC = () => {
         </div>
       </div>
 
+      <p className={styles.contributors}>
+        Previous Contributors include Rory Bates, Arne Wiseman, and Ben Huynh.
+      </p>
+
       <div className={styles.disclaimer}>
         <p>
           This project is not affiliated with Western Washington University. It
