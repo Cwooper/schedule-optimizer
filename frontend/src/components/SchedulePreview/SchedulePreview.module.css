@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: column;
 }
+
 .messageContainer {
   margin-bottom: 1rem;
   padding: 1rem;
@@ -64,6 +65,7 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+
 .scheduleHeader {
   display: flex;
   justify-content: space-between;

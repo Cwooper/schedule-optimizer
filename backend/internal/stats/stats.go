@@ -67,7 +67,11 @@ func (s *Stats) IncrementSearchRequest() {
 
 // IncrementSubject increments the counter for a specific subject
 func (s *Stats) IncrementSubject(subject string) {
-	subject = strings.Split(subject, " ")[0]
+	// Note that some courses have spaces in them
+	lastSpace := strings.LastIndex(subject, " ")
+	if lastSpace != - 1 {
+		subject = subject[:lastSpace]
+	}
 	s.mutex.Lock()
 	defer s.mutex.Unlock()
 	s.SubjectCounts[subject]++
