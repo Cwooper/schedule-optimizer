@@ -159,8 +159,15 @@ const WeightsPopup: React.FC<WeightsPopupProps> = ({
     ideal: number,
     range: number
   ): number => {
+    // Calculate difference as before
     const difference = Math.abs(actual - ideal);
-    return Math.max(0, 1 - difference / range);
+
+    // Use exponential decay instead of linear
+    // This will approach but never quite reach 0
+    const score = Math.exp(-difference / (range / 2));
+
+    // Scale to ensure score is between 0.1 and 1.0
+    return 0.1 + 0.9 * score;
   };
 
   const calculateScheduleScore = (schedule: Schedule): number => {
@@ -171,13 +178,29 @@ const WeightsPopup: React.FC<WeightsPopupProps> = ({
     const startTimeMinutes = militaryToMinutes(times.startTime);
     const endTimeMinutes = militaryToMinutes(times.endTime);
 
+    console.log(
+      `\n[Schedule] Start: ${times.startTime} (${minutesToTime(
+        startTimeMinutes
+      )}), End: ${times.endTime} (${minutesToTime(endTimeMinutes)}), Gap: ${
+        times.gapTime
+      }min, GPA: ${times.averageGPA.toFixed(2)}`
+    );
+
     if (weights["Start Time"].importance > 0) {
       const score = calculateLinearScore(
         startTimeMinutes,
         weights["Start Time"].idealValue!,
         120
       );
-      totalScore += score * weights["Start Time"].importance;
+      const weightedScore = score * weights["Start Time"].importance;
+      console.log(
+        `[Start Time] ${minutesToTime(startTimeMinutes)} | Importance: ${
+          weights["Start Time"].importance
+        }, Ideal: ${minutesToTime(
+          weights["Start Time"].idealValue!
+        )}, Score: ${score.toFixed(3)} → ${weightedScore.toFixed(3)}`
+      );
+      totalScore += weightedScore;
       totalImportance += weights["Start Time"].importance;
     }
 
@@ -187,7 +210,15 @@ const WeightsPopup: React.FC<WeightsPopupProps> = ({
         weights["End Time"].idealValue!,
         120
       );
-      totalScore += score * weights["End Time"].importance;
+      const weightedScore = score * weights["End Time"].importance;
+      console.log(
+        `[End Time] ${minutesToTime(endTimeMinutes)} | Importance: ${
+          weights["End Time"].importance
+        }, Ideal: ${minutesToTime(
+          weights["End Time"].idealValue!
+        )}, Score: ${score.toFixed(3)} → ${weightedScore.toFixed(3)}`
+      );
+      totalScore += weightedScore;
       totalImportance += weights["End Time"].importance;
     }
 
@@ -197,17 +228,40 @@ const WeightsPopup: React.FC<WeightsPopupProps> = ({
         weights["Gap Time"].idealValue!,
         60
       );
-      totalScore += score * weights["Gap Time"].importance;
+      const weightedScore = score * weights["Gap Time"].importance;
+      console.log(
+        `[Gap Time] ${times.gapTime} mins | Importance: ${
+          weights["Gap Time"].importance
+        }, Ideal: ${weights["Gap Time"].idealValue}min, Score: ${score.toFixed(
+          3
+        )} → ${weightedScore.toFixed(3)}`
+      );
+      totalScore += weightedScore;
       totalImportance += weights["Gap Time"].importance;
     }
 
     if (weights["GPA"].importance > 0 && times.averageGPA > 0) {
       const score = times.averageGPA / 4.0;
-      totalScore += score * weights["GPA"].importance;
+      const weightedScore = score * weights["GPA"].importance;
+      console.log(
+        `[GPA] ${times.averageGPA} | Importance: ${
+          weights["GPA"].importance
+        }, Value: ${times.averageGPA.toFixed(2)}, Score: ${score.toFixed(
+          3
+        )} → ${weightedScore.toFixed(3)}`
+      );
+      totalScore += weightedScore;
       totalImportance += weights["GPA"].importance;
     }
 
-    return totalImportance > 0 ? totalScore / totalImportance : 0;
+    const finalScore = totalImportance > 0 ? totalScore / totalImportance : 0;
+    console.log(
+      `[Final] Score: ${finalScore.toFixed(3)} = ${totalScore.toFixed(
+        3
+      )}/${totalImportance}\n`
+    );
+
+    return finalScore;
   };
 
   const handleApply = () => {
