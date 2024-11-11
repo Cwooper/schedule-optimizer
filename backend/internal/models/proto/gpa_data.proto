@@ -8,4 +8,16 @@ message GPAData {
   map<string, double> subjects = 1;
   map<string, double> professors = 2;
   map<string, double> course_gpas = 3;
+
+  // For ProfessorSubjects: map[professorName]map[subject]struct{}
+  message SubjectSet {
+    repeated string subjects = 1;  // List of subjects
+  }
+  map<string, SubjectSet> professor_subjects = 4;
+
+  // For LastNameIndex: map[lastName][]fullName
+  message ProfessorList {
+    repeated string names = 1;  // List of full names
+  }
+  map<string, ProfessorList> last_name_index = 5;
 }
