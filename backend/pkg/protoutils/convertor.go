@@ -102,18 +102,57 @@ func protoToSessions(pbSessions []*pb.Session) []models.Session {
 
 // GPADataToProto converts a GPAData struct to a GPAData protobuf message
 func GPADataToProto(gpaData models.GPAData) *pb.GPAData {
+	// Convert ProfessorSubjects to proto format
+	professorSubjects := make(map[string]*pb.GPAData_SubjectSet)
+	for prof, subjects := range gpaData.ProfessorSubjects {
+		subjectList := make([]string, 0, len(subjects))
+		for subject := range subjects {
+			subjectList = append(subjectList, subject)
+		}
+		professorSubjects[prof] = &pb.GPAData_SubjectSet{
+			Subjects: subjectList,
+		}
+	}
+
+	// Convert LastNameIndex to proto format
+	lastNameIndex := make(map[string]*pb.GPAData_ProfessorList)
+	for lastName, professors := range gpaData.LastNameIndex {
+		lastNameIndex[lastName] = &pb.GPAData_ProfessorList{
+			Names: professors,
+		}
+	}
+
 	return &pb.GPAData{
-		Subjects:   gpaData.Subjects,
-		Professors: gpaData.Professors,
-		CourseGpas: gpaData.CourseGPAs,
+		Subjects:          gpaData.Subjects,
+		Professors:        gpaData.Professors,
+		CourseGpas:        gpaData.CourseGPAs,
+		ProfessorSubjects: professorSubjects,
+		LastNameIndex:     lastNameIndex,
 	}
 }
 
 // ProtoToGPAData converts a GPAData protobuf message to a GPAData struct
 func ProtoToGPAData(pbGPAData *pb.GPAData) models.GPAData {
+	// Convert ProfessorSubjects from proto format
+	professorSubjects := make(models.ProfessorSubjects)
+	for prof, subjectSet := range pbGPAData.ProfessorSubjects {
+		professorSubjects[prof] = make(map[string]struct{})
+		for _, subject := range subjectSet.Subjects {
+			professorSubjects[prof][subject] = struct{}{}
+		}
+	}
+
+	// Convert LastNameIndex from proto format
+	lastNameIndex := make(map[string][]string)
+	for lastName, profList := range pbGPAData.LastNameIndex {
+		lastNameIndex[lastName] = profList.Names
+	}
+
 	return models.GPAData{
-		Subjects:   pbGPAData.Subjects,
-		Professors: pbGPAData.Professors,
-		CourseGPAs: pbGPAData.CourseGpas,
+		Subjects:          pbGPAData.Subjects,
+		Professors:        pbGPAData.Professors,
+		CourseGPAs:        pbGPAData.CourseGpas,
+		ProfessorSubjects: professorSubjects,
+		LastNameIndex:     lastNameIndex,
 	}
 }

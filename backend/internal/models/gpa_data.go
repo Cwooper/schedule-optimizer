@@ -8,9 +8,10 @@ import (
 	"github.com/cwooper/schedule-optimizer/internal/utils"
 )
 
-type Professors map[string]float64
-type Subjects map[string]float64
-type CourseGPAs map[string]float64
+type Professors map[string]float64                    // Average GPA per professor
+type Subjects map[string]float64                      // Average GPA per subject (e.g. "CSCI 301")
+type CourseGPAs map[string]float64                    // Average GPA per professor with subject
+type ProfessorSubjects map[string]map[string]struct{} // Professor Last Name with Subject as a backup
 
 func CourseKey(subject, professor string) string {
 	return subject + "|" + professor
@@ -25,13 +26,30 @@ func simplifyName(name string) string {
 }
 
 type GPAData struct {
-	Subjects   Subjects
-	Professors Professors
-	CourseGPAs CourseGPAs
+	Subjects          Subjects
+	Professors        Professors
+	CourseGPAs        CourseGPAs
+	ProfessorSubjects ProfessorSubjects
+	LastNameIndex     map[string][]string
 }
 
 func NewGPAData() *GPAData {
-	return &GPAData{}
+	return &GPAData{
+		Subjects:          make(Subjects),
+		Professors:        make(Professors),
+		CourseGPAs:        make(CourseGPAs),
+		ProfessorSubjects: make(ProfessorSubjects),
+		LastNameIndex:     make(map[string][]string),
+	}
+}
+
+// Helper function to get last name from full name
+func getLastName(fullName string) string {
+	parts := strings.Fields(fullName)
+	if len(parts) == 0 {
+		return ""
+	}
+	return strings.ToLower(parts[len(parts)-1])
 }
 
 // Calculates the averages of the maps
@@ -70,11 +88,41 @@ func (data *GPAData) ProcessRecords(records [][]string) {
 	courseCount := make(map[string]int)
 	courseTotal := make(map[string]float64)
 
+	// Create temporary map for professor-subject relationships
 	for _, record := range records {
 		if record[utils.CNT_A_COL] == "" ||
 			record[utils.GRADE_COUNT_COL] == "0" ||
 			(record[utils.GRADE_COUNT_COL] == record[utils.CNT_W_COL]) {
-			continue // Skip records with no data
+			continue
+		}
+
+		professor := simplifyName(record[utils.PROFESSOR_COL])
+		if professor == "" {
+			continue
+		}
+
+		subject := record[utils.CODE_COL]
+		if subject == "" {
+			continue
+		}
+
+		// Extract subject prefix (e.g., "CSCI" from "CSCI 347")
+		matches := utils.SubjectRegexp.FindStringSubmatch(subject)
+		if len(matches) < 2 {
+			continue
+		}
+		subjectPrefix := matches[1] // First capture group contains the subject prefix
+
+		// Build professor-subject relationship
+		if data.ProfessorSubjects[professor] == nil {
+			data.ProfessorSubjects[professor] = make(map[string]struct{})
+		}
+		data.ProfessorSubjects[professor][subjectPrefix] = struct{}{}
+
+		// Build last name index
+		lastName := getLastName(professor)
+		if lastName != "" {
+			data.LastNameIndex[lastName] = append(data.LastNameIndex[lastName], professor)
 		}
 
 		count, err := strconv.Atoi(record[utils.GRADE_COUNT_COL])
@@ -89,15 +137,12 @@ func (data *GPAData) ProcessRecords(records [][]string) {
 			continue
 		}
 
-		count -= w_count // Remove dropped count from GPA total
-
+		count -= w_count
 		total := totalGPA(record)
 		if total == 0.0 {
 			continue
 		}
 
-		professor := simplifyName(record[utils.PROFESSOR_COL])
-		subject := record[utils.CODE_COL]
 		courseKey := CourseKey(subject, professor)
 
 		if professor != "" {
