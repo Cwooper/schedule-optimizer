@@ -223,8 +223,11 @@ const SchedulePlanner: React.FC = () => {
         return;
       }
 
+      console.log("Request: ", newRequest);
+
       const response = await submitRequest(newRequest);
       lastRequest.current = newRequest;
+      console.log("Response: ", response);
 
       // If we have custom weights, apply them to the new schedules
       let sortedSchedules = response.Schedules || [];

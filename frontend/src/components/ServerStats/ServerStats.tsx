@@ -53,6 +53,7 @@ const ServerStats: React.FC = () => {
           throw new Error("Failed to fetch stats");
         }
         const data = await response.json();
+        console.log("Stats: ", data);
         setStats(data);
       } catch (err) {
         setError("Failed to load statistics");

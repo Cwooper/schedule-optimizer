@@ -31,6 +31,8 @@ const Search: FC<SearchProps> = ({ quarter, year }) => {
         SearchTerm: searchText,
       };
 
+      console.log("Search Request: ", searchRequest);
+
       const response = await fetch("/schedule-optimizer/", {
         method: "POST",
         headers: {
@@ -40,6 +42,8 @@ const Search: FC<SearchProps> = ({ quarter, year }) => {
       });
 
       const data = await response.json();
+
+      console.log("Search Result: ", data);
 
       if (data.Errors?.length > 0) {
         setError(data.Errors.join(", "));

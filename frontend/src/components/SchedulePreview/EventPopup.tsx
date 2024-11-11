@@ -87,12 +87,17 @@ const EventPopupContent: React.FC<EventPopupProps> = ({ course, session }) => {
           <div className={styles.statLabel}>CRN</div>
           <div className={styles.statValue}>{course.CRN}</div>
         </div>
-        {course.GPA !== undefined && (
+        {course.GPA !== undefined && course.GPA !== 0.0 ? (
           <div className={styles.statItem}>
             <div className={styles.statLabel}>GPA</div>
             <div className={styles.statValue}>{course.GPA.toFixed(2)}</div>
           </div>
-        )}
+        ) : course.GPA === 0.0 ? (
+          <div className={styles.statItem}>
+            <div className={styles.statLabel}>GPA</div>
+            <div className={styles.statValue}>N/A</div>
+          </div>
+        ) : null}
         <div className={styles.statItem}>
           <div className={styles.statLabel}>Credits</div>
           <div className={styles.statValue}>{course.Credits}</div>
