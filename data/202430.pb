@@ -34,11 +34,11 @@ HZOV GR GR MJbHYBDj9Admission to the AHE program or permission of instructor.
 RàÊ"Staff*ONLINE SYNC*
 N/A"Staff*ONLINE ASNC08@
 HZOV GR GR MJ S/UbHYBDj9Admission to the AHE program or permission of instructor.r2AHE 592|FIELD EXPERIENCE|CUBAN, SONDRA|STAFF|STAFF
-∂
+ø
 ASLC 101Elementary ASL/Culture5 ﬂ*"
 Mî
 "Boyd, Linda Sue*MH 154*
-N/A"Staff*ONLINE ASNC08@HZOVb	ACGM HYBDr5ASLC 101|ELEMENTARY ASL/CULTURE|BOYD, LINDA SUE|STAFF
+N/A"Staff*ONLINE ASNC01ŒèíH@8@HZOVb	ACGM HYBDr5ASLC 101|ELEMENTARY ASL/CULTURE|BOYD, LINDA SUE|STAFF
 ª
 ANTH 102Introduction to Human Origins5 ËÎ*+
 N/A"Rollins, Alyson Marie*ONLINE ASNC01}/¿ErV	@8@HZOVbASNC OL SSCr<ANTH 102|INTRODUCTION TO HUMAN ORIGINS|ROLLINS, ALYSON MARIE
@@ -411,13 +411,13 @@ Mare, Shri*CF OFC88@HRPer/Cr $26.44ZOV S/UbFTFjInstructor permission.r&
 ”
 DISA 330Critical Disability Studies5 ¿Ô*+
 N/A"Lucchesi, Andrew John*ONLINE ASNC015•‚Ï√g@8@HZOV PQbASNC BCGM OLjENG 101 or equivalent.r:DISA 330|CRITICAL DISABILITY STUDIES|LUCCHESI, ANDREW JOHN
-µ
+æ
 DNC 231Introduction to Dance History3 øÎ*-
-N/A"Haines, Susan Elizabeth*ONLINE ASNC08@HZOVbASNC CCOM OLr=DNC 231|INTRODUCTION TO DANCE HISTORY|HAINES, SUSAN ELIZABETH
-â
+N/A"Haines, Susan Elizabeth*ONLINE ASNC01‹E¬&)Ê@8@HZOVbASNC CCOM OLr=DNC 231|INTRODUCTION TO DANCE HISTORY|HAINES, SUSAN ELIZABETH
+í
 DNC 232Movements for Change3 …Î* 
 N/A"
-Kuntz, Pam*ONLINE ASNC08@HZOVbACGM ASNC OLr'DNC 232|MOVEMENTS FOR CHANGE|KUNTZ, PAM
+Kuntz, Pam*ONLINE ASNC01åUπoôŒ@8@HZOVbACGM ASNC OLr'DNC 232|MOVEMENTS FOR CHANGE|KUNTZ, PAM
 â
 DSCI 205Business Statistics4 ‘Ò*(
 N/A"Morgans, Brian Lee*ONLINE ASNC01ø®rkY¨@8#@HZOV PQbASNC OLjgMATH 156 or MATH 114 or MATH 115 or MATH 118 or equivalent or higher or suitable math assessment score.r/DSCI 205|BUSINESS STATISTICS|MORGANS, BRIAN LEE
@@ -448,9 +448,9 @@ Internship1 TO 10 ‡Î*!
 DSGN 489
 Internship1 TO 10 ⁄Ò*(
 TBD"Gialanella, John Andrew*FI OFC88@HZOV MJ S/U PQbFTFj.DSGN 341, DSGN 372 and DSGN 382; major status.r+DSGN 489|INTERNSHIP|GIALANELLA, JOHN ANDREW
-©
+≤
 DIAD 205Disability, Diversity, Media4 Ê*'
-N/A"Yang, David Dawei*ONLINE ASNC08@H	ZOVbASNC BCGM OLr7DIAD 205|DISABILITY, DIVERSITY, MEDIA|YANG, DAVID DAWEI
+N/A"Yang, David Dawei*ONLINE ASNC01!7´n@8@H	ZOVbASNC BCGM OLr7DIAD 205|DISABILITY, DIVERSITY, MEDIA|YANG, DAVID DAWEI
 ‡
 DIAD 495Clinical Internship1 TO 16 ‚*$
 TBD"Hart, Jeffery LeRoy*MH OFC88@HZOV S/UbFTFjGAdmission to the Disability and Advocacy, BAE or instructor permission.r0DIAD 495|CLINICAL INTERNSHIP|HART, JEFFERY LEROY
@@ -473,34 +473,34 @@ Sula, Ozan*ONLINE ASNC01ïºCêﬂ	@8@HZOV PQbASNC CF-E OLjJECON 206 and ECON
 é"Query, Jason Alan*PH 244*
 R¯
 é"Staff*PH 04716î◊P^C@8@HZOV PQbFTF WP3j#ECON 306 or ECON 309; and ECON 375.r4ECON 462|INTERNATIONAL TRADE|QUERY, JASON ALAN|STAFF
-¬
+À
 EDAD 536Topics in Ed Ldrshp & Finance4 ìÓ*)
 MWÃ∆
 "
-Bruce, Tim*Distance Learning8@HRPer/Cr $426.00ZOV GR PB PM MJbDLEX OL SYNCr1EDAD 536|TOPICS IN ED LDRSHP & FINANCE|BRUCE, TIM
-ã
+Bruce, Tim*Distance Learning1ˆõÚ\Y@8@HRPer/Cr $426.00ZOV GR PB PM MJbDLEX OL SYNCr1EDAD 536|TOPICS IN ED LDRSHP & FINANCE|BRUCE, TIM
+î
 EDAD 541Theory in Education Leadership4 ÿÌ*4
-MW†ö"Larsen, Donald Edward*Distance Learning8@H
+MW†ö"Larsen, Donald Edward*Distance Learning1      @8@H
 RPer/Cr $426.00ZOV GR GR PB PM MJbDLEX OL SYNCj,Graduate status or permission of instructor.r=EDAD 541|THEORY IN EDUCATION LEADERSHIP|LARSEN, DONALD EDWARD
-˜
+Ä
 EDAD 650Research Institute Seminar I5 ëÓ*6
-TBD"Makoyiisaaminaa, Will*Everett EESP Extention88@
+TBD"Makoyiisaaminaa, Will*Everett EESP Extention81      @8@
 HRPer/Cr $426.00ZOV GR PB PM MJbEVEX FTFj!Admission to Doctor of Education.r;EDAD 650|RESEARCH INSTITUTE SEMINAR I|MAKOYIISAAMINAA, WILL
-Û
+¸
 EDAD 650Research Institute Seminar I5 ÎÒ*1
-TBD"Makoyiisaaminaa, Will*Distance Learning88@HRPer/Cr $426.00ZOV GR PB PMbDLEX OL SYNCj!Admission to Doctor of Education.r;EDAD 650|RESEARCH INSTITUTE SEMINAR I|MAKOYIISAAMINAA, WILL
-›
+TBD"Makoyiisaaminaa, Will*Distance Learning81      @8@HRPer/Cr $426.00ZOV GR PB PMbDLEX OL SYNCj!Admission to Doctor of Education.r;EDAD 650|RESEARCH INSTITUTE SEMINAR I|MAKOYIISAAMINAA, WILL
+Ê
 EDAD 658Research Institute II5 ∆Ó*+
 TBD"
-Bruce, Tim*Everett EESP Extention88@
+Bruce, Tim*Everett EESP Extention81      @8@
 HRPer/Cr $426.00ZOV GR PB PM PQbEVEX FTFj+Admission to Doctor of Education; EDAD 650.r)EDAD 658|RESEARCH INSTITUTE II|BRUCE, TIM
 Ì
 EDAD 670Doctoral Proposal Defense1 TO 15 ®Ú*+
 TBD"
 Bruce, Tim*Everett EESP Extention88@HRPer/Cr $426.00ZOV GR PB PM MJ S/UbASNC EVEX OL SSTj!Admission to Doctor of Education.r-EDAD 670|DOCTORAL PROPOSAL DEFENSE|BRUCE, TIM
-≤
+ª
 EECE 111Circuit Analysis I4 ·Ò*#
-N/A"Zang, Yuzhang*ONLINE ASNC08@HRFlat Fee $138.41ZOV PQbASNC OLjMATH 125; PHYS 162.r)EECE 111|CIRCUIT ANALYSIS I|ZANG, YUZHANG
+N/A"Zang, Yuzhang*ONLINE ASNC01ÃWò˜@8@HRFlat Fee $138.41ZOV PQbASNC OLjMATH 125; PHYS 162.r)EECE 111|CIRCUIT ANALYSIS I|ZANG, YUZHANG
 §
 EECE 495Res. in Elec. and Comp. Eng.1 TO 3 ‚Ò*
 TBD"Lund, John A.*TBA88@HRPer/Cr $34.26ZOVbFTFr3EECE 495|RES. IN ELEC. AND COMP. ENG.|LUND, JOHN A.
@@ -807,12 +807,12 @@ t
 TBD"Staff*TBA88
 H
 ZOV S/UbFTFr$ENVS 699|CONTINUOUS ENROLLMENT|STAFF
-ï
+û
 EUS 201Russian Civilization5 øÏ*&
-N/A"Vajda, Edward J.*ONLINE ASNC08@HZOVbASNC BCGM OLr-EUS 201|RUSSIAN CIVILIZATION|VAJDA, EDWARD J.
-è
+N/A"Vajda, Edward J.*ONLINE ASNC01vı#@8@HZOVbASNC BCGM OLr-EUS 201|RUSSIAN CIVILIZATION|VAJDA, EDWARD J.
+ò
 EUS 210Nomads of Eurasia5 ¿Ï*&
-N/A"Vajda, Edward J.*ONLINE ASNC08@HZOVbACGM ASNC OLr*EUS 210|NOMADS OF EURASIA|VAJDA, EDWARD J.
+N/A"Vajda, Edward J.*ONLINE ASNC01e¬)6˙@8@HZOVbACGM ASNC OLr*EUS 210|NOMADS OF EURASIA|VAJDA, EDWARD J.
 ¢
 	FAIR 235DExperiential Farm Skills2 ÖÚ*(
 FÑ˛"Kempton, Terri Lynne*OS X1018@HZOV S/UbFTFr7FAIR 235D|EXPERIENTIAL FARM SKILLS|KEMPTON, TERRI LYNNE
@@ -841,18 +841,18 @@ RFlat Fee $10.00ZOV S/UbMIX OLjFAIR 203A or equivalentr<FAIR 336B|HISTORY AF
 æ
 	FAIR 387KGrant Writing Workshop4 ¥Ò*1
 MWFŒ	å"Lang, Virginia Dilworth*ONLINE SYNC8@HRFlat Fee $6.89ZOV S/UbOL SYNCr8FAIR 387K|GRANT WRITING WORKSHOP|LANG, VIRGINIA DILWORTH
-ê
+ô
 FIN 215Personal Finance4 ∑Ï*(
-N/A"LaBorde, Pamela M.*ONLINE ASNC08#@HZOVbASNC OL SSCr+FIN 215|PERSONAL FINANCE|LABORDE, PAMELA M.
-«
+N/A"LaBorde, Pamela M.*ONLINE ASNC01QuPu@8#@HZOVbASNC OL SSCr+FIN 215|PERSONAL FINANCE|LABORDE, PAMELA M.
+–
 FIN 216Personal Investing4 êÌ*(
-N/A"LaBorde, Pamela M.*ONLINE ASNC08#@HZOVbASNC OL QSRj1Cannot be taken after or concurrent with FIN 440.r-FIN 216|PERSONAL INVESTING|LABORDE, PAMELA M.
-›
+N/A"LaBorde, Pamela M.*ONLINE ASNC01˙soljæ@8#@HZOVbASNC OL QSRj1Cannot be taken after or concurrent with FIN 440.r-FIN 216|PERSONAL INVESTING|LABORDE, PAMELA M.
+Ê
 FIN 341Principles of Finance4 ’Î*"
-N/A"Kong, Sophie*ONLINE ASNC08#@'H¸ˇˇˇˇˇˇˇˇZOV JR SO SR PQbASNC OLj<Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.r*FIN 341|PRINCIPLES OF FINANCE|KONG, SOPHIE
-œ
+N/A"Kong, Sophie*ONLINE ASNC01Ôëﬂ±fw@8#@'H¸ˇˇˇˇˇˇˇˇZOV JR SO SR PQbASNC OLj<Sophomore status. ACCT 245, DSCI 205, MIS 220 or equivalent.r*FIN 341|PRINCIPLES OF FINANCE|KONG, SOPHIE
+ÿ
 FIN 444Financial Institutions/Markets4 ±Ì**
-TWRË˛"Martin, Darius Daniel*PH 1048#@HZOV JR SO SR PQbFTF WP1jMajors Only. FIN 341r<FIN 444|FINANCIAL INSTITUTIONS/MARKETS|MARTIN, DARIUS DANIEL
+TWRË˛"Martin, Darius Daniel*PH 1041.À≈ª@8#@HZOV JR SO SR PQbFTF WP1jMajors Only. FIN 341r<FIN 444|FINANCIAL INSTITUTIONS/MARKETS|MARTIN, DARIUS DANIEL
 »
 FIN 460Finance Apprenticeship4 °Î*"
 TBD"Benson, Earl Dean*PH OFC88
@@ -863,20 +863,22 @@ ZOV MJbFTFj8Majors Only. FIN 341, FIN 440. Permission of instructor.r0FIN 460|
 TBD"Benson, Earl Dean*PH OFC88
 H
 ZOV MJbFTFj&Majors Only. Permission of instructor.r/FIN 490|INTERNSHIP IN FINANCE|BENSON, EARL DEAN
-˘
+Ç
 FREN 201Intermediate French5 ÅÒ*0
 MTWRFËø	"Predko, Andrea Shawn*ONLINE SYNC*
-N/A"Staff*ONLINE ASNC08@	HRFlat Fee $5.00ZOVbBCOM MIX OLj"FREN 103 or FREN 104 or equivalentr7FREN 201|INTERMEDIATE FRENCH|PREDKO, ANDREA SHAWN|STAFF
-π
+N/A"Staff*ONLINE ASNC01d‡‰=≠
+@8@	HRFlat Fee $5.00ZOVbBCOM MIX OLj"FREN 103 or FREN 104 or equivalentr7FREN 201|INTERMEDIATE FRENCH|PREDKO, ANDREA SHAWN|STAFF
+¬
 FREN 202Intermediate French5 ÇÒ*0
 MTWRFËø	"Predko, Andrea Shawn*ONLINE SYNC*3
 MTWRFËø	"Radoiu, Anthony Nicolas*ONLINE SYNC*
-N/A"Staff*ONLINE ASNC08@HRFlat Fee $5.00ZOVb
+N/A"Staff*ONLINE ASNC01µ7‚√MÚ
+@8@HRFlat Fee $5.00ZOVb
 HUM MIX OLjFREN 201 or equivalentrOFREN 202|INTERMEDIATE FRENCH|PREDKO, ANDREA SHAWN|RADOIU, ANTHONY NICOLAS|STAFF
-Ú
+˚
 FREN 203Intermediate French5 ÉÒ*3
 MTWRFËø	"Radoiu, Anthony Nicolas*ONLINE SYNC*
-N/A"Staff*ONLINE ASNC08@	HRFlat Fee $5.00ZOVb
+N/A"Staff*ONLINE ASNC01Ü;QâÔå@8@	HRFlat Fee $5.00ZOVb
 HUM MIX OLjFREN 202 or equivalentr:FREN 203|INTERMEDIATE FRENCH|RADOIU, ANTHONY NICOLAS|STAFF
 Å
 GEOL 101Introduction to Geology4 üÒ*(
@@ -906,33 +908,35 @@ y
 ∞
 GRAD 699Continuous Enrollment1 ìÌ*#
 TBD"Barr, Michael Charles*TBA88d@HGRFlat Fee $50.00ZOV GR PB PM S/UbFTFr4GRAD 699|CONTINUOUS ENROLLMENT|BARR, MICHAEL CHARLES
-¶
+Ø
 HLED 210Intro to Public Health4 √Ì*,
-N/A"Bennett, Steve Woodrow*ONLINE ASNC082@H*ZOVbASNC OL SSCr6HLED 210|INTRO TO PUBLIC HEALTH|BENNETT, STEVE WOODROW
-´
+N/A"Bennett, Steve Woodrow*ONLINE ASNC01ôQíB@
+@82@H*ZOVbASNC OL SSCr6HLED 210|INTRO TO PUBLIC HEALTH|BENNETT, STEVE WOODROW
+¥
 HLED 345Health Promo/Disease Prevent4 ÁÌ*
-N/A"Li, Ying*ONLINE ASNC082@HZOV PQbASNC OLjBIOL 101 or BIOL 205r.HLED 345|HEALTH PROMO/DISEASE PREVENT|LI, YING
-¢
+N/A"Li, Ying*ONLINE ASNC01¢≠œ(
+@82@HZOV PQbASNC OLjBIOL 101 or BIOL 205r.HLED 345|HEALTH PROMO/DISEASE PREVENT|LI, YING
+´
 HLED 350	Nutrition3 ‚Ï* 
 N/A"
-Hunt, Mary*ONLINE ASNC08(@H
+Hunt, Mary*ONLINE ASNC01¢»2ä,£@8(@H
 ZOV PQbASNC OLj-BIOL 101 or BIOL 205 or CHEM 115 or CHEM 161.rHLED 350|NUTRITION|HUNT, MARY
-◊
+‡
 HLED 455Health Education Grades K-82 ¨Î*,
-N/A"Bennett, Steve Woodrow*ONLINE ASNC08(@(ZOVbASNC OLj+Admission to Woodring College of Education.r;HLED 455|HEALTH EDUCATION GRADES K-8|BENNETT, STEVE WOODROW
-¢
+N/A"Bennett, Steve Woodrow*ONLINE ASNC01TŒn·W@8(@(ZOVbASNC OLj+Admission to Woodring College of Education.r;HLED 455|HEALTH EDUCATION GRADES K-8|BENNETT, STEVE WOODROW
+´
 HLED 470
 Internship12 °Ó*
 TBD"
-Hunt, Mary*CV OFC88@	HZOV MJ S/U PQbFTFj,HLED 430 and proof of malpractice insurance.rHLED 470|INTERNSHIP|HUNT, MARY
-û
+Hunt, Mary*CV OFC81Ï∏ÖRÏ@8@	HZOV MJ S/U PQbFTFj,HLED 430 and proof of malpractice insurance.rHLED 470|INTERNSHIP|HUNT, MARY
+ß
 HLED 470
 Internship12 ¢Ó*
-TBD"Li, Ying*CV OFC88@	HZOV MJ S/U PQbFTFj,HLED 430 and proof of malpractice insurance.rHLED 470|INTERNSHIP|LI, YING
-∫
+TBD"Li, Ying*CV OFC81Ï∏ÖRÏ@8@	HZOV MJ S/U PQbFTFj,HLED 430 and proof of malpractice insurance.rHLED 470|INTERNSHIP|LI, YING
+√
 HLED 470
 Internship12 £Ó*'
-TBD"Bennett, Steve Woodrow*CV OFC88@	HZOV MJ S/U PQbFTFj,HLED 430 and proof of malpractice insurance.r*HLED 470|INTERNSHIP|BENNETT, STEVE WOODROW
+TBD"Bennett, Steve Woodrow*CV OFC81Ï∏ÖRÏ@8@	HZOV MJ S/U PQbFTFj,HLED 430 and proof of malpractice insurance.r*HLED 470|INTERNSHIP|BENNETT, STEVE WOODROW
 »
 HIST 364Civil War Era in Film5 ¬Ì*#
 N/A"Price, Hunter*ONLINE ASNC01&x0O‘ø	@8@HZOVbASNC OL US US1 US2j$Sophomore, junior, or senior status.r,HIST 364|CIVIL WAR ERA IN FILM|PRICE, HUNTER
@@ -972,9 +976,9 @@ ASNC OL USjsophomore standingr5HIST 391|HISTORY OF PACIFIC NORTHWEST|SELTZ, JEN
 TBD"Dugger, Julie*TBA88@
 H
 ZOV S/UbFTFr%HNRS 490|SENIOR PROJECT|DUGGER, JULIE
-∞
+π
 HSP 430Reading/Projects in Hum Srvcs1 TO 5 ƒÏ*'
-N/A"Chandran, Devyani*ONLINE ASNC08@
+N/A"Chandran, Devyani*ONLINE ASNC01      @8@
 HZ	OV MJ S/UbASNC OLr7HSP 430|READING/PROJECTS IN HUM SRVCS|CHANDRAN, DEVYANI
 ¶
 HSP 440Internship and Seminar5 ÿÏ*%
@@ -1021,20 +1025,20 @@ Z	OV S/U PQbFTFj£For the news/editorial sequence: Jour 207, JOUR 307, JOUR 309
 JOUR 480Senior Seminar5 ˛Ì*+
 N/A"Moscato, Derek Ronald*ONLINE ASNC0133333S
 @8@HZOV SR MJ PQbASNC OLj(JOUR 350 and JOUR 351; and major status.r-JOUR 480|SENIOR SEMINAR|MOSCATO, DEREK RONALD
-ª
+ƒ
 KIN 312Functional Anatomy5 ƒÌ*%
-MTWRF¢∞	"San Juan, Jun*CV 163B8@HRFlat Fee $35.00ZOV JR SR MJ PQbFTFjBIOL 348, junior status.r(KIN 312|FUNCTIONAL ANATOMY|SAN JUAN, JUN
-”
+MTWRF¢∞	"San Juan, Jun*CV 163B1‘Æbﬂoù	@8@HRFlat Fee $35.00ZOV JR SR MJ PQbFTFjBIOL 348, junior status.r(KIN 312|FUNCTIONAL ANATOMY|SAN JUAN, JUN
+‹
 KIN 409Aging & Functional Assessmnt4 ûÒ*"
 MWFî
-å"Robey, Nathan*CV 1038@HRFlat Fee $15.50ZOV MJ PQbFTFj%KIN 306; or permission of instructor.r2KIN 409|AGING & FUNCTIONAL ASSESSMNT|ROBEY, NATHAN
-≤
+å"Robey, Nathan*CV 1031égk—‡x@8@HRFlat Fee $15.50ZOV MJ PQbFTFj%KIN 306; or permission of instructor.r2KIN 409|AGING & FUNCTIONAL ASSESSMNT|ROBEY, NATHAN
+ª
 KIN 416Strength&Cond Program Design3 ¸Ï*"
-MWRF†ì"Suprak, Dave*CV 2648@HZOV MJ PQbFTFjKIN 312 or concurrent.r1KIN 416|STRENGTH&COND PROGRAM DESIGN|SUPRAK, DAVE
-∂
+MWRF†ì"Suprak, Dave*CV 2641Ÿ°∞@8@HZOV MJ PQbFTFjKIN 312 or concurrent.r1KIN 416|STRENGTH&COND PROGRAM DESIGN|SUPRAK, DAVE
+ø
 KIN 422Professional Issues3 ßÌ*"
 TRî
-™"Washburn, Nick*CV 2658@HZOV SR MJ PQbFTF WP3j#KIN 306 or PEH 443P; Senior status.r*KIN 422|PROFESSIONAL ISSUES|WASHBURN, NICK
+™"Washburn, Nick*CV 2651“Ú:G@8@HZOV SR MJ PQbFTF WP3j#KIN 306 or PEH 443P; Senior status.r*KIN 422|PROFESSIONAL ISSUES|WASHBURN, NICK
 ‹
 KIN 472Internship II12 ∑Î*!
 TBD"Chalmers, Gordon R.*TBA8*
@@ -1107,16 +1111,17 @@ u
 Ï
 MIS 220Intro:Busnss Comptr Syst w/lab2 ÷Ò*"
 N/A"McClain, Lee*ONLINE ASNC08Z@FHZOV S/UbASNC OLjJPre-major, major or minor in business; or pre-major or major in economics.r3MIS 220|INTRO:BUSNSS COMPTR SYST W/LAB|MCCLAIN, LEE
-˚
+Ñ
 MIS 320Principles of Management Info4 ◊Ò*)
 N/A"Califf, Christopher*ONLINE ASNC0*&
-N/A"Bajwa, Deepinder*ONLINE ASNC08-@HZOV PQbASNC OLjMIS 220 or equivalentrJMIS 320|PRINCIPLES OF MANAGEMENT INFO|CALIFF, CHRISTOPHER|BAJWA, DEEPINDER
-∆
+N/A"Bajwa, Deepinder*ONLINE ASNC01ï
+,YÔ	@8-@HZOV PQbASNC OLjMIS 220 or equivalentrJMIS 320|PRINCIPLES OF MANAGEMENT INFO|CALIFF, CHRISTOPHER|BAJWA, DEEPINDER
+œ
 MIS 422Bus Intelligence and Analytics4 ÚÒ*$
-N/A"Chen, Xiaofeng*ONLINE ASNC08@HZOV PQbASNC OLj!Majors only. MIS 320 or ACCT 321.r5MIS 422|BUS INTELLIGENCE AND ANALYTICS|CHEN, XIAOFENG
-–
+N/A"Chen, Xiaofeng*ONLINE ASNC01hüj˛∆˚	@8@HZOV PQbASNC OLj!Majors only. MIS 320 or ACCT 321.r5MIS 422|BUS INTELLIGENCE AND ANALYTICS|CHEN, XIAOFENG
+Ÿ
 MIS 435Data Vislzation for Dec Making4 ÑÌ*)
-N/A"Califf, Christopher*ONLINE ASNC08@HZOV PQbASNC OLj!Majors only. MIS 320 or ACCT 321.r:MIS 435|DATA VISLZATION FOR DEC MAKING|CALIFF, CHRISTOPHER
+N/A"Califf, Christopher*ONLINE ASNC01˜¸W≈—@8@HZOV PQbASNC OLj!Majors only. MIS 320 or ACCT 321.r:MIS 435|DATA VISLZATION FOR DEC MAKING|CALIFF, CHRISTOPHER
 ∂
 MACS 494Ind. Research Project1 TO 10 ¢Ô*&
 TBD"Dimond, James Longfellow*TBA88
@@ -1125,22 +1130,22 @@ u
 MACS 495Marine/Coastal Sci Internship1 TO 10 €Ó*&
 TBD"Dimond, James Longfellow*TBA88
 @HZOVbFTFjInstructor permission.r?MACS 495|MARINE/COASTAL SCI INTERNSHIP|DIMOND, JAMES LONGFELLOW
-æ
+«
 MKTG 380Principles of Marketing4 ŒÎ*%
-N/A"Baskentli, Sara*ONLINE ASNC08#@"HZOV PQbASNC OLj#ACCT 240; and ECON 206 or HNRS 209.r0MKTG 380|PRINCIPLES OF MARKETING|BASKENTLI, SARA
-¢
+N/A"Baskentli, Sara*ONLINE ASNC01ñ«j d@8#@"HZOV PQbASNC OLj#ACCT 240; and ECON 206 or HNRS 209.r0MKTG 380|PRINCIPLES OF MARKETING|BASKENTLI, SARA
+´
 MKTG 471Sports Marketing4 ΩÎ*#
-TWR†∂"Brummel, Steve*CV 1038#@HZOV JR SR PQbFTFjMajors Only. MKTG 380.r(MKTG 471|SPORTS MARKETING|BRUMMEL, STEVE
-Ÿ
+TWR†∂"Brummel, Steve*CV 1031È†Í†N@8#@HZOV JR SR PQbFTFjMajors Only. MKTG 380.r(MKTG 471|SPORTS MARKETING|BRUMMEL, STEVE
+‚
 MKTG 480Marketing Internship4 ùÎ*%
-TBD"Armstrong Soule, Cat*PH OFC88@HZOV JR SR MJ PQbFTFj:Majors Only. MKTG 381, MKTG 382. Permission of instructor.r2MKTG 480|MARKETING INTERNSHIP|ARMSTRONG SOULE, CAT
-–
+TBD"Armstrong Soule, Cat*PH OFC81≠}√⁄7¨@8@HZOV JR SR MJ PQbFTFj:Majors Only. MKTG 381, MKTG 382. Permission of instructor.r2MKTG 480|MARKETING INTERNSHIP|ARMSTRONG SOULE, CAT
+Ÿ
 MKTG 483Integrtd MKTG Communications4 óÔ*)
 TR¯
-é"Purdy, Daniel LaRaine*IS 2448@HZOV MJ PQbCF FTFjMajors Only. MKTG 381, MKTG 382r;MKTG 483|INTEGRTD MKTG COMMUNICATIONS|PURDY, DANIEL LARAINE
-ñ
+é"Purdy, Daniel LaRaine*IS 2441∏,ë`°@8@HZOV MJ PQbCF FTFjMajors Only. MKTG 381, MKTG 382r;MKTG 483|INTEGRTD MKTG COMMUNICATIONS|PURDY, DANIEL LARAINE
+ü
 MKTG 489Mktg Management and Strategy4 ¶Ô**
-TWRË˛"Purdy, Daniel LaRaine*IS 2448#@HZOV MJ PQbFTFjgMajors only; MKTG 381; MKTG 382; and two 400-level marketing courses (excluding MKTG 480 and MKTG 490).r;MKTG 489|MKTG MANAGEMENT AND STRATEGY|PURDY, DANIEL LARAINE
+TWRË˛"Purdy, Daniel LaRaine*IS 2441∫ „Çå@8#@HZOV MJ PQbFTFjgMajors only; MKTG 381; MKTG 382; and two 400-level marketing courses (excluding MKTG 480 and MKTG 490).r;MKTG 489|MKTG MANAGEMENT AND STRATEGY|PURDY, DANIEL LARAINE
 Á
 MKTG 490MKTG Customized Internship1 TO 4 ûÎ*%
 TBD"Armstrong Soule, Cat*PH OFC88
@@ -1250,10 +1255,10 @@ ZOVbFTFj]MATH 226; MATH 302 or MATH 309.  Restricted to majors and minors duri
 MDS 471
 Internship5 TO 10 æÏ*#
 TBD"Walker, Wendy Colleen*TBA88@HZ	OV MJ S/UbFTFj@Multidisciplinary Studies majors only; permission of instructor.r(MDS 471|INTERNSHIP|WALKER, WENDY COLLEEN
-¶
+Ø
 MLE 441Lang,Cult.& Equity:Glob.toLoc.5 ïÔ*:
 MÑ‚	""Ruiz Guerrero, Margarita Guadalupe*ONLINE SYNC*8
-N/A""Ruiz Guerrero, Margarita Guadalupe*ONLINE ASNC08@HZOVbMIX OLrlMLE 441|LANG,CULT.& EQUITY:GLOB.TOLOC.|RUIZ GUERRERO, MARGARITA GUADALUPE|RUIZ GUERRERO, MARGARITA GUADALUPE
+N/A""Ruiz Guerrero, Margarita Guadalupe*ONLINE ASNC01] •\ •@8@HZOVbMIX OLrlMLE 441|LANG,CULT.& EQUITY:GLOB.TOLOC.|RUIZ GUERRERO, MARGARITA GUADALUPE|RUIZ GUERRERO, MARGARITA GUADALUPE
 π
 MUS 104Art of Listening to Music3 –Î*/
 N/A"Donnellan, Grant Jonathan*ONLINE ASNC01ç¥c¬à@8#@HZOVbASNC HUM OLr;MUS 104|ART OF LISTENING TO MUSIC|DONNELLAN, GRANT JONATHAN
@@ -1288,27 +1293,29 @@ HZ	OV MJ S/UbASNC OLj?Admission to the RN-to-BSN program or permission of inst
 Œ
 NURS 401Transtns in Prof Nrsg Practice1 ßÒ*$
 N/A"Branson, Sandy*ONLINE ASNC08@HZ	OV MJ S/UbASNC OLj#Admission to the RN-to-BSN program.r6NURS 401|TRANSTNS IN PROF NRSG PRACTICE|BRANSON, SANDY
-±
+∫
 NURS 442Care Coordination4 ÍÏ*$
-N/A"Branson, Sandy*ONLINE ASNC08@HZOV MJ PQbASNC OLj!NURS 422; co-requisite: NURS 443.r)NURS 442|CARE COORDINATION|BRANSON, SANDY
-±
+N/A"Branson, Sandy*ONLINE ASNC01      @8@HZOV MJ PQbASNC OLj!NURS 422; co-requisite: NURS 443.r)NURS 442|CARE COORDINATION|BRANSON, SANDY
+∫
 NURS 442Care Coordination4 ®Ò*$
-N/A"Branson, Sandy*ONLINE ASNC08@HZOV MJ PQbASNC OLj!NURS 422; co-requisite: NURS 443.r)NURS 442|CARE COORDINATION|BRANSON, SANDY
-™
+N/A"Branson, Sandy*ONLINE ASNC01      @8@HZOV MJ PQbASNC OLj!NURS 422; co-requisite: NURS 443.r)NURS 442|CARE COORDINATION|BRANSON, SANDY
+≥
 NURS 443Care Coordnation Prac Exp1 ÎÏ*
-TBD"Wahler, Katie*TBA88@HZ	OV MJ S/UbFTFjCo-requisite: NURS 442.r0NURS 443|CARE COORDNATION PRAC EXP|WAHLER, KATIE
-™
+TBD"Wahler, Katie*TBA81¨™™™™™@8@HZ	OV MJ S/UbFTFjCo-requisite: NURS 442.r0NURS 443|CARE COORDNATION PRAC EXP|WAHLER, KATIE
+≥
 NURS 443Care Coordnation Prac Exp1 ©Ò*
-TBD"Wahler, Katie*TBA88@HZ	OV MJ S/UbFTFjCo-requisite: NURS 442.r0NURS 443|CARE COORDNATION PRAC EXP|WAHLER, KATIE
-®
+TBD"Wahler, Katie*TBA81¨™™™™™@8@HZ	OV MJ S/UbFTFjCo-requisite: NURS 442.r0NURS 443|CARE COORDNATION PRAC EXP|WAHLER, KATIE
+±
 NURS 443Care Coordnation Prac Exp1 ™Ò*
-TBD"Wahler, Katie*TBA88@Z	OV MJ S/UbFTFjCo-requisite: NURS 442.r0NURS 443|CARE COORDNATION PRAC EXP|WAHLER, KATIE
-≤
+TBD"Wahler, Katie*TBA81¨™™™™™@8@Z	OV MJ S/UbFTFjCo-requisite: NURS 442.r0NURS 443|CARE COORDNATION PRAC EXP|WAHLER, KATIE
+ª
 NURS 452Global Health5 ‘Ó*$
-N/A"Branson, Sandy*ONLINE ASNC08@HZOV MJ PQbACGM ASNC OLj%NURS 432 or permission of instructor.r%NURS 452|GLOBAL HEALTH|BRANSON, SANDY
-≤
+N/A"Branson, Sandy*ONLINE ASNC01÷£p=
+◊@8@HZOV MJ PQbACGM ASNC OLj%NURS 432 or permission of instructor.r%NURS 452|GLOBAL HEALTH|BRANSON, SANDY
+ª
 NURS 452Global Health5 ´Ò*$
-N/A"Branson, Sandy*ONLINE ASNC08@HZOV MJ PQbACGM ASNC OLj%NURS 432 or permission of instructor.r%NURS 452|GLOBAL HEALTH|BRANSON, SANDY
+N/A"Branson, Sandy*ONLINE ASNC01÷£p=
+◊@8@HZOV MJ PQbACGM ASNC OLj%NURS 432 or permission of instructor.r%NURS 452|GLOBAL HEALTH|BRANSON, SANDY
 œ
 OPS 360Operations Management4 ÖÎ*'
 N/A"Springer, Mark C.*ONLINE ASNC08-@-ZOV PQbASNC OLj8DSCI 205, ACCT 245, C- or better; spreadsheet competencyr/OPS 360|OPERATIONS MANAGEMENT|SPRINGER, MARK C.
@@ -1476,12 +1483,12 @@ ZOV GRbFTFr#PSY 699|CONTINUOUS ENROLLMENT|STAFF
 TBD"Chmielewski, Kristen Elizabeth*TBA8*$
 TBD"D'Eloia, Melissa Hough*TBA8*$
 TBD"Goodnow, Jasmine Marie*TBA88<@,HZ	OV MJ S/UbFTFjPhase II Recreation MajorsrxRECR 472|INTERNSHIP II|BURTZ, RANDALL TYLER|CHMIELEWSKI, KRISTEN ELIZABETH|D'ELOIA, MELISSA HOUGH|GOODNOW, JASMINE MARIE
-∂
+ø
 RC 579Human Growth, Develop, & Dis4 ÉÓ*&
-N/A"Bengtson, Kevin Eric*Everett08@HZOV GR GR PB PM MJbASNC EVEX OLr8RC 579|HUMAN GROWTH, DEVELOP, & DIS|BENGTSON, KEVIN ERIC
-æ
+N/A"Bengtson, Kevin Eric*Everett01€7¨}√⁄@8@HZOV GR GR PB PM MJbASNC EVEX OLr8RC 579|HUMAN GROWTH, DEVELOP, & DIS|BENGTSON, KEVIN ERIC
+«
 RC 585Social,Psych,Attitude Disablty4 ªÌ*(
-N/A"Boland, Elizabeth Anne*Everett08@H
+N/A"Boland, Elizabeth Anne*Everett01_#˛5‚_@8@H
 ZOV GR GR PB PM MJbASNC EVEX OLr<RC 585|SOCIAL,PSYCH,ATTITUDE DISABLTY|BOLAND, ELIZABETH ANNE
 ⁄
 RC 592Internship in Rehab Couns1 TO 8 ∂Î*(
@@ -1489,12 +1496,12 @@ ZOV GR GR PB PM MJbASNC EVEX OLr<RC 585|SOCIAL,PSYCH,ATTITUDE DISABLTY|BOLAND,
 ›
 RC 592Internship in Rehab Couns1 TO 8 ›Ì*(
 T§Ç"Bengtson, Kevin Eric*Everett8@HZOV GR GR PB PM MJ S/UbEVEX FTFj$RC 591 and permission of instructor.r5RC 592|INTERNSHIP IN REHAB COUNS|BENGTSON, KEVIN ERIC
-ª
+ƒ
 REL 332World Religions5 ˘*!
-N/A"Folk, Holly*ONLINE ASNC08@HZOV JR SRbACGM ASNC OLj2Junior or senior status; or instructor permission.r#REL 332|WORLD RELIGIONS|FOLK, HOLLY
-Ÿ
+N/A"Folk, Holly*ONLINE ASNC01ŒÃÃÃÃÃ@8@HZOV JR SRbACGM ASNC OLj2Junior or senior status; or instructor permission.r#REL 332|WORLD RELIGIONS|FOLK, HOLLY
+‚
 REL 345Fierce Goddesses of India5 ŒÌ*&
-N/A"Slouber, Michael*ONLINE ASNC08@HZOV JR SRbACGM ASNC OLj2Junior or senior status; or instructor permission.r2REL 345|FIERCE GODDESSES OF INDIA|SLOUBER, MICHAEL
+N/A"Slouber, Michael*ONLINE ASNC01CyÂ5î@8@HZOV JR SRbACGM ASNC OLj2Junior or senior status; or instructor permission.r2REL 345|FIERCE GODDESSES OF INDIA|SLOUBER, MICHAEL
 Í
 SALI 201Introduction to the Salish Sea4 ∫Ì*0
 N/A"Hatch, Marco Brandon Allen*ONLINE ASNC01¨ûø64°
@@ -1582,29 +1589,30 @@ Helms, Ron*AH OFC88@HZOVbFTFr(SOC 481|RESEARCH ASSISTANSHIP|HELMS, RON
 ¬
 SOC 492Senior Thesis5 èÓ*$
 TBD"Tsunokai, Glenn Thomas*TBA88HZOV MJ PQbCPST FTF WP1j∞SOC 302; and SOC 304 or SOC 215; and SOC 306 or or SOC 210. 5 credits of SOC 400 taken with student's senior thesis faculty advisor before and in preparation for senior thesis.r,SOC 492|SENIOR THESIS|TSUNOKAI, GLENN THOMAS
-˙
+É
 SPAN 201Intermediate Spanish5 ÑÒ*/
 MTWRF†∂"Drickey, Kirsten M.*ONLINE SYNC*
-N/A"Staff*ONLINE ASNC08@HRFlat Fee $5.00ZOVbBCOM MIX OLj#SPAN 103 or SPAN 104 or equivalent.r7SPAN 201|INTERMEDIATE SPANISH|DRICKEY, KIRSTEN M.|STAFF
-›
+N/A"Staff*ONLINE ASNC01ÖÎQ∏Ö	@8@HRFlat Fee $5.00ZOVbBCOM MIX OLj#SPAN 103 or SPAN 104 or equivalent.r7SPAN 201|INTERMEDIATE SPANISH|DRICKEY, KIRSTEN M.|STAFF
+Ê
 SPAN 202Intermediate Spanish5 ÖÒ*.
 MTWRF†∂"Dwyer, Sean Thomas*ONLINE SYNC*
-N/A"Staff*ONLINE ASNC08@HRFlat Fee $5.00ZOVb
+N/A"Staff*ONLINE ASNC01≠êLΩÕ
+@8@HRFlat Fee $5.00ZOVb
 HUM MIX OLj	SPAN 201.r6SPAN 202|INTERMEDIATE SPANISH|DWYER, SEAN THOMAS|STAFF
-Ÿ
+‚
 SPAN 203Intermediate Spanish5 ÜÒ*,
 MTWRF†∂"Carbajal, Amy R.*ONLINE SYNC*
-N/A"Staff*ONLINE ASNC08@HRFlat Fee $5.00ZOVb
+N/A"Staff*ONLINE ASNC01Ü;QâÔå@8@HRFlat Fee $5.00ZOVb
 HUM MIX OLj	SPAN 202.r4SPAN 203|INTERMEDIATE SPANISH|CARBAJAL, AMY R.|STAFF
-”
+‹
 SPAN 301Grammar Review & Composition5 áÒ*
-TBD"Aranda, Blanca*TBA88@RFlat Fee $1425.00ZOV PQbFTF HUM TRVLj"SPAN 203 or instructor permission.r4SPAN 301|GRAMMAR REVIEW & COMPOSITION|ARANDA, BLANCA
-∑
+TBD"Aranda, Blanca*TBA81*áŸŒ˜@8@RFlat Fee $1425.00ZOV PQbFTF HUM TRVLj"SPAN 203 or instructor permission.r4SPAN 301|GRAMMAR REVIEW & COMPOSITION|ARANDA, BLANCA
+¿
 SPAN 302Grammar Review & Composition5 àÒ*$
-TBD"Portugal, Luis Gonzalo*TBA88@ZOV PQbFTF HUM TRVLj	SPAN 301.r<SPAN 302|GRAMMAR REVIEW & COMPOSITION|PORTUGAL, LUIS GONZALO
-ƒ
+TBD"Portugal, Luis Gonzalo*TBA81@8@ZOV PQbFTF HUM TRVLj	SPAN 301.r<SPAN 302|GRAMMAR REVIEW & COMPOSITION|PORTUGAL, LUIS GONZALO
+Õ
 SPAN 332Culture of Latin America5 âÒ*$
-TBD"Portugal, Luis Gonzalo*TBA88@ZOV PQbFTF TRVLj"SPAN 301 or instructor permission.r8SPAN 332|CULTURE OF LATIN AMERICA|PORTUGAL, LUIS GONZALO
+TBD"Portugal, Luis Gonzalo*TBA81D% ‹x@8@ZOV PQbFTF TRVLj"SPAN 301 or instructor permission.r8SPAN 332|CULTURE OF LATIN AMERICA|PORTUGAL, LUIS GONZALO
 ∆
 SPED 310Education, Culture, and Equity5 ¥Ó*-
 N/A"Foreman-Murray, Lindsay*ONLINE ASNC01;PH+@8@HZOVbASNC BCGM OL WP3r?SPED 310|EDUCATION, CULTURE, AND EQUITY|FOREMAN-MURRAY, LINDSAY
@@ -1623,9 +1631,9 @@ HUM MIX OLj	SPAN 202.r4SPAN 203|INTERMEDIATE SPANISH|CARBAJAL, AMY R.|STAFF
 TESL 411Linguistics & Second Lang Acq4 •Ó*+
 N/A"Blick, Andrew Michael*ONLINE ASNC08@
 HZOVbASNC OLj8Admission to the TESOL program or instructor permission.r<TESL 411|LINGUISTICS & SECOND LANG ACQ|BLICK, ANDREW MICHAEL
-
+˘
 TESL 441Instruct. Theories/Mthds TESOL4 ¶Ó*.
-N/A"Brisbois, Lisa Christine*ONLINE ASNC08@HZOVbASNC OLj8Admission to the TESOL program or instructor permission.r@TESL 441|INSTRUCT. THEORIES/MTHDS TESOL|BRISBOIS, LISA CHRISTINE
+N/A"Brisbois, Lisa Christine*ONLINE ASNC01”∏çÀ—@8@HZOVbASNC OLj8Admission to the TESOL program or instructor permission.r@TESL 441|INSTRUCT. THEORIES/MTHDS TESOL|BRISBOIS, LISA CHRISTINE
 Ù
 TESL 450Professional Seminar for TESOL2 ßÓ*.
 N/A"Brisbois, Lisa Christine*ONLINE ASNC08@HZOV S/UbASNC OLj8Admission to the TESOL program or instructor permission.r@TESL 450|PROFESSIONAL SEMINAR FOR TESOL|BRISBOIS, LISA CHRISTINE
@@ -1706,4 +1714,4 @@ ZOVbFTFjInstructor permission.r&UEPP 498C|SENIOR PROJECT|ABEL, TROY D.
 N/A"Deylami, Shirin Sedigh*ONLINE ASNC01äv}–¥h@8@H	ZOVbACGM ASNC OLr:WGSS 213|INTRO TO SEXUALITY STUDIES|DEYLAMI, SHIRIN SEDIGH
 È
 WGSS 320Media & Feminisms5 –Ì*'
-N/A"Mihai, Mariangela*ONLINE ASNC01Ü.;˙@8@HZOVbASNC BCGM OLjKWGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.r,WGSS 320|MEDIA & FEMINISMS|MIHAI, MARIANGELAå¯∆πœ–≥X
+N/A"Mihai, Mariangela*ONLINE ASNC01Ü.;˙@8@HZOVbASNC BCGM OLjKWGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.r,WGSS 320|MEDIA & FEMINISMS|MIHAI, MARIANGELAì∫«πÀ´—

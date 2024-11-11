@@ -63,12 +63,18 @@ func findInstructor(name string, subject string, gpaData models.GPAData) (string
 // Finds and processes the GPA of a course, returns the GPA for that course
 func findGPA(course models.Course, gpaData models.GPAData) float64 {
 	// Pull out the subjects course and convert it via utils.CourseSubjectMapping if necessary
-	subject := course.Subject
-	courseName := string(utils.SubjectRegexp.Find([]byte(course.Subject)))
-	newSubject := utils.CourseSubjectMapping[string(subject)]
-
-	if newSubject != "" { // Replace the subject if the GPA data had a different subject
-		subject = strings.Replace(subject, courseName, newSubject, 1)
+	var subject string
+	matches := utils.SubjectRegexp.FindStringSubmatch(course.Subject)
+	if len(matches) < 2 {
+		// Invalid format, just use original subject
+		subject = course.Subject
+	} else {
+		courseName := matches[1]
+		if newSubject, exists := utils.CourseSubjectMapping[courseName]; exists {
+			subject = strings.Replace(course.Subject, courseName, newSubject, 1)
+		} else {
+			subject = course.Subject
+		}
 	}
 
 	// Find the instructor
