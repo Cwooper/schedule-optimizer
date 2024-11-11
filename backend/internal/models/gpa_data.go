@@ -1,7 +1,7 @@
 package models
 
 import (
-	"fmt"
+	"log"
 	"strconv"
 	"strings"
 
@@ -53,7 +53,7 @@ func totalGPA(record []string) float64 {
 	for col := utils.CNT_A_COL; col <= utils.CNT_F_COL; col++ {
 		count, err := strconv.Atoi(record[col])
 		if err != nil {
-			fmt.Printf("failed to parse: %v\n", record[col])
+			log.Printf("failed to parse: %v\n", record[col])
 			return 0.0
 		}
 		total += (utils.GpaMap[col] * float64(count))
@@ -71,15 +71,26 @@ func (data *GPAData) ProcessRecords(records [][]string) {
 	courseTotal := make(map[string]float64)
 
 	for _, record := range records {
-		if record[utils.CNT_A_COL] == "" || record[utils.GRADE_COUNT_COL] == "0" {
+		if record[utils.CNT_A_COL] == "" ||
+			record[utils.GRADE_COUNT_COL] == "0" ||
+			(record[utils.GRADE_COUNT_COL] == record[utils.CNT_W_COL]) {
 			continue // Skip records with no data
 		}
 
 		count, err := strconv.Atoi(record[utils.GRADE_COUNT_COL])
 		if err != nil {
-			fmt.Printf("failed to parse grade count: %v", err)
+			log.Printf("failed to parse grade count: %v", err)
 			continue
 		}
+
+		w_count, err := strconv.Atoi(record[utils.CNT_W_COL])
+		if err != nil {
+			log.Printf("failed to parse w count: %v", err)
+			continue
+		}
+
+		count -= w_count // Remove dropped count from GPA total
+
 		total := totalGPA(record)
 		if total == 0.0 {
 			continue
@@ -87,7 +98,7 @@ func (data *GPAData) ProcessRecords(records [][]string) {
 
 		professor := simplifyName(record[utils.PROFESSOR_COL])
 		subject := record[utils.CODE_COL]
-		courseKey := CourseKey(professor, subject)
+		courseKey := CourseKey(subject, professor)
 
 		if professor != "" {
 			professorCount[professor] += count
