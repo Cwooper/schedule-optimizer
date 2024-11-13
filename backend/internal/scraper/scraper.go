@@ -253,10 +253,20 @@ func UpdateCourses() error {
 	var wg sync.WaitGroup
 	results := make(chan Result, len(terms))
 
+	// Create a semaphore channel with size 3
+	semaphore := make(chan struct{}, 3)
+
 	for _, term := range terms {
 		wg.Add(1)
 		go func(t string) {
-			defer wg.Done()
+			// Acquire semaphore
+			semaphore <- struct{}{}
+			defer func() {
+				// Release semaphore
+				<-semaphore
+				wg.Done()
+			}()
+
 			results <- getCourses(subjects, t, year)
 		}(term)
 	}

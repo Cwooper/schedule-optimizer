@@ -23,7 +23,7 @@ var (
 
 func init() {
 	httpClient = &http.Client{
-		Timeout: time.Second * 10,
+		Timeout: time.Minute * 5,
 	}
 }
 
