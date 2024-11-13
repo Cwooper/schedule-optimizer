@@ -20,7 +20,8 @@ interface CourseSelectorProps {
   onSubmitSchedule: () => Promise<void>;
 }
 
-// Using fetch to get the subjects from the server
+const LOCAL_STORAGE_KEY = "wwu-schedule-courses";
+
 async function fetchSubjects(): Promise<string[]> {
   try {
     const response = await fetch("/schedule-optimizer/subjects");
@@ -30,10 +31,10 @@ async function fetchSubjects(): Promise<string[]> {
     const text = await response.text();
     return text
       .split("\n")
-      .slice(1) // Skip the first line which contains the header/comment
-      .filter((line: string) => line.trim()) // Remove empty lines
+      .slice(1)
+      .filter((line: string) => line.trim())
       .map((line: string) => line.trim())
-      .sort(); // Sort alphabetically
+      .sort();
   } catch (error) {
     console.error("Error fetching subjects:", error);
     throw error;
@@ -61,8 +62,55 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
     "CHEM",
     "CSCI",
     "MATH",
-    "PHYS", // Default subjects as fallback
+    "PHYS",
   ]);
+  const [hasLoadedFromStorage, setHasLoadedFromStorage] = useState(false);
+
+  // Load courses from localStorage on initial mount
+  useEffect(() => {
+    if (hasLoadedFromStorage || courses.length > 0) return;
+
+    const savedCourses = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (savedCourses) {
+      try {
+        const parsedCourses = JSON.parse(savedCourses) as Course[];
+
+        // Clear existing courses
+        courses.forEach((course) => onRemoveCourse(course.id));
+
+        // Add each saved course with its original ID
+        parsedCourses.forEach((course) => {
+          // First add the course
+          onAddCourse(course.subject, course.code);
+
+          // Then update its force status if needed
+          if (course.force) {
+            // Use requestAnimationFrame to ensure the course is added first
+            requestAnimationFrame(() => {
+              const addedCourse = courses.find(
+                (c) => c.subject === course.subject && c.code === course.code
+              );
+              if (addedCourse) {
+                onToggleForce(addedCourse.id);
+              }
+            });
+          }
+        });
+
+        setHasLoadedFromStorage(true);
+      } catch (e) {
+        console.error("Error loading saved courses:", e);
+      }
+    }
+    setHasLoadedFromStorage(true);
+  }, [courses, hasLoadedFromStorage]);
+
+  // Save courses to localStorage whenever they change
+  useEffect(() => {
+    if (hasLoadedFromStorage) {
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(courses));
+    }
+  }, [courses, hasLoadedFromStorage]);
 
   useEffect(() => {
     if (!minCredits) {
@@ -82,7 +130,6 @@ const CourseSelector: React.FC<CourseSelectorProps> = ({
       } catch (error) {
         console.error("Error loading subjects:", error);
         setError("Error loading course subjects. Using default subject list.");
-        // Keep using the default subjects if there's an error
       }
     };
 
