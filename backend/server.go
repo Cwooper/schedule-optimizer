@@ -207,7 +207,7 @@ func ScheduleGenerator(w http.ResponseWriter, r *http.Request, request models.Ra
 func getPort() string {
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8080" // default port if not specified
+		port = "48920" // default port if not specified
 	}
 	return port
 }
