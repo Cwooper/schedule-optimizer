@@ -31,7 +31,7 @@ This is the backend for the Schedule Optimizer Web Application.
 
    ```bash
    PORT=xxxx go run server.go
-   # For Port 8080:
+   # For Port 48920:
    go run server.go
    ```
 
@@ -84,8 +84,8 @@ sudo a2enmod proxy_http
 2. Edit your Apache site configuration (often in `/etc/apache2/sites-available/000-default.conf`) and add the following under the `DocumentRoot` line:
 
 ```apache
-ProxyPass /schedule-optimizer http://localhost:8080/schedule-optimizer
-ProxyPassReverse /schedule-optimizer http://localhost:8080/schedule-optimizer
+ProxyPass /schedule-optimizer http://localhost:48920/schedule-optimizer
+ProxyPassReverse /schedule-optimizer http://localhost:48920/schedule-optimizer
 ```
 
 ## 4. Enable and start the services
@@ -244,14 +244,13 @@ Fully Transfer backend:
 
 Extra:
 
-- [ ] Multithread WebScraper, GPA Processing
-- [ ] Optimize Forced Courses
-- [ ] If User Asks for the same schedule twice, don't send POST request.
-- [ ] Add Async/TBD table to frontend calendar
+- [x] Multithread WebScraper, GPA Processing
+- [x] Optimize Forced Courses
+- [x] If User Asks for the same schedule twice, don't send POST request.
+- [x] Add Async/TBD table to frontend calendar
 - [ ] Create Dijkstra Map Weighing
   - [ ] Visualize something in Go WASM
   - [ ] Create Paths between classes per schedule
 - [ ] Fuzzy search a "Did you Mean:" when course not found
-- [ ] Redo Calendar in Go WASM?
-- [ ] Port frontend to React (Konnor)
-- [ ] Weight customizability on frontend
+- [x] Port frontend to React (Konnor)
+- [x] Weight customizability on frontend
