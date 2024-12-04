@@ -1714,4 +1714,4 @@ ZOVbFTFjInstructor permission.r&UEPP 498C|SENIOR PROJECT|ABEL, TROY D.
 N/A"Deylami, Shirin Sedigh*ONLINE ASNC01Šv}Ð´h@8@H	ZOVbACGM ASNC OLr:WGSS 213|INTRO TO SEXUALITY STUDIES|DEYLAMI, SHIRIN SEDIGH
 é
 WGSS 320Media & Feminisms5 Ðí*'
-N/A"Mihai, Mariangela*ONLINE ASNC01†.;ðú@8@HZOVbASNC BCGM OLjKWGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.r,WGSS 320|MEDIA & FEMINISMS|MIHAI, MARIANGELAë Ô¹öÿè
+N/A"Mihai, Mariangela*ONLINE ASNC01†.;ðú@8@HZOVbASNC BCGM OLjKWGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.r,WGSS 320|MEDIA & FEMINISMS|MIHAI, MARIANGELA¢˜Ãº‰îãÇ

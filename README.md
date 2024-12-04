@@ -112,4 +112,4 @@ Frontend TODOs:
 - [x] Sort and Weighting menu popup
   - [x] Sort schedules
   - [x] Customize weights
-- [ ] png save for `schedule-glance`
+- [x] png save for `schedule-glance`
