@@ -97,6 +97,7 @@ Extra:
 - [x] Fuzzy search courses
 - [x] Weight customizability on frontend
 - [x] If User Asks for the same schedule twice, don't send POST request.
+- [ ] Docker containerize application
 
 Frontend TODOs:
 
