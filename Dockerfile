@@ -3,15 +3,13 @@
 # Frontend Builder
 FROM node:20-slim AS frontend-builder
 WORKDIR /app
-COPY frontend/ .
+COPY frontend/ ./
 RUN npm install
 RUN npm run build
 
 # Backend Builder
 FROM golang:1.22-bookworm AS backend-builder
-WORKDIR /app
-COPY backend/ .
-COPY --from=frontend-builder /app/dist /app/build
+WORKDIR /backend
 RUN go mod download
 RUN CGO_ENABLED=0 GOOS=linux go build -o server
 
@@ -23,11 +21,11 @@ RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/
 # Create our user
 RUN useradd -r -u 999 -U scheduler
 
-# Copy build artifacts
-COPY --from=backend-builder /app/server ./bin/server
-COPY --from=frontend-builder /app/dist ./build
+RUN mkdir -p /app/build /app/bin /app/data
 
-# Copy data folder
+# Copy build artifacts and intial data
+COPY --from=backend-builder /backend/server /app/bin/
+COPY --from=frontend-builder /frontend/dist /app/build
 COPY data /app/data
 
 # Ensure permissions and switch to running the application
@@ -35,4 +33,5 @@ RUN chown -R scheduler:scheduler /app
 USER scheduler
 
 EXPOSE 48920
-CMD ["./bin/server"]
+WORKDIR /app
+CMD ["/app/bin/server"]
