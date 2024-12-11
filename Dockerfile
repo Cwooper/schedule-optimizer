@@ -15,18 +15,18 @@ COPY --from=frontend-builder /app/dist /app/build
 RUN go mod download
 RUN CGO_ENABLED=0 GOOS=linux go build -o server
 
+# Final image
 FROM debian:bookworm-slim
 WORKDIR /app
 RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/lists/*
 
 # Create our user
-RUN useradd -r -u 1000 -U scheduler
+RUN useradd -r -u 999 -U scheduler
+RUN mkdir -p /data /app/data && chown -R scheduler:scheduler /data /app
 
 # Copy build artifacts
 COPY --from=backend-builder /app/server .
 COPY --from=frontend-builder /app/dist ./build
-
-RUN mkdir -p data && chown -R scheduler:scheduler /app
 
 # Switch to running the application
 USER scheduler
