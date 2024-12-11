@@ -50,7 +50,6 @@ Description=Schedule Optimizer Go Server
 After=network.target
 
 [Service]
-ExecStartPre=/bin/bash -c 'mkdir -p /var/www/schedule-optimizer/data && chown -R www-data:www-data /var/www/schedule-optimizer/data'
 ExecStart=/usr/local/go/bin/go run /var/www/schedule-optimizer/backend/server.go
 WorkingDirectory=/var/www/schedule-optimizer/backend
 User=www-data
