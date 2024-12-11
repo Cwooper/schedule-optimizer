@@ -1122,14 +1122,14 @@ u
 Ÿ
 MIS 435Data Vislzation for Dec Making4 ÑÌ*)
 N/A"Califf, Christopher*ONLINE ASNC01˜¸W≈—@8@HZOV PQbASNC OLj!Majors only. MIS 320 or ACCT 321.r:MIS 435|DATA VISLZATION FOR DEC MAKING|CALIFF, CHRISTOPHER
-∂
+∫
 MACS 494Ind. Research Project1 TO 10 ¢Ô*&
 TBD"Dimond, James Longfellow*TBA88
-@HZOVbFTFjInstructor permission.r7MACS 494|IND. RESEARCH PROJECT|DIMOND, JAMES LONGFELLOW
-∆
+@HZOV S/UbFTFjInstructor permission.r7MACS 494|IND. RESEARCH PROJECT|DIMOND, JAMES LONGFELLOW
+ 
 MACS 495Marine/Coastal Sci Internship1 TO 10 €Ó*&
 TBD"Dimond, James Longfellow*TBA88
-@HZOVbFTFjInstructor permission.r?MACS 495|MARINE/COASTAL SCI INTERNSHIP|DIMOND, JAMES LONGFELLOW
+@HZOV S/UbFTFjInstructor permission.r?MACS 495|MARINE/COASTAL SCI INTERNSHIP|DIMOND, JAMES LONGFELLOW
 «
 MKTG 380Principles of Marketing4 ŒÎ*%
 N/A"Baskentli, Sara*ONLINE ASNC01ñ«j d@8#@"HZOV PQbASNC OLj#ACCT 240; and ECON 206 or HNRS 209.r0MKTG 380|PRINCIPLES OF MARKETING|BASKENTLI, SARA
@@ -1714,4 +1714,4 @@ ZOVbFTFjInstructor permission.r&UEPP 498C|SENIOR PROJECT|ABEL, TROY D.
 N/A"Deylami, Shirin Sedigh*ONLINE ASNC01äv}–¥h@8@H	ZOVbACGM ASNC OLr:WGSS 213|INTRO TO SEXUALITY STUDIES|DEYLAMI, SHIRIN SEDIGH
 È
 WGSS 320Media & Feminisms5 –Ì*'
-N/A"Mihai, Mariangela*ONLINE ASNC01Ü.;˙@8@HZOVbASNC BCGM OLjKWGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.r,WGSS 320|MEDIA & FEMINISMS|MIHAI, MARIANGELA¢ò√∫âÓ„«
+N/A"Mihai, Mariangela*ONLINE ASNC01Ü.;˙@8@HZOVbASNC BCGM OLjKWGSS 211, WGSS 212, or WGSS 213 with concurrency, or instructor permission.r,WGSS 320|MEDIA & FEMINISMS|MIHAI, MARIANGELAØöÁ∫£·Å~

@@ -50,6 +50,7 @@ Description=Schedule Optimizer Go Server
 After=network.target
 
 [Service]
+ExecStartPre=/bin/bash -c 'mkdir -p /var/www/schedule-optimizer/data && chown -R www-data:www-data /var/www/schedule-optimizer/data'
 ExecStart=/usr/local/go/bin/go run /var/www/schedule-optimizer/backend/server.go
 WorkingDirectory=/var/www/schedule-optimizer/backend
 User=www-data
@@ -69,7 +70,6 @@ Create a directory for the Go module cache and set appropriate permissions:
 ```bash
 sudo mkdir -p /var/lib/go-cache
 sudo chown www-data:www-data /var/lib/go-cache
-sudo chown -R www-data:www-data /var/www/schedule-optimizer/data/
 ```
 
 ## 3. Configure Apache2
