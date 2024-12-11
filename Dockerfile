@@ -26,11 +26,13 @@ RUN useradd -r -u 999 -U scheduler
 # Copy build artifacts
 COPY --from=backend-builder /app/server .
 COPY --from=frontend-builder /app/dist ./build
+
+# Create data folder that is writable by scheduler
+RUN mkdir -p /data && chown -R scheduler:schedler /data
 COPY data /app/data
 
+# Ensure permissions and switch to running the application
 RUN chown -R scheduler:scheduler /app
-
-# Switch to running the application
 USER scheduler
 
 EXPOSE 48920
