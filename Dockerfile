@@ -22,11 +22,13 @@ RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/
 
 # Create our user
 RUN useradd -r -u 999 -U scheduler
-RUN mkdir -p /data /app/data && chown -R scheduler:scheduler /data /app
 
 # Copy build artifacts
 COPY --from=backend-builder /app/server .
 COPY --from=frontend-builder /app/dist ./build
+COPY data /app/data
+
+RUN chown -R scheduler:scheduler /app
 
 # Switch to running the application
 USER scheduler
