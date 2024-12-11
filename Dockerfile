@@ -24,11 +24,10 @@ RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/
 RUN useradd -r -u 999 -U scheduler
 
 # Copy build artifacts
-COPY --from=backend-builder /app/server .
+COPY --from=backend-builder /app/server ./bin/server
 COPY --from=frontend-builder /app/dist ./build
 
-# Create data folder that is writable by scheduler
-RUN mkdir -p /data && chown -R scheduler:schedler /data
+# Copy data folder
 COPY data /app/data
 
 # Ensure permissions and switch to running the application
@@ -36,4 +35,4 @@ RUN chown -R scheduler:scheduler /app
 USER scheduler
 
 EXPOSE 48920
-CMD ["./server"]
+CMD ["./bin/server"]
