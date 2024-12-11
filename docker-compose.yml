@@ -10,7 +10,7 @@ services:
       - "48920:48920"
     # Persistent course and server stats
     volumes:
-      - ./data:/data
+      - /app/data:/data
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:48920/schedule-optimizer"]
       interval: 30s
