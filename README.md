@@ -178,6 +178,25 @@ testing locally.
 └── Dockerfile         # Docker build instructions
 ```
 
+## Authors
+
+### Core Team
+
+**Cooper Morgan** ([@cwooper](https://github.com/cwooper))
+- Initial concept and design
+- Backend development and architecture
+- Docker containerization
+- Frontend React components
+- Website: [cwooper.me](https://cwooper.me)
+
+**Konnor Kooi** ([@konnorkooi](https://github.com/konnorkooi))
+- Frontend development
+- Created [`schedule-glance`](https://www.npmjs.com/package/schedule-glance) npm module
+- Schedule visualization components
+- Website: [konnorkooi.com](https://konnorkooi.com)
+
+Previous contributors include Rory Bates, Arne Wiseman, and Ben Huynh
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
