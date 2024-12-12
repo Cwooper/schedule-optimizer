@@ -36,47 +36,6 @@ Try changing the quarter, forcing courses, or changing the min/max courses per s
 - Node.js and npm (for local deployment)
 - Protocol Buffer Compiler (protoc) 3.0.0 or later (for local deployment)
 
-## Local Development Setup
-
-This is to be used for local development or testing
-
-1. **Install Protocol Buffers:**
-   ```bash
-   # MacOS
-   brew install protobuf
-   # Linux
-   sudo apt install protobuf-compiler
-   # Windows: Download from https://github.com/protocolbuffers/protobuf/releases
-   ```
-
-2. **Install Go Protobuf Plugin:**
-   ```bash
-   go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
-   export PATH="$PATH:$(go env GOPATH)/bin"
-   ```
-
-3. **Build Frontend:**
-   ```bash
-   cd frontend
-   npm install
-   make build
-   ```
-
-4. **Build Backend:**
-   ```bash
-   cd backend
-   go mod download
-   make proto  # Generate protobuf files
-   ```
-
-5. **Run Locally:**
-   ```bash
-   cd backend
-   go run server.go
-   ```
-
-   Visit [localhost:48920/schedule-optimizer](http://localhost:48920/schedule-optimizer)
-
 ## Docker Deployment
 
 1. **Build and Run with Docker Compose:**
@@ -146,6 +105,47 @@ sudo systemctl enable schedule-optimizer
 sudo systemctl start schedule-optimizer
 sudo systemctl restart apache2  # If using Apache
 ```
+
+## Local Development Setup
+
+This is to be used for local development or testing
+
+1. **Install Protocol Buffers:**
+   ```bash
+   # MacOS
+   brew install protobuf
+   # Linux
+   sudo apt install protobuf-compiler
+   # Windows: Download from https://github.com/protocolbuffers/protobuf/releases
+   ```
+
+2. **Install Go Protobuf Plugin:**
+   ```bash
+   go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+   export PATH="$PATH:$(go env GOPATH)/bin"
+   ```
+
+3. **Build Frontend:**
+   ```bash
+   cd frontend
+   npm install
+   make build
+   ```
+
+4. **Build Backend:**
+   ```bash
+   cd backend
+   go mod download
+   make proto  # Generate protobuf files
+   ```
+
+5. **Run Locally:**
+   ```bash
+   cd backend
+   go run server.go
+   ```
+
+   Visit [localhost:48920/schedule-optimizer](http://localhost:48920/schedule-optimizer)
 
 ## Development Commands
 
