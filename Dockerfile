@@ -2,7 +2,7 @@
 
 # Frontend Builder
 FROM node:20-slim AS frontend-builder
-WORKDIR /app
+WORKDIR /frontend
 COPY frontend/ ./
 RUN npm install
 RUN npm run build
@@ -10,6 +10,7 @@ RUN npm run build
 # Backend Builder
 FROM golang:1.22-bookworm AS backend-builder
 WORKDIR /backend
+COPY backend/ ./
 RUN go mod download
 RUN CGO_ENABLED=0 GOOS=linux go build -o server
 
@@ -33,5 +34,6 @@ RUN chown -R scheduler:scheduler /app
 USER scheduler
 
 EXPOSE 48920
-WORKDIR /app
-CMD ["/app/bin/server"]
+# Server is running in /app/bin
+WORKDIR /app/bin
+CMD ["./server"]
