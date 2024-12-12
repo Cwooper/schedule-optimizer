@@ -31,10 +31,10 @@ Try changing the quarter, forcing courses, or changing the min/max courses per s
 
 ## Prerequisites
 
-- Go 1.22 or later
-- Node.js and npm
-- Protocol Buffer Compiler (protoc) 3.0.0 or later
 - Docker and docker-compose (for containerized deployment)
+- Go 1.22 or later (for local deployment)
+- Node.js and npm (for local deployment)
+- Protocol Buffer Compiler (protoc) 3.0.0 or later (for local deployment)
 
 ## Local Development Setup
 
