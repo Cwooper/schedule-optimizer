@@ -1,116 +1,183 @@
-# schedule-optimizer
+# Schedule Optimizer
 
-Schedule Optimizer passion project for ACM club at WWU
+Schedule Optimizer is a passion project for ACM club at WWU that helps students
+optimize their course schedules. Try it live at
+[cwooper.me/schedule-optimizer](https://cwooper.me/schedule-optimizer)!
 
-This project is not affiliated with Western Washington University.
-It is an independent initiative developed solely for educational
-and personal use. All data provided by this project is for
-informational purposes only and should not be considered official
-or binding. Use at your own discretion.
+**Disclaimer:** This project is not affiliated with Western Washington University.
+It is an independent initiative developed solely for educational and personal use.
+All data provided is for informational purposes only and should not be considered
+official or binding.
 
-Currently hosted live at [cwooper.me](https://cwooper.me/schedule-optimizer)
+## Features
 
-To use the live website, try entering a few classes:
+- Generate optimal schedules based on course selection
+- View GPA statistics and professor information
+- Customize schedule weights for personalization
+- Fuzzy search course listings
+- Interactive calendar view
+- Support for async/TBD courses
+- Docker containerization for easy deployment
 
+## Quick Demo
+
+Try these sample courses on the live site:
 - MATH 099
 - ENG 321
 - CSCI 141
 - CSCI 145
 
-Try changing the Minimum Courses per schedule to 3.
+Try changing the quarter, forcing courses, or changing the min/max courses per schedule!
 
-Press Submit and view your options!
-
-## Requirements
-
-### Frontend
-
-- npm
-
-### Backend
+## Prerequisites
 
 - Go 1.22 or later
+- Node.js and npm
 - Protocol Buffer Compiler (protoc) 3.0.0 or later
-- Go Protocol Buffers plugin
+- Docker and docker-compose (for containerized deployment)
 
-## Getting Started
+## Local Development Setup
 
-1. Install `Go`
-2. Install Go packages:
+This is to be used for local development or testing
 
+1. **Install Protocol Buffers:**
    ```bash
-   cd backend
-   go mod download # Install necessary packages
-   cd ../
+   # MacOS
+   brew install protobuf
+   # Linux
+   sudo apt install protobuf-compiler
+   # Windows: Download from https://github.com/protocolbuffers/protobuf/releases
    ```
 
-3. Install `npm`
-4. Install React Modules and build the frontend:
+2. **Install Go Protobuf Plugin:**
+   ```bash
+   go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+   export PATH="$PATH:$(go env GOPATH)/bin"
+   ```
 
-    ```bash
-    cd frontend
-    make build
-    ```
+3. **Build Frontend:**
+   ```bash
+   cd frontend
+   npm install
+   make build
+   ```
 
-5. Test the server:
+4. **Build Backend:**
+   ```bash
+   cd backend
+   go mod download
+   make proto  # Generate protobuf files
+   ```
 
-    ```bash
-    cd backend
-    go run server.go
-    ```
+5. **Run Locally:**
+   ```bash
+   cd backend
+   go run server.go
+   ```
 
-    Navigate to [localhost:8080/schedule-optimizer](localhost:8080/schedule-optimizer)
+   Visit [localhost:48920/schedule-optimizer](http://localhost:48920/schedule-optimizer)
 
-## Project To-do list
+## Docker Deployment
 
-Fully Transfer backend:
+1. **Build and Run with Docker Compose:**
+   ```bash
+   docker-compose up --build
+   ```
 
-- [x] Create Course Model
-  - [x] Course Conflicts
-  - [x] Create Course Array ProtoBuf
-- [x] Create Schedule Model
-  - [x] Schedule Auto-weighing
-  - [x] Modular Weight System
-- [x] Create Web Scraper
-- [x] Create Schedule Generator
-- [x] Create Go Web Server
-- [x] Initialize GPA Values
-  - [x] Process CSV to efficient Protobuf
-  - [x] Process Course GPA Values
-- [x] Interface Web Server with old frontend
-  - [x] Unify data
-  - [x] Handle requests to and from
-  - [x] Display Old Calendar (doesn't need to be 100%)
-  - [x] Display Full Calendar and Update HTML
+2. **Clean Docker Volume (if needed):**
+   ```bash
+   docker-compose down -v
+   ```
 
-- [x] Backend Is Fully Transferred and Optimized
+## Production Deployment
 
-Extra:
+This is for permanent production deployment that starts as a systemd-controlled
+docker container.
 
-- [x] Multithread WebScraper, GPA Processing
-- [x] Add Async/TBD table to frontend calendar
-- [x] Automatic Web Scraping/Course Updating
-- [ ] Create Dijkstra Map Weighing
-  - [ ] Visualize something in Go WASM
-  - [ ] Create Paths between classes per schedule
-- [x] Port frontend to React (Konnor too)
-- [x] Fuzzy search courses
-- [x] Weight customizability on frontend
-- [x] If User Asks for the same schedule twice, don't send POST request.
-- [ ] Docker containerize application
+### 1. Set Up Application Directory
 
-Frontend TODOs:
+```bash
+sudo mkdir -p /opt/schedule-optimizer
+sudo mv ~/schedule-optimizer/* /opt/schedule-optimizer/
+sudo chown -R your-user:your-user /opt/schedule-optimizer
+sudo chmod -R 755 /opt/schedule-optimizer
+```
 
-- [x] Course Popups
-- [x] Better automatic sizing
-- [x] Async Courses
-  - [x] Fix Async Courses (bandaid)
-  - [ ] Full fix async courses
-- [x] Fuzzy Search
-  - [ ] Better backend fuzzy search
-- [x] Duplicate course checking before adding
-- [ ] Dark Mode button
-- [x] Sort and Weighting menu popup
-  - [x] Sort schedules
-  - [x] Customize weights
-- [x] png save for `schedule-glance`
+### 2. Create Systemd Service
+
+Create `/etc/systemd/system/schedule-optimizer.service`:
+```ini
+[Unit]
+Description=Schedule Optimizer Service
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=simple
+User=your-user
+WorkingDirectory=/opt/schedule-optimizer
+ExecStart=/usr/bin/docker-compose -f /opt/schedule-optimizer/docker-compose.yml up
+ExecStop=/usr/bin/docker-compose -f /opt/schedule-optimizer/docker-compose.yml down
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### 3. Configure Apache Reverse Proxy (Optional)
+
+1. Enable Apache modules:
+   ```bash
+   sudo a2enmod proxy proxy_http
+   ```
+
+2. Add to Apache configuration:
+   ```apache
+   ProxyPass /schedule-optimizer http://localhost:48920/schedule-optimizer
+   ProxyPassReverse /schedule-optimizer http://localhost:48920/schedule-optimizer
+   ```
+
+### 4. Start Services
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable schedule-optimizer
+sudo systemctl start schedule-optimizer
+sudo systemctl restart apache2  # If using Apache
+```
+
+## Development Commands
+
+Protobuf commands for editing the backend data structures
+
+- **Generate Protobuf Files:**
+  ```bash
+  cd backend && make proto
+  ```
+
+- **Clean Generated Files:**
+  ```bash
+  cd backend && make clean
+  ```
+
+There are also Makefiles for building the frontend and running the backend for
+testing locally.
+  
+## Project Structure
+
+```
+.
+├── backend/
+│   ├── data/          # Course data and protobuf files
+│   ├── internal/      # Internal packages
+│   ├── pkg/           # Public packages
+│   └── server.go      # Main server file
+├── frontend/          # React frontend
+├── docker-compose.yml # Docker configuration
+└── Dockerfile         # Docker build instructions
+```
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
