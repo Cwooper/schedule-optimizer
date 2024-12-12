@@ -22,10 +22,10 @@ official or binding.
 ## Quick Demo
 
 Try these sample courses on the live site:
-- MATH 099
-- ENG 321
+- ENG 101
 - CSCI 141
-- CSCI 145
+- CSCI 305
+- CSCI 345
 
 Try changing the quarter, forcing courses, or changing the min/max courses per schedule!
 
