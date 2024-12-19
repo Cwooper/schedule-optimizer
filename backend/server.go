@@ -17,36 +17,21 @@ import (
 	"github.com/cwooper/schedule-optimizer/internal/models"
 	"github.com/cwooper/schedule-optimizer/internal/scraper"
 	"github.com/cwooper/schedule-optimizer/internal/search"
-	"github.com/cwooper/schedule-optimizer/internal/stats"
 	"github.com/cwooper/schedule-optimizer/internal/utils"
 )
 
 // ----------------------------- SERVER BELOW -----------------------------
 
 var (
-	SERVER_STATS_PATH string
-)
-
-var (
-	isUpdating   bool
-	updateMutex  sync.RWMutex
-	statsTracker *stats.Stats
+	isUpdating  bool
+	updateMutex sync.RWMutex
 )
 
 func init() {
-	statsFile, err := stats.GetStatsFile()
-	if err != nil {
-		log.Fatalf("Failed to get stats file: %v", err)
-	}
-
-	SERVER_STATS_PATH = statsFile
-
 	// Set initial GC percentage
 	debug.SetGCPercent(50)
 	// Set soft memory limit
 	debug.SetMemoryLimit(2 << 30) // 2GB
-
-	statsTracker = stats.New(SERVER_STATS_PATH)
 }
 
 func main() {
@@ -67,8 +52,6 @@ func main() {
 
 	port := getPort()
 	fs := http.FileServer(http.Dir("../build"))
-
-	http.HandleFunc("/schedule-optimizer/stats", handleStats)
 
 	http.HandleFunc("/schedule-optimizer/subjects", func(w http.ResponseWriter, r *http.Request) {
 		content, err := os.ReadFile("../data/subjects.txt")
@@ -97,18 +80,6 @@ func main() {
 	nextRun := c.Entries()[0].Next
 	log.Printf("Next scheduled run: %s", nextRun.Format(time.RFC3339))
 	log.Fatal(http.ListenAndServe(":"+port, nil))
-}
-
-// Handle stats requests
-func handleStats(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodGet {
-		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
-		return
-	}
-
-	stats := statsTracker.GetStats()
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(stats)
 }
 
 // Handles POST requests to /schedule-optimizer
@@ -152,8 +123,6 @@ func handleScheduleOptimizer(w http.ResponseWriter, r *http.Request) {
 
 // Fuzzy search for courses
 func Search(w http.ResponseWriter, r *http.Request, request models.RawRequest) {
-	statsTracker.IncrementSearchRequest()
-
 	resp := search.SearchCourses(request.SearchTerm, request.Term)
 
 	w.Header().Set("Content-Type", "application/json")
@@ -162,10 +131,6 @@ func Search(w http.ResponseWriter, r *http.Request, request models.RawRequest) {
 
 // Generate schedules
 func ScheduleGenerator(w http.ResponseWriter, r *http.Request, request models.RawRequest) {
-	for _, course := range request.Courses {
-		statsTracker.IncrementSubject(course)
-	}
-
 	// Context with an n second timeout for extra-large queries
 	ctx, cancel := context.WithTimeout(r.Context(), utils.SERVER_TIMEOUT_SECS*time.Second)
 	defer cancel()
@@ -178,9 +143,6 @@ func ScheduleGenerator(w http.ResponseWriter, r *http.Request, request models.Ra
 	select {
 	case resp := <-respChan:
 		// If we get a response within the timeout, send it
-
-		statsTracker.IncrementScheduleRequest(uint64(len(resp.Schedules)))
-
 		// Limit the number of schedules sent to the user.
 		if len(resp.Schedules) > utils.MAX_OUTPUT_SCHEDULES {
 			errString := fmt.Sprintf("There were %d schedules generated, limiting the output to %d schedules. ",
@@ -238,7 +200,6 @@ func UpdateCoursesHandler() {
 	if err != nil {
 		log.Printf("Error updating courses: %v", err)
 	} else {
-		statsTracker.UpdateLastCourseUpdate()
 		log.Println("Courses updated successfully")
 	}
 }
