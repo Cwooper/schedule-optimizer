@@ -13,6 +13,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
+	"github.com/cwooper/schedule-optimizer/internal/cache"
 	"github.com/cwooper/schedule-optimizer/internal/gpa"
 	"github.com/cwooper/schedule-optimizer/internal/models"
 	"github.com/cwooper/schedule-optimizer/internal/utils"
@@ -188,6 +189,26 @@ func getCourses(subjects []string, term, year string) Result {
 	}
 }
 
+// preloadCache loads all valid terms into the cache after an update
+func preloadCache(terms []string) {
+	courseManager := cache.GetInstance()
+
+	log.Println("Preloading course cache...")
+	start := time.Now()
+
+	for _, term := range terms {
+		_, err := courseManager.GetCourseList(term)
+		if err != nil {
+			log.Printf("Warning: Failed to preload term %s: %v", term, err)
+			continue
+		}
+		log.Printf("Cached term %s", term)
+	}
+
+	duration := time.Since(start)
+	log.Printf("Cache preload completed in %v", duration)
+}
+
 // Updates all courses in Term protobufs if deemed necessary
 // gpa package will update and process the gpa of each course for each term
 func UpdateCourses() error {
@@ -211,13 +232,14 @@ func UpdateCourses() error {
 		return fmt.Errorf("failed to filter terms list: %w", err)
 	}
 
-	log.Printf("Found %d subjects\n", len(subjects))
 	log.Printf("Processing terms: %v\n", terms)
 
 	var wg sync.WaitGroup
 	results := make(chan Result, len(terms))
 	semaphore := make(chan struct{}, 3)
 
+	// Scrape data from all of the filtered terms
+	start := time.Now()
 	for _, term := range terms {
 		termInfo, err := ParseTermCode(term)
 		if err != nil {
@@ -230,6 +252,7 @@ func UpdateCourses() error {
 			continue
 		}
 
+		// Asynchronously scrape term data
 		wg.Add(1)
 		go func(t string) {
 			semaphore <- struct{}{}
@@ -247,6 +270,7 @@ func UpdateCourses() error {
 		close(results)
 	}()
 
+	// Calculate and output total courses scraped
 	totalCount := 0
 	for result := range results {
 		if result.Error != nil {
@@ -255,6 +279,13 @@ func UpdateCourses() error {
 		totalCount += result.Count
 	}
 
-	log.Printf("Found %d total courses\n", totalCount)
+	duration := time.Since(start)
+	log.Printf("Scraping completed in %v, updated %d courses", duration, totalCount)
+
+	// After successful update, preload the cache
+	if len(terms) > 0 {
+		preloadCache(terms)
+	}
+
 	return nil
 }

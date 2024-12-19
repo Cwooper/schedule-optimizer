@@ -220,6 +220,6 @@ func UpdateCoursesHandler() {
 	if err != nil {
 		log.Printf("Error updating courses: %v", err)
 	} else {
-		log.Println("Courses updated successfully")
+		log.Println("Courses updated successfully. Listening...")
 	}
 }
