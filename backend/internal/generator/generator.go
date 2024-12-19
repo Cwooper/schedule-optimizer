@@ -3,14 +3,13 @@ package generator
 
 import (
 	"fmt"
-	"path/filepath"
 	"regexp"
 	"sort"
 	"strings"
 
+	"github.com/cwooper/schedule-optimizer/internal/cache"
 	"github.com/cwooper/schedule-optimizer/internal/models"
 	"github.com/cwooper/schedule-optimizer/internal/utils"
-	"github.com/cwooper/schedule-optimizer/pkg/protoutils"
 )
 
 var CourseNamePattern = regexp.MustCompile(`^[A-Z/ ]{2,4} \d{3}[A-Z]?$`) // e.g. CSCI 497A
@@ -142,18 +141,17 @@ func (g *Generator) cleanCourseNames(courses []string) []string {
 }
 
 // Fills the courses array in the generator with courses in the database
-func (g *Generator) generateCourses(term string) {
-	// Load the term protobuf
-	termFile := filepath.Join(utils.DataDirectory, term+".pb")
 
-	proto, err := utils.LoadCoursesProtobuf(termFile)
+func (g *Generator) generateCourses(term string) {
+	courseManager := cache.GetInstance()
+
+	courseList, err := courseManager.GetCourseList(term)
 	if err != nil {
 		g.response.Warnings = append(g.response.Warnings,
-			"Term does not exist: "+term)
+			"Data is not stored for this term: "+term)
 		return
 	}
 
-	courseList := protoutils.ProtoToCourses(proto)
 	courses := make([]models.Course, 0)
 
 	// Search for the necessary courses of cleaned names

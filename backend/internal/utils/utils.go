@@ -3,10 +3,13 @@ package utils
 
 import (
 	"fmt"
+	"log"
 	"math"
 	"os"
+	"os/signal"
 	"path/filepath"
 	"regexp"
+	"syscall"
 
 	"google.golang.org/protobuf/proto"
 
@@ -17,22 +20,6 @@ const (
 	ROUND       = 2    // Round to x decimal places
 	MINS_IN_DAY = 1440 // Number of minutes in a day (60 * 24)
 
-	MIN_COURSES       = 1  // Minimum courses in a single schedule
-	MAX_COURSES       = 8  // Maximum courses in a single schedule
-	MAX_INPUT_COURSES = 13 // Maximum courses a user an input to be combined
-
-	MAX_SUBJECT_WAIT = 30 // Days
-	MAX_TERM_WAIT    = 10 // Days
-	MAX_COURSE_WAIT  = 1  // Days
-
-	UPDATE_HOUR = "3" // 0-23 hour to update course data, your time zone (e.g. 18 is 6pm)
-	UPDATE_MIN  = "0" // 0-59 minute to update your course data, (e.g. 0 is on the hour)
-
-	// One Schedule is about 2KB. 2000 Schedules is 4MB.
-	MAX_OUTPUT_SCHEDULES = 2000
-	SERVER_TIMEOUT_SECS  = 2 // Server will timeout after x seconds
-	MAX_OUTPUT_COURSES   = 20 // Courses to send back upong a fuzzy search
-
 	TIME_FORMAT = "2006-01-02 15:04:05"
 
 	URL        = "https://web4u.banner.wwu.edu/pls/wwis/wwskcfnd.TimeTable"
@@ -40,6 +27,112 @@ const (
 	TERM_ID    = "term" // HTML term id name
 )
 
+// Returns the location of the data directory
+var DataDirectory string
+
+// Finds and initializes the data directory
+func init() {
+	wd, err := os.Getwd()
+	if err != nil {
+		panic(err)
+	}
+
+	DataDirectory = filepath.Join(wd, "../data")
+
+	// Ensure that the directory exists
+	if err := os.MkdirAll(DataDirectory, os.ModePerm); err != nil {
+		panic(err)
+	}
+}
+
+var (
+	// Returns first and last name with a comma (e.g. "Smith, John")
+	CommaNameRegexp = regexp.MustCompile(`^.*?(\S+)\s*,\s*(\S+).*$`)
+	// Returns first and last name listed normally (e.g. "John Smith")
+	PlainNameRegexp = regexp.MustCompile(`^(\S+)(?:.*\s)?(\S+)$`)
+	// Returns the Course Subject and Number Associated (e.g. "CSCI 497A")
+	SubjectRegexp = regexp.MustCompile(`^(\S+)\s+(\d+[A-Z]?)$`)
+)
+
+// Helper function to round float64 to n decimal places
+func Round(x float64) float64 {
+	pow := math.Pow(10, float64(ROUND))
+	return math.Round(x*pow) / pow
+}
+
+// Helper function to load protobuf
+func LoadCoursesProtobuf(filePath string) (*pb.CourseList, error) {
+	data, err := os.ReadFile(filePath)
+	if err != nil {
+		return nil, fmt.Errorf("failed to read protobuf file: %w", err)
+	}
+
+	var courseList pb.CourseList
+	if err := proto.Unmarshal(data, &courseList); err != nil {
+		return nil, fmt.Errorf("failed to unmarshal protobuf: %w", err)
+	}
+
+	return &courseList, nil
+}
+
+// Helper to save a protobuf
+func SaveCoursesProtobuf(protobuf *pb.CourseList, filename string) error {
+	data, err := proto.Marshal(protobuf)
+	if err != nil {
+		return fmt.Errorf("failed to marshal protobuf: %w", err)
+	}
+
+	if err := os.WriteFile(filename, data, 0644); err != nil {
+		return fmt.Errorf("failed to write protobuf to file: %w", err)
+	}
+
+	return nil
+}
+
+// Self explanatory
+func FileExists(filename string) bool {
+	info, err := os.Stat(filename)
+	if os.IsNotExist(err) {
+		return false
+	}
+	return !info.IsDir()
+}
+
+// Writes the pid to a tmp file
+func WritePidFile() error {
+	// Get the process ID
+	pid := os.Getpid()
+
+	// Try writing to /tmp first
+	pidFile := filepath.Join(os.TempDir(), "schedule-optimizer.pid")
+	err := os.WriteFile(pidFile, []byte(fmt.Sprintf("%d", pid)), 0644)
+	if err != nil {
+		// Fallback to current directory if /tmp fails
+		pidFile = "schedule-optimizer.pid"
+		err = os.WriteFile(pidFile, []byte(fmt.Sprintf("%d", pid)), 0644)
+		if err != nil {
+			return fmt.Errorf("failed to write PID file: %w", err)
+		}
+	}
+
+	// Log where we wrote the PID
+	log.Printf("PID %d written to %s", pid, pidFile)
+
+	// Clean up PID file on exit
+	c := make(chan os.Signal, 1)
+	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
+	go func() {
+		<-c
+		if err := os.Remove(pidFile); err != nil {
+			log.Printf("Failed to remove PID file: %v", err)
+		}
+		os.Exit(0)
+	}()
+
+	return nil
+}
+
+// The below constants and variables are used for the GPA spreadsheet
 const (
 	CODE_COL = iota
 	TERM_COl
@@ -62,8 +155,6 @@ const (
 	CNT_F_COL
 	CNT_W_COL // We don't include courses dropped
 )
-
-var DataDirectory string
 
 var (
 	CourseSubjectMapping = map[string]string{
@@ -143,62 +234,3 @@ var (
 		CNT_F_COL:  0.0,
 	}
 )
-
-var (
-	// Returns first and last name with a comma (e.g. "Smith, John")
-	CommaNameRegexp = regexp.MustCompile(`^.*?(\S+)\s*,\s*(\S+).*$`)
-	// Returns first and last name listed normally (e.g. "John Smith")
-	PlainNameRegexp = regexp.MustCompile(`^(\S+)(?:.*\s)?(\S+)$`)
-	// Returns the Course Subject and Number Associated (e.g. "CSCI 497A")
-	SubjectRegexp = regexp.MustCompile(`^(\S+)\s+(\d+[A-Z]?)$`)
-)
-
-// Finds and initializes the data directory
-func init() {
-	wd, err := os.Getwd()
-	if err != nil {
-		panic(err)
-	}
-
-	DataDirectory = filepath.Join(wd, "../data")
-
-	// Ensure that the directory exists
-	if err := os.MkdirAll(DataDirectory, os.ModePerm); err != nil {
-		panic(err)
-	}
-}
-
-// Helper function to round float64 to n decimal places
-func Round(x float64) float64 {
-	pow := math.Pow(10, float64(ROUND))
-	return math.Round(x*pow) / pow
-}
-
-// Helper function to load protobuf
-func LoadCoursesProtobuf(filePath string) (*pb.CourseList, error) {
-	data, err := os.ReadFile(filePath)
-	if err != nil {
-		return nil, fmt.Errorf("failed to read protobuf file: %w", err)
-	}
-
-	var courseList pb.CourseList
-	if err := proto.Unmarshal(data, &courseList); err != nil {
-		return nil, fmt.Errorf("failed to unmarshal protobuf: %w", err)
-	}
-
-	return &courseList, nil
-}
-
-// Helper to save a protobuf
-func SaveCoursesProtobuf(protobuf *pb.CourseList, filename string) error {
-	data, err := proto.Marshal(protobuf)
-	if err != nil {
-		return fmt.Errorf("failed to marshal protobuf: %w", err)
-	}
-
-	if err := os.WriteFile(filename, data, 0644); err != nil {
-		return fmt.Errorf("failed to write protobuf to file: %w", err)
-	}
-
-	return nil
-}
