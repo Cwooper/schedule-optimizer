@@ -6,11 +6,12 @@ package gpa
 import (
 	"encoding/csv"
 	"fmt"
+	"log"
 	"os"
 	"path/filepath"
-	
+
 	"google.golang.org/protobuf/proto"
-	
+
 	"github.com/cwooper/schedule-optimizer/internal/models"
 	pb "github.com/cwooper/schedule-optimizer/internal/proto/generated"
 	"github.com/cwooper/schedule-optimizer/internal/utils"
@@ -117,7 +118,7 @@ func GetGPAData() (models.GPAData, error) {
 	if err != nil {
 		return gpaData, fmt.Errorf("failed to save gpaData to protobuf: %w", err)
 	}
-	fmt.Printf("Saved GPA Data to %v\n", pbFilename)
+	log.Printf("Saved GPA Data to %v\n", pbFilename)
 
 	return gpaData, nil
 }

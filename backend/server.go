@@ -54,7 +54,13 @@ func setupSignalHandler() {
 }
 
 func main() {
+	// Set up the SIGUSR1 handler and store the server pid in /tmp/schedule-optimizer.pid
 	setupSignalHandler()
+	if err := utils.WritePidFile(); err != nil {
+		log.Printf("Warning: %v", err)
+	}
+
+	// Set cron job update to update courses
 	updateSchedule := fmt.Sprintf("0 %s %s * * *", utils.UPDATE_MIN, utils.UPDATE_HOUR)
 	c := cron.New()
 	c.AddFunc(updateSchedule, func() {
@@ -63,6 +69,7 @@ func main() {
 	})
 	c.Start()
 
+	// Set up and start server
 	port := getPort()
 	fs := http.FileServer(http.Dir("../build"))
 

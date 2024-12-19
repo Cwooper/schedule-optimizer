@@ -7,14 +7,12 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-	"strconv"
 	"sync"
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/cwooper/schedule-optimizer/internal/cache"
 	"github.com/cwooper/schedule-optimizer/internal/gpa"
 	"github.com/cwooper/schedule-optimizer/internal/models"
 	"github.com/cwooper/schedule-optimizer/internal/utils"
@@ -115,38 +113,6 @@ func getList(option int) ([]string, error) {
 	return lines, nil
 }
 
-// Filters the list of turns and returns the current year code
-func filterTerms(terms []string) ([]string, string, error) {
-	currentTerm := fmt.Sprintf("%d00", time.Now().Year())
-
-	var filteredTerms []string
-	for _, term := range terms {
-		if term >= currentTerm && term != "All" {
-			filteredTerms = append(filteredTerms, term)
-		}
-	}
-
-	if len(filteredTerms) == 0 {
-		return nil, "", fmt.Errorf("no valid terms found")
-	}
-
-	largestTerm := filteredTerms[0]
-	for _, term := range filteredTerms {
-		if term > largestTerm {
-			largestTerm = term
-		}
-	}
-
-	yearHigh, err := strconv.Atoi(largestTerm[2:4])
-	if err != nil {
-		return nil, "", fmt.Errorf("failed to parse year: %w", err)
-	}
-
-	yearLow := yearHigh - 1
-	year := fmt.Sprintf("%02d%02d", yearLow, yearHigh)
-	return filteredTerms, year, nil
-}
-
 // Returns a list of all courses found for this term
 func getCoursesFromURL(subjects []string, term, year string) ([]models.Course, error) {
 	// About 1500 courses per term
@@ -180,7 +146,7 @@ func getCourses(subjects []string, term, year string) Result {
 		}
 
 		pullTime := existingProto.PullTimestamp.AsTime()
-		if time.Since(pullTime) < utils.MAX_COURSE_WAIT*24*time.Hour {
+		if time.Since(pullTime) < utils.MAX_NEW_COURSE_WAIT*24*time.Hour {
 			courseList := protoutils.ProtoToCourses(existingProto)
 			return Result{
 				Term:  term,
@@ -195,7 +161,6 @@ func getCourses(subjects []string, term, year string) Result {
 		return Result{Term: term, Error: fmt.Errorf("failed to get courses from url: %w", err)}
 	}
 
-	start := time.Now()
 	err = gpa.GenerateGPA(&courseList)
 	if err != nil {
 		return Result{
@@ -203,8 +168,6 @@ func getCourses(subjects []string, term, year string) Result {
 			Error: fmt.Errorf("failed to generate gpa for course list: %w", err),
 		}
 	}
-	duration := time.Since(start)
-	log.Printf("	GenerateGPA for %s took %v to execute\n", term, duration)
 
 	protobuf := protoutils.CoursesToProto(courseList)
 	protobuf.PullTimestamp = timestamppb.Now()
@@ -226,9 +189,9 @@ func getCourses(subjects []string, term, year string) Result {
 }
 
 // Updates all courses in Term protobufs if deemed necessary
-// It is up to the user to process the gpa of each course for each term
+// gpa package will update and process the gpa of each course for each term
 func UpdateCourses() error {
-	// Create data directory if it doesn't exist
+	// Create data directory if it doesn't exist (clean run)
 	if err := os.MkdirAll(utils.DataDirectory, os.ModePerm); err != nil {
 		return fmt.Errorf("failed to create data directory: %w", err)
 	}
@@ -248,22 +211,29 @@ func UpdateCourses() error {
 		return fmt.Errorf("failed to filter terms list: %w", err)
 	}
 
-	log.Printf("	Found %d subjects\n", len(subjects))
-	log.Printf("	Current terms: %v\n", terms)
+	log.Printf("Found %d subjects\n", len(subjects))
+	log.Printf("Processing terms: %v\n", terms)
 
 	var wg sync.WaitGroup
 	results := make(chan Result, len(terms))
-
-	// Create a semaphore channel with size 3
 	semaphore := make(chan struct{}, 3)
 
 	for _, term := range terms {
+		termInfo, err := ParseTermCode(term)
+		if err != nil {
+			log.Printf("Warning: Invalid term code %s: %v", term, err)
+			continue
+		}
+
+		if !shouldUpdateTerm(termInfo) {
+			log.Printf("Skipping term %s - data is current", term)
+			continue
+		}
+
 		wg.Add(1)
 		go func(t string) {
-			// Acquire semaphore
 			semaphore <- struct{}{}
 			defer func() {
-				// Release semaphore
 				<-semaphore
 				wg.Done()
 			}()
@@ -285,10 +255,6 @@ func UpdateCourses() error {
 		totalCount += result.Count
 	}
 
-	log.Printf("	Found %d total courses\n", totalCount)
-
-	courseManager := cache.GetInstance()
-	courseManager.Invalidate()
-	log.Printf("Course cache invalidated after update")
+	log.Printf("Found %d total courses\n", totalCount)
 	return nil
 }
