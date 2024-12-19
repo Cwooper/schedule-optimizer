@@ -14,6 +14,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
+	"github.com/cwooper/schedule-optimizer/internal/cache"
 	"github.com/cwooper/schedule-optimizer/internal/gpa"
 	"github.com/cwooper/schedule-optimizer/internal/models"
 	"github.com/cwooper/schedule-optimizer/internal/utils"
@@ -285,5 +286,9 @@ func UpdateCourses() error {
 	}
 
 	log.Printf("	Found %d total courses\n", totalCount)
+
+	courseManager := cache.GetInstance()
+	courseManager.Invalidate()
+	log.Printf("Course cache invalidated after update")
 	return nil
 }
