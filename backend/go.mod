@@ -1,6 +1,6 @@
 module github.com/cwooper/schedule-optimizer
 
-go 1.22.5
+go 1.23.4
 
 require (
 	github.com/PuerkitoBio/goquery v1.9.2
@@ -11,6 +11,6 @@ require (
 
 require (
 	github.com/andybalholm/cascadia v1.3.2 // indirect
-	golang.org/x/net v0.24.0 // indirect
-	golang.org/x/text v0.14.0 // indirect
+	golang.org/x/net v0.33.0 // indirect
+	golang.org/x/text v0.21.0 // indirect
 )
