@@ -8,7 +8,7 @@ RUN npm install
 RUN npm run build
 
 # Backend Builder
-FROM golang:1.22-bookworm AS backend-builder
+FROM golang:1.23-bookworm AS backend-builder
 WORKDIR /backend
 COPY backend/ ./
 RUN go mod download
