@@ -1,13 +1,12 @@
 package search
 
 import (
-	"path/filepath"
 	"sort"
 	"strings"
 
+	"github.com/cwooper/schedule-optimizer/internal/cache"
 	"github.com/cwooper/schedule-optimizer/internal/models"
 	"github.com/cwooper/schedule-optimizer/internal/utils"
-	"github.com/cwooper/schedule-optimizer/pkg/protoutils"
 
 	"github.com/lithammer/fuzzysearch/fuzzy"
 )
@@ -21,19 +20,15 @@ type Match struct {
 }
 
 func SearchCourses(searchTerm string, term string) models.Response {
-	// Load the term protobuf
 	searchTerm = strings.ToUpper(searchTerm)
-
 	resp := models.Response{}
-	termFile := filepath.Join(utils.DataDirectory, term+".pb")
 
-	proto, err := utils.LoadCoursesProtobuf(termFile)
+	courseManager := cache.GetInstance()
+	courseList, err := courseManager.GetCourseList(term)
 	if err != nil {
 		resp.Errors = append(resp.Errors, "Term does not exist: "+term)
 		return resp
 	}
-
-	courseList := protoutils.ProtoToCourses(proto)
 
 	// Pre-allocate slice for matches
 	matches := make([]Match, 0, len(courseList))
@@ -54,10 +49,10 @@ func SearchCourses(searchTerm string, term string) models.Response {
 		return matches[i].Score < matches[j].Score
 	})
 
-	// Determine number of courses to return (up to 20)
+	// Determine number of courses to return (up to util maximum)
 	numResults := len(matches)
-	if numResults > 20 {
-		numResults = 20
+	if numResults > utils.MAX_OUTPUT_SEARCH_COURSES {
+		numResults = utils.MAX_OUTPUT_SEARCH_COURSES
 	}
 
 	// Pre-allocate resp.Courses
