@@ -3,12 +3,15 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"flag"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
+	"os/signal"
 	"runtime/debug"
 	"sync"
+	"syscall"
 	"time"
 
 	"github.com/robfig/cron"
@@ -19,8 +22,6 @@ import (
 	"github.com/cwooper/schedule-optimizer/internal/search"
 	"github.com/cwooper/schedule-optimizer/internal/utils"
 )
-
-// ----------------------------- SERVER BELOW -----------------------------
 
 var (
 	isUpdating  bool
@@ -34,14 +35,26 @@ func init() {
 	debug.SetMemoryLimit(2 << 30) // 2GB
 }
 
-func main() {
-	// Optionally run update-courses with update-courses
-	// This is NOT Safe is a server is running.
-	if len(os.Args) > 1 && os.Args[1] == "update-courses" {
-		UpdateCoursesHandler()
-		return
-	}
+// Debug for forcing a course update
+// Also clears the cache as a byproduct
+func setupSignalHandler() {
+	sigChan := make(chan os.Signal, 1)
+	signal.Notify(sigChan, syscall.SIGUSR1)
 
+	go func() {
+		for {
+			sig := <-sigChan
+			switch sig {
+			case syscall.SIGUSR1:
+				log.Printf("Received SIGUSR1, updating courses...")
+				UpdateCoursesHandler()
+			}
+		}
+	}()
+}
+
+func main() {
+	setupSignalHandler()
 	updateSchedule := fmt.Sprintf("0 %s %s * * *", utils.UPDATE_MIN, utils.UPDATE_HOUR)
 	c := cron.New()
 	c.AddFunc(updateSchedule, func() {
@@ -167,10 +180,10 @@ func ScheduleGenerator(w http.ResponseWriter, r *http.Request, request models.Ra
 
 // Get the port to listen on
 func getPort() string {
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "48920" // default port if not specified
-	}
+	var port string
+	flag.StringVar(&port, "port", "48920", "Port to run the server on")
+	flag.Parse()
+
 	return port
 }
 
