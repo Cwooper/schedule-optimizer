@@ -9,12 +9,6 @@ interface QuarterSelectorProps {
   onUpdate: (field: string, value: string) => void;
 }
 
-interface Quarter {
-  name: string;
-  year: number;
-  registrationDate: Date; // Added registration date
-}
-
 const QuarterSelector: React.FC<QuarterSelectorProps> = ({
   quarter,
   year,
@@ -24,58 +18,31 @@ const QuarterSelector: React.FC<QuarterSelectorProps> = ({
 }) => {
   const getCurrentQuarter = (): { quarter: string; year: string } => {
     const now = new Date();
-    const quarters: Quarter[] = [];
-
-    // Generate quarters for the next 3 years
-    for (let yearOffset = 0; yearOffset < 3; yearOffset++) {
-      const baseYear = now.getFullYear() + yearOffset;
-
-      quarters.push(
-        {
-          name: "40",
-          year: baseYear,
-          registrationDate: new Date(baseYear, 6, 1), // July 1st - registration
-        },
-        {
-          name: "10",
-          year: baseYear + 1,
-          registrationDate: new Date(baseYear, 9, 1), // Oct 1st - registration
-        },
-        {
-          name: "20",
-          year: baseYear + 1,
-          registrationDate: new Date(baseYear + 1, 1, 1), // Feb 1st - registration
-        },
-        {
-          name: "30",
-          year: baseYear + 1,
-          registrationDate: new Date(baseYear + 1, 4, 1), // May 1st - registration
-        }
-      );
+    const month = now.getMonth(); // 0-11
+    const year = now.getFullYear();
+  
+    // Determine quarter and its academic year based on current date
+    if (month >= 9 || month < 1) { // Oct-Jan = Winter of next year
+      return {
+        quarter: "10",
+        year: (month >= 9 ? year + 1 : year).toString()
+      };
+    } else if (month >= 1 && month < 4) { // Feb-Apr = Spring
+      return {
+        quarter: "20",
+        year: year.toString()
+      };
+    } else if (month >= 4 && month < 6) { // May-Jun = Summer
+      return {
+        quarter: "30",
+        year: year.toString()
+      };
+    } else { // Jul-Sep = Fall
+      return {
+        quarter: "40",
+        year: year.toString()
+      };
     }
-
-    // Sort quarters by registration date
-    quarters.sort(
-      (a, b) => a.registrationDate.getTime() - b.registrationDate.getTime()
-    );
-
-    // Find the current quarter based on registration dates
-    // If we're between Oct 1 and Feb 1, we want Winter
-    // If we're between Feb 1 and May 1, we want Spring
-    // If we're between May 1 and July 1, we want Summer
-    // If we're between July 1 and Oct 1, we want Fall
-    const currentQuarter =
-      quarters.find(
-        (q) =>
-          q.registrationDate <= now &&
-          (quarters[quarters.indexOf(q) + 1]?.registrationDate > now ||
-            !quarters[quarters.indexOf(q) + 1])
-      ) || quarters[0];
-
-    return {
-      quarter: currentQuarter.name,
-      year: currentQuarter.year.toString(),
-    };
   };
 
   // Set initial values when component mounts
