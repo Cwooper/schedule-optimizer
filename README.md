@@ -22,6 +22,7 @@ official or binding.
 ## Quick Demo
 
 Try these sample courses on the live site:
+
 - ENG 101
 - CSCI 141
 - CSCI 305
@@ -39,11 +40,13 @@ Try changing the quarter, forcing courses, or changing the min/max courses per s
 ## Docker Deployment
 
 1. **Build and Run with Docker Compose:**
+
    ```bash
    docker-compose up --build
    ```
 
 2. **Clean Docker Volume (if needed):**
+
    ```bash
    docker-compose down -v
    ```
@@ -65,6 +68,7 @@ sudo chmod -R 755 /opt/schedule-optimizer
 ### 2. Create Systemd Service
 
 Create `/etc/systemd/system/schedule-optimizer.service`:
+
 ```ini
 [Unit]
 Description=Schedule Optimizer Service
@@ -87,11 +91,13 @@ WantedBy=multi-user.target
 ### 3. Configure Apache Reverse Proxy (Optional)
 
 1. Enable Apache modules:
+
    ```bash
    sudo a2enmod proxy proxy_http
    ```
 
 2. Add to Apache configuration:
+
    ```apache
    ProxyPass /schedule-optimizer http://localhost:48920/schedule-optimizer
    ProxyPassReverse /schedule-optimizer http://localhost:48920/schedule-optimizer
@@ -111,6 +117,7 @@ sudo systemctl restart apache2  # If using Apache
 This is to be used for local development or testing
 
 1. **Install Protocol Buffers:**
+
    ```bash
    # MacOS
    brew install protobuf
@@ -120,12 +127,14 @@ This is to be used for local development or testing
    ```
 
 2. **Install Go Protobuf Plugin:**
+
    ```bash
    go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
    export PATH="$PATH:$(go env GOPATH)/bin"
    ```
 
 3. **Build Frontend:**
+
    ```bash
    cd frontend
    npm install
@@ -133,6 +142,7 @@ This is to be used for local development or testing
    ```
 
 4. **Build Backend:**
+
    ```bash
    cd backend
    go mod download
@@ -152,11 +162,13 @@ This is to be used for local development or testing
 Protobuf commands for editing the backend data structures
 
 - **Generate Protobuf Files:**
+
   ```bash
   cd backend && make proto
   ```
 
 - **Clean Generated Files:**
+
   ```bash
   cd backend && make clean
   ```
@@ -183,6 +195,7 @@ testing locally.
 ### Core Team
 
 **Cooper Morgan** ([@cwooper](https://github.com/cwooper))
+
 - Initial concept and design
 - Backend development and architecture
 - Docker containerization
@@ -190,6 +203,7 @@ testing locally.
 - Website: [cwooper.me](https://cwooper.me)
 
 **Konnor Kooi** ([@konnorkooi](https://github.com/konnorkooi))
+
 - Frontend development
 - Created [`schedule-glance`](https://www.npmjs.com/package/schedule-glance) npm module
 - Schedule visualization components
