@@ -1274,11 +1274,11 @@ ZOV PQbFTFjCHEM 461; instructor permissionr)CHEM 425R|SURFACE CHEMISTRY|BUSSE
 MWFÌþ"Emory, Steven R.*IS 2441ÐßÉjyc	@8@ZOV MJ PQbFTFj,CHEM 333 or CHEM 225; CHEM 461 or concurrentr5CHEM 434|INSTRUMENTAL ANALYSIS W/LAB|EMORY, STEVEN R.
 »
 CHEM 436Instrumental Analysis Lab2 Ñ½*$
-R„¶"Abdelrhman, Samir*SL 130*#
+R„¶"Abdelrhman, Samir*SL 130*%
 Tø
-ò"Emory, Steven R.*CB 265*%
+ò"Rider, David Allen*CB 265*#
 Tø
-ò"Rider, David Allen*CB 2651ÝZ1?å­@8@RFlat Fee $75.00ZOV MJbFTFjCo-requisite: CHEM 434.rXCHEM 436|INSTRUMENTAL ANALYSIS LAB|ABDELRHMAN, SAMIR|EMORY, STEVEN R.|RIDER, DAVID ALLEN
+ò"Emory, Steven R.*CB 2651ÝZ1?å­@8@RFlat Fee $75.00ZOV MJbFTFjCo-requisite: CHEM 434.rXCHEM 436|INSTRUMENTAL ANALYSIS LAB|ABDELRHMAN, SAMIR|RIDER, DAVID ALLEN|EMORY, STEVEN R.
 ¹
 CHEM 436Instrumental Analysis Lab2 Ò½*$
 R„¶"Abdelrhman, Samir*SL 130*$
@@ -1663,7 +1663,7 @@ ZOVbFTF SSCr)COMM 240|MEDIA STUDIES|ERICKSON, MARY P A
 COMM 325Intercultural Communication5 ±Ã*+
 TR°	Æ
 "Purnell, David Franklin*CF 2241T‚<%ÈS
-@8@HZOV JR SO SRbFTFjSophomore statusr<COMM 325|INTERCULTURAL COMMUNICATION|PURNELL, DAVID FRANKLIN
+@8@HZOV JR SO SRbFTFjSophomore statusr<COMM 325|INTERCULTURAL COMMUNICATION|PURNELL, DAVID FRANKLIN
 ²
 COMM 325Intercultural Communication5 ÿÆ*
 MWÀÖ"
@@ -7367,10 +7367,10 @@ HZOV ED PQbFTFjMLE 442r7MLE 443|METHODS: ENTERING & EMERGING|SAUNDERS, MIMI 
 ³
 MUS 104Art of Listening to Music3 í»*-
 TR†þ"Donnellan, Grant Jonathan*PA 1551¯•–ƒY@8g@_HZOVbFTF HUMr;MUS 104|ART OF LISTENING TO MUSIC|DONNELLAN, GRANT JONATHAN
-Á
+Ã
 MUS 104Art of Listening to Music3 ™Â**
 N/A"Camacho, Laura Marie*ONLINE ASNC01Y›—	õç
-@8#@#RPer/Cr $307.00ZOVbASNC HUM OL SSTr6MUS 104|ART OF LISTENING TO MUSIC|CAMACHO, LAURA MARIE
+@8#@"HRPer/Cr $307.00ZOVbASNC HUM OL SSTr6MUS 104|ART OF LISTENING TO MUSIC|CAMACHO, LAURA MARIE
 ·
 MUS 104Art of Listening to Music3 îØ*-
 TR†þ"Donnellan, Grant Jonathan*PA 1551¯•–ƒY@8@HZOVbFIG FTF HUMr;MUS 104|ART OF LISTENING TO MUSIC|DONNELLAN, GRANT JONATHAN
@@ -7462,11 +7462,11 @@ Ray, James*PA 0471^ýB@8@HZOV MJbFTFjMusic major or Music minor.r.MUS 
 MUS 212Piano2 è¿*$
 R”
 Æ
-"Widrig, Judith L.*PA 155*"
-TBD"Widrig, Judith L.*PA 1018*)
-TBD"Jelaca Jovanovic, Milica*PA 1018*
+"Widrig, Judith L.*PA 155*)
+TBD"Jelaca Jovanovic, Milica*PA 1018*"
+TBD"Widrig, Judith L.*PA 1018*
 TÀÖ"Staff*PA 1558
-@HRFlat Fee $582.48ZOV MJbFTFj1music major; minimum applied performance auditionrPMUS 212|PIANO|WIDRIG, JUDITH L.|WIDRIG, JUDITH L.|JELACA JOVANOVIC, MILICA|STAFF
+@HRFlat Fee $582.48ZOV MJbFTFj1music major; minimum applied performance auditionrPMUS 212|PIANO|WIDRIG, JUDITH L.|JELACA JOVANOVIC, MILICA|WIDRIG, JUDITH L.|STAFF
 ­
 MUS 212Piano2 ïÈ*!
 TBD"Zavislak, Kay M.*PA 1018*#
@@ -7628,17 +7628,17 @@ H
 RFlat Fee $291.24ZOV MJbFTFj1music major; minimum applied performance auditionr-MUS 214C|CLARINET|YODER, RACHEL|YODER, RACHEL
 ‹
 MUS 214DBassoon2 §¾*
+TBD"Nelson, Pat*PA OFC8*
 TBD"Nelson, Pat*PA OFC8*!
-TBD"Gholami, Mehrdad*PA OFC8*
-TBD"Nelson, Pat*PA OFC88
-@HRFlat Fee $582.48ZOV MJbFTFj1music major; minimum applied performance auditionr9MUS 214D|BASSOON|NELSON, PAT|GHOLAMI, MEHRDAD|NELSON, PAT
+TBD"Gholami, Mehrdad*PA OFC88
+@HRFlat Fee $582.48ZOV MJbFTFj1music major; minimum applied performance auditionr9MUS 214D|BASSOON|NELSON, PAT|NELSON, PAT|GHOLAMI, MEHRDAD
 ‰
 MUS 214DBassoon1 ¨¾*
+TBD"Nelson, Pat*PA OFC8*
 TBD"Nelson, Pat*PA OFC8*!
-TBD"Gholami, Mehrdad*PA OFC8*
-TBD"Nelson, Pat*PA OFC88
+TBD"Gholami, Mehrdad*PA OFC88
 H
-RFlat Fee $291.24ZOV MJbFTFj1music major; minimum applied performance auditionr9MUS 214D|BASSOON|NELSON, PAT|GHOLAMI, MEHRDAD|NELSON, PAT
+RFlat Fee $291.24ZOV MJbFTFj1music major; minimum applied performance auditionr9MUS 214D|BASSOON|NELSON, PAT|NELSON, PAT|GHOLAMI, MEHRDAD
 ñ
 MUS 214E	Saxophone2 ©¾*!
 TBD"Winkler, Fred A.*PA 1688*#
@@ -7680,40 +7680,40 @@ RFlat Fee $291.24ZOV MJbFTFj1music major; minimum applied performance auditio
 @HRFlat Fee $582.48ZOV MJbFTFj1music major; minimum applied performance auditionr;MUS 214H|TROMBONE|COX, GREGORY ALLEN|CAMACHO, GUSTAVO|STAFF
 ­
 MUS 214HTrombone1 °¾*#
-TBD"Cox, Gregory Allen*PA OFC8*#
-T°	â	"Camacho, Gustavo*PA 047*%
-T°	â	"Cox, Gregory Allen*PA 0478
-@HRFlat Fee $291.24ZOV MJbFTFj1music major; minimum applied performance auditionrHMUS 214H|TROMBONE|COX, GREGORY ALLEN|CAMACHO, GUSTAVO|COX, GREGORY ALLEN
+TBD"Cox, Gregory Allen*PA OFC8*%
+T°	â	"Cox, Gregory Allen*PA 047*#
+T°	â	"Camacho, Gustavo*PA 0478
+@HRFlat Fee $291.24ZOV MJbFTFj1music major; minimum applied performance auditionrHMUS 214H|TROMBONE|COX, GREGORY ALLEN|COX, GREGORY ALLEN|CAMACHO, GUSTAVO
 µ
 MUS 214I	Euphonium2 ±¾*
 TBD"MacLellan, Peder*PA8*
-TBD"MacLellan, Peder*PA8*
-TBD"Camacho, Gustavo*PA8*
+TBD"Camacho, Gustavo*PA8*
+TBD"MacLellan, Peder*PA8*
 TBD"Staff*PA OFC88
-@HRFlat Fee $582.48ZOV MJbFTFj1music major; minimum applied performance auditionrKMUS 214I|EUPHONIUM|MACLELLAN, PEDER|MACLELLAN, PEDER|CAMACHO, GUSTAVO|STAFF
+@HRFlat Fee $582.48ZOV MJbFTFj1music major; minimum applied performance auditionrKMUS 214I|EUPHONIUM|MACLELLAN, PEDER|CAMACHO, GUSTAVO|MACLELLAN, PEDER|STAFF
 ³
 MUS 214I	Euphonium1 ²¾*
 TBD"MacLellan, Peder*PA8*
-TBD"MacLellan, Peder*PA8*
-TBD"Camacho, Gustavo*PA8*
+TBD"Camacho, Gustavo*PA8*
+TBD"MacLellan, Peder*PA8*
 TBD"Staff*PA OFC88
 H
-RFlat Fee $291.24ZOV MJbFTFj1music major; minimum applied performance auditionrKMUS 214I|EUPHONIUM|MACLELLAN, PEDER|MACLELLAN, PEDER|CAMACHO, GUSTAVO|STAFF
+RFlat Fee $291.24ZOV MJbFTFj1music major; minimum applied performance auditionrKMUS 214I|EUPHONIUM|MACLELLAN, PEDER|CAMACHO, GUSTAVO|MACLELLAN, PEDER|STAFF
 «
 MUS 214JTuba2 ³¾*
 TBD"MacLellan, Peder*PA8*
-TBD"MacLellan, Peder*PA8*
-TBD"Camacho, Gustavo*PA8*
+TBD"Camacho, Gustavo*PA8*
+TBD"MacLellan, Peder*PA8*
 TBD"Staff*PA OFC88
-@H	RFlat Fee $582.48ZOV MJbFTFj1music major; minimum applied performance auditionrFMUS 214J|TUBA|MACLELLAN, PEDER|MACLELLAN, PEDER|CAMACHO, GUSTAVO|STAFF
+@H	RFlat Fee $582.48ZOV MJbFTFj1music major; minimum applied performance auditionrFMUS 214J|TUBA|MACLELLAN, PEDER|CAMACHO, GUSTAVO|MACLELLAN, PEDER|STAFF
 ©
 MUS 214JTuba1 ´¾*
 TBD"MacLellan, Peder*PA8*
-TBD"MacLellan, Peder*PA8*
-TBD"Camacho, Gustavo*PA8*
+TBD"Camacho, Gustavo*PA8*
+TBD"MacLellan, Peder*PA8*
 TBD"Staff*PA OFC88
 H
-RFlat Fee $291.24ZOV MJbFTFj1music major; minimum applied performance auditionrFMUS 214J|TUBA|MACLELLAN, PEDER|MACLELLAN, PEDER|CAMACHO, GUSTAVO|STAFF
+RFlat Fee $291.24ZOV MJbFTFj1music major; minimum applied performance auditionrFMUS 214J|TUBA|MACLELLAN, PEDER|CAMACHO, GUSTAVO|MACLELLAN, PEDER|STAFF
 ”
 MUS 214K
 Percussion2 µ¾*'
@@ -7950,30 +7950,30 @@ RFlat Fee $582.48ZOV MJbFTFj music major; upper-division examr@MUS 312|PIANO|
 Ž"Staff*PA 1558
 @HRFlat Fee $582.48ZOVbFTFj music major; upper-division examr*MUS 313A|VIOLIN|CAMACHO, LAURA MARIE|STAFF
 ï
-MUS 313BViola1 TO 4 ›¾*"
-TBD"Gottesman, Joseph*PA OFC8**
-TBD"Donnellan, Grant Jonathan*PA OFC8*$
+MUS 313BViola1 TO 4 ›¾**
+TBD"Donnellan, Grant Jonathan*PA OFC8*"
+TBD"Gottesman, Joseph*PA OFC8*,
 R”
 Æ
-"Gottesman, Joseph*PA 024*,
+"Donnellan, Grant Jonathan*PA 024*$
 R”
 Æ
-"Donnellan, Grant Jonathan*PA 0248
-@H	RFlat Fee $582.48ZOV MJbFTFj music major; upper-division examrfMUS 313B|VIOLA|GOTTESMAN, JOSEPH|DONNELLAN, GRANT JONATHAN|GOTTESMAN, JOSEPH|DONNELLAN, GRANT JONATHAN
+"Gottesman, Joseph*PA 0248
+@H	RFlat Fee $582.48ZOV MJbFTFj music major; upper-division examrfMUS 313B|VIOLA|DONNELLAN, GRANT JONATHAN|GOTTESMAN, JOSEPH|DONNELLAN, GRANT JONATHAN|GOTTESMAN, JOSEPH
 ÷
-MUS 313CCello1 TO 4 œ¾*'
-TBD"Steinberg, Janet Marie*PA OFC8**
-TBD"Donnellan, Grant Jonathan*PA OFC8*#
-TBD"Steinberg, Janet Marie*PA8*&
-TBD"Donnellan, Grant Jonathan*PA88
-@H	RFlat Fee $582.48ZOV MJbFTFj music major; upper-division examrpMUS 313C|CELLO|STEINBERG, JANET MARIE|DONNELLAN, GRANT JONATHAN|STEINBERG, JANET MARIE|DONNELLAN, GRANT JONATHAN
+MUS 313CCello1 TO 4 œ¾**
+TBD"Donnellan, Grant Jonathan*PA OFC8*'
+TBD"Steinberg, Janet Marie*PA OFC8*&
+TBD"Donnellan, Grant Jonathan*PA8*#
+TBD"Steinberg, Janet Marie*PA88
+@H	RFlat Fee $582.48ZOV MJbFTFj music major; upper-division examrpMUS 313C|CELLO|DONNELLAN, GRANT JONATHAN|STEINBERG, JANET MARIE|DONNELLAN, GRANT JONATHAN|STEINBERG, JANET MARIE
 ß
-MUS 313DDouble Bass1 TO 4 ¾*
-TBD"Palmer, Dylan*PA OFC8**
-TBD"Donnellan, Grant Jonathan*PA OFC8*
-TBD"Palmer, Dylan*PA8*&
-TBD"Donnellan, Grant Jonathan*PA88
-@H	RFlat Fee $582.48ZOV MJbFTFj music major; upper-division examrdMUS 313D|DOUBLE BASS|PALMER, DYLAN|DONNELLAN, GRANT JONATHAN|PALMER, DYLAN|DONNELLAN, GRANT JONATHAN
+MUS 313DDouble Bass1 TO 4 ¾**
+TBD"Donnellan, Grant Jonathan*PA OFC8*
+TBD"Palmer, Dylan*PA OFC8*&
+TBD"Donnellan, Grant Jonathan*PA8*
+TBD"Palmer, Dylan*PA88
+@H	RFlat Fee $582.48ZOV MJbFTFj music major; upper-division examrdMUS 313D|DOUBLE BASS|DONNELLAN, GRANT JONATHAN|PALMER, DYLAN|DONNELLAN, GRANT JONATHAN|PALMER, DYLAN
 ö
 MUS 313EHarp1 TO 4 ž¾**
 TBD"Donnellan, Grant Jonathan*PA 1398*'
@@ -8198,31 +8198,31 @@ RFlat Fee $582.48ZOV MJbFTFj music major; upper-division examrCMUS 413A|VIOLI
 H
 RFlat Fee $582.48ZOV MJbFTFj music major; upper-division examrXMUS 413A|VIOLIN|DONNELLAN, GRANT JONATHAN|CAMACHO, LAURA MARIE|DONNELLAN, GRANT JONATHAN
 í
-MUS 413BViola1 TO 4 Ÿ¾*"
-TBD"Gottesman, Joseph*PA OFC8**
-TBD"Donnellan, Grant Jonathan*PA OFC8*$
+MUS 413BViola1 TO 4 Ÿ¾**
+TBD"Donnellan, Grant Jonathan*PA OFC8*"
+TBD"Gottesman, Joseph*PA OFC8*,
 R”
 Æ
-"Gottesman, Joseph*PA 024*,
+"Donnellan, Grant Jonathan*PA 024*$
 R”
 Æ
-"Donnellan, Grant Jonathan*PA 0248HRFlat Fee $582.48ZOV MJbFTFj music major; upper-division examrfMUS 413B|VIOLA|GOTTESMAN, JOSEPH|DONNELLAN, GRANT JONATHAN|GOTTESMAN, JOSEPH|DONNELLAN, GRANT JONATHAN
+"Gottesman, Joseph*PA 0248HRFlat Fee $582.48ZOV MJbFTFj music major; upper-division examrfMUS 413B|VIOLA|DONNELLAN, GRANT JONATHAN|GOTTESMAN, JOSEPH|DONNELLAN, GRANT JONATHAN|GOTTESMAN, JOSEPH
 õ
-MUS 413CCello1 TO 4  ¾*'
-TBD"Steinberg, Janet Marie*PA OFC8**
-TBD"Donnellan, Grant Jonathan*PA OFC8*#
-TBD"Steinberg, Janet Marie*PA8*&
-TBD"Donnellan, Grant Jonathan*PA88
+MUS 413CCello1 TO 4  ¾**
+TBD"Donnellan, Grant Jonathan*PA OFC8*'
+TBD"Steinberg, Janet Marie*PA OFC8*&
+TBD"Donnellan, Grant Jonathan*PA8*#
+TBD"Steinberg, Janet Marie*PA88
 H
-RFlat Fee $582.48ZOV MJbFTFj music major; upper-division examrpMUS 413C|CELLO|STEINBERG, JANET MARIE|DONNELLAN, GRANT JONATHAN|STEINBERG, JANET MARIE|DONNELLAN, GRANT JONATHAN
+RFlat Fee $582.48ZOV MJbFTFj music major; upper-division examrpMUS 413C|CELLO|DONNELLAN, GRANT JONATHAN|STEINBERG, JANET MARIE|DONNELLAN, GRANT JONATHAN|STEINBERG, JANET MARIE
 Ý
-MUS 413DDouble Bass1 TO 4 ¡¾*
-TBD"Palmer, Dylan*PA OFC8**
-TBD"Donnellan, Grant Jonathan*PA OFC8*
-TBD"Palmer, Dylan*PA8*&
-TBD"Donnellan, Grant Jonathan*PA88
+MUS 413DDouble Bass1 TO 4 ¡¾**
+TBD"Donnellan, Grant Jonathan*PA OFC8*
+TBD"Palmer, Dylan*PA OFC8*&
+TBD"Donnellan, Grant Jonathan*PA8*
+TBD"Palmer, Dylan*PA88
 H
-RFlat Fee $582.48ZOV MJbFTFj music major; upper-division examrdMUS 413D|DOUBLE BASS|PALMER, DYLAN|DONNELLAN, GRANT JONATHAN|PALMER, DYLAN|DONNELLAN, GRANT JONATHAN
+RFlat Fee $582.48ZOV MJbFTFj music major; upper-division examrdMUS 413D|DOUBLE BASS|DONNELLAN, GRANT JONATHAN|PALMER, DYLAN|DONNELLAN, GRANT JONATHAN|PALMER, DYLAN
 Œ
 MUS 413EHarp1 TO 4 ¢¾*#
 TBD"Whitman, Jill Stroming*PA8*&
@@ -8282,10 +8282,10 @@ RFlat Fee $582.48ZOV MJbFTFj music major; upper-division examr;MUS 414H|TROMB
 É
 MUS 414I	Euphonium1 TO 4 Ê¾*
 TBD"MacLellan, Peder*PA8*!
-TBD"Camacho, Gustavo*PA OFC8*!
-TBD"MacLellan, Peder*PA OFC8*
+TBD"MacLellan, Peder*PA OFC8*!
+TBD"Camacho, Gustavo*PA OFC8*
 TBD"Staff*PA8*
-TBD"Staff*PA OFC88HRFlat Fee $582.48ZOV MJbFTFj music major; upper-division examrQMUS 414I|EUPHONIUM|MACLELLAN, PEDER|CAMACHO, GUSTAVO|MACLELLAN, PEDER|STAFF|STAFF
+TBD"Staff*PA OFC88HRFlat Fee $582.48ZOV MJbFTFj music major; upper-division examrQMUS 414I|EUPHONIUM|MACLELLAN, PEDER|MACLELLAN, PEDER|CAMACHO, GUSTAVO|STAFF|STAFF
 õ
 MUS 414JTuba1 TO 4 Ë¾*!
 TBD"MacLellan, Peder*PA OFC8*!
@@ -10228,9 +10228,9 @@ ZOV PQbFTFjRSPAN 201, SPAN 202 or SPAN 203 or equivalent experience; or instru
 É
 SPAN 301Grammar Review & Composition5 ŒÕ*"
 TR ò"Aranda, Blanca*MH 1211bÝŽI@8@HZOVbFTF HUMj"SPAN 203 or instructor permission.r4SPAN 301|GRAMMAR REVIEW & COMPOSITION|ARANDA, BLANCA
-µ
+±
 SPAN 3053rd-Year Conversation5 Õ*"
-TR†Ø	"Aranda, Blanca*MH 1218@HZ	OV S/U PQbFTFj"SPAN 203 or instructor permission.r-SPAN 305|3RD-YEAR CONVERSATION|ARANDA, BLANCA
+TR†Ø	"Aranda, Blanca*MH 1218@HZOV PQbFTFj"SPAN 203 or instructor permission.r-SPAN 305|3RD-YEAR CONVERSATION|ARANDA, BLANCA
 Ï
 SPAN 332Culture of Latin America5 ŽÕ**
 MWF¾¶"Garcia Gonzalez, Hugo*HU 1101tÑE]t@8@HZOV PQbFTFj"SPAN 301 or instructor permission.r7SPAN 332|CULTURE OF LATIN AMERICA|GARCIA GONZALEZ, HUGO
@@ -10817,4 +10817,4 @@ JoeHahn, .*ONLINE ASNC01¬€¦ã@8@HZOVbASNC BCGM OLjKWGSS 211, WGSS 212, 
 WGSS 450Abolitionist Feminism5 µÇ*"
 TRø
 Ž"Cerretti, Josh*BH 1731Âõ(\
-@8@ZOVbCPST FTF WP3j?Senior status in WGSS major or minor; or instructor permission.r-WGSS 450|ABOLITIONIST FEMINISM|CERRETTI, JOSHËÙ«¼«ø¸\
+@8@ZOVbCPST FTF WP3j?Senior status in WGSS major or minor; or instructor permission.r-WGSS 450|ABOLITIONIST FEMINISM|CERRETTI, JOSHúî®½ñ…Š›
