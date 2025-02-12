@@ -90,7 +90,7 @@ func sessionsConflict(s1, s2 Session) bool {
 
 // timesConflict checks if two time ranges overlap
 func timesConflict(start1, end1, start2, end2 int) bool {
-	return (((start1 >= start2) && (start1 <= end2)) || ((end1 >= start2) && (end1 <= end2)))
+	return start1 < end2 && start2 < end1
 }
 
 // Returns true if a course has any tbd or async times.
