@@ -504,6 +504,8 @@ const SchedulePlanner: React.FC = () => {
                 courses={scheduleData.searchResults}
                 title="Search Results"
                 emptyMessage="No courses found matching your search."
+                quarter={scheduleData.quarter}
+                year={scheduleData.year}
               />
             </div>
           )}

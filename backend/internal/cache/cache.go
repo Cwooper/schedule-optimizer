@@ -1,6 +1,6 @@
 // This package is intended for caching course data for less file I/O
 // Mostly a consequence of virtualizing the server, causing slow I/O
-// Also implements Course Caching by CRN
+// Also implements Course Caching by Subject for O(1) lookups
 package cache
 
 import (
@@ -16,39 +16,91 @@ import (
 
 // CourseCache interface defines the methods for interacting with the course cache
 type CourseCache interface {
+	// GetGlobalCourses returns courses for a given subject across all terms.
+	GetGlobalCourses(subject string) ([]models.Course, error)
+	// GetCourses returns courses for a given term and subject.
+	GetCourses(term, subject string) ([]models.Course, error)
+	// GetCourseList returns the full list of courses for a given term.
 	GetCourseList(term string) ([]models.Course, error)
-	GetProto(term string) (*pb.CourseList, error)
+	// PreloadCache preloads courses for a list of terms.
+	PreloadCache(terms []string) error
+	// Invalidate clears all caches.
 	Invalidate()
 }
 
 // courseCacheManager implements the CourseCache interface
 type courseCacheManager struct {
-	mu            sync.RWMutex
-	protoCache    map[string]*pb.CourseList  // Cache for protocol buffers
-	courseCache   map[string][]models.Course // Cache for course lists
-	coursesByTerm map[string]map[int]int     // Index map of CRN to position in courseCache for O(1) lookups
+	mu                 sync.RWMutex
+	protoCache         map[string]*pb.CourseList             // term -> protobuf data
+	termCache          map[string][]models.Course            // term -> courses list
+	termSubjectCache   map[string]map[string][]models.Course // term -> subject -> courses
+	globalSubjectCache map[string][]models.Course            // subject -> courses across all terms
 }
 
 // NewCourseCache creates a new CourseCache instance
 func NewCourseCache() CourseCache {
 	return &courseCacheManager{
-		protoCache:    make(map[string]*pb.CourseList),
-		courseCache:   make(map[string][]models.Course),
-		coursesByTerm: make(map[string]map[int]int),
+		protoCache:         make(map[string]*pb.CourseList),
+		termCache:          make(map[string][]models.Course),
+		termSubjectCache:   make(map[string]map[string][]models.Course),
+		globalSubjectCache: make(map[string][]models.Course),
 	}
+}
+
+// Helper to build subject indexes for a term once courses are loaded
+func (cm *courseCacheManager) buildSubjectIndexes(term string, courses []models.Course) {
+	termIndex := make(map[string][]models.Course)
+	for _, course := range courses {
+		// Update term-specific index
+		termIndex[course.Subject] = append(termIndex[course.Subject], course)
+		// Update global index
+		cm.globalSubjectCache[course.Subject] = append(cm.globalSubjectCache[course.Subject], course)
+	}
+	cm.termSubjectCache[term] = termIndex
+}
+
+// GetGlobalCourses returns all courses for the given subject, using cache if available
+// Returns every course found in all terms
+func (cm *courseCacheManager) GetGlobalCourses(subject string) ([]models.Course, error) {
+	cm.mu.RLock()
+	defer cm.mu.RUnlock()
+
+	courses, exists := cm.globalSubjectCache[subject]
+	if !exists || len(courses) == 0 {
+		return nil, fmt.Errorf("no courses found for subject: %s", subject)
+	}
+
+	return courses, nil
+}
+
+// GetCourses returns all courses for the given term and subject, using cache if available
+// Returns every course found in the given term
+func (cm *courseCacheManager) GetCourses(term, subject string) ([]models.Course, error) {
+	cm.mu.RLock()
+	defer cm.mu.RUnlock()
+
+	termIndex, exists := cm.termSubjectCache[term]
+	if !exists {
+		return nil, fmt.Errorf("no data for term: %s", term)
+	}
+
+	courses, exists := termIndex[subject]
+	if !exists || len(courses) == 0 {
+		return nil, fmt.Errorf("no courses found for subject: %s in term: %s", subject, term)
+	}
+
+	return courses, nil
 }
 
 // GetCourseList returns a slice of courses for the given term, using cache if available
 func (cm *courseCacheManager) GetCourseList(term string) ([]models.Course, error) {
-	// First check if we have it in the course cache
 	cm.mu.RLock()
-	if courses, ok := cm.courseCache[term]; ok {
+	if courses, ok := cm.termCache[term]; ok {
 		cm.mu.RUnlock()
 		return courses, nil
 	}
 	cm.mu.RUnlock()
 
-	// If not in cache, get the proto and convert it
 	proto, err := cm.GetProto(term)
 	if err != nil {
 		return nil, fmt.Errorf("failed to get proto for term %s: %w", term, err)
@@ -56,24 +108,15 @@ func (cm *courseCacheManager) GetCourseList(term string) ([]models.Course, error
 
 	courses := protoutils.ProtoToCourses(proto)
 
-	// Cache the courses and build the index
 	cm.mu.Lock()
-	cm.courseCache[term] = courses
-
-	// Build index for O(1) lookups by CRN
-	crnIndex := make(map[int]int)
-	for i, course := range courses {
-		crnIndex[course.CRN] = i
-	}
-	cm.coursesByTerm[term] = crnIndex
-	cm.mu.Unlock()
-
+	defer cm.mu.Unlock()
+	cm.termCache[term] = courses
+	cm.buildSubjectIndexes(term, courses)
 	return courses, nil
 }
 
 // GetProto returns the protocol buffer for the given term, using cache if available
 func (cm *courseCacheManager) GetProto(term string) (*pb.CourseList, error) {
-	// Check if we have it in the proto cache
 	cm.mu.RLock()
 	if proto, ok := cm.protoCache[term]; ok {
 		cm.mu.RUnlock()
@@ -81,29 +124,35 @@ func (cm *courseCacheManager) GetProto(term string) (*pb.CourseList, error) {
 	}
 	cm.mu.RUnlock()
 
-	// Create the full file path
 	filename := filepath.Join(utils.DataDirectory, term+".pb")
-
-	// If not in cache, load from disk
 	proto, err := utils.LoadCoursesProtobuf(filename)
 	if err != nil {
 		return nil, fmt.Errorf("failed to load protobuf for term %s: %w", term, err)
 	}
 
-	// Cache the proto
 	cm.mu.Lock()
 	cm.protoCache[term] = proto
 	cm.mu.Unlock()
-
 	return proto, nil
 }
 
-// Invalidate clears all caches, called after course data is updated by scraper
+// PreloadCache loads all terms into the cache.
+func (cm *courseCacheManager) PreloadCache(terms []string) error {
+	for _, term := range terms {
+		if _, err := cm.GetCourseList(term); err != nil {
+			return fmt.Errorf("failed to preload term %s: %w", term, err)
+		}
+	}
+	return nil
+}
+
+// Invalidate clears all caches and indexes.
 func (cm *courseCacheManager) Invalidate() {
 	cm.mu.Lock()
 	defer cm.mu.Unlock()
 
 	cm.protoCache = make(map[string]*pb.CourseList)
-	cm.courseCache = make(map[string][]models.Course)
-	cm.coursesByTerm = make(map[string]map[int]int)
+	cm.termCache = make(map[string][]models.Course)
+	cm.termSubjectCache = make(map[string]map[string][]models.Course)
+	cm.globalSubjectCache = make(map[string][]models.Course)
 }

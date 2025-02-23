@@ -141,12 +141,11 @@ func (g *Generator) cleanCourseNames(courses []string) []string {
 }
 
 // Fills the courses array in the generator with courses in the database
-
 func (g *Generator) generateCourses(term string) {
 	courseManager := cache.GetInstance()
 
-	courseList, err := courseManager.GetCourseList(term)
-	if err != nil {
+	// Ensure the term data is loaded so that the subject indexes exist.
+	if _, err := courseManager.GetCourseList(term); err != nil {
 		g.response.Warnings = append(g.response.Warnings,
 			"Data is not stored for this term: "+term)
 		return
@@ -154,27 +153,27 @@ func (g *Generator) generateCourses(term string) {
 
 	courses := make([]models.Course, 0)
 
-	// Search for the necessary courses of cleaned names
+	// For each requested course subject, use the term-specific subject index.
 	for _, courseRequest := range g.cleanedCourseNames {
-		found := false
-		for _, course := range courseList {
-			if course.Subject == courseRequest {
-				found = true
-				// If the course doesn't have a time to test, don't include it
-				if models.HasAsyncOrTBD(course) {
-					g.response.Asyncs = append(g.response.Asyncs, course)
-				} else {
-					courses = append(courses, course)
-				}
-			}
-		}
-		if !found {
+		subjectCourses, err := courseManager.GetCourses(term, courseRequest)
+		if err != nil {
 			g.response.Warnings = append(g.response.Warnings,
 				courseRequest+" is not offered this term.")
+			continue
+		}
+
+		// Process each course for this subject.
+		for _, course := range subjectCourses {
+			// If the course is asynchronous or time TBD, add to Asyncs.
+			if models.HasAsyncOrTBD(course) {
+				g.response.Asyncs = append(g.response.Asyncs, course)
+			} else {
+				courses = append(courses, course)
+			}
 		}
 	}
 
-	// Verify that we found the forced course
+	// Verify that each forced course was found among the non-async courses.
 	for _, forceRequest := range g.cleanedForcedNames {
 		found := false
 		for _, course := range courses {

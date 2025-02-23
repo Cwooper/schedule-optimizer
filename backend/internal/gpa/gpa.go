@@ -11,7 +11,7 @@ import (
 
 // Finds the instructor in the gpaData, converts name from last, first
 func findInstructor(name string, subject string, gpaData models.GPAData) (string, bool) {
-	if name == "Staff" || name == "TBD" || name == "N/A" {
+	if name == "" || name == "TBD" || name == "N/A" {
 		return "", false
 	}
 
@@ -78,7 +78,7 @@ func findGPA(course models.Course, gpaData models.GPAData) float64 {
 	}
 
 	// Find the instructor
-	instructorName, found := findInstructor(course.Sessions[0].Instructor, subject, gpaData)
+	instructorName, found := findInstructor(course.Instructor, subject, gpaData)
 	if !found {
 		// If instructor not found, fall back to subject GPA
 		if subjectGPA, ok := gpaData.Subjects[subject]; ok {
@@ -115,7 +115,7 @@ func GenerateGPA(courseList *[]models.Course) error {
 	// Iterate through every course
 	for i, course := range *courseList {
 		// If CourseKey is in the map, use that GPA
-		courseKey := models.CourseKey(course.Subject, course.Sessions[0].Instructor)
+		courseKey := models.CourseKey(course.Subject, course.Instructor)
 		if gpa, ok := gpaMap[courseKey]; ok {
 			(*courseList)[i].GPA = gpa
 			continue

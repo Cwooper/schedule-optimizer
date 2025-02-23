@@ -12,24 +12,20 @@ export interface WeightsState {
 export interface Course {
   Subject: string;
   Title: string;
-  CRN: string;
   Credits: number;
+  CRN: string;
+  Instructor: string;
   Sessions: Session[];
   GPA?: number;
-  Prerequisites?: string;
-  Attributes?: string;
-  AdditionalFees?: string;
-  Restrictions?: string;
-  AvailableSeats: number;
   Capacity: number;
   Enrolled: number;
+  AvailableSeats: number;
 }
 
 export interface Session {
   Days: string;
   StartTime: number;
   EndTime: number;
-  Instructor: string;
   Location: string;
   IsAsync: boolean;
   IsTimeTBD: boolean;

@@ -178,6 +178,8 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
                 session={popupState.sessionData}
                 isOpen={popupState.isOpen}
                 onClose={handlePopupClose}
+                quarter={quarter}
+                year={year}
               />
             )}
         </div>
@@ -188,6 +190,8 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
           courses={asyncCourses}
           title="Asynchronous Courses"
           emptyMessage="No asynchronous courses"
+          quarter={quarter}
+          year={year}
         />
       )}
     </div>

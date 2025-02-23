@@ -16,9 +16,9 @@ import (
 
 	"github.com/robfig/cron"
 
+	"github.com/cwooper/schedule-optimizer/internal/api"
 	"github.com/cwooper/schedule-optimizer/internal/generator"
 	"github.com/cwooper/schedule-optimizer/internal/models"
-	"github.com/cwooper/schedule-optimizer/internal/scraper"
 	"github.com/cwooper/schedule-optimizer/internal/search"
 	"github.com/cwooper/schedule-optimizer/internal/utils"
 )
@@ -98,7 +98,8 @@ func main() {
 
 	log.Printf("Server starting on port %s\n", port)
 	nextRun := c.Entries()[0].Next
-	log.Printf("Next scheduled run: %s", nextRun.Format(time.RFC3339))
+	log.Printf("Next scheduled API scrape: %s", nextRun.Format(time.RFC3339))
+	log.Printf("To force an update, run 'kill -SIGUSR1 %d'", os.Getpid())
 	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
 
@@ -216,7 +217,7 @@ func UpdateCoursesHandler() {
 		updateMutex.Unlock()
 	}()
 
-	err := scraper.UpdateCourses()
+	err := api.UpdateCourses()
 	if err != nil {
 		log.Printf("Error updating courses: %v", err)
 	} else {
