@@ -17,24 +17,6 @@ const BASE_COLORS = [
   "#E8FFD6", // Light Yellow-Green
 ];
 
-const getInstructor = (currentSession: any, allSessions: any[]): string => {
-  if (
-    currentSession.Instructor &&
-    currentSession.Instructor.toLowerCase() !== "staff"
-  ) {
-    return currentSession.Instructor;
-  }
-
-  // Look for non-"Staff" instructor in other sessions
-  const otherInstructor = allSessions.find(
-    (s: any) => s.Instructor && s.Instructor.toLowerCase() !== "staff"
-  );
-
-  return otherInstructor
-    ? otherInstructor.Instructor
-    : currentSession.Instructor;
-};
-
 export const generateScheduleEvents = (schedule: Schedule): ScheduleEvent[] => {
   const events: ScheduleEvent[] = [];
   let colorIndex = 0;
@@ -62,9 +44,6 @@ export const generateScheduleEvents = (schedule: Schedule): ScheduleEvent[] => {
           .padStart(2, "0")}`;
       };
 
-      // Get the best instructor to display
-      const displayInstructor = getInstructor(session, course.Sessions);
-
       events.push({
         id: `${String(course.CRN)}-${session.Days}`,
         days,
@@ -72,7 +51,7 @@ export const generateScheduleEvents = (schedule: Schedule): ScheduleEvent[] => {
         end: formatTime(session.EndTime),
         color: BASE_COLORS[colorIndex % BASE_COLORS.length],
         title: `${course.Subject}`,
-        body: `${displayInstructor}\n${session.Location}`,
+        body: `${course.Instructor || "Staff"}\n${session.Location}`,
       });
     });
     colorIndex++;

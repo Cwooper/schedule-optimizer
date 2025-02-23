@@ -20,27 +20,31 @@ const QuarterSelector: React.FC<QuarterSelectorProps> = ({
     const now = new Date();
     const month = now.getMonth(); // 0-11
     const year = now.getFullYear();
-  
+
     // Determine quarter and its academic year based on current date
-    if (month >= 9 || month < 1) { // Oct-Jan = Winter of next year
+    if (month >= 9 || month < 1) {
+      // Oct-Jan = Winter of next year
       return {
         quarter: "10",
-        year: (month >= 9 ? year + 1 : year).toString()
+        year: (month >= 9 ? year + 1 : year).toString(),
       };
-    } else if (month >= 1 && month < 4) { // Feb-Apr = Spring
+    } else if (month >= 1 && month < 4) {
+      // Feb-Apr = Spring
       return {
         quarter: "20",
-        year: year.toString()
+        year: year.toString(),
       };
-    } else if (month >= 4 && month < 6) { // May-Jun = Summer
+    } else if (month >= 4 && month < 6) {
+      // May-Jun = Summer
       return {
         quarter: "30",
-        year: year.toString()
+        year: year.toString(),
       };
-    } else { // Jul-Sep = Fall
+    } else {
+      // Jul-Sep = Fall
       return {
         quarter: "40",
-        year: year.toString()
+        year: year.toString(),
       };
     }
   };
@@ -56,8 +60,13 @@ const QuarterSelector: React.FC<QuarterSelectorProps> = ({
   }, []);
 
   // Generate available years (current year and next year)
-  const currentYear = new Date().getFullYear();
-  const availableYears = Array.from({ length: 2 }, (_, i) => currentYear + i);
+  const { year: academicYearStr } = getCurrentQuarter();
+  const academicYear = parseInt(academicYearStr, 10);
+  const month = new Date().getMonth(); // 0-11
+  const availableYears =
+    month < 4
+      ? [academicYear - 1, academicYear]
+      : [academicYear, academicYear + 1];
 
   return (
     <div className={styles.container}>
