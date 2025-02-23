@@ -1,7 +1,10 @@
 // Package models for re-usable objects
 package models
 
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
 // Holds one session worth of data (repeatable time range over days)
 type Session struct {
@@ -30,6 +33,37 @@ type Course struct {
 	Attributes     string    // Any noted attributes
 	Prerequisites  string    // Any noted prerequisites
 	CourseString   string    // The course as a string for searching
+}
+
+// String provides a debugging string representation of a Session
+func (s Session) String() string {
+	return fmt.Sprintf("Days: %s, Start: %04d, End: %04d, Instructor: %s, Location: %s, IsAsync: %v, IsTimeTBD: %v",
+		s.Days, s.StartTime, s.EndTime, s.Instructor, s.Location, s.IsAsync, s.IsTimeTBD)
+}
+
+// String provides a debugging string representation of a Course
+func (c Course) String() string {
+	var b strings.Builder
+
+	fmt.Fprintf(&b, "Subject: %s\n", c.Subject)
+	fmt.Fprintf(&b, "Title: %s\n", c.Title)
+	fmt.Fprintf(&b, "Credits: %s\n", c.Credits)
+	fmt.Fprintf(&b, "CRN: %d\n", c.CRN)
+	fmt.Fprintf(&b, "GPA: %.2f\n", c.GPA)
+	fmt.Fprintf(&b, "Capacity: %d\n", c.Capacity)
+	fmt.Fprintf(&b, "Enrolled: %d\n", c.Enrolled)
+	fmt.Fprintf(&b, "AvailableSeats: %d\n", c.AvailableSeats)
+	fmt.Fprintf(&b, "AdditionalFees: %s\n", c.AdditionalFees)
+	fmt.Fprintf(&b, "Restrictions: %s\n", c.Restrictions)
+	fmt.Fprintf(&b, "Attributes: %s\n", c.Attributes)
+	fmt.Fprintf(&b, "Prerequisites: %s\n", c.Prerequisites)
+	fmt.Fprintf(&b, "CourseString: %s\n", c.CourseString)
+	fmt.Fprintf(&b, "Sessions:\n")
+	for _, s := range c.Sessions {
+		fmt.Fprintf(&b, "  %s\n", s)
+	}
+
+	return b.String()
 }
 
 // Initialize fully empty course

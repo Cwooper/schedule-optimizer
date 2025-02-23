@@ -12,3 +12,4 @@
 ## Features
 
 - [ ] Add Course Description Button to Frontend
+- [ ] Add Prequisite Button to Frontend
