@@ -20,7 +20,7 @@ type Course struct {
 	Title          string    // Course Title
 	Credits        string    // Number of credits
 	CRN            int       // Course Record Number
-	Sessions       []Session // All sessions for this course (nil if asnyc)
+	Sessions       []Session // All sessions for this course
 	GPA            float64   // Average GPA for this course
 	Capacity       int       // Maximum enrollment capacity
 	Enrolled       int       // Number of currently enrolled students
