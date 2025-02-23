@@ -155,9 +155,10 @@ func (c *Client) GetCourses(term, subject, courseNum string) ([]models.Course, e
 		return nil, err
 	}
 
-	// Escape special characters in the search parameters
-	subject = strings.ReplaceAll(subject, "%", "%25")
-	courseNum = strings.ReplaceAll(courseNum, "%", "%25")
+	// Trim space (just in case) and escape special characters
+	term = strings.TrimSpace(term) // term does not need escaping
+	subject = strings.TrimSpace(strings.ReplaceAll(subject, "%", "%25"))
+	courseNum = strings.TrimSpace(strings.ReplaceAll(courseNum, "%", "%25"))
 
 	var allCourses []models.Course
 	pageOffset := 0
@@ -165,11 +166,19 @@ func (c *Client) GetCourses(term, subject, courseNum string) ([]models.Course, e
 	for {
 		// Build the search URL with parameters
 		params := url.Values{
-			"txt_term":         {term},
-			"txt_subject":      {subject},
-			"txt_courseNumber": {courseNum},
-			"pageOffset":       {fmt.Sprintf("%d", pageOffset)},
-			"pageMaxSize":      {fmt.Sprintf("%d", pageSize)},
+			"txt_term":      {term},
+			"pageOffset":    {fmt.Sprintf("%d", pageOffset)},
+			"pageMaxSize":   {fmt.Sprintf("%d", pageSize)},
+			"sortColumn":    {"subjectDescription"},
+			"sortDirection": {"asc"},
+		}
+
+		// Simply exclude the parameters if they are empty
+		if subject != "" && subject != "%" {
+			params.Add("txt_subject", subject)
+		}
+		if courseNum != "" && courseNum != "%" {
+			params.Add("txt_courseNumber", courseNum)
 		}
 
 		// Create request
