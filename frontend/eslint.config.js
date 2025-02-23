@@ -9,11 +9,10 @@ export default tseslint.config(
   {
     extends: [
       js.configs.recommended,
-      ...tseslint.configs.recommended,
-      ...tseslint.configs.strictTypeChecked,  // Added strict type checking
+      ...tseslint.configs.recommendedTypechecked,
       ...tseslint.configs.stylisticTypeChecked // Added stylistic rules
     ],
-    files: ['**/*.{ts,tsx}'],
+    files: ['**/*.{ts,tsx,css}'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: {
@@ -22,7 +21,7 @@ export default tseslint.config(
       },
       parser: tseslint.parser,
       parserOptions: {
-        project: true,  // Enable project-wide type checking
+        project: './tsconfig.app.json',  // Enable project-wide type checking
       }
     },
     plugins: {

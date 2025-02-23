@@ -28,22 +28,7 @@ const CourseItem: React.FC<CourseItemProps> = ({ course, onClick }) => {
       </div>
       <div className={styles.courseDetails}>
         <span className={styles.credits}>{course.Credits} credits</span>
-        {
-          course.Sessions
-            .map((session) => session.Instructor)
-            .filter(instructor => 
-              instructor.toLowerCase() !== "staff"
-            )
-            .filter((value, index, self) => self.indexOf(value) === index) // Remove duplicates
-            .map((instructor) => (
-              <span
-                key={instructor}
-                className={styles.instructor}
-              >
-                {instructor}
-              </span>
-            ))
-        }
+        {course.Instructor}
       </div>
     </div>
   );
