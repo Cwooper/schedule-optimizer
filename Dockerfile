@@ -12,7 +12,7 @@ FROM golang:1.24-bookworm AS backend-builder
 WORKDIR /backend
 COPY backend/ ./
 RUN go mod download
-RUN CGO_ENABLED=0 GOOS=linux go build cmd/server/server.go -o server
+RUN CGO_ENABLED=0 GOOS=linux go build -o server cmd/server/server.go
 
 # Final image
 FROM debian:bookworm-slim
