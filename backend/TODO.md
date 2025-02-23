@@ -7,7 +7,11 @@
 
 ## Updates
 
-- [ ] Update Scraper to use new API
+- [ ] Update Schedule-Optimizer to use new API
+  - [x] Update Backend to use API
+    - [x] Change course model + proto
+  - [ ] Update Frontend to new course model
+  - [ ] Update Frontend/Backend for proxy course attributes?
   
 ## Features
 
