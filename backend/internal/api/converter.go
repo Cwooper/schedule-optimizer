@@ -2,6 +2,7 @@ package api
 
 import (
 	"fmt"
+	"html"
 	"strings"
 
 	"github.com/cwooper/schedule-optimizer/internal/models"
@@ -9,15 +10,25 @@ import (
 
 // apiToCourse converts a CourseData into our internal Course model
 func apiToCourse(data CourseData) (*models.Course, error) {
-	// Create the base course
+	// Get primary instructor
+	var instructor string
+	for _, faculty := range data.Faculty {
+		if faculty.PrimaryIndicator {
+			instructor = faculty.DisplayName
+			break
+		}
+	}
+
+	// Create base course with HTML-decoded strings
 	course := &models.Course{
 		Subject:        fmt.Sprintf("%s %s", data.Subject, data.CourseNumber),
-		Title:          data.CourseTitle,
+		Title:          html.UnescapeString(data.CourseTitle),
 		Credits:        formatCredits(data.CreditHourLow, data.CreditHourHigh),
+		Instructor:     instructor,
 		Capacity:       data.MaximumEnrollment,
 		Enrolled:       data.Enrollment,
 		AvailableSeats: data.SeatsAvailable,
-		GPA:            0,  // Will be calculated separately
+		GPA:            0, // Will be calculated separately
 	}
 
 	// Parse CRN
@@ -36,22 +47,8 @@ func apiToCourse(data CourseData) (*models.Course, error) {
 		course.Sessions = append(course.Sessions, *session)
 	}
 
-	// Get primary instructor(s)
-	var instructors []string
-	for _, faculty := range data.Faculty {
-		if faculty.PrimaryIndicator {
-			instructors = append(instructors, faculty.DisplayName)
-		}
-	}
-
 	// Build the course string for searching
-	course.CourseString = buildCourseString(course.Subject, course.Title, instructors)
-
-	// Process section attributes
-	attributes := make([]string, 0, len(data.SectionAttributes))
-	for _, attr := range data.SectionAttributes {
-		attributes = append(attributes, attr.Description)
-	}
+	course.CourseString = buildCourseString(course.Subject, course.Title, instructor)
 
 	return course, nil
 }
@@ -100,16 +97,15 @@ func createSession(meetingFaculty MeetingFacultyData) (*models.Session, error) {
 	location := buildLocationString(mt.Building, mt.Room, mt.BuildingDescription)
 
 	return &models.Session{
-		Days:       days,
-		StartTime:  startTime,
-		EndTime:    endTime,
-		Location:   location,
-		IsAsync:    isAsync,
-		IsTimeTBD:  isTBD,
+		Days:      days,
+		StartTime: startTime,
+		EndTime:   endTime,
+		Location:  location,
+		IsAsync:   isAsync,
+		IsTimeTBD: isTBD,
 	}, nil
 }
 
-// parseTime converts time string (e.g., "1000") to integer representation
 func parseTime(timeStr string) (int, error) {
 	if timeStr == "" || timeStr == "TBD" {
 		return 0, fmt.Errorf("invalid time format")
@@ -121,7 +117,6 @@ func parseTime(timeStr string) (int, error) {
 		return 0, err
 	}
 
-	// Convert to our time format (e.g., 1000 for 10:00)
 	return hour*100 + minute, nil
 }
 
@@ -148,7 +143,6 @@ func buildDaysString(mt MeetingTime) string {
 	return days.String()
 }
 
-// buildLocationString creates a formatted location string
 func buildLocationString(building, room string, description string) string {
 	var location strings.Builder
 
@@ -174,12 +168,11 @@ func buildLocationString(building, room string, description string) string {
 	return location.String()
 }
 
-// buildCourseString creates the searchable course string
-func buildCourseString(subject, title string, instructors []string) string {
+func buildCourseString(subject, title string, instructor string) string {
 	parts := []string{
 		strings.ToUpper(subject),
 		strings.ToUpper(title),
-		strings.ToUpper(strings.Join(instructors, "|")),
+		strings.ToUpper(instructor),
 	}
 	return strings.Join(parts, "|")
 }

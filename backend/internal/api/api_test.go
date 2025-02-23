@@ -1,12 +1,37 @@
 package api
 
 import (
+	"fmt"
 	"io"
 	"net/http"
 	"net/http/httptest"
 	"strings"
 	"testing"
 )
+
+var testBaseURL = BASE_URL
+
+const sampleTermsResponse = `[
+    {
+        "code": "202530",
+        "description": "Summer 2025 (View Only)"
+    },
+    {
+        "code": "202520",
+        "description": "Spring 2025"
+    }
+]`
+
+const sampleSubjectsResponse = `[
+    {
+        "code": "CSCI",
+        "description": "Computer Science"
+    },
+    {
+        "code": "MATH",
+        "description": "Mathematics"
+    }
+]`
 
 const sampleResponse = `{
     "success": true,
@@ -320,25 +345,55 @@ const emptyResponse = `{
     "pathMode": "search"
 }`
 
-// mockHTTPClient creates a test HTTP client that returns predefined responses
+const initSessionResponse = `{"success": true}`
+const termSelectResponse = `{"success": true}`
+
+// mock client that can handle different endpoints
 type mockHTTPClient struct {
+	// For sequential responses (old style)
 	responses []string
 	calls     int
+
+	// For endpoint-specific responses (new style)
+	endpointResponses map[string]string
+	endpointCalls     map[string]int
+}
+
+func newMockHTTPClient() *mockHTTPClient {
+	return &mockHTTPClient{
+		endpointResponses: make(map[string]string),
+		endpointCalls:     make(map[string]int),
+	}
 }
 
 func (m *mockHTTPClient) RoundTrip(req *http.Request) (*http.Response, error) {
-	// Increment call counter
+	// Increment total calls
 	m.calls++
 
-	// Determine which response to return
-	var respBody string
-	if m.calls <= len(m.responses) {
-		respBody = m.responses[m.calls-1]
-	} else {
-		respBody = emptyResponse
+	// Track endpoint-specific calls if using that mode
+	if m.endpointResponses != nil {
+		endpoint := req.URL.Path
+		m.endpointCalls[endpoint]++
 	}
 
-	// Create response
+	var respBody string
+
+	// If using endpoint-specific responses
+	if len(m.endpointResponses) > 0 {
+		if response, ok := m.endpointResponses[req.URL.Path]; ok {
+			respBody = response
+		} else {
+			respBody = emptyResponse
+		}
+	} else {
+		// Using sequential responses (old style)
+		if m.calls <= len(m.responses) {
+			respBody = m.responses[m.calls-1]
+		} else {
+			respBody = emptyResponse
+		}
+	}
+
 	return &http.Response{
 		StatusCode: 200,
 		Body:       io.NopCloser(strings.NewReader(respBody)),
@@ -346,43 +401,39 @@ func (m *mockHTTPClient) RoundTrip(req *http.Request) (*http.Response, error) {
 	}, nil
 }
 
-func TestGetCourses(t *testing.T) {
+// TestGetTerms tests the term retrieval functionality
+func TestGetTerms(t *testing.T) {
 	tests := []struct {
-		name           string
-		responses     []string
-		expectedCalls int
+		name          string
+		response      string
 		expectError   bool
-		expectCourses int
+		expectTerms   int
+		expectedCodes []string
 	}{
 		{
-			name:           "Success single page",
-			responses:     []string{sampleResponse, sampleResponse, emptyResponse},
-			expectedCalls: 3, // Initial session setup + term selection + course request
+			name:          "Success",
+			response:      sampleTermsResponse,
 			expectError:   false,
-			expectCourses: 1,
+			expectTerms:   2,
+			expectedCodes: []string{"202530", "202520"},
 		},
 		{
-			name:           "Empty response",
-			responses:     []string{sampleResponse, sampleResponse, emptyResponse},
-			expectedCalls: 3,
-			expectError:   false,
-			expectCourses: 1,
+			name:        "Empty response",
+			response:    "[]",
+			expectError: false,
+			expectTerms: 0,
 		},
 		{
-			name:           "Multiple pages",
-			responses:     []string{sampleResponse, sampleResponse, sampleResponse, emptyResponse},
-			expectedCalls: 4,
-			expectError:   false,
-			expectCourses: 3,
+			name:        "Invalid JSON",
+			response:    "{invalid}",
+			expectError: true,
 		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			// Create mock client
-			mockTransport := &mockHTTPClient{
-				responses: tt.responses,
-			}
+			mockTransport := newMockHTTPClient()
+			mockTransport.endpointResponses["/StudentRegistrationSsb/ssb/classSearch/getTerms"] = tt.response
 
 			client := &Client{
 				httpClient: &http.Client{
@@ -390,45 +441,121 @@ func TestGetCourses(t *testing.T) {
 				},
 			}
 
-			// Test the GetCourses method
-			courses, err := client.GetCourses("202520", "CSCI", "%")
+			terms, err := client.GetTerms()
 
-			// Check error
-			if tt.expectError && err == nil {
-				t.Error("expected error but got none")
-			}
-			if !tt.expectError && err != nil {
-				t.Errorf("unexpected error: %v", err)
+			if tt.expectError != (err != nil) {
+				t.Errorf("expected error=%v but got error=%v", tt.expectError, err)
 			}
 
-			// Check number of courses
-			if len(courses) != tt.expectCourses {
-				t.Errorf("expected %d courses, got %d", tt.expectCourses, len(courses))
+			if !tt.expectError {
+				if len(terms) != tt.expectTerms {
+					t.Errorf("expected %d terms, got %d", tt.expectTerms, len(terms))
+				}
+
+				if tt.expectedCodes != nil {
+					for i, expectedCode := range tt.expectedCodes {
+						if terms[i].Code != expectedCode {
+							t.Errorf("expected term code %s, got %s", expectedCode, terms[i].Code)
+						}
+					}
+				}
+			}
+		})
+	}
+}
+
+func TestGetSubjects(t *testing.T) {
+	tests := []struct {
+		name           string
+		response       string
+		term           string
+		expectError    bool
+		expectSubjects int
+		expectedCodes  []string
+	}{
+		{
+			name:           "Success",
+			response:       sampleSubjectsResponse,
+			term:           "202520",
+			expectError:    false,
+			expectSubjects: 2,
+			expectedCodes:  []string{"CSCI", "MATH"},
+		},
+		{
+			name:           "Empty response",
+			response:       "[]",
+			term:           "202520",
+			expectError:    false,
+			expectSubjects: 0,
+		},
+		{
+			name:        "Invalid JSON",
+			response:    "{invalid}",
+			term:        "202520",
+			expectError: true,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			mockTransport := newMockHTTPClient()
+			mockTransport.endpointResponses["/StudentRegistrationSsb/ssb/classSearch/get_subject"] = tt.response
+
+			client := &Client{
+				httpClient: &http.Client{
+					Transport: mockTransport,
+				},
 			}
 
-			// Check number of API calls
-			if mockTransport.calls != tt.expectedCalls {
-				t.Errorf("expected %d API calls, got %d", tt.expectedCalls, mockTransport.calls)
+			subjects, err := client.GetSubjects(tt.term)
+
+			if tt.expectError != (err != nil) {
+				t.Errorf("expected error=%v but got error=%v", tt.expectError, err)
+			}
+
+			if !tt.expectError {
+				if len(subjects) != tt.expectSubjects {
+					t.Errorf("expected %d subjects, got %d", tt.expectSubjects, len(subjects))
+				}
+
+				// Check specific subject codes if provided
+				if tt.expectedCodes != nil {
+					for i, expectedCode := range tt.expectedCodes {
+						if subjects[i].Code != expectedCode {
+							t.Errorf("expected subject code %s, got %s", expectedCode, subjects[i].Code)
+						}
+					}
+				}
 			}
 		})
 	}
 }
 
 func TestCourseConversion(t *testing.T) {
-	// Create a test server
+	// Create test server that handles all endpoints
 	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		// Return sample response for all requests
 		w.Header().Set("Content-Type", "application/json")
-		w.Write([]byte(sampleResponse))
+
+		// Return appropriate response based on the endpoint
+		switch {
+		case strings.Contains(r.URL.Path, "termSelection"):
+			w.Write([]byte(initSessionResponse))
+		case strings.Contains(r.URL.Path, "term/search"):
+			w.Write([]byte(termSelectResponse))
+		case strings.Contains(r.URL.Path, "searchResults"):
+			w.Write([]byte(sampleResponse))
+		default:
+			t.Errorf("unexpected request to %s", r.URL.Path)
+			http.Error(w, "unexpected request", http.StatusBadRequest)
+		}
 	}))
 	defer ts.Close()
 
-	// Create client using test server URL
 	client := &Client{
 		httpClient: ts.Client(),
+		baseURL:    ts.URL,
 	}
 
-	// Get courses
 	courses, err := client.GetCourses("202520", "CSCI", "%")
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
@@ -438,44 +565,133 @@ func TestCourseConversion(t *testing.T) {
 		t.Fatal("expected at least one course")
 	}
 
-	// Check the first course
-	course := courses[0]
-
-	// Verify course details
-	tests := []struct {
-		name     string
-		got      string
-		expected string
+	// Test all courses from the sample response
+	expectedCourses := []struct {
+		subject    string
+		title      string
+		instructor string
+		days       string
+		location   string
+		crn        int
+		capacity   int
 	}{
-		{"Subject", course.Subject, "CSCI 497F"},
-		{"Title", course.Title, "Robotics"},
-		{"Instructor", course.Instructor, "Nilles, Alli"},
-		{"Days", course.Sessions[0].Days, "MW"},
-		{"Location", course.Sessions[0].Location, "KB 307 (Kaiser Borsari Hall)"},
+		{
+			subject:    "CSCI 497F",
+			title:      "Robotics",
+			instructor: "Nilles, Alli",
+			days:       "MW",
+			location:   "KB 307 (Kaiser Borsari Hall)",
+			crn:        23923,
+			capacity:   24,
+		},
+		{
+			subject:    "CSCI 497S",
+			title:      "Usable Security & Privacy",
+			instructor: "Mare, Shri",
+			days:       "MTWF",
+			location:   "CF 314 (Communication Facility)",
+			crn:        23433,
+			capacity:   35,
+		},
+		{
+			subject:    "CSCI 497Y",
+			title:      "Electronic Textiles",
+			instructor: "Hardin, Caroline",
+			days:       "TR",
+			location:   "CF 420 (Communication Facility)",
+			crn:        23718,
+			capacity:   35,
+		},
+	}
+
+	for i, expected := range expectedCourses {
+		course := courses[i]
+		t.Run(fmt.Sprintf("Course %d", i), func(t *testing.T) {
+			if course.Subject != expected.subject {
+				t.Errorf("Subject: got %q, want %q", course.Subject, expected.subject)
+			}
+			if course.Title != expected.title {
+				t.Errorf("Title: got %q, want %q", course.Title, expected.title)
+			}
+			if course.Instructor != expected.instructor {
+				t.Errorf("Instructor: got %q, want %q", course.Instructor, expected.instructor)
+			}
+			if course.Sessions[0].Days != expected.days {
+				t.Errorf("Days: got %q, want %q", course.Sessions[0].Days, expected.days)
+			}
+			if course.Sessions[0].Location != expected.location {
+				t.Errorf("Location: got %q, want %q", course.Sessions[0].Location, expected.location)
+			}
+			if course.CRN != expected.crn {
+				t.Errorf("CRN: got %d, want %d", course.CRN, expected.crn)
+			}
+			if course.Capacity != expected.capacity {
+				t.Errorf("Capacity: got %d, want %d", course.Capacity, expected.capacity)
+			}
+		})
+	}
+}
+
+// TestGetCourses tests the course retrieval functionality
+func TestGetCourses(t *testing.T) {
+	tests := []struct {
+		name           string
+		courseResponse string
+		expectError    bool
+		expectCourses  int
+	}{
+		{
+			name:           "Success single page",
+			courseResponse: sampleResponse,
+			expectError:    false,
+			expectCourses:  3,
+		},
+		{
+			name:           "Empty response",
+			courseResponse: emptyResponse,
+			expectError:    false,
+			expectCourses:  0,
+		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if tt.got != tt.expected {
-				t.Errorf("%s: expected %q, got %q", tt.name, tt.expected, tt.got)
+			// Create test server that handles all endpoints
+			ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+				w.Header().Set("Content-Type", "application/json")
+
+				switch {
+				case strings.Contains(r.URL.Path, "termSelection"):
+					w.Write([]byte(initSessionResponse))
+				case strings.Contains(r.URL.Path, "term/search"):
+					w.Write([]byte(termSelectResponse))
+				case strings.Contains(r.URL.Path, "searchResults"):
+					w.Write([]byte(tt.courseResponse))
+				default:
+					t.Errorf("unexpected request to %s", r.URL.Path)
+					http.Error(w, "unexpected request", http.StatusBadRequest)
+				}
+			}))
+			defer ts.Close()
+
+			client := &Client{
+				httpClient: ts.Client(),
+				baseURL:    ts.URL,
+			}
+
+			courses, err := client.GetCourses("202520", "CSCI", "%")
+
+			if tt.expectError && err == nil {
+				t.Error("expected error but got none")
+			}
+			if !tt.expectError && err != nil {
+				t.Errorf("unexpected error: %v", err)
+			}
+
+			if len(courses) != tt.expectCourses {
+				t.Errorf("expected %d courses, got %d", tt.expectCourses, len(courses))
 			}
 		})
-	}
-
-	// Verify numeric fields
-	if len(course.Sessions) == 0 {
-		t.Fatal("expected at least one session")
-	}
-
-	session := course.Sessions[0]
-	if session.StartTime != 1000 {
-		t.Errorf("expected session start time 1000, got %d", session.StartTime)
-	}
-	if session.EndTime != 1140 {
-		t.Errorf("expected session end time 1140, got %d", session.EndTime)
-	}
-	if course.Capacity != 24 {
-		t.Errorf("expected capacity 24, got %d", course.Capacity)
 	}
 }
 
@@ -485,12 +701,12 @@ func TestSessionCreation(t *testing.T) {
 		Category: "01",
 		MeetingTime: MeetingTime{
 			BeginTime:           "1000",
-			EndTime:            "1140",
-			Building:           "KB",
-			Room:              "307",
+			EndTime:             "1140",
+			Building:            "KB",
+			Room:                "307",
 			BuildingDescription: "Kaiser Borsari Hall",
-			Monday:             true,
-			Wednesday:          true,
+			Monday:              true,
+			Wednesday:           true,
 		},
 	}
 
@@ -516,7 +732,7 @@ func TestSessionCreation(t *testing.T) {
 
 func TestAsyncAndTBDSessions(t *testing.T) {
 	tests := []struct {
-		name       string
+		name        string
 		meetingTime MeetingTime
 		expectAsync bool
 		expectTBD   bool

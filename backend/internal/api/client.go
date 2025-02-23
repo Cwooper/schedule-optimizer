@@ -14,16 +14,20 @@ import (
 )
 
 const (
-	baseURL          = "https://registration.banner.wwu.edu/StudentRegistrationSsb/ssb"
-	termSelectionURL = baseURL + "/term/termSelection?mode=search"
-	termSearchURL    = baseURL + "/term/search"
-	courseSearchURL  = baseURL + "/searchResults/searchResults"
+	BASE_URL  = "https://registration.banner.wwu.edu/StudentRegistrationSsb/ssb"
+	TERMS_URL = "https://registration.banner.wwu.edu/StudentRegistrationSsb/ssb/classSearch/getTerms"
+	SUBJ_URL  = "https://registration.banner.wwu.edu/StudentRegistrationSsb/ssb/classSearch/get_subject"
+
+	termSelectionURL = BASE_URL + "/term/termSelection?mode=search"
+	termSearchURL    = BASE_URL + "/term/search"
+	courseSearchURL  = BASE_URL + "/searchResults/searchResults"
 	pageSize         = 500
 )
 
 // Client handles API requests and maintains session state
 type Client struct {
 	httpClient *http.Client
+	baseURL    string
 }
 
 // NewClient creates a new API client with cookie support
@@ -38,12 +42,14 @@ func NewClient() (*Client, error) {
 			Timeout: time.Duration(5) * time.Minute,
 			Jar:     jar,
 		},
+		baseURL: BASE_URL,
 	}, nil
 }
 
 // initializeSession sets up the initial session and selects the term
 func (c *Client) initializeSession(term string) error {
 	// First, visit the initial page to get cookies
+	termSelectionURL := c.baseURL + "/term/termSelection?mode=search"
 	resp, err := c.httpClient.Get(termSelectionURL)
 	if err != nil {
 		return fmt.Errorf("failed to initialize session: %w", err)
@@ -63,6 +69,7 @@ func (c *Client) initializeSession(term string) error {
 		"endDatepicker":   {""},
 	}
 
+	termSearchURL := c.baseURL + "/term/search"
 	resp, err = c.httpClient.PostForm(termSearchURL, data)
 	if err != nil {
 		return fmt.Errorf("failed to select term: %w", err)
@@ -78,6 +85,69 @@ func (c *Client) initializeSession(term string) error {
 	return nil
 }
 
+// GetTerms retrieves available terms from the API
+func (c *Client) GetTerms() ([]TermResponse, error) {
+	// Create request
+	req, err := http.NewRequest("GET", TERMS_URL, nil)
+	if err != nil {
+		return nil, fmt.Errorf("failed to create request: %w", err)
+	}
+
+	// Add query parameters
+	q := req.URL.Query()
+	q.Add("searchTerm", "")
+	q.Add("offset", "1")
+	q.Add("max", "10")
+	req.URL.RawQuery = q.Encode()
+
+	// Make request
+	resp, err := c.httpClient.Do(req)
+	if err != nil {
+		return nil, fmt.Errorf("failed to get terms: %w", err)
+	}
+	defer resp.Body.Close()
+
+	// Read and parse response
+	var terms []TermResponse
+	if err := json.NewDecoder(resp.Body).Decode(&terms); err != nil {
+		return nil, fmt.Errorf("failed to parse terms response: %w", err)
+	}
+
+	return terms, nil
+}
+
+// GetSubjects retrieves available subjects for a term from the API
+func (c *Client) GetSubjects(term string) ([]SubjectResponse, error) {
+	// Create request
+	req, err := http.NewRequest("GET", SUBJ_URL, nil)
+	if err != nil {
+		return nil, fmt.Errorf("failed to create request: %w", err)
+	}
+
+	// Add query parameters
+	q := req.URL.Query()
+	q.Add("searchTerm", "")
+	q.Add("term", term)
+	q.Add("offset", "1")
+	q.Add("max", "500")
+	req.URL.RawQuery = q.Encode()
+
+	// Make request
+	resp, err := c.httpClient.Do(req)
+	if err != nil {
+		return nil, fmt.Errorf("failed to get subjects: %w", err)
+	}
+	defer resp.Body.Close()
+
+	// Read and parse response
+	var subjects []SubjectResponse
+	if err := json.NewDecoder(resp.Body).Decode(&subjects); err != nil {
+		return nil, fmt.Errorf("failed to parse subjects response: %w", err)
+	}
+
+	return subjects, nil
+}
+
 // GetCourses retrieves all courses for a given term and subject
 func (c *Client) GetCourses(term, subject, courseNum string) ([]models.Course, error) {
 	// Initialize the session with the term
@@ -85,7 +155,7 @@ func (c *Client) GetCourses(term, subject, courseNum string) ([]models.Course, e
 		return nil, err
 	}
 
-	// Escape special characters in the subject
+	// Escape special characters in the search parameters
 	subject = strings.ReplaceAll(subject, "%", "%25")
 	courseNum = strings.ReplaceAll(courseNum, "%", "%25")
 
@@ -103,7 +173,8 @@ func (c *Client) GetCourses(term, subject, courseNum string) ([]models.Course, e
 		}
 
 		// Create request
-		req, err := http.NewRequest("GET", courseSearchURL, nil)
+		searchURL := c.baseURL + "/searchResults/searchResults"
+		req, err := http.NewRequest("GET", searchURL, nil)
 		if err != nil {
 			return nil, fmt.Errorf("failed to create request: %w", err)
 		}
@@ -154,9 +225,6 @@ func (c *Client) GetCourses(term, subject, courseNum string) ([]models.Course, e
 
 		// Move to next page
 		pageOffset += pageSize
-
-		// Add a small delay to avoid overwhelming the server
-		time.Sleep(500 * time.Millisecond)
 	}
 
 	return allCourses, nil

@@ -1,5 +1,8 @@
 package api
 
+// Many of the attribute sin this file are going to be unused, but they are
+// included for completeness.
+
 // APIResponse represents the top-level API response structure
 type APIResponse struct {
 	Success         bool                 `json:"success"`
@@ -110,4 +113,16 @@ type SearchResultConfig struct {
 	Title    string `json:"title"`
 	Required bool   `json:"required"`
 	Width    string `json:"width"`
+}
+
+// TermResponse represents a single term from the API
+type TermResponse struct {
+    Code        string `json:"code"`
+    Description string `json:"description"`
+}
+
+// SubjectResponse represents a single subject from the API
+type SubjectResponse struct {
+    Code        string `json:"code"`
+    Description string `json:"description"`
 }
