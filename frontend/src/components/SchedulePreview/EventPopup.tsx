@@ -25,6 +25,8 @@ interface EventPopupProps {
   };
   isOpen: boolean;
   onClose: () => void;
+  quarter?: string;
+  year?: string;
 }
 
 const formatTime = (time: number): string => {
@@ -53,7 +55,25 @@ const formatDays = (days: string): string => {
     .join(", ");
 };
 
-const EventPopupContent: React.FC<EventPopupProps> = ({ course, session }) => {
+const generateCourseUrl = (
+  year: string,
+  quarter: string,
+  subject: string
+): string => {
+  // Remove any spaces in the subject code
+  const cleanSubject = subject.replace(/\s+/g, "");
+  return `https://web4u.banner.wwu.edu/pls/wwis/wwsktime.SelText?subj_crse=${year}${quarter}${cleanSubject}`;
+};
+
+const EventPopupContent: React.FC<EventPopupProps> = ({
+  course,
+  session,
+  quarter,
+  year,
+}) => {
+  const courseUrl =
+    year && quarter ? generateCourseUrl(year, quarter, course.Subject) : null;
+
   return (
     <div>
       <div className={styles.stats}>
@@ -136,6 +156,16 @@ const EventPopupContent: React.FC<EventPopupProps> = ({ course, session }) => {
           <span className={styles.value}>{course.Enrolled}</span>
         </div>
       </div>
+      {courseUrl && (
+        <a
+          href={courseUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.courseLink}
+        >
+          View Course Details
+        </a>
+      )}
     </div>
   );
 };
@@ -145,6 +175,8 @@ const EventPopup: React.FC<EventPopupProps> = ({
   session,
   isOpen,
   onClose,
+  quarter,
+  year,
 }) => {
   return (
     <Popup
@@ -158,6 +190,8 @@ const EventPopup: React.FC<EventPopupProps> = ({
         session={session}
         isOpen={isOpen}
         onClose={onClose}
+        quarter={quarter}
+        year={year}
       />
     </Popup>
   );

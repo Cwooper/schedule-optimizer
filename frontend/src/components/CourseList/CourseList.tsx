@@ -7,6 +7,8 @@ interface CourseListProps {
   courses: Course[];
   title?: string;
   emptyMessage?: string;
+  quarter?: string;
+  year?: string;
 }
 
 interface CourseItemProps {
@@ -38,6 +40,8 @@ const CourseList: React.FC<CourseListProps> = ({
   courses,
   title = "Courses",
   emptyMessage = "No courses to display",
+  quarter,
+  year,
 }) => {
   const [selectedCourse, setSelectedCourse] = useState<{
     course: Course;
@@ -50,6 +54,10 @@ const CourseList: React.FC<CourseListProps> = ({
       course,
       session: course.Sessions[0],
     });
+  };
+
+  const handlePopupClose = () => {
+    setSelectedCourse(null);
   };
 
   return (
@@ -74,7 +82,9 @@ const CourseList: React.FC<CourseListProps> = ({
           course={selectedCourse.course}
           session={selectedCourse.session}
           isOpen={selectedCourse !== null}
-          onClose={() => setSelectedCourse(null)}
+          onClose={handlePopupClose}
+          quarter={quarter}
+          year={year}
         />
       )}
     </div>
