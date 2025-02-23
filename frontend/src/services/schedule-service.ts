@@ -51,7 +51,7 @@ export const generateScheduleEvents = (schedule: Schedule): ScheduleEvent[] => {
         end: formatTime(session.EndTime),
         color: BASE_COLORS[colorIndex % BASE_COLORS.length],
         title: `${course.Subject}`,
-        body: `${course.Instructor}\n${session.Location}`,
+        body: `${course.Instructor || "Staff"}\n${session.Location}`,
       });
     });
     colorIndex++;

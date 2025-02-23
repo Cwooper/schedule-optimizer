@@ -28,7 +28,7 @@ const CourseItem: React.FC<CourseItemProps> = ({ course, onClick }) => {
       </div>
       <div className={styles.courseDetails}>
         <span className={styles.credits}>{course.Credits} credits</span>
-        {course.Instructor}
+        {course.Instructor || "Staff"}
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ import (
 
 // Finds the instructor in the gpaData, converts name from last, first
 func findInstructor(name string, subject string, gpaData models.GPAData) (string, bool) {
-	if name == "Staff" || name == "TBD" || name == "N/A" {
+	if name == "" || name == "TBD" || name == "N/A" {
 		return "", false
 	}
 

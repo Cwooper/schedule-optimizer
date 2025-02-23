@@ -119,7 +119,7 @@ const EventPopupContent: React.FC<EventPopupProps> = ({ course, session }) => {
           )}
 
           <span className={styles.label}>Instructor:</span>
-          <span className={styles.value}>{course.Instructor}</span>
+          <span className={styles.value}>{course.Instructor || "Staff"}</span>
         </div>
       </div>
 
