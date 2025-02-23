@@ -7,28 +7,26 @@ interface EventPopupProps {
   course: {
     Subject: string;
     Title: string;
-    CRN: string;
-    GPA?: number;
     Credits: number;
-    Prerequisites?: string;
-    Attributes?: string;
-    AdditionalFees?: string;
-    Restrictions?: string;
-    AvailableSeats: number;
+    CRN: string;
+    Instructor: string;
+    GPA?: number;
     Capacity: number;
     Enrolled: number;
+    AvailableSeats: number;
   };
   session: {
     Days: string;
     StartTime: number;
     EndTime: number;
-    Instructor: string;
     Location: string;
     IsAsync?: boolean;
     IsTimeTBD?: boolean;
   };
   isOpen: boolean;
   onClose: () => void;
+  quarter?: string;
+  year?: string;
 }
 
 const formatTime = (time: number): string => {
@@ -57,28 +55,24 @@ const formatDays = (days: string): string => {
     .join(", ");
 };
 
-const EventPopupContent: React.FC<EventPopupProps> = ({ course, session }) => {
-  // Find a non-"Staff" instructor from other sessions if current instructor is "Staff"
-  const getInstructor = (currentSession: any, course: any): string => {
-    if (
-      currentSession.Instructor &&
-      currentSession.Instructor.toLowerCase() !== "staff"
-    ) {
-      return currentSession.Instructor;
-    }
+const generateCourseUrl = (
+  year: string,
+  quarter: string,
+  subject: string
+): string => {
+  // Remove any spaces in the subject code
+  const cleanSubject = subject.replace(/\s+/g, "");
+  return `https://web4u.banner.wwu.edu/pls/wwis/wwsktime.SelText?subj_crse=${year}${quarter}${cleanSubject}`;
+};
 
-    // Look for non-"Staff" instructor in other sessions
-    const otherInstructor = course.Sessions.find(
-      (s: any) => s.Instructor && s.Instructor.toLowerCase() !== "staff"
-    );
-
-    return otherInstructor
-      ? otherInstructor.Instructor
-      : currentSession.Instructor;
-  };
-
-  const displayInstructor = getInstructor(session, course);
-  // Removed unused isAsyncOrTBD variable
+const EventPopupContent: React.FC<EventPopupProps> = ({
+  course,
+  session,
+  quarter,
+  year,
+}) => {
+  const courseUrl =
+    year && quarter ? generateCourseUrl(year, quarter, course.Subject) : null;
 
   return (
     <div>
@@ -145,7 +139,7 @@ const EventPopupContent: React.FC<EventPopupProps> = ({ course, session }) => {
           )}
 
           <span className={styles.label}>Instructor:</span>
-          <span className={styles.value}>{displayInstructor}</span>
+          <span className={styles.value}>{course.Instructor || "Staff"}</span>
         </div>
       </div>
 
@@ -162,52 +156,15 @@ const EventPopupContent: React.FC<EventPopupProps> = ({ course, session }) => {
           <span className={styles.value}>{course.Enrolled}</span>
         </div>
       </div>
-
-      {(course.Prerequisites ||
-        course.Attributes ||
-        course.AdditionalFees ||
-        course.Restrictions) && (
-        <div className={styles.additionalInfo}>
-          <h3 className={styles.sectionTitle}>Additional Information</h3>
-          <div className={styles.detailsList}>
-            {course.Prerequisites && (
-              <>
-                <span className={styles.label}>Prerequisites:</span>
-                <span className={styles.value}>{course.Prerequisites}</span>
-              </>
-            )}
-            {course.Attributes && (
-              <>
-                <span className={styles.label}>Attributes:</span>
-                <div>
-                  {course.Attributes.split(" ").map((attr) => (
-                    <span key={attr} className={styles.infoTag}>
-                      {attr}
-                    </span>
-                  ))}
-                </div>
-              </>
-            )}
-            {course.AdditionalFees && (
-              <>
-                <span className={styles.label}>Additional Fees:</span>
-                <span className={styles.value}>{course.AdditionalFees}</span>
-              </>
-            )}
-            {course.Restrictions && (
-              <>
-                <span className={styles.label}>Restrictions:</span>
-                <div>
-                  {course.Restrictions.split(" ").map((restriction) => (
-                    <span key={restriction} className={styles.infoTag}>
-                      {restriction}
-                    </span>
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
-        </div>
+      {courseUrl && (
+        <a
+          href={courseUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.courseLink}
+        >
+          View Course Details
+        </a>
       )}
     </div>
   );
@@ -218,6 +175,8 @@ const EventPopup: React.FC<EventPopupProps> = ({
   session,
   isOpen,
   onClose,
+  quarter,
+  year,
 }) => {
   return (
     <Popup
@@ -231,6 +190,8 @@ const EventPopup: React.FC<EventPopupProps> = ({
         session={session}
         isOpen={isOpen}
         onClose={onClose}
+        quarter={quarter}
+        year={year}
       />
     </Popup>
   );

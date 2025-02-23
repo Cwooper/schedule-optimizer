@@ -1,6 +1,4 @@
-// term_test.go
-
-package scraper
+package api
 
 import (
 	"testing"

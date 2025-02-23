@@ -112,3 +112,23 @@
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
 }
+
+.courseLink {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-2) var(--spacing-4);
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-700);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--spacing-4);
+  transition: all var(--transition-base);
+}
+
+.courseLink:hover {
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-800);
+  text-decoration: none;
+}

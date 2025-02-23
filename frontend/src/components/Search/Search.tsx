@@ -88,6 +88,8 @@ const Search: FC<SearchProps> = ({ quarter, year }) => {
           courses={searchResults}
           title="Search Results"
           emptyMessage="No courses found matching your search."
+          quarter={quarter}
+          year={year}
         />
       )}
     </div>

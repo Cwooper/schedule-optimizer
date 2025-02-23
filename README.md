@@ -205,7 +205,7 @@ testing locally.
 **Konnor Kooi** ([@konnorkooi](https://github.com/konnorkooi))
 
 - Frontend development
-- Created [`schedule-glance`](https://www.npmjs.com/package/schedule-glance) npm module
+- Created [`schedule-glance`](https://www.npmjs.com/package/@konnorkooi/schedule-glance) npm module
 - Schedule visualization components
 - Website: [konnorkooi.com](https://konnorkooi.com)
 

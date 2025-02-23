@@ -1,34 +1,32 @@
-// Package models for re-usable objects
 package models
 
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
-// Holds one session worth of data (repeatable time range over days)
+// Session represents a meeting time for a course
 type Session struct {
-	Days       string // Days of the week in format (e.g. "MTWRF")
-	StartTime  int    // Start time in 24-hour format (0000-2359)
-	EndTime    int    // End time in 24-hour format (0000-2359)
-	Instructor string // Session Instructor
-	Location   string // Room or location
-	IsAsync    bool   // True if the course is asynchronous
-	IsTimeTBD  bool   // True if times or days are tbd
+	Days      string // Days of the week in format (e.g. "MTWRF")
+	StartTime int    // Start time in 24-hour format (0000-2359)
+	EndTime   int    // End time in 24-hour format (0000-2359)
+	Location  string // Room (Building and Room Number)
+	IsAsync   bool   // True if the course is asynchronous
+	IsTimeTBD bool   // True if times or days are tbd
 }
 
-// Holds all of a single courses data
+// Course represents a single course offering
 type Course struct {
-	Subject        string    // Course Subject
+	Subject        string    // Course Subject (e.g., "CSCI 141")
 	Title          string    // Course Title
 	Credits        string    // Number of credits
 	CRN            int       // Course Record Number
-	Sessions       []Session // All sessions for this course (nil if asnyc)
+	Instructor     string    // Primary instructor
+	Sessions       []Session // All sessions for this course
 	GPA            float64   // Average GPA for this course
 	Capacity       int       // Maximum enrollment capacity
 	Enrolled       int       // Number of currently enrolled students
 	AvailableSeats int       // Number of seats available
-	AdditionalFees string    // Any noted additional fees
-	Restrictions   string    // Any noted restrictions
-	Attributes     string    // Any noted attributes
-	Prerequisites  string    // Any noted prerequisites
 	CourseString   string    // The course as a string for searching
 }
 
@@ -39,17 +37,42 @@ func NewCourse() *Course {
 		Title:          "",
 		Credits:        "",
 		CRN:            0,
+		Instructor:     "",
 		Sessions:       nil,
 		GPA:            0.0,
 		Capacity:       0,
 		Enrolled:       0,
 		AvailableSeats: 0,
-		AdditionalFees: "",
-		Restrictions:   "",
-		Attributes:     "",
-		Prerequisites:  "",
 		CourseString:   "",
 	}
+}
+
+// String provides a debugging string representation of a Session
+func (s Session) String() string {
+	return fmt.Sprintf("Days: %s, Start: %04d, End: %04d, Location: %s, IsAsync: %v, IsTimeTBD: %v",
+		s.Days, s.StartTime, s.EndTime, s.Location, s.IsAsync, s.IsTimeTBD)
+}
+
+// String provides a debugging string representation of a Course
+func (c Course) String() string {
+	var b strings.Builder
+
+	fmt.Fprintf(&b, "Subject: %s\n", c.Subject)
+	fmt.Fprintf(&b, "Title: %s\n", c.Title)
+	fmt.Fprintf(&b, "Credits: %s\n", c.Credits)
+	fmt.Fprintf(&b, "CRN: %d\n", c.CRN)
+	fmt.Fprintf(&b, "Instructor: %s\n", c.Instructor)
+	fmt.Fprintf(&b, "GPA: %.2f\n", c.GPA)
+	fmt.Fprintf(&b, "Capacity: %d\n", c.Capacity)
+	fmt.Fprintf(&b, "Enrolled: %d\n", c.Enrolled)
+	fmt.Fprintf(&b, "AvailableSeats: %d\n", c.AvailableSeats)
+	fmt.Fprintf(&b, "CourseString: %s\n", c.CourseString)
+	fmt.Fprintf(&b, "Sessions:\n")
+	for _, s := range c.Sessions {
+		fmt.Fprintf(&b, "  %s\n", s)
+	}
+
+	return b.String()
 }
 
 // Returns whether the courses conflict with one another

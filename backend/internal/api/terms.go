@@ -1,4 +1,4 @@
-package scraper
+package api
 
 import (
 	"fmt"
