@@ -3,7 +3,7 @@
 ## Bug Fixes
 
 - [x] Fix Cache course lookup to use Course+Subject
-- [ ] Fix Frontend year list (one-year off before March)
+- [x] Fix Frontend year list (one-year off before March)
 
 ## Updates
 
