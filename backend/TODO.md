@@ -8,3 +8,7 @@
 ## Updates
 
 - [ ] Update Scraper to use new API
+  
+## Features
+
+- [ ] Add Course Description Button to Frontend
