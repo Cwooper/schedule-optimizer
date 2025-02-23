@@ -164,24 +164,6 @@ func getTermCourses(client *Client, term string) ([]models.Course, error) {
 	return courses, nil
 }
 
-// Preloads all courses into cache
-func preloadCache(terms []string) {
-	courseManager := cache.GetInstance()
-	log.Println("Preloading course cache...")
-	start := time.Now()
-
-	for _, term := range terms {
-		if _, err := courseManager.GetCourseList(term); err != nil {
-			log.Printf("Warning: Failed to preload term %s: %v", term, err)
-			continue
-		}
-		log.Printf("Cached term %s", term)
-	}
-
-	duration := time.Since(start)
-	log.Printf("Cache preload completed in %v", duration)
-}
-
 // UpdateCourses updates all course data as needed
 func UpdateCourses() error {
 	// Create data directory if needed
@@ -246,7 +228,8 @@ func UpdateCourses() error {
 
 	// Preload cache with updated data
 	if len(terms) > 0 {
-		preloadCache(terms)
+		courseManager := cache.GetInstance()
+		courseManager.PreloadCache(terms)
 	}
 
 	return nil

@@ -2,7 +2,7 @@
 
 ## Bug Fixes
 
-- [ ] Fix Cache course lookup to use Course+Subject
+- [x] Fix Cache course lookup to use Course+Subject
 - [ ] Fix Frontend year list (one-year off before March)
 
 ## Updates
@@ -11,9 +11,5 @@
   - [x] Update Backend to use API
     - [x] Change course model + proto
   - [x] Update Frontend to new course model
-  - [ ] Update Frontend/Backend for proxy course attributes?
-  
-## Features
-
-- [ ] Add Course Description Button to Frontend
-- [ ] Add Prequisite Button to Frontend
+  - [ ] Update Frontend for course descriptions via new tab
+- [ ] Update search functionality
