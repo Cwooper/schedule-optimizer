@@ -17,7 +17,6 @@ func apiToCourse(data CourseData) (*models.Course, error) {
 		Capacity:       data.MaximumEnrollment,
 		Enrolled:       data.Enrollment,
 		AvailableSeats: data.SeatsAvailable,
-		Prerequisites:  "", // API doesn't provide prerequisites
 		GPA:            0,  // Will be calculated separately
 	}
 
@@ -53,7 +52,6 @@ func apiToCourse(data CourseData) (*models.Course, error) {
 	for _, attr := range data.SectionAttributes {
 		attributes = append(attributes, attr.Description)
 	}
-	course.Attributes = strings.Join(attributes, "; ")
 
 	return course, nil
 }
@@ -108,7 +106,6 @@ func createSession(meetingFaculty MeetingFacultyData) (*models.Session, error) {
 		Location:   location,
 		IsAsync:    isAsync,
 		IsTimeTBD:  isTBD,
-		Instructor: "", // Will be set at the course level
 	}, nil
 }
 

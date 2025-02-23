@@ -17,17 +17,38 @@ const sampleResponse = `{
             "term": "202520",
             "termDesc": "Spring 2025",
             "courseReferenceNumber": "23923",
+            "partOfTerm": "1",
             "courseNumber": "497F",
             "subject": "CSCI",
             "subjectDescription": "Computer Science",
+            "sequenceNumber": "0",
+            "campusDescription": "Main Campus",
+            "scheduleTypeDescription": "Lecture",
             "courseTitle": "Robotics",
-            "creditHourLow": 4,
+            "creditHours": null,
             "maximumEnrollment": 24,
             "enrollment": 0,
             "seatsAvailable": 24,
+            "waitCapacity": 999,
+            "waitCount": 0,
+            "waitAvailable": 999,
+            "crossList": null,
+            "crossListCapacity": null,
+            "crossListCount": null,
+            "crossListAvailable": null,
+            "creditHourHigh": null,
+            "creditHourLow": 4,
+            "creditHourIndicator": null,
+            "openSection": true,
+            "linkIdentifier": null,
+            "isSectionLinked": false,
+            "subjectCourse": "CSCI497F",
             "faculty": [
                 {
                     "bannerId": "82787",
+                    "category": null,
+                    "class": "net.hedtech.banner.student.faculty.FacultyResultDecorator",
+                    "courseReferenceNumber": "23923",
                     "displayName": "Nilles, Alli",
                     "emailAddress": "nillesa2@wwu.edu",
                     "primaryIndicator": true,
@@ -37,33 +58,257 @@ const sampleResponse = `{
             "meetingsFaculty": [
                 {
                     "category": "01",
+                    "class": "net.hedtech.banner.student.schedule.SectionSessionDecorator",
+                    "courseReferenceNumber": "23923",
+                    "faculty": [
+                    ],
                     "meetingTime": {
                         "beginTime": "1000",
                         "building": "KB",
                         "buildingDescription": "Kaiser Borsari Hall",
                         "campus": "M",
+                        "campusDescription": "Main Campus",
                         "category": "01",
+                        "class": "net.hedtech.banner.general.overall.MeetingTimeDecorator",
+                        "courseReferenceNumber": "23923",
+                        "creditHourSession": 4.0,
+                        "endDate": "06/13/2025",
                         "endTime": "1140",
                         "friday": false,
+                        "hoursWeek": 3.33,
+                        "meetingScheduleType": "L",
+                        "meetingType": "CLAS",
+                        "meetingTypeDescription": "Class",
                         "monday": true,
                         "room": "307",
+                        "saturday": false,
+                        "startDate": "04/01/2025",
+                        "sunday": false,
+                        "term": "202520",
+                        "thursday": false,
+                        "tuesday": false,
                         "wednesday": true
-                    }
+                    },
+                    "term": "202520"
                 }
             ],
+            "reservedSeatSummary": null,
             "sectionAttributes": [
                 {
+                    "class": "net.hedtech.banner.student.schedule.SectionDegreeProgramAttributeDecorator",
                     "code": "FTF",
+                    "courseReferenceNumber": "23923",
                     "description": "DELIVERY Face-to-Face",
                     "isZTCAttribute": false,
                     "termCode": "202520"
                 }
-            ]
+            ],
+            "instructionalMethod": "FTF",
+            "instructionalMethodDescription": "Face to Face Instruction"
+        },
+        {
+            "id": 354757,
+            "term": "202520",
+            "termDesc": "Spring 2025",
+            "courseReferenceNumber": "23433",
+            "partOfTerm": "1",
+            "courseNumber": "497S",
+            "subject": "CSCI",
+            "subjectDescription": "Computer Science",
+            "sequenceNumber": "0",
+            "campusDescription": "Main Campus",
+            "scheduleTypeDescription": "Seminar",
+            "courseTitle": "Usable Security &amp; Privacy",
+            "creditHours": null,
+            "maximumEnrollment": 35,
+            "enrollment": 0,
+            "seatsAvailable": 35,
+            "waitCapacity": 999,
+            "waitCount": 0,
+            "waitAvailable": 999,
+            "crossList": null,
+            "crossListCapacity": null,
+            "crossListCount": null,
+            "crossListAvailable": null,
+            "creditHourHigh": null,
+            "creditHourLow": 4,
+            "creditHourIndicator": null,
+            "openSection": true,
+            "linkIdentifier": null,
+            "isSectionLinked": false,
+            "subjectCourse": "CSCI497S",
+            "faculty": [
+                {
+                    "bannerId": "82785",
+                    "category": null,
+                    "class": "net.hedtech.banner.student.faculty.FacultyResultDecorator",
+                    "courseReferenceNumber": "23433",
+                    "displayName": "Mare, Shri",
+                    "emailAddress": "shri.mare@wwu.edu",
+                    "primaryIndicator": true,
+                    "term": "202520"
+                }
+            ],
+            "meetingsFaculty": [
+                {
+                    "category": "01",
+                    "class": "net.hedtech.banner.student.schedule.SectionSessionDecorator",
+                    "courseReferenceNumber": "23433",
+                    "faculty": [
+                    ],
+                    "meetingTime": {
+                        "beginTime": "0800",
+                        "building": "CF",
+                        "buildingDescription": "Communication Facility",
+                        "campus": "M",
+                        "campusDescription": "Main Campus",
+                        "category": "01",
+                        "class": "net.hedtech.banner.general.overall.MeetingTimeDecorator",
+                        "courseReferenceNumber": "23433",
+                        "creditHourSession": 4.0,
+                        "endDate": "06/13/2025",
+                        "endTime": "0850",
+                        "friday": true,
+                        "hoursWeek": 3.33,
+                        "meetingScheduleType": "S",
+                        "meetingType": "CLAS",
+                        "meetingTypeDescription": "Class",
+                        "monday": true,
+                        "room": "314",
+                        "saturday": false,
+                        "startDate": "04/01/2025",
+                        "sunday": false,
+                        "term": "202520",
+                        "thursday": false,
+                        "tuesday": true,
+                        "wednesday": true
+                    },
+                    "term": "202520"
+                }
+            ],
+            "reservedSeatSummary": null,
+            "sectionAttributes": [
+                {
+                    "class": "net.hedtech.banner.student.schedule.SectionDegreeProgramAttributeDecorator",
+                    "code": "FTF",
+                    "courseReferenceNumber": "23433",
+                    "description": "DELIVERY Face-to-Face",
+                    "isZTCAttribute": false,
+                    "termCode": "202520"
+                }
+            ],
+            "instructionalMethod": "FTF",
+            "instructionalMethodDescription": "Face to Face Instruction"
+        },
+        {
+            "id": 358194,
+            "term": "202520",
+            "termDesc": "Spring 2025",
+            "courseReferenceNumber": "23718",
+            "partOfTerm": "1",
+            "courseNumber": "497Y",
+            "subject": "CSCI",
+            "subjectDescription": "Computer Science",
+            "sequenceNumber": "0",
+            "campusDescription": "Main Campus",
+            "scheduleTypeDescription": "Lecture/Lab",
+            "courseTitle": "Electronic Textiles",
+            "creditHours": null,
+            "maximumEnrollment": 35,
+            "enrollment": 0,
+            "seatsAvailable": 35,
+            "waitCapacity": 999,
+            "waitCount": 0,
+            "waitAvailable": 999,
+            "crossList": null,
+            "crossListCapacity": null,
+            "crossListCount": null,
+            "crossListAvailable": null,
+            "creditHourHigh": null,
+            "creditHourLow": 4,
+            "creditHourIndicator": null,
+            "openSection": true,
+            "linkIdentifier": null,
+            "isSectionLinked": false,
+            "subjectCourse": "CSCI497Y",
+            "faculty": [
+                {
+                    "bannerId": "82786",
+                    "category": null,
+                    "class": "net.hedtech.banner.student.faculty.FacultyResultDecorator",
+                    "courseReferenceNumber": "23718",
+                    "displayName": "Hardin, Caroline",
+                    "emailAddress": "caroline.hardin@wwu.edu",
+                    "primaryIndicator": true,
+                    "term": "202520"
+                }
+            ],
+            "meetingsFaculty": [
+                {
+                    "category": "01",
+                    "class": "net.hedtech.banner.student.schedule.SectionSessionDecorator",
+                    "courseReferenceNumber": "23718",
+                    "faculty": [
+                    ],
+                    "meetingTime": {
+                        "beginTime": "1200",
+                        "building": "CF",
+                        "buildingDescription": "Communication Facility",
+                        "campus": "M",
+                        "campusDescription": "Main Campus",
+                        "category": "01",
+                        "class": "net.hedtech.banner.general.overall.MeetingTimeDecorator",
+                        "courseReferenceNumber": "23718",
+                        "creditHourSession": 4.0,
+                        "endDate": "06/13/2025",
+                        "endTime": "1340",
+                        "friday": false,
+                        "hoursWeek": 3.33,
+                        "meetingScheduleType": "C",
+                        "meetingType": "CLAS",
+                        "meetingTypeDescription": "Class",
+                        "monday": false,
+                        "room": "420",
+                        "saturday": false,
+                        "startDate": "04/01/2025",
+                        "sunday": false,
+                        "term": "202520",
+                        "thursday": true,
+                        "tuesday": true,
+                        "wednesday": false
+                    },
+                    "term": "202520"
+                }
+            ],
+            "reservedSeatSummary": null,
+            "sectionAttributes": [
+                {
+                    "class": "net.hedtech.banner.student.schedule.SectionDegreeProgramAttributeDecorator",
+                    "code": "FTF",
+                    "courseReferenceNumber": "23718",
+                    "description": "DELIVERY Face-to-Face",
+                    "isZTCAttribute": false,
+                    "termCode": "202520"
+                }
+            ],
+            "instructionalMethod": "FTF",
+            "instructionalMethodDescription": "Face to Face Instruction"
         }
     ],
     "pageOffset": 0,
-    "pageMaxSize": 500,
-    "pathMode": "search"
+    "pageMaxSize": 50,
+    "sectionsFetchedCount": 3,
+    "pathMode": "search",
+    "searchResultsConfigs": [
+        {
+            "config": "courseTitle",
+            "display": "Title",
+            "title": "Title",
+            "required": true,
+            "width": "9%"
+        }
+    ],
+	"ztcEncodedImage": ""
 }`
 
 const emptyResponse = `{
@@ -204,7 +449,7 @@ func TestCourseConversion(t *testing.T) {
 	}{
 		{"Subject", course.Subject, "CSCI 497F"},
 		{"Title", course.Title, "Robotics"},
-		{"Instructor", course.Sessions[0].Instructor, "Nilles, Alli"},
+		{"Instructor", course.Instructor, "Nilles, Alli"},
 		{"Days", course.Sessions[0].Days, "MW"},
 		{"Location", course.Sessions[0].Location, "KB 307 (Kaiser Borsari Hall)"},
 	}
