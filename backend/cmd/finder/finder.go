@@ -76,25 +76,6 @@ func main() {
 			}
 		}
 
-		// Filter courses based on subject and course number if provided
-		if subject != "" || courseNum != "" {
-			var filtered []models.Course
-			for _, course := range courses {
-				parts := strings.Split(course.Subject, " ")
-				if len(parts) != 2 {
-					continue
-				}
-
-				subjectMatch := subject == "" || strings.EqualFold(parts[0], subject)
-				courseMatch := courseNum == "" || strings.Contains(parts[1], courseNum)
-
-				if subjectMatch && courseMatch {
-					filtered = append(filtered, course)
-				}
-			}
-			courses = filtered
-		}
-
 		if len(courses) == 0 {
 			fmt.Println("No courses found matching criteria.")
 			continue
@@ -102,26 +83,31 @@ func main() {
 
 		// Display results using tabwriter for nice formatting
 		w := tabwriter.NewWriter(os.Stdout, 0, 0, 2, ' ', 0)
-		fmt.Fprintln(w, "\nCourse\tTitle\tInstructor\tSeats\tTime\tLocation")
-		fmt.Fprintln(w, "------\t-----\t----------\t-----\t----\t--------")
+		fmt.Fprintln(w, "\nCourse\tTitle\tInstructor\tGPA\tTime\tLocation")
+		fmt.Fprintln(w, "------\t-----\t----------\t---\t----\t--------")
 
 		for _, course := range courses {
 			var timeStr, locStr string
-			if len(course.Sessions) > 0 {
+			if len(course.Sessions) > 0 && course.Sessions[0].Days != "" {
 				session := course.Sessions[0]
 				timeStr = fmt.Sprintf("%s %04d-%04d", session.Days, session.StartTime, session.EndTime)
 				locStr = session.Location
-			} else {
+			} else if course.Sessions[0].IsTimeTBD {
 				timeStr = "TBA"
 				locStr = "TBA"
+			} else if course.Sessions[0].IsAsync {
+				timeStr = "Online"
+				locStr = "Online"
+			} else {
+				timeStr = "Unknown"
+				locStr = "Unknown"
 			}
 
-			fmt.Fprintf(w, "%s\t%s\t%s\t%d/%d\t%s\t%s\n",
+			fmt.Fprintf(w, "%s\t%s\t%s\t%f\t%s\t%s\n",
 				course.Subject,
 				course.Title,
 				course.Instructor,
-				course.AvailableSeats,
-				course.Capacity,
+				course.GPA,
 				timeStr,
 				locStr,
 			)

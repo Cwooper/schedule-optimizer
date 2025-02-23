@@ -174,10 +174,10 @@ func (c *Client) GetCourses(term, subject, courseNum string) ([]models.Course, e
 		}
 
 		// Simply exclude the parameters if they are empty
-		if subject != "" && subject != "%" {
+		if subject != "" && subject != "%25" {
 			params.Add("txt_subject", subject)
 		}
-		if courseNum != "" && courseNum != "%" {
+		if courseNum != "" && courseNum != "%25" {
 			params.Add("txt_courseNumber", courseNum)
 		}
 

@@ -14,7 +14,7 @@ func apiToCourse(data CourseData) (*models.Course, error) {
 	var instructor string
 	for _, faculty := range data.Faculty {
 		if faculty.PrimaryIndicator {
-			instructor = faculty.DisplayName
+			instructor = html.UnescapeString(faculty.DisplayName)
 			break
 		}
 	}
@@ -94,7 +94,7 @@ func createSession(meetingFaculty MeetingFacultyData) (*models.Session, error) {
 	days := buildDaysString(mt)
 
 	// Build the location string
-	location := buildLocationString(mt.Building, mt.Room, mt.BuildingDescription)
+	location := buildLocationString(mt.Building, mt.Room)
 
 	return &models.Session{
 		Days:      days,
@@ -143,7 +143,7 @@ func buildDaysString(mt MeetingTime) string {
 	return days.String()
 }
 
-func buildLocationString(building, room string, description string) string {
+func buildLocationString(building, room string) string {
 	var location strings.Builder
 
 	if building != "" {
@@ -154,15 +154,6 @@ func buildLocationString(building, room string, description string) string {
 			location.WriteString(" ")
 		}
 		location.WriteString(room)
-	}
-	if description != "" && description != building {
-		if location.Len() > 0 {
-			location.WriteString(" (")
-		}
-		location.WriteString(description)
-		if location.Len() > 0 {
-			location.WriteString(")")
-		}
 	}
 
 	return location.String()

@@ -10,7 +10,7 @@ type Session struct {
 	Days      string // Days of the week in format (e.g. "MTWRF")
 	StartTime int    // Start time in 24-hour format (0000-2359)
 	EndTime   int    // End time in 24-hour format (0000-2359)
-	Location  string // Room or location
+	Location  string // Room (Building and Room Number)
 	IsAsync   bool   // True if the course is asynchronous
 	IsTimeTBD bool   // True if times or days are tbd
 }
