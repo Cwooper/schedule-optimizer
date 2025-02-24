@@ -203,7 +203,7 @@ var (
 		"M/CS": "MATH",
 		"MLE":  "ECEM",
 		"NURS": "HCS",
-		"OPS":  "MBA",
+		"OPS":  "DSCI",
 		"PA":   "HHD",
 		"PE":   "HHD",
 		"PEH":  "HHD",
