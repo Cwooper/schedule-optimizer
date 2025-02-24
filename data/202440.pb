@@ -8138,48 +8138,49 @@ Z3NURS 307|WRITING ACROSS THE CURRICULUM|GOULET, GAIL
 NURS 512"Equity-Focused Nursing Scholarship3 åÿ*Branson, Sandy2
 Wî
 é"MH 1562"ONLINE ASNC(@HPZ:NURS 512|EQUITY-FOCUSED NURSING SCHOLARSHIP|BRANSON, SANDY
-{
+Ñ
 OPS 360Operations Management4 ∞Ω*Young, Scott2
-TRË˛"PH 146@FH?PZ*OPS 360|OPERATIONS MANAGEMENT|YOUNG, SCOTT
-{
+TRË˛"PH 1469’ÄSÔ@@FH?PZ*OPS 360|OPERATIONS MANAGEMENT|YOUNG, SCOTT
+Ñ
 OPS 360Operations Management4 ı∫*Fok, Lillian2
 TR¯
-é"SL 150@FHCPZ*OPS 360|OPERATIONS MANAGEMENT|FOK, LILLIAN
+é"SL 1509o„Tæâ	@@FHCPZ*OPS 360|OPERATIONS MANAGEMENT|FOK, LILLIAN
 Ö
 OPS 455ZEnvironmental, Social and Governance Strategies for Operations and Supply Chain Management4 Ãÿ*Young, Scott2
 TR∞	∆
 "PH 104@HPZoOPS 455|ENVIRONMENTAL, SOCIAL AND GOVERNANCE STRATEGIES FOR OPERATIONS AND SUPPLY CHAIN MANAGEMENT|YOUNG, SCOTT
-ù
+¶
 OPS 460'Designing and Improving Lean Operations4 ú¡*Haug, Peter2
-MW¿÷"PH 104@HP	Z;OPS 460|DESIGNING AND IMPROVING LEAN OPERATIONS|HAUG, PETER
-o
+MW¿÷"PH 1049_)‚G$W@@HP	Z;OPS 460|DESIGNING AND IMPROVING LEAN OPERATIONS|HAUG, PETER
+x
 OPS 461Project Management4 çª*	Fok, Wing2
-MWË˛"MH 154@HPZ$OPS 461|PROJECT MANAGEMENT|FOK, WING
-o
+MWË˛"MH 1549∫x`˜/%	@@HPZ$OPS 461|PROJECT MANAGEMENT|FOK, WING
+x
 OPS 461Project Management4 Ë∆*	Fok, Wing2
 MW¯
-é"ES 313@HP
+é"ES 3139∫x`˜/%	@@HP
 Z$OPS 461|PROJECT MANAGEMENT|FOK, WING
-u
+~
 OPS 461Project Management4 ÷æ*Boyle, Stuart2
 TR∞	∆
-"O-PL@
+"O-PL9™≠¥Û*@@
 HPZ(OPS 461|PROJECT MANAGEMENT|BOYLE, STUART
-ù
+¶
 OPS 462$Management Science with Spreadsheets4 ø»*Springer, Mark2
-MW†∂"PH 244@H
+MW†∂"PH 2449ŒWò˜	@@H
 PZ;OPS 462|MANAGEMENT SCIENCE WITH SPREADSHEETS|SPRINGER, MARK
-ô
+¢
 OPS 463$Enterprise Resource Planning Systems4 ±Ω*Fok, Lillian2
-TRË˛"PH 015@HPZ9OPS 463|ENTERPRISE RESOURCE PLANNING SYSTEMS|FOK, LILLIAN
-≥
+TRË˛"PH 0159YƒûÓÑE
+@@HPZ9OPS 463|ENTERPRISE RESOURCE PLANNING SYSTEMS|FOK, LILLIAN
+º
 OPS 4643Manufacturing and Supply Chain Management Practicum4 ˆ∫*Springer, Mark2
-"PH OFC(@HP
+"PH OFC(9∞V‘dq@@HP
 ZJOPS 464|MANUFACTURING AND SUPPLY CHAIN MANAGEMENT PRACTICUM|SPRINGER, MARK
-ù
+¶
 OPS 466'Supply Chain Management and Procurement4 Ω≈*Hua, Stella2
 MW∞	∆
-"PH 001@H	PZ;OPS 466|SUPPLY CHAIN MANAGEMENT AND PROCUREMENT|HUA, STELLA
+"PH 0019p+∑Bq@@H	PZ;OPS 466|SUPPLY CHAIN MANAGEMENT AND PROCUREMENT|HUA, STELLA
 Ÿ
 PHIL 1124Introduction to Philosophy: Ethics and the Good Life3 “¿*Howard-Snyder, Frances2
 MWFËö"BH 4199>ñ›xp@@-H)PZTPHIL 112|INTRODUCTION TO PHILOSOPHY: ETHICS AND THE GOOD LIFE|HOWARD-SNYDER, FRANCES
@@ -10298,4 +10299,4 @@ x
 WGSS 450Abolitionist Feminism5 µ«*Cerretti, Josh2
 TR¯
 é"BH 1739ê¬ı(\è
-@@HZ-WGSS 450|ABOLITIONIST FEMINISM|CERRETTI, JOSH¸ÿÍΩ¿Âùá
+@@HZ-WGSS 450|ABOLITIONIST FEMINISM|CERRETTI, JOSHÀëÛΩÁ‚√Õ
