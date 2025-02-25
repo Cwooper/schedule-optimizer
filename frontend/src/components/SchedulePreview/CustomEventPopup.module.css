@@ -35,6 +35,8 @@
   resize: vertical;
   min-height: 80px;
   line-height: var(--line-height-relaxed);
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .daysSelection {

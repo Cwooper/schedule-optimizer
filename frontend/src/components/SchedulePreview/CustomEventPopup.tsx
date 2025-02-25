@@ -26,6 +26,12 @@ const CustomEventPopup: React.FC<CustomEventPopupProps> = ({
   onClose,
   onAddEvent,
 }) => {
+  // Helper function to convert HH:MM time to minutes
+  const timeToMinutes = (time: string): number => {
+    const [hours, minutes] = time.split(":").map(Number);
+    return hours * 60 + minutes;
+  };
+
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [startTime, setStartTime] = useState("10:00");
@@ -50,7 +56,35 @@ const CustomEventPopup: React.FC<CustomEventPopupProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
+    
+    // Basic validation
+    if (!title.trim()) {
+      alert("Please enter an event title");
+      return;
+    }
+    
+    // Time validation
+    const startMinutes = timeToMinutes(startTime);
+    const endMinutes = timeToMinutes(endTime);
+    
+    if (endMinutes <= startMinutes) {
+      alert("End time must be after start time. Please adjust your times.");
+      return;
+    }
+    
+    // Schedule typically shows 8:00 AM to 10:00 PM
+    const minTime = 8 * 60; // 8:00 AM in minutes
+    const maxTime = 22 * 60; // 10:00 PM in minutes
+    
+    if (startMinutes < minTime || endMinutes > maxTime) {
+      const confirmAdd = window.confirm(
+        "Some of your event may not be visible on the schedule (visible hours are typically 8:00 AM to 10:00 PM). Add anyway?"
+      );
+      if (!confirmAdd) {
+        return;
+      }
+    }
+    
     const days = Object.entries(selectedDays)
       .filter(([_, isSelected]) => isSelected)
       .map(([day]) => {
@@ -70,11 +104,16 @@ const CustomEventPopup: React.FC<CustomEventPopupProps> = ({
       return;
     }
 
+    // Truncate title if too long (over 30 characters)
+    const truncatedTitle = title.length > 30
+      ? title.substring(0, 27) + "..."
+      : title;
+
     onAddEvent({
       days,
       start: startTime,
       end: endTime,
-      title,
+      title: truncatedTitle,
       body,
       color: selectedColor,
     });
@@ -92,7 +131,7 @@ const CustomEventPopup: React.FC<CustomEventPopupProps> = ({
       F: false,
     });
     setSelectedColor(EVENT_COLORS[0]);
-
+    
     onClose();
   };
 
