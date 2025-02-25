@@ -1,13 +1,14 @@
 import React, { useState, useRef } from "react";
 import { Schedule } from "@konnorkooi/schedule-glance";
-import { MoreVertical, Download } from "lucide-react";
+import { MoreVertical, Download, Plus } from "lucide-react";
 import "@konnorkooi/schedule-glance/dist/index.css";
-import type { Schedule as ISchedule } from "../../types/types";
+import type { Schedule as ISchedule, ScheduleEvent } from "../../types/types";
 import { generateScheduleEvents } from "../../services/schedule-service";
 import { generateScheduleFilename } from "../../utils/schedule-utils";
 import styles from "./SchedulePreview.module.css";
 import EventPopup from "./EventPopup";
 import CourseList from "../CourseList/CourseList";
+import CustomEventPopup from "./CustomEventPopup";
 
 interface SchedulePreviewProps {
   schedule?: ISchedule;
@@ -31,6 +32,8 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
   const scheduleRef = useRef<any>(null);
   const [showActionMenu, setShowActionMenu] = useState(false);
   const actionButtonRef = useRef<HTMLDivElement>(null);
+  const [customEvents, setCustomEvents] = useState<ScheduleEvent[]>([]);
+  const [isCustomEventPopupOpen, setIsCustomEventPopupOpen] = useState(false);
 
   const [popupState, setPopupState] = useState<{
     isOpen: boolean;
@@ -42,7 +45,9 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
     sessionData: null,
   });
 
-  const events = schedule ? generateScheduleEvents(schedule) : [];
+  const events = schedule
+    ? [...generateScheduleEvents(schedule), ...customEvents]
+    : [...customEvents];
 
   const handleExportSchedule = async () => {
     try {
@@ -54,11 +59,13 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
     }
   };
 
-  // const handleShowMap = () => {
-  //   setShowMap(!showMap);
-  //   setShowActionMenu(false);
-  //   // Implement map view logic here
-  // };
+  const handleAddCustomEvent = (newEvent: Omit<ScheduleEvent, "id">) => {
+    const eventWithId: ScheduleEvent = {
+      ...newEvent,
+      id: `custom-${Date.now()}`,
+    };
+    setCustomEvents((prev) => [...prev, eventWithId]);
+  };
 
   const customHeaders = [
     { label: "Mon", dayIndex: 0 },
@@ -88,6 +95,11 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
     };
   }, []);
 
+  // Clear custom events when schedule changes
+  React.useEffect(() => {
+    setCustomEvents([]);
+  }, [schedule]);
+
   return (
     <div className={styles.container}>
       {showMessages && (errors.length > 0 || warnings.length > 0) && (
@@ -115,7 +127,6 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
             onClick={() => setShowActionMenu(!showActionMenu)}
             className={styles.actionMenuButton}
             title="Schedule Actions"
-            disabled={!schedule || !events.length}
           >
             <MoreVertical className="w-5 h-5" />
           </button>
@@ -125,18 +136,21 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
               <button
                 onClick={handleExportSchedule}
                 className={styles.actionMenuItem}
-                disabled={!schedule || !events.length}
+                disabled={!events.length}
+                title="Export Schedule"
               >
-                <Download className="w-4 h-4 mr-2" />
+                <Download className="w-4 h-4" />
               </button>
-              {/* <button
-                onClick={handleShowMap}
+              <button
+                onClick={() => {
+                  setIsCustomEventPopupOpen(true);
+                  setShowActionMenu(false);
+                }}
                 className={styles.actionMenuItem}
-                disabled={!schedule || !events.length}
+                title="Add Custom Event"
               >
-                <Map className="w-4 h-4 mr-2" />
-                View Map
-              </button> */}
+                <Plus className="w-4 h-4" />
+              </button>
             </div>
           )}
         </div>
@@ -151,6 +165,11 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
             useDefaultPopup={false}
             emptyStateMessage="No courses selected for this schedule"
             customPopupHandler={(event) => {
+              // Skip custom events
+              if (event.id.startsWith("custom-")) {
+                return null;
+              }
+
               const [crn, days] = event.id.split("-");
               const courseData = schedule?.Courses.find(
                 (course) => String(course.CRN) === String(crn)
@@ -184,6 +203,12 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
             )}
         </div>
       </div>
+
+      <CustomEventPopup
+        isOpen={isCustomEventPopupOpen}
+        onClose={() => setIsCustomEventPopupOpen(false)}
+        onAddEvent={handleAddCustomEvent}
+      />
 
       {asyncCourses && asyncCourses.length > 0 && (
         <CourseList
