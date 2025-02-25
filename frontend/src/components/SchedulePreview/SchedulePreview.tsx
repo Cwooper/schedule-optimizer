@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Schedule } from "@konnorkooi/schedule-glance";
-import { MoreVertical, Download, Plus } from "lucide-react";
+import { MoreVertical, Download, Plus, RotateCcw } from "lucide-react";
 import "@konnorkooi/schedule-glance/dist/index.css";
 import type { Schedule as ISchedule, ScheduleEvent } from "../../types/types";
 import { generateScheduleEvents } from "../../services/schedule-service";
@@ -45,8 +45,8 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
     sessionData: null,
   });
 
-  const events = schedule
-    ? [...generateScheduleEvents(schedule), ...customEvents]
+  const events = schedule 
+    ? [...generateScheduleEvents(schedule), ...customEvents] 
     : [...customEvents];
 
   const handleExportSchedule = async () => {
@@ -60,11 +60,20 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
   };
 
   const handleAddCustomEvent = (newEvent: Omit<ScheduleEvent, "id">) => {
+    // Make sure newlines in the body are preserved
+    // The Schedule component expects newlines to be actual \n characters
     const eventWithId: ScheduleEvent = {
       ...newEvent,
       id: `custom-${Date.now()}`,
+      // Ensure body text displays newlines correctly
+      body: newEvent.body || "",
     };
     setCustomEvents((prev) => [...prev, eventWithId]);
+  };
+
+  const handleResetCustomEvents = () => {
+    setCustomEvents([]);
+    setShowActionMenu(false);
   };
 
   const customHeaders = [
@@ -151,6 +160,14 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
               >
                 <Plus className="w-4 h-4" />
               </button>
+              <button
+                onClick={handleResetCustomEvents}
+                className={styles.actionMenuItem}
+                disabled={customEvents.length === 0}
+                title="Reset Custom Events"
+              >
+                <RotateCcw className="w-4 h-4" />
+              </button>
             </div>
           )}
         </div>
@@ -169,7 +186,7 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
               if (event.id.startsWith("custom-")) {
                 return null;
               }
-
+              
               const [crn, days] = event.id.split("-");
               const courseData = schedule?.Courses.find(
                 (course) => String(course.CRN) === String(crn)
