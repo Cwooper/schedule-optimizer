@@ -28,8 +28,8 @@ const CustomEventPopup: React.FC<CustomEventPopupProps> = ({
 }) => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [startTime, setStartTime] = useState("08:00");
-  const [endTime, setEndTime] = useState("09:00");
+  const [startTime, setStartTime] = useState("10:00");
+  const [endTime, setEndTime] = useState("11:00");
   const [selectedDays, setSelectedDays] = useState<{
     [key: string]: boolean;
   }>({
@@ -82,8 +82,8 @@ const CustomEventPopup: React.FC<CustomEventPopupProps> = ({
     // Reset form
     setTitle("");
     setBody("");
-    setStartTime("08:00");
-    setEndTime("09:00");
+    setStartTime("10:00");
+    setEndTime("11:00");
     setSelectedDays({
       M: false,
       T: false,
@@ -114,7 +114,7 @@ const CustomEventPopup: React.FC<CustomEventPopupProps> = ({
             className={styles.input}
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="Example: Study Session"
+            placeholder="ENG 101"
             required
           />
         </div>
@@ -123,13 +123,13 @@ const CustomEventPopup: React.FC<CustomEventPopupProps> = ({
           <label htmlFor="body" className={styles.label}>
             Description:
           </label>
-          <input
+          <textarea
             id="body"
-            type="text"
-            className={styles.input}
+            className={`${styles.input} ${styles.textarea}`}
             value={body}
             onChange={(e) => setBody(e.target.value)}
-            placeholder="Example: Library, 2nd Floor"
+            placeholder="Smith, John&#10;OM 100"
+            rows={3}
           />
         </div>
 
