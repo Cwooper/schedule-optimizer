@@ -20,6 +20,6 @@ const (
 
 	MAX_THREADS_SCRAPING = 3 // Maximum threads used by the scrapers wait group
 
-	MAX_OUTPUT_SEARCH_COURSES = 30 // Maximum output searched courses
-
+	MAX_OUTPUT_SEARCH_COURSES = 25 // Maximum output searched courses
+	MAX_SEARCH_TERM_LENGTH    = 50 // Maximum search term length
 )

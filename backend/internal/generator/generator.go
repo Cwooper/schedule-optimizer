@@ -10,6 +10,7 @@ import (
 	"github.com/cwooper/schedule-optimizer/internal/cache"
 	"github.com/cwooper/schedule-optimizer/internal/models"
 	"github.com/cwooper/schedule-optimizer/internal/utils"
+	"slices"
 )
 
 var CourseNamePattern = regexp.MustCompile(`^[A-Z/ ]{2,4} \d{3}[A-Z]?$`) // e.g. CSCI 497A
@@ -113,23 +114,13 @@ func GenerateResponse(req models.RawRequest) *models.Response {
 	return g.response
 }
 
-// Checks if the string array already contains the given string
-func containsString(s []string, str string) bool {
-	for _, v := range s {
-		if v == str {
-			return true
-		}
-	}
-	return false
-}
-
 // Cleans the course names by stripping any possible whitespace and verifying
 // that the course names are valid
 func (g *Generator) cleanCourseNames(courses []string) []string {
 	cleanedNames := make([]string, 0)
 	for _, courseName := range courses {
 		courseName = strings.TrimSpace(courseName)
-		if CourseNamePattern.MatchString(courseName) && !containsString(cleanedNames, courseName) {
+		if CourseNamePattern.MatchString(courseName) && !slices.Contains(cleanedNames, courseName) {
 			cleanedNames = append(cleanedNames, courseName)
 		} else { // Invalid Course Name
 			g.response.Warnings = append(g.response.Warnings,
@@ -194,7 +185,7 @@ func (g *Generator) generateCourses(term string) {
 // Fills the conflicts array in the generator with known conflict pairs
 // Must be called after filling the generators courses with objects
 func (g *Generator) generateConflicts() {
-	for i := 0; i < len(g.courses)-1; i++ {
+	for i := range len(g.courses)-1 {
 		for j := i + 1; j < len(g.courses); j++ {
 			if g.courses[i].Conflicts(g.courses[j]) {
 				g.conflicts = append(g.conflicts, Conflict{
