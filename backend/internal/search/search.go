@@ -50,16 +50,13 @@ func SearchCourses(searchTerm string, term string) models.Response {
 	})
 
 	// Determine number of courses to return (up to util maximum)
-	numResults := len(matches)
-	if numResults > utils.MAX_OUTPUT_SEARCH_COURSES {
-		numResults = utils.MAX_OUTPUT_SEARCH_COURSES
-	}
+	numResults := min(len(matches), utils.MAX_OUTPUT_SEARCH_COURSES)
 
 	// Pre-allocate resp.Courses
 	resp.Courses = make([]models.Course, numResults)
 
 	// Add top matches to resp.Courses
-	for i := 0; i < numResults; i++ {
+	for i := range numResults {
 		resp.Courses[i] = matches[i].Course
 	}
 
