@@ -207,9 +207,21 @@ const SchedulePlanner: React.FC = () => {
 
   const handleScheduleSubmit = async () => {
     try {
+      // Adjust minimum credits if there are fewer courses than the minimum
+      const courseCount = scheduleData.courses.length;
+      let adjustedMinCredits = scheduleData.minCredits;
+
+      // If the number of courses is less than the specified minimum, adjust it
+      if (courseCount > 0 && courseCount < parseInt(scheduleData.minCredits)) {
+        adjustedMinCredits = courseCount.toString();
+        console.log(
+          `Adjusting minimum courses from ${scheduleData.minCredits} to ${adjustedMinCredits}`
+        );
+      }
+
       const newRequest = createScheduleRequest(
         scheduleData.courses,
-        scheduleData.minCredits,
+        adjustedMinCredits,
         scheduleData.maxCredits,
         scheduleData.year,
         scheduleData.quarter
