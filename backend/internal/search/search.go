@@ -265,6 +265,19 @@ func scoreCourse(course models.Course, components QueryComponents) int {
 func SearchCourses(searchTerm string, term string) models.Response {
 	resp := models.Response{}
 
+	if searchTerm == "" {
+		resp.Errors = append(resp.Errors, "Search term is empty")
+		return resp
+	}
+	if term == "" {
+		resp.Errors = append(resp.Errors, "Term is empty")
+		return resp
+	}
+	if len(searchTerm) > utils.MAX_SEARCH_TERM_LENGTH {
+		resp.Errors = append(resp.Errors, "Search term is too long")
+		return resp
+	}
+
 	// Get courses from the cache
 	courseManager := cache.GetInstance()
 	courseList, err := courseManager.GetCourseList(term)
