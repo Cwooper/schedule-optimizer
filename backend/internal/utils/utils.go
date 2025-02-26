@@ -105,11 +105,11 @@ func WritePidFile() error {
 
 	// Try writing to /tmp first
 	pidFile := filepath.Join(os.TempDir(), "schedule-optimizer.pid")
-	err := os.WriteFile(pidFile, []byte(fmt.Sprintf("%d", pid)), 0644)
+	err := os.WriteFile(pidFile, fmt.Appendf(nil, "%d", pid), 0644)
 	if err != nil {
 		// Fallback to current directory if /tmp fails
 		pidFile = "schedule-optimizer.pid"
-		err = os.WriteFile(pidFile, []byte(fmt.Sprintf("%d", pid)), 0644)
+		err = os.WriteFile(pidFile, fmt.Appendf(nil, "%d", pid), 0644)
 		if err != nil {
 			return fmt.Errorf("failed to write PID file: %w", err)
 		}
