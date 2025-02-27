@@ -16,8 +16,9 @@
   border-radius: var(--radius-lg);
   padding: var(--spacing-4);
   width: 100%;
+  /* Removed min-width to prevent forcing parent expansion */
   max-width: 100%;
-  /* Ensure this container doesn't expand the page */
+  /* Hide any horizontal overflow */
   overflow-x: hidden;
 }
 
@@ -64,10 +65,8 @@
   border-radius: var(--radius-lg);
   width: 100%;
   padding: var(--spacing-4);
-  /* This is crucial - we need to set a max-width so it doesn't expand the parent */
+  overflow-x: hidden;
   max-width: 100%;
-  /* This will make the container scrollable when content exceeds width */
-  overflow-x: auto;
 }
 
 /* Search Section Styles */
