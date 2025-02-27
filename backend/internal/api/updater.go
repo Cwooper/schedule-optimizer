@@ -197,7 +197,7 @@ func UpdateCourses() error {
 		return fmt.Errorf("failed to filter terms: %w", err)
 	}
 
-	log.Printf("Processing terms: %v\n", terms)
+	log.Printf("Processing terms: %v...\n", terms)
 	start := time.Now()
 	totalCourses := 0
 
