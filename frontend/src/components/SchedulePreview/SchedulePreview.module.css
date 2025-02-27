@@ -1,8 +1,7 @@
 /* src/components/SchedulePreview/SchedulePreview.module.css */
 .container {
   width: 100%;
-  max-width: 64rem;
-  min-width: 600px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0.25rem;
   height: 100%;
@@ -114,14 +113,27 @@
   cursor: not-allowed;
 }
 
+.scheduleWrapper {
+  /* Critical: This prevents the wrapper from expanding beyond its parent */
+  width: 100%;
+  max-width: 100%;
+  /* Enable scrolling within this container */
+  overflow-x: auto;
+  /* Contains the schedule absolutely */
+  position: relative;
+}
+
 .scheduleContainer {
-  flex: 1;
   display: flex;
   position: relative;
-  width: 100%;
+  /* Fixed minimum width to ensure all days are visible */
+  min-width: 800px;
+  /* Prevent expanding beyond parent if not needed */
+  max-width: 800px;
+  width: 800px;
   margin: 0 auto;
   padding: 1rem;
-  min-height: 600px;
+  transition: height 0.3s ease-in-out;
 }
 
 .scheduleWithActions {
@@ -129,6 +141,7 @@
   gap: 0;
   position: relative;
   padding: 0;
+  width: 100%;
 }
 
 .actionMenuContainer {
@@ -241,16 +254,15 @@
     padding: var(--spacing-2);
   }
 
+  .scheduleWrapper {
+    overflow-x: auto;
+  }
+
   .scheduleContainer {
     padding: var(--spacing-2);
-    min-height: 400px;
+    min-height: 500px;
   }
-
-  .exportButton {
-    padding: var(--spacing-2) var(--spacing-3);
-    font-size: var(--font-size-sm);
-  }
-
+  
   .scheduleWithActions {
     flex-direction: row;
     align-items: flex-start;
