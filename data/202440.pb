@@ -9027,6 +9027,11 @@ Motivation5 ÿ◊*Kaplan, Josh2
 PSY 334Cognitive Development5 ò«*Harmon, Chelsea2
 TR¯
 é"AW 3039tìV@@HPZ-PSY 334|COGNITIVE DEVELOPMENT|HARMON, CHELSEA
+é
+PSY 335Socioemotional Development5 ç‹*Gonzalez, Antonya2
+
+TR∞	∆
+9Â+æ‚+Æ@@PZ4PSY 335|SOCIOEMOTIONAL DEVELOPMENT|GONZALEZ, ANTONYA
 ™
 PSY 338(The Cultural Nature of Human Development5 ï÷*McLean, Kate2
 TRË˛"IS 310933333≥
@@ -9035,6 +9040,9 @@ Motivation5 ÿ◊*Kaplan, Josh2
 PSY 341Psychology and Culture5 ª…*Bell, Angela2
 MWFË‡"AW 4039±Ûòº7>@@HP
 Z+PSY 341|PSYCHOLOGY AND CULTURE|BELL, ANGELA
+u
+PSY 343Social Processes5 é‹*Sattler, David2
+MWFÍ‚	9.ïÌ]@@PZ'PSY 343|SOCIAL PROCESSES|SATTLER, DAVID
 î
 PSY 344Psychology and the Law5 ñ÷*Devenport, Jennifer2
 TR∞	∆
@@ -10299,4 +10307,4 @@ x
 WGSS 450Abolitionist Feminism5 µ«*Cerretti, Josh2
 TR¯
 é"BH 1739ê¬ı(\è
-@@HZ-WGSS 450|ABOLITIONIST FEMINISM|CERRETTI, JOSHê∫˚ΩùÛ ¬
+@@HZ-WGSS 450|ABOLITIONIST FEMINISM|CERRETTI, JOSHÃ¿ìæ÷°Ì°
