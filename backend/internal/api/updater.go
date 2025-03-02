@@ -229,7 +229,8 @@ func UpdateCourses() error {
 	// Preload cache with updated data
 	if len(terms) > 0 {
 		courseManager := cache.GetInstance()
-		courseManager.PreloadCache(terms)
+		courseManager.Invalidate()
+    courseManager.PreloadCache(terms)
 	}
 
 	return nil
