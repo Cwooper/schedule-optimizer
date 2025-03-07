@@ -17,7 +17,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o server cmd/server/server.go
 # Final image
 FROM debian:bookworm-slim
 WORKDIR /app
-RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y ca-certificates curl && rm -rf /var/lib/apt/lists/*
 
 # Create our user
 RUN useradd -r -u 999 -U scheduler
