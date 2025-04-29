@@ -659,9 +659,9 @@ X
 "BI 2492
 MWFñé"PH 1469Ø¨YÊ›8@@HPZPBIOL 204|INTRODUCTION TO EVOLUTION, ECOLOGY AND BIODIVERSITY W/LAB|VAN HEES, DAN
 ‚
-BIOL 2049Introduction to Evolution, Ecology and Biodiversity w/lab5 Î¬*van Hees, Dan2
-F†ö"BI 2492
-MWFñé"PH 1469Ø¨YÊ›8@@HZPBIOL 204|INTRODUCTION TO EVOLUTION, ECOLOGY AND BIODIVERSITY W/LAB|VAN HEES, DAN
+BIOL 2049Introduction to Evolution, Ecology and Biodiversity w/lab5 Î¬*van Hees, Dan2
+MWFñé"PH 1462
+F†ö"BI 2499Ø¨YÊ›8@@HZPBIOL 204|INTRODUCTION TO EVOLUTION, ECOLOGY AND BIODIVERSITY W/LAB|VAN HEES, DAN
 ‰
 BIOL 2049Introduction to Evolution, Ecology and Biodiversity w/lab5 Ï¬*van Hees, Dan2
 FÃ∆
@@ -702,9 +702,9 @@ X
 TÃ∆
 "BI 3559Od Ω?◊@@HPZCBIOL 206|INTRODUCTION TO ORGANISMAL BIOLOGY W/LAB|BINNEY, ELIZABETH
  
-BIOL 206(Introduction to Organismal Biology w/lab5 âª*Binney, Elizabeth2
-R†ö"BI 3552
-MWFË‡"BI 2349Od Ω?◊@@HPZCBIOL 206|INTRODUCTION TO ORGANISMAL BIOLOGY W/LAB|BINNEY, ELIZABETH
+BIOL 206(Introduction to Organismal Biology w/lab5 âª*Binney, Elizabeth2
+MWFË‡"BI 2342
+R†ö"BI 3559Od Ω?◊@@HPZCBIOL 206|INTRODUCTION TO ORGANISMAL BIOLOGY W/LAB|BINNEY, ELIZABETH
  
 BIOL 206(Introduction to Organismal Biology w/lab5 Ç¿*Binney, Elizabeth2
 MWFË‡"BI 2342
@@ -738,11 +738,11 @@ o
 MWFî
 å"IS 2449''''''@@#H#Z BIOL 321|GENETICS|WANG, ADRIENNE
 ©
-BIOL 322Methods in Genetics w/lab4 ≠ƒ*Snyder, Annelise2
-TRË‚	"BI 4612
+BIOL 322Methods in Genetics w/lab4 ≠ƒ*Snyder, Annelise2
 Mî
 ∆
-"BI 4619ªÌ Tá∫	@@H
+"BI 4612
+TRË‚	"BI 4619ªÌ Tá∫	@@H
 PZ3BIOL 322|METHODS IN GENETICS W/LAB|SNYDER, ANNELISE
 ì
 BIOL 323Cell and Molecular Biology4 Äº*Pillay, Laura2
@@ -767,10 +767,10 @@ i
 MWñé"BI 2342
 Fñé"BI 1399¨Zd;_@@HPZ(BIOL 340|BIOSTATISTICS|ZINKGRAF, MATTHEW
 ì
-BIOL 340Biostatistics5 ºÿ*Zinkgraf, Matthew2
+BIOL 340Biostatistics5 ºÿ*Zinkgraf, Matthew2
+MWñé"BI 2342
 Fî
-å"BI 1392
-MWñé"BI 2349¨Zd;_@@HPZ(BIOL 340|BIOSTATISTICS|ZINKGRAF, MATTHEW
+å"BI 1399¨Zd;_@@HPZ(BIOL 340|BIOSTATISTICS|ZINKGRAF, MATTHEW
 û
 BIOL 345Fundamentals of Microbiology4 ¢º*Brodhagen, Marion2
 TR†∂"BI 2129üÍ©ûÍ©	@@-H*PZ7BIOL 345|FUNDAMENTALS OF MICROBIOLOGY|BRODHAGEN, MARION
@@ -1058,9 +1058,9 @@ Cully, Amy2
 MTWFËö"SL 1209SŸ‘à|´	@@HZ'CHEM 161|GENERAL CHEMISTRY I|CULLY, AMY
 ì
 CHEM 161General Chemistry I5 ˆƒ*
-Cully, Amy2
-RÑö"IS 3402
-MTWFËö"SL 1209SŸ‘à|´	@@HPZ'CHEM 161|GENERAL CHEMISTRY I|CULLY, AMY
+Cully, Amy2
+MTWFËö"SL 1202
+RÑö"IS 3409SŸ‘à|´	@@HPZ'CHEM 161|GENERAL CHEMISTRY I|CULLY, AMY
 ó
 CHEM 161General Chemistry I5 ˜ƒ*Miller, Aaron2
 WÑö"IS 3302
@@ -1171,9 +1171,9 @@ y
 P
 Z,CHEM 201|INDEPENDENT RESEARCH|BERGER, ROBERT
 µ
-CHEM 251Elementary Organic Chemistry5 Çπ*Griffith, Jennifer2
-MTWF†“"SL 1302
-M§û"CB 3109»O…aÈb@@HPZ8CHEM 251|ELEMENTARY ORGANIC CHEMISTRY|GRIFFITH, JENNIFER
+CHEM 251Elementary Organic Chemistry5 Çπ*Griffith, Jennifer2
+M§û"CB 3102
+MTWF†“"SL 1309»O…aÈb@@HPZ8CHEM 251|ELEMENTARY ORGANIC CHEMISTRY|GRIFFITH, JENNIFER
 µ
 CHEM 251Elementary Organic Chemistry5 Éπ*Griffith, Jennifer2
 MTWF†“"SL 1302
@@ -1225,12 +1225,12 @@ y
 CHEM 353Organic Chemistry3 –º*Antos, John2
 MWFËö"SL 1309K~±‰◊@@BHBZ&CHEM 353|ORGANIC CHEMISTRY|ANTOS, JOHN
 ±
-CHEM 355Organic Chemistry Laboratory II4 ´’*Murphy, Amanda2
+CHEM 355Organic Chemistry Laboratory II4 ´’*Murphy, Amanda2
+TR¯
+Ú"CB 3102
 Rî
 ∆
-"SL 1202
-TR¯
-Ú"CB 3109F]t—E@@HPZ7CHEM 355|ORGANIC CHEMISTRY LABORATORY II|MURPHY, AMANDA
+"SL 1209F]t—E@@HPZ7CHEM 355|ORGANIC CHEMISTRY LABORATORY II|MURPHY, AMANDA
 Œ
 CHEM 3561Organic Chemistry Laboratory II for Life Sciences2 ¨’*Antos, John2
 RËö"SL 1302
@@ -1295,11 +1295,11 @@ Z*CHEM 425R|SURFACE CHEMISTRY.|BUSSELL, MARK
 CHEM 473Molecular Biology3 ÖÃ*Spiegel, P. Clint2
 MWFËö"IS 3109eÔkBP@@ HPZ,CHEM 473|MOLECULAR BIOLOGY|SPIEGEL, P. CLINT
 °
-CHEM 474Biochemistry Laboratory5 ≥’*Smirnov, Serge2
-MWî
-Ú"IS 4302
+CHEM 474Biochemistry Laboratory5 ≥’*Smirnov, Serge2
 F¯
-™"SL 1309¬H;V å@@HPZ/CHEM 474|BIOCHEMISTRY LABORATORY|SMIRNOV, SERGE
+™"SL 1302
+MWî
+Ú"IS 4309¬H;V å@@HPZ/CHEM 474|BIOCHEMISTRY LABORATORY|SMIRNOV, SERGE
 ±
 CHEM 474Biochemistry Laboratory5 ¥’*Anthony-Cahill, Spencer2
 TRî
@@ -1799,19 +1799,19 @@ Z9CSCI 102|COMPUTER-MEDIATED COMMUNICATIONS|BANSON, JUSTICE
 ∆
 "CF 1159´w›C™@@HPZ0CSCI 141|COMPUTER PROGRAMMING I|HARDIN, CAROLINE
 –
-CSCI 145/Computer Programming and Linear Data Structures4 ‚√*Clauson, Aran2
-MË˛"CF 1642
-MWF¿Ú"CF 1259433333@@HPZFCSCI 145|COMPUTER PROGRAMMING AND LINEAR DATA STRUCTURES|CLAUSON, ARAN
+CSCI 145/Computer Programming and Linear Data Structures4 ‚√*Clauson, Aran2
+MWF¿Ú"CF 1252
+MË˛"CF 1649433333@@HPZFCSCI 145|COMPUTER PROGRAMMING AND LINEAR DATA STRUCTURES|CLAUSON, ARAN
 –
 CSCI 145/Computer Programming and Linear Data Structures4 „√*Clauson, Aran2
 T¯
 é"CF 1642
 MWF¿Ú"CF 1259433333@@HPZFCSCI 145|COMPUTER PROGRAMMING AND LINEAR DATA STRUCTURES|CLAUSON, ARAN
 –
-CSCI 145/Computer Programming and Linear Data Structures4 ‰√*Clauson, Aran2
+CSCI 145/Computer Programming and Linear Data Structures4 ‰√*Clauson, Aran2
+MWF¿Ú"CF 1252
 F∞	∆
-"CF 1642
-MWF¿Ú"CF 1259433333@@HPZFCSCI 145|COMPUTER PROGRAMMING AND LINEAR DATA STRUCTURES|CLAUSON, ARAN
+"CF 1649433333@@HPZFCSCI 145|COMPUTER PROGRAMMING AND LINEAR DATA STRUCTURES|CLAUSON, ARAN
 ñ
 CSCI 202Dynamic Web Pages4 ¥‘*O'Hara, Dustin2
 MË˛"CF 0262
@@ -1866,10 +1866,10 @@ Z)CSCI 202|DYNAMIC WEB PAGES|O'HARA, DUSTIN
 W¯
 é"CF 1649Ø¯äØ¯ä@@HZDCSCI 301|FORMAL LANGUAGES AND FUNCTIONAL PROGRAMMING|SIZEMORE, LOGAN
 À
-CSCI 301+Formal Languages and Functional Programming5 ∫‘*Wehrwein, Scott2
-MTWFÑ∂"CF 2262
+CSCI 301+Formal Languages and Functional Programming5 ∫‘*Wehrwein, Scott2
 T∞	∆
-"CF 1629˜€≤ÔÑ@@HZDCSCI 301|FORMAL LANGUAGES AND FUNCTIONAL PROGRAMMING|WEHRWEIN, SCOTT
+"CF 1622
+MTWFÑ∂"CF 2269˜€≤ÔÑ@@HZDCSCI 301|FORMAL LANGUAGES AND FUNCTIONAL PROGRAMMING|WEHRWEIN, SCOTT
 Õ
 CSCI 301+Formal Languages and Functional Programming5 º‘*Wehrwein, Scott2
 MTWFÑ∂"CF 2262
@@ -2627,10 +2627,10 @@ Lund, John2
 M¯
 é"ET 3409K›ó«V@@HZ2EECE 344|EMBEDDED MICROCONTROLLERS II|SAADEH, WALA
 ®
-EECE 344Embedded Microcontrollers II4 É…*Saadeh, Wala2
-MWFËö"ET 3212
+EECE 344Embedded Microcontrollers II4 É…*Saadeh, Wala2
 F¯
-é"ET 3389K›ó«V@@HPZ2EECE 344|EMBEDDED MICROCONTROLLERS II|SAADEH, WALA
+é"ET 3382
+MWFËö"ET 3219K›ó«V@@HPZ2EECE 344|EMBEDDED MICROCONTROLLERS II|SAADEH, WALA
 »
 EECE 372,Power Circuits and Electromechanical Systems4 ‚«*Jiang, Xichen2
 MWFÃ˛"ET 3212
@@ -2841,16 +2841,16 @@ Dunn, Jess2
 Æ
 ENRG 484Economics of Alternative Energy4 ˙«*Dorsey-Palmateer, Reid2
 TRË˛"ES 3139;˝∏”	@@HPZ?ENRG 484|ECONOMICS OF ALTERNATIVE ENERGY|DORSEY-PALMATEER, REID
-£
-ENRG 486"Electric Utility Resource Planning4 ã *Sifuentes, Froylan2
+•
+ENRG 486"Electric Utility Resource Planning4 ã *Sifuentes, Froyl√°n2
 TR∞	∆
-"ES 072@HPZ>ENRG 486|ELECTRIC UTILITY RESOURCE PLANNING|SIFUENTES, FROYLAN
+"ES 072@HPZ?ENRG 486|ELECTRIC UTILITY RESOURCE PLANNING|SIFUENTES, FROYL√ÅN
 `
 ENRG 498Directed Research1-12 ∏⁄*Wang, Xi2(@HPZ#ENRG 498|DIRECTED RESEARCH|WANG, XI
-£
-ENRG 586"Electric Utility Resource Planning4 õ *Sifuentes, Froylan2
+•
+ENRG 586"Electric Utility Resource Planning4 õ *Sifuentes, Froyl√°n2
 TR∞	∆
-"ES 072@HPZ>ENRG 586|ELECTRIC UTILITY RESOURCE PLANNING|SIFUENTES, FROYLAN
+"ES 072@HPZ?ENRG 586|ELECTRIC UTILITY RESOURCE PLANNING|SIFUENTES, FROYL√ÅN
 û
 ENGR 101Engineering, Design, & Society3 ®…*Davishahl, Jill2
 TRæ∂"ET 3219F@HÛ@@$H#PZ7ENGR 101|ENGINEERING, DESIGN, & SOCIETY|DAVISHAHL, JILL
@@ -3370,10 +3370,11 @@ Z-ESCI 322|OCEANOGRAPHY LABORATORY|SHULL, DAVID
 Rî
 é"AW 4102
 W‹é"BH 1099äSøÁñ8	@@HZ@ESCI 330|NATURAL HISTORY OF THE PACIFIC NORTHWEST|GREEN, GREGORY
-¨
-ESCI 340Biostatistical Analysis5 ∆º*Montano, Manuel2
+Æ
+ESCI 340Biostatistical Analysis5 ∆º*Monta√±o, Manuel2
 MWñé"ES 4182
-Fñé"AH 0059$7r#7r@@H P˛ˇˇˇˇˇˇˇˇZ0ESCI 340|BIOSTATISTICAL ANALYSIS|MONTANO, MANUEL
+Fñé"AH 0059xl¢bœ
+@@H P˛ˇˇˇˇˇˇˇˇZ1ESCI 340|BIOSTATISTICAL ANALYSIS|MONTA√ëO, MANUEL
 Æ
 ESCI 360*Energy Efficient and Carbon Neutral Design4 ”ÿ*Goel, Nipun2
 MW‹Ú"BI 2129233333@@HPZ?ESCI 360|ENERGY EFFICIENT AND CARBON NEUTRAL DESIGN|GOEL, NIPUN
@@ -3422,10 +3423,10 @@ Z-ESCI 322|OCEANOGRAPHY LABORATORY|SHULL, DAVID
 TRî
 å"AH 0122
 Rñ÷"ES 3319æ‚+æ‚+@@HZ'ESCI 440|WETLANDS ECOLOGY|RYBCZYK, JOHN
-î
-ESCI 455Environmental Toxicology I4 √º*Montano, Manuel2
-TRË˛"ES 0709…g›`ä|
-@@HZ3ESCI 455|ENVIRONMENTAL TOXICOLOGY I|MONTANO, MANUEL
+ñ
+ESCI 455Environmental Toxicology I4 √º*Monta√±o, Manuel2
+TRË˛"ES 0709!QEà∑´
+@@HZ4ESCI 455|ENVIRONMENTAL TOXICOLOGY I|MONTA√ëO, MANUEL
 ´
 ESCI 457%Environmental Toxicology Laboratory I4 ≈º*
 Moran, Ian2
@@ -3463,9 +3464,9 @@ HPZ.ESCI 470|ECOLOGICAL RESTORATION|BAUMAN, JENISE
 o
 ESCI 495Teaching Practicum1-3 ŒŸ*Shaw, Erika2
 "ES OFC(@HPZ'ESCI 495|TEACHING PRACTICUM|SHAW, ERIKA
-w
-ESCI 495Teaching Practicum1-3 ⁄⁄*Montano, Manuel2
-"ES OFC(@HPZ+ESCI 495|TEACHING PRACTICUM|MONTANO, MANUEL
+y
+ESCI 495Teaching Practicum1-3 ⁄⁄*Monta√±o, Manuel2
+"ES OFC(@HPZ,ESCI 495|TEACHING PRACTICUM|MONTA√ëO, MANUEL
 j
 	ESCI 498ASenior Thesis1-15  ª*Rybczyk, John2
 "ES OFC(@PZ%ESCI 498A|SENIOR THESIS|RYBCZYK, JOHN
@@ -3503,9 +3504,9 @@ j
 h
 	ESCI 498ASenior Thesis1-15 ôƒ*Hatch, Marco2
 "ES OFC(@PZ$ESCI 498A|SENIOR THESIS|HATCH, MARCO
-n
-	ESCI 498ASenior Thesis1-15 Û∆*Montano, Manuel2
-"ES OFC(@PZ'ESCI 498A|SENIOR THESIS|MONTANO, MANUEL
+p
+	ESCI 498ASenior Thesis1-15 Û∆*Monta√±o, Manuel2
+"ES OFC(@PZ(ESCI 498A|SENIOR THESIS|MONTA√ëO, MANUEL
 d
 	ESCI 498ASenior Thesis1-15 ˆ∆*
 Khan, Alia2
@@ -3516,9 +3517,9 @@ v
 p
 	ESCI 498ASenior Thesis1-15 “«*Strecker, Angela2
 "ES OFC(@PZ(ESCI 498A|SENIOR THESIS|STRECKER, ANGELA
-t
-	ESCI 498ASenior Thesis1-15 ”«*Sifuentes, Froylan2
-"ES OFC(@PZ*ESCI 498A|SENIOR THESIS|SIFUENTES, FROYLAN
+v
+	ESCI 498ASenior Thesis1-15 ”«*Sifuentes, Froyl√°n2
+"ES OFC(@PZ+ESCI 498A|SENIOR THESIS|SIFUENTES, FROYL√ÅN
 h
 	ESCI 498ASenior Thesis1-15 ◊À*Kastner, Sam2
 "ES OFC(@PZ$ESCI 498A|SENIOR THESIS|KASTNER, SAM
@@ -3567,10 +3568,10 @@ b
 	ESCI 498B
 Internship1-15 öƒ*Hatch, Marco2
 "ES OFC(@PZ!ESCI 498B|INTERNSHIP|HATCH, MARCO
-j
+l
 	ESCI 498B
-Internship1-15 Ù∆*Montano, Manuel2
-"ES OFC(@HPZ$ESCI 498B|INTERNSHIP|MONTANO, MANUEL
+Internship1-15 Ù∆*Monta√±o, Manuel2
+"ES OFC(@HPZ%ESCI 498B|INTERNSHIP|MONTA√ëO, MANUEL
 ^
 	ESCI 498B
 Internship1-15 ˜∆*
@@ -3584,10 +3585,10 @@ l
 	ESCI 498B
 Internship1-15 ’«*Strecker, Angela2
 "ES OFC(@HPZ%ESCI 498B|INTERNSHIP|STRECKER, ANGELA
-n
+p
 	ESCI 498B
-Internship1-15 ÷«*Sifuentes, Froylan2
-"ES OFC(@PZ'ESCI 498B|INTERNSHIP|SIFUENTES, FROYLAN
+Internship1-15 ÷«*Sifuentes, Froyl√°n2
+"ES OFC(@PZ(ESCI 498B|INTERNSHIP|SIFUENTES, FROYL√ÅN
 d
 	ESCI 498B
 Internship1-15 ÿÀ*Kastner, Sam2
@@ -3690,9 +3691,9 @@ n
 j
 	ESCI 498CSenior Project1-15 õƒ*Hatch, Marco2
 "ES OFC(@PZ%ESCI 498C|SENIOR PROJECT|HATCH, MARCO
-r
-	ESCI 498CSenior Project1-15 ı∆*Montano, Manuel2
-"ES OFC(@HPZ(ESCI 498C|SENIOR PROJECT|MONTANO, MANUEL
+t
+	ESCI 498CSenior Project1-15 ı∆*Monta√±o, Manuel2
+"ES OFC(@HPZ)ESCI 498C|SENIOR PROJECT|MONTA√ëO, MANUEL
 h
 	ESCI 498CSenior Project1-15 ¯∆*
 Khan, Alia2
@@ -3703,9 +3704,9 @@ x
 r
 	ESCI 498CSenior Project1-15 ÿ«*Strecker, Angela2
 "ES OFC(@PZ)ESCI 498C|SENIOR PROJECT|STRECKER, ANGELA
-v
-	ESCI 498CSenior Project1-15 Ÿ«*Sifuentes, Froylan2
-"ES OFC(@PZ+ESCI 498C|SENIOR PROJECT|SIFUENTES, FROYLAN
+x
+	ESCI 498CSenior Project1-15 Ÿ«*Sifuentes, Froyl√°n2
+"ES OFC(@PZ,ESCI 498C|SENIOR PROJECT|SIFUENTES, FROYL√ÅN
 j
 	ESCI 498CSenior Project1-15 ŸÀ*Kastner, Sam2
 "ES OFC(@PZ%ESCI 498C|SENIOR PROJECT|KASTNER, SAM
@@ -3754,9 +3755,9 @@ Z2ESCI 498C|SENIOR PROJECT|REIDY LIERMANN, CATHERINE
 TRî
 å"AH 0122
 Rñ÷"ES 331@HZ'ESCI 540|WETLANDS ECOLOGY|RYBCZYK, JOHN
-ü
-ESCI 555#Advanced Environmental Toxicology I4 ƒº*Montano, Manuel2
-TRË˛"ES 070@HPZ<ESCI 555|ADVANCED ENVIRONMENTAL TOXICOLOGY I|MONTANO, MANUEL
+°
+ESCI 555#Advanced Environmental Toxicology I4 ƒº*Monta√±o, Manuel2
+TRË˛"ES 070@HPZ=ESCI 555|ADVANCED ENVIRONMENTAL TOXICOLOGY I|MONTA√ëO, MANUEL
 ©
 ESCI 557.Advanced Environmental Toxicology Laboratory I3 √“*
 Moran, Ian2
@@ -3783,17 +3784,17 @@ z
 t
 ESCI 690Thesis Research1-12 €«*Strecker, Angela2
 "ES OFC(@HPZ)ESCI 690|THESIS RESEARCH|STRECKER, ANGELA
-v
-ESCI 690Thesis Research1-12 ‹«*Sifuentes, Froylan2
-"ES OFC(@PZ+ESCI 690|THESIS RESEARCH|SIFUENTES, FROYLAN
+x
+ESCI 690Thesis Research1-12 ‹«*Sifuentes, Froyl√°n2
+"ES OFC(@PZ,ESCI 690|THESIS RESEARCH|SIFUENTES, FROYL√ÅN
 h
 ESCI 690Thesis Research1-12 ë…*
 Khan, Alia2
 "ES OFC(@
 HPZ#ESCI 690|THESIS RESEARCH|KHAN, ALIA
-r
-ESCI 690Thesis Research1-12 §…*Montano, Manuel2
-"ES OFC(@HPZ(ESCI 690|THESIS RESEARCH|MONTANO, MANUEL
+t
+ESCI 690Thesis Research1-12 §…*Monta√±o, Manuel2
+"ES OFC(@HPZ)ESCI 690|THESIS RESEARCH|MONTA√ëO, MANUEL
 l
 ESCI 690Thesis Research1-12 ⁄À*Kastner, Sam2
 "ES OFC(@HPZ%ESCI 690|THESIS RESEARCH|KASTNER, SAM
@@ -5521,6 +5522,12 @@ Roehl, Tom2
 "PH OFC(@
 P
 Z8IBUS 490|INTERNSHIP IN INTERNATIONAL BUSINESS|ROEHL, TOM
+L
+INTL 305Education Abroad0-30 è‹2(@»P»ZINTL 305|EDUCATION ABROAD|
+L
+INTL 305Education Abroad0-30 ê‹2(@»P»ZINTL 305|EDUCATION ABROAD|
+L
+INTL 305Education Abroad0-30 ë‹2(@»P»ZINTL 305|EDUCATION ABROAD|
 ç
 JAPN 101First-Year Japanese5 Ô‘*Deguchi, Masanori2
 MWFË‡"MH 1129®Ïπ\√@@HPZ.JAPN 101|FIRST-YEAR JAPANESE|DEGUCHI, MASANORI
@@ -6701,7 +6708,7 @@ y
 MTWRF∞	‚	"BH 2279˚zÎ∆¶@@#H!PZ)MATH 115|PRECALCULUS II|NICKERSON, ANDREW
 
 MATH 115Precalculus II5 õ–*Bradford, Owen2
-MTWRF∞	‚	"AW 4059˚zÎ∆¶@@#HPZ&MATH 115|PRECALCULUS II|BRADFORD, OWEN
+MTWRF∞	‚	"AW 4059˚zÎ∆¶@@#HPZ&MATH 115|PRECALCULUS II|BRADFORD, OWEN
 w
 MATH 115Precalculus II5 ú–*
 Nimtz, Jen2
@@ -7222,8 +7229,8 @@ HPZ7MUS 213D|APPLIED INSTRUCTION: DOUBLE BASS|PALMER, DYLAN
 P
 Z7MUS 213D|APPLIED INSTRUCTION: DOUBLE BASS|PALMER, DYLAN
 _
-MUS 213EHarp1-4 ôæ*Whitman, Jill2
-"PA OFC(2"PA(@
+MUS 213EHarp1-4 ôæ*Whitman, Jill2"PA(2
+"PA OFC(@
 HPZMUS 213E|HARP|WHITMAN, JILL
 a
 MUS 213EHarp1-4 öæ*Whitman, Jill2
@@ -10096,10 +10103,9 @@ Abel, Troy2
 ƒ
 UEPP 3593Business and Sustainability Principles and Practice4 •—*Allaway, Gigi2
 WFË˛"AH 2259'vb'vb@@HP	ZJUEPP 359|BUSINESS AND SUSTAINABILITY PRINCIPLES AND PRACTICE|ALLAWAY, GIGI
-§
-UEPP 360Plan Graphics and Site Design3 ® *Zaferatos, Nicholas2
-TR∞	®
-"ES 3189“≠—≠@@HPZ:UEPP 360|PLAN GRAPHICS AND SITE DESIGN|ZAFERATOS, NICHOLAS
+°
+UEPP 360Plan Graphics and Site Design3 ® *Zaferatos, Nicholas2
+M¿÷"ES 3189“≠—≠@@HZ:UEPP 360|PLAN GRAPHICS AND SITE DESIGN|ZAFERATOS, NICHOLAS
 û
 UEPP 457 Environmental Dispute Resolution4 © *Russell, Sheri2
 TRË˛"AH 2259Fò⁄(.*@@HZ8UEPP 457|ENVIRONMENTAL DISPUTE RESOLUTION|RUSSELL, SHERI
@@ -10307,4 +10313,4 @@ x
 WGSS 450Abolitionist Feminism5 µ«*Cerretti, Josh2
 TR¯
 é"BH 1739ê¬ı(\è
-@@HZ-WGSS 450|ABOLITIONIST FEMINISM|CERRETTI, JOSHÃ¿ìæ÷°Ì°
+@@HZ-WGSS 450|ABOLITIONIST FEMINISM|CERRETTI, JOSH©§≈¿”ıÜ®
