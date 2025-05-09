@@ -659,9 +659,9 @@ X
 "BI 2492
 MWFñé"PH 1469Ø¨YÊ›8@@HPZPBIOL 204|INTRODUCTION TO EVOLUTION, ECOLOGY AND BIODIVERSITY W/LAB|VAN HEES, DAN
 ‚
-BIOL 2049Introduction to Evolution, Ecology and Biodiversity w/lab5 Î¬*van Hees, Dan2
-MWFñé"PH 1462
-F†ö"BI 2499Ø¨YÊ›8@@HZPBIOL 204|INTRODUCTION TO EVOLUTION, ECOLOGY AND BIODIVERSITY W/LAB|VAN HEES, DAN
+BIOL 2049Introduction to Evolution, Ecology and Biodiversity w/lab5 Î¬*van Hees, Dan2
+F†ö"BI 2492
+MWFñé"PH 1469Ø¨YÊ›8@@HZPBIOL 204|INTRODUCTION TO EVOLUTION, ECOLOGY AND BIODIVERSITY W/LAB|VAN HEES, DAN
 ‰
 BIOL 2049Introduction to Evolution, Ecology and Biodiversity w/lab5 Ï¬*van Hees, Dan2
 FÃ∆
@@ -702,9 +702,9 @@ X
 TÃ∆
 "BI 3559Od Ω?◊@@HPZCBIOL 206|INTRODUCTION TO ORGANISMAL BIOLOGY W/LAB|BINNEY, ELIZABETH
  
-BIOL 206(Introduction to Organismal Biology w/lab5 âª*Binney, Elizabeth2
-MWFË‡"BI 2342
-R†ö"BI 3559Od Ω?◊@@HPZCBIOL 206|INTRODUCTION TO ORGANISMAL BIOLOGY W/LAB|BINNEY, ELIZABETH
+BIOL 206(Introduction to Organismal Biology w/lab5 âª*Binney, Elizabeth2
+R†ö"BI 3552
+MWFË‡"BI 2349Od Ω?◊@@HPZCBIOL 206|INTRODUCTION TO ORGANISMAL BIOLOGY W/LAB|BINNEY, ELIZABETH
  
 BIOL 206(Introduction to Organismal Biology w/lab5 Ç¿*Binney, Elizabeth2
 MWFË‡"BI 2342
@@ -738,11 +738,11 @@ o
 MWFî
 å"IS 2449''''''@@#H#Z BIOL 321|GENETICS|WANG, ADRIENNE
 ©
-BIOL 322Methods in Genetics w/lab4 ≠ƒ*Snyder, Annelise2
+BIOL 322Methods in Genetics w/lab4 ≠ƒ*Snyder, Annelise2
+TRË‚	"BI 4612
 Mî
 ∆
-"BI 4612
-TRË‚	"BI 4619ªÌ Tá∫	@@H
+"BI 4619ªÌ Tá∫	@@H
 PZ3BIOL 322|METHODS IN GENETICS W/LAB|SNYDER, ANNELISE
 ì
 BIOL 323Cell and Molecular Biology4 Äº*Pillay, Laura2
@@ -767,10 +767,10 @@ i
 MWñé"BI 2342
 Fñé"BI 1399¨Zd;_@@HPZ(BIOL 340|BIOSTATISTICS|ZINKGRAF, MATTHEW
 ì
-BIOL 340Biostatistics5 ºÿ*Zinkgraf, Matthew2
-MWñé"BI 2342
+BIOL 340Biostatistics5 ºÿ*Zinkgraf, Matthew2
 Fî
-å"BI 1399¨Zd;_@@HPZ(BIOL 340|BIOSTATISTICS|ZINKGRAF, MATTHEW
+å"BI 1392
+MWñé"BI 2349¨Zd;_@@HPZ(BIOL 340|BIOSTATISTICS|ZINKGRAF, MATTHEW
 û
 BIOL 345Fundamentals of Microbiology4 ¢º*Brodhagen, Marion2
 TR†∂"BI 2129üÍ©ûÍ©	@@-H*PZ7BIOL 345|FUNDAMENTALS OF MICROBIOLOGY|BRODHAGEN, MARION
@@ -1058,9 +1058,9 @@ Cully, Amy2
 MTWFËö"SL 1209SŸ‘à|´	@@HZ'CHEM 161|GENERAL CHEMISTRY I|CULLY, AMY
 ì
 CHEM 161General Chemistry I5 ˆƒ*
-Cully, Amy2
-MTWFËö"SL 1202
-RÑö"IS 3409SŸ‘à|´	@@HPZ'CHEM 161|GENERAL CHEMISTRY I|CULLY, AMY
+Cully, Amy2
+RÑö"IS 3402
+MTWFËö"SL 1209SŸ‘à|´	@@HPZ'CHEM 161|GENERAL CHEMISTRY I|CULLY, AMY
 ó
 CHEM 161General Chemistry I5 ˜ƒ*Miller, Aaron2
 WÑö"IS 3302
@@ -1171,9 +1171,9 @@ y
 P
 Z,CHEM 201|INDEPENDENT RESEARCH|BERGER, ROBERT
 µ
-CHEM 251Elementary Organic Chemistry5 Çπ*Griffith, Jennifer2
-M§û"CB 3102
-MTWF†“"SL 1309»O…aÈb@@HPZ8CHEM 251|ELEMENTARY ORGANIC CHEMISTRY|GRIFFITH, JENNIFER
+CHEM 251Elementary Organic Chemistry5 Çπ*Griffith, Jennifer2
+MTWF†“"SL 1302
+M§û"CB 3109»O…aÈb@@HPZ8CHEM 251|ELEMENTARY ORGANIC CHEMISTRY|GRIFFITH, JENNIFER
 µ
 CHEM 251Elementary Organic Chemistry5 Éπ*Griffith, Jennifer2
 MTWF†“"SL 1302
@@ -1225,12 +1225,12 @@ y
 CHEM 353Organic Chemistry3 –º*Antos, John2
 MWFËö"SL 1309K~±‰◊@@BHBZ&CHEM 353|ORGANIC CHEMISTRY|ANTOS, JOHN
 ±
-CHEM 355Organic Chemistry Laboratory II4 ´’*Murphy, Amanda2
-TR¯
-Ú"CB 3102
+CHEM 355Organic Chemistry Laboratory II4 ´’*Murphy, Amanda2
 Rî
 ∆
-"SL 1209F]t—E@@HPZ7CHEM 355|ORGANIC CHEMISTRY LABORATORY II|MURPHY, AMANDA
+"SL 1202
+TR¯
+Ú"CB 3109F]t—E@@HPZ7CHEM 355|ORGANIC CHEMISTRY LABORATORY II|MURPHY, AMANDA
 Œ
 CHEM 3561Organic Chemistry Laboratory II for Life Sciences2 ¨’*Antos, John2
 RËö"SL 1302
@@ -1295,11 +1295,11 @@ Z*CHEM 425R|SURFACE CHEMISTRY.|BUSSELL, MARK
 CHEM 473Molecular Biology3 ÖÃ*Spiegel, P. Clint2
 MWFËö"IS 3109eÔkBP@@ HPZ,CHEM 473|MOLECULAR BIOLOGY|SPIEGEL, P. CLINT
 °
-CHEM 474Biochemistry Laboratory5 ≥’*Smirnov, Serge2
-F¯
-™"SL 1302
+CHEM 474Biochemistry Laboratory5 ≥’*Smirnov, Serge2
 MWî
-Ú"IS 4309¬H;V å@@HPZ/CHEM 474|BIOCHEMISTRY LABORATORY|SMIRNOV, SERGE
+Ú"IS 4302
+F¯
+™"SL 1309¬H;V å@@HPZ/CHEM 474|BIOCHEMISTRY LABORATORY|SMIRNOV, SERGE
 ±
 CHEM 474Biochemistry Laboratory5 ¥’*Anthony-Cahill, Spencer2
 TRî
@@ -1799,19 +1799,19 @@ Z9CSCI 102|COMPUTER-MEDIATED COMMUNICATIONS|BANSON, JUSTICE
 ∆
 "CF 1159´w›C™@@HPZ0CSCI 141|COMPUTER PROGRAMMING I|HARDIN, CAROLINE
 –
-CSCI 145/Computer Programming and Linear Data Structures4 ‚√*Clauson, Aran2
-MWF¿Ú"CF 1252
-MË˛"CF 1649433333@@HPZFCSCI 145|COMPUTER PROGRAMMING AND LINEAR DATA STRUCTURES|CLAUSON, ARAN
+CSCI 145/Computer Programming and Linear Data Structures4 ‚√*Clauson, Aran2
+MË˛"CF 1642
+MWF¿Ú"CF 1259433333@@HPZFCSCI 145|COMPUTER PROGRAMMING AND LINEAR DATA STRUCTURES|CLAUSON, ARAN
 –
 CSCI 145/Computer Programming and Linear Data Structures4 „√*Clauson, Aran2
 T¯
 é"CF 1642
 MWF¿Ú"CF 1259433333@@HPZFCSCI 145|COMPUTER PROGRAMMING AND LINEAR DATA STRUCTURES|CLAUSON, ARAN
 –
-CSCI 145/Computer Programming and Linear Data Structures4 ‰√*Clauson, Aran2
-MWF¿Ú"CF 1252
+CSCI 145/Computer Programming and Linear Data Structures4 ‰√*Clauson, Aran2
 F∞	∆
-"CF 1649433333@@HPZFCSCI 145|COMPUTER PROGRAMMING AND LINEAR DATA STRUCTURES|CLAUSON, ARAN
+"CF 1642
+MWF¿Ú"CF 1259433333@@HPZFCSCI 145|COMPUTER PROGRAMMING AND LINEAR DATA STRUCTURES|CLAUSON, ARAN
 ñ
 CSCI 202Dynamic Web Pages4 ¥‘*O'Hara, Dustin2
 MË˛"CF 0262
@@ -2627,10 +2627,10 @@ Lund, John2
 M¯
 é"ET 3409K›ó«V@@HZ2EECE 344|EMBEDDED MICROCONTROLLERS II|SAADEH, WALA
 ®
-EECE 344Embedded Microcontrollers II4 É…*Saadeh, Wala2
+EECE 344Embedded Microcontrollers II4 É…*Saadeh, Wala2
+MWFËö"ET 3212
 F¯
-é"ET 3382
-MWFËö"ET 3219K›ó«V@@HPZ2EECE 344|EMBEDDED MICROCONTROLLERS II|SAADEH, WALA
+é"ET 3389K›ó«V@@HPZ2EECE 344|EMBEDDED MICROCONTROLLERS II|SAADEH, WALA
 »
 EECE 372,Power Circuits and Electromechanical Systems4 ‚«*Jiang, Xichen2
 MWFÃ˛"ET 3212
@@ -7229,8 +7229,8 @@ HPZ7MUS 213D|APPLIED INSTRUCTION: DOUBLE BASS|PALMER, DYLAN
 P
 Z7MUS 213D|APPLIED INSTRUCTION: DOUBLE BASS|PALMER, DYLAN
 _
-MUS 213EHarp1-4 ôæ*Whitman, Jill2"PA(2
-"PA OFC(@
+MUS 213EHarp1-4 ôæ*Whitman, Jill2
+"PA OFC(2"PA(@
 HPZMUS 213E|HARP|WHITMAN, JILL
 a
 MUS 213EHarp1-4 öæ*Whitman, Jill2
@@ -10313,4 +10313,4 @@ x
 WGSS 450Abolitionist Feminism5 µ«*Cerretti, Josh2
 TR¯
 é"BH 1739ê¬ı(\è
-@@HZ-WGSS 450|ABOLITIONIST FEMINISM|CERRETTI, JOSH©§≈¿”ıÜ®
+@@HZ-WGSS 450|ABOLITIONIST FEMINISM|CERRETTI, JOSHòá˘¿Íù©Ñ

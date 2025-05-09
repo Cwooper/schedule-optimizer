@@ -1285,11 +1285,11 @@ Z;CHEM 441|ADVANCED INORGANIC CHEMISTRY|SCHEUERMANN, MARGARET
 CHEM 462Physical Chemistry4 ÕO*McCarty, Jay2
 MTWFËö"SL 1309CyÂ5î@@HPZ(CHEM 462|PHYSICAL CHEMISTRY|MCCARTY, JAY
 ƒ
-CHEM 464)Physical/Inorganic Chemistry Laboratory I5 Èi*Berger, Robert2
-T¯
-™"IS 2422
+CHEM 464)Physical/Inorganic Chemistry Laboratory I5 Èi*Berger, Robert2
 MWî
-Ú"CB 2659≥%[≤%[
+Ú"CB 2652
+T¯
+™"IS 2429≥%[≤%[
 @@HPZACHEM 464|PHYSICAL/INORGANIC CHEMISTRY LABORATORY I|BERGER, ROBERT
 »
 CHEM 464)Physical/Inorganic Chemistry Laboratory I5 Íi*Clark, Catherine2
@@ -6304,9 +6304,9 @@ Z$MFGE 400|DIRECTED INDEPENDENT STUDY|
 MW†∂"ET 3082
 R†ö"ET 136@HZ)MFGE 434|ADVANCED CAM AND CNC|GILL, DAVID
 â
-MFGE 434Advanced CAM and CNC4 öi*Gill, David2
-FË‚	"ET 1362
-MW†∂"ET 308@HZ)MFGE 434|ADVANCED CAM AND CNC|GILL, DAVID
+MFGE 434Advanced CAM and CNC4 öi*Gill, David2
+MW†∂"ET 3082
+FË‚	"ET 136@HZ)MFGE 434|ADVANCED CAM AND CNC|GILL, DAVID
 î
 MFGE 434Advanced CAM and CNC4 õi*Gill, David2
 MW†∂"ET 3082
@@ -7483,8 +7483,8 @@ t
 HPZ*MUS 297D|APPLIED JAZZ LESSONS|WOODS, KEVIN
 ∫
 MUS 312Applied Instruction: Piano1-4 ◊S*Jelaca Jovanovic, Milica2
-T¿÷"PA 1552
-W∞	‚	"PA 1552
+W∞	‚	"PA 1552
+T¿÷"PA 1552
 "PA OFC(@
 P
 Z;MUS 312|APPLIED INSTRUCTION: PIANO|JELACA JOVANOVIC, MILICA
@@ -10240,4 +10240,4 @@ u
 MW¿÷"MH 231@HPZ3WGSS 344|CRITICAL CHILDHOOD STUDIES|GIFFEN, ALLISON
 ñ
 WGSS 356Gender and History5 ›k*Bhattacharjee, Dharitri2
-MWFæ∂"BH 1049“yã!ù@@HPZ3WGSS 356|GENDER AND HISTORY|BHATTACHARJEE, DHARITRIŸ§≈¿ñ…˘”
+MWFæ∂"BH 1049“yã!ù@@HPZ3WGSS 356|GENDER AND HISTORY|BHATTACHARJEE, DHARITRI…á˘¿üÛò
