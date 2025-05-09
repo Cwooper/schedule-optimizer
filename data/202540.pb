@@ -66,8 +66,8 @@ v
 @@PZ3ACCT 441|ADVANCED FINANCIAL ACCOUNTING|CHEN, HANMEI
 ≤
 ACCT 443-Financial Accounting Research & Communication4 ¶’*Liu, Zander2
-MW¯
-é"AW 4039ƒ¶“ês@@PZBACCT 443|FINANCIAL ACCOUNTING RESEARCH & COMMUNICATION|LIU, ZANDER
+TR∞	∆
+"FI 2389ƒ¶“ês@@PZBACCT 443|FINANCIAL ACCOUNTING RESEARCH & COMMUNICATION|LIU, ZANDER
 é
 ACCT 461Auditing Theory and Practice4 Æº*
 Hao, Yamin2
@@ -280,27 +280,25 @@ Z-ANTH 699|CONTINUOUS ENROLLMENT|PATRICK, DAVID
 ~
 ART 110View and Gesture5 ﬁ¡*Bernhardt, Paul2
 TRà"FI 3009`IÏw¶`	@@PZ(ART 110|VIEW AND GESTURE|BERNHARDT, PAUL
-j
-ART 111Drawing for Non-Majors5 ÑÃ2
-MWà"FI 3009~
-‰üU∆@@PZART 111|DRAWING FOR NON-MAJORS|
-j
-ART 111Drawing for Non-Majors5 ÜÃ2
-MW∫	™"FI 1259~
-‰üU∆@@PZART 111|DRAWING FOR NON-MAJORS|
+Ñ
+ART 111Drawing for Non-Majors5 ÑÃ*Nguyen, Vian2
+MWà"FI 3009ÃÃÃÃÃ,@@PZ+ART 111|DRAWING FOR NON-MAJORS|NGUYEN, VIAN
+ö
+ART 111Drawing for Non-Majors5 ÜÃ*Hartshorne, Christopher2
+MW∫	™"FI 1259Käj Ë@@PZ6ART 111|DRAWING FOR NON-MAJORS|HARTSHORNE, CHRISTOPHER
 ê
 ART 120Surface and Color5 Ñƒ*Hartshorne, Christopher2
 MWà"FI 2119ˇ Ceá©@@PZ1ART 120|SURFACE AND COLOR|HARTSHORNE, CHRISTOPHER
-l
-ART 140Ceramics For Non-Majors5 ‰Œ2
-MW∫	™"AA 0529û√9ú√π@@PZ ART 140|CERAMICS FOR NON-MAJORS|
-}
-ART 170!Beginning Photo and Image Culture5 „«2"ONLINE ASNC(9;N¬Ci@@PZ*ART 170|BEGINNING PHOTO AND IMAGE CULTURE|
-}
-ART 170!Beginning Photo and Image Culture5 ∏’2"ONLINE ASNC(9;N¬Ci@@PZ*ART 170|BEGINNING PHOTO AND IMAGE CULTURE|
-r
-ART 171Photography for Non-Majors5 ’Ã2
-TR∫	™"FI 2029q‘ˆ3Ñ	@@PZ#ART 171|PHOTOGRAPHY FOR NON-MAJORS|
+é
+ART 140Ceramics For Non-Majors5 ‰Œ*Anable, Jennifer2
+MW∫	™"AA 0529û√9ú√π@@PZ0ART 140|CERAMICS FOR NON-MAJORS|ANABLE, JENNIFER
+õ
+ART 170!Beginning Photo and Image Culture5 „«*Ollestad, Dana2"ONLINE ASNC(9;N¬Ci@@PZ8ART 170|BEGINNING PHOTO AND IMAGE CULTURE|OLLESTAD, DANA
+õ
+ART 170!Beginning Photo and Image Culture5 ∏’*Ollestad, Dana2"ONLINE ASNC(9;N¬Ci@@PZ8ART 170|BEGINNING PHOTO AND IMAGE CULTURE|OLLESTAD, DANA
+ñ
+ART 171Photography for Non-Majors5 ’Ã*Ransom, Elizabeth2
+TR∫	™"FI 20296r#7r#	@@PZ4ART 171|PHOTOGRAPHY FOR NON-MAJORS|RANSOM, ELIZABETH
 r
 ART 230Form and Space5 Ÿ∆*Kelly, Ryan2
 TR∫	™"AA 1529Éîi§ü@@PZ"ART 230|FORM AND SPACE|KELLY, RYAN
@@ -356,9 +354,6 @@ Painting I5 âÃ*Camlin, Cynthia2
 ^
 ART 334Installation Art5 º’2
 MW∫	™"AA 1529´™™™™™@@PZART 334|INSTALLATION ART|
-ó
-ART 337Inter, Mixed, Time Art & Insta1-15 Û—*Turner, Lisa2
-MW∫	™"FI 2149z,ˆ∏@@PZ3ART 337|INTER, MIXED, TIME ART & INSTA|TURNER, LISA
 j
 ART 340
 Ceramics I5 ¨¿*Kelly, Ryan2
@@ -373,13 +368,15 @@ z
 í
 ART 378Introduction to Art Education5 ËÃ*Mask, Ashley2
 TR¢Ô"FI 2289±;±;@@PZ2ART 378|INTRODUCTION TO ART EDUCATION|MASK, ASHLEY
+å
+ART 384Teaching in the Art Museum5 Æÿ*Mask, Ashley2
+TRŒ	õ"FI 2289Îí áqø@@PZ/ART 384|TEACHING IN THE ART MUSEUM|MASK, ASHLEY
 r
 ART 385Time-Based Art5 ÎŒ*Rand, Peter2
 TRà"FI 2119Æé	Ã@@PZ"ART 385|TIME-BASED ART|RAND, PETER
-®
-ART 398(Integrated Arts for Elementary Educators3 …≈*Mask, Ashley2
-TR≤
-™"FI 2289î;@πî@@PZ=ART 398|INTEGRATED ARTS FOR ELEMENTARY EDUCATORS|MASK, ASHLEY
+¶
+ART 398(Integrated Arts for Elementary Educators3 …≈*Holmes, Ali2
+MW¿∏"FI 2289a§+@@PZ<ART 398|INTEGRATED ARTS FOR ELEMENTARY EDUCATORS|HOLMES, ALI
 d
 ART 400Directed Independent Study1-15 Æ¿2
 "FI OFC(@
@@ -392,16 +389,17 @@ Z#ART 400|DIRECTED INDEPENDENT STUDY|
 ART 494Advanced Studio Seminar5 æ’*
 Jaye, Cara2
 MWÑÙ"FI 1259|“'}“'@@PZ*ART 494|ADVANCED STUDIO SEMINAR|JAYE, CARA
-z
-ART 498BFA Studio Seminar5 ÈÃ*Kelly, Ryan2
-TRÑÙ"FI 2309“≠—≠@@PZ&ART 498|BFA STUDIO SEMINAR|KELLY, RYAN
+~
+ART 498BFA Studio Seminar5 ÈÃ*Purdue, Seiko2
+TRÑÙ"FI 2309“≠—≠@@PZ(ART 498|BFA STUDIO SEMINAR|PURDUE, SEIKO
 ”
 A/HI 2117History of Western Art I: Prehistory to the Middle Ages3 ØÕ*Berzal de Dios, Jimena2
 MWî
 å"FI 238@2P2ZWA/HI 211|HISTORY OF WESTERN ART I: PREHISTORY TO THE MIDDLE AGES|BERZAL DE DIOS, JIMENA
 °
 A/HI 2404Visual Culture in Western Europe in the 19th Century3 ¥’2
-TRË‡"MH 138@åPåZ>A/HI 240|VISUAL CULTURE IN WESTERN EUROPE IN THE 19TH CENTURY|
+TR¯
+"MH 138@åPåZ>A/HI 240|VISUAL CULTURE IN WESTERN EUROPE IN THE 19TH CENTURY|
 â
 A/HI 271Visual Culture in East Asia3 ≥’*Sapin, Julia2
 MWî
@@ -427,8 +425,7 @@ i
 "FI OFC(@PZ%A/HI 306|ARTS INTERNSHIP|TURNER, LISA
 m
 A/HI 391Art&Science in 19th Century5 ®”2
-TRî
-™"FI 238@$P$Z%A/HI 391|ART&SCIENCE IN 19TH CENTURY|
+TRË˛"MH 138@$P$Z%A/HI 391|ART&SCIENCE IN 19TH CENTURY|
 ^
 A/HI 400Directed Independent Study1-15 ∏π2(@PZ$A/HI 400|DIRECTED INDEPENDENT STUDY|
 ü
@@ -747,18 +744,18 @@ k
 TRÃƒ	"SL 1402
 Wî
 Ú"CV 163B9Ò∫UØ[	@@PZ.BIOL 349|HUMAN PHYSIOLOGY W/LAB|MCINTOSH, JACI
-û
-BIOL 349Human Physiology w/lab5 ˜◊*McIntosh, Jaci2
+§
+BIOL 349Human Physiology w/lab5 ˜◊*Freedman, Gregory2
 TRÃƒ	"SL 1402
 Fî
-Ú"CV 163B9Ò∫UØ[	@@PZ.BIOL 349|HUMAN PHYSIOLOGY W/LAB|MCINTOSH, JACI
+Ú"CV 163B9ˆ|À˙â@@PZ1BIOL 349|HUMAN PHYSIOLOGY W/LAB|FREEDMAN, GREGORY
 o
 BIOL 400Directed Independent Study1-15 ´π2
 "BI OFC(9      @@PZ$BIOL 400|DIRECTED INDEPENDENT STUDY|
 Ä
 BIOL 410Animal Behavior4 Äÿ*Templeton, Chris2
-TR¯
-é"SL 1409Úá8@@PZ)BIOL 410|ANIMAL BEHAVIOR|TEMPLETON, CHRIS
+TRî
+™"SL 1409Úá8@@PZ)BIOL 410|ANIMAL BEHAVIOR|TEMPLETON, CHRIS
 £
 BIOL 416#Ecosystem Ecology and Global Change4 ˇ◊*Hooper, David2
 MWFñé"IS 2429N$„D2N@@PZ:BIOL 416|ECOSYSTEM ECOLOGY AND GLOBAL CHANGE|HOOPER, DAVID
@@ -774,8 +771,11 @@ o
 MWF∞	‚	"BI 1392
 Fî
 Ú"BI 13996–iù6@@PZ&BIOL 453|MYCOLOGY W/LAB|DECHAINE, ERIC
-`
-BIOL 460Invertebrate Zoology w/lab5 ¸◊9ûSÀË∏F@@PZ$BIOL 460|INVERTEBRATE ZOOLOGY W/LAB|
+à
+BIOL 460Invertebrate Zoology w/lab5 ¸◊2
+TRË‡"BI 3542
+TRÍ®
+"BI 3549ûSÀË∏F@@PZ$BIOL 460|INVERTEBRATE ZOOLOGY W/LAB|
 ≠
 BIOL 464Biology of Marine Mammals4 ˛◊*Acevedo-Gutierrez, Alejandro2
 MWFË‡"SL 2109˙RA´/@@PZ?BIOL 464|BIOLOGY OF MARINE MAMMALS|ACEVEDO-GUTIERREZ, ALEJANDRO
@@ -884,6 +884,10 @@ w
 "BI OFC(@
 P
 Z-BIOL 699|CONTINUOUS ENROLLMENT|PATRICK, DAVID
+ô
+BUS 200#Introduction to Business in Society4 ∆ÿ*Powell, Skylar2
+MW∞	∆
+"CF 025@2P2Z:BUS 200|INTRODUCTION TO BUSINESS IN SOCIETY|POWELL, SKYLAR
 π
 BUS 310/Introduction to Professional & Career Readiness1 º *Widden, Morgan2
 TÑ∂"PH 1049EÓûy?@@<P<ZFBUS 310|INTRODUCTION TO PROFESSIONAL & CAREER READINESS|WIDDEN, MORGAN
@@ -903,7 +907,7 @@ Z-BIOL 699|CONTINUOUS ENROLLMENT|PATRICK, DAVID
 MWFË‡"VU 5529ÓÓÓÓÓÓ@@PZ4C/AM 277|CANADA: A HISTORICAL SURVEY|HESLOP, MADISON
 ñ
 C/AM 368_Decolonization across the Medicine Line: Comparative Indigenous politics in Canada and the U.S.4 ß◊*Baker, Mary2
-TR∞	º
+TR∞	∆
 "CA 1019
 ◊£p=
 @@
@@ -1085,12 +1089,12 @@ y
 ç
 CHEM 251Elementary Organic Chemistry5 Åπ2
 MTWF†“"SL 1302
-M§û"CB 3109ﬁ‘M›‘M@@PZ&CHEM 251|ELEMENTARY ORGANIC CHEMISTRY|
+M§û"CB 3109ﬁ‘M›‘M@@PZ&CHEM 251|ELEMENTARY ORGANIC CHEMISTRY|
 ç
 CHEM 251Elementary Organic Chemistry5 Çπ2
 MTWF†“"SL 1302
 W¯
-Ú"CB 3109ﬁ‘M›‘M@@PZ&CHEM 251|ELEMENTARY ORGANIC CHEMISTRY|
+Ú"CB 3109ﬁ‘M›‘M@@PZ&CHEM 251|ELEMENTARY ORGANIC CHEMISTRY|
 ç
 CHEM 251Elementary Organic Chemistry5 Éπ2
 MTWF†“"SL 1302
@@ -1099,17 +1103,17 @@ y
 CHEM 251Elementary Organic Chemistry5 ∂ø2
 MTWFÑ∂"SL 1302
 WÃ∆
-"CB 3109ﬁ‘M›‘M@@PZ&CHEM 251|ELEMENTARY ORGANIC CHEMISTRY|
+"CB 3109ﬁ‘M›‘M@@PZ&CHEM 251|ELEMENTARY ORGANIC CHEMISTRY|
 ç
 CHEM 251Elementary Organic Chemistry5 ∑ø2
 MTWFÑ∂"SL 1302
 MÃ∆
-"CB 3109ﬁ‘M›‘M@@PZ&CHEM 251|ELEMENTARY ORGANIC CHEMISTRY|
+"CB 3109ﬁ‘M›‘M@@PZ&CHEM 251|ELEMENTARY ORGANIC CHEMISTRY|
 ç
 CHEM 251Elementary Organic Chemistry5 ∏ø2
 MTWFÑ∂"SL 1302
 M¯
-Ú"CB 3109ﬁ‘M›‘M@@PZ&CHEM 251|ELEMENTARY ORGANIC CHEMISTRY|
+Ú"CB 3109ﬁ‘M›‘M@@PZ&CHEM 251|ELEMENTARY ORGANIC CHEMISTRY|
 y
 CHEM 301Independent Research1-3 ‹ø*Cullati, Sierra2
 "CB OFC(@PZ-CHEM 301|INDEPENDENT RESEARCH|CULLATI, SIERRA
@@ -1132,7 +1136,7 @@ d
 MTWFËö"SL 1509Ç ÍÛÅ@@<P<ZCHEM 351|ORGANIC CHEMISTRY|
 d
 CHEM 352Organic Chemistry4 Á¡2
-MTWFÑ∂"HH 3539óª8ænë@@<P<ZCHEM 352|ORGANIC CHEMISTRY|
+MTWFÑ∂"SL 1509óª8ænë@@<P<ZCHEM 352|ORGANIC CHEMISTRY|
 ~
 CHEM 353Organic Chemistry4 ¨º*Larsen, Mike2
 MTWFËö"SL 1309øÁñ8ı{@@<P<Z'CHEM 353|ORGANIC CHEMISTRY|LARSEN, MIKE
@@ -1181,10 +1185,10 @@ u
 Ú"CB 2659æ‚+æ‚+@@PZ,CHEM 436|INSTRUMENTAL ANALYSIS LAB|BAO, YING
 Ñ
 CHEM 461Physical Chemistry4 ´º*Kowalczyk, Tim2
-MTWFËö"IS 2429∂g{∂g{@@PZ*CHEM 461|PHYSICAL CHEMISTRY|KOWALCZYK, TIM
+MTWFÑ∂"IS 3109∂g{∂g{@@PZ*CHEM 461|PHYSICAL CHEMISTRY|KOWALCZYK, TIM
 É
 CHEM 463Physical Chemistry3 Ò…*Berger, Robert2
-MWFÑ∂"IS 3109,ÿÇ-ÿÇ
+MWFËö"IS 2429,ÿÇ-ÿÇ
 @@PZ*CHEM 463|PHYSICAL CHEMISTRY|BERGER, ROBERT
 â
 CHEM 466Biophysical Chemistry I4 Æ¡*McCarty, Jay2
@@ -1194,7 +1198,7 @@ u
 MWFæ∂"SL 1109yí∑!y@@PZ(CHEM 471|BIOCHEMISTRY I|AMACHER, JEANINE
 
 CHEM 471Biochemistry I4 òª*Amacher, Jeanine2
-MWFæ∂"SL 1509yí∑!y@@PZ(CHEM 471|BIOCHEMISTRY I|AMACHER, JEANINE
+MWFæ∂"SL 1109yí∑!y@@PZ(CHEM 471|BIOCHEMISTRY I|AMACHER, JEANINE
 }
 CHEM 471Biochemistry I4 „¡*Cullati, Sierra2
 MWFË‡"HH 3539è¬ı(\è
@@ -1594,32 +1598,13 @@ k
 MWFÃ˛"CF 1252
 F∞	∆
 "CF 1659Ÿ≤eÀñ-@@PZGCSCI 145|COMPUTER PROGRAMMING AND LINEAR DATA STRUCTURES|AHMED, SHAMEEM
-–
-CSCI 145/Computer Programming and Linear Data Structures4 Ë‘*Ahmed, Shameem2
-TË˛"CF 1622
-MWFî
-∆
-"CF 1259Ÿ≤eÀñ-@@PZGCSCI 145|COMPUTER PROGRAMMING AND LINEAR DATA STRUCTURES|AHMED, SHAMEEM
-–
-CSCI 145/Computer Programming and Linear Data Structures4 ì◊*Ahmed, Shameem2
-MWFî
-∆
-"CF 1252
-T¯
-é"CF 1629Ÿ≤eÀñ-@@PZGCSCI 145|COMPUTER PROGRAMMING AND LINEAR DATA STRUCTURES|AHMED, SHAMEEM
-–
-CSCI 145/Computer Programming and Linear Data Structures4 î◊*Ahmed, Shameem2
-RË˛"CF 1622
-MWFî
-∆
-"CF 1259Ÿ≤eÀñ-@@PZGCSCI 145|COMPUTER PROGRAMMING AND LINEAR DATA STRUCTURES|AHMED, SHAMEEM
 |
 	CSCI 197C"Computer Science Development Tools1 ™÷2
 WËö"KB 307@PZ-CSCI 197C|COMPUTER SCIENCE DEVELOPMENT TOOLS|
-î
+ê
 CSCI 202Dynamic Web Pages4 ◊Õ*O'Hara, Dustin2
 W†∂"CF 1672
-MWF∞	‚	"AW 4059Às"ÈO@@PZ)CSCI 202|DYNAMIC WEB PAGES|O'HARA, DUSTIN
+MWF∞	‚	"AW 4059Às"ÈO@Z)CSCI 202|DYNAMIC WEB PAGES|O'HARA, DUSTIN
 å
 CSCI 241Data Structures4 áπ*Nilles, Alli2
 R∞	∆
@@ -1677,16 +1662,16 @@ k
 Hao, Qiang2
 TR∞	º
 "ES 4139*°Èn@@#P#Z@CSCI 305|ANALYSIS OF ALGORITHMS AND DATA STRUCTURES I|HAO, QIANG
-~
+z
 CSCI 321Game Programming4 Ò¬*Deneke, Wesley2
 TR¯
 Ñ"CF 4209C[‡¸Ú
-@@#P#Z(CSCI 321|GAME PROGRAMMING|DENEKE, WESLEY
-Ä
+@Z(CSCI 321|GAME PROGRAMMING|DENEKE, WESLEY
+|
 CSCI 330Database Systems4 ÄΩ*O'Hara, Dustin2
 MTWFî
 ∆
-"SL 1209◊ºë˜Ÿ>	@@#P#Z(CSCI 330|DATABASE SYSTEMS|O'HARA, DUSTIN
+"SL 1209◊ºë˜Ÿ>	@Z(CSCI 330|DATABASE SYSTEMS|O'HARA, DUSTIN
 v
 CSCI 330Database Systems4 È‘*
 Hao, Qiang2
@@ -1694,9 +1679,9 @@ Hao, Qiang2
 x
 CSCI 343Programming Workshop1 á“*Preisig, Nic2
 WËö"MH 235@#P#Z*CSCI 343|PROGRAMMING WORKSHOP|PREISIG, NIC
-å
-CSCI 345Object Oriented Design4 Ø¡*Deneke, Wesley2
-MTWFÑ∂"CF 2259qG‹wƒ@@#P#Z.CSCI 345|OBJECT ORIENTED DESIGN|DENEKE, WESLEY
+n
+CSCI 345Object Oriented Design4 Ø¡2
+MTWFÑ∂"CF 2259t_%¶e!@@#P#Z CSCI 345|OBJECT ORIENTED DESIGN|
 ä
 CSCI 347Computer Organization II4 Ú¬*Akter, Syeda2
 TR¯
@@ -1711,7 +1696,7 @@ x
 ~
 CSCI 367Computer Networks I4 Í‘*
 Mare, Shri2
-MTWF†“"CF 3149∏”±Ä;	@@#P#Z'CSCI 367|COMPUTER NETWORKS I|MARE, SHRI
+MTWF†“"CF 3149∏”±Ä;	@@ P Z'CSCI 367|COMPUTER NETWORKS I|MARE, SHRI
 ∂
 CSCI 405-Analysis of Algorithms and Data Structures II4 ∞¡*Nilles, Alli2
 MTWFÃ˛"KB 3119€«·,yy@@ P ZCCSCI 405|ANALYSIS OF ALGORITHMS AND DATA STRUCTURES II|NILLES, ALLI
@@ -1719,6 +1704,10 @@ Mare, Shri2
 CSCI 405-Analysis of Algorithms and Data Structures II4 Î‘*Harris, Kameron2
 TR¯
 Ñ"CF 1259Ë˙Çæ†@@#P#ZFCSCI 405|ANALYSIS OF ALGORITHMS AND DATA STRUCTURES II|HARRIS, KAMERON
+î
+CSCI 436Technology for Social Good4 Õÿ*Ahmed, Shameem2
+MTWFÃ˛"CF 4209yÀŒIÊ
+@@PZ2CSCI 436|TECHNOLOGY FOR SOCIAL GOOD|AHMED, SHAMEEM
 ~
 CSCI 447Operating Systems4 Û¬*Nelson, Phil2
 MTWFÃ˛"CF 2259ŸS'√°ñ@@#P#Z'CSCI 447|OPERATING SYSTEMS|NELSON, PHIL
@@ -1743,18 +1732,18 @@ o
 q
 CSCI 490Senior Research2 ë“*Sharmin, Moushumi2
 "CF OFC(@PZ*CSCI 490|SENIOR RESEARCH|SHARMIN, MOUSHUMI
-k
+g
 CSCI 490Senior Research2 ¡“*Fretheim, Erik2
-"CF OFC(@PZ'CSCI 490|SENIOR RESEARCH|FRETHEIM, ERIK
+"CF OFC(Z'CSCI 490|SENIOR RESEARCH|FRETHEIM, ERIK
 g
 CSCI 490Senior Research2 ﬂ“*Huang, Fuqun2
 "CF OFC(@PZ%CSCI 490|SENIOR RESEARCH|HUANG, FUQUN
 m
 CSCI 490Senior Research2 ã”*Harris, Kameron2
 "CF OFC(@PZ(CSCI 490|SENIOR RESEARCH|HARRIS, KAMERON
-k
+g
 CSCI 490Senior Research2 ™”*Deneke, Wesley2
-"CF OFC(@PZ'CSCI 490|SENIOR RESEARCH|DENEKE, WESLEY
+"CF OFC(Z'CSCI 490|SENIOR RESEARCH|DENEKE, WESLEY
 k
 CSCI 490Senior Research2 Ô”*Ahmed, Shameem2
 "CF OFC(@PZ'CSCI 490|SENIOR RESEARCH|AHMED, SHAMEEM
@@ -1763,12 +1752,12 @@ k
 MW‹é"CF 2259
 4b{˝
 @@PZ(CSCI 491|SENIOR PROJECT 1|PEDRINI, BLAKE
-~
-CSCI 491Senior Project 12 ñ…*O'Hara, Dustin2
-MW‹é"CF 2279# F_V¬@@PZ(CSCI 491|SENIOR PROJECT 1|O'HARA, DUSTIN
-~
-CSCI 491Senior Project 12 øÃ*O'Hara, Dustin2
-MW¿Ú"CF 2279# F_V¬@@PZ(CSCI 491|SENIOR PROJECT 1|O'HARA, DUSTIN
+`
+CSCI 491Senior Project 12 ñ…2
+MW‹é"CF 2279# F_V¬@@PZCSCI 491|SENIOR PROJECT 1|
+`
+CSCI 491Senior Project 12 øÃ2
+MW¿Ú"CF 2279# F_V¬@@PZCSCI 491|SENIOR PROJECT 1|
 |
 CSCI 492Senior Project 22 â¿*Tan, See-Mong2
 MW‹é"AW 2059ÕÃÃÃÃÏ@@PZ'CSCI 492|SENIOR PROJECT 2|TAN, SEE-MONG
@@ -1813,6 +1802,11 @@ w
 †
 CSCI 510#Automata and Formal Language Theory4 ‘ø*Liu, Yudong2
 MTWF†“"CF 2259B{	Ì%¥@@PZ8CSCI 510|AUTOMATA AND FORMAL LANGUAGE THEORY|LIU, YUDONG
+É
+CSCI 536Technology for Social Good4 Œÿ*Ahmed, Shameem2
+MTWFÃ˛@
+P
+Z2CSCI 536|TECHNOLOGY FOR SOCIAL GOOD|AHMED, SHAMEEM
 z
 CSCI 590Graduate Seminar1 ¬¬*Sharmin, Moushumi2
 T¿Ú"CF 125@PZ+CSCI 590|GRADUATE SEMINAR|SHARMIN, MOUSHUMI
@@ -1838,18 +1832,19 @@ Z?CSCI 597L|ADVANCED NETWORK SYSTEM SECURITY|TSIKERDEKIS, MICHAEL
 MTWFËö"KB 3112
 F¯
 é"KB 3079(TKÄBµ@@ P Z*CISS 247|COMPUTER SYSTEMS I|KOEPP, MICHAEL
-z
-CISS 247Computer Systems I5 À¡*Epps, Linda2
-TRÃ‚	"O-KL95Gﬂ}s@@PZ'CISS 247|COMPUTER SYSTEMS I|EPPS, LINDA
+ó
+CISS 247Computer Systems I5 À¡*Mohammed, Mubarek2
+TFàû"O-KL2
+W–Ê"O-KL95Gﬂ}s@@PZ-CISS 247|COMPUTER SYSTEMS I|MOHAMMED, MUBAREK
 z
 CISS 247Computer Systems I5 ˛ *Epps, Linda2
 TRÃ‚	"O-PL95Gﬂ}s@@PZ'CISS 247|COMPUTER SYSTEMS I|EPPS, LINDA
 í
 CISS 340Database Concepts3 ªƒ*Deschene-Hayklan, Marie2
 TR†ò"CF 0239ƒı(\è¬@@#P#Z2CISS 340|DATABASE CONCEPTS|DESCHENE-HAYKLAN, MARIE
-`
-CISS 340Database Concepts3 π 2
-TRÑ¸"O-KL9¢≤√‘Âˆ@@PZCISS 340|DATABASE CONCEPTS|
+{
+CISS 340Database Concepts3 π *Prasad, Manoj2
+RàÇ"O-KL9¢≤√‘Âˆ@@PZ(CISS 340|DATABASE CONCEPTS|PRASAD, MANOJ
 `
 CISS 340Database Concepts3 “ƒ2
 TRÑ¸"O-PL9¢≤√‘Âˆ@@PZCISS 340|DATABASE CONCEPTS|
@@ -1863,29 +1858,28 @@ z
 §
 CISS 470Policy, Compliance, & Risk4 ¬≈*Deschene-Hayklan, Marie2
 TRËÙ"AH 0189´´´´´´@@#P#Z;CISS 470|POLICY, COMPLIANCE, & RISK|DESCHENE-HAYKLAN, MARIE
-ê
-CISS 470Policy, Compliance, & Risk4 Œ—*Jones, Melissa2
-MWË˛"O-KL9£5Z£5Z
-@@
-P
-Z2CISS 470|POLICY, COMPLIANCE, & RISK|JONES, MELISSA
+í
+CISS 470Policy, Compliance, & Risk4 Œ—*Mahajan, Namita2
+TR–Ê"O-KL9£5Z£5Z
+@@PZ3CISS 470|POLICY, COMPLIANCE, & RISK|MAHAJAN, NAMITA
 ê
 CISS 470Policy, Compliance, & Risk4 —ƒ*Jones, Melissa2
 MWË˛"O-PL9£5Z£5Z
 @@
 P
 Z2CISS 470|POLICY, COMPLIANCE, & RISK|JONES, MELISSA
-
-CISS 478Cryptographic Techniques4 …÷*Pavlichenko, Andrei2(@PZ5CISS 478|CRYPTOGRAPHIC TECHNIQUES|PAVLICHENKO, ANDREI
+è
+CISS 478Cryptographic Techniques4 …÷*Pavlichenko, Andrei2
+TRàû"CF OFC@PZ5CISS 478|CRYPTOGRAPHIC TECHNIQUES|PAVLICHENKO, ANDREI
 ç
 CISS 478Cryptographic Techniques4 –—*Pavlichenko, Andrei2
-TRàû"O-KL@PZ5CISS 478|CRYPTOGRAPHIC TECHNIQUES|PAVLICHENKO, ANDREI
+TRàû"O-KL@PZ5CISS 478|CRYPTOGRAPHIC TECHNIQUES|PAVLICHENKO, ANDREI
 ç
 CISS 478Cryptographic Techniques4 Ã—*Pavlichenko, Andrei2
-TRàû"O-PL@PZ5CISS 478|CRYPTOGRAPHIC TECHNIQUES|PAVLICHENKO, ANDREI
-î
-CISS 491+Cybersecurity Capstone Project I - Initiate2 œ—2
-MW‹é"O-KL9# F_V¬@@PZ5CISS 491|CYBERSECURITY CAPSTONE PROJECT I - INITIATE|
+TRàû"O-PL@PZ5CISS 478|CRYPTOGRAPHIC TECHNIQUES|PAVLICHENKO, ANDREI
+ì
+CISS 491+Cybersecurity Capstone Project I - Initiate2 œ—2
+W–Ê"O-KL9# F_V¬@@PZ5CISS 491|CYBERSECURITY CAPSTONE PROJECT I - INITIATE|
 î
 CISS 491+Cybersecurity Capstone Project I - Initiate2 ÉÕ2
 MW‹é"O-PL9# F_V¬@@PZ5CISS 491|CYBERSECURITY CAPSTONE PROJECT I - INITIATE|
@@ -1896,8 +1890,8 @@ Z2CISS 470|POLICY, COMPLIANCE, & RISK|JONES, MELISSA
 ê
 DISA 330Critical Disability Studies5 æÕ*Flint, Kyann2
 TRË˛"MH 0389t⁄@ßç@@PZ1DISA 330|CRITICAL DISABILITY STUDIES|FLINT, KYANN
-s
-DISA 330Critical Disability Studies5 °Ã2"ONLINE ASNC(9t⁄@ßç@@PZ%DISA 330|CRITICAL DISABILITY STUDIES|
+è
+DISA 330Critical Disability Studies5 °Ã*Wandke, Daman2"ONLINE ASNC(95•‚Ï√g@@PZ2DISA 330|CRITICAL DISABILITY STUDIES|WANDKE, DAMAN
 •
 DISA 350%Topics in Critical Disability Studies3-5 Ì–*Wandke, Daman2"ONLINE ASNC(9äØ¯äØ¯@@PZ<DISA 350|TOPICS IN CRITICAL DISABILITY STUDIES|WANDKE, DAMAN
 }
@@ -1908,8 +1902,8 @@ s
 TRî
 ™"CM B9/‚Ijî±@@PZ9DNC 121|CONTEMPORARY DANCE I - LEAVEL 1|SEBASTIAN, ANGELA
 ~
-DNC 212Ballet II - Level 22 õ◊*Haines, Susan2
-TRÑ¸"CM B9û|GÜ‚@@PZ)DNC 212|BALLET II - LEVEL 2|HAINES, SUSAN
+DNC 211Ballet II - Level 12 »ÿ*Haines, Susan2
+TRÑ¸"CM B9ı(\è¬ı@@PZ)DNC 211|BALLET II - LEVEL 1|HAINES, SUSAN
 ü
 DNC 221Contemporary Dance II - Level 13 ÔŒ*Sebastian, Angela2
 MWF∞	®
@@ -1933,15 +1927,10 @@ _
 DNC 321 Contemporary Dance III - Level 13 ÓŒ*
 Kuntz, Pam2
 MWFÜ˛"CM B9Aû‰)¡@@PZ3DNC 321|CONTEMPORARY DANCE III - LEVEL 1|KUNTZ, PAM
+^
+DNC 332Dance in Popular Culture2 ⁄—2"ONLINE ASNC(Z!DNC 332|DANCE IN POPULAR CULTURE|
 s
-DNC 332Dance in Popular Culture2 ∂◊*Erickson, Mary2(@#P#Z/DNC 332|DANCE IN POPULAR CULTURE|ERICKSON, MARY
-b
-DNC 332Dance in Popular Culture2 ⁄—2"ONLINE ASNC(@#P#Z!DNC 332|DANCE IN POPULAR CULTURE|
-W
-DNC 397JPilates Teaching Methods2 ù◊2(@PZ"DNC 397J|PILATES TEACHING METHODS|
-®
-DNC 398(Integrated Arts for Elementary Educators3 µ◊*Haines, Susan2
-TRÃ‚	"CM A9*ßa†˝ú@@PZ>DNC 398|INTEGRATED ARTS FOR ELEMENTARY EDUCATORS|HAINES, SUSAN
+DNC 397JPilates Teaching Methods2 ù◊*Haines, Susan2(@PZ/DNC 397J|PILATES TEACHING METHODS|HAINES, SUSAN
 ü
 DNC 421Contemporary Dance IV - Level 13 ÌŒ*Hreljanovic, Emma2
 MWF≤
@@ -2007,23 +1996,23 @@ p
 "MH 138@dPdZ,DSGN 186|ENTRY PORTFOLIO PREP|KEARSLEY, PAUL
 ë
 DSGN 210Design Technology5 À—*Shaw, Austin2
-F†∂"ONLINE SYNC2"ONLINE ASNC(9yJêß@@6P6Z'DSGN 210|DESIGN TECHNOLOGY|SHAW, AUSTIN
+F†∂"ONLINE SYNC2"ONLINE ASNC(9yJêß@@:P:Z'DSGN 210|DESIGN TECHNOLOGY|SHAW, AUSTIN
 é
 DSGN 212Graphic Design 15 Ù…*Airth, Paula2
 TR†ö"AA 2542
-TR†ö"FI 1019uPuP@@PZ&DSGN 212|GRAPHIC DESIGN 1|AIRTH, PAULA
+TR†ö"FI 1019uPuP@@PZ&DSGN 212|GRAPHIC DESIGN 1|AIRTH, PAULA
 é
 DSGN 212Graphic Design 15 ı…*Airth, Paula2
 TRÃ∆
 "AA 2542
 TRÃ∆
-"FI 1019uPuP@@PZ&DSGN 212|GRAPHIC DESIGN 1|AIRTH, PAULA
+"FI 1019uPuP@@PZ&DSGN 212|GRAPHIC DESIGN 1|AIRTH, PAULA
 é
 DSGN 212Graphic Design 15 ˆ…*Airth, Paula2
 TR¯
 Ú"AA 2542
 TR¯
-Ú"FI 1019uPuP@@PZ&DSGN 212|GRAPHIC DESIGN 1|AIRTH, PAULA
+Ú"FI 1019uPuP@@PZ&DSGN 212|GRAPHIC DESIGN 1|AIRTH, PAULA
 ú
 DSGN 310 Principles Interaction of Design3 Ê≈*Morrow, Kacey2
 MW§ú"FI 2389øXÚã%ø
@@ -2040,12 +2029,12 @@ p
 Ú"AA 2542
 MW¯
 Ú"FI 1019BŸ˚öî	@@PZ,DSGN 331|TYPE 2|MELIBEU DE ALMEIDA, CRISTINA
-}
-DSGN 348Visual Concepts in Illustration3 Û≈2
-FÑ˛"AA 2559ŸÕo!`î@@PZ)DSGN 348|VISUAL CONCEPTS IN ILLUSTRATION|
-
-DSGN 349$Introduction to Animation Techniques3 ‘Ã2
-R§û"FI 110A@PZ.DSGN 349|INTRODUCTION TO ANIMATION TECHNIQUES|
+õ
+DSGN 348Visual Concepts in Illustration3 Û≈*Heimer, Andrea2
+FÑ˛"AA 2559î>Èì>È@@PZ7DSGN 348|VISUAL CONCEPTS IN ILLUSTRATION|HEIMER, ANDREA
+ù
+DSGN 349$Introduction to Animation Techniques3 ‘Ã*Lockhart, Brad2
+R§û"FI 110A@PZ<DSGN 349|INTRODUCTION TO ANIMATION TECHNIQUES|LOCKHART, BRAD
 k
 DSGN 363Motion 25 îÃ*Shaw, Austin2
 TR†ö"FI 110A9w˙#pß@@PZDSGN 363|MOTION 2|SHAW, AUSTIN
@@ -2104,9 +2093,9 @@ Internship1-10 ˙œ*Shaw, Austin2
 é"MH 2392"ONLINE ASNC(9	M‹Àé–@@PZ@DIAD 205|DISABILITY, DIVERSITY, AND THE MASS MEDIA|WANDKE, DAMAN
 æ
 DIAD 205)Disability, Diversity, and the Mass Media4 ÆÃ*Wandke, Daman2
-W¿÷"MH 2392"ONLINE ASNC(9	M‹Àé–@@PZ@DIAD 205|DISABILITY, DIVERSITY, AND THE MASS MEDIA|WANDKE, DAMAN
-è
-DIAD 205)Disability, Diversity, and the Mass Media4 ÊÃ2"ONLINE ASNC(9!7´n@@PZ3DIAD 205|DISABILITY, DIVERSITY, AND THE MASS MEDIA|
+T¿÷"MH 2392"ONLINE ASNC(9	M‹Àé–@@PZ@DIAD 205|DISABILITY, DIVERSITY, AND THE MASS MEDIA|WANDKE, DAMAN
+´
+DIAD 205)Disability, Diversity, and the Mass Media4 ÊÃ*Wandke, Daman2"ONLINE ASNC(9	M‹Àé–@@PZ@DIAD 205|DISABILITY, DIVERSITY, AND THE MASS MEDIA|WANDKE, DAMAN
 q
 DIAD 442Clinical Practicum1-5 †Ã*Hart, Jeffery2
 "MH OFC(@PZ)DIAD 442|CLINICAL PRACTICUM|HART, JEFFERY
@@ -2126,9 +2115,17 @@ l
 »
 ECE 3805Foundations of Literacy for Early Childhood Education4 ú…*Strachan, Steph2
 TR¢‡"MH 0139Ï‰?}∏º@@PZMECE 380|FOUNDATIONS OF LITERACY FOR EARLY CHILDHOOD EDUCATION|STRACHAN, STEPH
+•
+ECE 3805Foundations of Literacy for Early Childhood Education4 Ä«2
+TÑ‚	"O-BT9Ï‰?}∏º@@PZ>ECE 380|FOUNDATIONS OF LITERACY FOR EARLY CHILDHOOD EDUCATION|
 »
 ECE 390(Infant and Toddler Practicum and Seminar4 ⁄Ω*Fincham-Sadowsky, Emmanuelle2
 TRÑö"MH 1159ffffff@@PZMECE 390|INFANT AND TODDLER PRACTICUM AND SEMINAR|FINCHAM-SADOWSKY, EMMANUELLE
+´
+ECE 390(Infant and Toddler Practicum and Seminar4 ë∆*Brennan, Carrie2
+W†˛"O-BT933333@@PZ@ECE 390|INFANT AND TODDLER PRACTICUM AND SEMINAR|BRENNAN, CARRIE
+t
+ECE 400Study in Intro to ECE1-15 ∏ÿ*Lanoue, Holly2"O-BT(@PZ+ECE 400|STUDY IN INTRO TO ECE|LANOUE, HOLLY
 ê
 ECE 431)Fundamentals of Early Childhood Education4 ù…2
 TR∞	∆
@@ -2137,6 +2134,9 @@ l
 ECE 434Environments for Early Learning4 í¿*Jin, Meilan2
 Tî
 Ú"MH 1549Æ‘J≠‘J@@PZ3ECE 434|ENVIRONMENTS FOR EARLY LEARNING|JIN, MEILAN
+ô
+ECE 434Environments for Early Learning4 Å«*Nolan, Charlene2
+M§Ç"O-BT9˘˘˘˘˘˘@@PZ7ECE 434|ENVIRONMENTS FOR EARLY LEARNING|NOLAN, CHARLENE
 ≠
 EAST 201(Introduction to East Asian Civilizations5 úÃ*Bushelle, Emi2
 MWFî
@@ -2150,10 +2150,10 @@ l
 MWî
 å"MH 1389N6ŸdìM
 @@PZ1EAST 271|VISUAL CULTURE IN EAST ASIA|SAPIN, JULIA
-m
-EAST 290Topics in Mongolian Studies5 áÿ2
+s
+EAST 290Contemporary Mongolian Society5 áÿ2
 TR¯
-é"MH 113@PZ%EAST 290|TOPICS IN MONGOLIAN STUDIES|
+é"MH 113@PZ(EAST 290|CONTEMPORARY MONGOLIAN SOCIETY|
 ®
 EAST 333"East Asia: Society and Environment4 Éÿ*Buckley, Patrick2
 MTWFËö"AH 2199w¨@i«
@@ -2306,14 +2306,14 @@ r
 æ
 EDAD 5122Policy & Personnel Studies in Education Leadership5 ¥«*
 Bruce, Tim2
-T§Ç"ONLINE SYNC9\2ÎhÛ@@PZFEDAD 512|POLICY & PERSONNEL STUDIES IN EDUCATION LEADERSHIP|BRUCE, TIM
+R§Ç"ONLINE SYNC9\2ÎhÛ@@PZFEDAD 512|POLICY & PERSONNEL STUDIES IN EDUCATION LEADERSHIP|BRUCE, TIM
 ∑
 EDAD 5122Policy & Personnel Studies in Education Leadership5 »√*
 Bruce, Tim2
 R§Ç"O-DL9\2ÎhÛ@@PZFEDAD 512|POLICY & PERSONNEL STUDIES IN EDUCATION LEADERSHIP|BRUCE, TIM
 æ
 EDAD 553.Administering Elementary and Secondary Schools4 éª*Larsen, Donald2
-R§Ç"ONLINE SYNC9      @@PZFEDAD 553|ADMINISTERING ELEMENTARY AND SECONDARY SCHOOLS|LARSEN, DONALD
+T§Ç"ONLINE SYNC9      @@PZFEDAD 553|ADMINISTERING ELEMENTARY AND SECONDARY SCHOOLS|LARSEN, DONALD
 ¥
 EDAD 553.Administering Elementary and Secondary Schools4 õ÷*Lainchbury, Lisa2"O-DL(9ˆ∏$◊†@@PZHEDAD 553|ADMINISTERING ELEMENTARY AND SECONDARY SCHOOLS|LAINCHBURY, LISA
 ∑
@@ -2479,65 +2479,77 @@ ZZEECE 495|DIRECTED RESEARCH IN ELECTRICAL AND COMPUTER ENGINEERING|RAMASUBRAMAN
 ó
 EECE 501$Linear Systems Modeling and Analysis4 ì÷*Klein, Andy2
 MW¶‰"KB 213@PZ9EECE 501|LINEAR SYSTEMS MODELING AND ANALYSIS|KLEIN, ANDY
-ó
-EECE 501$Linear Systems Modeling and Analysis4 î÷*Klein, Andy2
-MW¶‰"KB 213@PZ9EECE 501|LINEAR SYSTEMS MODELING AND ANALYSIS|KLEIN, ANDY
+ú
+EECE 501$Linear Systems Modeling and Analysis4 î÷*Klein, Andy2
+MW¶‰"ONLINE SYNC@PZ9EECE 501|LINEAR SYSTEMS MODELING AND ANALYSIS|KLEIN, ANDY
 æ
 ELED 305/Development and Learning in a Diverse Classroom5 — *Miller, Matthew2
 TRÍ∆
-"MH 0139~Ï«~Ï«@@PZHELED 305|DEVELOPMENT AND LEARNING IN A DIVERSE CLASSROOM|MILLER, MATTHEW
+"MH 0359~Ï«~Ï«@@PZHELED 305|DEVELOPMENT AND LEARNING IN A DIVERSE CLASSROOM|MILLER, MATTHEW
 °
 ELED 310Education, Culture, and Equity5 æ¡*French, Kristen2
 MW∞	å"ONLINE SYNC9iÙ´^.P@@PZ7ELED 310|EDUCATION, CULTURE, AND EQUITY|FRENCH, KRISTEN
+ô
+ELED 310Education, Culture, and Equity5 ê∆*Lawrence, Nigel2
+T§¥"O-BT9∑uöÿÁ˛@@PZ7ELED 310|EDUCATION, CULTURE, AND EQUITY|LAWRENCE, NIGEL
 ü
 ELED 311`Understanding WA State Tribal History, Culture, and Government: Since Time Immemorial Curriculum1 ∆Ã*Swan-Waite, Renee2
-W‹Ú"ONLINE SYNC@PZ{ELED 311|UNDERSTANDING WA STATE TRIBAL HISTORY, CULTURE, AND GOVERNMENT: SINCE TIME IMMEMORIAL CURRICULUM|SWAN-WAITE, RENEE
+WË˛"ONLINE SYNC@PZ{ELED 311|UNDERSTANDING WA STATE TRIBAL HISTORY, CULTURE, AND GOVERNMENT: SINCE TIME IMMEMORIAL CURRICULUM|SWAN-WAITE, RENEE
 õ
 ELED 311`Understanding WA State Tribal History, Culture, and Government: Since Time Immemorial Curriculum1 «Ã*French, Kristen2
-W‹Ú"ONLINE SYNC@PZyELED 311|UNDERSTANDING WA STATE TRIBAL HISTORY, CULTURE, AND GOVERNMENT: SINCE TIME IMMEMORIAL CURRICULUM|FRENCH, KRISTEN
+WË˛"ONLINE SYNC@PZyELED 311|UNDERSTANDING WA STATE TRIBAL HISTORY, CULTURE, AND GOVERNMENT: SINCE TIME IMMEMORIAL CURRICULUM|FRENCH, KRISTEN
 õ
 ELED 311`Understanding WA State Tribal History, Culture, and Government: Since Time Immemorial Curriculum1 »Ã*Lawrence, Nigel2
 R§∫"ONLINE SYNC@PZyELED 311|UNDERSTANDING WA STATE TRIBAL HISTORY, CULTURE, AND GOVERNMENT: SINCE TIME IMMEMORIAL CURRICULUM|LAWRENCE, NIGEL
+ë
+ELED 311`Understanding WA State Tribal History, Culture, and Government: Since Time Immemorial Curriculum1 ©Õ*Lawrence, Nigel2§¥"O-BT@PZyELED 311|UNDERSTANDING WA STATE TRIBAL HISTORY, CULTURE, AND GOVERNMENT: SINCE TIME IMMEMORIAL CURRICULUM|LAWRENCE, NIGEL
+î
+ELED 311`Understanding WA State Tribal History, Culture, and Government: Since Time Immemorial Curriculum1 ¸Ã*Lawrence, Nigel2
+R§Ç"O-BT@PZyELED 311|UNDERSTANDING WA STATE TRIBAL HISTORY, CULTURE, AND GOVERNMENT: SINCE TIME IMMEMORIAL CURRICULUM|LAWRENCE, NIGEL
+ë
+ELED 311`Understanding WA State Tribal History, Culture, and Government: Since Time Immemorial Curriculum1 ™Õ*Lawrence, Nigel2§¥"O-EV@PZyELED 311|UNDERSTANDING WA STATE TRIBAL HISTORY, CULTURE, AND GOVERNMENT: SINCE TIME IMMEMORIAL CURRICULUM|LAWRENCE, NIGEL
 õ
-ELED 412 Seminar on Racial Justice Praxis5 ÷À*French, Kristen2
+ELED 412 Seminar on Racial Justice Praxis5 √–*French, Kristen2
 M§¥"ONLINE SYNC@PZ9ELED 412|SEMINAR ON RACIAL JUSTICE PRAXIS|FRENCH, KRISTEN
-õ
-ELED 412 Seminar on Racial Justice Praxis5 √–*Jensen, Kirsten2
-M§¥"ONLINE SYNC@PZ9ELED 412|SEMINAR ON RACIAL JUSTICE PRAXIS|JENSEN, KIRSTEN
 ™
 ELED 424*Language Arts in the Elementary Curriculum4 º¡*
 Chen, Emma2
-MW¯
-é"BH 1109ònÉ¿ @@PZ>ELED 424|LANGUAGE ARTS IN THE ELEMENTARY CURRICULUM|CHEN, EMMA
+MW§∫"MH 1319ònÉ¿ @@PZ>ELED 424|LANGUAGE ARTS IN THE ELEMENTARY CURRICULUM|CHEN, EMMA
 Ø
 ELED 425(Social Studies for the Elementary School5 è∆*Strachan, Steph2
 T∞	†"CF 11098Å8Å@@PZAELED 425|SOCIAL STUDIES FOR THE ELEMENTARY SCHOOL|STRACHAN, STEPH
+ç
+ELED 425(Social Studies for the Elementary School5 Ÿ«2
+R§Ç"O-BT9Ù~ÕCJõ@@PZ2ELED 425|SOCIAL STUDIES FOR THE ELEMENTARY SCHOOL|
 ê
 ELED 426Social Studies Methods4 ˘—*Jensen, Kirsten2
 R§Ç"ONLINE SYNC9ìö`ºï}@@PZ/ELED 426|SOCIAL STUDIES METHODS|JENSEN, KIRSTEN
  
 ELED 4273Elementary Social Studies Through Counternarratives5 ƒ–*Machuca-Kelley, Isabel2
 W§Ç"MH 156@PZSELED 427|ELEMENTARY SOCIAL STUDIES THROUGH COUNTERNARRATIVES|MACHUCA-KELLEY, ISABEL
-û
-ELED 456#Literacy Assessment and Instruction5  Ã*Perrin, Ann2
-MWËƒ	"MH 0359333333@@PZ8ELED 456|LITERACY ASSESSMENT AND INSTRUCTION|PERRIN, ANN
-ö
+ô
+ELED 4554Primary Literacy Instruction in Inclusive Classrooms3 Øÿ2§¥"O-BT@PZ>ELED 455|PRIMARY LITERACY INSTRUCTION IN INCLUSIVE CLASSROOMS|
+ô
+ELED 4554Primary Literacy Instruction in Inclusive Classrooms3 ∫ÿ2§¥"O-EV@PZ>ELED 455|PRIMARY LITERACY INSTRUCTION IN INCLUSIVE CLASSROOMS|
+¢
 ELED 460&Children's Literature in the Classroom5 ¡ *
-Chen, Emma2
-
-MWËƒ	9Á®aÃU@@PZ:ELED 460|CHILDREN'S LITERATURE IN THE CLASSROOM|CHEN, EMMA
+Chen, Emma2
+MWñÚ"MH 1319Á®aÃU@@PZ:ELED 460|CHILDREN'S LITERATURE IN THE CLASSROOM|CHEN, EMMA
 â
 ELED 470Developing Teaching5 Îº*Rodriguez, Monica2
 R˙ú"MH OFC9ôm!eE@@PZ.ELED 470|DEVELOPING TEACHING|RODRIGUEZ, MONICA
+Ö
+ELED 470Developing Teaching5 ⁄«*DeBard, Brittane2
+W§Ç"O-BT9ôm!eE@@PZ-ELED 470|DEVELOPING TEACHING|DEBARD, BRITTANE
 }
 ELED 471Documenting Teaching4 ˝ª*Hanuscin, Debi2
 TRàû"SL 230@PZ,ELED 471|DOCUMENTING TEACHING|HANUSCIN, DEBI
 ¢
 ELED 480!Literacy: Beginning Communicators5 ﬁª*Miller, Matthew2
 TR†¸"MH 1529ßŒØ=‰≤@@PZ:ELED 480|LITERACY: BEGINNING COMMUNICATORS|MILLER, MATTHEW
-†
-ELED 480!Literacy: Beginning Communicators5 ƒ¿*Getzin, Taylor2
-MW‹Ú"MH OFC9„~]R˘@@PZ9ELED 480|LITERACY: BEGINNING COMMUNICATORS|GETZIN, TAYLOR
+∂
+ELED 480!Literacy: Beginning Communicators5 ƒ¿*Knudsen-Zawoysky, Tiffany2
+MW‹Ú"MH OFC9c*zso@@PZDELED 480|LITERACY: BEGINNING COMMUNICATORS|KNUDSEN-ZAWOYSKY, TIFFANY
 ú
 ELED 481Literacy: Fluent Communicators5 Ûø*Dunham, Janelle2
 MW‹∏"MH 135933333≥@@PZ7ELED 481|LITERACY: FLUENT COMMUNICATORS|DUNHAM, JANELLE
@@ -2550,6 +2562,8 @@ Chen, Emma2
 {
 ELED 491September Experience2 ª¡*Rodriguez, Monica2
 "MH OFC(@PZ/ELED 491|SEPTEMBER EXPERIENCE|RODRIGUEZ, MONICA
+o
+ELED 491September Experience2 €«*Evans, Molly2"O-BT(@PZ*ELED 491|SEPTEMBER EXPERIENCE|EVANS, MOLLY
 |
 ELED 494Internship - Elementary2-16 ÚÀ*Coskie, Tracy2
 "MH OFC(@PZ.ELED 494|INTERNSHIP - ELEMENTARY|COSKIE, TRACY
@@ -2634,9 +2648,9 @@ Chen, Emma2
 ú
 ENGR 101Engineering, Design, & Society3 »«*Davishahl, Jill2
 TR‹‘"ET 3219F@HÛ@@$P$Z7ENGR 101|ENGINEERING, DESIGN, & SOCIETY|DAVISHAHL, JILL
-d
+h
 ENGR 115Innovation in Design4 ±÷2
-MWÑ˛"ET 3409≠∏°^$µ@ZENGR 115|INNOVATION IN DESIGN|
+MWÑ˛"ET 3409≠∏°^$µ@@$P$ZENGR 115|INNOVATION IN DESIGN|
  
 ENGR 1305Introduction to Materials and Manufacturing Processes4 Ï…*Leonhardt, Eric2
 MW¯
@@ -2805,7 +2819,7 @@ z
 n
 ENG 202Writing About Literature5 •∫2
 TR∞	∆
-"MH 0179ê≈$<˙Æ@@PZ!ENG 202|WRITING ABOUT LITERATURE|
+"MH 0179ê≈$<˙Æ@@PZ!ENG 202|WRITING ABOUT LITERATURE|
 ä
 ENG 202Writing About Literature5 èª*Ellis, Dennin2
 TRË˛"HU 1069ê≈$<˙Æ@@PZ.ENG 202|WRITING ABOUT LITERATURE|ELLIS, DENNIN
@@ -2836,7 +2850,8 @@ c
 TR†∂"HU 1079ö&ÃY6@@PZ+ENG 238|SOCIETY/LIT: (FYE)|COLEN, ELIZABETH
 í
 ENG 239Latina/o Literatures5 ≠’*Roach Orduna, Caitlin2
-TRË˛"HH 3539äA`Â–"@@KPKZ2ENG 239|LATINA/O LITERATURES|ROACH ORDUNA, CAITLIN
+TR¯
+é"VU 5529äA`Â–"@@KPKZ2ENG 239|LATINA/O LITERATURES|ROACH ORDUNA, CAITLIN
 ë
 ENG 282GlobalLits: Africa&Middle East5 ‡≈*
 Dorr, Noam2
@@ -2862,15 +2877,15 @@ V
 |
 ENG 302Technical Writing5 Íª*Brown, Nicole2
 TRË˛"HU 1049/f´ƒ≈l@@PZ'ENG 302|TECHNICAL WRITING|BROWN, NICOLE
-z
-ENG 302Technical Writing5 ˙Ã*Lewis, Justin2
-TR‹Ú"O-KL9…KvÄ·‹@@PZ'ENG 302|TECHNICAL WRITING|LEWIS, JUSTIN
+y
+ENG 302Technical Writing5 ˙Ã*Lewis, Justin2
+MàÊ"O-KL9…KvÄ·‹@@PZ'ENG 302|TECHNICAL WRITING|LEWIS, JUSTIN
 z
 ENG 302Technical Writing5 ÿÃ*Lewis, Justin2
 TR‹Ú"O-PL9…KvÄ·‹@@PZ'ENG 302|TECHNICAL WRITING|LEWIS, JUSTIN
-ë
-ENG 307)Seminar in Literature & Culture: Medieval5 ‚¿2
-MWFÍ‚	"HU 1039BjLo%	@@PZ2ENG 307|SEMINAR IN LITERATURE & CULTURE: MEDIEVAL|
+´
+ENG 307)Seminar in Literature & Culture: Medieval5 ‚¿*Raduege, Amy2
+MWFÍ‚	"HU 1039C!Ñ¬	@@PZ>ENG 307|SEMINAR IN LITERATURE & CULTURE: MEDIEVAL|RADUEGE, AMY
 ø
 ENG 308-Seminar in Literature & Culture: Early Modern5 Æ’*Forsythe, Jennifer2
 MWFæ∂"HU 1109ö£n¨9Í
@@ -2891,10 +2906,10 @@ z
 À
 ENG 3148Critical Theories and Practices: 19th Century to Present5 ¯∆*Youmans, Greg2
 MWFÍ‚	"AW 4089U”0É|≠@@PZNENG 314|CRITICAL THEORIES AND PRACTICES: 19TH CENTURY TO PRESENT|YOUMANS, GREG
-é
-ENG 320Survey: The Long 19th C.5 Î≈*Giffen, Allison2
+n
+ENG 320Survey: The Long 19th C.5 Î≈2
 TR¯
-é"HU 1079`Ò_Ò@@PZ0ENG 320|SURVEY: THE LONG 19TH C.|GIFFEN, ALLISON
+é"HU 1079üL⁄Âé±@@PZ!ENG 320|SURVEY: THE LONG 19TH C.|
 ›
 ENG 334@Literary and Creative Expression Across North America and Europe5 Â¬*McGuire, Simon2
 MWFÍ‚	"HH 3459ü‰)Aû@@<P<ZWENG 334|LITERARY AND CREATIVE EXPRESSION ACROSS NORTH AMERICA AND EUROPE|MCGUIRE, SIMON
@@ -2951,16 +2966,17 @@ HH@@#P#Z2ENG 364|INTRODUCTION TO FILM STUDIES|ROGERS, JAMIE
 Ä
 ENG 371Rhetorical Theory5 ßÃ*Cushman, Jeremy2
 TRË˛"OM 5809⁄±a§@@#P#Z)ENG 371|RHETORICAL THEORY|CUSHMAN, JEREMY
-Ö
+ò
 ENG 403Film and Media Theory5 Ø’*Youmans, Greg2
-MWFË‡"HU 1079R∏ÖÎQ@@PZ+ENG 403|FILM AND MEDIA THEORY|YOUMANS, GREG
+MWFË‡"HU 1072
+M¿∫"BH 1099R∏ÖÎQ@@PZ+ENG 403|FILM AND MEDIA THEORY|YOUMANS, GREG
 P
 ENG 410	Lit Hist:5 æ 2
 TR¿÷"HU 1039ß¥]g-â@@PZENG 410|LIT HIST:|
-g
-ENG 418Sr Sem:5 ßª*Raduege, Amy2
+M
+ENG 418Sr Sem:5 ßª2
 MWFî
-å"HU 3049ëˆ í@@PZENG 418|SR SEM:|RADUEGE, AMY
+å"HU 3049ëˆ í@@PZENG 418|SR SEM:|
 l
 ENG 418Sr Sem:5 ®ª*Laffrado, Laura2
 TRË˛"HU 3049‰¬>.Ï„@@PZENG 418|SR SEM:|LAFFRADO, LAURA
@@ -3028,7 +3044,7 @@ Prof Wrtg:5 Ñ—*Guadr√≥n, Melissa2
 ENG 464Topics in Film:5 ‘ª*Odabasi, Eren2
 MWFî
 å"BH 1142
-M¿∫"BH 1099P	Úî è@@PZ%ENG 464|TOPICS IN FILM:|ODABASI, EREN
+W§û"BH 1099P	Úî è@@PZ%ENG 464|TOPICS IN FILM:|ODABASI, EREN
 â
 ENG 466Screenwriting5 ∂Ã*Cosey, Felicia2
 TR¯
@@ -3062,34 +3078,45 @@ Y
 j
 ENG 690Thesis Writing2-10 ππ*Heim, Stefania2
 "HU OFC(@PZ%ENG 690|THESIS WRITING|HEIM, STEFANIA
+∂
+ENTR 246+Entrepreneurship and Innovation Foundations4 «ÿ*Merriam-Smith, Lara2
+
+MW¯
+é9rã6‰£·	@@PZHENTR 246|ENTREPRENEURSHIP AND INNOVATION FOUNDATIONS|MERRIAM-SMITH, LARA
 ¨
 ENTR 246+Entrepreneurship and Innovation Foundations4 ∫¡*
 Weber, Meg2
 MW∞	∆
-"BH 1089MÜ\c*
+"OM 5859MÜ\c*
 @@PZ?ENTR 246|ENTREPRENEURSHIP AND INNOVATION FOUNDATIONS|WEBER, MEG
 æ
 ENTR 246+Entrepreneurship and Innovation Foundations4 £◊*Merriam-Smith, Lara2
 MW∞	∆
-"OM 5859rã6‰£·	@@PZHENTR 246|ENTREPRENEURSHIP AND INNOVATION FOUNDATIONS|MERRIAM-SMITH, LARA
-÷
-ENTR 3467Intermediate Entrepreneurship and Innovation Experience4 ™—*Merriam-Smith, Lara2
+"BH 1089rã6‰£·	@@PZHENTR 246|ENTREPRENEURSHIP AND INNOVATION FOUNDATIONS|MERRIAM-SMITH, LARA
+ƒ
+ENTR 3467Intermediate Entrepreneurship and Innovation Experience4 ™—*
+Weber, Meg2
 MW¯
-é"OM 5859≥Y/Õ#õ	@@PZTENTR 346|INTERMEDIATE ENTREPRENEURSHIP AND INNOVATION EXPERIENCE|MERRIAM-SMITH, LARA
+é"OM 5859CÅFlØ_
+@@
+P
+ZKENTR 346|INTERMEDIATE ENTREPRENEURSHIP AND INNOVATION EXPERIENCE|WEBER, MEG
 ≠
 ENTR 398)Entrepreneurship and Innovation Practicum1-12 ∆ƒ*Sherwood, Arthur2
 FË∆
-"AW 410@PZCENTR 398|ENTREPRENEURSHIP AND INNOVATION PRACTICUM|SHERWOOD, ARTHUR
+"PH 108@PZCENTR 398|ENTREPRENEURSHIP AND INNOVATION PRACTICUM|SHERWOOD, ARTHUR
 º
 ENTR 4463Advanced Entrepreneurship and Innovation Experience4 ´—*
 Weber, Meg2
 MW¯
-é"BH 1089/°ΩÑˆ@@PZGENTR 446|ADVANCED ENTREPRENEURSHIP AND INNOVATION EXPERIENCE|WEBER, MEG
+é"OM 5859/°ΩÑˆ@@
+P
+ZGENTR 446|ADVANCED ENTREPRENEURSHIP AND INNOVATION EXPERIENCE|WEBER, MEG
 ƒ
 ESCI 101,Environmental Studies: A Scientific Approach3 õº*MacIntyre Witt, Jill2
 TRË‡"AH 1009WZ!è»Ï@@êPêZJESCI 101|ENVIRONMENTAL STUDIES: A SCIENTIFIC APPROACH|MACINTYRE WITT, JILL
-ï
-ESCI 101,Environmental Studies: A Scientific Approach3 û«2"ONLINE ASNC(9}A_–@@#P#Z6ESCI 101|ENVIRONMENTAL STUDIES: A SCIENTIFIC APPROACH|
+≥
+ESCI 101,Environmental Studies: A Scientific Approach3 û«*Poppe, Katrina2"ONLINE ASNC(9‡¡<QˇF	@@#P#ZDESCI 101|ENVIRONMENTAL STUDIES: A SCIENTIFIC APPROACH|POPPE, KATRINA
 á
 	ESCI 197CIntroduction to Field Research3 √÷*McLaughlin, John2(@PZ9ESCI 197C|INTRODUCTION TO FIELD RESEARCH|MCLAUGHLIN, JOHN
 z
@@ -3161,12 +3188,12 @@ Bunn, Andy2
 ESCI 439$Conservation of Biological Diversity4 ∫÷*McLaughlin, John2
 TR∞	∆
 "IS 2429˘ÌRO∆o@@PZ>ESCI 439|CONSERVATION OF BIOLOGICAL DIVERSITY|MCLAUGHLIN, JOHN
-è
-ESCI 440Wetlands Ecology5 ∂…*Rybczyk, John2
+ë
+ESCI 440Wetlands Ecology5 ∂…*Poppe, Katrina2
 TR∞	®
 "BH 1112
 R≤
-Ú"ES 3319æ‚+æ‚+@@PZ'ESCI 440|WETLANDS ECOLOGY|RYBCZYK, JOHN
+Ú"ES 3319æ‚+æ‚+@@PZ(ESCI 440|WETLANDS ECOLOGY|POPPE, KATRINA
 ì
 ESCI 445Marine Geochemistry4 ª÷*Love, Brooke2
 F∞	∆
@@ -3482,12 +3509,6 @@ Bunn, Andy2
 ESCI 536'Invasive Species Ecology and Management3 ø÷*Strecker, Angela2
 TR¯
 Î"AH 014@PZAESCI 536|INVASIVE SPECIES ECOLOGY AND MANAGEMENT|STRECKER, ANGELA
-Ü
-ESCI 540Wetlands Ecology5 “Õ*Rybczyk, John2
-TR∞	®
-"BH 1112
-R≤
-Ú"ES 331@PZ'ESCI 540|WETLANDS ECOLOGY|RYBCZYK, JOHN
 }
 ESCI 555#Advanced Environmental Toxicology I4 †º2
 TRË˛"ES 070@PZ-ESCI 555|ADVANCED ENVIRONMENTAL TOXICOLOGY I|
@@ -3730,9 +3751,13 @@ Shaw, Jeff2
 MW¯
 "CF 025@PZ&ENVS 414|EDITING THE PLANET|SHAW, JEFF
 ≥
+ENVS 418(GIS II: Cartography and Geovisualization5 æÿ*Furness, Natalie2
+MWF∞	®
+"AH 0169/›$Å@@PZBENVS 418|GIS II: CARTOGRAPHY AND GEOVISUALIZATION|FURNESS, NATALIE
+≥
 ENVS 418(GIS II: Cartography and Geovisualization5 Èœ*Furness, Natalie2
 MWF∞	®
-"AH 0169/›$Å@@PZBENVS 418|GIS II: CARTOGRAPHY AND GEOVISUALIZATION|FURNESS, NATALIE
+"AH 0169/›$Å@@PZBENVS 418|GIS II: CARTOGRAPHY AND GEOVISUALIZATION|FURNESS, NATALIE
 ì
 ENVS 418GIS II: Cartography and Geovis5 ûÕ*Waldo, Tyson2
 R§û"O-PL9F]t—E@@PZ4ENVS 418|GIS II: CARTOGRAPHY AND GEOVIS|WALDO, TYSON
@@ -3745,8 +3770,11 @@ Z4ENVS 418|GIS II: CARTOGRAPHY AND GEOVIS|WALDO, TYSON
 ENVS 418GIS II: Cartography and Geovis5 óÕ*Waldo, Tyson2
 R§û"O-EV9F]t—E@@PZ4ENVS 418|GIS II: CARTOGRAPHY AND GEOVIS|WALDO, TYSON
 õ
+ENVS 420GIS III: Analysis and Modeling5 øÿ*Flower, Aquila2
+MWFË‡"AH 0169=œÛ<œÛ	@@PZ6ENVS 420|GIS III: ANALYSIS AND MODELING|FLOWER, AQUILA
+õ
 ENVS 420GIS III: Analysis and Modeling5 Îœ*Flower, Aquila2
-MWFË‡"AH 0169=œÛ<œÛ	@@PZ6ENVS 420|GIS III: ANALYSIS AND MODELING|FLOWER, AQUILA
+MWFË‡"AH 0169=œÛ<œÛ	@@PZ6ENVS 420|GIS III: ANALYSIS AND MODELING|FLOWER, AQUILA
 ê
 ENVS 450Science in the Policy Process4 »æ*
 Neff, Mark2
@@ -3892,7 +3920,7 @@ Elia, Nada2
 @@åPåZ'EUS 210|NOMADS OF EURASIA|VAJDA, EDWARD
 ’
 	FAIR 101A?An Introduction to Interdisciplinary Study At Fairhaven College1 ﬂ¡*Di Nitto, Kate2
-F¢ö"FA 300A@ZPZZXFAIR 101A|AN INTRODUCTION TO INTERDISCIPLINARY STUDY AT FAIRHAVEN COLLEGE|DI NITTO, KATE
+FË‡"FA 300A@ZPZZXFAIR 101A|AN INTRODUCTION TO INTERDISCIPLINARY STUDY AT FAIRHAVEN COLLEGE|DI NITTO, KATE
 õ
 	FAIR 201ACritical and Reflective Inquiry5 ˙’*Friedland, Yanara2
 TRŒ	™"FA 314@PZ;FAIR 201A|CRITICAL AND REFLECTIVE INQUIRY|FRIEDLAND, YANARA
@@ -3910,13 +3938,13 @@ Elia, Nada2
 TR¢˛"FA 314@PZ8FAIR 201A|CRITICAL AND REFLECTIVE INQUIRY|TAKAGI, MIDORI
 ï
 	FAIR 201ACritical and Reflective Inquiry5 ç÷*Sehman, Steven2
-TR‹∏"FA 349@PZ8FAIR 201A|CRITICAL AND REFLECTIVE INQUIRY|SEHMAN, STEVEN
+TRŒ	™"FA 349@PZ8FAIR 201A|CRITICAL AND REFLECTIVE INQUIRY|SEHMAN, STEVEN
 ±
 	FAIR 202A*Core: Humanities and the Expressive Arts I5 Å÷*Snyderman, Robert2
 MW∞	å"FA 310@PZFFAIR 202A|CORE: HUMANITIES AND THE EXPRESSIVE ARTS I|SNYDERMAN, ROBERT
-–
-	FAIR 203A?Social Relationships and Responsibility: Theories and Critiques5 ¸’*Lopez, Ceci2
-TRÑ‡"FA 300B@PZUFAIR 203A|SOCIAL RELATIONSHIPS AND RESPONSIBILITY: THEORIES AND CRITIQUES|LOPEZ, CECI
+’
+	FAIR 203A?Social Relationships and Responsibility: Theories and Critiques5 ¸’*Gemmell, Kyles2
+MW∞	å"FA 314@PZXFAIR 203A|SOCIAL RELATIONSHIPS AND RESPONSIBILITY: THEORIES AND CRITIQUES|GEMMELL, KYLES
 ◊
 	FAIR 203A?Social Relationships and Responsibility: Theories and Critiques5 ˇ’*Pierce, Clayton2
 TR∞	å"FA 340@PZYFAIR 203A|SOCIAL RELATIONSHIPS AND RESPONSIBILITY: THEORIES AND CRITIQUES|PIERCE, CLAYTON
@@ -3945,9 +3973,9 @@ Elia, Nada2
 ì
 	FAIR 270HIntroduction to Audio Recording4 ﬂ◊*Anisman, Ezra2
 MWË˛"FA 340@PZ7FAIR 270H|INTRODUCTION TO AUDIO RECORDING|ANISMAN, EZRA
-ó
-	FAIR 301AWriting & Transition Conference3 í…*O Murchu, Niall2
-FÃƒ	"FA 300A@<P<Z9FAIR 301A|WRITING & TRANSITION CONFERENCE|O MURCHU, NIALL
+ñ
+	FAIR 301AWriting & Transition Conference3 í…*O Murchu, Niall2
+FË˛"FA 349@<P<Z9FAIR 301A|WRITING & TRANSITION CONFERENCE|O MURCHU, NIALL
 Æ
 	FAIR 303A.Core:  Interdisciplinary Concentration Seminar5 ˆ’*Baker, Mary2
 TR‹∏"FA 300A@$P$ZDFAIR 303A|CORE:  INTERDISCIPLINARY CONCENTRATION SEMINAR|BAKER, MARY
@@ -3958,40 +3986,42 @@ Elia, Nada2
 ó
 	FAIR 311BThe United States Legal System5 è÷*Johnson, Claudia2
 TR‹∏"FA 314@PZ9FAIR 311B|THE UNITED STATES LEGAL SYSTEM|JOHNSON, CLAUDIA
-[
-	FAIR 314ECritical Pedagogy4 Â◊2
-MW‹Ú"FA 314@PZFAIR 314E|CRITICAL PEDAGOGY|
+
+	FAIR 314ECritical Pedagogy4 Â◊*Calderon, Dolores2
+MW‹Ú"FA 314@PZ-FAIR 314E|CRITICAL PEDAGOGY|CALDERON, DOLORES
+y
+	FAIR 319EMusic Journalism2-5 ∑ÿ*Simon, Richard2
+TR‹∏"FA 318@PZ)FAIR 319E|MUSIC JOURNALISM|SIMON, RICHARD
 ì
 	FAIR 322K-Intro to Legal Analysis, Research and Writing5 ë÷2
 MW¢˛"FA 314@PZ8FAIR 322K|INTRO TO LEGAL ANALYSIS, RESEARCH AND WRITING|
-y
-	FAIR 323GPoetry & Lyric Essay4 ¶ÿ*Lara, Jenny2
-MW¢˛"FA 338@PZ*FAIR 323G|POETRY & LYRIC ESSAY|LARA, JENNY
 w
 	FAIR 330MMycology5 â◊*Lloyd, T. Abe2
-Fæ˛"FA 3492
+Fæ˛"FA 3402
 WÑ¸"FA 318@PZ FAIR 330M|MYCOLOGY|LLOYD, T. ABE
 w
 	FAIR 330MMycology5 ä◊*Lloyd, T. Abe2
 WŒ	∆
 "FA 3072
-FŒ	é"FA 349@PZ FAIR 330M|MYCOLOGY|LLOYD, T. ABE
+FŒ	é"FA 340@PZ FAIR 330M|MYCOLOGY|LLOYD, T. ABE
 ó
 	FAIR 334CInternational Human Rights5 ı’*Akinrinade, Babafemi2
 MW‹∏"FA 349@PZ9FAIR 334C|INTERNATIONAL HUMAN RIGHTS|AKINRINADE, BABAFEMI
 Ö
 	FAIR 336BRadical Ecopsychology4-5 å÷*Pierce, Clayton2
 TR‹∏"FA 340@PZ/FAIR 336B|RADICAL ECOPSYCHOLOGY|PIERCE, CLAYTON
+ñ
+	FAIR 336HWalking in Ethnocidal Places2-6 µÿ*Snyderman, Robert2
+F∞	‘"FA 310@PZ8FAIR 336H|WALKING IN ETHNOCIDAL PLACES|SNYDERMAN, ROBERT
+o
+	FAIR 336NBig History4-5 √ÿ*Simon, Richard2
+TR∞	å"FA 310@PZ$FAIR 336N|BIG HISTORY|SIMON, RICHARD
 
 	FAIR 336VSocially Engaged Art4-5 ˘÷*Thomas, Erica2
 TR¢˛"FA 310@PZ,FAIR 336V|SOCIALLY ENGAGED ART|THOMAS, ERICA
 }
 	FAIR 336VDrawing as Thinking4-5 ˙÷*Thomas, Erica2
 TR‹∏"FA 310@PZ+FAIR 336V|DRAWING AS THINKING|THOMAS, ERICA
-ñ
-	FAIR 336VWalking in Ethnocidal Places4-5 ßÿ*Snyderman, Robert2
-FÑ®
-"FA 310@PZ8FAIR 336V|WALKING IN ETHNOCIDAL PLACES|SNYDERMAN, ROBERT
 É
 	FAIR 343URewilding Attachment3-5 ç◊*Radovich, Jessi2
 MW¢˛"FA 349@PZ.FAIR 343U|REWILDING ATTACHMENT|RADOVICH, JESSI
@@ -4026,16 +4056,12 @@ q
 è
 	FAIR 381G20th & 21st Century Poetry3-5 Ç÷*Russell, Caskey2
 TR¢˛"FA 307@PZ4FAIR 381G|20TH & 21ST CENTURY POETRY|RUSSELL, CASKEY
-{
-	FAIR 381GPolitical Writing3-5 ë◊*Simon, Richard2
-TR‹∏"FA 318@PZ*FAIR 381G|POLITICAL WRITING|SIMON, RICHARD
-É
-	FAIR 382CWriting in Cosmic Time5 ê◊*Simon, Richard2
-TR∞	å"FA 310@PZ/FAIR 382C|WRITING IN COSMIC TIME|SIMON, RICHARD
-ã
-	FAIR 403ACore:  Advanced Seminar4 ˘’*Calderon, Dolores2
-MW∞	∆
-"FA 314@PZ3FAIR 403A|CORE:  ADVANCED SEMINAR|CALDERON, DOLORES
+Å
+	FAIR 386E Poetry and Lyric Essay4-5 ∂ÿ*Lara, Jenny2
+MWŒ	™"FA 338@PZ-FAIR 386E| POETRY AND LYRIC ESSAY|LARA, JENNY
+Ä
+	FAIR 403ACore:  Advanced Seminar4 ˘’*Lopez, Ceci2
+TR¢‡"FA 300B@PZ-FAIR 403A|CORE:  ADVANCED SEMINAR|LOPEZ, CECI
 É
 	FAIR 412ELGTBQ+ Civil Rights2-5 ê÷*Johnson, Claudia2
 TR∞	å"FA 307@PZ.FAIR 412E|LGTBQ+ CIVIL RIGHTS|JOHNSON, CLAUDIA
@@ -4048,10 +4074,9 @@ n
 MË˛"FA 307@PZ$FAIR 433P|FOREST BATHING|BOWER, JOHN
 k
 	FAIR 440NEthnoecology4 ®ÿ*Tuxill, John2
-TRî
-™"FA 349@PZ#FAIR 440N|ETHNOECOLOGY|TUXILL, JOHN
-[
-FIN 215Personal Finance4 ≥ø2"ONLINE ASNC(9Õ^5Ü?@@PZFIN 215|PERSONAL FINANCE|
+TR‹Ú"FA 349@PZ#FAIR 440N|ETHNOECOLOGY|TUXILL, JOHN
+u
+FIN 215Personal Finance4 ≥ø*McClain, Lee2"ONLINE ASNC(9O±HXÜ@@PZ%FIN 215|PERSONAL FINANCE|MCCLAIN, LEE
 ~
 FIN 215Personal Finance4 Áº*Mann, Ann Renee2
 TR¯
@@ -4064,8 +4089,8 @@ k
 FIN 216Personal Investing4 ≥—*Benson, Earl2
 TR¯
 é"PH 2289	 ﬁ◊Ñ†¸?@7P7Z'FIN 216|PERSONAL INVESTING|BENSON, EARL
-e
-FIN 341Principles of Finance4 ¥ø2"ONLINE ASNC(9¶m|êbÌ@@PZFIN 341|PRINCIPLES OF FINANCE|
+
+FIN 341Principles of Finance4 ¥ø*Kong, Sophie2"ONLINE ASNC(9R˙côP@@PZ*FIN 341|PRINCIPLES OF FINANCE|KONG, SOPHIE
 Ç
 FIN 341Principles of Finance4 ¨ª*Kong, Sophie2
 TRË˛"PH 2449R˙côP@@-P-Z*FIN 341|PRINCIPLES OF FINANCE|KONG, SOPHIE
@@ -4079,10 +4104,9 @@ w
 t
 FIN 440Investments4 È∫*LaBorde, Pamela2
 TRË˛"ES 4139n¥Fk¥∆	@@#P#Z#FIN 440|INVESTMENTS|LABORDE, PAMELA
-ì
+Ä
 FIN 441!Intermediate Financial Management4 Í∫2
-MWË˛"AH 0052
-FË˛"PH 2289’˜∏˚ÊF@@PZ*FIN 441|INTERMEDIATE FINANCIAL MANAGEMENT|
+MWË˛"HH 1019’˜∏˚ÊF@@PZ*FIN 441|INTERMEDIATE FINANCIAL MANAGEMENT|
 ñ
 FIN 442Multinational Corporate Finance4 î√*Wehrly, Eric2
 TR¿÷"PH 2449öôôôô@@#P#Z4FIN 442|MULTINATIONAL CORPORATE FINANCE|WEHRLY, ERIC
@@ -4100,9 +4124,9 @@ x
 TR∞	∆
 "AH 0019∑m€∂m€
 @@PZ+FIN 450|FINANCIAL ANALYTICS|LABORDE, PAMELA
-n
-FIN 455Equity Analysis4 ˚÷*Benson, Earl2
-MWF¿÷"PH 244@PZ$FIN 455|EQUITY ANALYSIS|BENSON, EARL
+m
+FIN 455Equity Analysis4 ˚÷*Benson, Earl2
+MW¿÷"PH 244@PZ$FIN 455|EQUITY ANALYSIS|BENSON, EARL
 s
 FIN 460Finance Apprenticeship4 çª*Benson, Earl2
 "PH OFC(@
@@ -4256,24 +4280,18 @@ v
 WF¯
 é"ES 1189˘≠bÃÄ@@PZ1GEOL 211A|PHYSICAL GEOLOGY REVIEW|HOUSEN, BERNARD
 ñ
-GEOL 212Historical Geology4 åº*Ponton, Camilo2
-TË˛"ES 2272
-MWFî
-∆
-"CF 1159ÇŸ‚E˘ô@@PZ*GEOL 212|HISTORICAL GEOLOGY|PONTON, CAMILO
+GEOL 212Historical Geology4 åº*Ponton, Camilo2
+MWFÑ∂"ES 4132
+TË˛"ES 2279ÇŸ‚E˘ô@@PZ*GEOL 212|HISTORICAL GEOLOGY|PONTON, CAMILO
 ñ
 GEOL 212Historical Geology4 çº*Ponton, Camilo2
-MWFî
-∆
-"CF 1152
+MWFÑ∂"ES 4132
 T¯
 é"ES 2279ÇŸ‚E˘ô@@PZ*GEOL 212|HISTORICAL GEOLOGY|PONTON, CAMILO
 ñ
-GEOL 212Historical Geology4 éº*Ponton, Camilo2
-RË˛"ES 2272
-MWFî
-∆
-"CF 1159ÇŸ‚E˘ô@@PZ*GEOL 212|HISTORICAL GEOLOGY|PONTON, CAMILO
+GEOL 212Historical Geology4 éº*Ponton, Camilo2
+MWFÑ∂"ES 4132
+RË˛"ES 2279ÇŸ‚E˘ô@@PZ*GEOL 212|HISTORICAL GEOLOGY|PONTON, CAMILO
 \
 GEOL 213GIS in Geology3 Ôº2
 TR†ò"ES 2309∆mM¡©	@@PZGEOL 213|GIS IN GEOLOGY|
@@ -4318,7 +4336,7 @@ Mineralogy4 ´æ*Mulcahy, Sean2
 |
 	GEOL 397HThe Planet Mars3 ø’*Rice, Melissa2
 TR¯
-"ES 2239&»SÇ<%@@PZ'GEOL 397H|THE PLANET MARS|RICE, MELISSA
+"ES 2239&»SÇ<%@@PZ'GEOL 397H|THE PLANET MARS|RICE, MELISSA
 f
 GEOL 400Directed Independent Study1-15 ∞π2
 "ES OFC(@PZ$GEOL 400|DIRECTED INDEPENDENT STUDY|
@@ -4353,7 +4371,9 @@ u
 é"ES 21392º8√@@PZ$GEOL 440|GLACIAL GEOLOGY|CLARK, DOUG
 ∑
 GEOL 454'Magnetic Fabrics and Geologic Processes4 ˇ‘*Garcia Lasanta, Cristina2
-TRÑö"ES 223@PZIGEOL 454|MAGNETIC FABRICS AND GEOLOGIC PROCESSES|GARCIA LASANTA, CRISTINA
+TRÑö"ES 223@
+P
+ZIGEOL 454|MAGNETIC FABRICS AND GEOLOGIC PROCESSES|GARCIA LASANTA, CRISTINA
 C
 GEOL 490Senior Thesis1-5 ÜŒ2(@PZGEOL 490|SENIOR THESIS|
 f
@@ -4387,7 +4407,9 @@ u
 é"ES 213@PZ$GEOL 540|GLACIAL GEOLOGY|CLARK, DOUG
 ª
 GEOL 554)Magnetic Fabrics and Geological Processes4 Ä’*Garcia Lasanta, Cristina2
-TRÑö"ES 223@PZKGEOL 554|MAGNETIC FABRICS AND GEOLOGICAL PROCESSES|GARCIA LASANTA, CRISTINA
+TRÑö"ES 223@
+P
+ZKGEOL 554|MAGNETIC FABRICS AND GEOLOGICAL PROCESSES|GARCIA LASANTA, CRISTINA
 ∂
 GEOL 595!Introduction to Graduate Research3 íπ*Amos, Colin2
 F∞	‚	"ES 0722
@@ -4453,13 +4475,15 @@ V
 d
 GEOL 690Thesis2-15 ñ»*Walowski, Kristina2
 "ES OFC(@PZ"GEOL 690|THESIS|WALOWSKI, KRISTINA
-«
-GERM 1014Elementary German: Language, Communication & Culture5 ˇÕ*Alfers, Sandra2
-MWFË‡"CV 2659C±‹µÛ(	@@PZLGERM 101|ELEMENTARY GERMAN: LANGUAGE, COMMUNICATION & CULTURE|ALFERS, SANDRA
-«
-GERM 1014Elementary German: Language, Communication & Culture5 ÄŒ*Alfers, Sandra2
+›
+GERM 1014Elementary German: Language, Communication & Culture5 ˇÕ*Sebastian-Veals, Marianne2
+MWFË‡"CV 2659ffffff
+@@PZWGERM 101|ELEMENTARY GERMAN: LANGUAGE, COMMUNICATION & CULTURE|SEBASTIAN-VEALS, MARIANNE
+›
+GERM 1014Elementary German: Language, Communication & Culture5 ÄŒ*Sebastian-Veals, Marianne2
 MWFî
-å"MH 1319C±‹µÛ(	@@PZLGERM 101|ELEMENTARY GERMAN: LANGUAGE, COMMUNICATION & CULTURE|ALFERS, SANDRA
+å"MH 1319ffffff
+@@PZWGERM 101|ELEMENTARY GERMAN: LANGUAGE, COMMUNICATION & CULTURE|SEBASTIAN-VEALS, MARIANNE
 ·
 GERM 2016Intermediate German: Language, Communication & Culture5 ÅŒ*Sebastian-Veals, Marianne2
 MWFÍ‚	"BH 4179Ê9[á
@@ -4467,19 +4491,17 @@ d
 «
 GERM 2016Intermediate German: Language, Communication & Culture5 ÇŒ*Fiero, Petra2
 MWFË‡"OM 5879¸ÜµoX˚@@PZLGERM 201|INTERMEDIATE GERMAN: LANGUAGE, COMMUNICATION & CULTURE|FIERO, PETRA
-ø
-GERM 301,High Intermediate German: Contexts & Culture5 ÉŒ*Partsch, Cornelius2
-MWFË‡"BH 1149]úáé·≈	@@PZHGERM 301|HIGH INTERMEDIATE GERMAN: CONTEXTS & CULTURE|PARTSCH, CORNELIUS
-©
-GERM 401'Advanced German: Contexts & Cultures II5 ÑŒ*Fiero, Petra2
+≥
+GERM 301,High Intermediate German: Contexts & Culture5 ÉŒ*Fiero, Petra2
 MWFî
-å"BH 1119ÉE¡¢`Q@@PZ=GERM 401|ADVANCED GERMAN: CONTEXTS & CULTURES II|FIERO, PETRA
-´
-GERM 407"German, Austrian, and Swiss Cinema5 €‘*Partsch, Cornelius2
-MWFñé"MH 1039R+µR+µ
-@@PZ>GERM 407|GERMAN, AUSTRIAN, AND SWISS CINEMA|PARTSCH, CORNELIUS
-©
-GERM 425.Teaching-Learning Process in Elementary German2 ≠æ*Partsch, Cornelius2(@PZJGERM 425|TEACHING-LEARNING PROCESS IN ELEMENTARY GERMAN|PARTSCH, CORNELIUS
+å"MH 0229q_ŒQ
+@@PZBGERM 301|HIGH INTERMEDIATE GERMAN: CONTEXTS & CULTURE|FIERO, PETRA
+ø
+GERM 401'Advanced German: Contexts & Cultures II5 ÑŒ*Dubenion-Smith, Shannon2
+MWFî
+å"BH 1119öôôôôy@@PZHGERM 401|ADVANCED GERMAN: CONTEXTS & CULTURES II|DUBENION-SMITH, SHANNON
+≥
+GERM 425.Teaching-Learning Process in Elementary German2 ≠æ*Dubenion-Smith, Shannon2(@PZOGERM 425|TEACHING-LEARNING PROCESS IN ELEMENTARY GERMAN|DUBENION-SMITH, SHANNON
 è
 GLBL 201Introduction to Global Studies5 ∆–*Lippman, Leah2
 TRË˛"MH 239@ P Z5GLBL 201|INTRODUCTION TO GLOBAL STUDIES|LIPPMAN, LEAH
@@ -4559,7 +4581,8 @@ y
 MWFË‡"OM 4829êõ$›π@@KPKZDHIST 112|INTRODUCTION TO WESTERN CIVILIZATION: 476-1713|DIEHL, PETER
 ¬
 HIST 1132Introduction to Western Civilization: 1713-Present5 ∫À*Elezovic, Arna2
-TRñ‘"OM 4829]aLµ®Á@@2P2ZJHIST 113|INTRODUCTION TO WESTERN CIVILIZATION: 1713-PRESENT|ELEZOVIC, ARNA
+TR¯
+é"OM 4829]aLµ®Á@@2P2ZJHIST 113|INTRODUCTION TO WESTERN CIVILIZATION: 1713-PRESENT|ELEZOVIC, ARNA
 ®
 HIST 123"World History, 1500 to the Present5 ◊÷*Cameselle, Pedro2
 MWFÍ‚	"WL 164F9ü¥;Ÿ@@2P2Z<HIST 123|WORLD HISTORY, 1500 TO THE PRESENT|CAMESELLE, PEDRO
@@ -4572,10 +4595,6 @@ y
 ï
 HIST 262African American Hist to 18655 ÿŒ*Pihos, Peter2
 MWFÍ‚	"BH 2179˝Ù”O?˝@@2P2Z3HIST 262|AFRICAN AMERICAN HIST TO 1865|PIHOS, PETER
-p
-HIST 273Latin America: 1492-18245 ó…2
-TR∞	∆
-"BH 2179KÔmµd@@2P2Z"HIST 273|LATIN AMERICA: 1492-1824|
 ó
 HIST 277Canada: A Historical Survey5 É *Heslop, Madison2
 MWFË‡"VU 55294¸mäQ√@@FPFZ4HIST 277|CANADA: A HISTORICAL SURVEY|HESLOP, MADISON
@@ -4583,10 +4602,6 @@ p
 HIST 280(Introduction to East Asian Civilizations5 ËÀ*Bushelle, Emi2
 MWFî
 å"OM 4829a§+ê@@&P&Z?HIST 280|INTRODUCTION TO EAST ASIAN CIVILIZATIONS|BUSHELLE, EMI
-¨
-HIST 2816East Asian History in the Early-Modern and Modern Eras5 ó◊2
-TR∞	∆
-"BH 2219[’ Ÿ6Ñ@@PZ@HIST 281|EAST ASIAN HISTORY IN THE EARLY-MODERN AND MODERN ERAS|
 Œ
 HIST 2816East Asian History in the Early-Modern and Modern Eras5 Ÿ÷*Goosmann, Breann2
 TR∞	∆
@@ -4642,10 +4657,6 @@ Z2HIST 390|RELIGIOUS COMMUNES IN AMERICA|FOLK, HOLLY
 HIST 392)Tribal Sovereignty and Washington History5 ‡÷*Hughes, Michael2
 TR∞	∆
 "MH 1149§+F⁄	@@PZBHIST 392|TRIBAL SOVEREIGNTY AND WASHINGTON HISTORY|HUGHES, MICHAEL
-ë
-HIST 468N Am. Borderlands & Frontiers5 ·÷*Seltz, Jennifer2
-TR¯
-é"BH 108@PZ6HIST 468|N AM. BORDERLANDS & FRONTIERS|SELTZ, JENNIFER
 ú
 HIST 474U.S. Latin American Relations5 ‚÷*Cameselle, Pedro2
 TR∞	∆
@@ -4680,12 +4691,6 @@ Z2HIST 499|US AND THE WORLD SINCE 1945|CHARD, DANIEL
 Mñ∏"BH 325@
 P
 Z2HIST 505|HISTORICAL THEORY AND METHOD|PIHOS, PETER
-x
-HIST 555US Women's History4 È÷*Cerretti, Josh2
-T¯
-Ú"BH 325@
-P
-Z*HIST 555|US WOMEN'S HISTORY|CERRETTI, JOSH
 ^
 HIST 690Thesis2-16 »…*Costanzo, Susan2
 "BH OFC(@
@@ -4706,10 +4711,10 @@ t
 r
 HNRS 101The Big Picture1 ÂÃ*Lynn, Kimberly2
 M¿∏"FR 102@PZ'HNRS 101|THE BIG PICTURE|LYNN, KIMBERLY
-ü
-HNRS 103/Navigating the Human Experience - Pre-modernity4 ƒ∫2
+ª
+HNRS 103/Navigating the Human Experience - Pre-modernity4 ƒ∫*Dugger, Julie2
 TR¯
-Ñ"OM 330A9'vb'v"@@PZ9HNRS 103|NAVIGATING THE HUMAN EXPERIENCE - PRE-MODERNITY|
+Ñ"OM 330A9ÌJ‘ÆDÌ@@PZFHNRS 103|NAVIGATING THE HUMAN EXPERIENCE - PRE-MODERNITY|DUGGER, JULIE
 ø
 HNRS 103/Navigating the Human Experience - Pre-modernity4 Ï∫*Brian, Kathleen2
 MWÑê"OM 330C9ÛéSt$ó@@PZHHNRS 103|NAVIGATING THE HUMAN EXPERIENCE - PRE-MODERNITY|BRIAN, KATHLEEN
@@ -4749,10 +4754,6 @@ Dunn, Paul2
 HNRS 103/Navigating the Human Experience - Pre-modernity4 ¯…*Elezovic, Arna2
 TR∞	º
 "OM 330A9™Q∆*˙:@@PZGHNRS 103|NAVIGATING THE HUMAN EXPERIENCE - PRE-MODERNITY|ELEZOVIC, ARNA
-ü
-HNRS 103/Navigating the Human Experience - Pre-modernity4 ”◊2
-MWî
-†"OM 330C9'vb'v"@@PZ9HNRS 103|NAVIGATING THE HUMAN EXPERIENCE - PRE-MODERNITY|
 ”
 HNRS 103/Navigating the Human Experience - Pre-modernity4 ÃÃ*Goldman, Tristan2
 Wî
@@ -4760,13 +4761,13 @@ Dunn, Paul2
 Fî
 †"OM 330C9Ÿ®∞Ã™@@PZIHNRS 103|NAVIGATING THE HUMAN EXPERIENCE - PRE-MODERNITY|GOLDMAN, TRISTAN
 Ä
-HNRS 201Colloquium in Philosophy3 ©ÿ*Wasserman, Ryan2(9äØ¯äØx@@PZ1HNRS 201|COLLOQUIUM IN PHILOSOPHY|WASSERMAN, RYAN
-ö
-HNRS 204Colloquium in Psychology5  ƒ*Scollon, Christie2
+HNRS 201Colloquium in Philosophy3 ©ÿ*Wasserman, Ryan2(9äØ¯äØx@@PZ1HNRS 201|COLLOQUIUM IN PHILOSOPHY|WASSERMAN, RYAN
+ß
+HNRS 204Colloquium in Psychology5  ƒ*Scollon, Christie2
 Wî
-™"OM2	
+™"OM 330C2
 Fî
-™9Ê˚©Ò“M@@PZ3HNRS 204|COLLOQUIUM IN PSYCHOLOGY|SCOLLON, CHRISTIE
+™"OM 5859Ê˚©Ò“M@@PZ3HNRS 204|COLLOQUIUM IN PSYCHOLOGY|SCOLLON, CHRISTIE
 π
 HNRS 205"Colloquium in Global North History5 ‹◊*Goldman, Tristan2
 WË˛"HU 1062
@@ -4774,27 +4775,27 @@ Dunn, Paul2
 †
 HNRS 206Colloquium in Political Science5 ò’*Whitley, Melanie2
 TR¯
-é"OM 5859      @@PZ9HNRS 206|COLLOQUIUM IN POLITICAL SCIENCE|WHITLEY, MELANIE
+é"OM 5859      @@PZ9HNRS 206|COLLOQUIUM IN POLITICAL SCIENCE|WHITLEY, MELANIE
 £
 HNRS 210+Colloquium in Astronomy & Planetary Science4 „÷*
 Rines, Ken2
 TR¯
-Ñ"BH 221@PZ?HNRS 210|COLLOQUIUM IN ASTRONOMY & PLANETARY SCIENCE|RINES, KEN
+Ñ"BH 221@PZ?HNRS 210|COLLOQUIUM IN ASTRONOMY & PLANETARY SCIENCE|RINES, KEN
 ì
 HNRS 213Colloquium in Biology4 ˙…*Connell, Georgianne2
-MWFË˛"IS 2309Ù k(Ø@@PZ2HNRS 213|COLLOQUIUM IN BIOLOGY|CONNELL, GEORGIANNE
+MWFË˛"IS 2309Ù k(Ø@@PZ2HNRS 213|COLLOQUIUM IN BIOLOGY|CONNELL, GEORGIANNE
 ©
 HNRS 215 Colloquium in Physical Geography4 ô’*
 Bach, Andy2
 MWË‡"AH 0302
-FË˛"AH 0059Ñ1É1@@PZ4HNRS 215|COLLOQUIUM IN PHYSICAL GEOGRAPHY|BACH, ANDY
+FË˛"AH 0059Ñ1É1@@PZ4HNRS 215|COLLOQUIUM IN PHYSICAL GEOGRAPHY|BACH, ANDY
 é
 HNRS 216Colloquium in Art History5 åÿ*Cadger, Emily2
-TR‹Ú"CV 2649kﬂ∞ˆ@@PZ0HNRS 216|COLLOQUIUM IN ART HISTORY|CADGER, EMILY
+TR¿÷"MH 1039kﬂ∞ˆ@@PZ0HNRS 216|COLLOQUIUM IN ART HISTORY|CADGER, EMILY
 î
 HNRS 217Colloquium in Linguistics5 √—*Sandoval, Jordan2
 TR∞	∆
-"BH 1049æÒ;ø@@PZ3HNRS 217|COLLOQUIUM IN LINGUISTICS|SANDOVAL, JORDAN
+"BH 1049æÒ;ø@@PZ3HNRS 217|COLLOQUIUM IN LINGUISTICS|SANDOVAL, JORDAN
 Ü
 HNRS 237Democracy: A Greek Love Story1-15 Ê–*Goldman, Tristan2(@PZ7HNRS 237|DEMOCRACY: A GREEK LOVE STORY|GOLDMAN, TRISTAN
 †
@@ -4838,9 +4839,9 @@ Kuntz, Pam2
 |
 HNRS 390#Honors Capstone Project Preparation1 Ô≈2
 M‹é"BH 221@PZ-HNRS 390|HONORS CAPSTONE PROJECT PREPARATION|
-|
-HNRS 390#Honors Capstone Project Preparation1 ùÃ2
-W‹é"BH 221@PZ-HNRS 390|HONORS CAPSTONE PROJECT PREPARATION|
+}
+HNRS 390#Honors Capstone Project Preparation1 ùÃ2
+R¿Ú"OM 330C@PZ-HNRS 390|HONORS CAPSTONE PROJECT PREPARATION|
 i
 HNRS 490Senior Project1-4 ‡ø*Dugger, Julie2
 "OM OFC(@2P2Z%HNRS 490|SENIOR PROJECT|DUGGER, JULIE
@@ -4871,9 +4872,9 @@ r
 û
 HSP 355&Inequity in US Policy and Institutions5 âÀ*Thornhill, Ted2"O-DS(9‰N∂k
 @@PZ=HSP 355|INEQUITY IN US POLICY AND INSTITUTIONS|THORNHILL, TED
-´
+∏
 HSP 355&Inequity in US Policy and Institutions5 î«*Thornhill, Ted2
-WË˛"MH 1142(9‰N∂k
+WË˛"MH 1142"ONLINE ASNC(9‰N∂k
 @@PZ=HSP 355|INEQUITY IN US POLICY AND INSTITUTIONS|THORNHILL, TED
 ä
 HSP 355&Inequity in US Policy and Institutions5 ì«2
@@ -4910,9 +4911,9 @@ gö⁄@@PZbHSP 406|INEQUITY IN GLOBAL POLICY AND INSTITUTIONS: IMPLICATIONS FOR 
 x
 HSP 440Internship and Seminar5 †◊*Corbin, Hope2"ONLINE ASNC(@PZ+HSP 440|INTERNSHIP AND SEMINAR|CORBIN, HOPE
 å
-HSP 451Foundations in Health Promotion5 ú◊*Corbin, Hope2"O-DS(9ãí]õ(Ÿ@@PZ4HSP 451|FOUNDATIONS IN HEALTH PROMOTION|CORBIN, HOPE
+HSP 451Foundations in Health Promotion5 ú◊*Corbin, Hope2"O-DS(9ãí]õ(Ÿ@@PZ4HSP 451|FOUNDATIONS IN HEALTH PROMOTION|CORBIN, HOPE
 ì
-HSP 451Foundations in Health Promotion5 °◊*Corbin, Hope2"ONLINE ASNC(9ãí]õ(Ÿ@@PZ4HSP 451|FOUNDATIONS IN HEALTH PROMOTION|CORBIN, HOPE
+HSP 451Foundations in Health Promotion5 °◊*Corbin, Hope2"ONLINE ASNC(9ãí]õ(Ÿ@@PZ4HSP 451|FOUNDATIONS IN HEALTH PROMOTION|CORBIN, HOPE
 |
 HSP 485Program Planning and Evaluation5 ﬁ«2
 TRË˛"MH 0569ÚjÖ≈4Œ@@PZ(HSP 485|PROGRAM PLANNING AND EVALUATION|
@@ -4943,13 +4944,15 @@ x
 É
 HUMA 277Humanities of China5 àœ*Pearce, Scott2
 MWFË‡"BH 2179„œÒàû°@@-P-Z*HUMA 277|HUMANITIES OF CHINA|PEARCE, SCOTT
-x
-HUMA 281Representations of Otherness5 €◊2
+é
+HUMA 281Representations of Otherness5 €◊*
+Troy, Eddy2
 TR¯
-é"HU 1039eB7ﬁ”@@-P-Z&HUMA 281|REPRESENTATIONS OF OTHERNESS|
-|
-HUMA 290Approaches to Cultural History5 ⁄◊2
-TRË˛"OM 4829‡5∫2Óÿ	@@-P-Z(HUMA 290|APPROACHES TO CULTURAL HISTORY|
+é"HU 1039eB7ﬁ”@@-P-Z0HUMA 281|REPRESENTATIONS OF OTHERNESS|TROY, EDDY
+í
+HUMA 290Approaches to Cultural History5 ⁄◊*
+Troy, Eddy2
+TRË˛"OM 4829‡5∫2Óÿ	@@-P-Z2HUMA 290|APPROACHES TO CULTURAL HISTORY|TROY, EDDY
 b
 HUMA 300Directed Independent Study1-15 â∆2
 "BH OFC(Z$HUMA 300|DIRECTED INDEPENDENT STUDY|
@@ -5020,19 +5023,19 @@ p
 "ET 350(9      @@PZ1ID 440|INDUSTRIAL DESIGN INTERNSHIP|MORRIS, JASON
 ò
 I T 3442Foundations of Technology in Teaching and Learning1 §…2
-TÑ∂"MH 035@PZ;I T 344|FOUNDATIONS OF TECHNOLOGY IN TEACHING AND LEARNING|
+TÑ∂"MH 035@PZ;I T 344|FOUNDATIONS OF TECHNOLOGY IN TEACHING AND LEARNING|
 ñ
 I T 3442Foundations of Technology in Teaching and Learning1 ¯ª2"ONLINE ASNC(@PZ;I T 344|FOUNDATIONS OF TECHNOLOGY IN TEACHING AND LEARNING|
 ñ
 I T 3442Foundations of Technology in Teaching and Learning1 ˘ª2"ONLINE ASNC(@PZ;I T 344|FOUNDATIONS OF TECHNOLOGY IN TEACHING AND LEARNING|
 ò
 I T 3442Foundations of Technology in Teaching and Learning1 ˙ª2
-MËö"MH 035@PZ;I T 344|FOUNDATIONS OF TECHNOLOGY IN TEACHING AND LEARNING|
+MËö"MH 035@PZ;I T 344|FOUNDATIONS OF TECHNOLOGY IN TEACHING AND LEARNING|
 π
 I T 442+Digital Decisions: Technology for Educators3 ç∆*Dagnon, Paula2
-MŒ	∆
+M∞	®
 "MH 0352
-WŒ	∆
+W∞	®
 "MH OFC@
 P
 ZAI T 442|DIGITAL DECISIONS: TECHNOLOGY FOR EDUCATORS|DAGNON, PAULA
@@ -5053,35 +5056,6 @@ z
 Œ
 I T 546-Instructional Technology and Digital Literacy4 œª*Zhao, George2∞	Ú"AW 2032
 T¬»"ONLINE SYNC2"ONLINE ASNC(@PZBI T 546|INSTRUCTIONAL TECHNOLOGY AND DIGITAL LITERACY|ZHAO, GEORGE
-î
-IEP 103Level 5 Academic Writing5 ï”*Hagin, Dean2
-
-MF∞	‚	2	
-T∞	®
-2	
-R≤
-™9Y>ó∫À€
-@@PZ,IEP 103|LEVEL 5 ACADEMIC WRITING|HAGIN, DEAN
-û
-IEP 105*Level 5 Academic Communication and Inquiry5 ñ”*Bierer, Betsy2
-MWFË‡@PZ@IEP 105|LEVEL 5 ACADEMIC COMMUNICATION AND INQUIRY|BIERER, BETSY
-ä
-IEP 112Level 6 Academic Reading5 —“*
-Mart, Paul2	
-R∞	®
-2
-MWFî
-∆
-2	
-T≤
-™@PZ+IEP 112|LEVEL 6 ACADEMIC READING|MART, PAUL
-§
-IEP 113$Level 6 Academic Writing and Grammar5 ““*Hagin, Dean2
-MWF∞	‚	2	
-T∞	®
-2	
-R≤
-™@PZ8IEP 113|LEVEL 6 ACADEMIC WRITING AND GRAMMAR|HAGIN, DEAN
 ¢
 IBUS 370&Introduction to International Business4 ∂ƒ*
 Lim, Eunah2
@@ -5119,9 +5093,9 @@ Z8IBUS 490|INTERNSHIP IN INTERNATIONAL BUSINESS|ROEHL, TOM
 â
 JAPN 101First-Year Japanese5 íŒ*Kusakabe, Madoka2
 MWFÍ‚	"MH 0139ÃY6ˇåi@@PZ-JAPN 101|FIRST-YEAR JAPANESE|KUSAKABE, MADOKA
-á
-JAPN 101First-Year Japanese5 ìŒ*Negishi, Makoto2
-MWFË‡"HU 1039°{∫°@@PZ,JAPN 101|FIRST-YEAR JAPANESE|NEGISHI, MAKOTO
+g
+JAPN 101First-Year Japanese5 ìŒ2
+MWFË‡"HU 1039C±‹µÛ(	@@PZJAPN 101|FIRST-YEAR JAPANESE|
 ã
 JAPN 201Second-Year Japanese5 îŒ*Kusakabe, Madoka2
 MWFË‡"MH 0139@◊*éò
@@ -5133,11 +5107,14 @@ Z8IBUS 490|INTERNSHIP IN INTERNATIONAL BUSINESS|ROEHL, TOM
 JAPN 301Third-Year Japanese5 òŒ*Walker, Tyler2
 MWFË‡"HU 1089q_ŒQ
 @@PZ*JAPN 301|THIRD-YEAR JAPANESE|WALKER, TYLER
-á
-JAPN 301Third-Year Japanese5 ôŒ*Negishi, Makoto2
+g
+JAPN 301Third-Year Japanese5 ôŒ2
 MWFî
 å"MH 0119q_ŒQ
-@@PZ,JAPN 301|THIRD-YEAR JAPANESE|NEGISHI, MAKOTO
+@@PZJAPN 301|THIRD-YEAR JAPANESE|
+ó
+JAPN 330Japanese Culture Through Film5 Ãÿ*Walker, Tyler2
+MWFñé"MH 0229iù6–i@@PZ4JAPN 330|JAPANESE CULTURE THROUGH FILM|WALKER, TYLER
 •
 JAPN 402Topics in Japanese Literature5 ﬂ‘*Tomasi, Massimiliano2
 MWFÍ‚	"BH 1149=
@@ -5155,8 +5132,8 @@ Wise, Judi2
 ì
 JOUR 190Introduction to Mass Media5 ¡Ω*McLeod, Maria2
 MTWRFÑ∂"CF 1159p°‘;n@@xPxZ1JOUR 190|INTRODUCTION TO MASS MEDIA|MCLEOD, MARIA
-q
-JOUR 190Introduction to Mass Media5  —2"ONLINE ASNC(9G”‡Jí@@PZ$JOUR 190|INTRODUCTION TO MASS MEDIA|
+ç
+JOUR 190Introduction to Mass Media5  —*McLeod, Maria2"ONLINE ASNC(9p°‘;n@@PZ1JOUR 190|INTRODUCTION TO MASS MEDIA|MCLEOD, MARIA
 x
 JOUR 207Newswriting4 ¬Ω*O'Donovan, Betsy2
 TRË˛"CF 1619¨´´´´´
@@ -5540,7 +5517,7 @@ _
 ≤
 LDST 301(Leadership Studies: Theory & Application5 µ—*Diaz, Holly2
 T¯
-"AW 4082
+"HH 2532
 MW‹‘"SL 120@PZ=LDST 301|LEADERSHIP STUDIES: THEORY & APPLICATION|DIAZ, HOLLY
 â
 LDST 341Practicum in Applied Leadership1-6  ¿*Stout, Karen2
@@ -5604,10 +5581,6 @@ R
 ì
 LING 331Semantics and Pragmatics5 ‚‘*Dawson, Virginia2
 MWFÍ‚	"HU 1019Ò¡|	@@PZ2LING 331|SEMANTICS AND PRAGMATICS|DAWSON, VIRGINIA
-Ö
-MGMT 201Introduction to Business4 •◊*Powell, Skylar2
-MW∞	∆
-"CF 025@2P2Z0MGMT 201|INTRODUCTION TO BUSINESS|POWELL, SKYLAR
 ã
 MGMT 202Perspectives on Business2 ™º*Senger, Lucas2
 FÑö"PH 0159^àKÉ%Ê@@PZ/MGMT 202|PERSPECTIVES ON BUSINESS|SENGER, LUCAS
@@ -5626,25 +5599,25 @@ R
 »
 MGMT 3116Introduction to Management and Organizational Behavior4 –ª*Wilkens, Drew2
 MW∞	∆
-"VU 5529ŸÎlbL	@@2P2ZMMGMT 311|INTRODUCTION TO MANAGEMENT AND ORGANIZATIONAL BEHAVIOR|WILKENS, DREW
+"VU 5529ŸÎlbL	@@.P.ZMMGMT 311|INTRODUCTION TO MANAGEMENT AND ORGANIZATIONAL BEHAVIOR|WILKENS, DREW
 «
-MGMT 3116Introduction to Management and Organizational Behavior4 “ª*Bedi, Akanksha2"ONLINE ASNC(9Í†Í†@@2P2ZNMGMT 311|INTRODUCTION TO MANAGEMENT AND ORGANIZATIONAL BEHAVIOR|BEDI, AKANKSHA
+MGMT 3116Introduction to Management and Organizational Behavior4 “ª*Bedi, Akanksha2"ONLINE ASNC(9Í†Í†@@.P.ZNMGMT 311|INTRODUCTION TO MANAGEMENT AND ORGANIZATIONAL BEHAVIOR|BEDI, AKANKSHA
 ‡
 MGMT 3116Introduction to Management and Organizational Behavior4 Ùø*Freeman, Sabrina2
 T¯
 é"CF 3162
 R¯
 ™"CF 31693bºT#
-@@PZPMGMT 311|INTRODUCTION TO MANAGEMENT AND ORGANIZATIONAL BEHAVIOR|FREEMAN, SABRINA
+@@PZPMGMT 311|INTRODUCTION TO MANAGEMENT AND ORGANIZATIONAL BEHAVIOR|FREEMAN, SABRINA
 ‡
 MGMT 3116Introduction to Management and Organizational Behavior4 ™«*Freeman, Sabrina2
 T¯
 é"CF 3162
 R‹é"CF 31693bºT#
-@@PZPMGMT 311|INTRODUCTION TO MANAGEMENT AND ORGANIZATIONAL BEHAVIOR|FREEMAN, SABRINA
+@@PZPMGMT 311|INTRODUCTION TO MANAGEMENT AND ORGANIZATIONAL BEHAVIOR|FREEMAN, SABRINA
 x
 MGMT 313Teamwork Basics4 ˛∫*Kanov, Jason2
-MWË˛"PH 1089GEEEEE@@#P#Z%MGMT 313|TEAMWORK BASICS|KANOV, JASON
+MWË˛"PH 1089GEEEEE@@PZ%MGMT 313|TEAMWORK BASICS|KANOV, JASON
 z
 MGMT 313Teamwork Basics4 ¬◊*Bedi, Akanksha2
 TRË˛"O-PL9n€∂m€∂@@PZ'MGMT 313|TEAMWORK BASICS|BEDI, AKANKSHA
@@ -5654,11 +5627,11 @@ v
 "CF 125@PZ)MGMT 315|CAREER PREPARATION|PELTON, MINDY
 û
 MGMT 319!Communication Skills for Managers4 ﬂ≈*Walker, Lucas2
-TRË˛"PH 1089ø«:—@@PZ8MGMT 319|COMMUNICATION SKILLS FOR MANAGERS|WALKER, LUCAS
+TRË˛"PH 1089ø«:—@@PZ8MGMT 319|COMMUNICATION SKILLS FOR MANAGERS|WALKER, LUCAS
 û
 MGMT 319!Communication Skills for Managers4 ÔÀ*Walker, Lucas2
 TR¯
-é"PH 1089ø«:—@@PZ8MGMT 319|COMMUNICATION SKILLS FOR MANAGERS|WALKER, LUCAS
+é"PH 1089ø«:—@@PZ8MGMT 319|COMMUNICATION SKILLS FOR MANAGERS|WALKER, LUCAS
 û
 MGMT 319!Communication Skills for Managers4 √◊*Sampel, Pamela2
 MWË˛"O-PL9‰8é„8é@@PZ9MGMT 319|COMMUNICATION SKILLS FOR MANAGERS|SAMPEL, PAMELA
@@ -5706,7 +5679,7 @@ Z9MGMT 490|INTERNSHIP IN BUSINESS ADMINISTRATION|SASS, MARY
 é"AW 306@:P:Z>MIS 220|INTRODUCTION TO BUSINESS COMPUTER SYSTEMS|TYRAN, CRAIG
 §
 MIS 220)Introduction to Business Computer Systems2 ◊◊*Long, Jennifer2
-WË˛"OM 483@:P:Z@MIS 220|INTRODUCTION TO BUSINESS COMPUTER SYSTEMS|LONG, JENNIFER
+WË˛"AW 306@:P:Z@MIS 220|INTRODUCTION TO BUSINESS COMPUTER SYSTEMS|LONG, JENNIFER
 Â
 MIS 320,Principles of Management Information Systems4 ◊…*Califf, Christopher2
 MWË‡"PH 1462
@@ -5983,11 +5956,11 @@ n
 †
 MKTG 381"Fundamentals of Marketing Research4 Â∫*Purdy, Daniel2
 TR∞	∆
-"AW 3069:ﬂOçón@@#P#Z9MKTG 381|FUNDAMENTALS OF MARKETING RESEARCH|PURDY, DANIEL
+"AW 3069:ﬂOçón@@"P"Z9MKTG 381|FUNDAMENTALS OF MARKETING RESEARCH|PURDY, DANIEL
 å
 MKTG 382Consumer Behavior4 Ê∫*Armstrong Soule, Cat2
 MW¯
-é"AH 0189ë∫Jïc/@@#P#Z/MKTG 382|CONSUMER BEHAVIOR|ARMSTRONG SOULE, CAT
+é"AH 0189ë∫Jïc/@@"P"Z/MKTG 382|CONSUMER BEHAVIOR|ARMSTRONG SOULE, CAT
 ò
 MKTG 384Marketing and Sustainability4 Àƒ*Baskentli, Sara2
 TR∞	∆
@@ -6012,7 +5985,7 @@ Z1MKTG 474|MARKETING STRATEGIES FOR SUSTAINABILITY|
 "PH OFC(9|{{{{{@@PZ2MKTG 480|MARKETING INTERNSHIP|ARMSTRONG SOULE, CAT
 x
 MKTG 481Marketing Analytics4 ‚ *Love, Ed2
-MWË˛"AW 3069ÌHΩé‘Î@@PZ%MKTG 481|MARKETING ANALYTICS|LOVE, ED
+MWË˛"AH 0059ÌHΩé‘Î@@PZ%MKTG 481|MARKETING ANALYTICS|LOVE, ED
 ¢
 MKTG 483#Integrated Marketing Communications4 Á∫*Purdy, Daniel2
 TRË˛"AW 3069 æ'ìè@@PZ:MKTG 483|INTEGRATED MARKETING COMMUNICATIONS|PURDY, DANIEL
@@ -6084,8 +6057,8 @@ t
 é"HH 353@PZ>MPAC 541|SEMINAR IN ADVANCED FINANCIAL ACCOUNTING|CHEN, HANMEI
 ©
 MPAC 543-Financial Accounting Research & Communication4 ß’*Liu, Zander2
-MW¯
-é"AW 403@PZBMPAC 543|FINANCIAL ACCOUNTING RESEARCH & COMMUNICATION|LIU, ZANDER
+TR∞	∆
+"FI 238@PZBMPAC 543|FINANCIAL ACCOUNTING RESEARCH & COMMUNICATION|LIU, ZANDER
 â
 MPAC 564 Professional Accounting Research2 ú«*Dolar, Burak2
 "PH OFC(@
@@ -6187,9 +6160,9 @@ Nimtz, Jen2
 °
 MATH 112Functions and Algebraic Methods5 ¢ª*McMullen, Jamie2
 MTWRF∞	‚	"BH 2259u‹îœ= @@-P-Z8MATH 112|FUNCTIONS AND ALGEBRAIC METHODS|MCMULLEN, JAMIE
-Å
+}
 MATH 112Functions and Algebraic Methods5 £ª2
-MTWRF∞	‚	"CF 0239ΩyYp‘@@#P#Z)MATH 112|FUNCTIONS AND ALGEBRAIC METHODS|
+MTWRF∞	‚	"CF 0239ΩyYp‘@Z)MATH 112|FUNCTIONS AND ALGEBRAIC METHODS|
 Å
 MATH 112Functions and Algebraic Methods5 ¶æ2
 MTWRFî
@@ -6228,9 +6201,9 @@ Nimtz, Jen2
 ]
 MATH 114Precalculus I5 Õ∏2
 MTWRFËö"BH 4019{ﬂ“ÁJ3@@(P(ZMATH 114|PRECALCULUS I|
-]
+Y
 MATH 114Precalculus I5 Œ∏2
-MTWRF∞	‚	"ES 4189{ﬂ“ÁJ3@@(P(ZMATH 114|PRECALCULUS I|
+MTWRF∞	‚	"ES 4189{ﬂ“ÁJ3@ZMATH 114|PRECALCULUS I|
 ]
 MATH 114Precalculus I5 œ∏2
 MTWRFî
@@ -6246,9 +6219,9 @@ Nimtz, Jen2
 ]
 MATH 114Precalculus I5 “∏2
 MTWRF∞	‚	"BH 3179{ﬂ“ÁJ3@@#P#ZMATH 114|PRECALCULUS I|
-]
+Y
 MATH 114Precalculus I5 ”∏2
-MTWRF∞	‚	"MH 1359{ﬂ“ÁJ3@@#P#ZMATH 114|PRECALCULUS I|
+MTWRF∞	‚	"MH 1359{ﬂ“ÁJ3@ZMATH 114|PRECALCULUS I|
 ]
 MATH 114Precalculus I5 €Õ2
 MTWRF∞	‚	"BH 1129{ﬂ“ÁJ3@@#P#ZMATH 114|PRECALCULUS I|
@@ -6422,15 +6395,15 @@ x
 MATH 312Proofs in Elementary Analysis4 ±Ω*Curgus, Branko2
 MTRF¯
 ™"BH 2019Ÿ∫gdÈ!@@PZ5MATH 312|PROOFS IN ELEMENTARY ANALYSIS|CURGUS, BRANKO
-î
-MATH 331Ordinary Differential Equations4 ›π*	Pei, Yuan2
-MTRFÑ∂"MH 1359wwwwwW@@#P#Z2MATH 331|ORDINARY DIFFERENTIAL EQUATIONS|PEI, YUAN
 ñ
-MATH 331Ordinary Differential Equations4 ô¿*
+MATH 331Ordinary Differential Equations4 ›π*
 Chao, Zhen2
+MTRFÑ∂"MH 1359	\q§@@#P#Z3MATH 331|ORDINARY DIFFERENTIAL EQUATIONS|CHAO, ZHEN
+î
+MATH 331Ordinary Differential Equations4 ô¿*	Pei, Yuan2
 MTRFî
 ∆
-"AW 3039	\q§@@#P#Z3MATH 331|ORDINARY DIFFERENTIAL EQUATIONS|CHAO, ZHEN
+"AW 3039wwwwwW@@#P#Z2MATH 331|ORDINARY DIFFERENTIAL EQUATIONS|PEI, YUAN
 ™
 MATH 341%Probability and Statistical Inference4 ﬁπ*Richards, Andy2
 MTRFËö"MH 2359‡êv≈£@@#P#Z=MATH 341|PROBABILITY AND STATISTICAL INFERENCE|RICHARDS, ANDY
@@ -6456,57 +6429,70 @@ Chao, Zhen2
 "ES 3139ó8ı{n		@@PZ<MATH 360|EUCLIDEAN AND NON-EUCLIDEAN GEOMETRY|COHEN, JESSICA
 ä
 MATH 372Teaching P-3 Mathematics II4 ®»*	Chen, Liz2
-MW†∂"BH 4049?Èì>Èì@@PZ.MATH 372|TEACHING P-3 MATHEMATICS II|CHEN, LIZ
+MW†∂"BH 4049?Èì>Èì@@PZ.MATH 372|TEACHING P-3 MATHEMATICS II|CHEN, LIZ
+ë
+MATH 372Teaching P-3 Mathematics II4 Ê *Burke, Heather2
+R§¥"O-BT9?Èì>Èì@@PZ3MATH 372|TEACHING P-3 MATHEMATICS II|BURKE, HEATHER
 ò
 MATH 381Teaching K-8 Mathematics I4 ﬂ∏*Borowski, Rebecca2
-TR†∂"BH 4049]t—E@@PZ5MATH 381|TEACHING K-8 MATHEMATICS I|BOROWSKI, REBECCA
+TR†∂"BH 4049]t—E@@PZ5MATH 381|TEACHING K-8 MATHEMATICS I|BOROWSKI, REBECCA
+è
+MATH 381Teaching K-8 Mathematics I4 ≥≈*Burke, Heather2
+T§¥"O-BT9??@@PZ2MATH 381|TEACHING K-8 MATHEMATICS I|BURKE, HEATHER
+è
+MATH 381Teaching K-8 Mathematics I4 ∂≈*Burke, Heather2
+W§¥"O-EV9??@@PZ2MATH 381|TEACHING K-8 MATHEMATICS I|BURKE, HEATHER
 ä
 MATH 382Teaching K-8 Mathematics II4 ·∏*	Chen, Liz2
-TRË˛"BH 4049ªΩΩΩΩç@@PZ.MATH 382|TEACHING K-8 MATHEMATICS II|CHEN, LIZ
+TRË˛"BH 4049ªΩΩΩΩç@@PZ.MATH 382|TEACHING K-8 MATHEMATICS II|CHEN, LIZ
 ö
 MATH 382Teaching K-8 Mathematics II4 ≠ÿ*Borowski, Rebecca2
 TR¯
-é"BH 4049q@@PZ6MATH 382|TEACHING K-8 MATHEMATICS II|BOROWSKI, REBECCA
+é"BH 4049q@@PZ6MATH 382|TEACHING K-8 MATHEMATICS II|BOROWSKI, REBECCA
 ñ
 MATH 383Teaching K-8 Mathematics III4 €ª*Markworth, Kim2
-MWË˛"BH 4049ÖÎQ∏Ö@@PZ4MATH 383|TEACHING K-8 MATHEMATICS III|MARKWORTH, KIM
+MWË˛"BH 4049ÖÎQ∏Ö@@PZ4MATH 383|TEACHING K-8 MATHEMATICS III|MARKWORTH, KIM
 ñ
 MATH 383Teaching K-8 Mathematics III4 ßº*Markworth, Kim2
 TR∞	∆
-"BH 4049ÖÎQ∏Ö@@PZ4MATH 383|TEACHING K-8 MATHEMATICS III|MARKWORTH, KIM
+"BH 4049ÖÎQ∏Ö@@PZ4MATH 383|TEACHING K-8 MATHEMATICS III|MARKWORTH, KIM
 Ü
 MATH 409Putnam Exam Preparation2 ¢Ω*Treneer, Stephanie2
 T"BH OFC(@PZ3MATH 409|PUTNAM EXAM PREPARATION|TRENEER, STEPHANIE
 ä
 MATH 410Mathematical Modeling4 è’*Glimm, Tilmann2
-MTRFÃ˛"BH 1059kﬂ∞ˆ@@#P#Z-MATH 410|MATHEMATICAL MODELING|GLIMM, TILMANN
+MTRFÃ˛"BH 1059kﬂ∞ˆ@@PZ-MATH 410|MATHEMATICAL MODELING|GLIMM, TILMANN
 ´
 MATH 419&Historical Perspectives of Mathematics3 äΩ*Sarkar, Amites2
 MTRÃ˛"BH 2019>Œ◊Àx@@PZ>MATH 419|HISTORICAL PERSPECTIVES OF MATHEMATICS|SARKAR, AMITES
 î
 MATH 421Methods Math Analysis I4 ·π*McDowall, Stephen2
-MTRF∞	‚	"MH 1399”E]t—	@@PZ2MATH 421|METHODS MATH ANALYSIS I|MCDOWALL, STEPHEN
+MTRF∞	‚	"MH 1399”E]t—	@@PZ2MATH 421|METHODS MATH ANALYSIS I|MCDOWALL, STEPHEN
 ˜
 MATH 430AFourier Series and Applications to Partial Differential Equations4 ë’*Smit Vega Garcia, Mariana2
-MWFñé"OM 5879››››››@@#P#ZdMATH 430|FOURIER SERIES AND APPLICATIONS TO PARTIAL DIFFERENTIAL EQUATIONS|SMIT VEGA GARCIA, MARIANA
+MWFñé"OM 5879››››››@@PZdMATH 430|FOURIER SERIES AND APPLICATIONS TO PARTIAL DIFFERENTIAL EQUATIONS|SMIT VEGA GARCIA, MARIANA
 ¢
 MATH 438!Introduction to Complex Variables4 åŒ*Glimm, Tilmann2
 MTRFî
 ∆
-"ES 4189≥¸%À_≤@@PZ9MATH 438|INTRODUCTION TO COMPLEX VARIABLES|GLIMM, TILMANN
+"ES 4189≥¸%À_≤@@PZ9MATH 438|INTRODUCTION TO COMPLEX VARIABLES|GLIMM, TILMANN
 t
 MATH 441Probability4 ‚∏*Anderson, Amy2
-MTRFÃ˛"BH 1129≠æT–ÍK@@#P#Z"MATH 441|PROBABILITY|ANDERSON, AMY
+MTRFÃ˛"BH 1129≠æT–ÍK@@PZ"MATH 441|PROBABILITY|ANDERSON, AMY
 û
 MATH 456Applied Time Series Analysis4 ì’*Noguchi, Kimihiro2
-MTRFËö"OM 5859ÃÃÃÃÃÃ@@PZ7MATH 456|APPLIED TIME SERIES ANALYSIS|NOGUCHI, KIMIHIRO
+MTRFËö"OM 5859ÃÃÃÃÃÃ@@
+P
+Z7MATH 456|APPLIED TIME SERIES ANALYSIS|NOGUCHI, KIMIHIRO
 à
 MATH 473Numerical Linear Algebra4 ï’*
 Chao, Zhen2
-MTRFËö"MH 1149£ã.∫Ë¢@@PZ,MATH 473|NUMERICAL LINEAR ALGEBRA|CHAO, ZHEN
+MTRFËö"MH 1149£ã.∫Ë¢@@
+P
+Z,MATH 473|NUMERICAL LINEAR ALGEBRA|CHAO, ZHEN
 ≥
 MATH 491-Internship Seminar - Teaching K-8 Mathematics2 ñº*Sundberg, Andrea2
-MW§∫"BH 404@PZGMATH 491|INTERNSHIP SEMINAR - TEACHING K-8 MATHEMATICS|SUNDBERG, ANDREA
+MW§∫"BH 404@PZGMATH 491|INTERNSHIP SEMINAR - TEACHING K-8 MATHEMATICS|SUNDBERG, ANDREA
 Ñ
 MATH 503Topics in Abstract Algebra3 ó’*Nyman, Adam2
 MWFî
@@ -6514,30 +6500,40 @@ Chao, Zhen2
 "BH 110@PZ/MATH 503|TOPICS IN ABSTRACT ALGEBRA|NYMAN, ADAM
 Å
 MATH 510Mathematical Modeling4 ê’*Glimm, Tilmann2
-MTRFÃ˛"BH 105@#P#Z-MATH 510|MATHEMATICAL MODELING|GLIMM, TILMANN
+MTRFÃ˛"BH 105@PZ-MATH 510|MATHEMATICAL MODELING|GLIMM, TILMANN
 Ä
 MATH 521Metric Spaces4 ó¿*McDowall, Stephen2
-MTRF∞	‚	"MH 1399√√√√√√@@PZ(MATH 521|METRIC SPACES|MCDOWALL, STEPHEN
+MTRF∞	‚	"MH 1399√√√√√√@@
+P
+Z(MATH 521|METRIC SPACES|MCDOWALL, STEPHEN
 Ó
 MATH 530AFourier Series and Applications to Partial Differential Equations4 í’*Smit Vega Garcia, Mariana2
-MWFñé"OM 587@#P#ZdMATH 530|FOURIER SERIES AND APPLICATIONS TO PARTIAL DIFFERENTIAL EQUATIONS|SMIT VEGA GARCIA, MARIANA
+MWFñé"OM 587@
+P
+ZdMATH 530|FOURIER SERIES AND APPLICATIONS TO PARTIAL DIFFERENTIAL EQUATIONS|SMIT VEGA GARCIA, MARIANA
 Ç
 MATH 538Complex Variables4 çŒ*Glimm, Tilmann2
 MTRFî
 ∆
 "ES 4189£p=
 ◊£
-@@PZ)MATH 538|COMPLEX VARIABLES|GLIMM, TILMANN
+@@PZ)MATH 538|COMPLEX VARIABLES|GLIMM, TILMANN
 k
 MATH 541Probability4 „∏*Anderson, Amy2
-MTRFÃ˛"BH 112@#P#Z"MATH 541|PROBABILITY|ANDERSON, AMY
+MTRFÃ˛"BH 112@
+P
+Z"MATH 541|PROBABILITY|ANDERSON, AMY
 ï
 MATH 556Applied Time Series Analysis4 î’*Noguchi, Kimihiro2
-MTRFËö"OM 585@PZ7MATH 556|APPLIED TIME SERIES ANALYSIS|NOGUCHI, KIMIHIRO
+MTRFËö"OM 585@
+P
+Z7MATH 556|APPLIED TIME SERIES ANALYSIS|NOGUCHI, KIMIHIRO
 
 MATH 573Numerical Linear Algebra4 ñ’*
 Chao, Zhen2
-MTRFËö"MH 114@PZ,MATH 573|NUMERICAL LINEAR ALGEBRA|CHAO, ZHEN
+MTRFËö"MH 114@
+P
+Z,MATH 573|NUMERICAL LINEAR ALGEBRA|CHAO, ZHEN
 é
 MATH 595 Teaching Algebra and Precalculus2 ‰∏*Ragsdale, Kim2
 W"BH OFC(@PZ7MATH 595|TEACHING ALGEBRA AND PRECALCULUS|RAGSDALE, KIM
@@ -6556,55 +6552,50 @@ Z-MATH 699|CONTINUOUS ENROLLMENT|PATRICK, DAVID
 à
 M/CS 375Numerical Computation4 µæ*Barnard, Rick2
 MTRFÃ˛"OM 4839o1§ÛC@@#P#Z,M/CS 375|NUMERICAL COMPUTATION|BARNARD, RICK
-⁄
-MLE 4413Language, Culture, and Equity: From Global to Local5 ⁄ *Green, Jennifer2
-MW§∫"ONLINE SYNC2"ONLINE ASNC(9çr$:{>@@PZKMLE 441|LANGUAGE, CULTURE, AND EQUITY: FROM GLOBAL TO LOCAL|GREEN, JENNIFER
-—
+©
+MLE 4413Language, Culture, and Equity: From Global to Local5 ⁄ 2
+MWﬁ∫"ONLINE SYNC9çr$:{>@@PZ<MLE 441|LANGUAGE, CULTURE, AND EQUITY: FROM GLOBAL TO LOCAL|
+¿
 MLE 4413Language, Culture, and Equity: From Global to Local5 â“*Mathieu, Cory2
 TR¯
-é"HH 1532"ONLINE ASNC(9çr$:{>@@PZIMLE 441|LANGUAGE, CULTURE, AND EQUITY: FROM GLOBAL TO LOCAL|MATHIEU, CORY
+é"HH 1539çr$:{>@@PZIMLE 441|LANGUAGE, CULTURE, AND EQUITY: FROM GLOBAL TO LOCAL|MATHIEU, CORY
 ö
 MLE 442.Language, Culture, and Equity in the Classroom5 ﬂ 2
 TR¿ú"MH 1059<≈r‚Âk@@PZ7MLE 442|LANGUAGE, CULTURE, AND EQUITY IN THE CLASSROOM|
-‹
-MLE 443@Methods for Teaching Entering and Emerging Multilingual Learners5 ‡ *Saunders, Mimi2
-MW¿ú"MH 2319’A‘A@@PZWMLE 443|METHODS FOR TEACHING ENTERING AND EMERGING MULTILINGUAL LEARNERS|SAUNDERS, MIMI
+æ
+MLE 443@Methods for Teaching Entering and Emerging Multilingual Learners5 ‡ 2
+MW§∫"MH 2319Ú“MbX@@PZIMLE 443|METHODS FOR TEACHING ENTERING AND EMERGING MULTILINGUAL LEARNERS|
 æ
 MLE 4440Understanding and Teaching Disciplinary Language5 —Ã*Green, Jennifer2
-TR§Ä"MH 0359:ÂkúS@@PZHMLE 444|UNDERSTANDING AND TEACHING DISCIPLINARY LANGUAGE|GREEN, JENNIFER
+TR§Ä"MH 1399:ÂkúS@@PZHMLE 444|UNDERSTANDING AND TEACHING DISCIPLINARY LANGUAGE|GREEN, JENNIFER
 ⁄
 MLE 445NMethods for Teaching Developing, Expanding, and Bridging Multilingual Learners5 ÛÀ2
-MFÑ‚	"MH OFC9œ˜S„•õ@@PZWMLE 445|METHODS FOR TEACHING DEVELOPING, EXPANDING, AND BRIDGING MULTILINGUAL LEARNERS|
+MF≤
+"MH OFC9œ˜S„•õ@@PZWMLE 445|METHODS FOR TEACHING DEVELOPING, EXPANDING, AND BRIDGING MULTILINGUAL LEARNERS|
 ê
 MUS 101Fundamentals of Music2 Õ¿*Schille-Hudson, Eli2
 MW∞	‚	"PA 0479`ÎE±^@@PZ1MUS 101|FUNDAMENTALS OF MUSIC|SCHILLE-HUDSON, ELI
-e
-MUS 101Fundamentals of Music2 ”Ã2"ONLINE ASNC(9|3©ÛÚÀ@@#P#ZMUS 101|FUNDAMENTALS OF MUSIC|
+Å
+MUS 101Fundamentals of Music2 ”Ã*Kavanagh, Amy2"ONLINE ASNC(9\2ÎhÛ@@#P#Z+MUS 101|FUNDAMENTALS OF MUSIC|KAVANAGH, AMY
 ú
 MUS 104The Art of Listening to Music3 ÷ª*Donnellan, Grant2
 TRÜ˛"PA 1559ØïñÉY@@ñPñZ6MUS 104|THE ART OF LISTENING TO MUSIC|DONNELLAN, GRANT
-u
-MUS 104The Art of Listening to Music3 ∑¡2"ONLINE ASNC(9<∂—c=
-@@#P#Z&MUS 104|THE ART OF LISTENING TO MUSIC|
-ó
+ì
+MUS 104The Art of Listening to Music3 ∑¡*Camacho, Laura2"ONLINE ASNC(9Yõó	ıÁ
+@@#P#Z4MUS 104|THE ART OF LISTENING TO MUSIC|CAMACHO, LAURA
+ô
 MUS 105 Survey of Popular and Rock Music3 ‡ª*Smith, Todd2
-MWF†“"PA 1559˘ßIçˇ@@lPlZ4MUS 105|SURVEY OF POPULAR AND ROCK MUSIC|SMITH, TODD
-ó
-MUS 105 Survey of Popular and Rock Music3 ﬁÃ*Smith, Todd2
-MWF†“"PA 1559˘ßIçˇ@@PZ4MUS 105|SURVEY OF POPULAR AND ROCK MUSIC|SMITH, TODD
-ó
-MUS 105 Survey of Popular and Rock Music3 ”—*Smith, Todd2
-MWF†“"PA 1559˘ßIçˇ@@PZ4MUS 105|SURVEY OF POPULAR AND ROCK MUSIC|SMITH, TODD
-{
-MUS 105 Survey of Popular and Rock Music3 Úø2"ONLINE ASNC(9˘ßIçˇ@@#P#Z)MUS 105|SURVEY OF POPULAR AND ROCK MUSIC|
-[
-MUS 106Intro to Hip-Hop3 É¡2"ONLINE ASNC(9=XMÎ∏@@PZMUS 106|INTRO TO HIP-HOP|
-[
-MUS 106Intro to Hip-Hop3 ∞≈2"ONLINE ASNC(9=XMÎ∏@@PZMUS 106|INTRO TO HIP-HOP|
-o
-MUS 108Survey of Video Game Music3 ë¬2"ONLINE ASNC(9-àÃ?	@@#P#Z#MUS 108|SURVEY OF VIDEO GAME MUSIC|
-s
-MUS 109Iconic Music in Iconic Films3 ‘∆2"ONLINE ASNC(9Xã∂‰»Ê@@#P#Z%MUS 109|ICONIC MUSIC IN ICONIC FILMS|
+MWF†“"PA 1559˘ßIçˇ@@åPåZ4MUS 105|SURVEY OF POPULAR AND ROCK MUSIC|SMITH, TODD
+ì
+MUS 105 Survey of Popular and Rock Music3 Úø*Smith, Todd2"ONLINE ASNC(9˘ßIçˇ@@#P#Z4MUS 105|SURVEY OF POPULAR AND ROCK MUSIC|SMITH, TODD
+w
+MUS 106Intro to Hip-Hop3 É¡*Senger, Lucas2"ONLINE ASNC(9=XMÎ∏@@PZ&MUS 106|INTRO TO HIP-HOP|SENGER, LUCAS
+w
+MUS 106Intro to Hip-Hop3 ∞≈*Senger, Lucas2"ONLINE ASNC(9=XMÎ∏@@PZ&MUS 106|INTRO TO HIP-HOP|SENGER, LUCAS
+ã
+MUS 108Survey of Video Game Music3 ë¬*Yoder, Rachel2"ONLINE ASNC(9{'@hI◊@@#P#Z0MUS 108|SURVEY OF VIDEO GAME MUSIC|YODER, RACHEL
+ï
+MUS 109Iconic Music in Iconic Films3 ‘∆*Camacho, Gustavo2"ONLINE ASNC(9Xã∂‰»Ê@@#P#Z5MUS 109|ICONIC MUSIC IN ICONIC FILMS|CAMACHO, GUSTAVO
 
 MUS 111Sight-Reading for Pianists1 ∑–*Widrig, Judith2
 "PA OFC(@PZ1MUS 111|SIGHT-READING FOR PIANISTS|WIDRIG, JUDITH
@@ -6626,16 +6617,16 @@ s
 }
 MUS 121BKeyboard Skills I1 π¬*Zavislak, Kay2
 TÑ∂"PA 1709Y%ÚæãX@@PZ(MUS 121B|KEYBOARD SKILLS I|ZAVISLAK, KAY
-}
-MUS 121BKeyboard Skills I1 ∫¬*Zavislak, Kay2
-R†“"PA 1709Y%ÚæãX@@PZ(MUS 121B|KEYBOARD SKILLS I|ZAVISLAK, KAY
+
+MUS 121BKeyboard Skills I1 ∫¬*Widrig, Judith2
+R†“"PA 1709Mú˙=∑ƒ	@@PZ)MUS 121B|KEYBOARD SKILLS I|WIDRIG, JUDITH
 
 MUS 121BKeyboard Skills I1 àÀ*Widrig, Judith2
 W‹é"PA 1709Mú˙=∑ƒ	@@PZ)MUS 121B|KEYBOARD SKILLS I|WIDRIG, JUDITH
-
-MUS 121BKeyboard Skills I1 ¬À*Widrig, Judith2
+}
+MUS 121BKeyboard Skills I1 ¬À*Zavislak, Kay2
 W¯
-™"PA 1709Mú˙=∑ƒ	@@PZ)MUS 121B|KEYBOARD SKILLS I|WIDRIG, JUDITH
+™"PA 1709Y%ÚæãX@@PZ(MUS 121B|KEYBOARD SKILLS I|ZAVISLAK, KAY
 °
 MUS 122#Theoretical and Analytical Skills I2 ∞√*Kavanagh, Amy2
 MWF†“"PA 0479jºtì@@PZ9MUS 122|THEORETICAL AND ANALYTICAL SKILLS I|KAVANAGH, AMY
@@ -6649,13 +6640,17 @@ Ray, James2
 ñ
 MUS 166AIntro to Voice Studies2 Å¡*Dudenbostel, Heather2
 TRÃ˛"PA 0169÷æaÌ@@PZ4MUS 166A|INTRO TO VOICE STUDIES|DUDENBOSTEL, HEATHER
-å
-MUS 197K,Survey of American Music History and Culture3 ≥◊2"ONLINE ASNC(@#P#Z6MUS 197K|SURVEY OF AMERICAN MUSIC HISTORY AND CULTURE|
+§
+MUS 197K,Survey of American Music History and Culture3 ≥◊*Nutt, Haley2"ONLINE ASNC(@#P#ZAMUS 197K|SURVEY OF AMERICAN MUSIC HISTORY AND CULTURE|NUTT, HALEY
+ä
+MUS 197LSightreading on Guitar1  ÿ*Schille-Hudson, Eli2
+R¯
+™"PA 047@PZ3MUS 197L|SIGHTREADING ON GUITAR|SCHILLE-HUDSON, ELI
 Å
 MUS 205 Survey of World Musical Cultures3 õπ2
-MWFËö"PA 1559êÖ%d@@ñPñZ)MUS 205|SURVEY OF WORLD MUSICAL CULTURES|
-{
-MUS 205 Survey of World Musical Cultures3 õ»2"ONLINE ASNC(9êÖ%d@@#P#Z)MUS 205|SURVEY OF WORLD MUSICAL CULTURES|
+MWF†“"PA 1559êÖ%d@@ñPñZ)MUS 205|SURVEY OF WORLD MUSICAL CULTURES|
+ü
+MUS 205 Survey of World Musical Cultures3 õ»*Wickell, Jeanette2"ONLINE ASNC(9Âë)'d∞@@#P#Z:MUS 205|SURVEY OF WORLD MUSICAL CULTURES|WICKELL, JEANETTE
 Å
 MUS 211Applied Instruction: Organ1-4 À¿*Widrig, Judith2
 "PA 155(@PZ1MUS 211|APPLIED INSTRUCTION: ORGAN|WIDRIG, JUDITH
@@ -6936,10 +6931,10 @@ Z7MUS 215|APPLIED INSTRUCTION: VOICE|DUDENBOSTEL, HEATHER
 í
 MUS 215Applied Instruction: Voice1-4 ∑…*Rozendaal, Jay2"PA(2
 "PA OFC(9™ehª∑@@PZ1MUS 215|APPLIED INSTRUCTION: VOICE|ROZENDAAL, JAY
-x
-MUS 215Applied Instruction: Voice1-4 ¿…2
+ò
+MUS 215Applied Instruction: Voice1-4 ¿…*Hodges, Richard2
 "PA OFC(2
-"PA OFC(9™ehª∑@@PZ#MUS 215|APPLIED INSTRUCTION: VOICE|
+"PA OFC(9333333@@PZ2MUS 215|APPLIED INSTRUCTION: VOICE|HODGES, RICHARD
 Ω
 MUS 216%Applied Instruction: Classical Guitar1-4 ôæ*Schille-Hudson, Eli2
 T¯
@@ -6989,12 +6984,12 @@ Z)MUS 218|APPLIED JAZZ LESSONS|WOODS, KEVIN
 "PA OFC(@
 P
 Z*MUS 231|ELEMENTARY COMPOSITION|SMITH, TODD
-å
-MUS 231Elementary Composition0-2 ∞Õ*Sommer, Lesley2
+é
+MUS 231Elementary Composition0-2 ∞Õ*Hamilton, Bruce2
 Mﬁ÷"PA 0472
 "PA OFC(@
 P
-Z-MUS 231|ELEMENTARY COMPOSITION|SOMMER, LESLEY
+Z.MUS 231|ELEMENTARY COMPOSITION|HAMILTON, BRUCE
 å
 MUS 231Elementary Composition0-2 ∏√*Halka, Charles2
 Mﬁ÷"PA 0472
@@ -7004,9 +6999,9 @@ Z-MUS 231|ELEMENTARY COMPOSITION|HALKA, CHARLES
 {
 MUS 261Intermediate Class Piano1 Œ∫*Widrig, Judith2
 "PA 170(@PZ/MUS 261|INTERMEDIATE CLASS PIANO|WIDRIG, JUDITH
-≠
-MUS 263*Vocal Techniques for Instrumental Teachers1 ‘ *Alcorn, Holly2
-RÑ∂"PA 0169]\\\\\@@PZ@MUS 263|VOCAL TECHNIQUES FOR INSTRUMENTAL TEACHERS|ALCORN, HOLLY
+±
+MUS 263*Vocal Techniques for Instrumental Teachers1 ‘ *Hodges, Richard2
+WÃ˛"PA 0169]\\\\\@@PZBMUS 263|VOCAL TECHNIQUES FOR INSTRUMENTAL TEACHERS|HODGES, RICHARD
 á
 MUS 264MDouble Reed Pedagogy1 Ôø*Weeks, Jennifer2
 FÑ∂"PA 0249µü!Ï≈Û@@PZ-MUS 264M|DOUBLE REED PEDAGOGY|WEEKS, JENNIFER
@@ -7252,12 +7247,12 @@ Z2MUS 315|APPLIED INSTRUCTION: VOICE|HODGES, RICHARD
 "PA OFC(@
 P
 Z5MUS 315|APPLIED INSTRUCTION: VOICE|PLAGEMANN, MELISSA
-o
-MUS 315Applied Instruction: Voice1-4 æÀ2
+è
+MUS 315Applied Instruction: Voice1-4 æÀ*Hodges, Richard2
 "PA 016(2
 "PA OFC(@
 P
-Z#MUS 315|APPLIED INSTRUCTION: VOICE|
+Z2MUS 315|APPLIED INSTRUCTION: VOICE|HODGES, RICHARD
 â
 MUS 315Applied Instruction: Voice1-4 «¬*Rozendaal, Jay2"PA(2
 "PA OFC(@
@@ -7279,12 +7274,12 @@ t
 "PA OFC(@
 P
 Z"MUS 331|COMPOSITION|HALKA, CHARLES
-t
-MUS 331Composition3 —«*Sommer, Lesley2
+v
+MUS 331Composition3 —«*Hamilton, Bruce2
 Mﬁ÷"PA 0472
 "PA OFC(@
 P
-Z"MUS 331|COMPOSITION|SOMMER, LESLEY
+Z#MUS 331|COMPOSITION|HAMILTON, BRUCE
 ã
 MUS 334Jazz Theory and Improv. I3 √¬*Woods, Kevin2
 MWFÃ˛"PA 1109˘0Ó◊%ï@@PZ.MUS 334|JAZZ THEORY AND IMPROV. I|WOODS, KEVIN
@@ -7464,10 +7459,10 @@ Z8MUS 414K|APPLIED INSTRUCTION: PERCUSSION|ROULET, PATRICK
 â
 MUS 415Applied Instruction: Voice1-4 ◊¡*Rozendaal, Jay2
 "PA OFC(2"PA(@PZ1MUS 415|APPLIED INSTRUCTION: VOICE|ROZENDAAL, JAY
-o
-MUS 415Applied Instruction: Voice1-4 øÀ2
+è
+MUS 415Applied Instruction: Voice1-4 øÀ*Hodges, Richard2
 "PA 016(2
-"PA OFC(@PZ#MUS 415|APPLIED INSTRUCTION: VOICE|
+"PA OFC(@PZ2MUS 415|APPLIED INSTRUCTION: VOICE|HODGES, RICHARD
 ¥
 MUS 416%Applied Instruction: Classical Guitar1-4 úæ*Schille-Hudson, Eli2
 T¯
@@ -7478,16 +7473,14 @@ ZAMUS 416|APPLIED INSTRUCTION: CLASSICAL GUITAR|SCHILLE-HUDSON, ELI
 ç
 MUS 418"Applied Jazz Improvisation Lessons1-4 »ƒ*Woods, Kevin2
 "PA 110(@PZ7MUS 418|APPLIED JAZZ IMPROVISATION LESSONS|WOODS, KEVIN
-t
-MUS 431Composition3 ∞ø*Sommer, Lesley2
+v
+MUS 431Composition3 ∞ø*Hamilton, Bruce2
 Mﬁ÷"PA 0472
-"PA OFC(@PZ"MUS 431|COMPOSITION|SOMMER, LESLEY
+"PA OFC(@PZ#MUS 431|COMPOSITION|HAMILTON, BRUCE
 t
 MUS 431Composition3 π√*Halka, Charles2
 Mﬁ÷"PA 0472
 "PA OFC(@PZ"MUS 431|COMPOSITION|HALKA, CHARLES
--
-MUS 441Notation3 Î–ZMUS 441|NOTATION|
 e
 MUS 442Intro to Musicology4 ùπ2
 TRË˛"PA 376B9 ¯Å¯Å@@
@@ -7653,10 +7646,10 @@ Bain, Paul2
 n
 MUS 531Orchestration3 π…*Halka, Charles2
 MWFÃ˛"PA 027@PZ$MUS 531|ORCHESTRATION|HALKA, CHARLES
-t
-MUS 534Composition4 ⁄¿*Sommer, Lesley2
+v
+MUS 534Composition4 ⁄¿*Hamilton, Bruce2
 Mﬁ÷"PA 0472
-"PA OFC(@PZ"MUS 534|COMPOSITION|SOMMER, LESLEY
+"PA OFC(@PZ#MUS 534|COMPOSITION|HAMILTON, BRUCE
 t
 MUS 534Composition4 ª≈*Halka, Charles2
 Mﬁ÷"PA 0472
@@ -7780,7 +7773,7 @@ Li, Jiexun2
 §
 OPS 466'Supply Chain Management and Procurement4 ¨ƒ*Hua, Stella2
 MW∞	∆
-"AW 4039p+∑Bq@@PZ;OPS 466|SUPPLY CHAIN MANAGEMENT AND PROCUREMENT|HUA, STELLA
+"AW 4039p+∑Bq@@PZ;OPS 466|SUPPLY CHAIN MANAGEMENT AND PROCUREMENT|HUA, STELLA
 …
 PHIL 1124Introduction to Philosophy: Ethics and the Good Life3 É¿*Wasserman, Ryan2
 MWFËö"BH 4199›©vC@@-P-ZMPHIL 112|INTRODUCTION TO PHILOSOPHY: ETHICS AND THE GOOD LIFE|WASSERMAN, RYAN
@@ -7929,68 +7922,69 @@ O
 {
 PA 177Basic Kayak Touring1 âÿ*Edgerly, Dominique2
 TRŒ	å"LW@PZ-PA 177|BASIC KAYAK TOURING|EDGERLY, DOMINIQUE
-{
-PA 177Basic Kayak Touring1 äÿ*Edgerly, Dominique2
-TRñ‘"LW@PZ-PA 177|BASIC KAYAK TOURING|EDGERLY, DOMINIQUE
-u
-PE 101!Beginning Strength & Conditioning1 ù¬2
-MWÑ∂"CV 101@PZ)PE 101|BEGINNING STRENGTH & CONDITIONING|
-u
-PE 101!Beginning Strength & Conditioning1 °√2
-MWËö"CV 101@PZ)PE 101|BEGINNING STRENGTH & CONDITIONING|
-u
-PE 101!Beginning Strength & Conditioning1 ˆ≈2
-TRÑ∂"CV 101@PZ)PE 101|BEGINNING STRENGTH & CONDITIONING|
-O
-PE 104Beginning Yoga1 û¬2
-MWËö"SV 201@PZPE 104|BEGINNING YOGA|
-O
-PE 104Beginning Yoga1 ü¬2
-MWÃ˛"SV 201@PZPE 104|BEGINNING YOGA|
-O
-PE 104Beginning Yoga1 †¬2
-TRËö"SV 201@PZPE 104|BEGINNING YOGA|
-O
-PE 104Beginning Yoga1 °¬2
-TRÃ˛"SV 201@PZPE 104|BEGINNING YOGA|
-W
-PE 107Beginning Swimming1 ’ƒ2
-TR†“"SV 108@	P	ZPE 107|BEGINNING SWIMMING|
-e
-PE 108Beginning Weight Training1 ®¬2
-TRËö"CV 105@PZ!PE 108|BEGINNING WEIGHT TRAINING|
-e
-PE 108Beginning Weight Training1 ©¬2
-TRÃ˛"CV 105@PZ!PE 108|BEGINNING WEIGHT TRAINING|
-e
-PE 108Beginning Weight Training1 ™¬2
-MWÃ˛"CV 105@PZ!PE 108|BEGINNING WEIGHT TRAINING|
-Z
-PE 110Yoga for Restoration1 ®…2
-F†∂"SV 201@PZPE 110|YOGA FOR RESTORATION|
+y
+PA 177Basic Kayak Touring1 äÿ*Freedman, Gregory2
+TRñ‘"LW@PZ,PA 177|BASIC KAYAK TOURING|FREEDMAN, GREGORY
+ï
+PE 101!Beginning Strength & Conditioning1 ù¬*Morton, Tiffany2
+MWÑ∂"CV 101@PZ8PE 101|BEGINNING STRENGTH & CONDITIONING|MORTON, TIFFANY
+ï
+PE 101!Beginning Strength & Conditioning1 °√*Morton, Tiffany2
+MWËö"CV 101@PZ8PE 101|BEGINNING STRENGTH & CONDITIONING|MORTON, TIFFANY
+ï
+PE 101!Beginning Strength & Conditioning1 ˆ≈*Morton, Tiffany2
+TRÑ∂"CV 101@PZ8PE 101|BEGINNING STRENGTH & CONDITIONING|MORTON, TIFFANY
+s
+PE 104Beginning Yoga1 û¬*Williams, Melanie2
+MWËö"SV 201@PZ'PE 104|BEGINNING YOGA|WILLIAMS, MELANIE
+s
+PE 104Beginning Yoga1 ü¬*Williams, Melanie2
+MWÃ˛"SV 201@PZ'PE 104|BEGINNING YOGA|WILLIAMS, MELANIE
+s
+PE 104Beginning Yoga1 †¬*Williams, Melanie2
+TRËö"SV 201@PZ'PE 104|BEGINNING YOGA|WILLIAMS, MELANIE
+s
+PE 104Beginning Yoga1 °¬*Williams, Melanie2
+TRÃ˛"SV 201@PZ'PE 104|BEGINNING YOGA|WILLIAMS, MELANIE
+}
+PE 107Beginning Swimming1 ’ƒ*Williams, Richelle2
+TR†“"SV 108@	P	Z,PE 107|BEGINNING SWIMMING|WILLIAMS, RICHELLE
+Ö
+PE 108Beginning Weight Training1 ®¬*Morton, Tiffany2
+TRËö"CV 105@PZ0PE 108|BEGINNING WEIGHT TRAINING|MORTON, TIFFANY
+Ö
+PE 108Beginning Weight Training1 ©¬*Morton, Tiffany2
+TRÃ˛"CV 105@PZ0PE 108|BEGINNING WEIGHT TRAINING|MORTON, TIFFANY
+Ö
+PE 108Beginning Weight Training1 ™¬*Morton, Tiffany2
+MWÃ˛"CV 105@PZ0PE 108|BEGINNING WEIGHT TRAINING|MORTON, TIFFANY
+p
+PE 110Yoga for Restoration1 ®…*
+Clift, Liz2
+F†∂"SV 201@PZ&PE 110|YOGA FOR RESTORATION|CLIFT, LIZ
 U
 PE 111Beginning Pilates1 ´¬2
 MWÑ∂"SV 222@PZPE 111|BEGINNING PILATES|
-m
-PE 119Intro to Indoor Rock Climbing1 ÌÃ2
-TRËö"SV 152@PZ%PE 119|INTRO TO INDOOR ROCK CLIMBING|
-m
-PE 119Intro to Indoor Rock Climbing1 ·—2
-MW†“"SV 152@PZ%PE 119|INTRO TO INDOOR ROCK CLIMBING|
-=
-PE 125Zumba1 àÿ2
-MWÑ∂"SV 222@PZPE 125|ZUMBA|
-Y
-PE 132Beginning Badminton1 ëÀ2
-MWÑ∂"CV 240@PZPE 132|BEGINNING BADMINTON|
+ç
+PE 119Intro to Indoor Rock Climbing1 ÌÃ*Siegfried, Dane2
+TRËö"SV 152@PZ4PE 119|INTRO TO INDOOR ROCK CLIMBING|SIEGFRIED, DANE
+ç
+PE 119Intro to Indoor Rock Climbing1 ·—*Siegfried, Dane2
+MW†“"SV 152@PZ4PE 119|INTRO TO INDOOR ROCK CLIMBING|SIEGFRIED, DANE
 [
-PE 134Beginning Pickleball1 ¨¬2
-MWËö"CV 240@PZPE 134|BEGINNING PICKLEBALL|
-[
-PE 134Beginning Pickleball1 ≠¬2
-MWÃ˛"CV 240@PZPE 134|BEGINNING PICKLEBALL|
+PE 125Zumba1 àÿ*Jenkins, Maria2
+MWÑ∂"SV 222@PZPE 125|ZUMBA|JENKINS, MARIA
+É
+PE 132Beginning Badminton1 ëÀ*MacIntyre Witt, Jill2
+MWÑ∂"CV 240@PZ/PE 132|BEGINNING BADMINTON|MACINTYRE WITT, JILL
 Ö
-PE 139Beginning Racquetball1 „—2
+PE 134Beginning Pickleball1 ¨¬*MacIntyre Witt, Jill2
+MWËö"CV 240@PZ0PE 134|BEGINNING PICKLEBALL|MACINTYRE WITT, JILL
+Ö
+PE 134Beginning Pickleball1 ≠¬*MacIntyre Witt, Jill2
+MWÃ˛"CV 240@PZ0PE 134|BEGINNING PICKLEBALL|MACINTYRE WITT, JILL
+Ø
+PE 139Beginning Racquetball1 „—*MacIntyre Witt, Jill2
 MWî
 ∆
 "CV 1642
@@ -7999,37 +7993,37 @@ Y
 "CV 1662
 MWî
 ∆
-"CV 165@	P	ZPE 139|BEGINNING RACQUETBALL|
+"CV 165@	P	Z1PE 139|BEGINNING RACQUETBALL|MACINTYRE WITT, JILL
 }
 PE 144Beginning Soccer1 ¯≈*MacIntyre Witt, Jill2
 TR¯
 ™"CV 210@PZ,PE 144|BEGINNING SOCCER|MACINTYRE WITT, JILL
-[
-PE 145Beginning Volleyball1 Ì≈2
-TRÑ∂"CV 240@PZPE 145|BEGINNING VOLLEYBALL|
-a
-PE 149Beginning Ultimate Disc1 ∏¡2
+Ö
+PE 145Beginning Volleyball1 Ì≈*MacIntyre Witt, Jill2
+TRÑ∂"CV 240@PZ0PE 145|BEGINNING VOLLEYBALL|MACINTYRE WITT, JILL
+ã
+PE 149Beginning Ultimate Disc1 ∏¡*MacIntyre Witt, Jill2
 TRî
 ∆
-"CV 210@PZPE 149|BEGINNING ULTIMATE DISC|
-Z
-PE 167Intro to Mountain Biking1 ‰—2	
+"CV 210@PZ3PE 149|BEGINNING ULTIMATE DISC|MACINTYRE WITT, JILL
+Ä
+PE 167Intro to Mountain Biking1 ‰—*Edgerly, Dominique2	
 F∞	™@
 P
-Z PE 167|INTRO TO MOUNTAIN BIKING|
-[
-PE 173Swimming for Fitness1 Â—2
-TRÑ∂"SV 108@	P	ZPE 173|SWIMMING FOR FITNESS|
-U
-PE 177Basic Kayak Touring1 ∞¬2
+Z2PE 167|INTRO TO MOUNTAIN BIKING|EDGERLY, DOMINIQUE
+Å
+PE 173Swimming for Fitness1 Â—*Williams, Richelle2
+TRÑ∂"SV 108@	P	Z.PE 173|SWIMMING FOR FITNESS|WILLIAMS, RICHELLE
+{
+PE 177Basic Kayak Touring1 ∞¬*Edgerly, Dominique2
 TRŒ	å"LW@
 P
-ZPE 177|BASIC KAYAK TOURING|
-U
-PE 177Basic Kayak Touring1 Á—2
+Z-PE 177|BASIC KAYAK TOURING|EDGERLY, DOMINIQUE
+{
+PE 177Basic Kayak Touring1 Á—*Edgerly, Dominique2
 TRñ‘"LW@
 P
-ZPE 177|BASIC KAYAK TOURING|
+Z-PE 177|BASIC KAYAK TOURING|EDGERLY, DOMINIQUE
 w
 PE 181Intercollegiate Basketball2 ©Ω*Dominguez, Tony2(@PZ1PE 181|INTERCOLLEGIATE BASKETBALL|DOMINGUEZ, TONY
 s
@@ -8064,6 +8058,11 @@ w
 PE 345(Physical Education for Elementary School3 Áª*Robey, Hillary2
 MWFÑ∂"CV 2802
 MWFÑ∂"CV 2729%{9RP⁄@@PZ>PE 345|PHYSICAL EDUCATION FOR ELEMENTARY SCHOOL|ROBEY, HILLARY
+¶
+PE 345(Physical Education for Elementary School3 ∞ÿ*Severson, Derek2§¥"O-BT9UUUUUU@@PZ?PE 345|PHYSICAL EDUCATION FOR ELEMENTARY SCHOOL|SEVERSON, DEREK
+ß
+PE 345(Physical Education for Elementary School3 ªÿ*Robey, Hillary2
+M§¥"O-EV9%{9RP⁄@@PZ>PE 345|PHYSICAL EDUCATION FOR ELEMENTARY SCHOOL|ROBEY, HILLARY
 Œ
 PEH 340.Block I: Elementary Physical Education Methods5 “–*Robey, Hillary2
 MWFË˛"CV 2802
@@ -8099,15 +8098,17 @@ w
 "CF 1102
 T¯
 é"CF 3119_»˜òV€@@PZ/PHYS 116|PRINCIPLES OF PHYSICS III|FROM, MILTON
-´
-PHYS 161Physics with Calculus I5 „¬*Rahmanisisan, Armin2
+ù
+PHYS 161Physics with Calculus I5 „¬*Covey, Kevin2
 T¯
-é"CF 3022
-MWRF‹é"CF 1109Ÿ…ΩÙ›@@PZ4PHYS 161|PHYSICS WITH CALCULUS I|RAHMANISISAN, ARMIN
-´
-PHYS 161Physics with Calculus I5 Õ—*Rahmanisisan, Armin2
+é"CF 3102
+MWRF‹é"CF 1109ﬁi
+Ïê@@PZ-PHYS 161|PHYSICS WITH CALCULUS I|COVEY, KEVIN
+ù
+PHYS 161Physics with Calculus I5 Õ—*Covey, Kevin2
 MWRF‹é"CF 1102
-T¿÷"CF 3109Ÿ…ΩÙ›@@PZ4PHYS 161|PHYSICS WITH CALCULUS I|RAHMANISISAN, ARMIN
+T¿÷"CF 3109ﬁi
+Ïê@@PZ-PHYS 161|PHYSICS WITH CALCULUS I|COVEY, KEVIN
 ù
 PHYS 161Physics with Calculus I5 Å¬*Seda, Takele2
 R†∂"CF 3102
@@ -8119,8 +8120,7 @@ w
 ù
 PHYS 161Physics with Calculus I5 É¬*Seda, Takele2
 MTWFËö"CF 1052
-Rî
-™"CF 3109–¥-A@@PZ-PHYS 161|PHYSICS WITH CALCULUS I|SEDA, TAKELE
+R‹Ú"CF 3109–¥-A@@PZ-PHYS 161|PHYSICS WITH CALCULUS I|SEDA, TAKELE
 ß
 PHYS 161Physics with Calculus I5 ®ø*Boudreaux, Andrew2
 MTWFÑ∂"CF 1052
@@ -8143,28 +8143,25 @@ w
 MTWFÑ∂"CF 1052
 Rî
 ™"CF 3029ê¬ı(\o@@PZ2PHYS 161|PHYSICS WITH CALCULUS I|BOUDREAUX, ANDREW
-ù
-PHYS 161Physics with Calculus I5 á¬*Covey, Kevin2
+´
+PHYS 161Physics with Calculus I5 á¬*Rahmanisisan, Armin2
 MTWFî
 ∆
 "CF 1052
 Rî
-™"CF 3109ﬁi
-Ïê@@PZ-PHYS 161|PHYSICS WITH CALCULUS I|COVEY, KEVIN
-ù
-PHYS 161Physics with Calculus I5 à¬*Covey, Kevin2
+™"CF 3109Ÿ…ΩÙ›@@PZ4PHYS 161|PHYSICS WITH CALCULUS I|RAHMANISISAN, ARMIN
+´
+PHYS 161Physics with Calculus I5 à¬*Rahmanisisan, Armin2
 MTWFî
 ∆
 "CF 1052
-R‹Ú"CF 3029ﬁi
-Ïê@@PZ-PHYS 161|PHYSICS WITH CALCULUS I|COVEY, KEVIN
-ù
-PHYS 161Physics with Calculus I5 â¬*Covey, Kevin2
+R‹Ú"CF 3029Ÿ…ΩÙ›@@PZ4PHYS 161|PHYSICS WITH CALCULUS I|RAHMANISISAN, ARMIN
+´
+PHYS 161Physics with Calculus I5 â¬*Rahmanisisan, Armin2
 MTWFî
 ∆
 "CF 1052
-R§∫"CF 3029ﬁi
-Ïê@@PZ-PHYS 161|PHYSICS WITH CALCULUS I|COVEY, KEVIN
+R§∫"CF 3029Ÿ…ΩÙ›@@PZ4PHYS 161|PHYSICS WITH CALCULUS I|RAHMANISISAN, ARMIN
 °
 PHYS 161Physics with Calculus I5 ä¬*Peden, Brandon2
 T∞	∆
@@ -8177,19 +8174,16 @@ w
 ™"CF 1052
 T¯
 é"CF 3029<%»SÇ<@@PZ/PHYS 161|PHYSICS WITH CALCULUS I|PEDEN, BRANDON
-ß
-PHYS 161Physics with Calculus I5 å¬*Fleischer, Svenja2
+°
+PHYS 161Physics with Calculus I5 å¬*Peden, Brandon2
 MWRF¯
 ™"CF 1052
-T¿÷"CF 3029#;Ûˆ∏l@@PZ2PHYS 161|PHYSICS WITH CALCULUS I|FLEISCHER, SVENJA
-´
-PHYS 161Physics with Calculus I5 »¬*Rahmanisisan, Armin2
-T†∂"CF 3022
-MWRF‹é"CF 1109Ÿ…ΩÙ›@@PZ4PHYS 161|PHYSICS WITH CALCULUS I|RAHMANISISAN, ARMIN
-´
-PHYS 161Physics with Calculus I5 …¬*Rahmanisisan, Armin2
+T¿÷"CF 3029<%»SÇ<@@PZ/PHYS 161|PHYSICS WITH CALCULUS I|PEDEN, BRANDON
+ù
+PHYS 161Physics with Calculus I5 …¬*Covey, Kevin2
 TË˛"CF 3102
-MWRF‹é"CF 1109Ÿ…ΩÙ›@@PZ4PHYS 161|PHYSICS WITH CALCULUS I|RAHMANISISAN, ARMIN
+MWRF‹é"CF 1109ﬁi
+Ïê@@PZ-PHYS 161|PHYSICS WITH CALCULUS I|COVEY, KEVIN
 ß
 PHYS 161Physics with Calculus I5 ßø*Boudreaux, Andrew2
 R†∂"CF 3022
@@ -8251,8 +8245,7 @@ Huynh, Tra2
 MTWFÃ˛"CF 3169M◊tM◊t	@@PZ5PHYS 335|STATISTICAL AND THERMAL PHYSICS|SEDA, TAKELE
 ã
 PHYS 345Quantum Computing3 ®’*Rahmanisisan, Armin2
-MWF¯
-™"CF 3149∂R+µR+@@PZ.PHYS 345|QUANTUM COMPUTING|RAHMANISISAN, ARMIN
+MWF∞	‚	"AH 0049∂R+µR+@@PZ.PHYS 345|QUANTUM COMPUTING|RAHMANISISAN, ARMIN
 ç
 PHYS 363Classical Mechanics4 ø∫*	Le, Thanh2
 T∞	∆
@@ -8266,7 +8259,8 @@ Roe, Ellis2
 MTWFÃ˛"CF 3149S˙G∑1@@PZ(PHYS 365|MATHEMATICAL PHYSICS|ROE, ELLIS
 è
 PHYS 455Quantum Mechanics I3 ¿∫*Rahmanisisan, Armin2
-MWFËö"CF 3149ÆG·zÆ@@PZ0PHYS 455|QUANTUM MECHANICS I|RAHMANISISAN, ARMIN
+MWF¯
+™"CF 3149ÆG·zÆ@@PZ0PHYS 455|QUANTUM MECHANICS I|RAHMANISISAN, ARMIN
 }
 PHYS 491Independent Research1-3  ∫*Boudreaux, Andrew2
 "CF OFC(@PZ/PHYS 491|INDEPENDENT RESEARCH|BOUDREAUX, ANDREW
@@ -8434,8 +8428,10 @@ ZKPME 295|INTRODUCTION TO DIRECTED RESEARCH IN POLYMER MATERIALS|PEYRON, MARK
 "ET OFC(@
 P
 ZKPME 295|INTRODUCTION TO DIRECTED RESEARCH IN POLYMER MATERIALS|MISASI, JOHN
-X
-PME 300Directed Independent Study1-15  2(Z#PME 300|DIRECTED INDEPENDENT STUDY|
+\
+PME 300Directed Independent Study1-15  2(@
+P
+Z#PME 300|DIRECTED INDEPENDENT STUDY|
 ≤
 PME 3710Introduction to Plastics Materials and Processes5 € *	Gao, Peng2
 MWË˛"ET 1069jÅ¢≠@@PZBPME 371|INTRODUCTION TO PLASTICS MATERIALS AND PROCESSES|GAO, PENG
@@ -8464,8 +8460,10 @@ Z;PME 395|DIRECTED RESEARCH IN POLYMER MATERIALS|MISASI, JOHN
 "ET OFC(@
 P
 Z;PME 395|DIRECTED RESEARCH IN POLYMER MATERIALS|RIDER, DAVID
-X
-PME 400Directed Independent Study1-15 ı 2(Z#PME 400|DIRECTED INDEPENDENT STUDY|
+\
+PME 400Directed Independent Study1-15 ı 2(@
+P
+Z#PME 400|DIRECTED INDEPENDENT STUDY|
 å
 PME 402Cooperative Internship1-4 ˆ *McDevitt Larson, Nicole2(9±‰K~@@
 P
@@ -8518,8 +8516,8 @@ ZGPME 495|DIRECTED RESEARCH IN POLYMER MATERIALS ENGINEERING|MISASI, JOHN
 "ET OFC(9      @@
 P
 ZGPME 495|DIRECTED RESEARCH IN POLYMER MATERIALS ENGINEERING|RIDER, DAVID
-j
-PSEC 309Storytelling Oral Narrative4 ı–2"ONLINE ASNC(@PZ%PSEC 309|STORYTELLING ORAL NARRATIVE|
+à
+PSEC 309Storytelling Oral Narrative4 ı–*Vohs, Rosemary2"ONLINE ASNC(@PZ3PSEC 309|STORYTELLING ORAL NARRATIVE|VOHS, ROSEMARY
 ë
 PSY 101Introduction to Psychology5 ∂∫*Symons, Larry2
 MWFî
@@ -8587,44 +8585,44 @@ d
 ñ
 PSY 305Scientific Thinking and Writing5 ¯»*Bell, Angela2
 TR¯
-é"AH 0159b¡√ÒÚâ@@PZ4PSY 305|SCIENTIFIC THINKING AND WRITING|BELL, ANGELA
+é"AH 0159b¡√ÒÚâ@@PZ4PSY 305|SCIENTIFIC THINKING AND WRITING|BELL, ANGELA
 ú
 PSY 305Scientific Thinking and Writing5 ˘»*Delker, Brianna2
-TRË˛"AI 1949gffffæ@@PZ7PSY 305|SCIENTIFIC THINKING AND WRITING|DELKER, BRIANNA
+TRË˛"AI 1949gffffæ@@PZ7PSY 305|SCIENTIFIC THINKING AND WRITING|DELKER, BRIANNA
 ö
 PSY 305Scientific Thinking and Writing5 ˙»*Delucio, Kevin2
 TR∞	∆
-"BH 1109b¡√ÒÚâ@@PZ6PSY 305|SCIENTIFIC THINKING AND WRITING|DELUCIO, KEVIN
+"BH 1109b¡√ÒÚâ@@PZ6PSY 305|SCIENTIFIC THINKING AND WRITING|DELUCIO, KEVIN
 ó
 PSY 305Scientific Thinking and Writing5 ˚»*Lemm, Kristi2
-MWFË‡"BH 1109’Íò‡¡<@@PZ4PSY 305|SCIENTIFIC THINKING AND WRITING|LEMM, KRISTI
+MWFË‡"BH 1109’Íò‡¡<@@PZ4PSY 305|SCIENTIFIC THINKING AND WRITING|LEMM, KRISTI
 §
 PSY 305Scientific Thinking and Writing5 ¸»*Mallinckrodt, Brent2
 TR∞	∆
-"AW 4129›:âJ@@@PZ;PSY 305|SCIENTIFIC THINKING AND WRITING|MALLINCKRODT, BRENT
+"AW 4129›:âJ@@@PZ;PSY 305|SCIENTIFIC THINKING AND WRITING|MALLINCKRODT, BRENT
 ñ
 PSY 305Scientific Thinking and Writing5 ÖÃ*McLean, Kate2
 TR¯
-é"AI 19492~ª‘ìÒ@@PZ4PSY 305|SCIENTIFIC THINKING AND WRITING|MCLEAN, KATE
+é"AI 19492~ª‘ìÒ@@PZ4PSY 305|SCIENTIFIC THINKING AND WRITING|MCLEAN, KATE
 ó
 PSY 305Scientific Thinking and Writing5 ûœ*Warren, Mike2
-MWFÍ‚	"BH 1109Ÿ≥jÿ≥j@@PZ4PSY 305|SCIENTIFIC THINKING AND WRITING|WARREN, MIKE
+MWFÍ‚	"BH 1109Ÿ≥jÿ≥j@@PZ4PSY 305|SCIENTIFIC THINKING AND WRITING|WARREN, MIKE
 ó
 PSY 305Scientific Thinking and Writing5 üœ*Warren, Mike2
-MWFæ∂"AW 4129Ÿ≥jÿ≥j@@PZ4PSY 305|SCIENTIFIC THINKING AND WRITING|WARREN, MIKE
+MWFæ∂"AW 4129Ÿ≥jÿ≥j@@PZ4PSY 305|SCIENTIFIC THINKING AND WRITING|WARREN, MIKE
 ≈
 PSY 3063Correlational Approaches to Research and Statistics5 ˝»*Warren, Michael2
-MWFË‡"AW 20398r•/	@@'P'ZKPSY 306|CORRELATIONAL APPROACHES TO RESEARCH AND STATISTICS|WARREN, MICHAEL
+MWFË‡"AW 20398r•/	@@&P&ZKPSY 306|CORRELATIONAL APPROACHES TO RESEARCH AND STATISTICS|WARREN, MICHAEL
 Ã
 PSY 3063Correlational Approaches to Research and Statistics5 ˛»*MacDonald, Samantha2
-TRË˛"AW 2039¿û„-s‰	@@'P'ZOPSY 306|CORRELATIONAL APPROACHES TO RESEARCH AND STATISTICS|MACDONALD, SAMANTHA
+TRË˛"AW 2039¿û„-s‰	@@&P&ZOPSY 306|CORRELATIONAL APPROACHES TO RESEARCH AND STATISTICS|MACDONALD, SAMANTHA
 ª
 PSY 3072Experimental Approaches to Research and Statistics5 ˇ»*Czopp, Alex2
 MWFî
 å"AW 3069n’Vm’V	@@(P(ZFPSY 307|EXPERIMENTAL APPROACHES TO RESEARCH AND STATISTICS|CZOPP, ALEX
 ∆
 PSY 3072Experimental Approaches to Research and Statistics5 Ä…*Gonzalez, Antonya2
-TR¿÷"AW 2039ò8ı{nâ@@(P(ZLPSY 307|EXPERIMENTAL APPROACHES TO RESEARCH AND STATISTICS|GONZALEZ, ANTONYA
+TR¿÷"AW 3069ò8ı{nâ@@(P(ZLPSY 307|EXPERIMENTAL APPROACHES TO RESEARCH AND STATISTICS|GONZALEZ, ANTONYA
 ë
 PSY 310Sensation and Perception5 ãÿ*Matsukura, Michi2
 MWFî
@@ -8659,18 +8657,10 @@ q
 PSY 335Socioemotional Development5 Ô÷*Gonzalez, Antonya2
 TR∞	∆
 "AW 3029Â+æ‚+Æ@@PZ4PSY 335|SOCIOEMOTIONAL DEVELOPMENT|GONZALEZ, ANTONYA
-}
-PSY 343Social Processes5 ÷*Sattler, David2
-MWFÍ‚	"AW 2059.ïÌ]@@PZ'PSY 343|SOCIAL PROCESSES|SATTLER, DAVID
 í
 PSY 344Psychology and the Law5 ¢œ*Devenport, Jennifer2
 TR∞	∆
 "MH 1059ïy√'B¯@@PZ2PSY 344|PSYCHOLOGY AND THE LAW|DEVENPORT, JENNIFER
-∏
-PSY 346+Stereotyping, Prejudice, and Discrimination5 Öÿ*Villicana, Adrian2
-TR¯
-é"AW 4039jÔº>É
-@@PZEPSY 346|STEREOTYPING, PREJUDICE, AND DISCRIMINATION|VILLICANA, ADRIAN
 ∏
 PSY 346+Stereotyping, Prejudice, and Discrimination5 °ÿ*Villicana, Adrian2
 TR†∂"AW 4069jÔº>É
@@ -8686,9 +8676,9 @@ q
 PSY 359Foundations of Counseling5 …*Sowell, Shaun2
 TR¯
 é"AW 3059ì(¶¥]g@@PZ/PSY 359|FOUNDATIONS OF COUNSELING|SOWELL, SHAUN
-õ
+ü
 PSY 376$Psychology of Romantic Relationships5 Ò÷*Graham, Jim2
-MWFñé"CF 2319√sä∂@Z8PSY 376|PSYCHOLOGY OF ROMANTIC RELATIONSHIPS|GRAHAM, JIM
+MWFñé"CF 2319√sä∂@@PZ8PSY 376|PSYCHOLOGY OF ROMANTIC RELATIONSHIPS|GRAHAM, JIM
 Å
 PSY 379Psychology of Sexuality5 Ú÷*Delucio, Kevin2
 TRË˛"AW 305@PZ.PSY 379|PSYCHOLOGY OF SEXUALITY|DELUCIO, KEVIN
@@ -8706,9 +8696,6 @@ d
 PSY 442Seminar in Social Psychology5 éÃ*Devenport, Jennifer2
 TR¯
 é"BH 1109vyHdT@@PZ8PSY 442|SEMINAR IN SOCIAL PSYCHOLOGY|DEVENPORT, JENNIFER
-ï
-PSY 442Seminar in Social Psychology5 £œ*Sattler, David2
-MWFæ∂"AW 4109ÙIüÙI_@@PZ3PSY 442|SEMINAR IN SOCIAL PSYCHOLOGY|SATTLER, DAVID
 ¬
 PSY 4511Seminar in Mental Health Topics and Interventions5 ª∫*Byrne, Christina2
 TR∞	∆
@@ -8785,8 +8772,6 @@ ZPSY 690|THESIS|
 u
 PSY 699Continuous Enrollment2 ⁄¡*Patrick, David2
 "AI OFC(@PZ,PSY 699|CONTINUOUS ENROLLMENT|PATRICK, DAVID
-|
-RDG 501Foundations in Literacy4 ä“*Coskie, Tracy2"ONLINE SYNC(@PZ-RDG 501|FOUNDATIONS IN LITERACY|COSKIE, TRACY
 •
 RDG 504(Intermediate and Disciplinary Literacies4 ¿◊*Coskie, Tracy2
 W¬»"ONLINE SYNC@PZ>RDG 504|INTERMEDIATE AND DISCIPLINARY LITERACIES|COSKIE, TRACY
@@ -8814,14 +8799,13 @@ u
 †
 RECR 444 Recreation Budgeting and Finance4 ÿ∏*Burtz, Randall2
 MTWRÃ˛"CV 2079ÃΩ£Â”@@2P2Z8RECR 444|RECREATION BUDGETING AND FINANCE|BURTZ, RANDALL
+|
+RECR 450Recreation Program Evaluation4 ¥ÿ2
+MTWRËö"CV 2079˛ö“ƒ@@2P2Z'RECR 450|RECREATION PROGRAM EVALUATION|
 ò
 RECR 470Adventure-Based Programming3 ⁄∏*Poynter, Lindsay2
 TRî
 á"CV 2079Ó∏±J@@PZ5RECR 470|ADVENTURE-BASED PROGRAMMING|POYNTER, LINDSAY
-≤
-RECR 475*Community Development and Leisure Services3 ù∫*Burtz, Randall2
-TRî
-á"VU 5529[∞[∞@@PZBRECR 475|COMMUNITY DEVELOPMENT AND LEISURE SERVICES|BURTZ, RANDALL
 ¿
 RECR 479/Reconstructing Tourism: Issues in Travel Ethics3 ˜∫*Goodnow, Jasmine2
 TRî
@@ -8946,6 +8930,15 @@ z
 Ω
 SCED 4901Laboratory/Field Experience in Elementary Science3 Ω≈*Burgess, Don2
 TRFŒ	å"SL 2309      @@PZGSCED 490|LABORATORY/FIELD EXPERIENCE IN ELEMENTARY SCIENCE|BURGESS, DON
+∏
+SCED 4901Laboratory/Field Experience in Elementary Science3 ±ÿ*Robbins, Kirk2§¥"O-BT9     ®@@PZHSCED 490|LABORATORY/FIELD EXPERIENCE IN ELEMENTARY SCIENCE|ROBBINS, KIRK
+ø
+SCED 4901Laboratory/Field Experience in Elementary Science3 √Ã*Nolan, Charlene2
+T≤
+‘"O-BT9∫ä¢%e@@PZJSCED 490|LABORATORY/FIELD EXPERIENCE IN ELEMENTARY SCIENCE|NOLAN, CHARLENE
+∑
+SCED 4901Laboratory/Field Experience in Elementary Science3 ºÿ*Kunkel, Joe2
+M§¥"O-EV9mduˆJ@@PZFSCED 490|LABORATORY/FIELD EXPERIENCE IN ELEMENTARY SCIENCE|KUNKEL, JOE
 •
 SCED 492)Field Experience in Middle School Science3 ¡¡*Morrison, Whitney2
 "SL OFC(@
@@ -8953,21 +8946,21 @@ P
 ZDSCED 492|FIELD EXPERIENCE IN MIDDLE SCHOOL SCIENCE|MORRISON, WHITNEY
 ∂
 SEC 303.Teaching Adolescents: Development and Identity4 ç¡*Larson, Bruce2
-TR‹Ú"MH 1159I(–àÌı@@PZDSEC 303|TEACHING ADOLESCENTS: DEVELOPMENT AND IDENTITY|LARSON, BRUCE
+TR‹Ú"MH 1159I(–àÌı@@PZDSEC 303|TEACHING ADOLESCENTS: DEVELOPMENT AND IDENTITY|LARSON, BRUCE
 ∫
 SEC 303.Teaching Adolescents: Development and Identity4 µƒ*Pyscher, Tracey2
-MWﬁú"HU 1089Bû‰)A@@PZFSEC 303|TEACHING ADOLESCENTS: DEVELOPMENT AND IDENTITY|PYSCHER, TRACEY
+MWﬁú"HU 1089Bû‰)A@@PZFSEC 303|TEACHING ADOLESCENTS: DEVELOPMENT AND IDENTITY|PYSCHER, TRACEY
 ∫
 SEC 303.Teaching Adolescents: Development and Identity4 ÉÃ*Pyscher, Tracey2
 MW¯
-é"BH 1049Bû‰)A@@PZFSEC 303|TEACHING ADOLESCENTS: DEVELOPMENT AND IDENTITY|PYSCHER, TRACEY
+é"BH 1049Bû‰)A@@PZFSEC 303|TEACHING ADOLESCENTS: DEVELOPMENT AND IDENTITY|PYSCHER, TRACEY
 ö
 SEC 310Education, Culture, and Equity5 ”≈*Velez, Veronica2
-MW‹Ú"MH 2359      @@PZ6SEC 310|EDUCATION, CULTURE, AND EQUITY|VELEZ, VERONICA
+MW‹Ú"MH 2359      @@PZ6SEC 310|EDUCATION, CULTURE, AND EQUITY|VELEZ, VERONICA
 ö
 SEC 310Education, Culture, and Equity5 ÇÃ*Velez, Veronica2
 MW∞	∆
-"HU 1109      @@PZ6SEC 310|EDUCATION, CULTURE, AND EQUITY|VELEZ, VERONICA
+"HU 1109      @@PZ6SEC 310|EDUCATION, CULTURE, AND EQUITY|VELEZ, VERONICA
 \
 SEC 400Directed Independent Study1-15 ∫π2(@
 P
@@ -8989,10 +8982,10 @@ o
 T¬»"O-EV@	P	Z&SEC 400|SEC. EDUC. FOR SCIENCE TEACH.|
 Ä
 SEC 410Dynamics of Teaching2 æ≈*Burgess, Don2
-TR†∂"SL 2209âÂ≈»ﬂ@@PZ)SEC 410|DYNAMICS OF TEACHING|BURGESS, DON
+TR†∂"SL 2209âÂ≈»ﬂ@@PZ)SEC 410|DYNAMICS OF TEACHING|BURGESS, DON
 Ç
 SEC 410Dynamics of Teaching2 ø≈*Ozdogu, Devin2
-TR†∂"HU 1089◊«Ö}\ÿ@@PZ*SEC 410|DYNAMICS OF TEACHING|OZDOGU, DEVIN
+TR†∂"HU 1089◊«Ö}\ÿ@@PZ*SEC 410|DYNAMICS OF TEACHING|OZDOGU, DEVIN
 æ
 SEC 425@Developmental Reading, Writing and Learning in Secondary Schools4 £Ω2
 TR¿÷"MH 2319xI˛»‡@@PZISEC 425|DEVELOPMENTAL READING, WRITING AND LEARNING IN SECONDARY SCHOOLS|
@@ -9003,14 +8996,14 @@ P
 Z?SEC 426|SOCIAL STUDIES FOR THE SECONDARY SCHOOL|WAXMAN, BARBARA
 Ä
 SEC 430TSecondary School Methods I - Instructional Strategies, Daily Planning, and Standards4 Èº*Burgess, Don2
-TRË˛"SL 2209µ=€≥=€@@PZiSEC 430|SECONDARY SCHOOL METHODS I - INSTRUCTIONAL STRATEGIES, DAILY PLANNING, AND STANDARDS|BURGESS, DON
+TRË˛"SL 2209µ=€≥=€@@PZiSEC 430|SECONDARY SCHOOL METHODS I - INSTRUCTIONAL STRATEGIES, DAILY PLANNING, AND STANDARDS|BURGESS, DON
 Ç
 SEC 430TSecondary School Methods I - Instructional Strategies, Daily Planning, and Standards4 Íº*Ozdogu, Devin2
-TRË˛"HU 1089ÛÛÛÛÛÛ@@PZjSEC 430|SECONDARY SCHOOL METHODS I - INSTRUCTIONAL STRATEGIES, DAILY PLANNING, AND STANDARDS|OZDOGU, DEVIN
+TRË˛"HU 1089ÛÛÛÛÛÛ@@PZjSEC 430|SECONDARY SCHOOL METHODS I - INSTRUCTIONAL STRATEGIES, DAILY PLANNING, AND STANDARDS|OZDOGU, DEVIN
 ‚
 SEC 432DSecondary School Methods III - Management, Motivation and Discipline4 ≈*Ozdogu, Devin2
 TR¯
-é"MH 0159œpR˜Â±@@PZZSEC 432|SECONDARY SCHOOL METHODS III - MANAGEMENT, MOTIVATION AND DISCIPLINE|OZDOGU, DEVIN
+é"MH 0159œpR˜Â±@@PZZSEC 432|SECONDARY SCHOOL METHODS III - MANAGEMENT, MOTIVATION AND DISCIPLINE|OZDOGU, DEVIN
 ì
 SEC 433 Teaching and Learning Laboratory1 ıº*McClanahan, Lauren2
 "MH OFC(@<P<Z;SEC 433|TEACHING AND LEARNING LABORATORY|MCCLANAHAN, LAUREN
@@ -9025,38 +9018,38 @@ j
 ‹
 SEC 501CIntroduction to Educational Research Inquiry for Secondary Teachers4 ‘≈*Longoria, A2
 MW∞	∆
-"CF 3169GÜ‚Ê…@@PZWSEC 501|INTRODUCTION TO EDUCATIONAL RESEARCH INQUIRY FOR SECONDARY TEACHERS|LONGORIA, A
+"CF 3169GÜ‚Ê…@@PZWSEC 501|INTRODUCTION TO EDUCATIONAL RESEARCH INQUIRY FOR SECONDARY TEACHERS|LONGORIA, A
 ö
 SEC 512!Seminar in Educational Philosophy4 Å√*Durias, Josh2
 MW¯
-é"MH 1059      @@PZ6SEC 512|SEMINAR IN EDUCATIONAL PHILOSOPHY|DURIAS, JOSH
+é"MH 1059      @@PZ6SEC 512|SEMINAR IN EDUCATIONAL PHILOSOPHY|DURIAS, JOSH
 ô
 SEC 512!Seminar in Educational Philosophy4 Ä◊*Hodges, Suzie2
 R¬»"O-EV9iiiiii@@PZ7SEC 512|SEMINAR IN EDUCATIONAL PHILOSOPHY|HODGES, SUZIE
 ¨
 SEC 513)Seminar in Education, Culture, and Equity5 Û¡*Tauzel, Brian2
-TR‹Ú"BH 2279      @@PZ?SEC 513|SEMINAR IN EDUCATION, CULTURE, AND EQUITY|TAUZEL, BRIAN
+TR‹Ú"BH 2279      @@PZ?SEC 513|SEMINAR IN EDUCATION, CULTURE, AND EQUITY|TAUZEL, BRIAN
 ©
 SEC 514,Teaching and Learning in Secondary Schools I1 ù∆*Tauzel, Brian2
-TR†∂"BH 151@PZBSEC 514|TEACHING AND LEARNING IN SECONDARY SCHOOLS I|TAUZEL, BRIAN
+TR†∂"BH 151@PZBSEC 514|TEACHING AND LEARNING IN SECONDARY SCHOOLS I|TAUZEL, BRIAN
 ß
 SEC 515-Teaching and Learning in Secondary Schools II1 ú∆*Ware, Molly2
-TR†∂"BH 111@PZASEC 515|TEACHING AND LEARNING IN SECONDARY SCHOOLS II|WARE, MOLLY
+TR†∂"BH 111@PZASEC 515|TEACHING AND LEARNING IN SECONDARY SCHOOLS II|WARE, MOLLY
 î
 SEC 531Teaching Adolescents4 ìπ*Larson, Bruce2
 Rî
 ™"MH 1152
 T¯
-é"BH 1119 ¯ÌRO∆@@PZ*SEC 531|TEACHING ADOLESCENTS|LARSON, BRUCE
+é"BH 1119 ¯ÌRO∆@@PZ*SEC 531|TEACHING ADOLESCENTS|LARSON, BRUCE
 ∏
 SEC 532/Curriculum and Instruction in Secondary Schools4 “Ω*Tauzel, Brian2
-TRË˛"BH 1519/ÙB/ÙB@@PZESEC 532|CURRICULUM AND INSTRUCTION IN SECONDARY SCHOOLS|TAUZEL, BRIAN
+TRË˛"BH 1519/ÙB/ÙB@@PZESEC 532|CURRICULUM AND INSTRUCTION IN SECONDARY SCHOOLS|TAUZEL, BRIAN
 Œ
 SEC 533<Assessment and Professional Development in Secondary Schools4 Ò≈*Ware, Molly2
-TRË˛"BH 1119S>Œ6º@@PZPSEC 533|ASSESSMENT AND PROFESSIONAL DEVELOPMENT IN SECONDARY SCHOOLS|WARE, MOLLY
+TRË˛"BH 1119S>Œ6º@@PZPSEC 533|ASSESSMENT AND PROFESSIONAL DEVELOPMENT IN SECONDARY SCHOOLS|WARE, MOLLY
 €
 SEC 534>Management, Motivation and Discipline in the Secondary Schools4 π¡*Mansfield, Bruce2
-M¿û"BH 4179      @@PZWSEC 534|MANAGEMENT, MOTIVATION AND DISCIPLINE IN THE SECONDARY SCHOOLS|MANSFIELD, BRUCE
+M¿û"BH 4179      @@PZWSEC 534|MANAGEMENT, MOTIVATION AND DISCIPLINE IN THE SECONDARY SCHOOLS|MANSFIELD, BRUCE
 ◊
 SEC 534>Management, Motivation and Discipline in the Secondary Schools4 û∆*Waxman, Barbara2
 R¬»"O-EV9ﬂ››››]@@PZVSEC 534|MANAGEMENT, MOTIVATION AND DISCIPLINE IN THE SECONDARY SCHOOLS|WAXMAN, BARBARA
@@ -9065,21 +9058,12 @@ d
 Ñ
 SEC 693Graduate Research Seminar II2 ä∆*Ware, Molly2
 W¯
-é"BH 227@PZ0SEC 693|GRADUATE RESEARCH SEMINAR II|WARE, MOLLY
+é"BH 227@PZ0SEC 693|GRADUATE RESEARCH SEMINAR II|WARE, MOLLY
 u
 SEC 699Continuous Enrollment2 ˇª*Patrick, David2
 "MH OFC(@
 P
 Z,SEC 699|CONTINUOUS ENROLLMENT|PATRICK, DAVID
-r
-SMNR 190Curricular & Campus Engagement1 ≈“2
-M¿Ú"AW 408@PZ(SMNR 190|CURRICULAR & CAMPUS ENGAGEMENT|
-r
-SMNR 190Curricular & Campus Engagement1 ∆“2
-M¿Ú"AW 412@PZ(SMNR 190|CURRICULAR & CAMPUS ENGAGEMENT|
-r
-SMNR 190Curricular & Campus Engagement1 «“2
-M¿Ú"AW 410@PZ(SMNR 190|CURRICULAR & CAMPUS ENGAGEMENT|
 è
 SMNR 201First Generation Pathways1-3 ‰ *Senger, Lucas2
 R‹Ú"BH 1069Ÿñ£àæ
@@ -9131,7 +9115,7 @@ w
 SOC 304Statistics for Sociology5 ó *Cunningham, Mick2
 TR¯
 é"HU 1069©†’ó
-Z@@PZ1SOC 304|STATISTICS FOR SOCIOLOGY|CUNNINGHAM, MICK
+Z@@PZ1SOC 304|STATISTICS FOR SOCIOLOGY|CUNNINGHAM, MICK
 ç
 SOC 304Statistics for Sociology5 ’À*Hughes, Dustin2
 MWFî
@@ -9142,7 +9126,7 @@ Z@@PZ1SOC 304|STATISTICS FOR SOCIOLOGY|CUNNINGHAM, MICK
 í
 SOC 306Sociological Research Methods5 ﬁÀ*Mogford, Liz2
 TR¯
-é"IS 3109Q»’∫Ñ@@PZ2SOC 306|SOCIOLOGICAL RESEARCH METHODS|MOGFORD, LIZ
+é"IS 3109Q»’∫Ñ@@PZ2SOC 306|SOCIOLOGICAL RESEARCH METHODS|MOGFORD, LIZ
 ∏
 SOC 320,Applications of Quantitative Social Research5 ﬂÀ*Pendergast, Phil2
 TR∞	∆
@@ -9150,8 +9134,8 @@ Z@@PZ1SOC 304|STATISTICS FOR SOCIOLOGY|CUNNINGHAM, MICK
 ∞
 SOC 326(American Family and Household Demography5 º◊*Cunningham, Mick2
 TRË˛"HU 1029ô‚âp≤@@PZASOC 326|AMERICAN FAMILY AND HOUSEHOLD DEMOGRAPHY|CUNNINGHAM, MICK
-y
-SOC 330The Self, Emotions, and Society5 æ—2"ONLINE ASNC(9q¸˜m∑ú@@PZ(SOC 330|THE SELF, EMOTIONS, AND SOCIETY|
+ç
+SOC 330The Self, Emotions, and Society5 æ—*	Lois, Jen2"ONLINE ASNC(9˙¡¢,˙@@PZ1SOC 330|THE SELF, EMOTIONS, AND SOCIETY|LOIS, JEN
 ç
 SOC 339Women, Sexuality, and Society5 Ñ *	Lois, Jen2
 MWFî
@@ -9160,27 +9144,28 @@ y
 SOC 341Sociology of Social Movements5 ƒ◊*Gillham, Pat2
 TR¯
 é"AH 0309æ—„ª@@PZ2SOC 341|SOCIOLOGY OF SOCIAL MOVEMENTS|GILLHAM, PAT
-g
-SOC 347Gender and Development5 Ñÿ2"ONLINE ASNC(9&Ií$Ií@@PZSOC 347|GENDER AND DEVELOPMENT|
-q
-SOC 356Law Enforcement and Society5 ø—2"ONLINE ASNC(9„+æ‚+>	@@PZ$SOC 356|LAW ENFORCEMENT AND SOCIETY|
+É
+SOC 347Gender and Development5 Ñÿ*Zaidi, Batool2"ONLINE ASNC(9&Ií$Ií@@PZ,SOC 347|GENDER AND DEVELOPMENT|ZAIDI, BATOOL
+á
+SOC 356Law Enforcement and Society5 ø—*
+Helms, Ron2"ONLINE ASNC(9Q´ád	@@PZ.SOC 356|LAW ENFORCEMENT AND SOCIETY|HELMS, RON
 â
 SOC 364Social Stratification5 ∆∆*Tsunokai, Glenn2
 MWFË‡"CF 2269Ñù>b@@PZ-SOC 364|SOCIAL STRATIFICATION|TSUNOKAI, GLENN
 …
 SOC 3666Colonialism, Slavery, and Links to Contemporary Racism5 ≈≈*Feinberg, Seth2
 MWFÍ‚	"AW 3039~%Û≥(∆@@PZMSOC 366|COLONIALISM, SLAVERY, AND LINKS TO CONTEMPORARY RACISM|FEINBERG, SETH
-y
-SOC 369Sociology of Race and Ethnicity5 ¿—2"ONLINE ASNC(9„~]R˘@@PZ(SOC 369|SOCIOLOGY OF RACE AND ETHNICITY|
+ô
+SOC 369Sociology of Race and Ethnicity5 ¿—*Tsunokai, Glenn2"ONLINE ASNC(9„~]R˘@@PZ7SOC 369|SOCIOLOGY OF RACE AND ETHNICITY|TSUNOKAI, GLENN
 Ö
 SOC 381Sociology of Culture5 óœ*Ten Eyck, Toby2
 MWFÍ‚	"ES 0709Gõb‘@@PZ+SOC 381|SOCIOLOGY OF CULTURE|TEN EYCK, TOBY
 y
 SOC 384Sociology of Health5 ø *	Ben, Ruby2
 MWFÍ‚	"CF 2279c˝ù¨@@PZ%SOC 384|SOCIOLOGY OF HEALTH|BEN, RUBY
-á
-SOC 384Sociology of Health5 ˙◊*Whitley, Cameron2
-MWFË‡"MH 1139·å§T"@@PZ,SOC 384|SOCIOLOGY OF HEALTH|WHITLEY, CAMERON
+é
+SOC 397JThe Sociology of Happiness5 ≈ÿ*Whitley, Cameron2
+MWFË‡"MH 113@PZ4SOC 397J|THE SOCIOLOGY OF HAPPINESS|WHITLEY, CAMERON
 π
 SOC 397U2Sociology of Indigenous Peoples and Native Nations5 ÷◊*	Ben, Ruby2
 MWFñé"CV 2649ñÛg9
@@ -9265,7 +9250,7 @@ z
 û
 SPAN 301Grammar Review and Composition5 ™Œ*Hartwell, Ernest2
 TR¯
-é"MH 0119Ø#ı:RØ@@PZ8SPAN 301|GRAMMAR REVIEW AND COMPOSITION|HARTWELL, ERNEST
+é"MH 1219Ø#ı:RØ@@PZ8SPAN 301|GRAMMAR REVIEW AND COMPOSITION|HARTWELL, ERNEST
 Ñ
 SPAN 305Third-Year Conversation5 ´Œ*Aranda, Blanca2
 MWFî
@@ -9279,7 +9264,7 @@ z
 ®
 SPAN 340#Introduction to Hispanic Literature5 ≠Œ*Hartwell, Ernest2
 TR∞	∆
-"MH 0119     @@@PZ=SPAN 340|INTRODUCTION TO HISPANIC LITERATURE|HARTWELL, ERNEST
+"MH 1219     @@@PZ=SPAN 340|INTRODUCTION TO HISPANIC LITERATURE|HARTWELL, ERNEST
 ü
 SPAN 351!Survey of the Literature of Spain5 ÆŒ*Hoffman, Joan2
 MWFË‡"MH 1219ãØ¯äØ¯@@PZ8SPAN 351|SURVEY OF THE LITERATURE OF SPAIN|HOFFMAN, JOAN
@@ -9289,12 +9274,18 @@ z
 Ø
 SPAN 4251Teaching-Learning Processes in Elementary Spanish2 Ææ*Aranda, Blanca2
 "MH OFC(@PZISPAN 425|TEACHING-LEARNING PROCESSES IN ELEMENTARY SPANISH|ARANDA, BLANCA
-ê
-SPAN 430Cultures through Film5 ±Œ*Patterson, Charles2
-TRË˛"MH 0159´™™™™™@@PZ1SPAN 430|CULTURES THROUGH FILM|PATTERSON, CHARLES
+í
+SPAN 430Pel√≠culas fronterizas5 ±Œ*Patterson, Charles2
+TRË˛"MH 0159´™™™™™@@PZ2SPAN 430|PEL√çCULAS FRONTERIZAS|PATTERSON, CHARLES
 ç
 SPED 303Educational Psychology3 ç√*Hoagland, Laura2
 MWFæ∂"MH 23995ó‹E¬@@#P#Z/SPED 303|EDUCATIONAL PSYCHOLOGY|HOAGLAND, LAURA
+¡
+SPED 305BIntroduction to Special Education and Typical/Atypical Development5 ¥≈2
+M§¥"O-BT9u}∫>]ü@@PZLSPED 305|INTRODUCTION TO SPECIAL EDUCATION AND TYPICAL/ATYPICAL DEVELOPMENT|
+¡
+SPED 305BIntroduction to Special Education and Typical/Atypical Development5 ∑≈2
+R§¥"O-EV9u}∫>]ü@@PZLSPED 305|INTRODUCTION TO SPECIAL EDUCATION AND TYPICAL/ATYPICAL DEVELOPMENT|
 ¨
 SPED 310Education, Culture, and Equity5 ‰ø*Foreman-Murray, Lindsay2
 MWË˛"BH 3179;PH+@@
@@ -9303,13 +9294,19 @@ Z?SPED 310|EDUCATION, CULTURE, AND EQUITY|FOREMAN-MURRAY, LINDSAY
 ¨
 SPED 310Education, Culture, and Equity5 ° *Foreman-Murray, Lindsay2
 MWË˛"BH 3179;PH+@@PZ?SPED 310|EDUCATION, CULTURE, AND EQUITY|FOREMAN-MURRAY, LINDSAY
+y
+SPED 310Education, Culture, and Equity5 ∏≈2
+T§¥"O-EV9âo)C@@PZ(SPED 310|EDUCATION, CULTURE, AND EQUITY|
 ™
 SPED 363%Secondary Students With Special Needs4 „…*Hoagland, Laura2
 MWË˛"MH 1059Ï{.í≥@@PZ>SPED 363|SECONDARY STUDENTS WITH SPECIAL NEEDS|HOAGLAND, LAURA
 à
 SPED 364Teaching Each Student4 Ø√*Stickley, Beth2
 MW¯
-é"MH 0569zJêßy@@PZ-SPED 364|TEACHING EACH STUDENT|STICKLEY, BETH
+é"MH 0569zJêßy@@PZ-SPED 364|TEACHING EACH STUDENT|STICKLEY, BETH
+g
+SPED 364Teaching Each Student4 πÀ2
+M§Ç"O-BT9d˛q∫@@PZSPED 364|TEACHING EACH STUDENT|
 Ç
 SPED 420Effective Teaching4 ˝Œ*Stickley, Beth2
 MW∞	∆
@@ -9327,26 +9324,33 @@ Z?SPED 310|EDUCATION, CULTURE, AND EQUITY|FOREMAN-MURRAY, LINDSAY
 MW¶‰"MH 2359–iù6–@@PZWSPED 444|ASSESSMENT AND INTERVENTION IN EARLY CHILDHOOD SPECIAL EDUCATION|HANEY, DEBBIE
 ù
 SPED 446%Mentoring Students with Complex Needs2 ©Ã*Hart, Jeffery2
-MW˙∏"MH 038@-P-Z<SPED 446|MENTORING STUDENTS WITH COMPLEX NEEDS|HART, JEFFERY
+MWñÚ"BH 217@-P-Z<SPED 446|MENTORING STUDENTS WITH COMPLEX NEEDS|HART, JEFFERY
 ê
 SPED 452Applied Behavior Analysis5 ∑ƒ*Lambert, Chuck2
 TR¯
 é"MH 0139ì˘K{e@@PZ1SPED 452|APPLIED BEHAVIOR ANALYSIS|LAMBERT, CHUCK
+°
+SPED 454*Assessment and Intervention in Mathematics3 ≤ÿ*Vaught, Katie2§¥"O-BT@PZASPED 454|ASSESSMENT AND INTERVENTION IN MATHEMATICS|VAUGHT, KATIE
+Ö
+SPED 454*Assessment and Intervention in Mathematics3 Ωÿ2§¥"O-EV@PZ4SPED 454|ASSESSMENT AND INTERVENTION IN MATHEMATICS|
+ß
+SPED 455;Behavioral Assessment and Intervention in Inclusive Systems3 ≥ÿ2§¥"O-BT@PZESPED 455|BEHAVIORAL ASSESSMENT AND INTERVENTION IN INCLUSIVE SYSTEMS|
+≈
+SPED 455;Behavioral Assessment and Intervention in Inclusive Systems3 ¿ÿ*Ulke, Michelle2§¥"O-EV@PZSSPED 455|BEHAVIORAL ASSESSMENT AND INTERVENTION IN INCLUSIVE SYSTEMS|ULKE, MICHELLE
 é
 SPED 457Students w/ Disabilities5 ¶Ã*Lambert, Chuck2
 MW¯
 é"MH 1159àààààà
 @@PZ0SPED 457|STUDENTS W/ DISABILITIES|LAMBERT, CHUCK
-≥
-SPED 460Creating an Inclusive Classroom5 ˇŒ*Foreman-Murray, Lindsay2
-MR§Ç"ONLINE SYNC9»‚ãk,@@PZ@SPED 460|CREATING AN INCLUSIVE CLASSROOM|FOREMAN-MURRAY, LINDSAY
+≤
+SPED 460Creating an Inclusive Classroom5 ˇŒ*Foreman-Murray, Lindsay2
+M§Ç"ONLINE SYNC9»‚ãk,@@PZ@SPED 460|CREATING AN INCLUSIVE CLASSROOM|FOREMAN-MURRAY, LINDSAY
 Î
 SPED 462GTeaching for Learning, Motivation, and Achievement in a Diverse Society5 ú÷*Bybee, Lauriel2
 M¿û"MH 1569áM•!Á>@@PZ_SPED 462|TEACHING FOR LEARNING, MOTIVATION, AND ACHIEVEMENT IN A DIVERSE SOCIETY|BYBEE, LAURIEL
-ñ
+É
 SPED 463PCurriculum-Based Evaluation: Data-Based Assessment for Effective Decision Making5 Õ◊*Crawford, Lindsey2
-T§÷"MH 1562
-TàÇ"MH 1569üë˘«‚@@PZkSPED 463|CURRICULUM-BASED EVALUATION: DATA-BASED ASSESSMENT FOR EFFECTIVE DECISION MAKING|CRAWFORD, LINDSEY
+M§Ç"MH 2399üë˘«‚@@PZkSPED 463|CURRICULUM-BASED EVALUATION: DATA-BASED ASSESSMENT FOR EFFECTIVE DECISION MAKING|CRAWFORD, LINDSEY
 Ÿ
 SPED 465?Assessment for Special Education and General Education Teachers4 Ú¡*Hart, Jeffery2
 W¿û"MH 1129‘3ïÎé@@PZVSPED 465|ASSESSMENT FOR SPECIAL EDUCATION AND GENERAL EDUCATION TEACHERS|HART, JEFFERY
@@ -9366,10 +9370,9 @@ Z?SPED 310|EDUCATION, CULTURE, AND EQUITY|FOREMAN-MURRAY, LINDSAY
 é"MH OFC9
 ◊£p=
 @@PZNSPED 480|PRACTICUM III - INDIVIDUAL/GROUP INTERVENTION, READING|STYER, CANDICE
-Ω
-SPED 4870Written Expression Instruction and Interventions5 ê√*Welch, Melissa2
-T¬»"BH 1049=
-◊£p=@@PZHSPED 487|WRITTEN EXPRESSION INSTRUCTION AND INTERVENTIONS|WELCH, MELISSA
+√
+SPED 4870Written Expression Instruction and Interventions5 ê√*Crawford, Lindsey2
+T§Ç"BH 1049PÓ Â@@PZKSPED 487|WRITTEN EXPRESSION INSTRUCTION AND INTERVENTIONS|CRAWFORD, LINDSEY
 ®
 SPED 488"Math Instruction and Interventions5 ë√*Daugherty, Monica2
 MW¯
@@ -9501,14 +9504,38 @@ ZASUST 471|CAMPUS SUSTAINABILITY PLANNING STUDIO|MACDONALD, LINDSEY
 ¢
 TEOP 494'Inclusive Environments Student Teaching1-16 Äœ*Perzigian, Aaron2
 "MH OFC(@PZATEOP 494|INCLUSIVE ENVIRONMENTS STUDENT TEACHING|PERZIGIAN, AARON
-∑
-TESL 240>English Language Education, Advocacy, and Community Engagement5 çÿ2
-MËö"ONLINE ASNC@PZHTESL 240|ENGLISH LANGUAGE EDUCATION, ADVOCACY, AND COMMUNITY ENGAGEMENT|
-è
-THTR 101&Introduction to the Art of the Theatre3 ñπ2
+†
+TEOP 494'Inclusive Environments Student Teaching1-16 æ«*Perzigian, Aaron2"O-BT(@PZATEOP 494|INCLUSIVE ENVIRONMENTS STUDENT TEACHING|PERZIGIAN, AARON
+†
+TEOP 494'Inclusive Environments Student Teaching1-16 πÿ*Perzigian, Aaron2"O-BT(@PZATEOP 494|INCLUSIVE ENVIRONMENTS STUDENT TEACHING|PERZIGIAN, AARON
+†
+TEOP 494'Inclusive Environments Student Teaching1-16 ø«*Perzigian, Aaron2"O-EV(@PZATEOP 494|INCLUSIVE ENVIRONMENTS STUDENT TEACHING|PERZIGIAN, AARON
+†
+TEOP 494'Inclusive Environments Student Teaching1-16 ¡ÿ*Perzigian, Aaron2"O-EV(@PZATEOP 494|INCLUSIVE ENVIRONMENTS STUDENT TEACHING|PERZIGIAN, AARON
+’
+TESL 240>English Language Education, Advocacy, and Community Engagement5 çÿ*Brisbois, Lisa2
+MËö"ONLINE SYNC@PZVTESL 240|ENGLISH LANGUAGE EDUCATION, ADVOCACY, AND COMMUNITY ENGAGEMENT|BRISBOIS, LISA
+û
+TESL 3405Strategies for Working with English Language Learners2 éÕ2"ONLINE ASNC(@
+P
+Z?TESL 340|STRATEGIES FOR WORKING WITH ENGLISH LANGUAGE LEARNERS|
+ß
+TESL 3501Tutoring and Supporting English Language Learners1-4 êÕ*Blick, Andrew2(@
+P
+ZHTESL 350|TUTORING AND SUPPORTING ENGLISH LANGUAGE LEARNERS|BLICK, ANDREW
+ï
+TESL 450Professional Seminar for TESOL2 ‘…*Brisbois, Lisa2
+MÃ˛"ONLINE SYNC@PZ6TESL 450|PROFESSIONAL SEMINAR FOR TESOL|BRISBOIS, LISA
+ò
+TESL 451#Community-Based Practicum for TESOL2 ∆À*Brisbois, Lisa2"ONLINE ASNC(@
+P
+Z;TESL 451|COMMUNITY-BASED PRACTICUM FOR TESOL|BRISBOIS, LISA
+ß
+THTR 101&Introduction to the Art of the Theatre3 ñπ*Kuntz, Mark2
 MWFî
 ∆
-"FR 2019 ΩÖ2Éû	@@ÇPÇZ0THTR 101|INTRODUCTION TO THE ART OF THE THEATRE|
+"FR 2019¡
+2Uﬁ@@ÇPÇZ;THTR 101|INTRODUCTION TO THE ART OF THE THEATRE|KUNTZ, MARK
 ~
 THTR 111Basic Visual Design3 ÕÕ*Gupta, Dipu2
 TRË‡"BH 1109“=¿±ˇ@@PZ(THTR 111|BASIC VISUAL DESIGN|GUPTA, DIPU
@@ -9574,15 +9601,15 @@ t
 THTR 350Theatre for Youth3 ﬂ«*Gutierrez-Dennehy, Christina2
 WFî
 ™"OM 100L9¥i@õ¥@@PZ7THTR 350|THEATRE FOR YOUTH|GUTIERREZ-DENNEHY, CHRISTINA
-±
-THTR 3550Mainstage Season: Assistant Design/Stage Manager2-5 õ¿*McCroom, Darren2
-"PA OFC(@PZITHTR 355|MAINSTAGE SEASON: ASSISTANT DESIGN/STAGE MANAGER|MCCROOM, DARREN
-∑
-THTR 3550Mainstage Season: Assistant Design/Stage Manager2-5 ú¿*Monaghan, Sarah Jo2
-"PA OFC(@PZLTHTR 355|MAINSTAGE SEASON: ASSISTANT DESIGN/STAGE MANAGER|MONAGHAN, SARAH JO
-©
-THTR 3550Mainstage Season: Assistant Design/Stage Manager2-5 —À*Gupta, Dipu2
-"PA OFC(@PZETHTR 355|MAINSTAGE SEASON: ASSISTANT DESIGN/STAGE MANAGER|GUPTA, DIPU
+∏
+THTR 3550Mainstage Season: Assistant Design/Stage Manager2-5 õ¿*McCroom, Darren2
+W‹÷"PA OFC@PZITHTR 355|MAINSTAGE SEASON: ASSISTANT DESIGN/STAGE MANAGER|MCCROOM, DARREN
+æ
+THTR 3550Mainstage Season: Assistant Design/Stage Manager2-5 ú¿*Monaghan, Sarah Jo2
+W‹÷"PA OFC@PZLTHTR 355|MAINSTAGE SEASON: ASSISTANT DESIGN/STAGE MANAGER|MONAGHAN, SARAH JO
+∞
+THTR 3550Mainstage Season: Assistant Design/Stage Manager2-5 —À*Gupta, Dipu2
+W‹÷"PA OFC@PZETHTR 355|MAINSTAGE SEASON: ASSISTANT DESIGN/STAGE MANAGER|GUPTA, DIPU
 c
 THTR 356Mainstage Season: Cast II1-5 ˛º2
 "PA OFC(@PZ#THTR 356|MAINSTAGE SEASON: CAST II|
@@ -9599,9 +9626,9 @@ w
 THTR 361$Voice Studio II: Speech and Language4 ß«*Mueller, Evan2
 MWî
 ™"PA 3999«bœÅKr@@PZ;THTR 361|VOICE STUDIO II: SPEECH AND LANGUAGE|MUELLER, EVAN
-^
-THTR 370Play Direction3 ÀÕ2
-MWFË˛"OM 100L9€X¨Jñ∂	@@PZTHTR 370|PLAY DIRECTION|
+v
+THTR 370Play Direction3 ÀÕ*Kuntz, Mark2
+MWFË˛"OM 100L9%¥ºûáX	@@PZ#THTR 370|PLAY DIRECTION|KUNTZ, MARK
 ù
 THTR 380Theatre History I4 ªπ*Gutierrez-Dennehy, Christina2
 TRË˛"OM 100L9®“êsü]@@<P<Z7THTR 380|THEATRE HISTORY I|GUTIERREZ-DENNEHY, CHRISTINA
@@ -9611,18 +9638,18 @@ w
 ê
 THTR 398(Integrated Arts for Elementary Educators3 ∆÷2
 TR§ú"HU 1109Ç¯Å¯@@PZ2THTR 398|INTEGRATED ARTS FOR ELEMENTARY EDUCATORS|
-d
-THTR 428Theatre Topics3-4 ®«2
-MWFÑ∂"ONLINE SYNC9◊ıEcﬁI@@PZTHTR 428|THEATRE TOPICS|
-•
-THTR 455.Mainstage Season: Lead Design/Stage Management4-5 “À*Gupta, Dipu2
-"PA OFC(@PZCTHTR 455|MAINSTAGE SEASON: LEAD DESIGN/STAGE MANAGEMENT|GUPTA, DIPU
-≠
-THTR 455.Mainstage Season: Lead Design/Stage Management4-5 ≈∫*McCroom, Darren2
-"PA OFC(@PZGTHTR 455|MAINSTAGE SEASON: LEAD DESIGN/STAGE MANAGEMENT|MCCROOM, DARREN
-≥
-THTR 455.Mainstage Season: Lead Design/Stage Management4-5 ”ø*Monaghan, Sarah Jo2
-"PA OFC(@PZJTHTR 455|MAINSTAGE SEASON: LEAD DESIGN/STAGE MANAGEMENT|MONAGHAN, SARAH JO
+w
+THTR 428Theatre Topics3-4 ®«*Kuntz, Mark2
+MWFÑ∂"BH 1049Ë íuÆ@@PZ#THTR 428|THEATRE TOPICS|KUNTZ, MARK
+¨
+THTR 455.Mainstage Season: Lead Design/Stage Management4-5 “À*Gupta, Dipu2
+W‹÷"PA OFC@PZCTHTR 455|MAINSTAGE SEASON: LEAD DESIGN/STAGE MANAGEMENT|GUPTA, DIPU
+¥
+THTR 455.Mainstage Season: Lead Design/Stage Management4-5 ≈∫*McCroom, Darren2
+W‹÷"PA OFC@PZGTHTR 455|MAINSTAGE SEASON: LEAD DESIGN/STAGE MANAGEMENT|MCCROOM, DARREN
+∫
+THTR 455.Mainstage Season: Lead Design/Stage Management4-5 ”ø*Monaghan, Sarah Jo2
+W‹÷"PA OFC@PZJTHTR 455|MAINSTAGE SEASON: LEAD DESIGN/STAGE MANAGEMENT|MONAGHAN, SARAH JO
 ó
 THTR 461Voice Studio III: Shakespeare5 œÕ*Mueller, Evan2
 MWF‹Ú"PA 3999˝û[‚‘Ô@@PZ4THTR 461|VOICE STUDIO III: SHAKESPEARE|MUELLER, EVAN
@@ -9652,6 +9679,9 @@ c
 THTR 496Senior Project1 ”À*Gupta, Dipu2(@PZ#THTR 496|SENIOR PROJECT|GUPTA, DIPU
 i
 THTR 496Senior Project1 ‘À*Monaghan, Sarah Jo2(@PZ*THTR 496|SENIOR PROJECT|MONAGHAN, SARAH JO
+u
+THTR 496Senior Project1 Àÿ*Dudenbostel, Heather2
+"PA OFC(@PZ,THTR 496|SENIOR PROJECT|DUDENBOSTEL, HEATHER
 ï
 UEPP 170Building Sustainable Futures1 ® *Laninga, Tammi2
 M¿Ú"AH 0149'—¿-z@@2P2Z4UEPP 170|BUILDING SUSTAINABLE FUTURES|LANINGA, TAMMI
@@ -9834,14 +9864,10 @@ j
 WGSS 320Women in Islam3-5 ¨÷*Zabihi-Moghaddam, Siyamak2
 TR∞	∆
 "BH 4179¨Äç¶„@@PZ1WGSS 320|WOMEN IN ISLAM|ZABIHI-MOGHADDAM, SIYAMAK
-g
-WGSS 331Studies in Gender Theory5 ª◊2
-TR¯
-é"MH 235@PZ"WGSS 331|STUDIES IN GENDER THEORY|
 Ü
 WGSS 339Women, Sexuality, and Society5 äÃ*	Lois, Jen2
 MWFî
-å"IS 310@PZ0WGSS 339|WOMEN, SEXUALITY, AND SOCIETY|LOIS, JEN
+å"IS 310@PZ0WGSS 339|WOMEN, SEXUALITY, AND SOCIETY|LOIS, JEN
 û
 WGSS 350 Feminist and Queer Methodologies5 ∏ƒ*Cerretti, Josh2
 TRË˛"BH 4199b?-∂Ò	@@PZ8WGSS 350|FEMINIST AND QUEER METHODOLOGIES|CERRETTI, JOSH
@@ -9851,4 +9877,4 @@ g
 "MH 2319Ú'Ú'@@PZ<WGSS 367|FEMINIST DISABILITY STUDIES|TILLAND-STAFFORD, ANIKA
 ¢
 WGSS 450Anarchism, Gender, & Sexuality5 é∆*Warburton, Theresa2
-TRË˛"HU 107933333≥@@PZ:WGSS 450|ANARCHISM, GENDER, & SEXUALITY|WARBURTON, THERESA√•≈¿À——´
+TRË˛"HU 107933333≥@@PZ:WGSS 450|ANARCHISM, GENDER, & SEXUALITY|WARBURTON, THERESA≥à˘¿ªæè≠
