@@ -9,8 +9,6 @@ import (
 	"testing"
 )
 
-var testBaseURL = BASE_URL
-
 const sampleTermsResponse = `[
     {
         "code": "202530",

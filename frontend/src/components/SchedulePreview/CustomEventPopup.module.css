@@ -96,6 +96,22 @@
   border-color: var(--color-neutral-400);
 }
 
+.deleteButton {
+  padding: var(--spacing-2) var(--spacing-4);
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.deleteButton:hover {
+  background-color: #b91c1c;
+}
+
 /* Color picker */
 .colorSelection {
   display: flex;
