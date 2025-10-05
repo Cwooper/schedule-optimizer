@@ -59,14 +59,14 @@ const QuarterSelector: React.FC<QuarterSelectorProps> = ({
     }
   }, []);
 
-  // Generate available years (current year and next year)
+  // Generate available years (previous year, current year, and next year)
   const { year: academicYearStr } = getCurrentQuarter();
   const academicYear = parseInt(academicYearStr, 10);
   const month = new Date().getMonth(); // 0-11
   const availableYears =
     month < 4
-      ? [academicYear - 1, academicYear]
-      : [academicYear, academicYear + 1];
+      ? [academicYear - 2, academicYear - 1, academicYear]
+      : [academicYear - 1, academicYear, academicYear + 1];
 
   return (
     <div className={styles.container}>

@@ -45,13 +45,11 @@ const Popup: React.FC<PopupProps> = ({
     if (isOpen) {
       document.addEventListener("keydown", handleEscapeKey);
       document.addEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = "hidden";
     }
 
     return () => {
       document.removeEventListener("keydown", handleEscapeKey);
       document.removeEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = "unset";
     };
   }, [isOpen, onClose, closeOnOutsideClick]);
 

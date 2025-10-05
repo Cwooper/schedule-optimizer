@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Popup from "../Popup/Popup";
 import styles from "./CustomEventPopup.module.css";
 import type { ScheduleEvent } from "../../types/types";
@@ -19,17 +19,41 @@ interface CustomEventPopupProps {
   isOpen: boolean;
   onClose: () => void;
   onAddEvent: (event: Omit<ScheduleEvent, "id">) => void;
+  editingEvent?: ScheduleEvent | null;
+  onUpdateEvent?: (eventId: string, event: Omit<ScheduleEvent, "id">) => void;
+  onDeleteEvent?: (eventId: string) => void;
 }
 
 const CustomEventPopup: React.FC<CustomEventPopupProps> = ({
   isOpen,
   onClose,
   onAddEvent,
+  editingEvent = null,
+  onUpdateEvent,
+  onDeleteEvent,
 }) => {
   // Helper function to convert HH:MM time to minutes
   const timeToMinutes = (time: string): number => {
     const [hours, minutes] = time.split(":").map(Number);
     return hours * 60 + minutes;
+  };
+
+  // Helper function to convert day indices to selected days object
+  const daysToSelectedObject = (dayIndices: number[]) => {
+    const dayMap = ["M", "T", "W", "R", "F"];
+    const selected: { [key: string]: boolean } = {
+      M: false,
+      T: false,
+      W: false,
+      R: false,
+      F: false,
+    };
+    dayIndices.forEach((index) => {
+      if (index >= 0 && index < dayMap.length) {
+        selected[dayMap[index]] = true;
+      }
+    });
+    return selected;
   };
 
   const [title, setTitle] = useState("");
@@ -47,6 +71,32 @@ const CustomEventPopup: React.FC<CustomEventPopupProps> = ({
   });
   const [selectedColor, setSelectedColor] = useState(EVENT_COLORS[0]);
 
+  // Populate form when editing an event
+  useEffect(() => {
+    if (editingEvent) {
+      setTitle(editingEvent.title);
+      setBody(editingEvent.body || "");
+      setStartTime(editingEvent.start);
+      setEndTime(editingEvent.end);
+      setSelectedDays(daysToSelectedObject(editingEvent.days));
+      setSelectedColor(editingEvent.color);
+    } else {
+      // Reset form when not editing
+      setTitle("");
+      setBody("");
+      setStartTime("10:00");
+      setEndTime("11:00");
+      setSelectedDays({
+        M: false,
+        T: false,
+        W: false,
+        R: false,
+        F: false,
+      });
+      setSelectedColor(EVENT_COLORS[0]);
+    }
+  }, [editingEvent, isOpen]);
+
   const handleDayToggle = (day: string) => {
     setSelectedDays((prev) => ({
       ...prev,
@@ -56,26 +106,26 @@ const CustomEventPopup: React.FC<CustomEventPopupProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Basic validation
     if (!title.trim()) {
       alert("Please enter an event title");
       return;
     }
-    
+
     // Time validation
     const startMinutes = timeToMinutes(startTime);
     const endMinutes = timeToMinutes(endTime);
-    
+
     if (endMinutes <= startMinutes) {
       alert("End time must be after start time. Please adjust your times.");
       return;
     }
-    
+
     // Schedule typically shows 8:00 AM to 10:00 PM
     const minTime = 8 * 60; // 8:00 AM in minutes
     const maxTime = 22 * 60; // 10:00 PM in minutes
-    
+
     if (startMinutes < minTime || endMinutes > maxTime) {
       const confirmAdd = window.confirm(
         "Some of your event may not be visible on the schedule (visible hours are typically 8:00 AM to 10:00 PM). Add anyway?"
@@ -84,7 +134,7 @@ const CustomEventPopup: React.FC<CustomEventPopupProps> = ({
         return;
       }
     }
-    
+
     const days = Object.entries(selectedDays)
       .filter(([_, isSelected]) => isSelected)
       .map(([day]) => {
@@ -109,16 +159,37 @@ const CustomEventPopup: React.FC<CustomEventPopupProps> = ({
       ? title.substring(0, 27) + "..."
       : title;
 
-    onAddEvent({
+    const eventData = {
       days,
       start: startTime,
       end: endTime,
       title: truncatedTitle,
       body,
       color: selectedColor,
-    });
+    };
+
+    if (editingEvent && onUpdateEvent) {
+      // Update existing event
+      onUpdateEvent(editingEvent.id, eventData);
+    } else {
+      // Add new event
+      onAddEvent(eventData);
+    }
 
     // Reset form
+    resetForm();
+    onClose();
+  };
+
+  const handleDelete = () => {
+    if (editingEvent && onDeleteEvent) {
+      onDeleteEvent(editingEvent.id);
+      resetForm();
+      onClose();
+    }
+  };
+
+  const resetForm = () => {
     setTitle("");
     setBody("");
     setStartTime("10:00");
@@ -131,15 +202,13 @@ const CustomEventPopup: React.FC<CustomEventPopupProps> = ({
       F: false,
     });
     setSelectedColor(EVENT_COLORS[0]);
-    
-    onClose();
   };
 
   return (
     <Popup
       isOpen={isOpen}
       onClose={onClose}
-      title="Add Custom Event"
+      title={editingEvent ? "Edit Custom Event" : "Add Custom Event"}
       width="500px"
     >
       <form className={styles.form} onSubmit={handleSubmit}>
@@ -215,12 +284,12 @@ const CustomEventPopup: React.FC<CustomEventPopupProps> = ({
                   {day === "M"
                     ? "Monday"
                     : day === "T"
-                    ? "Tuesday"
-                    : day === "W"
-                    ? "Wednesday"
-                    : day === "R"
-                    ? "Thursday"
-                    : "Friday"}
+                      ? "Tuesday"
+                      : day === "W"
+                        ? "Wednesday"
+                        : day === "R"
+                          ? "Thursday"
+                          : "Friday"}
                 </label>
               </div>
             ))}
@@ -233,9 +302,8 @@ const CustomEventPopup: React.FC<CustomEventPopupProps> = ({
             {EVENT_COLORS.map((color) => (
               <div
                 key={color}
-                className={`${styles.colorOption} ${
-                  selectedColor === color ? styles.selected : ""
-                }`}
+                className={`${styles.colorOption} ${selectedColor === color ? styles.selected : ""
+                  }`}
                 style={{ backgroundColor: color }}
                 onClick={() => setSelectedColor(color)}
                 title="Select color"
@@ -252,8 +320,17 @@ const CustomEventPopup: React.FC<CustomEventPopupProps> = ({
           >
             Cancel
           </button>
+          {editingEvent && (
+            <button
+              type="button"
+              className={styles.deleteButton}
+              onClick={handleDelete}
+            >
+              Delete
+            </button>
+          )}
           <button type="submit" className={styles.submitButton}>
-            Add Event
+            {editingEvent ? "Update Event" : "Add Event"}
           </button>
         </div>
       </form>
