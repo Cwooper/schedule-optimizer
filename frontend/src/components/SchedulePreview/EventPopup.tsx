@@ -55,24 +55,26 @@ const formatDays = (days: string): string => {
     .join(", ");
 };
 
-const generateCourseUrl = (
-  year: string,
-  quarter: string,
-  subject: string
-): string => {
-  // Remove any spaces in the subject code
-  const cleanSubject = subject.replace(/\s+/g, "");
-  return `https://web4u.banner.wwu.edu/pls/wwis/wwsktime.SelText?subj_crse=${year}${quarter}${cleanSubject}`;
-};
+// HACK: generateCourseUrl function commented out - may be needed when View Course Details is fixed
+// const generateCourseUrl = (
+//   year: string,
+//   quarter: string,
+//   subject: string
+// ): string => {
+//   // Remove any spaces in the subject code
+//   const cleanSubject = subject.replace(/\s+/g, "");
+//   return `https://web4u.banner.wwu.edu/pls/wwis/wwsktime.SelText?subj_crse=${year}${quarter}${cleanSubject}`;
+// };
 
 const EventPopupContent: React.FC<EventPopupProps> = ({
   course,
   session,
-  quarter,
-  year,
+  // quarter,
+  // year,
 }) => {
-  const courseUrl =
-    year && quarter ? generateCourseUrl(year, quarter, course.Subject) : null;
+  // HACK: courseUrl generation commented out - may be needed when View Course Details is fixed
+  // const courseUrl =
+  //   year && quarter ? generateCourseUrl(year, quarter, course.Subject) : null;
 
   return (
     <div>
@@ -156,7 +158,8 @@ const EventPopupContent: React.FC<EventPopupProps> = ({
           <span className={styles.value}>{course.Enrolled}</span>
         </div>
       </div>
-      {courseUrl && (
+      {/* HACK: View Course Details link commented out - may be fixed in the future */}
+      {/* {courseUrl && (
         <a
           href={courseUrl}
           target="_blank"
@@ -165,7 +168,7 @@ const EventPopupContent: React.FC<EventPopupProps> = ({
         >
           View Course Details
         </a>
-      )}
+      )} */}
     </div>
   );
 };

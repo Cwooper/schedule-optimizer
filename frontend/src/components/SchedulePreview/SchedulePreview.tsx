@@ -34,6 +34,7 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
   const actionButtonRef = useRef<HTMLDivElement>(null);
   const [customEvents, setCustomEvents] = useState<ScheduleEvent[]>([]);
   const [isCustomEventPopupOpen, setIsCustomEventPopupOpen] = useState(false);
+  const [editingCustomEvent, setEditingCustomEvent] = useState<ScheduleEvent | null>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const scheduleWrapperRef = useRef<HTMLDivElement>(null);
 
@@ -47,8 +48,8 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
     sessionData: null,
   });
 
-  const events = schedule 
-    ? [...generateScheduleEvents(schedule), ...customEvents] 
+  const events = schedule
+    ? [...generateScheduleEvents(schedule), ...customEvents]
     : [...customEvents];
 
   // Calculate appropriate height based on schedule content
@@ -56,7 +57,7 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
     // Base heights
     const baseDesktopHeight = 600;
     const baseMobileHeight = 500; // Increased from 400 to provide more space by default
-    
+
     if (events.length === 0) {
       return isMobile ? baseMobileHeight : baseDesktopHeight;
     }
@@ -68,29 +69,29 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
     events.forEach(event => {
       const [startHours, startMinutes] = event.start.split(':').map(Number);
       const [endHours, endMinutes] = event.end.split(':').map(Number);
-      
+
       const startInMinutes = startHours * 60 + startMinutes;
       const endInMinutes = endHours * 60 + endMinutes;
-      
+
       earliestStart = Math.min(earliestStart, startInMinutes);
       latestEnd = Math.max(latestEnd, endInMinutes);
     });
 
     // Calculate total hours (rounded up)
     const totalHours = Math.ceil((latestEnd - earliestStart) / 60);
-    
+
     // Add 2 hours of padding (1 before and 1 after)
     const displayHours = totalHours + 2;
-    
+
     // Calculate height based on hours
     // On desktop: ~80px per hour is good
     // On mobile: ~70px per hour
     const hourHeight = isMobile ? 70 : 80;
     const calculatedHeight = displayHours * hourHeight;
-    
+
     // Enforce minimum heights
     const minHeight = isMobile ? baseMobileHeight : baseDesktopHeight;
-    
+
     return Math.max(calculatedHeight, minHeight);
   };
 
@@ -118,6 +119,30 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
       body: newEvent.body || "",
     };
     setCustomEvents((prev) => [...prev, eventWithId]);
+  };
+
+  const handleUpdateCustomEvent = (eventId: string, updatedEvent: Omit<ScheduleEvent, "id">) => {
+    setCustomEvents((prev) =>
+      prev.map((event) =>
+        event.id === eventId
+          ? { ...updatedEvent, id: eventId }
+          : event
+      )
+    );
+  };
+
+  const handleDeleteCustomEvent = (eventId: string) => {
+    setCustomEvents((prev) => prev.filter((event) => event.id !== eventId));
+  };
+
+  const handleEditCustomEvent = (event: ScheduleEvent) => {
+    setEditingCustomEvent(event);
+    setIsCustomEventPopupOpen(true);
+  };
+
+  const handleCloseCustomEventPopup = () => {
+    setIsCustomEventPopupOpen(false);
+    setEditingCustomEvent(null);
   };
 
   const handleResetCustomEvents = () => {
@@ -158,7 +183,7 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-    
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -172,9 +197,8 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
     <div className={styles.container}>
       {showMessages && (errors.length > 0 || warnings.length > 0) && (
         <div
-          className={`${styles.messageContainer} ${
-            errors.length > 0 ? styles.errorContainer : styles.warningContainer
-          }`}
+          className={`${styles.messageContainer} ${errors.length > 0 ? styles.errorContainer : styles.warningContainer
+            }`}
         >
           {errors.map((error) => (
             <div key={`error-${error}`} className={styles.message}>
@@ -233,8 +257,8 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
 
         {/* Added wrapper div for horizontal scrolling */}
         <div className={styles.scheduleWrapper} ref={scheduleWrapperRef}>
-          <div 
-            className={styles.scheduleContainer} 
+          <div
+            className={styles.scheduleContainer}
             style={{ height: `${scheduleHeight}px` }}
           >
             <Schedule
@@ -246,11 +270,15 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
               useDefaultPopup={false}
               emptyStateMessage="No courses selected for this schedule"
               customPopupHandler={(event) => {
-                // Skip custom events
+                // Handle custom events
                 if (event.id.startsWith("custom-")) {
+                  const customEvent = customEvents.find((e) => e.id === event.id);
+                  if (customEvent) {
+                    handleEditCustomEvent(customEvent);
+                  }
                   return null;
                 }
-                
+
                 const [crn, days] = event.id.split("-");
                 const courseData = schedule?.Courses.find(
                   (course) => String(course.CRN) === String(crn)
@@ -288,8 +316,11 @@ const SchedulePreview: React.FC<SchedulePreviewProps> = ({
 
       <CustomEventPopup
         isOpen={isCustomEventPopupOpen}
-        onClose={() => setIsCustomEventPopupOpen(false)}
+        onClose={handleCloseCustomEventPopup}
         onAddEvent={handleAddCustomEvent}
+        editingEvent={editingCustomEvent}
+        onUpdateEvent={handleUpdateCustomEvent}
+        onDeleteEvent={handleDeleteCustomEvent}
       />
 
       {asyncCourses && asyncCourses.length > 0 && (

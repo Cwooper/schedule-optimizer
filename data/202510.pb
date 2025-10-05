@@ -553,19 +553,19 @@ _
 TR¾¶"AH 1002
 Wèþ"IS 2209çƒsú¯@@HPZ:BIOL 101|INTRODUCTION TO BIOLOGY W/LAB|CONNELL, GEORGIANNE
 ¶
-BIOL 101Introduction to Biology w/lab4 äV*Connell, Georgianne2
-TR¾¶"AH 1002
+BIOL 101Introduction to Biology w/lab4 äV*Connell, Georgianne2
 W°	Æ
-"IS 2209çƒsú¯@@HPZ:BIOL 101|INTRODUCTION TO BIOLOGY W/LAB|CONNELL, GEORGIANNE
+"IS 2202
+TR¾¶"AH 1009çƒsú¯@@HPZ:BIOL 101|INTRODUCTION TO BIOLOGY W/LAB|CONNELL, GEORGIANNE
 ¶
 BIOL 101Introduction to Biology w/lab4 éV*Connell, Georgianne2
 TR¾¶"AH 1002
 Wø
 Ž"IS 2209çƒsú¯@@HPZ:BIOL 101|INTRODUCTION TO BIOLOGY W/LAB|CONNELL, GEORGIANNE
 ´
-BIOL 101Introduction to Biology w/lab4 ëV*Connell, Georgianne2
-TR¾¶"AH 1002
-Rèþ"IS 2309çƒsú¯@@HZ:BIOL 101|INTRODUCTION TO BIOLOGY W/LAB|CONNELL, GEORGIANNE
+BIOL 101Introduction to Biology w/lab4 ëV*Connell, Georgianne2
+Rèþ"IS 2302
+TR¾¶"AH 1009çƒsú¯@@HZ:BIOL 101|INTRODUCTION TO BIOLOGY W/LAB|CONNELL, GEORGIANNE
 ´
 BIOL 101Introduction to Biology w/lab4 ìV*Connell, Georgianne2
 TR¾¶"AH 1002
@@ -685,10 +685,10 @@ _
 R š"BI 2612
 MWFèà"ES 4189@›´i@@@HPZLBIOL 205|INTRODUCTION TO CELLULAR AND MOLECULAR BIOLOGY W/LAB|DAHLBERG, LINA
 ç
-BIOL 2054Introduction to Cellular and Molecular Biology w/lab5 “W*Serrano-Moreno, Jose2
+BIOL 2054Introduction to Cellular and Molecular Biology w/lab5 “W*Serrano-Moreno, Jose2
+MWFêâ	"MH 1522
 RÌÆ
-"BI 2612
-MWFêâ	"MH 1529åŠÞÑòi@@HPZRBIOL 205|INTRODUCTION TO CELLULAR AND MOLECULAR BIOLOGY W/LAB|SERRANO-MORENO, JOSE
+"BI 2619åŠÞÑòi@@HPZRBIOL 205|INTRODUCTION TO CELLULAR AND MOLECULAR BIOLOGY W/LAB|SERRANO-MORENO, JOSE
 å
 BIOL 2054Introduction to Cellular and Molecular Biology w/lab5 ”W*Serrano-Moreno, Jose2
 TÌÆ
@@ -869,10 +869,10 @@ t
 TRø
 ð"BI 4159Œ—nƒÀ@@HPZ9BIOL 451|DEVELOPMENTAL BIOLOGY OF PLANTS|PILLITTERI, LYNN
 ®
-BIOL 477Genomic Data Analysis w/lab4 Úl*Zinkgraf, Matthew2
-T°	â	"IS 2402
+BIOL 477Genomic Data Analysis w/lab4 Úl*Zinkgraf, Matthew2
 TR”
-Ž"IS 2409€õWõW@@HPZ6BIOL 477|GENOMIC DATA ANALYSIS W/LAB|ZINKGRAF, MATTHEW
+Ž"IS 2402
+T°	â	"IS 2409€õWõW@@HPZ6BIOL 477|GENOMIC DATA ANALYSIS W/LAB|ZINKGRAF, MATTHEW
 ž
 BIOL 487!Advanced Molecular and Cell w/lab5 Þl*Lee, Suzanne2
 MWF”
@@ -1221,10 +1221,10 @@ n
 TRø
 ò"CB 3309¿°”\ì@@HP	Z+CHEM 333|ANALYTICAL CHEMISTRY|EMORY, STEVEN
 ¤
-CHEM 333Analytical Chemistry5 ©V*Griffith, Jennifer2
+CHEM 333Analytical Chemistry5 ©V*Griffith, Jennifer2
+MWF°	â	"SL 1302
 TRÌÆ
-"CB 3302
-MWF°	â	"SL 1309Ò'}Ò'}@@HPZ0CHEM 333|ANALYTICAL CHEMISTRY|GRIFFITH, JENNIFER
+"CB 3309Ò'}Ò'}@@HPZ0CHEM 333|ANALYTICAL CHEMISTRY|GRIFFITH, JENNIFER
 ‹
 CHEM 351Organic Chemistry4 çO*Griffith, Jennifer2
 MTWFèš"SL 1109<Ï,÷c@@<H:PZ-CHEM 351|ORGANIC CHEMISTRY|GRIFFITH, JENNIFER
@@ -1285,11 +1285,11 @@ Z;CHEM 441|ADVANCED INORGANIC CHEMISTRY|SCHEUERMANN, MARGARET
 CHEM 462Physical Chemistry4 ÍO*McCarty, Jay2
 MTWFèš"SL 1309Cyå5”@@HPZ(CHEM 462|PHYSICAL CHEMISTRY|MCCARTY, JAY
 Ä
-CHEM 464)Physical/Inorganic Chemistry Laboratory I5 éi*Berger, Robert2
-MW”
-ò"CB 2652
+CHEM 464)Physical/Inorganic Chemistry Laboratory I5 éi*Berger, Robert2
 Tø
-ª"IS 2429³%[²%[
+ª"IS 2422
+MW”
+ò"CB 2659³%[²%[
 @@HPZACHEM 464|PHYSICAL/INORGANIC CHEMISTRY LABORATORY I|BERGER, ROBERT
 È
 CHEM 464)Physical/Inorganic Chemistry Laboratory I5 êi*Clark, Catherine2
@@ -1423,127 +1423,6 @@ Z(CHIN 202|SECOND-YEAR CHINESE|SU, WENLING
 CSEC 122!Understanding Scientific Research2 •^*van Hees, Dan2
 TRø
 ª"SL 2109œ(Ùµ‰’@@HPZ8CSEC 122|UNDERSTANDING SCIENTIFIC RESEARCH|VAN HEES, DAN
-»
-CSD 354+Speech and Language Development in Children4 €b*Thistle, Jennifer2
-MTWFèš"AH 0049'(6´"@@FH,PZECSD 354|SPEECH AND LANGUAGE DEVELOPMENT IN CHILDREN|THISTLE, JENNIFER
-“
-CSD 356Phonetics and Phonology4 §m*Thistle, Jennifer2
-MTWFÌþ"AH 0049DDDDD¤@@<H5PZ1CSD 356|PHONETICS AND PHONOLOGY|THISTLE, JENNIFER
-{
-CSD 371Hearing Science3 ÈO*Diedesch, Anna2
-TR°	¨
-"CF 1209·µÚ=œ@@<H(PZ&CSD 371|HEARING SCIENCE|DIEDESCH, ANNA
-™
-CSD 453 Introduction to Speech Disorders4 “d*Evans, David2
-TRø
-Ž"AW 20496)[“²5@@<H!PZ5CSD 453|INTRODUCTION TO SPEECH DISORDERS|EVANS, DAVID
-
-CSD 457Clinical Processes5 ]*Moore, Heather2
-TR¾š"AW 3049ÛàžWR”@@<H'PZ)CSD 457|CLINICAL PROCESSES|MOORE, HEATHER
-Z
-CSD 491Senior Research Project2 ÊW2
-"AI OFC(@PZ CSD 491|SENIOR RESEARCH PROJECT|
-{
-CSD 504Audiology Grand Rounds1 ùX*Reed, Andrea2
-Tèš"AI 362@HPZ+CSD 504|AUDIOLOGY GRAND ROUNDS|REED, ANDREA
-
-CSD 505Audiology Clinical Levels1 úX*Reed, Andrea2
-T„¶"AI 362@H	PZ.CSD 505|AUDIOLOGY CLINICAL LEVELS|REED, ANDREA
-®
-CSD 506*Seminar: Professional Issues and Practices3 Éa*Cooper, Megan2
-T”
-Ž"AW 4129      @@HPZ@CSD 506|SEMINAR: PROFESSIONAL ISSUES AND PRACTICES|COOPER, MEGAN
-Ž
-CSD 507!Capstone Project/Research Project2 Õ[*Diedesch, Anna2
-"AI OFC(@HP
-Z8CSD 507|CAPSTONE PROJECT/RESEARCH PROJECT|DIEDESCH, ANNA
-˜
-CSD 507!Capstone Project/Research Project2 ùb*Sheffield, Sterling2
-"AI OFC(@HPZ=CSD 507|CAPSTONE PROJECT/RESEARCH PROJECT|SHEFFIELD, STERLING
-’
-CSD 507!Capstone Project/Research Project2 úb*Peters, Kimberly2
-"AI OFC(@HPZ:CSD 507|CAPSTONE PROJECT/RESEARCH PROJECT|PETERS, KIMBERLY
-µ
-CSD 5431Professional Seminar in Speech-Language Pathology2 ¨m*Moore, Heather2
-Mèþ"AW 303@HPZHCSD 543|PROFESSIONAL SEMINAR IN SPEECH-LANGUAGE PATHOLOGY|MOORE, HEATHER
-€
-CSD 550Voice and Resonance5 ”d*Evans, David2
-MWFèþ"AW 4059Úr•4ª-@@HPZ(CSD 550|VOICE AND RESONANCE|EVANS, DAVID
-©
-CSD 555&Developmental Language Disabilities II4 ëf*Moore, Heather2
-TR”
-ª"AW 4059>ÙÖÆî@@HPZ=CSD 555|DEVELOPMENTAL LANGUAGE DISABILITIES II|MOORE, HEATHER
-ë
-CSD 556IAssessment and Treatment of Aphasia & Related Acquired Language Disorders4 –d*Evans, Kelli2
-TRèþ"AW 4059ñ>:ï@@HPZ^CSD 556|ASSESSMENT AND TREATMENT OF APHASIA & RELATED ACQUIRED LANGUAGE DISORDERS|EVANS, KELLI
-Ð
-CSD 5587Graduate Clinical Practice in Speech-Language Pathology1-5 ‡O*Stephens, Lesley2
-Mø
-ª"AI 3629õUŒ#2g@@(H%PZPCSD 558|GRADUATE CLINICAL PRACTICE IN SPEECH-LANGUAGE PATHOLOGY|STEPHENS, LESLEY
-”
-CSD 559#Speech-Language Pathology Practicum2 –O*Stephens, Lesley2
-"AI OFC(@
-P
-Z<CSD 559|SPEECH-LANGUAGE PATHOLOGY PRACTICUM|STEPHENS, LESLEY
-‘
-CSD 563Seminar: Aural Rehabilitation5 ’d*Oster, Mona2
-MF”
-ð"AW 4069,¾â+¾â@@H
-PZ1CSD 563|SEMINAR: AURAL REHABILITATION|OSTER, MONA
-Ä
-CSD 5642Advanced Clinical Practice in Aural Rehabilitation2 šO*Peters, Kimberly2
-WÌþ"AI 3609}Ò'}Ò§@@HPZKCSD 564|ADVANCED CLINICAL PRACTICE IN AURAL REHABILITATION|PETERS, KIMBERLY
-r
-CSD 565Psychoacoustics3 ýX*
-Xu, Elaine2
-W”
-Ž"AW 4069Œ¯øŠ¯ø@@H
-PZ"CSD 565|PSYCHOACOUSTICS|XU, ELAINE
-¨
-CSD 568(Advanced Clinical Practicum in Audiology2 ûX*Reed, Andrea2
-TÌþ"AI 3629      @@HPZ=CSD 568|ADVANCED CLINICAL PRACTICUM IN AUDIOLOGY|REED, ANDREA
-•
-CSD 571Hearing Aids I4 üX*Sheffield, Sterling2
-R„š"AI 3622
-R”
-ª"AI 3629333333@@H
-PZ*CSD 571|HEARING AIDS I|SHEFFIELD, STERLING
-
-CSD 582Medical Speech Pathology2 ù]*Stephens, Lesley2
-T”
-ª"AI 3629¯ùŒ³ ›@@H	PZ1CSD 582|MEDICAL SPEECH PATHOLOGY|STEPHENS, LESLEY
-
-CSD 585Neuromotor Speech Disorders4 —d*Evans, Kelli2
-MW”
-ª"AW 4059Þl‚Š­@@HPZ0CSD 585|NEUROMOTOR SPEECH DISORDERS|EVANS, KELLI
-‹
-CSD 593Balance Disorder Assessment5 ’Z*
-Xu, Elaine2
-TR”
-Ž"AW 4109×¾aíÖ@@H	PZ.CSD 593|BALANCE DISORDER ASSESSMENT|XU, ELAINE
-f
-CSD 596AuD Internship4 Ö[*Cooper, Megan2
-"AI OFC(@HPZ$CSD 596|AUD INTERNSHIP|COOPER, MEGAN
-r
-CSD 597TAdvanced Internship4 ün*Cooper, Megan2
-"AI OFC(@
-H	PZ*CSD 597T|ADVANCED INTERNSHIP|COOPER, MEGAN
-´
-CSD 5984Internship in Speech-Language Pathology or Audiology1-4 —R*Burgess, Dawn2
-"AI OFC(@HP	ZJCSD 598|INTERNSHIP IN SPEECH-LANGUAGE PATHOLOGY OR AUDIOLOGY|BURGESS, DAWN
-:
-CSD 690Thesis1-9 —O2
-"AI OFC(@
-P
-ZCSD 690|THESIS|
-t
-CSD 692Fourth Year Externship8 ]*Cooper, Megan2
-"AI OFC(@
-P
-Z,CSD 692|FOURTH YEAR EXTERNSHIP|COOPER, MEGAN
-t
-CSD 699Continuous Enrollment2 ˆP*Patrick, David2
-"AI OFC(@PZ,CSD 699|CONTINUOUS ENROLLMENT|PATRICK, DAVID
 Ÿ
 COMM 101Fundamentals of Speech4 O*Hays, Jennifer2
 MWFèš"CF 2312
@@ -1856,11 +1735,11 @@ Z9COMM 398|RESEARCH METHODS IN COMMUNICATION|ZHANG, ZHENGYU
 T°	Æ
 "KB 3079áààààà@@HZACSCI 301|FORMAL LANGUAGES AND FUNCTIONAL PROGRAMMING|AKTER, SYEDA
 ¾
-CSCI 305,Analysis of Algorithms and Data Structures I4 ïk*Nilles, Alli2
-MTWFèš"CF 4209*¡én@@#H&PýÿÿÿÿÿÿÿÿZBCSCI 305|ANALYSIS OF ALGORITHMS AND DATA STRUCTURES I|NILLES, ALLI
+CSCI 305,Analysis of Algorithms and Data Structures I4 ïk*Nilles, Alex2
+MTWFèš"CF 4209*¡én@@#H&PýÿÿÿÿÿÿÿÿZBCSCI 305|ANALYSIS OF ALGORITHMS AND DATA STRUCTURES I|NILLES, ALEX
 µ
-CSCI 305,Analysis of Algorithms and Data Structures I4 ðk*Nilles, Alli2
-MTWFÌþ"CF 0259*¡én@@#H!PZBCSCI 305|ANALYSIS OF ALGORITHMS AND DATA STRUCTURES I|NILLES, ALLI
+CSCI 305,Analysis of Algorithms and Data Structures I4 ðk*Nilles, Alex2
+MTWFÌþ"CF 0259*¡én@@#H!PZBCSCI 305|ANALYSIS OF ALGORITHMS AND DATA STRUCTURES I|NILLES, ALEX
 
 CSCI 330Database Systems4 íX*Deneke, Wesley2
 MTWFÌþ"CF 3149M¶ÁÎ&ù@@#H#Z(CSCI 330|DATABASE SYSTEMS|DENEKE, WESLEY
@@ -1898,14 +1777,12 @@ Z9COMM 398|RESEARCH METHODS IN COMMUNICATION|ZHANG, ZHENGYU
 MTWF”
 Æ
 "CF 3169èú‚¾ @@#H"PZFCSCI 405|ANALYSIS OF ALGORITHMS AND DATA STRUCTURES II|HARRIS, KAMERON
-y
-CSCI 447Operating Systems4 îX*
-Mare, Shri2
-MTWFèš"CV 1039¡Á¡@@#H#Z%CSCI 447|OPERATING SYSTEMS|MARE, SHRI
-{
-CSCI 447Operating Systems4 i*
-Mare, Shri2
-MTWFÀò"CF 3149¡Á¡@@#HPZ%CSCI 447|OPERATING SYSTEMS|MARE, SHRI
+
+CSCI 447Operating Systems4 îX*Mare, Shrirang2
+MTWFèš"CV 1039¡Á¡@@#H#Z)CSCI 447|OPERATING SYSTEMS|MARE, SHRIRANG
+ƒ
+CSCI 447Operating Systems4 i*Mare, Shrirang2
+MTWFÀò"CF 3149¡Á¡@@#HPZ)CSCI 447|OPERATING SYSTEMS|MARE, SHRIRANG
 ‹
 CSCI 461Computer Security4 žm*Hong, Hsiang - Jen2
 MTWF„¶"CF 0239[°[°	@@#HPZ-CSCI 461|COMPUTER SECURITY|HONG, HSIANG - JEN
@@ -1928,11 +1805,10 @@ l
 h
 CSCI 490Senior Research2 Þm*Huang, Fuqun2
 "CF OFC(@HPZ%CSCI 490|SENIOR RESEARCH|HUANG, FUQUN
-d
-CSCI 490Senior Research2 ßm*
-Mare, Shri2
+l
+CSCI 490Senior Research2 ßm*Mare, Shrirang2
 "CF OFC(@
-HPZ#CSCI 490|SENIOR RESEARCH|MARE, SHRI
+HPZ'CSCI 490|SENIOR RESEARCH|MARE, SHRIRANG
 t
 CSCI 490Senior Research2 àm*Jagodzinski, Filip2
 "CF OFC(@HPZ+CSCI 490|SENIOR RESEARCH|JAGODZINSKI, FILIP
@@ -1963,10 +1839,9 @@ l
 CSCI 493Senior Project 32 ÉU*Elglaly, Yasmine2
 MWÜŽ"CF 42090ûÇ”a.@@HP
 Z*CSCI 493|SENIOR PROJECT 3|ELGLALY, YASMINE
-t
-CSCI 496Undergraduate Research1-4 ˆn*
-Mare, Shri2
-"CF OFC(@HPZ*CSCI 496|UNDERGRADUATE RESEARCH|MARE, SHRI
+|
+CSCI 496Undergraduate Research1-4 ˆn*Mare, Shrirang2
+"CF OFC(@HPZ.CSCI 496|UNDERGRADUATE RESEARCH|MARE, SHRIRANG
 ~
 CSCI 496Undergraduate Research1-4 ‰n*Wehrwein, Scott2
 "CF OFC(@HPZ/CSCI 496|UNDERGRADUATE RESEARCH|WEHRWEIN, SCOTT
@@ -2164,12 +2039,12 @@ Kuntz, Pam2
 Kuntz, Pam2
 TR„š"CM B9@›´i@@@HPûÿÿÿÿÿÿÿÿZ;DNC 433|CREATIVE MOVEMENT FOR EDUCATORS WITH LAB|KUNTZ, PAM
 ¯
-DATA 311Fundamentals of Data Science4  l*Hutchinson, Brian2
+DATA 311Fundamentals of Data Science4  l*Hutchinson, Brian2
+Tø
+Ž"CF 1622
 MWF”
 Æ
-"CF 4202
-Tø
-Ž"CF 1629$$$$$$@@HZ7DATA 311|FUNDAMENTALS OF DATA SCIENCE|HUTCHINSON, BRIAN
+"CF 4209$$$$$$@@HZ7DATA 311|FUNDAMENTALS OF DATA SCIENCE|HUTCHINSON, BRIAN
 n
 DATA 490Senior Research2 êf*Harris, Kameron2
 "CF OFC(@HPZ(DATA 490|SENIOR RESEARCH|HARRIS, KAMERON
@@ -3317,7 +3192,7 @@ Weber, Meg2
 Ž"PH 108@HZ2ENTR 398|SMALL BUSINESSENTREPRENEURSHIP|WEBER, MEG
 ´
 ESCI 101,Environmental Studies: A Scientific Approach3 ðQ*Loomis, Eli2
-TRèà"AH 1009‹)ôFc•@@HïP¡ZAESCI 101|ENVIRONMENTAL STUDIES: A SCIENTIFIC APPROACH|LOOMIS, ELI
+TRèà"AH 1009‹)ôFc•@@HîP¢ZAESCI 101|ENVIRONMENTAL STUDIES: A SCIENTIFIC APPROACH|LOOMIS, ELI
 ²
 ESCI 101,Environmental Studies: A Scientific Approach3 Ž^*Poppe, Katrina2"ONLINE ASNC(9àÁ<QÿF	@@#H#ZDESCI 101|ENVIRONMENTAL STUDIES: A SCIENTIFIC APPROACH|POPPE, KATRINA
 ¥
@@ -5522,6 +5397,36 @@ Roehl, Tom2
 "PH OFC(@
 P
 Z8IBUS 490|INTERNSHIP IN INTERNATIONAL BUSINESS|ROEHL, TOM
+U
+INTL 132Education Abroad: ISEP 30-30 ãq@PZ"INTL 132|EDUCATION ABROAD: ISEP 3|
+U
+INTL 132Education Abroad: ISEP 30-30 äq@PZ"INTL 132|EDUCATION ABROAD: ISEP 3|
+U
+INTL 132Education Abroad: ISEP 30-30 åq@PZ"INTL 132|EDUCATION ABROAD: ISEP 3|
+U
+INTL 132Education Abroad: ISEP 30-30 æq@PZ"INTL 132|EDUCATION ABROAD: ISEP 3|
+U
+INTL 132Education Abroad: ISEP 30-30 çq@PZ"INTL 132|EDUCATION ABROAD: ISEP 3|
+[
+INTL 232Education Abroad: ISEP 30-30 Óq2(@ÈPÈZ"INTL 232|EDUCATION ABROAD: ISEP 3|
+[
+INTL 232Education Abroad: ISEP 30-30 Ôq2(@ÈPÈZ"INTL 232|EDUCATION ABROAD: ISEP 3|
+[
+INTL 232Education Abroad: ISEP 30-30 Õq2(@ÈPÈZ"INTL 232|EDUCATION ABROAD: ISEP 3|
+[
+INTL 232Education Abroad: ISEP 30-30 Öq2(@ÈPÈZ"INTL 232|EDUCATION ABROAD: ISEP 3|
+[
+INTL 232Education Abroad: ISEP 30-30 ×q2(@ÈPÈZ"INTL 232|EDUCATION ABROAD: ISEP 3|
+W
+INTL 332Education Abroad: ISEP 30-30 Ùq@ÈPÈZ"INTL 332|EDUCATION ABROAD: ISEP 3|
+W
+INTL 332Education Abroad: ISEP 30-30 Úq@ÈPÈZ"INTL 332|EDUCATION ABROAD: ISEP 3|
+W
+INTL 332Education Abroad: ISEP 30-30 Ûq@ÈPÈZ"INTL 332|EDUCATION ABROAD: ISEP 3|
+W
+INTL 332Education Abroad: ISEP 30-30 Üq@ÈPÈZ"INTL 332|EDUCATION ABROAD: ISEP 3|
+W
+INTL 332Education Abroad: ISEP 30-30 Ýq@ÈPÈZ"INTL 332|EDUCATION ABROAD: ISEP 3|
 „
 JAPN 102First-Year Japanese5 i*Walker, Tyler2
 MWFêâ	"MH 2319w®< Yç@@HP
@@ -5998,7 +5903,7 @@ HPZ)LAT 202|INTERMEDIATE LATIN|KRAUSE, MILLER
 LDST 101"Introduction to Leadership Studies5 ‰c*Diaz, Holly2
 Rø
 ð"AW 4122
-MWÜÔ"CF 1159„x»êÞ!	@@HPZ7LDST 101|INTRODUCTION TO LEADERSHIP STUDIES|DIAZ, HOLLY
+MWÜÔ"CF 1159„x»êÞ!	@@HP	Z7LDST 101|INTRODUCTION TO LEADERSHIP STUDIES|DIAZ, HOLLY
 °
 LDST 101"Introduction to Leadership Studies5 Šc*Diaz, Holly2
 Rø
@@ -7006,7 +6911,7 @@ PZFMLE 442|LANGUAGE, CULTURE, AND EQUITY IN THE CLASSROOM|NOEL, SARASWATI
 FÎ	–"MH 1142"ONLINE ASNC(9Ï÷Sã¥›@@H
 PZdMLE 445|METHODS FOR TEACHING DEVELOPING, EXPANDING, AND BRIDGING MULTILINGUAL LEARNERS|MATHIEU, CORY
 ‚
-MUS 101Fundamentals of Music2 ÿb*Kavanagh, Amy2"ONLINE ASNC(9\2ëhó@@#H PZ+MUS 101|FUNDAMENTALS OF MUSIC|KAVANAGH, AMY
+MUS 101Fundamentals of Music2 ÿb*Kavanagh, Amy2"ONLINE ASNC(9\2ëhó@@#HPZ+MUS 101|FUNDAMENTALS OF MUSIC|KAVANAGH, AMY
 ‘
 MUS 104The Art of Listening to Music3 ÷U*Ray, Heather2
 TR„ü"PA 1559öòÛ#c]@@dHdZ2MUS 104|THE ART OF LISTENING TO MUSIC|RAY, HEATHER
@@ -9952,10 +9857,10 @@ h
 UEPP 270Cities, Nature and Society3 ’m*Stangl, Paul2
 MW°	¨
 "AH 2199ÝÆ„þÑ@@(H'PZ0UEPP 270|CITIES, NATURE AND SOCIETY|STANGL, PAUL
-³
+µ
 UEPP 302/Environmental Research and Public Communication4 ›b*
 Abel, Troy2
-TRèþ"ES 4189R¸…ëQ	@@HZCUEPP 302|ENVIRONMENTAL RESEARCH AND PUBLIC COMMUNICATION|ABEL, TROY
+TRèþ"ES 4189R¸…ëQ	@@HPZCUEPP 302|ENVIRONMENTAL RESEARCH AND PUBLIC COMMUNICATION|ABEL, TROY
 Ñ
 UEPP 3143Food security, policy, and practica: Special topics2 Øb*MacIntyre Witt, Jill2
 TR Ò"AH 21999Žã8Žã@@HPZQUEPP 314|FOOD SECURITY, POLICY, AND PRACTICA: SPECIAL TOPICS|MACINTYRE WITT, JILL
@@ -10240,4 +10145,4 @@ u
 MWÀÖ"MH 231@HPZ3WGSS 344|CRITICAL CHILDHOOD STUDIES|GIFFEN, ALLISON
 –
 WGSS 356Gender and History5 Ýk*Bhattacharjee, Dharitri2
-MWF¾¶"BH 1049Òy‹!@@HPZ3WGSS 356|GENDER AND HISTORY|BHATTACHARJEE, DHARITRIÉ‡ùÀŸó˜
+MWF¾¶"BH 1049Òy‹!@@HPZ3WGSS 356|GENDER AND HISTORY|BHATTACHARJEE, DHARITRIÓò†Ç¡ý¯$

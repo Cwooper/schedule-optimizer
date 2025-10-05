@@ -161,9 +161,9 @@ Z0ACCT 490|INTERNSHIP IN ACCOUNTING|TAYLOR, AUDREY
 MWFË‡"HH 3452
 Wñ‘"AH 3149¿4Lc¿@@HZ;ANTH 215|INTRODUCTORY BIOLOGICAL ANTHROPOLOGY|FELKER, FIONA
 ∫
-ANTH 215$Introductory Biological Anthropology5 Ñ◊*Felker, Fiona2
-MWFË‡"HH 3452
-Fñ‘"AH 3149¿4Lc¿@@HPZ;ANTH 215|INTRODUCTORY BIOLOGICAL ANTHROPOLOGY|FELKER, FIONA
+ANTH 215$Introductory Biological Anthropology5 Ñ◊*Felker, Fiona2
+Fñ‘"AH 3142
+MWFË‡"HH 3459¿4Lc¿@@HPZ;ANTH 215|INTRODUCTORY BIOLOGICAL ANTHROPOLOGY|FELKER, FIONA
 ©
 ANTH 247'Introduction to Linguistic Anthropology5 Ö◊*Pine, Judith2
 MWFî
@@ -738,11 +738,11 @@ o
 MWFî
 å"IS 2449''''''@@#H#Z BIOL 321|GENETICS|WANG, ADRIENNE
 ©
-BIOL 322Methods in Genetics w/lab4 ≠ƒ*Snyder, Annelise2
-TRË‚	"BI 4612
+BIOL 322Methods in Genetics w/lab4 ≠ƒ*Snyder, Annelise2
 Mî
 ∆
-"BI 4619ªÌ Tá∫	@@H
+"BI 4612
+TRË‚	"BI 4619ªÌ Tá∫	@@H
 PZ3BIOL 322|METHODS IN GENETICS W/LAB|SNYDER, ANNELISE
 ì
 BIOL 323Cell and Molecular Biology4 Äº*Pillay, Laura2
@@ -823,9 +823,9 @@ o
 W¿Ú"BI 234@HPZ6BIOL 444|SEMINAR SERIES PARTICIPATION|PILLITTERI, LYNN
 ™
 BIOL 460Invertebrate Zoology w/lab5 ≤ÿ*Arellano, Shawn2
-TRË‡"BI 3542
 TRÍ®
-"BI 3549ûSÀË∏F@@HPZ3BIOL 460|INVERTEBRATE ZOOLOGY W/LAB|ARELLANO, SHAWN
+"BI 3542
+TRË‡"BI 3549ûSÀË∏F@@HPZ3BIOL 460|INVERTEBRATE ZOOLOGY W/LAB|ARELLANO, SHAWN
 Ø
 BIOL 464Biology of Marine Mammals4 œœ*Acevedo-Gutierrez, Alejandro2
 MWFî
@@ -1171,9 +1171,9 @@ y
 P
 Z,CHEM 201|INDEPENDENT RESEARCH|BERGER, ROBERT
 µ
-CHEM 251Elementary Organic Chemistry5 Çπ*Griffith, Jennifer2
-MTWF†“"SL 1302
-M§û"CB 3109»O…aÈb@@HPZ8CHEM 251|ELEMENTARY ORGANIC CHEMISTRY|GRIFFITH, JENNIFER
+CHEM 251Elementary Organic Chemistry5 Çπ*Griffith, Jennifer2
+M§û"CB 3102
+MTWF†“"SL 1309»O…aÈb@@HPZ8CHEM 251|ELEMENTARY ORGANIC CHEMISTRY|GRIFFITH, JENNIFER
 µ
 CHEM 251Elementary Organic Chemistry5 Éπ*Griffith, Jennifer2
 MTWF†“"SL 1302
@@ -1225,17 +1225,17 @@ y
 CHEM 353Organic Chemistry3 –º*Antos, John2
 MWFËö"SL 1309K~±‰◊@@BHBZ&CHEM 353|ORGANIC CHEMISTRY|ANTOS, JOHN
 ±
-CHEM 355Organic Chemistry Laboratory II4 ´’*Murphy, Amanda2
+CHEM 355Organic Chemistry Laboratory II4 ´’*Murphy, Amanda2
+TR¯
+Ú"CB 3102
 Rî
 ∆
-"SL 1202
-TR¯
-Ú"CB 3109F]t—E@@HPZ7CHEM 355|ORGANIC CHEMISTRY LABORATORY II|MURPHY, AMANDA
+"SL 1209F]t—E@@HPZ7CHEM 355|ORGANIC CHEMISTRY LABORATORY II|MURPHY, AMANDA
 Œ
 CHEM 3561Organic Chemistry Laboratory II for Life Sciences2 ¨’*Antos, John2
-RËö"SL 1302
 RÃ∆
-"CB 3109Ìo.œ˛Ê@@HPZFCHEM 356|ORGANIC CHEMISTRY LABORATORY II FOR LIFE SCIENCES|ANTOS, JOHN
+"CB 3102
+RËö"SL 1309Ìo.œ˛Ê@@HPZFCHEM 356|ORGANIC CHEMISTRY LABORATORY II FOR LIFE SCIENCES|ANTOS, JOHN
 é
 CHEM 375Elements of Biochemistry4 Œ¬*Rindal, Hope2
 MWRF∞	‚	"SL 1509¨h$‡õ◊@@<HP(Z.CHEM 375|ELEMENTS OF BIOCHEMISTRY|RINDAL, HOPE
@@ -1295,11 +1295,11 @@ Z*CHEM 425R|SURFACE CHEMISTRY.|BUSSELL, MARK
 CHEM 473Molecular Biology3 ÖÃ*Spiegel, P. Clint2
 MWFËö"IS 3109eÔkBP@@ HPZ,CHEM 473|MOLECULAR BIOLOGY|SPIEGEL, P. CLINT
 °
-CHEM 474Biochemistry Laboratory5 ≥’*Smirnov, Serge2
-MWî
-Ú"IS 4302
+CHEM 474Biochemistry Laboratory5 ≥’*Smirnov, Serge2
 F¯
-™"SL 1309¬H;V å@@HPZ/CHEM 474|BIOCHEMISTRY LABORATORY|SMIRNOV, SERGE
+™"SL 1302
+MWî
+Ú"IS 4309¬H;V å@@HPZ/CHEM 474|BIOCHEMISTRY LABORATORY|SMIRNOV, SERGE
 ±
 CHEM 474Biochemistry Laboratory5 ¥’*Anthony-Cahill, Spencer2
 TRî
@@ -1338,9 +1338,9 @@ i
 MWFÃ˛"IS 244HPˇˇˇˇˇˇˇˇˇZ,CHEM 534|INSTRUMENTAL ANALYSIS|EMORY, STEVEN
 ü
 CHEM 536 Instrumental Analysis Laboratory2 Ÿø*Rider, David2
-RÑ∂"SL 1302
 T¯
-Ú"CB 265Z6CHEM 536|INSTRUMENTAL ANALYSIS LABORATORY|RIDER, DAVID
+Ú"CB 2652
+RÑ∂"SL 130Z6CHEM 536|INSTRUMENTAL ANALYSIS LABORATORY|RIDER, DAVID
 °
 CHEM 536 Instrumental Analysis Laboratory2 ⁄ø*Emory, Steven2
 RÑ∂"SL 1302
@@ -1420,120 +1420,10 @@ ZCHEM 699|CONTINUOUS ENROLLMENT|
 TR¯
 ™"SL 2109      @@HP
 Z4CSEC 121|BECOMING A STUDENT OF SCIENCE|VAN HEES, DAN
-™
-CSD 251'Introduction to Communication Disorders3 û∫*Evans, Kelli2
-TRË‡"FR 2019ùËÎB@@ñHèPZ<CSD 251|INTRODUCTION TO COMMUNICATION DISORDERS|EVANS, KELLI
-±
-CSD 352+Anatomy and Physiology of Speech Mechanisms5 ü∫*Evans, David2
-MWFî
-å"AW 2109]ä`¡@@FH5PZ@CSD 352|ANATOMY AND PHYSIOLOGY OF SPEECH MECHANISMS|EVANS, DAVID
-⁄
-CSD 3729Anatomy, Physiology, and Disorders of Hearing and Balance4 ÆŸ*Sheffield, Sterling2
-TRî
-™"CF 1259√0√0@@<H*PZUCSD 372|ANATOMY, PHYSIOLOGY, AND DISORDERS OF HEARING AND BALANCE|SHEFFIELD, STERLING
-ä
-CSD 463Aural Rehabilitation4 »π*Peters, Kimberly2
-TRË˛"AW 3049ËyûÁyû@@<H PZ-CSD 463|AURAL REHABILITATION|PETERS, KIMBERLY
-S
-CSD 491Senior Research Project2 ≥¬2(@PZ CSD 491|SENIOR RESEARCH PROJECT|
-’
-CSD 502?Evidence-Based Practice in Communication Sciences and Disorders3 ˚«*Ayars, Sara2
-Wî
-é"AW 3049B/ÙB/Ù@@&HPZSCSD 502|EVIDENCE-BASED PRACTICE IN COMMUNICATION SCIENCES AND DISORDERS|AYARS, SARA
-ä
-CSD 505Audiology Clinical Levels III1 ª≈*Reed, Andrea2
-M¯
-™"AW 410@HPZ2CSD 505|AUDIOLOGY CLINICAL LEVELS III|REED, ANDREA
-á
-CSD 507!Capstone Project/Research Project2 ÿ∆*Diedesch, Anna2(@HPZ8CSD 507|CAPSTONE PROJECT/RESEARCH PROJECT|DIEDESCH, ANNA
-ì
-CSD 507!Capstone Project/Research Project2 åœ*Peters, Kimberly2
-"AI OFC(@HPZ:CSD 507|CAPSTONE PROJECT/RESEARCH PROJECT|PETERS, KIMBERLY
-ô
-CSD 507!Capstone Project/Research Project2 çœ*Sheffield, Sterling2
-"AI OFC(@HPZ=CSD 507|CAPSTONE PROJECT/RESEARCH PROJECT|SHEFFIELD, STERLING
-â
-CSD 508Audiology Research Methods4 ã—*Diedesch, Anna2
-WRî
-™"AI 362@H	PZ1CSD 508|AUDIOLOGY RESEARCH METHODS|DIEDESCH, ANNA
-ä
-CSD 515Speech Sound Disorders4 áœ*Moore, Heather2
-TRî
-™"AW 4069Ÿè˝ÿè˝@@HPZ-CSD 515|SPEECH SOUND DISORDERS|MOORE, HEATHER
-§
-CSD 542Adult and Pediatric Dysphagia4 àœ*Fix Edwards, Hillary2
-WFî
-™"AW 4059Ú_Ò_@@HPZ:CSD 542|ADULT AND PEDIATRIC DYSPHAGIA|FIX EDWARDS, HILLARY
-π
-CSD 5521Assessment Practicum in Speech-Language Pathology2  π*Stephens, Lesley2
-TRÑ˛"AI 273@
-P
-ZJCSD 552|ASSESSMENT PRACTICUM IN SPEECH-LANGUAGE PATHOLOGY|STEPHENS, LESLEY
-Æ
-CSD 553%Developmental Language Disabilities I4 âœ*Thistle, Jennifer2
-TRË˛"AW 4059i7’àv@@HPZ?CSD 553|DEVELOPMENTAL LANGUAGE DISABILITIES I|THISTLE, JENNIFER
-œ
-CSD 5587Graduate Clinical Practice in Speech-Language Pathology1-5 Àπ*Stephens, Lesley2
-M¯
-™"AI 3629ıUå#2g@@&H&ZPCSD 558|GRADUATE CLINICAL PRACTICE IN SPEECH-LANGUAGE PATHOLOGY|STEPHENS, LESLEY
-ç
-CSD 559#Speech-Language Pathology Practicum2 Ãπ*Stephens, Lesley2(@
-P
-Z<CSD 559|SPEECH-LANGUAGE PATHOLOGY PRACTICUM|STEPHENS, LESLEY
-ê
-CSD 561Advanced Audiology I5 ı√*Sheffield, Sterling2
-MWæ‡"AW 4089∏ÖÎQ∏@@H
-PZ0CSD 561|ADVANCED AUDIOLOGY I|SHEFFIELD, STERLING
-≈
-CSD 5642Advanced Clinical Practice in Aural Rehabilitation2 ÿø*Peters, Kimberly2
-WÃ˛"AW 2059}“'}“ß@@HPZKCSD 564|ADVANCED CLINICAL PRACTICE IN AURAL REHABILITATION|PETERS, KIMBERLY
-ç
-CSD 566Auditory Neurophysiology3 ˆ√*Diedesch, Anna2
-FÑ˛"AI 3629X|≈W|≈@@H
-PZ/CSD 566|AUDITORY NEUROPHYSIOLOGY|DIEDESCH, ANNA
-©
-CSD 568(Advanced Clinical Practicum in Audiology2 ˜√*Reed, Andrea2
-TÃ˛"AI 3629      @@HPZ=CSD 568|ADVANCED CLINICAL PRACTICUM IN AUDIOLOGY|REED, ANDREA
-x
-CSD 570Medical Audiology4 ¯√*
-Xu, Elaine2
-TRî
-™"AW 4089      @@H
-PZ$CSD 570|MEDICAL AUDIOLOGY|XU, ELAINE
-ú
-CSD 576!Cognitive Communication Disorders4 äœ*Evans, Kelli2
-MWË˛"CF 2269      @@-HPZ6CSD 576|COGNITIVE COMMUNICATION DISORDERS|EVANS, KELLI
-µ
-CSD 580-Communication Disorders in the Public Schools2 ØŸ*Burgess, Dawn2
-MË˛"CF 1209#Èπ.61@@HPZCCSD 580|COMMUNICATION DISORDERS IN THE PUBLIC SCHOOLS|BURGESS, DAWN
-Œ
-CSD 5885Seminar in Augmentative and Alternative Communication4 ∞Ÿ*Thistle, Jennifer2
-TRî
-™"AW 4059Ü^ËÖ^Ë@@HPZOCSD 588|SEMINAR IN AUGMENTATIVE AND ALTERNATIVE COMMUNICATION|THISTLE, JENNIFER
-ã
-CSD 590Educational Audiology3 ÜÃ*Peters, Kimberly2
-Mî
-é"AW 4059      @@H	PZ.CSD 590|EDUCATIONAL AUDIOLOGY|PETERS, KIMBERLY
 †
-CSD 595"Tinnitus Assessment and Management3 Å“*Theodoroff, Sarah2
-"AI OFC(9      @@HPZ<CSD 595|TINNITUS ASSESSMENT AND MANAGEMENT|THEODOROFF, SARAH
-_
-CSD 596AuD Internship4 è»*Cooper, Megan2(@HPZ$CSD 596|AUD INTERNSHIP|COOPER, MEGAN
-ë
-CSD 599$Internship Speech/Language Pathology8 Ü“*Burgess, Dawn2
-"AI OFC(@PZ:CSD 599|INTERNSHIP SPEECH/LANGUAGE PATHOLOGY|BURGESS, DAWN
-3
-CSD 690Thesis1-9 Ûπ2(@
-P
-ZCSD 690|THESIS|
-m
-CSD 692Fourth Year Externship8 ê»*Cooper, Megan2(@PZ,CSD 692|FOURTH YEAR EXTERNSHIP|COOPER, MEGAN
-m
-CSD 699Continuous Enrollment2 ª∫*Patrick, David2(@PZ,CSD 699|CONTINUOUS ENROLLMENT|PATRICK, DAVID
-†
-COMM 101Fundamentals of Speech4 ÷π*Hays, Jennifer2
-MWFËö"CF 0232
-TËö"FR 1019DÍ:‹d@@HPZ.COMM 101|FUNDAMENTALS OF SPEECH|HAYS, JENNIFER
+COMM 101Fundamentals of Speech4 ÷π*Hays, Jennifer2
+TËö"FR 1012
+MWFËö"CF 0239DÍ:‹d@@HPZ.COMM 101|FUNDAMENTALS OF SPEECH|HAYS, JENNIFER
 û
 COMM 101Fundamentals of Speech4 ◊π*Hays, Jennifer2
 TËö"FR 1012
@@ -1799,14 +1689,14 @@ Z9CSCI 102|COMPUTER-MEDIATED COMMUNICATIONS|BANSON, JUSTICE
 ∆
 "CF 1159´w›C™@@HPZ0CSCI 141|COMPUTER PROGRAMMING I|HARDIN, CAROLINE
 –
-CSCI 145/Computer Programming and Linear Data Structures4 ‚√*Clauson, Aran2
-MË˛"CF 1642
-MWF¿Ú"CF 1259433333@@HPZFCSCI 145|COMPUTER PROGRAMMING AND LINEAR DATA STRUCTURES|CLAUSON, ARAN
+CSCI 145/Computer Programming and Linear Data Structures4 ‚√*Clauson, Aran2
+MWF¿Ú"CF 1252
+MË˛"CF 1649433333@@HPZFCSCI 145|COMPUTER PROGRAMMING AND LINEAR DATA STRUCTURES|CLAUSON, ARAN
 –
-CSCI 145/Computer Programming and Linear Data Structures4 „√*Clauson, Aran2
+CSCI 145/Computer Programming and Linear Data Structures4 „√*Clauson, Aran2
+MWF¿Ú"CF 1252
 T¯
-é"CF 1642
-MWF¿Ú"CF 1259433333@@HPZFCSCI 145|COMPUTER PROGRAMMING AND LINEAR DATA STRUCTURES|CLAUSON, ARAN
+é"CF 1649433333@@HPZFCSCI 145|COMPUTER PROGRAMMING AND LINEAR DATA STRUCTURES|CLAUSON, ARAN
 –
 CSCI 145/Computer Programming and Linear Data Structures4 ‰√*Clauson, Aran2
 F∞	∆
@@ -1820,14 +1710,14 @@ Z9CSCI 102|COMPUTER-MEDIATED COMMUNICATIONS|BANSON, JUSTICE
 P
 Z)CSCI 202|DYNAMIC WEB PAGES|O'HARA, DUSTIN
 é
-CSCI 241Data Structures4 àπ*Nilles, Alli2
+CSCI 241Data Structures4 àπ*Nilles, Alex2
 M†∂"CF 1622
-MWF∞	‚	"CF 12591t!„@@HPZ%CSCI 241|DATA STRUCTURES|NILLES, ALLI
+MWF∞	‚	"CF 12591t!„@@HPZ%CSCI 241|DATA STRUCTURES|NILLES, ALEX
 å
-CSCI 241Data Structures4 ÷¿*Nilles, Alli2
+CSCI 241Data Structures4 ÷¿*Nilles, Alex2
 MWF∞	‚	"CF 1252
 R¯
-é"CF 16491t!„@@HZ%CSCI 241|DATA STRUCTURES|NILLES, ALLI
+é"CF 16491t!„@@HZ%CSCI 241|DATA STRUCTURES|NILLES, ALEX
 ê
 CSCI 241Data Structures4 Â√*Tan, See-Mong2
 MWFÑ∂"CF 0232
@@ -1943,12 +1833,11 @@ s
 k
 CSCI 490Senior Research2 Ï’*Tan, See-Mong2
 "CF OFC(@HPZ&CSCI 490|SENIOR RESEARCH|TAN, SEE-MONG
-c
-CSCI 490Senior Research2 Ì’*
-Mare, Shri2
+k
+CSCI 490Senior Research2 Ì’*Mare, Shrirang2
 "CF OFC(@
 H
-Z#CSCI 490|SENIOR RESEARCH|MARE, SHRI
+Z'CSCI 490|SENIOR RESEARCH|MARE, SHRIRANG
 o
 CSCI 490Senior Research2 ±Ÿ*Elglaly, Yasmine2
 "CF OFC(@HZ)CSCI 490|SENIOR RESEARCH|ELGLALY, YASMINE
@@ -1995,10 +1884,9 @@ m
 É
 CSCI 496Undergraduate Research1-4 ‚÷*Hutchinson, Brian2
 "CF OFC(@HPZ1CSCI 496|UNDERGRADUATE RESEARCH|HUTCHINSON, BRIAN
-~
-CSCI 496Undergraduate Research1-4 ∫Ÿ*
-Mare, Shri2
-"CF OFC(@HPˇˇˇˇˇˇˇˇˇZ*CSCI 496|UNDERGRADUATE RESEARCH|MARE, SHRI
+Ü
+CSCI 496Undergraduate Research1-4 ∫Ÿ*Mare, Shrirang2
+"CF OFC(@HPˇˇˇˇˇˇˇˇˇZ.CSCI 496|UNDERGRADUATE RESEARCH|MARE, SHRIRANG
 
 CSCI 496Undergraduate Research1-4 ªŸ*Wehrwein, Scott2
 "CF OFC(@HPZ/CSCI 496|UNDERGRADUATE RESEARCH|WEHRWEIN, SCOTT
@@ -5442,11 +5330,11 @@ Mart, Paul2
 ™9Y>ó∫À€
 @@HPZ,IEP 103|LEVEL 5 ACADEMIC WRITING|HAGIN, DEAN
 î
-IEP 103Level 5 Academic Writing5 º⁄*Hagin, Dean2
+IEP 103Level 5 Academic Writing5 º⁄*Hagin, Dean2	
+T∞	®
+2
 
 MF∞	‚	2	
-T∞	®
-2	
 R≤
 ™9Y>ó∫À€
 @@HZ,IEP 103|LEVEL 5 ACADEMIC WRITING|HAGIN, DEAN
@@ -7229,8 +7117,8 @@ HPZ7MUS 213D|APPLIED INSTRUCTION: DOUBLE BASS|PALMER, DYLAN
 P
 Z7MUS 213D|APPLIED INSTRUCTION: DOUBLE BASS|PALMER, DYLAN
 _
-MUS 213EHarp1-4 ôæ*Whitman, Jill2
-"PA OFC(2"PA(@
+MUS 213EHarp1-4 ôæ*Whitman, Jill2"PA(2
+"PA OFC(@
 HPZMUS 213E|HARP|WHITMAN, JILL
 a
 MUS 213EHarp1-4 öæ*Whitman, Jill2
@@ -10313,4 +10201,4 @@ x
 WGSS 450Abolitionist Feminism5 µ«*Cerretti, Josh2
 TR¯
 é"BH 1739ê¬ı(\è
-@@HZ-WGSS 450|ABOLITIONIST FEMINISM|CERRETTI, JOSHòá˘¿Íù©Ñ
+@@HZ-WGSS 450|ABOLITIONIST FEMINISM|CERRETTI, JOSH¶ÚÜ«œç·'
