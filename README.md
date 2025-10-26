@@ -1,7 +1,7 @@
 # Schedule Optimizer
 
-Schedule Optimizer is a passion project for ACM club at WWU that helps students
-optimize their course schedules. Try it live at
+Schedule Optimizer is a personal project to help students at WWU plan their
+courses. You can try it live at 
 [cwooper.me/schedule-optimizer](https://cwooper.me/schedule-optimizer)!
 
 **Disclaimer:** This project is not affiliated with Western Washington University.
@@ -11,188 +11,148 @@ official or binding.
 
 ## Features
 
-- Generate optimal schedules based on course selection
-- View GPA statistics and professor information
-- Customize schedule weights for personalization
-- Fuzzy search course listings
-- Interactive calendar view
-- Support for async/TBD courses
-- Docker containerization for easy deployment
+### Core Features
 
-## Quick Demo
+- Scrape Course Data from WWU
+- Store sources in SQLite database with full metadata
+- Merge GPA data from CSV into course records
+- Update data on a schedule
+- Support multiple quarters by being "course-first" in design
 
-Try these sample courses on the live site:
+### Web Scraping
 
-- ENG 101
-- CSCI 141
-- CSCI 305
-- CSCI 345
+- Smart scraping for as-needed course data
+- Stores structured course data
+- Slow scraping at off times to not overload servers
+- Does not update old courses
+- More aggressive for current/new courses
 
-Try changing the quarter, forcing courses, or changing the min/max courses per schedule!
+### Schedule Generation
 
-## Prerequisites
+- Generate non-conflicting schedules using iterative tree-pruning algorithm
+- Specify course code (e.g., "CSCI 247") which maps to multiple CRNs
+- Force specific CRNs during generation
+- Configure min/max courses in generated schedules
+- (optional) minimal backend weighting by:
+  - start time
+  - end time
+  - gaps
+  - GPA
+- Return multiple valid schedules
 
-- Docker and docker-compose (for containerized deployment)
-- Go 1.22 or later (for local deployment)
-- Node.js and npm (for local deployment)
-- Protocol Buffer Compiler (protoc) 3.0.0 or later (for local deployment)
+### Course Search
 
-## Docker Deployment
+- Advanced Search based on course subject, code, title, professor, etc.
+- Filter by quarter or search for all time (at least the data that I have)
+- Ability to add courses to schedule (specific CRN)
 
-1. **Build and Run with Docker Compose:**
+### Analytics and Statistics
 
-   ```bash
-   docker-compose up --build
-   ```
+- Track search queries
+- Track schedule generations
+- Display popular subjects/courses
 
-2. **Clean Docker Volume (if needed):**
+### Frontend Features
 
-   ```bash
-   docker-compose down -v
-   ```
+- Custom schedule additions
+- Saving schedule as a png
+- Browser caching for course list, settings, search, and possibly schedule
 
-## Production Deployment
+## Future Enhancements
 
-This is for permanent production deployment that starts as a systemd-controlled
-docker container.
+### Campus Map
 
-### 1. Set Up Application Directory
+- Campus map showing class building locations
+- Shortest path between classes using pre-computed building graph
+- Highlight buildings for selected schedules on specific days
+- Walking time estimates between back-to-back classes
 
-```bash
-sudo mkdir -p /opt/schedule-optimizer
-sudo mv ~/schedule-optimizer/* /opt/schedule-optimizer/
-sudo chown -R your-user:your-user /opt/schedule-optimizer
-sudo chmod -R 755 /opt/schedule-optimizer
-```
+### Schedule Sharing
 
-### 2. Create Systemd Service
+- Share schedules via URL or JSON
+- Shortened URLs
 
-Create `/etc/systemd/system/schedule-optimizer.service`:
+### Extra Dates and Times
 
-```ini
-[Unit]
-Description=Schedule Optimizer Service
-After=docker.service
-Requires=docker.service
+- Scrape extra data for:
+  - Final Exam times
+  - Term Dates
+  - Registration Times
+  - When does registration for certain users
+  - Holidays
+- Could export as ICS file based on Term dates, Holidays, and Exam times
+- Could extend this into notifying users when their registration opens
 
-[Service]
-Type=simple
-User=your-user
-WorkingDirectory=/opt/schedule-optimizer
-ExecStart=/usr/bin/docker-compose -f /opt/schedule-optimizer/docker-compose.yml up --build
-ExecStop=/usr/bin/docker-compose -f /opt/schedule-optimizer/docker-compose.yml down
-Restart=always
-RestartSec=10
+### Machine Learning
 
-[Install]
-WantedBy=multi-user.target
-```
+- Predict future classes based on past searches
+- Difficult ratings derived from GPA distrubitions, variation, bias, professor
+- Could implement Gemini Cloud LLM with function calling for AI-search
 
-### 3. Configure Apache Reverse Proxy (Optional)
+## Tech Stack
 
-1. Enable Apache modules:
+### Backend
 
-   ```bash
-   sudo a2enmod proxy proxy_http
-   ```
+- Go
+- REST API with GIN
+- SQLite database for course data and logs
+- log/slog
+- Smart Coordinator that rescrapes data
+  - if process receives SIGUSER1
+  - on daily 24 hour ticker
+- Docker
 
-2. Add to Apache configuration:
+### Frontend
 
-   ```apache
-   ProxyPass /schedule-optimizer http://localhost:48920/schedule-optimizer
-   ProxyPassReverse /schedule-optimizer http://localhost:48920/schedule-optimizer
-   ```
+- pnpm
+- Vite
+- React/TS
+- Tailwind
+- shadcn/ui
+- @konnorkooi/schedule-glance
+- Excalidraw for wireframing
 
-### 4. Start Services
+## Proposed Layout
 
-```bash
-sudo systemctl daemon-reload
-sudo systemctl enable schedule-optimizer
-sudo systemctl start schedule-optimizer
-sudo systemctl restart apache2  # If using Apache
-```
-
-## Local Development Setup
-
-This is to be used for local development or testing
-
-1. **Install Protocol Buffers:**
-
-   ```bash
-   # MacOS
-   brew install protobuf
-   # Linux
-   sudo apt install protobuf-compiler
-   # Windows: Download from https://github.com/protocolbuffers/protobuf/releases
-   ```
-
-2. **Install Go Protobuf Plugin:**
-
-   ```bash
-   go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
-   export PATH="$PATH:$(go env GOPATH)/bin"
-   ```
-
-3. **Build Frontend:**
-
-   ```bash
-   cd frontend
-   npm install
-   make build
-   ```
-
-4. **Build Backend:**
-
-   ```bash
-   cd backend
-   go mod download
-   make proto  # Generate protobuf files
-   ```
-
-5. **Run Locally:**
-   ```bash
-   cd backend
-   go run server.go
-   ```
-
-   Visit [localhost:48920/schedule-optimizer](http://localhost:48920/schedule-optimizer)
-
-## Development Commands
-
-Protobuf commands for editing the backend data structures
-
-- **Generate Protobuf Files:**
-
-  ```bash
-  cd backend && make proto
-  ```
-
-- **Clean Generated Files:**
-
-  ```bash
-  cd backend && make clean
-  ```
-
-There are also Makefiles for building the frontend and running the backend for
-testing locally.
-  
-## Project Structure
-
-```
-.
+```sh
+schedule-optimizer/
 ├── backend/
-│   ├── data/          # Course data and protobuf files
-│   ├── internal/      # Internal packages
-│   ├── pkg/           # Public packages
-│   └── server.go      # Main server file
-├── frontend/          # React frontend
-├── docker-compose.yml # Docker configuration
-└── Dockerfile         # Docker build instructions
+│   ├── cmd/server/main.go
+│   ├── internal/
+│   │   ├── api/
+│   │   ├── services/
+│   │   ├── repository/
+│   │   │   ├── database.go      # Schema + migrations
+│   │   │   ├── course_repo.go
+│   │   │   └── log_repo.go
+│   │   ├── models/models.go
+│   │   └── config/config.go
+│   ├── data/                     # gitignored
+│   ├── go.mod
+│   └── Dockerfile
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── ui/              # shadcn
+│   │   │   ├── schedule/
+│   │   │   ├── search/
+│   │   │   └── analytics/
+│   │   ├── hooks/               # React Query hooks
+│   │   ├── api/
+│   │   │   ├── client.ts
+│   │   │   └── types.ts
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   ├── package.json
+│   ├── vite.config.ts
+│   └── Dockerfile
+│
+├── docker-compose.yml
+└── README.md
 ```
 
-## Authors
-
-### Core Team
+## v1 Authors and Contributions
 
 **Cooper Morgan** ([@cwooper](https://github.com/cwooper))
 
