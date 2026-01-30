@@ -86,6 +86,11 @@ backend/
 │   │   ├── queries.sql       # Named SQL queries (schema from migrations)
 │   │   └── *.go              # Generated (don't edit)
 │   ├── cache/                # In-memory cache for schedule generation
+│   ├── generator/            # Schedule generation (bitmask + backtracking)
+│   │   ├── service.go        # Generate() entry point
+│   │   ├── bitmask.go        # O(1) conflict detection
+│   │   ├── backtrack.go      # Recursive enumeration
+│   │   └── scorer.go         # Gap, Start, End scoring
 │   └── testutil/             # Shared test utilities
 ├── sqlc.yaml                 # sqlc configuration
 └── Makefile
@@ -97,12 +102,48 @@ backend/
 Banner API → Scraper → SQLite → Cache (in-memory) → API → Frontend
 ```
 
+## Schedule Generator
+
+The schedule generator uses bitmask-based conflict detection with backtracking to enumerate all valid schedule combinations.
+
+### Algorithm
+
+- **Bitmask conflict detection**: O(1) conflict check via bitwise AND on `[8]uint64` (512 bits for 450 time slots)
+- **10-minute granularity**: 7am-10pm = 90 slots/day × 5 days = 450 bits
+- **Backtracking with pruning**: Generates schedules in order of course count, stops early when limit reached
+- **Scoring**: Gap (minimize gaps between classes), Start (prefer later starts), End (prefer earlier ends)
+
+### Performance
+
+Benchmarks comparing v2 (bitmask) vs old implementation (O(n²) precomputed conflict matrix):
+
+| Test | Sections | Old (main) | New (v2) | Speedup |
+|------|----------|------------|----------|---------|
+| 5 courses | 100 | 7.0ms | 1.5ms | **4.7x** |
+| 8 courses | 136 | 15.4ms | 1.7ms | **9.0x** |
+| 10 courses | 160 | 14.5ms | 1.8ms | **8.1x** |
+| 13 courses | 169 | 13.3ms | 1.8ms | **7.4x** |
+
+*Tested with synthetic course data, 20k schedule limit, on same hardware.*
+
+### Limits
+
+| Constant | Value | Description |
+|----------|-------|-------------|
+| `MaxInputCourses` | 13 | Maximum courses in request |
+| `MaxSchedulesToGenerate` | 20,000 | Safety limit during generation |
+| `MaxSchedulesToReturn` | 2,000 | Schedules returned to client (sorted by score) |
+| `DefaultMaxCourses` | 8 | Default max courses per schedule |
+
 ## API Endpoints
 
 API endpoints are under development. See GitHub issues #12 (API Contract) and #20 (Search Service).
 
 ### Health
 - `GET /health` - Health check
+
+### Schedule Generation
+- `POST /generate` - Generate schedule combinations for requested courses
 
 ## Database
 
