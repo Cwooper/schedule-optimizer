@@ -5,6 +5,9 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
+
+	"github.com/lmittmann/tint"
 )
 
 type Config struct {
@@ -62,6 +65,16 @@ func Load() *Config {
 		DailyScrapeHour:    dailyScrapeHour,
 		LogRetentionDays:   logRetentionDays,
 		PastTermYears:      pastTermYears,
+	}
+}
+
+// SetupLogging configures the global slog logger based on environment.
+func SetupLogging(cfg *Config) {
+	if cfg.Environment != "production" {
+		slog.SetDefault(slog.New(tint.NewHandler(os.Stderr, &tint.Options{
+			Level:      slog.LevelDebug,
+			TimeFormat: time.Kitchen,
+		})))
 	}
 }
 
