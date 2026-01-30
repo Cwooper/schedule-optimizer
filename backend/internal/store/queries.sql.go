@@ -544,8 +544,19 @@ func (q *Queries) GetSectionsWithInstructorByTerm(ctx context.Context, term stri
 	return items, nil
 }
 
+const getTermByCode = `-- name: GetTermByCode :one
+SELECT code, description, last_scraped_at FROM terms WHERE code = ?
+`
+
+func (q *Queries) GetTermByCode(ctx context.Context, code string) (*Term, error) {
+	row := q.db.QueryRowContext(ctx, getTermByCode, code)
+	var i Term
+	err := row.Scan(&i.Code, &i.Description, &i.LastScrapedAt)
+	return &i, err
+}
+
 const getTerms = `-- name: GetTerms :many
-SELECT code, description FROM terms ORDER BY code DESC
+SELECT code, description, last_scraped_at FROM terms ORDER BY code DESC
 `
 
 func (q *Queries) GetTerms(ctx context.Context) ([]*Term, error) {
@@ -557,7 +568,7 @@ func (q *Queries) GetTerms(ctx context.Context) ([]*Term, error) {
 	items := []*Term{}
 	for rows.Next() {
 		var i Term
-		if err := rows.Scan(&i.Code, &i.Description); err != nil {
+		if err := rows.Scan(&i.Code, &i.Description, &i.LastScrapedAt); err != nil {
 			return nil, err
 		}
 		items = append(items, &i)
@@ -708,6 +719,15 @@ func (q *Queries) LogSearch(ctx context.Context, arg LogSearchParams) error {
 		arg.ResultsCount,
 		arg.SessionID,
 	)
+	return err
+}
+
+const updateTermScrapedAt = `-- name: UpdateTermScrapedAt :exec
+UPDATE terms SET last_scraped_at = CURRENT_TIMESTAMP WHERE code = ?
+`
+
+func (q *Queries) UpdateTermScrapedAt(ctx context.Context, code string) error {
+	_, err := q.db.ExecContext(ctx, updateTermScrapedAt, code)
 	return err
 }
 

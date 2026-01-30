@@ -90,6 +90,7 @@ type SectionAttribute struct {
 }
 
 type Term struct {
-	Code        string `json:"code"`
-	Description string `json:"description"`
+	Code          string       `json:"code"`
+	Description   string       `json:"description"`
+	LastScrapedAt sql.NullTime `json:"last_scraped_at"`
 }

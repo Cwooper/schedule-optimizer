@@ -4,7 +4,8 @@
 -- Available academic terms
 CREATE TABLE terms (
     code TEXT PRIMARY KEY,
-    description TEXT NOT NULL
+    description TEXT NOT NULL,
+    last_scraped_at TIMESTAMP
 );
 
 -- Main course sections table

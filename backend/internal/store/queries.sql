@@ -1,10 +1,16 @@
 -- name: GetTerms :many
-SELECT code, description FROM terms ORDER BY code DESC;
+SELECT code, description, last_scraped_at FROM terms ORDER BY code DESC;
+
+-- name: GetTermByCode :one
+SELECT code, description, last_scraped_at FROM terms WHERE code = ?;
 
 -- name: UpsertTerm :exec
 INSERT INTO terms (code, description)
 VALUES (?, ?)
 ON CONFLICT(code) DO UPDATE SET description = excluded.description;
+
+-- name: UpdateTermScrapedAt :exec
+UPDATE terms SET last_scraped_at = CURRENT_TIMESTAMP WHERE code = ?;
 
 -- name: GetSectionsByTerm :many
 SELECT * FROM sections WHERE term = ? ORDER BY subject, course_number;
