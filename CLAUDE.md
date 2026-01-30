@@ -96,7 +96,7 @@ pnpm test     # run tests
 
 ```
 backend/
-├── cmd/server/main.go        # Entry point, route definitions
+├── cmd/server/main.go        # Entry point, route definitions, graceful shutdown
 ├── migrations/               # golang-migrate SQL files
 │   ├── 000001_initial_schema.up.sql
 │   └── 000001_initial_schema.down.sql
@@ -112,6 +112,10 @@ backend/
 │   │   ├── client.go         # HTTP client with cookie jar
 │   │   ├── response.go       # Banner API response types (TODO: validate against real API)
 │   │   └── store.go          # Persistence helpers
+│   ├── jobs/                 # Background job scheduler
+│   │   ├── service.go        # Job interface + Service (runs jobs on interval)
+│   │   ├── scrape.go         # BootstrapJob, PastTermBackfillJob, ActiveScrapeJob, DailyScrapeJob
+│   │   └── term.go           # Term phase detection (40-day registration estimate)
 │   └── cache/                # In-memory schedule cache
 ├── sqlc.yaml
 ├── Makefile
@@ -122,6 +126,8 @@ backend/
 
 ```
 Banner API → Scraper → SQLite → Cache (in-memory) → API → Frontend
+     ↑
+Jobs Service (scheduled scraping)
 ```
 
 ### Key Design Decisions
@@ -151,7 +157,14 @@ PORT=48920
 ENVIRONMENT=development
 DATABASE_PATH=data/schedule.db
 CORS_ALLOWED_ORIGINS=http://localhost:3000,http://localhost:5173
-SCRAPER_CONCURRENCY=4  # concurrent page fetches (default 4)
+SCRAPER_CONCURRENCY=4           # concurrent page fetches (default 4)
+
+# Jobs Service
+JOBS_ENABLED=true               # enable background job scheduler (default true)
+JOBS_ACTIVE_SCRAPE_HOURS=8      # hours between active registration scrapes (default 8)
+JOBS_DAILY_SCRAPE_HOUR=3        # hour (0-23) for daily pre-registration scrapes (default 3)
+JOBS_LOG_RETENTION_DAYS=90      # days to keep logs before pruning (default 90, TODO: not implemented)
+JOBS_PAST_TERM_YEARS=5          # years of past terms to scrape (default 5)
 ```
 
 ## v2 Roadmap (GitHub Issues)
@@ -161,18 +174,18 @@ SCRAPER_CONCURRENCY=4  # concurrent page fetches (default 4)
 - [x] #10 - Design Schedule Optimizer Icon/Logo
 
 ### Backend
-- [ ] #13 - Set up new Go Backend with Gin *(in progress)*
-- [ ] #14 - Implement SQLite Database Layer *(in progress)*
-- [ ] #15 - Implement Structured Logging with slog
+- [x] #13 - Set up new Go Backend with Gin
+- [x] #14 - Implement SQLite Database Layer
+- [x] #15 - Implement Structured Logging with slog *(tint for colored dev logs)*
 - [ ] #16 - Implement Analytics/Statistics Collection
-- [ ] #17 - Migrate Data Pipeline to SQLite *(scraper done, needs real API validation)*
-- [ ] #18 - Implement Jobs Service (scheduled scraping)
+- [x] #17 - Migrate Data Pipeline to SQLite *(scraper done, needs real API validation)*
+- [x] #18 - Implement Jobs Service (scheduled scraping)
 - [ ] #19 - Schedule Generation Logic
 - [ ] #20 - Implement Course Search Service (NLP, advanced search)
 - [ ] #21 - Backend Tests
 - [ ] #29 - Set Up Docker Development Environment
 - [ ] #34 - Explore ML Features
-- [ ] #37 - Extra Dates and Times
+- [ ] #37 - Extra Dates and Times *(jobs use 40-day registration estimate, TODO: scrape actual dates)*
 
 ### Frontend
 - [ ] #11 - Frontend SEO

@@ -129,3 +129,8 @@ FROM meeting_times m
 JOIN sections s ON m.section_id = s.id
 WHERE s.term = ?
 ORDER BY m.section_id;
+
+-- name: GetTermsNeverScraped :many
+SELECT code, description, last_scraped_at FROM terms
+WHERE last_scraped_at IS NULL ORDER BY code DESC;
+
