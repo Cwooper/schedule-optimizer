@@ -10,6 +10,25 @@ import (
 	"database/sql"
 )
 
+const courseExistsAnyTerm = `-- name: CourseExistsAnyTerm :one
+SELECT EXISTS(
+    SELECT 1 FROM sections
+    WHERE subject = ? AND course_number = ?
+) AS course_exists
+`
+
+type CourseExistsAnyTermParams struct {
+	Subject      string `json:"subject"`
+	CourseNumber string `json:"course_number"`
+}
+
+func (q *Queries) CourseExistsAnyTerm(ctx context.Context, arg CourseExistsAnyTermParams) (int64, error) {
+	row := q.db.QueryRowContext(ctx, courseExistsAnyTerm, arg.Subject, arg.CourseNumber)
+	var course_exists int64
+	err := row.Scan(&course_exists)
+	return course_exists, err
+}
+
 const deleteInstructorsBySection = `-- name: DeleteInstructorsBySection :exec
 DELETE FROM instructors WHERE section_id = ?
 `
