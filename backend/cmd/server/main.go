@@ -11,8 +11,10 @@ import (
 	"syscall"
 	"time"
 
+	"schedule-optimizer/internal/cache"
 	"schedule-optimizer/internal/config"
 	"schedule-optimizer/internal/db"
+	"schedule-optimizer/internal/generator"
 	"schedule-optimizer/internal/jobs"
 	"schedule-optimizer/internal/scraper"
 	"schedule-optimizer/internal/store"
@@ -89,6 +91,34 @@ func main() {
 		c.JSON(200, gin.H{
 			"status": "healthy",
 		})
+	})
+
+	// Initialize cache and generator for schedule generation
+	scheduleCache := cache.NewScheduleCache(queries)
+	generatorService := generator.NewService(scheduleCache, queries)
+
+	r.POST("/generate", func(c *gin.Context) {
+		var req generator.GenerateRequest
+		if err := c.ShouldBindJSON(&req); err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			return
+		}
+
+		// Ensure term is loaded in cache
+		if !scheduleCache.IsTermLoaded(req.Term) {
+			if err := scheduleCache.LoadTerm(c.Request.Context(), req.Term); err != nil {
+				c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to load term: " + err.Error()})
+				return
+			}
+		}
+
+		resp, err := generatorService.Generate(c.Request.Context(), req)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+
+		c.JSON(http.StatusOK, resp)
 	})
 
 	srv := &http.Server{

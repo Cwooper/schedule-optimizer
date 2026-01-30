@@ -209,6 +209,18 @@ func (c *ScheduleCache) GetCoursesBySubject(term, subject string) []*Course {
 	return termData.BySubject[subject]
 }
 
+// GetCoursesByCourseCode returns all sections for a course code (e.g., "CSCI:241").
+func (c *ScheduleCache) GetCoursesByCourseCode(term, courseCode string) []*Course {
+	c.mu.RLock()
+	defer c.mu.RUnlock()
+
+	termData, ok := c.terms[term]
+	if !ok {
+		return nil
+	}
+	return termData.ByCourseCode[courseCode]
+}
+
 // GetAllCourses returns all courses for a term.
 func (c *ScheduleCache) GetAllCourses(term string) []*Course {
 	c.mu.RLock()

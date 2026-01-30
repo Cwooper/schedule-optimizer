@@ -134,3 +134,9 @@ ORDER BY m.section_id;
 SELECT code, description, last_scraped_at FROM terms
 WHERE last_scraped_at IS NULL ORDER BY code DESC;
 
+-- name: CourseExistsAnyTerm :one
+SELECT EXISTS(
+    SELECT 1 FROM sections
+    WHERE subject = ? AND course_number = ?
+) AS course_exists;
+

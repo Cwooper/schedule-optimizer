@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Schedule Optimizer is a course scheduling tool for WWU students. The v2 branch is a full rewrite: Go backend (Gin + SQLite + sqlc) with a React/TypeScript frontend (Vite + Tailwind).
+Schedule Optimizer is a course scheduling tool for WWU students. The main branch contains the v1 implementation. The v2 branch is a full rewrite: Go backend (Gin + SQLite + sqlc) with a React/TypeScript frontend (Vite + Tailwind).
 
 ## Development Philosophy
 
@@ -183,7 +183,6 @@ JOBS_PAST_TERM_YEARS=5          # years of past terms to scrape (default 5)
 - [ ] #19 - Schedule Generation Logic
 - [ ] #20 - Implement Course Search Service (NLP, advanced search)
 - [ ] #21 - Backend Tests
-- [ ] #29 - Set Up Docker Development Environment
 - [ ] #34 - Explore ML Features
 - [ ] #37 - Extra Dates and Times *(jobs use 40-day registration estimate, TODO: scrape actual dates)*
 
