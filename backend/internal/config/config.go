@@ -10,24 +10,29 @@ type Config struct {
 	Port               string
 	Environment        string
 	CORSAllowedOrigins []string
+	DatabasePath       string
 }
 
-// Reads environment variables and returns a Config struct
+// Load reads environment variables and returns a Config struct.
+// Normalizes environment to lowercase.
 func Load() *Config {
 	port := getEnv("PORT", "8080")
-	environment := getEnv("ENVIRONMENT", "development")
+	environment := strings.ToLower(getEnv("ENVIRONMENT", "development"))
 	corsOrigins := parseCORSOrigins(getEnv("CORS_ALLOWED_ORIGINS", "http://localhost:3000"))
+	databasePath := getEnv("DATABASE_PATH", "data/schedule.db")
 
 	slog.Info("Configuration loaded",
 		"port", port,
 		"environment", environment,
 		"cors_origins", corsOrigins,
+		"database_path", databasePath,
 	)
 
 	return &Config{
 		Port:               port,
 		Environment:        environment,
 		CORSAllowedOrigins: corsOrigins,
+		DatabasePath:       databasePath,
 	}
 }
 
@@ -39,7 +44,7 @@ func getEnv(key, defaultValue string) string {
 	return defaultValue
 }
 
-// Splits a comma-separated string of origins into a slice
+// parseCORSOrigins splits a comma-separated string of origins into a slice
 func parseCORSOrigins(origins string) []string {
 	if origins == "" {
 		return []string{}
@@ -57,3 +62,4 @@ func parseCORSOrigins(origins string) []string {
 
 	return result
 }
+

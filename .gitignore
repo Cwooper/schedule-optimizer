@@ -42,3 +42,6 @@ Thumbs.db
 *.sqlite-wal
 *.db-shm
 *.db-wal
+
+# Data directory
+backend/data/
