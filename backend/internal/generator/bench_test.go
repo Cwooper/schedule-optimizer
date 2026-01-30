@@ -171,3 +171,126 @@ func addMinutes(t string, mins int) string {
 	return string(rune('0'+hours/10)) + string(rune('0'+hours%10)) +
 		string(rune('0'+minutes/10)) + string(rune('0'+minutes%10))
 }
+
+// Synthetic benchmarks matching old implementation's test setup for fair comparison.
+// Uses same course/section counts and 20k limit.
+
+const syntheticLimit = 20000
+
+func makeSyntheticGroups(numCourses, sectionsPerCourse int) []courseGroup {
+	baseTimes := []string{"0800", "0900", "1000", "1100", "1200", "1300", "1400", "1500"}
+	groups := make([]courseGroup, numCourses)
+
+	for i := range numCourses {
+		groups[i].courseKey = "TEST:" + string(rune('A'+i))
+		groups[i].sections = make([]*sectionData, sectionsPerCourse)
+
+		for j := range sectionsPerCourse {
+			timeIdx := (i + j) % len(baseTimes)
+			startTime := baseTimes[timeIdx]
+			endTime := addMinutes(startTime, 50)
+
+			course := &cache.Course{
+				ID:      int64(i*1000 + j),
+				CRN:     string(rune('0'+i)) + string(rune('0'+j)),
+				Subject: "TEST",
+				MeetingTimes: []cache.MeetingTime{
+					{
+						Days:      [7]bool{false, true, false, true, false, true, false}, // MWF
+						StartTime: startTime,
+						EndTime:   endTime,
+					},
+				},
+			}
+
+			groups[i].sections[j] = &sectionData{
+				course: course,
+				mask:   FromMeetingTimes(course.MeetingTimes),
+			}
+		}
+	}
+
+	return groups
+}
+
+// BenchmarkNew_5Courses - comparable to old BenchmarkOld_5Courses
+func BenchmarkNew_5Courses(b *testing.B) {
+	groups := makeSyntheticGroups(5, 20) // 100 sections
+	ctx := context.Background()
+	params := backtrackParams{groups: groups, minCourses: 2, maxCourses: 5, limit: syntheticLimit}
+
+	b.ResetTimer()
+	for b.Loop() {
+		backtrack(ctx, params)
+	}
+}
+
+// BenchmarkNew_8Courses - comparable to old BenchmarkOld_8Courses
+func BenchmarkNew_8Courses(b *testing.B) {
+	groups := makeSyntheticGroups(8, 17) // 136 sections
+	ctx := context.Background()
+	params := backtrackParams{groups: groups, minCourses: 2, maxCourses: 8, limit: syntheticLimit}
+
+	b.ResetTimer()
+	for b.Loop() {
+		backtrack(ctx, params)
+	}
+}
+
+// BenchmarkNew_10Courses - comparable to old BenchmarkOld_10Courses
+func BenchmarkNew_10Courses(b *testing.B) {
+	groups := makeSyntheticGroups(10, 16) // 160 sections
+	ctx := context.Background()
+	params := backtrackParams{groups: groups, minCourses: 2, maxCourses: 8, limit: syntheticLimit}
+
+	b.ResetTimer()
+	for b.Loop() {
+		backtrack(ctx, params)
+	}
+}
+
+// BenchmarkNew_13Courses - comparable to old BenchmarkOld_13Courses
+func BenchmarkNew_13Courses(b *testing.B) {
+	groups := makeSyntheticGroups(13, 13) // 169 sections
+	ctx := context.Background()
+	params := backtrackParams{groups: groups, minCourses: 3, maxCourses: 8, limit: syntheticLimit}
+
+	b.ResetTimer()
+	for b.Loop() {
+		backtrack(ctx, params)
+	}
+}
+
+// TestNew_SyntheticStats prints stats for comparison with old implementation.
+func TestNew_SyntheticStats(t *testing.T) {
+	testCases := []struct {
+		name       string
+		numCourses int
+		sections   int
+		min        int
+		max        int
+	}{
+		{"5 courses", 5, 20, 2, 5},
+		{"8 courses", 8, 17, 2, 8},
+		{"10 courses", 10, 16, 2, 8},
+		{"13 courses", 13, 13, 3, 8},
+	}
+
+	ctx := context.Background()
+
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			groups := makeSyntheticGroups(tc.numCourses, tc.sections)
+			params := backtrackParams{
+				groups:     groups,
+				minCourses: tc.min,
+				maxCourses: tc.max,
+				limit:      syntheticLimit,
+			}
+
+			schedules := backtrack(ctx, params)
+			t.Logf("Courses: %d, Sections: %d, Generated: %d (limit: %d)",
+				tc.numCourses, tc.numCourses*tc.sections, len(schedules), syntheticLimit)
+		})
+	}
+}
