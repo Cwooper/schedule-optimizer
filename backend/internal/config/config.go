@@ -3,6 +3,7 @@ package config
 import (
 	"log/slog"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -11,6 +12,7 @@ type Config struct {
 	Environment        string
 	CORSAllowedOrigins []string
 	DatabasePath       string
+	ScraperConcurrency int
 }
 
 // Load reads environment variables and returns a Config struct.
@@ -20,12 +22,14 @@ func Load() *Config {
 	environment := strings.ToLower(getEnv("ENVIRONMENT", "development"))
 	corsOrigins := parseCORSOrigins(getEnv("CORS_ALLOWED_ORIGINS", "http://localhost:3000"))
 	databasePath := getEnv("DATABASE_PATH", "data/schedule.db")
+	scraperConcurrency := getEnvInt("SCRAPER_CONCURRENCY", 4)
 
 	slog.Info("Configuration loaded",
 		"port", port,
 		"environment", environment,
 		"cors_origins", corsOrigins,
 		"database_path", databasePath,
+		"scraper_concurrency", scraperConcurrency,
 	)
 
 	return &Config{
@@ -33,13 +37,22 @@ func Load() *Config {
 		Environment:        environment,
 		CORSAllowedOrigins: corsOrigins,
 		DatabasePath:       databasePath,
+		ScraperConcurrency: scraperConcurrency,
 	}
 }
 
-// Retrieves an environment variable or returns a default value
 func getEnv(key, defaultValue string) string {
 	if value := os.Getenv(key); value != "" {
 		return value
+	}
+	return defaultValue
+}
+
+func getEnvInt(key string, defaultValue int) int {
+	if value := os.Getenv(key); value != "" {
+		if intVal, err := strconv.Atoi(value); err == nil {
+			return intVal
+		}
 	}
 	return defaultValue
 }
