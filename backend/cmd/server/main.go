@@ -104,12 +104,10 @@ func main() {
 			return
 		}
 
-		// Ensure term is loaded in cache
-		if !scheduleCache.IsTermLoaded(req.Term) {
-			if err := scheduleCache.LoadTerm(c.Request.Context(), req.Term); err != nil {
-				c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to load term: " + err.Error()})
-				return
-			}
+		// Ensure term is loaded in cache (deduplicates concurrent requests)
+		if err := scheduleCache.LoadTermIfNeeded(c.Request.Context(), req.Term); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to load term: " + err.Error()})
+			return
 		}
 
 		resp, err := generatorService.Generate(c.Request.Context(), req)

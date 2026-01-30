@@ -363,6 +363,74 @@ func TestConcurrentLoadSameTerm(t *testing.T) {
 	}
 }
 
+func TestLoadTermIfNeeded(t *testing.T) {
+	db, queries := testutil.SetupTestDB(t)
+	testutil.SeedTestData(t, db)
+
+	cache := NewScheduleCache(queries)
+	ctx := context.Background()
+
+	t.Run("loads term when not cached", func(t *testing.T) {
+		err := cache.LoadTermIfNeeded(ctx, "202520")
+		if err != nil {
+			t.Fatalf("LoadTermIfNeeded failed: %v", err)
+		}
+
+		if !cache.IsTermLoaded("202520") {
+			t.Error("term should be loaded")
+		}
+	})
+
+	t.Run("skips load when already cached", func(t *testing.T) {
+		// Term already loaded from previous subtest
+		err := cache.LoadTermIfNeeded(ctx, "202520")
+		if err != nil {
+			t.Fatalf("LoadTermIfNeeded failed: %v", err)
+		}
+
+		// Verify still has correct data
+		courses := cache.GetAllCourses("202520")
+		if len(courses) != 3 {
+			t.Errorf("expected 3 courses, got %d", len(courses))
+		}
+	})
+}
+
+func TestLoadTermIfNeeded_Concurrent(t *testing.T) {
+	db, queries := testutil.SetupTestDB(t)
+	testutil.SeedTestData(t, db)
+
+	cache := NewScheduleCache(queries)
+	ctx := context.Background()
+
+	const numGoroutines = 50
+	var wg sync.WaitGroup
+	wg.Add(numGoroutines)
+
+	// All goroutines try to load the same term via LoadTermIfNeeded
+	// Singleflight should deduplicate these into one actual load
+	for range numGoroutines {
+		go func() {
+			defer wg.Done()
+			if err := cache.LoadTermIfNeeded(ctx, "202520"); err != nil {
+				t.Errorf("LoadTermIfNeeded failed: %v", err)
+			}
+		}()
+	}
+
+	wg.Wait()
+
+	// Verify term is loaded correctly
+	if !cache.IsTermLoaded("202520") {
+		t.Error("term should be loaded")
+	}
+
+	courses := cache.GetAllCourses("202520")
+	if len(courses) != 3 {
+		t.Errorf("expected 3 courses, got %d", len(courses))
+	}
+}
+
 // Benchmarks
 
 func BenchmarkLoadTerm(b *testing.B) {

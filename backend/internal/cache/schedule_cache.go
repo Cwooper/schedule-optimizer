@@ -11,6 +11,8 @@ import (
 	"sync"
 	"time"
 
+	"golang.org/x/sync/singleflight"
+
 	"schedule-optimizer/internal/store"
 )
 
@@ -60,6 +62,7 @@ type ScheduleCache struct {
 	terms       map[string]*TermData
 	activeTerms []string
 	queries     *store.Queries
+	loadGroup   singleflight.Group // Deduplicates concurrent LoadTerm calls
 }
 
 // NewScheduleCache creates a new schedule cache.
@@ -163,6 +166,18 @@ func (c *ScheduleCache) LoadTerm(ctx context.Context, term string) error {
 	)
 
 	return nil
+}
+
+// LoadTermIfNeeded loads a term if not already cached, deduplicating concurrent requests.
+// Multiple goroutines requesting the same term will share a single load operation.
+func (c *ScheduleCache) LoadTermIfNeeded(ctx context.Context, term string) error {
+	_, err, _ := c.loadGroup.Do(term, func() (any, error) {
+		if c.IsTermLoaded(term) {
+			return nil, nil
+		}
+		return nil, c.LoadTerm(ctx, term)
+	})
+	return err
 }
 
 // GetCourse returns a course by CRN for a specific term.
