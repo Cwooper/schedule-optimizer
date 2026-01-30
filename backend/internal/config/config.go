@@ -13,6 +13,13 @@ type Config struct {
 	CORSAllowedOrigins []string
 	DatabasePath       string
 	ScraperConcurrency int
+
+	// Jobs scheduler config
+	JobsEnabled       bool
+	ActiveScrapeHours int // Hours between active registration term scrapes
+	DailyScrapeHour   int // Hour of day (0-23) for daily scrapes
+	LogRetentionDays  int // Days to keep logs before pruning
+	PastTermYears     int // Years of past terms to scrape
 }
 
 // Load reads environment variables and returns a Config struct.
@@ -24,12 +31,24 @@ func Load() *Config {
 	databasePath := getEnv("DATABASE_PATH", "data/schedule.db")
 	scraperConcurrency := getEnvInt("SCRAPER_CONCURRENCY", 4)
 
+	// Jobs scheduler config
+	jobsEnabled := getEnvBool("JOBS_ENABLED", true)
+	activeScrapeHours := getEnvInt("JOBS_ACTIVE_SCRAPE_HOURS", 8)
+	dailyScrapeHour := getEnvInt("JOBS_DAILY_SCRAPE_HOUR", 3)
+	logRetentionDays := getEnvInt("JOBS_LOG_RETENTION_DAYS", 90)
+	pastTermYears := getEnvInt("JOBS_PAST_TERM_YEARS", 5)
+
 	slog.Info("Configuration loaded",
 		"port", port,
 		"environment", environment,
 		"cors_origins", corsOrigins,
 		"database_path", databasePath,
 		"scraper_concurrency", scraperConcurrency,
+		"jobs_enabled", jobsEnabled,
+		"active_scrape_hours", activeScrapeHours,
+		"daily_scrape_hour", dailyScrapeHour,
+		"log_retention_days", logRetentionDays,
+		"past_term_years", pastTermYears,
 	)
 
 	return &Config{
@@ -38,6 +57,11 @@ func Load() *Config {
 		CORSAllowedOrigins: corsOrigins,
 		DatabasePath:       databasePath,
 		ScraperConcurrency: scraperConcurrency,
+		JobsEnabled:        jobsEnabled,
+		ActiveScrapeHours:  activeScrapeHours,
+		DailyScrapeHour:    dailyScrapeHour,
+		LogRetentionDays:   logRetentionDays,
+		PastTermYears:      pastTermYears,
 	}
 }
 
@@ -52,6 +76,15 @@ func getEnvInt(key string, defaultValue int) int {
 	if value := os.Getenv(key); value != "" {
 		if intVal, err := strconv.Atoi(value); err == nil {
 			return intVal
+		}
+	}
+	return defaultValue
+}
+
+func getEnvBool(key string, defaultValue bool) bool {
+	if value := os.Getenv(key); value != "" {
+		if boolVal, err := strconv.ParseBool(value); err == nil {
+			return boolVal
 		}
 	}
 	return defaultValue
