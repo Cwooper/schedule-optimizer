@@ -4,7 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Schedule Optimizer is a course scheduling tool for WWU students. The main branch contains the v1 implementation. The v2 branch is a full rewrite: Go backend (Gin + SQLite + sqlc) with a React/TypeScript frontend (Vite + Tailwind).
+Schedule Optimizer is a course scheduling tool for WWU students. The main branch contains the v1 implementation. The v2 branch is a full rewrite:
+
+- **Backend:** Go (Gin + SQLite + sqlc)
+- **Frontend:** React 19 + TypeScript + Vite + Tailwind v4
+  - **UI Components:** shadcn/ui (new-york style, neutral base)
+  - **State Management:** Zustand (persisted to localStorage)
+  - **Data Fetching:** TanStack Query
+  - **No routing:** Tab state stored in localStorage, defaults to "schedule"
 
 ## Development Philosophy
 
@@ -80,14 +87,16 @@ make migrate-down   # Rollback migrations
 make migrate-create name=add_foo  # Create new migration
 ```
 
-### Frontend (when implemented)
+### Frontend
 
 ```bash
 cd frontend
 pnpm install
-pnpm dev      # development server
-pnpm build    # production build
-pnpm test     # run tests
+pnpm dev        # development server (http://localhost:5173)
+pnpm build      # production build
+pnpm lint       # run eslint
+pnpm test       # run tests
+pnpm test:watch # run tests in watch mode
 ```
 
 ## Architecture
@@ -127,6 +136,39 @@ backend/
 ├── Makefile
 └── .env.example
 ```
+
+### Frontend Structure
+
+```
+frontend/
+├── src/
+│   ├── components/          # React components
+│   │   └── ui/              # shadcn/ui components (generated)
+│   ├── hooks/               # Custom React hooks
+│   │   └── use-api.ts       # TanStack Query hooks for API calls
+│   ├── lib/
+│   │   ├── api.ts           # Typed fetch functions for backend API
+│   │   └── utils.ts         # cn() helper for Tailwind class merging
+│   ├── stores/
+│   │   └── app-store.ts     # Zustand store (persisted to localStorage)
+│   ├── App.tsx
+│   ├── main.tsx             # Entry point with QueryClientProvider
+│   └── index.css            # Tailwind + shadcn/ui CSS variables
+├── public/
+│   ├── favicon-light.svg    # Favicon for light mode
+│   └── favicon-dark.svg     # Favicon for dark mode
+├── components.json          # shadcn/ui configuration
+├── vite.config.ts
+├── vitest.config.ts         # Test configuration
+└── package.json
+```
+
+### Frontend Patterns
+
+- **Adding shadcn components:** `pnpm dlx shadcn@latest add <component>`
+- **Import alias:** Use `@/` for imports from `src/` (e.g., `@/components/ui/button`)
+- **API calls:** Use hooks from `@/hooks/use-api.ts`, not raw fetch
+- **State:** Use `useAppStore()` from `@/stores/app-store.ts`
 
 ### Data Flow
 
