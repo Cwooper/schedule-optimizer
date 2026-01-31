@@ -2,8 +2,8 @@ import { useEffect, useSyncExternalStore } from "react"
 import { useAppStore } from "@/stores/app-store"
 
 const mediaQuery =
-  typeof window !== "undefined"
-    ? window.matchMedia("(prefers-color-scheme: dark)")
+  typeof globalThis.window !== "undefined"
+    ? globalThis.matchMedia("(prefers-color-scheme: dark)")
     : null
 
 function subscribeToSystemTheme(callback: () => void) {
