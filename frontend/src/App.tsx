@@ -1,16 +1,20 @@
 import { useThemeSync } from "@/hooks/use-theme"
+import { Header } from "@/components/Header"
+import { TabNav } from "@/components/TabNav"
+import { Footer } from "@/components/Footer"
 
 function App() {
   useThemeSync()
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">
-          Schedule Optimizer
-        </h1>
-        <p className="text-muted-foreground">Frontend initialized</p>
-      </div>
+    <div className="bg-background text-foreground flex min-h-screen flex-col">
+      <Header />
+      <TabNav />
+      {/* TODO: Layout with Sidebar + MainContent */}
+      <main className="flex flex-1 items-center justify-center">
+        <p className="text-muted-foreground">Content area</p>
+      </main>
+      <Footer />
     </div>
   )
 }

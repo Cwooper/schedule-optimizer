@@ -114,7 +114,9 @@ export const useAppStore = create<AppState>()(
 
       updateSlot: (id, updates) =>
         set((state) => ({
-          slots: state.slots.map((s) => (s.id === id ? { ...s, ...updates } : s)),
+          slots: state.slots.map((s) =>
+            s.id === id ? { ...s, ...updates } : s
+          ),
           schedules: null,
           currentScheduleIndex: 0,
         })),
