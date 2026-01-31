@@ -62,23 +62,23 @@ Each entry in the course list is a **slot** that the schedule generator will try
 
 ### Slot Properties
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `id` | string | Unique identifier (UUID) |
-| `subject` | string | Subject code (e.g., "CSCI") |
-| `code` | string | Course code (e.g., "247") |
-| `displayName` | string | Human-readable name (might just combine "subject code" |
-| `required` | boolean | Course-level pin (must include in schedule) |
-| `sections` | SectionFilter[] | Optional CRN filter list |
+| Property       | Type            | Description                                     |
+| -------------- | --------------- | ----------------------------------------------- |
+| `id`           | string          | Unique identifier (UUID)                        |
+| `subject`      | string          | Subject code (e.g., "CSCI")                     |
+| `courseNumber` | string          | Course number (e.g., "247")                     |
+| `displayName`  | string          | Human-readable name (e.g., "CSCI 247")          |
+| `required`     | boolean         | Course-level pin (must include in schedule)     |
+| `sections`     | SectionFilter[] | Optional CRN filter list                        |
 
 ### Section Filter Properties
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `crn` | string | Course Reference Number |
-| `term` | string | Term this CRN belongs to |
-| `instructor` | string | Instructor name (display) |
-| `required` | boolean | CRN-level pin (must be this exact section) |
+| Property     | Type    | Description                                |
+| ------------ | ------- | ------------------------------------------ |
+| `crn`        | string  | Course Reference Number                    |
+| `term`       | string  | Term this CRN belongs to                   |
+| `instructor` | string  | Instructor name (display)                  |
+| `required`   | boolean | CRN-level pin (must be this exact section) |
 
 ### Pin Semantics
 
@@ -99,15 +99,15 @@ The "pin" icon (● filled / ○ outline) indicates whether something is **requi
 
 ### Adding Courses
 
-**Via Subject + Code:**
-1. User selects subject, enters code, clicks +
+**Via Subject + Course Number:**
+1. User selects subject, enters course number, clicks +
 2. Validate course exists for selected term (API call)
 3. Create slot with all sections available
 4. `sections` remains empty (no filter)
 
 **Via CRN:**
 1. User enters CRN, clicks +
-2. Lookup CRN metadata (API call) → get subject, code, instructor, term
+2. Lookup CRN metadata (API call) → get subject, courseNumber, instructor, term
 3. If slot for same course exists → add CRN to `sections` filter
 4. If no slot exists → create new slot with this CRN in `sections`
 
@@ -144,7 +144,7 @@ CRNs are bound to specific terms. When sidebar quarter ≠ CRN's term:
 └───────────────────────────────────────────────────┘
 ```
 
-**Right-side menu (⋮) (stretch goal):**
+**Right-side menu (⋮) (stretch goals):**
 - Download as PNG
 - Download as ICS
 - Add custom course (TBD)
@@ -152,7 +152,8 @@ CRNs are bound to specific terms. When sidebar quarter ≠ CRN's term:
 - Reset/clear
 
 **Schedule navigation:**
-- Shows X/Y where Y = total valid schedules
+
+- Shows X/Y where Y = total valid schedules, X is current schedule
 - Left/right arrows to browse
 - Could add keyboard shortcuts (←/→)
 
@@ -160,12 +161,12 @@ CRNs are bound to specific terms. When sidebar quarter ≠ CRN's term:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│ Subject     Code          Quarter Scope                     │
+│ Subject     Number        Quarter Scope                     │
 │ [All ▼]     [247    ]     (●) Quarter  ( ) Year  ( ) All    │
 │                           [Winter ▼] [2025 ▼]               │
 │                                                             │
-│ Title            Professor           [ ] No Waitlist        │
-│ [           ]    [            ]      Credits: [1]─●─●─[5]   │
+│ Title            Professor         [ ] No Waitlist          │
+│ [           ]    [            ]    Credits ( ): [1]─●─●─[5] │
 ├─────────────────────────────────────────────────────────────┤
 │ ┌─────────────────────────────────────────────────────┐     │
 │ │ CSCI 247 - Computer Systems               [+]       │     │
@@ -180,9 +181,12 @@ CRNs are bound to specific terms. When sidebar quarter ≠ CRN's term:
 └─────────────────────────────────────────────────────────────┘
 ```
 
+TODO: this is not super clean. We will also need "async/not" and
+time scheduling.
+
 **Search filters:**
 - Subject dropdown (optional, "All" default)
-- Code input (supports wildcards like "2*" for 200-level)
+- Course number input (wildcards: `*` or `%`, e.g., "2*" for 200-level)
 - Quarter scope: specific quarter, this academic year, or all time
 - Title text search (fuzzy)
 - Professor name search
@@ -210,17 +214,17 @@ Returns available terms for dropdowns.
 ```json
 {
   "terms": [
-    {"code": "202620", "name": "Summer 2026", "phase": "future"},
-    {"code": "202520", "name": "Winter 2025", "phase": "active"},
-    {"code": "202510", "name": "Fall 2024", "phase": "past"}
+    {"code": "202620", "name": "Summer 2026"},
+    {"code": "202540", "name": "Fall 2025"},
+    {"code": "202520", "name": "Winter 2025"},
+    {"code": "202510", "name": "Fall 2024"}
   ],
   "current": "202520"
 }
 ```
 
-Phase indicates: `future` (not yet open), `active` (registration open), `past` (archived).
-We use the `active` quarter as the "currently selected" by default. Backend is authoritative
-on the defaults and timing selection.
+The `current` field indicates which term the frontend should select by default. Backend
+determines this based on registration timing.
 
 ### GET /subjects
 
@@ -244,7 +248,7 @@ Search for courses/sections.
 - `term` (required if scope=quarter, e.g., 202540)
 - `year` (required if scope=year, e.g., 2025)
 - `subject` (optional, e.g., CSCI)
-- `code` (optional, supports wildcards)
+- `courseNumber` (optional, wildcards: `*` or `%` for 200-level, e.g., "2*")
 - `title` (optional, fuzzy search)
 - `instructor` (optional, fuzzy search)
 - `no_waitlist` (optional, boolean)
@@ -260,15 +264,17 @@ Search for courses/sections.
       "crn": "41328",
       "term": "202520",
       "subject": "CSCI",
-      "code": "247",
+      "courseNumber": "247",
       "title": "Computer Systems",
       "credits": 5,
-      "instructor": "Seo-Young Tan",
-      "seats": 20,
-      "enrolled": 18,
-      "waitlist": 0,
-      "meetings": [
-        {"days": "MWF", "start": "0900", "end": "0950", "building": "CF", "room": "225"}
+      "instructor": "See-Mong Tan",
+      "maxEnrollment": 20,
+      "enrollment": 18,
+      "seatsAvailable": 2,
+      "waitCount": 0,
+      "isOpen": true,
+      "meetingTimes": [
+        {"days": [false,true,false,true,false,true,false], "startTime": "0900", "endTime": "0950", "building": "CF", "room": "225"}
       ]
     }
   ],
@@ -277,12 +283,34 @@ Search for courses/sections.
 }
 ```
 
+### GET /course/validate
+
+Validate a course exists before adding to slot. Used when user adds via Subject + Course Number.
+
+**Query params:**
+- `term` (required)
+- `subject` (required, e.g., CSCI)
+- `courseNumber` (required, e.g., 247)
+
+**Response (found):**
+```json
+{
+  "exists": true,
+  "title": "Computer Systems",
+  "sectionCount": 3
+}
+```
+
+**Response (not found):**
+```json
+{
+  "exists": false
+}
+```
+
 ### GET /crn/:crn
 
-Lookup a specific CRN. Used for validating CRN input and fetching display metadata.
-Rethink this. Not sure which is better to check:
- - A. Check if section exists, if so, use it
- - B. If exists is true, then check section
+Lookup a specific CRN. Used when user adds a course by CRN - fetches metadata for display.
 
 **Query params:**
 - `term` (optional, searches current term if omitted)
@@ -290,12 +318,11 @@ Rethink this. Not sure which is better to check:
 **Response (found):**
 ```json
 {
-  "exists": true,
   "section": {
     "crn": "41328",
     "term": "202520",
     "subject": "CSCI",
-    "code": "247",
+    "courseNumber": "247",
     "title": "Computer Systems",
     "instructor": "See-Mong Tan",
     "credits": 5
@@ -306,7 +333,6 @@ Rethink this. Not sure which is better to check:
 **Response (not found):**
 ```json
 {
-  "exists": false,
   "section": null
 }
 ```
@@ -322,13 +348,13 @@ Generate valid schedule combinations. (Already implemented)
   "courses": [
     {
       "subject": "CSCI",
-      "code": "247",
+      "courseNumber": "247",
       "required": true,
       "crns": null
     },
     {
       "subject": "ENG",
-      "code": "101",
+      "courseNumber": "101",
       "required": true,
       "crns": ["41328", "41329"]
     }
@@ -343,15 +369,38 @@ Generate valid schedule combinations. (Already implemented)
 {
   "schedules": [
     {
-      xxx
-      "score": 0.75
+      "courses": [
+        {
+          "crn": "41328",
+          "term": "202520",
+          "subject": "CSCI",
+          "courseNumber": "247",
+          "title": "Computer Systems",
+          "credits": 5,
+          "instructor": "See-Mong Tan",
+          "meetingTimes": [
+            {"days": [false,true,false,true,false,true,false], "startTime": "0900", "endTime": "0950", "building": "CF", "room": "225"}
+          ]
+        }
+      ],
+      "score": 0.75,
+      "weights": [
+        {"name": "gaps", "value": 0.8},
+        {"name": "startTime", "value": 0.7}
+      ]
     }
   ],
-  "total": 10,
-  "excluded": [
-    {"subject": "MATH", "code": "204", "reason": "wrong_term"}
-    {"subject": "MATH", "code": "231", "reason": "asynchronous"}
-  ]
+  "asyncs": [
+    {"crn": "41400", "subject": "MATH", "courseNumber": "231", "title": "Calculus III", "instructor": "Smith"}
+  ],
+  "courseResults": [
+    {"name": "CSCI:247", "status": "found", "count": 3},
+    {"name": "MATH:231", "status": "async_only"}
+  ],
+  "stats": {
+    "totalGenerated": 10,
+    "timeMs": 12.5
+  }
 }
 ```
 
@@ -386,10 +435,10 @@ type GenerateRequest struct {
 }
 
 type CourseInput struct {
-    Subject  string         `json:"subject"`           // "CSCI"
-    Code     string         `json:"code"`              // "247"
-    Required bool           `json:"required"`          // Course-level pin: must include
-    Sections []SectionInput `json:"sections,omitempty"` // nil = all sections allowed
+    Subject      string         `json:"subject"`           // "CSCI"
+    CourseNumber string         `json:"courseNumber"`      // "247"
+    Required     bool           `json:"required"`          // Course-level pin: must include
+    Sections     []SectionInput `json:"sections,omitempty"` // nil = all sections allowed
 }
 
 type SectionInput struct {
@@ -405,13 +454,13 @@ type SectionInput struct {
   "courses": [
     {
       "subject": "CSCI",
-      "code": "247",
+      "courseNumber": "247",
       "required": true,
       "sections": null
     },
     {
       "subject": "ENG",
-      "code": "101",
+      "courseNumber": "101",
       "required": true,
       "sections": [
         {"crn": "41328", "required": false},
@@ -432,18 +481,22 @@ This means: "Must have CSCI 247 (any section). Must have ENG 101, and it must be
 
 ### New endpoints needed
 
-**GET /api/terms** - Return available terms with phase info
+**GET /api/terms** - Return available terms
 - Query: `GetTerms` exists in store
-- Need: Handler + response formatting with phase detection
+- Need: Handler + determine current term for default selection
 
 **GET /api/subjects** - Return subject list
 - Query: `GetDistinctSubjects` or `GetDistinctSubjectsByTerm` exist
 - Need: Handler + include subject descriptions
 
+**GET /api/course/validate** - Check if course exists for term
+- Query: Check if any sections exist for subject + courseNumber + term
+- Need: New handler, returns exists + title + section count
+
 **GET /api/courses** - Search sections
 - Queries: Various `GetSections*` exist
 - Need: New handler with filtering logic (wildcards, fuzzy search, time filters)
-- Add `start_time` / `end_time` query params for time filtering
+- Backend translates `*` → `%` for SQL LIKE queries
 
 **GET /api/crn/:crn** - Lookup single CRN
 - Query: `GetSectionByTermAndCRN` exists
@@ -454,6 +507,8 @@ This means: "Must have CSCI 247 (any section). Must have ENG 101, and it must be
 ## LocalStorage Schema
 
 Key: `scheduleOptimizer`
+
+This is all TBD, just spitballing.
 
 ```typescript
 interface AppState {
@@ -475,7 +530,7 @@ interface AppState {
 interface CourseSlot {
   id: string                      // UUID
   subject: string
-  code: string
+  courseNumber: string
   displayName: string
   required: boolean
   sections: SectionFilter[] | null  // null = all sections
@@ -498,13 +553,12 @@ interface GeneratedSchedule {
 **Persistence behavior:**
 - Save on every state change (debounced)
 - Load on app init
-- Clear `schedules` when slots/term/credits change
 
 ---
 
 ## Component Hierarchy
 
-```
+```sh
 App
 ├── Header
 │   ├── Logo
@@ -547,13 +601,6 @@ App
 5. **Offline support** - Should the app work offline with cached data?
  - Lmao no, it doesn't even work without an api
 
----
+### TODO
 
-## Future Features (Out of Scope for v1)
-
-- Multi-quarter planning
-- Share schedule via URL
-- Campus map integration
-- Export to calendar apps
-- Professor ratings integration
-- ML-based course recommendations
+This is absolutely needed: some sort of "async course generated", and an output for them, similar to search results.
