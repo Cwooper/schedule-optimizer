@@ -140,3 +140,27 @@ SELECT EXISTS(
     WHERE subject = ? AND course_number = ?
 ) AS course_exists;
 
+-- name: GetSubjectsWithDescriptionsByTerm :many
+SELECT DISTINCT subject, subject_description
+FROM sections
+WHERE term = ?
+ORDER BY subject;
+
+-- name: ValidateCourseForTerm :one
+SELECT
+    COUNT(*) AS section_count,
+    COALESCE(MAX(title), '') AS title
+FROM sections
+WHERE term = ? AND subject = ? AND course_number = ?;
+
+-- name: GetSectionWithInstructorByTermAndCRN :one
+SELECT
+    s.id, s.term, s.crn, s.subject, s.subject_description,
+    s.course_number, s.title, s.credit_hours_low,
+    s.enrollment, s.max_enrollment, s.seats_available, s.wait_count, s.is_open,
+    s.instructional_method,
+    i.name AS instructor_name, i.email AS instructor_email
+FROM sections s
+LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1
+WHERE s.term = ? AND s.crn = ?;
+
