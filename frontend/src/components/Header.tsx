@@ -10,9 +10,12 @@ export function Header() {
   const effectiveTheme = useEffectiveTheme()
 
   const cycleTheme = () => {
-    const next =
-      theme === "light" ? "dark" : theme === "dark" ? "system" : "light"
-    setTheme(next)
+    const nextTheme = {
+      light: "dark",
+      dark: "system",
+      system: "light",
+    } as const
+    setTheme(nextTheme[theme])
   }
 
   const ThemeIcon = effectiveTheme === "dark" ? Moon : Sun

@@ -1,4 +1,4 @@
-import { Github } from "lucide-react"
+import { SiGithub } from "@icons-pack/react-simple-icons"
 import { version } from "../../package.json"
 
 const GITHUB_URL = "https://github.com/Cwooper/schedule-optimizer"
@@ -13,7 +13,7 @@ export function Footer() {
           rel="noopener noreferrer"
           className="hover:text-foreground flex items-center gap-1.5 transition-colors"
         >
-          <Github className="size-4" />
+          <SiGithub className="size-4" />
           <span className="hidden sm:inline">View on GitHub</span>
         </a>
         <span aria-hidden="true">·</span>

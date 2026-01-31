@@ -2,20 +2,36 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WWU Schedule Optimizer</title>
+
+    <meta name="description" content="Free schedule builder for Western Washington University students. Create conflict-free class schedules, compare options, and plan your quarter." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://cwooper.me/schedule-optimizer" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cwooper.me/schedule-optimizer" />
+    <meta property="og:title" content="WWU Schedule Optimizer" />
+    <meta property="og:description" content="Free schedule builder for Western Washington University students. Create conflict-free class schedules, compare options, and plan your quarter." />
+    <!-- TODO: Add og:image when created -->
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="WWU Schedule Optimizer" />
+    <meta name="twitter:description" content="Free schedule builder for Western Washington University students. Create conflict-free class schedules, compare options, and plan your quarter." />
+
     <link rel="icon" type="image/svg+xml" href="/schopt-logo-light.svg" media="(prefers-color-scheme: light)" />
     <link rel="icon" type="image/svg+xml" href="/schopt-logo-dark.svg" media="(prefers-color-scheme: dark)" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
-    <title>WWU Schedule Optimizer</title>
     <script>
-      // Prevent flash of wrong theme by applying before React loads
+      // Prevent FOUC for React dark mode
       (function() {
         try {
           var stored = localStorage.getItem('schedule-optimizer');
           var theme = stored ? JSON.parse(stored).state.theme : 'system';
           var isDark = theme === 'dark' ||
-            (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            (theme === 'system' && globalThis.matchMedia('(prefers-color-scheme: dark)').matches);
           if (isDark) document.documentElement.classList.add('dark');
         } catch (e) {}
       })();
