@@ -98,7 +98,10 @@ export interface GenerateRequest {
 
 // --- API Functions ---
 
-async function fetchAPI<T>(endpoint: string, options?: RequestInit): Promise<T> {
+async function fetchAPI<T>(
+  endpoint: string,
+  options?: RequestInit
+): Promise<T> {
   const res = await fetch(`${API_BASE}${endpoint}`, {
     ...options,
     headers: {
@@ -138,7 +141,9 @@ export async function getCRN(crn: string, term?: string): Promise<CRNResponse> {
   return fetchAPI<CRNResponse>(`/crn/${encodeURIComponent(crn)}${query}`)
 }
 
-export async function generateSchedules(req: GenerateRequest): Promise<GenerateResponse> {
+export async function generateSchedules(
+  req: GenerateRequest
+): Promise<GenerateResponse> {
   return fetchAPI<GenerateResponse>("/generate", {
     method: "POST",
     body: JSON.stringify(req),

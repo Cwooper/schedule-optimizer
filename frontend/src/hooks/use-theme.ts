@@ -1,5 +1,23 @@
-import { useEffect } from "react"
+import { useEffect, useSyncExternalStore } from "react"
 import { useAppStore } from "@/stores/app-store"
+
+const mediaQuery =
+  typeof window !== "undefined"
+    ? window.matchMedia("(prefers-color-scheme: dark)")
+    : null
+
+function subscribeToSystemTheme(callback: () => void) {
+  mediaQuery?.addEventListener("change", callback)
+  return () => mediaQuery?.removeEventListener("change", callback)
+}
+
+function getSystemThemeSnapshot(): "light" | "dark" {
+  return mediaQuery?.matches ? "dark" : "light"
+}
+
+function getServerSnapshot(): "light" | "dark" {
+  return "light"
+}
 
 /**
  * Syncs the theme from Zustand store to the document.
@@ -8,44 +26,40 @@ import { useAppStore } from "@/stores/app-store"
  */
 export function useThemeSync() {
   const theme = useAppStore((state) => state.theme)
+  const systemTheme = useSyncExternalStore(
+    subscribeToSystemTheme,
+    getSystemThemeSnapshot,
+    getServerSnapshot
+  )
 
   useEffect(() => {
     const root = document.documentElement
+    const isDark =
+      theme === "system" ? systemTheme === "dark" : theme === "dark"
 
-    function applyTheme(isDark: boolean) {
-      if (isDark) {
-        root.classList.add("dark")
-      } else {
-        root.classList.remove("dark")
-      }
-    }
-
-    if (theme === "system") {
-      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
-      applyTheme(mediaQuery.matches)
-
-      function handleChange(e: MediaQueryListEvent) {
-        applyTheme(e.matches)
-      }
-
-      mediaQuery.addEventListener("change", handleChange)
-      return () => mediaQuery.removeEventListener("change", handleChange)
+    if (isDark) {
+      root.classList.add("dark")
     } else {
-      applyTheme(theme === "dark")
+      root.classList.remove("dark")
     }
-  }, [theme])
+  }, [theme, systemTheme])
 }
 
 /**
  * Returns the current effective theme (resolved "system" to actual value).
+ * Reacts to system theme changes when theme is set to "system".
  */
 export function useEffectiveTheme(): "light" | "dark" {
   const theme = useAppStore((state) => state.theme)
+  const systemTheme = useSyncExternalStore(
+    subscribeToSystemTheme,
+    getSystemThemeSnapshot,
+    getServerSnapshot
+  )
 
   if (theme === "system") {
-    // This won't react to system changes, but useThemeSync handles that
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+    return systemTheme
   }
 
-  return theme
+  return theme === "dark" ? "dark" : "light"
 }

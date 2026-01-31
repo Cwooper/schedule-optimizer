@@ -22,7 +22,11 @@ export function useSubjects(term?: string) {
   })
 }
 
-export function useValidateCourse(term: string, subject: string, courseNumber: string) {
+export function useValidateCourse(
+  term: string,
+  subject: string,
+  courseNumber: string
+) {
   return useQuery({
     queryKey: ["validate-course", term, subject, courseNumber],
     queryFn: () => validateCourse(term, subject, courseNumber),
