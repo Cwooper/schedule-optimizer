@@ -1,15 +1,5 @@
 import { useState } from "react"
-import {
-  ChevronDown,
-  ChevronRight,
-  ChevronsUpDown,
-  Circle,
-  CircleDot,
-  Plus,
-  X,
-  AlertTriangle,
-  Loader2,
-} from "lucide-react"
+import { ChevronsUpDown, Plus, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   Command,
@@ -27,26 +17,24 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-import { Toggle } from "@/components/ui/toggle"
-import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import { TermSelector } from "@/components/TermSelector"
+import { CourseRow, CRNPreview } from "@/components/schedule-builder"
 import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible"
-import { useAppStore, type CourseSlot } from "@/stores/app-store"
-import { useTerms, useSubjects, useGenerateSchedules } from "@/hooks/use-api"
+  useAppStore,
+  type CourseSlot,
+  type SectionFilter,
+} from "@/stores/app-store"
+import {
+  useTerms,
+  useSubjects,
+  useGenerateSchedules,
+  useCRN,
+} from "@/hooks/use-api"
 import { cn } from "@/lib/utils"
 
 type InputMode = "subject" | "crn"
@@ -78,6 +66,14 @@ export function ScheduleBuilder() {
   const [crnInput, setCrnInput] = useState("")
   const [expandedCourses, setExpandedCourses] = useState<Set<string>>(new Set())
 
+  // CRN lookup - only fetch for valid 5-digit CRNs
+  const crnTrimmed = crnInput.trim()
+  const isValidCrnFormat = /^\d{5}$/.test(crnTrimmed)
+  const { data: crnData, isFetching: crnFetching } = useCRN(
+    isValidCrnFormat ? crnTrimmed : "",
+    term
+  )
+
   const subjects = subjectsData?.subjects ?? []
 
   // Decode HTML entities in subject names
@@ -101,8 +97,47 @@ export function ScheduleBuilder() {
       }
       addSlot(slot)
       setNumberInput("")
-    } else if (inputMode === "crn" && crnInput) {
-      // TODO: Fetch CRN details and add as a course with that specific section
+    } else if (inputMode === "crn" && crnInput && crnData?.section) {
+      const section = crnData.section
+      const sectionFilter: SectionFilter = {
+        crn: section.crn,
+        term: section.term,
+        instructor: section.instructor || null,
+        required: true, // CRNs added directly are pinned by default
+      }
+
+      // Check if a slot for this course already exists
+      const existingSlot = slots.find(
+        (s) =>
+          s.subject === section.subject &&
+          s.courseNumber === section.courseNumber
+      )
+
+      if (existingSlot) {
+        // Add CRN to existing slot's sections filter
+        const existingSections = existingSlot.sections ?? []
+        // Don't add duplicate CRNs
+        if (!existingSections.some((s) => s.crn === section.crn)) {
+          updateSlot(existingSlot.id, {
+            sections: [...existingSections, sectionFilter],
+            // Update title if we didn't have one
+            title: existingSlot.title || section.title,
+          })
+        }
+      } else {
+        // Create new slot with this CRN pinned
+        const id = crypto.randomUUID()
+        const slot: CourseSlot = {
+          id,
+          subject: section.subject,
+          courseNumber: section.courseNumber,
+          displayName: `${section.subject} ${section.courseNumber}`,
+          title: section.title,
+          required: false,
+          sections: [sectionFilter],
+        }
+        addSlot(slot)
+      }
       setCrnInput("")
     }
   }
@@ -143,29 +178,25 @@ export function ScheduleBuilder() {
       : crnInput.trim()
 
   const hasInvalidBounds =
-    minCourses !== null &&
-    maxCourses !== null &&
-    maxCourses < minCourses
+    minCourses !== null && maxCourses !== null && maxCourses < minCourses
+
+  const getGenerateTooltip = () => {
+    if (!term) return "Select a term first"
+    if (slots.length === 0) return "Add courses to get started"
+    if (hasInvalidBounds) return "Max courses must be ≥ min courses"
+    return null
+  }
 
   return (
     <div className="flex h-full flex-col">
       {/* Term Selector */}
       <div className="space-y-4 p-4">
-        <div className="space-y-2">
-          <Label htmlFor="term">Term</Label>
-          <Select value={term} onValueChange={setTerm} disabled={termsLoading}>
-            <SelectTrigger id="term" className="w-full">
-              <SelectValue placeholder="Select term..." />
-            </SelectTrigger>
-            <SelectContent>
-              {termsData?.terms.map((t) => (
-                <SelectItem key={t.code} value={t.code}>
-                  {t.name}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+        <TermSelector
+          value={term}
+          onChange={setTerm}
+          terms={termsData?.terms ?? []}
+          isLoading={termsLoading}
+        />
 
         {/* Course Bounds */}
         <TooltipProvider delayDuration={300}>
@@ -193,7 +224,9 @@ export function ScheduleBuilder() {
                 placeholder="—"
                 value={minCourses ?? ""}
                 onChange={(e) => {
-                  const val = e.target.value ? Math.max(0, Math.min(8, Number(e.target.value))) : null
+                  const val = e.target.value
+                    ? Math.max(0, Math.min(8, Number(e.target.value)))
+                    : null
                   setCourseBounds(val, maxCourses)
                 }}
                 className={cn(hasInvalidBounds && "border-destructive")}
@@ -222,7 +255,9 @@ export function ScheduleBuilder() {
                 placeholder="—"
                 value={maxCourses ?? ""}
                 onChange={(e) => {
-                  const val = e.target.value ? Math.max(0, Math.min(8, Number(e.target.value))) : null
+                  const val = e.target.value
+                    ? Math.max(0, Math.min(8, Number(e.target.value)))
+                    : null
                   setCourseBounds(minCourses, val)
                 }}
                 className={cn(hasInvalidBounds && "border-destructive")}
@@ -244,6 +279,8 @@ export function ScheduleBuilder() {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <button
+                    aria-pressed={inputMode === "subject"}
+                    aria-label="Add course by subject"
                     className={cn(
                       "rounded px-2 py-0.5 transition-colors",
                       inputMode === "subject"
@@ -263,6 +300,8 @@ export function ScheduleBuilder() {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <button
+                    aria-pressed={inputMode === "crn"}
+                    aria-label="Add course by CRN"
                     className={cn(
                       "rounded px-2 py-0.5 transition-colors",
                       inputMode === "crn"
@@ -317,7 +356,7 @@ export function ScheduleBuilder() {
                             selectedSubject === subject.code && "bg-accent"
                           )}
                         >
-                          <span className="w-12 shrink-0 whitespace-nowrap font-medium">
+                          <span className="w-12 shrink-0 font-medium whitespace-nowrap">
                             {subject.code}
                           </span>
                           <span className="text-muted-foreground truncate">
@@ -350,26 +389,50 @@ export function ScheduleBuilder() {
             </Button>
           </div>
         ) : (
-          <div className="flex gap-2">
-            <Input
-              placeholder="12345"
-              value={crnInput}
-              onChange={(e) => setCrnInput(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && canAdd) handleAddCourse()
-              }}
-              className="flex-1"
-              maxLength={6}
-            />
-            <Button
-              size="icon"
-              variant="outline"
-              onClick={handleAddCourse}
-              disabled={!canAdd}
+          <Popover
+            open={isValidCrnFormat && (crnFetching || crnData !== undefined)}
+            modal={false}
+          >
+            <PopoverTrigger asChild>
+              <div className="flex gap-2">
+                <Input
+                  placeholder="12345"
+                  value={crnInput}
+                  onChange={(e) =>
+                    setCrnInput(e.target.value.replace(/\D/g, ""))
+                  }
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && canAdd) handleAddCourse()
+                  }}
+                  inputMode="numeric"
+                  className="flex-1"
+                  maxLength={5}
+                />
+                <Button
+                  size="icon"
+                  variant="outline"
+                  onClick={handleAddCourse}
+                  disabled={!canAdd || (isValidCrnFormat && !crnData?.section)}
+                >
+                  <Plus className="size-4" />
+                </Button>
+              </div>
+            </PopoverTrigger>
+            <PopoverContent
+              className="w-72 p-0"
+              align="start"
+              onOpenAutoFocus={(e) => e.preventDefault()}
+              onCloseAutoFocus={(e) => e.preventDefault()}
             >
-              <Plus className="size-4" />
-            </Button>
-          </div>
+              <TooltipProvider delayDuration={300}>
+                <CRNPreview
+                  crnData={crnData}
+                  isLoading={crnFetching}
+                  currentTerm={term}
+                />
+              </TooltipProvider>
+            </PopoverContent>
+          </Popover>
         )}
       </div>
 
@@ -379,7 +442,7 @@ export function ScheduleBuilder() {
       {/* Course List */}
       <div className="flex-1 overflow-y-auto p-4">
         <Label className="mb-2 block">Courses</Label>
-        <div className="min-h-[180px] space-y-1">
+        <div className="min-h-45 space-y-1">
           {slots.length === 0 ? (
             <p className="text-muted-foreground py-4 text-center text-sm">
               Add courses above to get started
@@ -396,6 +459,22 @@ export function ScheduleBuilder() {
                     updateSlot(slot.id, { required: !slot.required })
                   }
                   onRemove={() => removeSlot(slot.id)}
+                  onRemoveSection={(crn) => {
+                    const newSections = slot.sections?.filter(
+                      (s) => s.crn !== crn
+                    )
+                    if (!newSections || newSections.length === 0) {
+                      removeSlot(slot.id)
+                    } else {
+                      updateSlot(slot.id, { sections: newSections })
+                    }
+                  }}
+                  onToggleSectionRequired={(crn) => {
+                    const newSections = slot.sections?.map((s) =>
+                      s.crn === crn ? { ...s, required: !s.required } : s
+                    )
+                    updateSlot(slot.id, { sections: newSections })
+                  }}
                   currentTerm={term}
                 />
               ))}
@@ -413,7 +492,12 @@ export function ScheduleBuilder() {
                 <Button
                   className="w-full"
                   onClick={handleGenerate}
-                  disabled={!term || slots.length === 0 || hasInvalidBounds || generateMutation.isPending}
+                  disabled={
+                    !term ||
+                    slots.length === 0 ||
+                    hasInvalidBounds ||
+                    generateMutation.isPending
+                  }
                 >
                   {generateMutation.isPending ? (
                     <>
@@ -427,171 +511,11 @@ export function ScheduleBuilder() {
               </div>
             </TooltipTrigger>
             {(!term || slots.length === 0 || hasInvalidBounds) && (
-              <TooltipContent>
-                {!term
-                  ? "Select a term first"
-                  : slots.length === 0
-                    ? "Add courses to get started"
-                    : hasInvalidBounds
-                      ? "Max courses must be ≥ min courses"
-                      : null}
-              </TooltipContent>
+              <TooltipContent>{getGenerateTooltip()}</TooltipContent>
             )}
           </Tooltip>
         </TooltipProvider>
       </div>
     </div>
-  )
-}
-
-interface CourseRowProps {
-  slot: CourseSlot
-  expanded: boolean
-  onToggleExpand: () => void
-  onToggleRequired: () => void
-  onRemove: () => void
-  currentTerm: string
-}
-
-function CourseRow({
-  slot,
-  expanded,
-  onToggleExpand,
-  onToggleRequired,
-  onRemove,
-  currentTerm,
-}: CourseRowProps) {
-  const hasSections = slot.sections && slot.sections.length > 0
-  const hasTermMismatch =
-    slot.sections?.some((s) => s.term !== currentTerm) ?? false
-
-  return (
-    <Collapsible open={expanded} onOpenChange={onToggleExpand}>
-      <div
-        className={cn(
-          "hover:bg-muted/50 flex items-center gap-2 rounded px-2 py-1.5 transition-colors",
-          hasTermMismatch && "text-muted-foreground"
-        )}
-      >
-        {/* Expand/collapse trigger */}
-        <CollapsibleTrigger asChild disabled={!hasSections}>
-          <button
-            className={cn(
-              "size-5 shrink-0",
-              !hasSections && "cursor-default opacity-0"
-            )}
-          >
-            {expanded ? (
-              <ChevronDown className="size-4" />
-            ) : (
-              <ChevronRight className="size-4" />
-            )}
-          </button>
-        </CollapsibleTrigger>
-
-        {/* Warning icon for term mismatch */}
-        {hasTermMismatch && (
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <AlertTriangle className="text-warning size-4 shrink-0 text-amber-500" />
-            </TooltipTrigger>
-            <TooltipContent>
-              Some sections are from a different term
-            </TooltipContent>
-          </Tooltip>
-        )}
-
-        {/* Course name */}
-        <span className="flex-1 truncate text-sm font-medium">
-          {slot.displayName}
-        </span>
-
-        {/* Required toggle */}
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Toggle
-              size="sm"
-              pressed={slot.required}
-              onPressedChange={onToggleRequired}
-              className="size-7 p-0"
-            >
-              {slot.required ? (
-                <CircleDot className="size-4" />
-              ) : (
-                <Circle className="size-4" />
-              )}
-            </Toggle>
-          </TooltipTrigger>
-          <TooltipContent>
-            {slot.required ? "Required" : "Optional"}
-          </TooltipContent>
-        </Tooltip>
-
-        {/* Remove button */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="size-7"
-          onClick={onRemove}
-          aria-label={`Remove ${slot.displayName}`}
-        >
-          <X className="size-4" />
-        </Button>
-      </div>
-
-      {/* Expanded section list */}
-      {hasSections && (
-        <CollapsibleContent>
-          <div className="ml-7 space-y-1 py-1">
-            {slot.sections!.map((section) => (
-              <div
-                key={section.crn}
-                className={cn(
-                  "hover:bg-muted/50 flex items-center gap-2 rounded px-2 py-1 text-sm",
-                  section.term !== currentTerm && "text-muted-foreground"
-                )}
-              >
-                {section.term !== currentTerm && (
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <AlertTriangle className="size-3.5 shrink-0 text-amber-500" />
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      This section is from {section.term}
-                    </TooltipContent>
-                  </Tooltip>
-                )}
-                <span className="flex-1 truncate">
-                  {section.crn}
-                  {section.instructor && ` (${section.instructor})`}
-                </span>
-                <Toggle
-                  size="sm"
-                  pressed={section.required}
-                  onPressedChange={() => {
-                    // TODO: Update section required state
-                  }}
-                  className="size-6 p-0"
-                >
-                  {section.required ? (
-                    <CircleDot className="size-3.5" />
-                  ) : (
-                    <Circle className="size-3.5" />
-                  )}
-                </Toggle>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="size-6"
-                  aria-label={`Remove section ${section.crn}`}
-                >
-                  <X className="size-3.5" />
-                </Button>
-              </div>
-            ))}
-          </div>
-        </CollapsibleContent>
-      )}
-    </Collapsible>
   )
 }
