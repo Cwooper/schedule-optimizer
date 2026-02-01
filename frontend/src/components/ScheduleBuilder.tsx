@@ -72,22 +72,42 @@ export function ScheduleBuilder() {
     return map
   }, [validationData])
 
+  // Sort slots alphabetically by subject, then by course number (numeric)
+  const sortedSlots = useMemo(
+    () =>
+      [...slots].sort((a, b) => {
+        const subjectCmp = a.subject.localeCompare(b.subject)
+        if (subjectCmp !== 0) return subjectCmp
+        return parseInt(a.courseNumber) - parseInt(b.courseNumber)
+      }),
+    [slots]
+  )
+
   const handleAddCourse = (course: {
     subject: string
     courseNumber: string
     title: string
   }) => {
-    const id = crypto.randomUUID()
-    const slot: CourseSlot = {
-      id,
-      subject: course.subject,
-      courseNumber: course.courseNumber,
-      displayName: `${course.subject} ${course.courseNumber}`,
-      title: course.title,
-      required: false,
-      sections: null,
+    const existingSlot = slots.find(
+      (s) => s.subject === course.subject && s.courseNumber === course.courseNumber
+    )
+
+    if (existingSlot) {
+      // Clear section filters to allow all sections
+      updateSlot(existingSlot.id, { sections: null, title: existingSlot.title || course.title })
+    } else {
+      const id = crypto.randomUUID()
+      const slot: CourseSlot = {
+        id,
+        subject: course.subject,
+        courseNumber: course.courseNumber,
+        displayName: `${course.subject} ${course.courseNumber}`,
+        title: course.title,
+        required: false,
+        sections: null,
+      }
+      addSlot(slot)
     }
-    addSlot(slot)
   }
 
   const handleAddCrn = (section: {
@@ -277,13 +297,13 @@ export function ScheduleBuilder() {
       <div className="flex-1 overflow-y-auto p-4">
         <Label className="mb-2 block">Courses</Label>
         <div className="min-h-45 space-y-1">
-          {slots.length === 0 ? (
+          {sortedSlots.length === 0 ? (
             <p className="text-muted-foreground py-4 text-center text-sm">
               Add courses above to get started
             </p>
           ) : (
             <TooltipProvider delayDuration={300}>
-              {slots.map((slot) => (
+              {sortedSlots.map((slot) => (
                 <CourseRow
                   key={slot.id}
                   slot={slot}
@@ -297,11 +317,10 @@ export function ScheduleBuilder() {
                     const newSections = slot.sections?.filter(
                       (s) => s.crn !== crn
                     )
-                    if (!newSections || newSections.length === 0) {
-                      removeSlot(slot.id)
-                    } else {
-                      updateSlot(slot.id, { sections: newSections })
-                    }
+                    // Set to null (all sections) when last specific section is removed
+                    updateSlot(slot.id, {
+                      sections: newSections?.length ? newSections : null,
+                    })
                   }}
                   onToggleSectionRequired={(crn) => {
                     const newSections = slot.sections?.map((s) =>
