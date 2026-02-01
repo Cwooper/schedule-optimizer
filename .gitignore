@@ -49,3 +49,6 @@ backend/data/
 # Go binaries
 backend/bin/
 backend/server
+
+# Air (Go hot reload)
+backend/tmp/
