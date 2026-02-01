@@ -5,6 +5,7 @@ import { Header } from "@/components/Header"
 import { TabNav } from "@/components/TabNav"
 import { Footer } from "@/components/Footer"
 import { ScheduleBuilder } from "@/components/ScheduleBuilder"
+import { ScheduleView } from "@/components/schedule"
 import { Button } from "@/components/ui/button"
 import {
   Drawer,
@@ -13,10 +14,12 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer"
+import { useAppStore } from "@/stores/app-store"
 
 function App() {
   useThemeSync()
   const [drawerOpen, setDrawerOpen] = useState(false)
+  const tab = useAppStore((s) => s.tab)
 
   return (
     <div className="bg-background text-foreground flex min-h-screen flex-col">
@@ -55,8 +58,18 @@ function App() {
         </aside>
 
         {/* Main content */}
-        <main className="flex flex-1 items-center justify-center overflow-auto">
-          <p className="text-muted-foreground">Content area</p>
+        <main className="flex-1 overflow-hidden">
+          {tab === "schedule" && <ScheduleView />}
+          {tab === "search" && (
+            <div className="flex h-full items-center justify-center">
+              <p className="text-muted-foreground">Search (coming soon)</p>
+            </div>
+          )}
+          {tab === "statistics" && (
+            <div className="flex h-full items-center justify-center">
+              <p className="text-muted-foreground">Statistics (coming soon)</p>
+            </div>
+          )}
         </main>
       </div>
 
