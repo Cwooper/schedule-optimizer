@@ -1,21 +1,8 @@
 import { useState } from "react"
-import { ChevronsUpDown, Plus, Loader2 } from "lucide-react"
+import { Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
 import {
   Tooltip,
   TooltipContent,
@@ -23,21 +10,14 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { TermSelector } from "@/components/TermSelector"
-import { CourseRow, CRNPreview } from "@/components/schedule-builder"
+import { CourseInput, CourseRow } from "@/components/schedule-builder"
 import {
   useAppStore,
   type CourseSlot,
   type SectionFilter,
 } from "@/stores/app-store"
-import {
-  useTerms,
-  useSubjects,
-  useGenerateSchedules,
-  useCRN,
-} from "@/hooks/use-api"
+import { useTerms, useGenerateSchedules } from "@/hooks/use-api"
 import { cn } from "@/lib/utils"
-
-type InputMode = "subject" | "crn"
 
 export function ScheduleBuilder() {
   const {
@@ -57,88 +37,69 @@ export function ScheduleBuilder() {
   } = useAppStore()
 
   const { data: termsData, isLoading: termsLoading } = useTerms()
-  const { data: subjectsData } = useSubjects(term)
   const generateMutation = useGenerateSchedules()
 
-  const [inputMode, setInputMode] = useState<InputMode>("subject")
-  const [subjectOpen, setSubjectOpen] = useState(false)
-  const [numberInput, setNumberInput] = useState("")
-  const [crnInput, setCrnInput] = useState("")
   const [expandedCourses, setExpandedCourses] = useState<Set<string>>(new Set())
 
-  // CRN lookup - only fetch for valid 5-digit CRNs
-  const crnTrimmed = crnInput.trim()
-  const isValidCrnFormat = /^\d{5}$/.test(crnTrimmed)
-  const { data: crnData, isFetching: crnFetching } = useCRN(
-    isValidCrnFormat ? crnTrimmed : "",
-    term
-  )
-
-  const subjects = subjectsData?.subjects ?? []
-
-  // Decode HTML entities in subject names
-  const decodeHtml = (html: string) => {
-    const txt = document.createElement("textarea")
-    txt.innerHTML = html
-    return txt.value
+  const handleAddCourse = (course: {
+    subject: string
+    courseNumber: string
+    title: string
+  }) => {
+    const id = crypto.randomUUID()
+    const slot: CourseSlot = {
+      id,
+      subject: course.subject,
+      courseNumber: course.courseNumber,
+      displayName: `${course.subject} ${course.courseNumber}`,
+      title: course.title,
+      required: false,
+      sections: null,
+    }
+    addSlot(slot)
   }
 
-  const handleAddCourse = () => {
-    if (inputMode === "subject" && selectedSubject && numberInput) {
+  const handleAddCrn = (section: {
+    crn: string
+    term: string
+    subject: string
+    courseNumber: string
+    title: string
+    instructor: string
+  }) => {
+    const sectionFilter: SectionFilter = {
+      crn: section.crn,
+      term: section.term,
+      instructor: section.instructor || null,
+      required: true,
+    }
+
+    const existingSlot = slots.find(
+      (s) =>
+        s.subject === section.subject &&
+        s.courseNumber === section.courseNumber
+    )
+
+    if (existingSlot) {
+      const existingSections = existingSlot.sections ?? []
+      if (!existingSections.some((s) => s.crn === section.crn)) {
+        updateSlot(existingSlot.id, {
+          sections: [...existingSections, sectionFilter],
+          title: existingSlot.title || section.title,
+        })
+      }
+    } else {
       const id = crypto.randomUUID()
-      const normalizedNumber = numberInput.trim().toUpperCase()
       const slot: CourseSlot = {
         id,
-        subject: selectedSubject,
-        courseNumber: normalizedNumber,
-        displayName: `${selectedSubject} ${normalizedNumber}`,
+        subject: section.subject,
+        courseNumber: section.courseNumber,
+        displayName: `${section.subject} ${section.courseNumber}`,
+        title: section.title,
         required: false,
-        sections: null,
+        sections: [sectionFilter],
       }
       addSlot(slot)
-      setNumberInput("")
-    } else if (inputMode === "crn" && crnInput && crnData?.section) {
-      const section = crnData.section
-      const sectionFilter: SectionFilter = {
-        crn: section.crn,
-        term: section.term,
-        instructor: section.instructor || null,
-        required: true, // CRNs added directly are pinned by default
-      }
-
-      // Check if a slot for this course already exists
-      const existingSlot = slots.find(
-        (s) =>
-          s.subject === section.subject &&
-          s.courseNumber === section.courseNumber
-      )
-
-      if (existingSlot) {
-        // Add CRN to existing slot's sections filter
-        const existingSections = existingSlot.sections ?? []
-        // Don't add duplicate CRNs
-        if (!existingSections.some((s) => s.crn === section.crn)) {
-          updateSlot(existingSlot.id, {
-            sections: [...existingSections, sectionFilter],
-            // Update title if we didn't have one
-            title: existingSlot.title || section.title,
-          })
-        }
-      } else {
-        // Create new slot with this CRN pinned
-        const id = crypto.randomUUID()
-        const slot: CourseSlot = {
-          id,
-          subject: section.subject,
-          courseNumber: section.courseNumber,
-          displayName: `${section.subject} ${section.courseNumber}`,
-          title: section.title,
-          required: false,
-          sections: [sectionFilter],
-        }
-        addSlot(slot)
-      }
-      setCrnInput("")
     }
   }
 
@@ -168,14 +129,6 @@ export function ScheduleBuilder() {
       return next
     })
   }
-
-  const courseNumberPattern = /^\d{3}[A-Za-z]?$/
-  const isValidCourseNumber = courseNumberPattern.test(numberInput.trim())
-
-  const canAdd =
-    inputMode === "subject"
-      ? selectedSubject && isValidCourseNumber
-      : crnInput.trim()
 
   const hasInvalidBounds =
     minCourses !== null && maxCourses !== null && maxCourses < minCourses
@@ -271,170 +224,13 @@ export function ScheduleBuilder() {
       <div className="bg-border h-px" />
 
       {/* Add Course Section */}
-      <div className="space-y-3 p-4">
-        <div className="flex items-center justify-between">
-          <Label>Add Course</Label>
-          <TooltipProvider delayDuration={300}>
-            <div className="flex gap-1 text-sm">
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <button
-                    aria-pressed={inputMode === "subject"}
-                    aria-label="Add course by subject"
-                    className={cn(
-                      "rounded px-2 py-0.5 transition-colors",
-                      inputMode === "subject"
-                        ? "bg-accent text-accent-foreground"
-                        : "text-muted-foreground hover:text-foreground"
-                    )}
-                    onClick={() => setInputMode("subject")}
-                  >
-                    Subject
-                  </button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  Search by subject code and course number (e.g., CSCI 241)
-                </TooltipContent>
-              </Tooltip>
-              <span className="text-muted-foreground">|</span>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <button
-                    aria-pressed={inputMode === "crn"}
-                    aria-label="Add course by CRN"
-                    className={cn(
-                      "rounded px-2 py-0.5 transition-colors",
-                      inputMode === "crn"
-                        ? "bg-accent text-accent-foreground"
-                        : "text-muted-foreground hover:text-foreground"
-                    )}
-                    onClick={() => setInputMode("crn")}
-                  >
-                    CRN
-                  </button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  Add a specific section by its Course Reference Number
-                </TooltipContent>
-              </Tooltip>
-            </div>
-          </TooltipProvider>
-        </div>
-
-        {inputMode === "subject" ? (
-          <div className="flex gap-2">
-            <Popover open={subjectOpen} onOpenChange={setSubjectOpen}>
-              <PopoverTrigger asChild>
-                <Button
-                  variant="outline"
-                  role="combobox"
-                  aria-expanded={subjectOpen}
-                  className="flex-1 justify-between px-2"
-                  disabled={!term}
-                >
-                  <span className="truncate">
-                    {selectedSubject || "Subject"}
-                  </span>
-                  <ChevronsUpDown className="size-4 shrink-0 opacity-50" />
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-64 p-0" align="start">
-                <Command>
-                  <CommandInput placeholder="Search subjects..." />
-                  <CommandList>
-                    <CommandEmpty>No subject found.</CommandEmpty>
-                    <CommandGroup>
-                      {subjects.map((subject) => (
-                        <CommandItem
-                          key={subject.code}
-                          value={`${subject.code} ${subject.name}`}
-                          onSelect={() => {
-                            setSelectedSubject(subject.code)
-                            setSubjectOpen(false)
-                          }}
-                          className={cn(
-                            selectedSubject === subject.code && "bg-accent"
-                          )}
-                        >
-                          <span className="w-12 shrink-0 font-medium whitespace-nowrap">
-                            {subject.code}
-                          </span>
-                          <span className="text-muted-foreground truncate">
-                            {decodeHtml(subject.name)}
-                          </span>
-                        </CommandItem>
-                      ))}
-                    </CommandGroup>
-                  </CommandList>
-                </Command>
-              </PopoverContent>
-            </Popover>
-            <Input
-              placeholder="241"
-              value={numberInput}
-              onChange={(e) => setNumberInput(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && canAdd) handleAddCourse()
-              }}
-              className="w-16 flex-none"
-              maxLength={4}
-            />
-            <Button
-              size="icon"
-              variant="outline"
-              onClick={handleAddCourse}
-              disabled={!canAdd}
-            >
-              <Plus className="size-4" />
-            </Button>
-          </div>
-        ) : (
-          <Popover
-            open={isValidCrnFormat && (crnFetching || crnData !== undefined)}
-            modal={false}
-          >
-            <PopoverTrigger asChild>
-              <div className="flex gap-2">
-                <Input
-                  placeholder="12345"
-                  value={crnInput}
-                  onChange={(e) =>
-                    setCrnInput(e.target.value.replace(/\D/g, ""))
-                  }
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" && canAdd) handleAddCourse()
-                  }}
-                  inputMode="numeric"
-                  className="flex-1"
-                  maxLength={5}
-                />
-                <Button
-                  size="icon"
-                  variant="outline"
-                  onClick={handleAddCourse}
-                  disabled={!canAdd || (isValidCrnFormat && !crnData?.section)}
-                >
-                  <Plus className="size-4" />
-                </Button>
-              </div>
-            </PopoverTrigger>
-            <PopoverContent
-              className="w-72 p-0"
-              align="start"
-              onOpenAutoFocus={(e) => e.preventDefault()}
-              onCloseAutoFocus={(e) => e.preventDefault()}
-            >
-              <TooltipProvider delayDuration={300}>
-                <CRNPreview
-                  crnData={crnData}
-                  isLoading={crnFetching}
-                  currentTerm={term}
-                />
-              </TooltipProvider>
-            </PopoverContent>
-          </Popover>
-        )}
-      </div>
+      <CourseInput
+        term={term}
+        selectedSubject={selectedSubject}
+        onSubjectChange={setSelectedSubject}
+        onAddCourse={handleAddCourse}
+        onAddCrn={handleAddCrn}
+      />
 
       {/* Divider */}
       <div className="bg-border h-px" />
@@ -476,6 +272,7 @@ export function ScheduleBuilder() {
                     updateSlot(slot.id, { sections: newSections })
                   }}
                   currentTerm={term}
+                  terms={termsData?.terms ?? []}
                 />
               ))}
             </TooltipProvider>

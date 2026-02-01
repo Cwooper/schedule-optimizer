@@ -551,6 +551,84 @@ func (q *Queries) GetSectionsByTerm(ctx context.Context, term string) ([]*Sectio
 	return items, nil
 }
 
+const getSectionsWithInstructorByCourse = `-- name: GetSectionsWithInstructorByCourse :many
+SELECT
+    s.id, s.term, s.crn, s.subject, s.subject_description,
+    s.course_number, s.title, s.credit_hours_low,
+    s.enrollment, s.max_enrollment, s.seats_available, s.wait_count, s.is_open,
+    s.instructional_method,
+    i.name AS instructor_name, i.email AS instructor_email
+FROM sections s
+LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1
+WHERE s.term = ? AND s.subject = ? AND s.course_number = ?
+ORDER BY s.crn
+`
+
+type GetSectionsWithInstructorByCourseParams struct {
+	Term         string `json:"term"`
+	Subject      string `json:"subject"`
+	CourseNumber string `json:"course_number"`
+}
+
+type GetSectionsWithInstructorByCourseRow struct {
+	ID                  int64          `json:"id"`
+	Term                string         `json:"term"`
+	Crn                 string         `json:"crn"`
+	Subject             string         `json:"subject"`
+	SubjectDescription  sql.NullString `json:"subject_description"`
+	CourseNumber        string         `json:"course_number"`
+	Title               string         `json:"title"`
+	CreditHoursLow      sql.NullInt64  `json:"credit_hours_low"`
+	Enrollment          sql.NullInt64  `json:"enrollment"`
+	MaxEnrollment       sql.NullInt64  `json:"max_enrollment"`
+	SeatsAvailable      sql.NullInt64  `json:"seats_available"`
+	WaitCount           sql.NullInt64  `json:"wait_count"`
+	IsOpen              sql.NullInt64  `json:"is_open"`
+	InstructionalMethod sql.NullString `json:"instructional_method"`
+	InstructorName      sql.NullString `json:"instructor_name"`
+	InstructorEmail     sql.NullString `json:"instructor_email"`
+}
+
+func (q *Queries) GetSectionsWithInstructorByCourse(ctx context.Context, arg GetSectionsWithInstructorByCourseParams) ([]*GetSectionsWithInstructorByCourseRow, error) {
+	rows, err := q.db.QueryContext(ctx, getSectionsWithInstructorByCourse, arg.Term, arg.Subject, arg.CourseNumber)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []*GetSectionsWithInstructorByCourseRow{}
+	for rows.Next() {
+		var i GetSectionsWithInstructorByCourseRow
+		if err := rows.Scan(
+			&i.ID,
+			&i.Term,
+			&i.Crn,
+			&i.Subject,
+			&i.SubjectDescription,
+			&i.CourseNumber,
+			&i.Title,
+			&i.CreditHoursLow,
+			&i.Enrollment,
+			&i.MaxEnrollment,
+			&i.SeatsAvailable,
+			&i.WaitCount,
+			&i.IsOpen,
+			&i.InstructionalMethod,
+			&i.InstructorName,
+			&i.InstructorEmail,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, &i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
 const getSectionsWithInstructorByTerm = `-- name: GetSectionsWithInstructorByTerm :many
 SELECT
     s.id, s.term, s.crn, s.subject, s.subject_description,
@@ -965,30 +1043,4 @@ type UpsertTermParams struct {
 func (q *Queries) UpsertTerm(ctx context.Context, arg UpsertTermParams) error {
 	_, err := q.db.ExecContext(ctx, upsertTerm, arg.Code, arg.Description)
 	return err
-}
-
-const validateCourseForTerm = `-- name: ValidateCourseForTerm :one
-SELECT
-    COUNT(*) AS section_count,
-    COALESCE(MAX(title), '') AS title
-FROM sections
-WHERE term = ? AND subject = ? AND course_number = ?
-`
-
-type ValidateCourseForTermParams struct {
-	Term         string `json:"term"`
-	Subject      string `json:"subject"`
-	CourseNumber string `json:"course_number"`
-}
-
-type ValidateCourseForTermRow struct {
-	SectionCount int64       `json:"section_count"`
-	Title        interface{} `json:"title"`
-}
-
-func (q *Queries) ValidateCourseForTerm(ctx context.Context, arg ValidateCourseForTermParams) (*ValidateCourseForTermRow, error) {
-	row := q.db.QueryRowContext(ctx, validateCourseForTerm, arg.Term, arg.Subject, arg.CourseNumber)
-	var i ValidateCourseForTermRow
-	err := row.Scan(&i.SectionCount, &i.Title)
-	return &i, err
 }

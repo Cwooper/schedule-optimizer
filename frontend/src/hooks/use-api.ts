@@ -2,7 +2,7 @@ import { useQuery, useMutation } from "@tanstack/react-query"
 import {
   getTerms,
   getSubjects,
-  validateCourse,
+  getCourse,
   getCRN,
   generateSchedules,
   type GenerateRequest,
@@ -22,14 +22,14 @@ export function useSubjects(term?: string) {
   })
 }
 
-export function useValidateCourse(
+export function useCourse(
   term: string,
   subject: string,
   courseNumber: string
 ) {
   return useQuery({
-    queryKey: ["validate-course", term, subject, courseNumber],
-    queryFn: () => validateCourse(term, subject, courseNumber),
+    queryKey: ["course", term, subject, courseNumber],
+    queryFn: () => getCourse(term, subject, courseNumber),
     enabled: Boolean(term && subject && courseNumber),
   })
 }

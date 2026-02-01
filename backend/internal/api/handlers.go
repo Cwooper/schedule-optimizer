@@ -25,6 +25,72 @@ type Handlers struct {
 	queries   *store.Queries
 }
 
+// Response types for type-safe JSON serialization
+
+type SectionResponse struct {
+	CRN          string `json:"crn"`
+	Term         string `json:"term"`
+	Subject      string `json:"subject"`
+	CourseNumber string `json:"courseNumber"`
+	Title        string `json:"title"`
+	Instructor   string `json:"instructor"`
+	Credits      int    `json:"credits"`
+}
+
+type CRNResponse struct {
+	Section *SectionResponse `json:"section"`
+}
+
+type CourseInfo struct {
+	Subject      string `json:"subject"`
+	CourseNumber string `json:"courseNumber"`
+	Title        string `json:"title"`
+	Credits      int    `json:"credits"`
+}
+
+type CourseSectionInfo struct {
+	CRN            string `json:"crn"`
+	Instructor     string `json:"instructor"`
+	Enrollment     int64  `json:"enrollment"`
+	MaxEnrollment  int64  `json:"maxEnrollment"`
+	SeatsAvailable int64  `json:"seatsAvailable"`
+	WaitCount      int64  `json:"waitCount"`
+	IsOpen         bool   `json:"isOpen"`
+}
+
+type CourseResponse struct {
+	Course       *CourseInfo         `json:"course"`
+	Sections     []CourseSectionInfo `json:"sections,omitempty"`
+	SectionCount int                 `json:"sectionCount,omitempty"`
+}
+
+// Helper functions for converting sql.Null types
+
+func fromNullString(ns sql.NullString) string {
+	if ns.Valid {
+		return ns.String
+	}
+	return ""
+}
+
+func fromNullInt64(ni sql.NullInt64) int {
+	if ni.Valid {
+		return int(ni.Int64)
+	}
+	return 0
+}
+
+func fromNullInt64Raw(ni sql.NullInt64) int64 {
+	if ni.Valid {
+		return ni.Int64
+	}
+	return 0
+}
+
+func fromNullInt64ToBool(ni sql.NullInt64) bool {
+	return ni.Valid && ni.Int64 != 0
+}
+
 // NewHandlers creates a new Handlers instance with all dependencies.
 func NewHandlers(cache *cache.ScheduleCache, generator *generator.Service, queries *store.Queries) *Handlers {
 	return &Handlers{
@@ -177,42 +243,6 @@ func (h *Handlers) GetSubjects(c *gin.Context) {
 	})
 }
 
-// ValidateCourse checks if a course exists for a given term.
-func (h *Handlers) ValidateCourse(c *gin.Context) {
-	term := c.Query("term")
-	subject := c.Query("subject")
-	courseNumber := c.Query("courseNumber")
-
-	if term == "" || subject == "" || courseNumber == "" {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "term, subject, and courseNumber are required"})
-		return
-	}
-
-	result, err := h.queries.ValidateCourseForTerm(c.Request.Context(), store.ValidateCourseForTermParams{
-		Term:         term,
-		Subject:      subject,
-		CourseNumber: courseNumber,
-	})
-	if err != nil {
-		slog.Error("Failed to validate course", "term", term, "subject", subject, "courseNumber", courseNumber, "error", err)
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to validate course"})
-		return
-	}
-
-	if result.SectionCount == 0 {
-		c.JSON(http.StatusOK, gin.H{
-			"exists": false,
-		})
-		return
-	}
-
-	c.JSON(http.StatusOK, gin.H{
-		"exists":       true,
-		"title":        result.Title,
-		"sectionCount": result.SectionCount,
-	})
-}
-
 // SearchCourses searches for courses/sections with filters.
 func (h *Handlers) SearchCourses(c *gin.Context) {
 	// TODO: implement with real data from store
@@ -260,7 +290,7 @@ func (h *Handlers) GetCRN(c *gin.Context) {
 		})
 		if err != nil {
 			if errors.Is(err, sql.ErrNoRows) {
-				c.JSON(http.StatusOK, gin.H{"section": nil})
+				c.JSON(http.StatusOK, CRNResponse{Section: nil})
 				return
 			}
 			slog.Error("Failed to lookup CRN", "crn", crn, "term", term, "error", err)
@@ -268,9 +298,7 @@ func (h *Handlers) GetCRN(c *gin.Context) {
 			return
 		}
 
-		c.JSON(http.StatusOK, gin.H{
-			"section": formatSectionResponse(section),
-		})
+		c.JSON(http.StatusOK, CRNResponse{Section: formatSectionResponse(section)})
 		return
 	}
 
@@ -288,9 +316,7 @@ func (h *Handlers) GetCRN(c *gin.Context) {
 			Crn:  crn,
 		})
 		if err == nil {
-			c.JSON(http.StatusOK, gin.H{
-				"section": formatSectionResponse(section),
-			})
+			c.JSON(http.StatusOK, CRNResponse{Section: formatSectionResponse(section)})
 			return
 		}
 		if !errors.Is(err, sql.ErrNoRows) {
@@ -300,27 +326,75 @@ func (h *Handlers) GetCRN(c *gin.Context) {
 		}
 	}
 
-	c.JSON(http.StatusOK, gin.H{"section": nil})
+	c.JSON(http.StatusOK, CRNResponse{Section: nil})
 }
 
-func formatSectionResponse(s *store.GetSectionWithInstructorByTermAndCRNRow) gin.H {
-	instructor := ""
-	if s.InstructorName.Valid {
-		instructor = s.InstructorName.String
+func formatSectionResponse(s *store.GetSectionWithInstructorByTermAndCRNRow) *SectionResponse {
+	return &SectionResponse{
+		CRN:          s.Crn,
+		Term:         s.Term,
+		Subject:      s.Subject,
+		CourseNumber: s.CourseNumber,
+		Title:        s.Title,
+		Instructor:   fromNullString(s.InstructorName),
+		Credits:      fromNullInt64(s.CreditHoursLow),
+	}
+}
+
+// GetCourse returns course info and all sections for a course.
+func (h *Handlers) GetCourse(c *gin.Context) {
+	subject := strings.ToUpper(strings.TrimSpace(c.Param("subject")))
+	courseNumber := strings.ToUpper(strings.TrimSpace(c.Param("courseNumber")))
+	term := strings.TrimSpace(c.Query("term"))
+
+	if subject == "" || courseNumber == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "subject and courseNumber are required"})
+		return
+	}
+	if term == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "term query parameter is required"})
+		return
 	}
 
-	credits := 0
-	if s.CreditHoursLow.Valid {
-		credits = int(s.CreditHoursLow.Int64)
+	sections, err := h.queries.GetSectionsWithInstructorByCourse(c.Request.Context(), store.GetSectionsWithInstructorByCourseParams{
+		Term:         term,
+		Subject:      subject,
+		CourseNumber: courseNumber,
+	})
+	if err != nil {
+		slog.Error("Failed to get course sections", "term", term, "subject", subject, "courseNumber", courseNumber, "error", err)
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to get course"})
+		return
 	}
 
-	return gin.H{
-		"crn":          s.Crn,
-		"term":         s.Term,
-		"subject":      s.Subject,
-		"courseNumber": s.CourseNumber,
-		"title":        s.Title,
-		"instructor":   instructor,
-		"credits":      credits,
+	if len(sections) == 0 {
+		c.JSON(http.StatusOK, CourseResponse{Course: nil})
+		return
 	}
+
+	// Build sections response
+	sectionList := make([]CourseSectionInfo, 0, len(sections))
+	for _, s := range sections {
+		sectionList = append(sectionList, CourseSectionInfo{
+			CRN:            s.Crn,
+			Instructor:     fromNullString(s.InstructorName),
+			Enrollment:     fromNullInt64Raw(s.Enrollment),
+			MaxEnrollment:  fromNullInt64Raw(s.MaxEnrollment),
+			SeatsAvailable: fromNullInt64Raw(s.SeatsAvailable),
+			WaitCount:      fromNullInt64Raw(s.WaitCount),
+			IsOpen:         fromNullInt64ToBool(s.IsOpen),
+		})
+	}
+
+	first := sections[0]
+	c.JSON(http.StatusOK, CourseResponse{
+		Course: &CourseInfo{
+			Subject:      first.Subject,
+			CourseNumber: first.CourseNumber,
+			Title:        first.Title,
+			Credits:      fromNullInt64(first.CreditHoursLow),
+		},
+		Sections:     sectionList,
+		SectionCount: len(sections),
+	})
 }

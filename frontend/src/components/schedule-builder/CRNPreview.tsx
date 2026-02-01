@@ -40,10 +40,10 @@ export function CRNPreview({
   const termMismatch = section.term !== currentTerm
 
   return (
-    <div className={cn("p-4 text-sm", termMismatch && "bg-amber-500/10")}>
+    <div className={cn("p-3 text-sm", termMismatch && "bg-amber-500/10")}>
       <div className="flex items-center gap-2">
         <span className="font-medium">
-          {section.subject} {section.courseNumber}
+          {section.subject} {section.courseNumber} – {section.title}
         </span>
         {termMismatch && (
           <Tooltip>
@@ -54,10 +54,9 @@ export function CRNPreview({
           </Tooltip>
         )}
       </div>
-      <div className="text-muted-foreground">{section.title}</div>
-      <div className="text-muted-foreground mt-2 space-y-0.5 text-xs">
-        {section.instructor && <div>{section.instructor}</div>}
-        <div>{section.credits} credits</div>
+      <div className="text-muted-foreground mt-1 flex items-center justify-between text-xs">
+        <span>{section.instructor || "TBA"}</span>
+        <span>{section.credits} cr</span>
       </div>
     </div>
   )

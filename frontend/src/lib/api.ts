@@ -21,11 +21,26 @@ export interface SubjectsResponse {
   subjects: Subject[]
 }
 
-export interface ValidateCourseResponse {
-  exists: boolean
-  title?: string
-  sectionCount?: number
+export interface CourseSectionInfo {
+  crn: string
+  instructor: string
+  enrollment: number
+  maxEnrollment: number
+  seatsAvailable: number
+  waitCount: number
+  isOpen: boolean
 }
+
+export interface CourseInfo {
+  subject: string
+  courseNumber: string
+  title: string
+  credits: number
+}
+
+export type CourseResponse =
+  | { course: null }
+  | { course: CourseInfo; sections: CourseSectionInfo[]; sectionCount: number }
 
 export interface SectionInfo {
   crn: string
@@ -121,13 +136,15 @@ export async function getSubjects(term?: string): Promise<SubjectsResponse> {
   return fetchAPI<SubjectsResponse>(`/subjects${query}`)
 }
 
-export async function validateCourse(
+export async function getCourse(
   term: string,
   subject: string,
   courseNumber: string
-): Promise<ValidateCourseResponse> {
-  const params = new URLSearchParams({ term, subject, courseNumber })
-  return fetchAPI<ValidateCourseResponse>(`/course/validate?${params}`)
+): Promise<CourseResponse> {
+  const query = `?term=${encodeURIComponent(term)}`
+  return fetchAPI<CourseResponse>(
+    `/course/${encodeURIComponent(subject)}/${encodeURIComponent(courseNumber)}${query}`
+  )
 }
 
 export async function getCRN(crn: string, term?: string): Promise<CRNResponse> {

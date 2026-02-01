@@ -1,2 +1,3 @@
+export { CourseInput } from "./CourseInput"
 export { CourseRow } from "./CourseRow"
-export { CRNPreview } from "./CRNPreview"
+// CoursePreview and CRNPreview are internal to CourseInput
