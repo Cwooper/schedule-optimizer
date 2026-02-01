@@ -12,24 +12,16 @@ const START_HOUR = 7 // 7am
 const END_HOUR = 22 // 10pm
 const HOURS = Array.from({ length: END_HOUR - START_HOUR }, (_, i) => START_HOUR + i)
 
-// Color palette for courses - use hash of course key for stable assignment
+// Curated 8-color palette - primary colors first for typical 3-4 course schedules
 const COURSE_COLORS = [
   "bg-blue-500/20 border-blue-500 text-blue-900 dark:text-blue-100",
   "bg-emerald-500/20 border-emerald-500 text-emerald-900 dark:text-emerald-100",
-  "bg-amber-500/20 border-amber-500 text-amber-900 dark:text-amber-100",
-  "bg-purple-500/20 border-purple-500 text-purple-900 dark:text-purple-100",
   "bg-rose-500/20 border-rose-500 text-rose-900 dark:text-rose-100",
-  "bg-cyan-500/20 border-cyan-500 text-cyan-900 dark:text-cyan-100",
   "bg-orange-500/20 border-orange-500 text-orange-900 dark:text-orange-100",
-  "bg-indigo-500/20 border-indigo-500 text-indigo-900 dark:text-indigo-100",
-  "bg-teal-500/20 border-teal-500 text-teal-900 dark:text-teal-100",
-  "bg-pink-500/20 border-pink-500 text-pink-900 dark:text-pink-100",
-  "bg-lime-500/20 border-lime-500 text-lime-900 dark:text-lime-100",
-  "bg-sky-500/20 border-sky-500 text-sky-900 dark:text-sky-100",
   "bg-violet-500/20 border-violet-500 text-violet-900 dark:text-violet-100",
+  "bg-teal-500/20 border-teal-500 text-teal-900 dark:text-teal-100",
+  "bg-amber-500/20 border-amber-500 text-amber-900 dark:text-amber-100",
   "bg-fuchsia-500/20 border-fuchsia-500 text-fuchsia-900 dark:text-fuchsia-100",
-  "bg-red-500/20 border-red-500 text-red-900 dark:text-red-100",
-  "bg-yellow-500/20 border-yellow-500 text-yellow-900 dark:text-yellow-100",
 ]
 
 // Simple string hash for stable color assignment
