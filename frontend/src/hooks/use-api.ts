@@ -5,6 +5,7 @@ import {
   getCourse,
   getCRN,
   generateSchedules,
+  validateCourses,
   type GenerateRequest,
 } from "@/lib/api"
 
@@ -45,5 +46,20 @@ export function useCRN(crn: string, term?: string) {
 export function useGenerateSchedules() {
   return useMutation({
     mutationFn: (req: GenerateRequest) => generateSchedules(req),
+  })
+}
+
+const MAX_VALIDATE_COURSES = 20
+
+export function useValidateCourses(
+  term: string,
+  courses: { subject: string; courseNumber: string }[]
+) {
+  // Limit to first 20 courses to match backend limit
+  const limitedCourses = courses.slice(0, MAX_VALIDATE_COURSES)
+  return useQuery({
+    queryKey: ["validate-courses", term, limitedCourses],
+    queryFn: () => validateCourses({ term, courses: limitedCourses }),
+    enabled: Boolean(term && limitedCourses.length > 0),
   })
 }

@@ -133,14 +133,14 @@ func TestLoad(t *testing.T) {
 
 		cfg := Load()
 
-		if cfg.Port != "8080" {
-			t.Errorf("Port = %q, want %q", cfg.Port, "8080")
+		if cfg.Port != "48920" {
+			t.Errorf("Port = %q, want %q", cfg.Port, "48920")
 		}
 		if cfg.Environment != "development" {
 			t.Errorf("Environment = %q, want %q", cfg.Environment, "development")
 		}
-		if len(cfg.CORSAllowedOrigins) != 1 || cfg.CORSAllowedOrigins[0] != "http://localhost:3000" {
-			t.Errorf("CORSAllowedOrigins = %v, want [http://localhost:3000]", cfg.CORSAllowedOrigins)
+		if len(cfg.CORSAllowedOrigins) != 1 || cfg.CORSAllowedOrigins[0] != "http://localhost:5173" {
+			t.Errorf("CORSAllowedOrigins = %v, want [http://localhost:5173]", cfg.CORSAllowedOrigins)
 		}
 		if cfg.DatabasePath != "data/schedule.db" {
 			t.Errorf("DatabasePath = %q, want %q", cfg.DatabasePath, "data/schedule.db")

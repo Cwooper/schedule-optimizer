@@ -19,7 +19,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import type { CourseSlot } from "@/stores/app-store"
-import type { Term } from "@/lib/api"
+import type { Term, CourseValidationResult } from "@/lib/api"
 import { cn } from "@/lib/utils"
 
 interface CourseRowProps {
@@ -32,6 +32,7 @@ interface CourseRowProps {
   onToggleSectionRequired: (crn: string) => void
   currentTerm: string
   terms: Term[]
+  validation?: CourseValidationResult
 }
 
 export function CourseRow({
@@ -44,10 +45,12 @@ export function CourseRow({
   onToggleSectionRequired,
   currentTerm,
   terms,
+  validation,
 }: CourseRowProps) {
   const hasSections = slot.sections && slot.sections.length > 0
   const hasTermMismatch =
     slot.sections?.some((s) => s.term !== currentTerm) ?? false
+  const courseNotInTerm = validation?.exists === false
 
   const getTermName = (termCode: string) =>
     terms.find((t) => t.code === termCode)?.name ?? termCode
@@ -57,7 +60,7 @@ export function CourseRow({
       <div
         className={cn(
           "hover:bg-muted/50 flex items-center gap-2 rounded px-2 py-1.5 transition-colors",
-          hasTermMismatch && "text-muted-foreground"
+          (hasTermMismatch || courseNotInTerm) && "text-muted-foreground"
         )}
       >
         {/* Expand/collapse trigger */}
@@ -78,11 +81,21 @@ export function CourseRow({
           </button>
         </CollapsibleTrigger>
 
-        {/* Warning icon for term mismatch */}
-        {hasTermMismatch && (
+        {/* Warning icon for course not in term or section term mismatch */}
+        {courseNotInTerm && (
           <Tooltip>
             <TooltipTrigger asChild>
-              <AlertTriangle className="text-warning size-4 shrink-0 text-amber-500" />
+              <AlertTriangle className="size-4 shrink-0 text-amber-500" />
+            </TooltipTrigger>
+            <TooltipContent>
+              This course is not offered in {getTermName(currentTerm)}
+            </TooltipContent>
+          </Tooltip>
+        )}
+        {!courseNotInTerm && hasTermMismatch && (
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <AlertTriangle className="size-4 shrink-0 text-amber-500" />
             </TooltipTrigger>
             <TooltipContent>
               Some sections are from a different term

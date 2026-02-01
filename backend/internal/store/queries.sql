@@ -169,3 +169,9 @@ LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1
 WHERE s.term = ? AND s.subject = ? AND s.course_number = ?
 ORDER BY s.crn;
 
+-- name: ValidateCourseForTerm :one
+SELECT
+    COUNT(*) AS section_count,
+    COALESCE(MAX(title), '') AS title
+FROM sections
+WHERE term = ? AND subject = ? AND course_number = ?;

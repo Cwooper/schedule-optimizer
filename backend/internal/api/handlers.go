@@ -20,6 +20,7 @@ const maxTermsReturned = 8 // ~2 years of quarters
 
 // Handlers contains all HTTP handler dependencies.
 type Handlers struct {
+	db        *sql.DB
 	cache     *cache.ScheduleCache
 	generator *generator.Service
 	queries   *store.Queries
@@ -92,8 +93,9 @@ func fromNullInt64ToBool(ni sql.NullInt64) bool {
 }
 
 // NewHandlers creates a new Handlers instance with all dependencies.
-func NewHandlers(cache *cache.ScheduleCache, generator *generator.Service, queries *store.Queries) *Handlers {
+func NewHandlers(db *sql.DB, cache *cache.ScheduleCache, generator *generator.Service, queries *store.Queries) *Handlers {
 	return &Handlers{
+		db:        db,
 		cache:     cache,
 		generator: generator,
 		queries:   queries,
@@ -397,4 +399,127 @@ func (h *Handlers) GetCourse(c *gin.Context) {
 		Sections:     sectionList,
 		SectionCount: len(sections),
 	})
+}
+
+const maxValidateCourses = 20
+
+// ValidateCoursesRequest is the request body for batch course validation.
+type ValidateCoursesRequest struct {
+	Term    string `json:"term" binding:"required"`
+	Courses []struct {
+		Subject      string `json:"subject" binding:"required"`
+		CourseNumber string `json:"courseNumber" binding:"required"`
+	} `json:"courses" binding:"required"`
+}
+
+// CourseValidationResult represents the validation result for a single course.
+type CourseValidationResult struct {
+	Subject      string `json:"subject"`
+	CourseNumber string `json:"courseNumber"`
+	Exists       bool   `json:"exists"`
+	Title        string `json:"title,omitempty"`
+	SectionCount int    `json:"sectionCount,omitempty"`
+}
+
+// ValidateCoursesResponse is the response for batch course validation.
+type ValidateCoursesResponse struct {
+	Results []CourseValidationResult `json:"results"`
+}
+
+// ValidateCourses checks if courses exist in a given term using a single batch query.
+func (h *Handlers) ValidateCourses(c *gin.Context) {
+	var req ValidateCoursesRequest
+	if err := c.ShouldBindJSON(&req); err != nil {
+		slog.Warn("Invalid validate courses request", "error", err)
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	if len(req.Courses) == 0 {
+		c.JSON(http.StatusOK, ValidateCoursesResponse{Results: []CourseValidationResult{}})
+		return
+	}
+
+	if len(req.Courses) > maxValidateCourses {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Maximum 20 courses per request"})
+		return
+	}
+
+	// Normalize inputs and build query
+	type courseKey struct {
+		subject      string
+		courseNumber string
+	}
+	courses := make([]courseKey, 0, len(req.Courses))
+	for _, course := range req.Courses {
+		courses = append(courses, courseKey{
+			subject:      strings.ToUpper(strings.TrimSpace(course.Subject)),
+			courseNumber: strings.ToUpper(strings.TrimSpace(course.CourseNumber)),
+		})
+	}
+
+	// Build batch query with OR conditions
+	// Query: SELECT subject, course_number, COUNT(*) as section_count, MAX(title) as title
+	//        FROM sections WHERE term = ? AND ((subject = ? AND course_number = ?) OR ...)
+	//        GROUP BY subject, course_number
+	args := make([]any, 0, 1+len(courses)*2)
+	args = append(args, req.Term)
+
+	conditions := make([]string, 0, len(courses))
+	for _, ck := range courses {
+		conditions = append(conditions, "(subject = ? AND course_number = ?)")
+		args = append(args, ck.subject, ck.courseNumber)
+	}
+
+	query := "SELECT subject, course_number, COUNT(*) as section_count, MAX(title) as title " +
+		"FROM sections WHERE term = ? AND (" + strings.Join(conditions, " OR ") + ") " +
+		"GROUP BY subject, course_number"
+
+	rows, err := h.db.QueryContext(c.Request.Context(), query, args...)
+	if err != nil {
+		slog.Error("Failed to validate courses", "term", req.Term, "error", err)
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to validate courses"})
+		return
+	}
+	defer rows.Close()
+
+	// Collect results from query into a map
+	found := make(map[courseKey]CourseValidationResult)
+	for rows.Next() {
+		var subject, courseNumber, title string
+		var sectionCount int
+		if err := rows.Scan(&subject, &courseNumber, &sectionCount, &title); err != nil {
+			slog.Error("Failed to scan validation row", "error", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to validate courses"})
+			return
+		}
+		found[courseKey{subject: subject, courseNumber: courseNumber}] = CourseValidationResult{
+			Subject:      subject,
+			CourseNumber: courseNumber,
+			Exists:       true,
+			Title:        title,
+			SectionCount: sectionCount,
+		}
+	}
+	if err := rows.Err(); err != nil {
+		slog.Error("Failed to iterate validation rows", "error", err)
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to validate courses"})
+		return
+	}
+
+	// Build response in request order, marking missing courses as not existing
+	results := make([]CourseValidationResult, 0, len(courses))
+	for _, ck := range courses {
+		if result, ok := found[ck]; ok {
+			results = append(results, result)
+		} else {
+			results = append(results, CourseValidationResult{
+				Subject:      ck.subject,
+				CourseNumber: ck.courseNumber,
+				Exists:       false,
+			})
+		}
+	}
+
+	c.JSON(http.StatusOK, ValidateCoursesResponse{Results: results})
 }

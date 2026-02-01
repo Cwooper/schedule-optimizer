@@ -105,6 +105,23 @@ export interface GenerateRequest {
   maxCourses?: number
 }
 
+export interface ValidateCoursesRequest {
+  term: string
+  courses: { subject: string; courseNumber: string }[]
+}
+
+export interface CourseValidationResult {
+  subject: string
+  courseNumber: string
+  exists: boolean
+  title?: string
+  sectionCount?: number
+}
+
+export interface ValidateCoursesResponse {
+  results: CourseValidationResult[]
+}
+
 // --- API Functions ---
 
 async function fetchAPI<T>(
@@ -156,6 +173,15 @@ export async function generateSchedules(
   req: GenerateRequest
 ): Promise<GenerateResponse> {
   return fetchAPI<GenerateResponse>("/generate", {
+    method: "POST",
+    body: JSON.stringify(req),
+  })
+}
+
+export async function validateCourses(
+  req: ValidateCoursesRequest
+): Promise<ValidateCoursesResponse> {
+  return fetchAPI<ValidateCoursesResponse>("/courses/validate", {
     method: "POST",
     body: JSON.stringify(req),
   })
