@@ -35,10 +35,25 @@ export function ScheduleBuilder() {
     addSlot,
     removeSlot,
     updateSlot,
+    setGenerateResult,
+    getSlotsVersion,
   } = useAppStore()
 
   const { data: termsData, isLoading: termsLoading } = useTerms()
   const generateMutation = useGenerateSchedules()
+
+  // Store result when generation succeeds, but only if slots haven't changed
+  const handleGenerateMutate = (req: Parameters<typeof generateMutation.mutate>[0]) => {
+    const versionAtStart = getSlotsVersion()
+    generateMutation.mutate(req, {
+      onSuccess: (data) => {
+        // Only set result if slots haven't changed during the request
+        if (getSlotsVersion() === versionAtStart) {
+          setGenerateResult(data)
+        }
+      },
+    })
+  }
 
   const [expandedCourses, setExpandedCourses] = useState<Set<string>>(new Set())
 
@@ -133,7 +148,7 @@ export function ScheduleBuilder() {
       allowedCrns: slot.sections?.map((s) => s.crn),
     }))
 
-    generateMutation.mutate({
+    handleGenerateMutate({
       term,
       courseSpecs,
       minCourses: minCourses ?? undefined,

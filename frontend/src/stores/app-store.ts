@@ -23,16 +23,9 @@ export interface CourseSlot {
   sections: SectionFilter[] | null // null = all sections allowed
 }
 
-// StoredSchedule is the persisted version of a generated schedule.
-// Differs from api.ts GeneratedSchedule which has full course details.
-// TODO: we probably want to store the course slot details rather than
-// just a string/section list. This means we have to refetch course details
-// currently.
-export interface StoredSchedule {
-  sections: string[] // CRN list
-  totalCredits: number
-  score: number
-}
+// Re-export from api.ts for convenience
+export type { GeneratedSchedule, ScheduleSection, GenerateResponse } from "@/lib/api"
+import type { GenerateResponse } from "@/lib/api"
 
 // --- Store State ---
 
@@ -51,9 +44,11 @@ interface AppState {
   theme: Theme
   sidebarCollapsed: boolean
 
-  // Generated schedules (cleared on slot change)
-  schedules: StoredSchedule[] | null
+  // Generated schedules (cleared on slot change, not persisted)
+  generateResult: GenerateResponse | null
   currentScheduleIndex: number
+  // Incremented on slot changes to detect stale mutation results
+  slotsVersion: number
 
   // Actions
   setTab: (tab: Tab) => void
@@ -66,8 +61,9 @@ interface AppState {
   clearSlots: () => void
   setTheme: (theme: Theme) => void
   setSidebarCollapsed: (collapsed: boolean) => void
-  setSchedules: (schedules: StoredSchedule[] | null) => void
+  setGenerateResult: (result: GenerateResponse | null) => void
   setCurrentScheduleIndex: (index: number) => void
+  getSlotsVersion: () => number
 }
 
 // --- Store ---
@@ -84,19 +80,21 @@ export const useAppStore = create<AppState>()(
       slots: [],
       theme: "system",
       sidebarCollapsed: false,
-      schedules: null,
+      generateResult: null,
       currentScheduleIndex: 0,
+      slotsVersion: 0,
 
       // Actions
       setTab: (tab) => set({ tab }),
 
       setTerm: (term) =>
-        set({
+        set((state) => ({
           term,
           // Clear schedules when term changes
-          schedules: null,
+          generateResult: null,
           currentScheduleIndex: 0,
-        }),
+          slotsVersion: state.slotsVersion + 1,
+        })),
 
       setSelectedSubject: (subject) => set({ selectedSubject: subject }),
 
@@ -109,16 +107,17 @@ export const useAppStore = create<AppState>()(
       addSlot: (slot) =>
         set((state) => ({
           slots: [...state.slots, slot],
-          // Clear schedules when slots change
-          schedules: null,
+          generateResult: null,
           currentScheduleIndex: 0,
+          slotsVersion: state.slotsVersion + 1,
         })),
 
       removeSlot: (id) =>
         set((state) => ({
           slots: state.slots.filter((s) => s.id !== id),
-          schedules: null,
+          generateResult: null,
           currentScheduleIndex: 0,
+          slotsVersion: state.slotsVersion + 1,
         })),
 
       updateSlot: (id, updates) =>
@@ -126,28 +125,38 @@ export const useAppStore = create<AppState>()(
           slots: state.slots.map((s) =>
             s.id === id ? { ...s, ...updates } : s
           ),
-          schedules: null,
+          generateResult: null,
           currentScheduleIndex: 0,
+          slotsVersion: state.slotsVersion + 1,
         })),
 
       clearSlots: () =>
-        set({
+        set((state) => ({
           slots: [],
-          schedules: null,
+          generateResult: null,
           currentScheduleIndex: 0,
-        }),
+          slotsVersion: state.slotsVersion + 1,
+        })),
 
       setTheme: (theme) => set({ theme }),
 
       setSidebarCollapsed: (collapsed) => set({ sidebarCollapsed: collapsed }),
 
-      setSchedules: (schedules) =>
+      setGenerateResult: (result) =>
         set({
-          schedules,
+          generateResult: result,
           currentScheduleIndex: 0,
         }),
 
-      setCurrentScheduleIndex: (index) => set({ currentScheduleIndex: index }),
+      setCurrentScheduleIndex: (index) =>
+        set((state) => {
+          const maxIndex = state.generateResult
+            ? state.generateResult.schedules.length - 1
+            : 0
+          return { currentScheduleIndex: Math.max(0, Math.min(index, maxIndex)) }
+        }),
+
+      getSlotsVersion: () => useAppStore.getState().slotsVersion,
     }),
     {
       name: "schedule-optimizer",
