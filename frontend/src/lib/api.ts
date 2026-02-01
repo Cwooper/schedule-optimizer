@@ -82,16 +82,10 @@ export interface GenerateResponse {
   }
 }
 
-export interface CourseInput {
-  subject: string
-  courseNumber: string
-  required: boolean
-  sections?: { crn: string; required: boolean }[] | null
-}
-
 export interface GenerateRequest {
   term: string
-  courses: CourseInput[]
+  courses: string[] // e.g., ["CSCI 241", "MATH 204"]
+  forcedCrns?: string[]
   minCourses?: number
   maxCourses?: number
 }

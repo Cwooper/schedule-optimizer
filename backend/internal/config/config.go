@@ -28,9 +28,9 @@ type Config struct {
 // Load reads environment variables and returns a Config struct.
 // Normalizes environment to lowercase.
 func Load() *Config {
-	port := getEnv("PORT", "8080")
+	port := getEnv("PORT", "48920")
 	environment := strings.ToLower(getEnv("ENVIRONMENT", "development"))
-	corsOrigins := parseCORSOrigins(getEnv("CORS_ALLOWED_ORIGINS", "http://localhost:3000"))
+	corsOrigins := parseCORSOrigins(getEnv("CORS_ALLOWED_ORIGINS", "http://localhost:5173"))
 	databasePath := getEnv("DATABASE_PATH", "data/schedule.db")
 	scraperConcurrency := getEnvInt("SCRAPER_CONCURRENCY", 4)
 
@@ -121,4 +121,3 @@ func parseCORSOrigins(origins string) []string {
 
 	return result
 }
-

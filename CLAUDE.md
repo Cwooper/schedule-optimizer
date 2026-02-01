@@ -15,6 +15,7 @@ Schedule Optimizer is a course scheduling tool for WWU students. The main branch
 
 ## Development Philosophy
 
+- **Brainstorm before fixing.** Unless explicitly told to fix something, discuss options first. Even small UI tweaks deserve a "what's the norm, what's good, what are the tradeoffs" conversation.
 - **Plan before implementing.** Discuss architecture and design decisions before writing code. Use plan mode for non-trivial features.
 - **Test-heavy development.** Write tests alongside implementation. Benchmark tests are critical for schedule generation and scraping performance.
 - **Code review on completion.** After implementing a task, spin off an agent to perform an unbiased code review of the changes. Code reviews must check:
@@ -194,6 +195,12 @@ WWU Banner API requires session initialization:
 2. POST `/term/search` with term (sets context, needs ~1s to process)
 3. GET `/searchResults/searchResults` (paginated course data, 500 per page)
 
+Additional endpoints:
+- GET `/classSearch/get_subject?term=YYYYTT&max=1000` - Returns subject codes with descriptions
+  ```json
+  [{"code": "CSCI", "description": "Computer Science"}, ...]
+  ```
+
 See `internal/scraper/scraper.go` package doc for detailed design decisions (timeouts, concurrency, partial failure handling). See `WWU-Scraping-URLs.md` for endpoint documentation.
 
 **TODO:** Validate `internal/scraper/response.go` types against real Banner API responses before production use.
@@ -204,7 +211,7 @@ See `internal/scraper/scraper.go` package doc for detailed design decisions (tim
 PORT=48920
 ENVIRONMENT=development
 DATABASE_PATH=data/schedule.db
-CORS_ALLOWED_ORIGINS=http://localhost:3000,http://localhost:5173
+CORS_ALLOWED_ORIGINS=http://localhost:5173
 SCRAPER_CONCURRENCY=4           # concurrent page fetches (default 4)
 
 # Jobs Service
