@@ -19,6 +19,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import type { CourseSlot } from "@/stores/app-store"
+import type { Term } from "@/lib/api"
 import { cn } from "@/lib/utils"
 
 interface CourseRowProps {
@@ -30,6 +31,7 @@ interface CourseRowProps {
   onRemoveSection: (crn: string) => void
   onToggleSectionRequired: (crn: string) => void
   currentTerm: string
+  terms: Term[]
 }
 
 export function CourseRow({
@@ -41,10 +43,14 @@ export function CourseRow({
   onRemoveSection,
   onToggleSectionRequired,
   currentTerm,
+  terms,
 }: CourseRowProps) {
   const hasSections = slot.sections && slot.sections.length > 0
   const hasTermMismatch =
     slot.sections?.some((s) => s.term !== currentTerm) ?? false
+
+  const getTermName = (termCode: string) =>
+    terms.find((t) => t.code === termCode)?.name ?? termCode
 
   return (
     <Collapsible open={expanded} onOpenChange={onToggleExpand}>
@@ -148,7 +154,7 @@ export function CourseRow({
                         <AlertTriangle className="size-4 shrink-0 text-amber-500" />
                       </TooltipTrigger>
                       <TooltipContent>
-                        This section is from {section.term}
+                        This section is from {getTermName(section.term)}
                       </TooltipContent>
                     </Tooltip>
                   )}

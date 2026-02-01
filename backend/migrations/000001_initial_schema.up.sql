@@ -83,6 +83,7 @@ CREATE TABLE section_attributes (
 CREATE INDEX idx_sections_term ON sections(term);
 CREATE INDEX idx_sections_subject ON sections(subject);
 CREATE INDEX idx_sections_term_subject ON sections(term, subject);
+CREATE INDEX idx_sections_term_subject_course ON sections(term, subject, course_number);
 CREATE INDEX idx_sections_crn ON sections(term, crn);
 CREATE INDEX idx_instructors_section ON instructors(section_id);
 CREATE INDEX idx_meeting_times_section ON meeting_times(section_id);

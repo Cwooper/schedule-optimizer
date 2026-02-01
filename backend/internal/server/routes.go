@@ -13,7 +13,7 @@ func RegisterRoutes(r *gin.Engine, h *api.Handlers) {
 		api.GET("/health", h.Health)
 		api.GET("/terms", h.GetTerms)
 		api.GET("/subjects", h.GetSubjects)
-		api.GET("/course/validate", h.ValidateCourse)
+		api.GET("/course/:subject/:courseNumber", h.GetCourse)
 		api.GET("/courses", h.SearchCourses)
 		api.GET("/crn/:crn", h.GetCRN)
 		api.POST("/generate", h.Generate)
