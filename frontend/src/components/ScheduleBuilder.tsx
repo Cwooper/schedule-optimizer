@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import { Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -16,7 +16,8 @@ import {
   type CourseSlot,
   type SectionFilter,
 } from "@/stores/app-store"
-import { useTerms, useGenerateSchedules } from "@/hooks/use-api"
+import { useTerms, useGenerateSchedules, useValidateCourses } from "@/hooks/use-api"
+import type { CourseValidationResult } from "@/lib/api"
 import { cn } from "@/lib/utils"
 
 export function ScheduleBuilder() {
@@ -40,6 +41,21 @@ export function ScheduleBuilder() {
   const generateMutation = useGenerateSchedules()
 
   const [expandedCourses, setExpandedCourses] = useState<Set<string>>(new Set())
+
+  // Validate courses against current term
+  const coursesToValidate = useMemo(
+    () => slots.map((s) => ({ subject: s.subject, courseNumber: s.courseNumber })),
+    [slots]
+  )
+  const { data: validationData } = useValidateCourses(term, coursesToValidate)
+
+  const validationMap = useMemo(() => {
+    const map = new Map<string, CourseValidationResult>()
+    validationData?.results.forEach((r) => {
+      map.set(`${r.subject}:${r.courseNumber}`, r)
+    })
+    return map
+  }, [validationData])
 
   const handleAddCourse = (course: {
     subject: string
@@ -273,6 +289,7 @@ export function ScheduleBuilder() {
                   }}
                   currentTerm={term}
                   terms={termsData?.terms ?? []}
+                  validation={validationMap.get(`${slot.subject}:${slot.courseNumber}`)}
                 />
               ))}
             </TooltipProvider>

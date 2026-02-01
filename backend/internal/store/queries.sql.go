@@ -1044,3 +1044,29 @@ func (q *Queries) UpsertTerm(ctx context.Context, arg UpsertTermParams) error {
 	_, err := q.db.ExecContext(ctx, upsertTerm, arg.Code, arg.Description)
 	return err
 }
+
+const validateCourseForTerm = `-- name: ValidateCourseForTerm :one
+SELECT
+    COUNT(*) AS section_count,
+    COALESCE(MAX(title), '') AS title
+FROM sections
+WHERE term = ? AND subject = ? AND course_number = ?
+`
+
+type ValidateCourseForTermParams struct {
+	Term         string `json:"term"`
+	Subject      string `json:"subject"`
+	CourseNumber string `json:"course_number"`
+}
+
+type ValidateCourseForTermRow struct {
+	SectionCount int64       `json:"section_count"`
+	Title        interface{} `json:"title"`
+}
+
+func (q *Queries) ValidateCourseForTerm(ctx context.Context, arg ValidateCourseForTermParams) (*ValidateCourseForTermRow, error) {
+	row := q.db.QueryRowContext(ctx, validateCourseForTerm, arg.Term, arg.Subject, arg.CourseNumber)
+	var i ValidateCourseForTermRow
+	err := row.Scan(&i.SectionCount, &i.Title)
+	return &i, err
+}

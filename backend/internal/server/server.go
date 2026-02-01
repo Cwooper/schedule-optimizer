@@ -52,7 +52,7 @@ func Run() {
 
 	scheduleCache := cache.NewScheduleCache(queries)
 	generatorService := generator.NewService(scheduleCache, queries)
-	handlers := api.NewHandlers(scheduleCache, generatorService, queries)
+	handlers := api.NewHandlers(database, scheduleCache, generatorService, queries)
 
 	RegisterRoutes(r, handlers)
 
