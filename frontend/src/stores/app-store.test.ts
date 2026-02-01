@@ -1,4 +1,5 @@
-import { useAppStore, type CourseSlot, type StoredSchedule } from "./app-store"
+import { useAppStore, type CourseSlot } from "./app-store"
+import type { GenerateResponse } from "@/lib/api"
 
 const mockSlot: CourseSlot = {
   id: "test-1",
@@ -9,10 +10,20 @@ const mockSlot: CourseSlot = {
   sections: null,
 }
 
-const mockSchedule: StoredSchedule = {
-  sections: ["12345", "67890"],
-  totalCredits: 10,
-  score: 0.85,
+const mockGenerateResult: GenerateResponse = {
+  schedules: [
+    {
+      courses: [],
+      score: 0.85,
+      weights: [],
+    },
+  ],
+  asyncs: [],
+  courseResults: [],
+  stats: {
+    totalGenerated: 1,
+    timeMs: 50,
+  },
 }
 
 describe("app-store", () => {
@@ -27,8 +38,9 @@ describe("app-store", () => {
       slots: [],
       theme: "system",
       sidebarCollapsed: false,
-      schedules: null,
+      generateResult: null,
       currentScheduleIndex: 0,
+      slotsVersion: 0,
     })
   })
 
@@ -38,7 +50,7 @@ describe("app-store", () => {
       expect(state.tab).toBe("schedule")
       expect(state.term).toBe("")
       expect(state.slots).toEqual([])
-      expect(state.schedules).toBeNull()
+      expect(state.generateResult).toBeNull()
       expect(state.theme).toBe("system")
     })
   })
@@ -79,88 +91,92 @@ describe("app-store", () => {
 
   describe("schedule clearing", () => {
     beforeEach(() => {
-      // Set up schedules before each test in this group
-      useAppStore.getState().setSchedules([mockSchedule])
-      useAppStore.getState().setCurrentScheduleIndex(5)
-      expect(useAppStore.getState().schedules).not.toBeNull()
+      // Set up generateResult before each test in this group
+      useAppStore.getState().setGenerateResult(mockGenerateResult)
+      useAppStore.setState({ currentScheduleIndex: 5 })
+      expect(useAppStore.getState().generateResult).not.toBeNull()
     })
 
-    it("clears schedules when adding a slot", () => {
+    it("clears generateResult when adding a slot", () => {
       useAppStore.getState().addSlot(mockSlot)
 
-      expect(useAppStore.getState().schedules).toBeNull()
+      expect(useAppStore.getState().generateResult).toBeNull()
       expect(useAppStore.getState().currentScheduleIndex).toBe(0)
     })
 
-    it("clears schedules when removing a slot", () => {
+    it("clears generateResult when removing a slot", () => {
       useAppStore.getState().addSlot(mockSlot)
-      useAppStore.getState().setSchedules([mockSchedule]) // re-add schedules
+      useAppStore.getState().setGenerateResult(mockGenerateResult)
       useAppStore.getState().removeSlot("test-1")
 
-      expect(useAppStore.getState().schedules).toBeNull()
+      expect(useAppStore.getState().generateResult).toBeNull()
       expect(useAppStore.getState().currentScheduleIndex).toBe(0)
     })
 
-    it("clears schedules when updating a slot", () => {
+    it("clears generateResult when updating a slot", () => {
       useAppStore.getState().addSlot(mockSlot)
-      useAppStore.getState().setSchedules([mockSchedule])
+      useAppStore.getState().setGenerateResult(mockGenerateResult)
       useAppStore.getState().updateSlot("test-1", { required: false })
 
-      expect(useAppStore.getState().schedules).toBeNull()
+      expect(useAppStore.getState().generateResult).toBeNull()
       expect(useAppStore.getState().currentScheduleIndex).toBe(0)
     })
 
-    it("clears schedules when changing term", () => {
+    it("clears generateResult when changing term", () => {
       useAppStore.getState().setTerm("202520")
 
-      expect(useAppStore.getState().schedules).toBeNull()
+      expect(useAppStore.getState().generateResult).toBeNull()
       expect(useAppStore.getState().currentScheduleIndex).toBe(0)
       expect(useAppStore.getState().term).toBe("202520")
     })
 
-    it("clears schedules when clearing slots", () => {
+    it("clears generateResult when clearing slots", () => {
       useAppStore.getState().addSlot(mockSlot)
-      useAppStore.getState().setSchedules([mockSchedule])
+      useAppStore.getState().setGenerateResult(mockGenerateResult)
       useAppStore.getState().clearSlots()
 
-      expect(useAppStore.getState().schedules).toBeNull()
+      expect(useAppStore.getState().generateResult).toBeNull()
     })
 
-    it("does NOT clear schedules when changing tab", () => {
+    it("does NOT clear generateResult when changing tab", () => {
       useAppStore.getState().setTab("search")
 
-      expect(useAppStore.getState().schedules).not.toBeNull()
+      expect(useAppStore.getState().generateResult).not.toBeNull()
       expect(useAppStore.getState().tab).toBe("search")
     })
 
-    it("does NOT clear schedules when changing theme", () => {
+    it("does NOT clear generateResult when changing theme", () => {
       useAppStore.getState().setTheme("dark")
 
-      expect(useAppStore.getState().schedules).not.toBeNull()
+      expect(useAppStore.getState().generateResult).not.toBeNull()
     })
   })
 
   describe("schedule navigation", () => {
-    it("setSchedules resets index to 0", () => {
-      useAppStore.getState().setCurrentScheduleIndex(5)
-      useAppStore.getState().setSchedules([mockSchedule])
+    it("setGenerateResult resets index to 0", () => {
+      useAppStore.setState({ currentScheduleIndex: 5 })
+      useAppStore.getState().setGenerateResult(mockGenerateResult)
 
       expect(useAppStore.getState().currentScheduleIndex).toBe(0)
     })
 
     it("setCurrentScheduleIndex updates index", () => {
-      useAppStore.getState().setSchedules([mockSchedule, mockSchedule])
+      const twoSchedules: GenerateResponse = {
+        ...mockGenerateResult,
+        schedules: [mockGenerateResult.schedules[0], mockGenerateResult.schedules[0]],
+      }
+      useAppStore.getState().setGenerateResult(twoSchedules)
       useAppStore.getState().setCurrentScheduleIndex(1)
 
       expect(useAppStore.getState().currentScheduleIndex).toBe(1)
     })
 
-    it("allows setting index beyond bounds (consumer responsibility)", () => {
-      useAppStore.getState().setSchedules([mockSchedule])
+    it("clamps index to valid range", () => {
+      useAppStore.getState().setGenerateResult(mockGenerateResult)
       useAppStore.getState().setCurrentScheduleIndex(99)
 
-      // Store doesn't enforce bounds - consumers should handle this
-      expect(useAppStore.getState().currentScheduleIndex).toBe(99)
+      // Store now enforces bounds
+      expect(useAppStore.getState().currentScheduleIndex).toBe(0)
     })
   })
 
@@ -221,6 +237,32 @@ describe("app-store", () => {
 
       const subjects = useAppStore.getState().slots.map((s) => s.subject)
       expect(subjects).toEqual(["CSCI", "MATH", "PHYS"])
+    })
+  })
+
+  describe("slotsVersion", () => {
+    it("increments when slots change", () => {
+      const v0 = useAppStore.getState().getSlotsVersion()
+
+      useAppStore.getState().addSlot(mockSlot)
+      const v1 = useAppStore.getState().getSlotsVersion()
+      expect(v1).toBe(v0 + 1)
+
+      useAppStore.getState().updateSlot("test-1", { required: false })
+      const v2 = useAppStore.getState().getSlotsVersion()
+      expect(v2).toBe(v1 + 1)
+
+      useAppStore.getState().removeSlot("test-1")
+      const v3 = useAppStore.getState().getSlotsVersion()
+      expect(v3).toBe(v2 + 1)
+    })
+
+    it("increments when term changes", () => {
+      const v0 = useAppStore.getState().getSlotsVersion()
+
+      useAppStore.getState().setTerm("202520")
+      const v1 = useAppStore.getState().getSlotsVersion()
+      expect(v1).toBe(v0 + 1)
     })
   })
 })

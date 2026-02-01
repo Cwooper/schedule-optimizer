@@ -70,7 +70,7 @@ interface AppState {
 
 export const useAppStore = create<AppState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       // Initial state
       tab: "schedule",
       term: "",
@@ -156,7 +156,7 @@ export const useAppStore = create<AppState>()(
           return { currentScheduleIndex: Math.max(0, Math.min(index, maxIndex)) }
         }),
 
-      getSlotsVersion: () => useAppStore.getState().slotsVersion,
+      getSlotsVersion: () => get().slotsVersion,
     }),
     {
       name: "schedule-optimizer",
