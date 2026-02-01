@@ -24,6 +24,9 @@ export interface CourseSlot {
 
 // StoredSchedule is the persisted version of a generated schedule.
 // Differs from api.ts GeneratedSchedule which has full course details.
+// TODO: we probably want to store the course slot details rather than
+// just a string/section list. This means we have to refetch course details
+// currently.
 export interface StoredSchedule {
   sections: string[] // CRN list
   totalCredits: number
