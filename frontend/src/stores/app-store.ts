@@ -18,6 +18,7 @@ export interface CourseSlot {
   subject: string
   courseNumber: string
   displayName: string
+  title?: string // e.g., "Computer Systems"
   required: boolean
   sections: SectionFilter[] | null // null = all sections allowed
 }
