@@ -41,8 +41,9 @@ interface AppState {
 
   // Sidebar state
   term: string
-  minCredits: number | null
-  maxCredits: number | null
+  selectedSubject: string
+  minCourses: number | null
+  maxCourses: number | null
   slots: CourseSlot[]
 
   // UI state
@@ -56,7 +57,8 @@ interface AppState {
   // Actions
   setTab: (tab: Tab) => void
   setTerm: (term: string) => void
-  setCredits: (min: number | null, max: number | null) => void
+  setSelectedSubject: (subject: string) => void
+  setCourseBounds: (min: number | null, max: number | null) => void
   addSlot: (slot: CourseSlot) => void
   removeSlot: (id: string) => void
   updateSlot: (id: string, updates: Partial<CourseSlot>) => void
@@ -75,8 +77,9 @@ export const useAppStore = create<AppState>()(
       // Initial state
       tab: "schedule",
       term: "",
-      minCredits: null,
-      maxCredits: null,
+      selectedSubject: "",
+      minCourses: null,
+      maxCourses: null,
       slots: [],
       theme: "system",
       sidebarCollapsed: false,
@@ -94,10 +97,12 @@ export const useAppStore = create<AppState>()(
           currentScheduleIndex: 0,
         }),
 
-      setCredits: (min, max) =>
+      setSelectedSubject: (subject) => set({ selectedSubject: subject }),
+
+      setCourseBounds: (min, max) =>
         set({
-          minCredits: min,
-          maxCredits: max,
+          minCourses: min,
+          maxCourses: max,
         }),
 
       addSlot: (slot) =>
@@ -149,8 +154,9 @@ export const useAppStore = create<AppState>()(
         // Only persist these fields
         tab: state.tab,
         term: state.term,
-        minCredits: state.minCredits,
-        maxCredits: state.maxCredits,
+        selectedSubject: state.selectedSubject,
+        minCourses: state.minCourses,
+        maxCourses: state.maxCourses,
         slots: state.slots,
         theme: state.theme,
         sidebarCollapsed: state.sidebarCollapsed,

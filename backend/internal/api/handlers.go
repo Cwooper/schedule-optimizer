@@ -5,6 +5,7 @@ import (
 	"errors"
 	"log/slog"
 	"net/http"
+	"strings"
 	"time"
 
 	"schedule-optimizer/internal/cache"
@@ -14,6 +15,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 )
+
+const maxTermsReturned = 8 // ~2 years of quarters
 
 // Handlers contains all HTTP handler dependencies.
 type Handlers struct {
@@ -40,6 +43,7 @@ func (h *Handlers) Health(c *gin.Context) {
 func (h *Handlers) Generate(c *gin.Context) {
 	var req generator.GenerateRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
+		slog.Warn("Invalid generate request", "error", err)
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
@@ -73,11 +77,14 @@ func (h *Handlers) GetTerms(c *gin.Context) {
 		return
 	}
 
-	result := make([]TermResponse, 0, len(terms))
-	for _, t := range terms {
+	// Limit to recent terms and clean up names
+	limit := min(len(terms), maxTermsReturned)
+	result := make([]TermResponse, 0, limit)
+	for _, t := range terms[:limit] {
+		name := strings.TrimSuffix(t.Description, " (View Only)")
 		result = append(result, TermResponse{
 			Code: t.Code,
-			Name: t.Description,
+			Name: name,
 		})
 	}
 

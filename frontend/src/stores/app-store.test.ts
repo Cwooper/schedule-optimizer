@@ -21,8 +21,9 @@ describe("app-store", () => {
     useAppStore.setState({
       tab: "schedule",
       term: "",
-      minCredits: null,
-      maxCredits: null,
+      selectedSubject: "",
+      minCourses: null,
+      maxCourses: null,
       slots: [],
       theme: "system",
       sidebarCollapsed: false,
@@ -163,20 +164,20 @@ describe("app-store", () => {
     })
   })
 
-  describe("credits", () => {
-    it("sets min and max credits", () => {
-      useAppStore.getState().setCredits(12, 18)
+  describe("course bounds", () => {
+    it("sets min and max courses", () => {
+      useAppStore.getState().setCourseBounds(3, 5)
 
-      expect(useAppStore.getState().minCredits).toBe(12)
-      expect(useAppStore.getState().maxCredits).toBe(18)
+      expect(useAppStore.getState().minCourses).toBe(3)
+      expect(useAppStore.getState().maxCourses).toBe(5)
     })
 
     it("allows null values", () => {
-      useAppStore.getState().setCredits(12, 18)
-      useAppStore.getState().setCredits(null, null)
+      useAppStore.getState().setCourseBounds(3, 5)
+      useAppStore.getState().setCourseBounds(null, null)
 
-      expect(useAppStore.getState().minCredits).toBeNull()
-      expect(useAppStore.getState().maxCredits).toBeNull()
+      expect(useAppStore.getState().minCourses).toBeNull()
+      expect(useAppStore.getState().maxCourses).toBeNull()
     })
   })
 

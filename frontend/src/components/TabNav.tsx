@@ -20,21 +20,19 @@ export function TabNav() {
   const { tab, setTab } = useAppStore()
 
   return (
-    <div className="bg-background flex justify-center px-4 py-3">
-      <Tabs value={tab} onValueChange={(v) => setTab(v as Tab)}>
-        <TabsList className="h-11">
-          {tabs.map((t) => (
-            <TabsTrigger
-              key={t.value}
-              value={t.value}
-              className="gap-2 px-4 text-base"
-            >
-              {t.icon}
-              <span className="hidden sm:inline">{t.label}</span>
-            </TabsTrigger>
-          ))}
-        </TabsList>
-      </Tabs>
-    </div>
+    <Tabs value={tab} onValueChange={(v) => setTab(v as Tab)}>
+      <TabsList className="h-11">
+        {tabs.map((t) => (
+          <TabsTrigger
+            key={t.value}
+            value={t.value}
+            className="gap-2 px-4 text-base"
+          >
+            {t.icon}
+            <span className="hidden sm:inline">{t.label}</span>
+          </TabsTrigger>
+        ))}
+      </TabsList>
+    </Tabs>
   )
 }
