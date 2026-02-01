@@ -4,7 +4,6 @@ import (
 	"cmp"
 	"context"
 	"slices"
-	"strings"
 	"time"
 
 	"schedule-optimizer/internal/cache"
@@ -28,13 +27,27 @@ func (s *Service) Generate(ctx context.Context, req GenerateRequest) (*GenerateR
 
 	blockedMask := FromBlockedTimes(req.BlockedTimes)
 
-	// Build forced sections first
-	forced, forcedMask, forcedConflict := s.buildForcedSections(req.Term, req.ForcedCRNs, blockedMask)
-	if forcedConflict {
-		// Forced CRNs conflict with each other or blocked times - no valid schedules
+	// Separate required vs optional specs
+	var requiredSpecs, optionalSpecs []CourseSpec
+	for _, spec := range req.CourseSpecs {
+		if spec.Required {
+			requiredSpecs = append(requiredSpecs, spec)
+		} else {
+			optionalSpecs = append(optionalSpecs, spec)
+		}
+	}
+
+	// Build course groups for all specs
+	requiredGroups, reqAsyncs, reqResults := s.buildCourseGroups(ctx, req.Term, requiredSpecs, blockedMask)
+	optionalGroups, optAsyncs, optResults := s.buildCourseGroups(ctx, req.Term, optionalSpecs, blockedMask)
+
+	// Check if any required course has no valid sections
+	if len(requiredGroups) < len(requiredSpecs) {
+		// At least one required course has no scheduleable sections - no valid schedules
 		return &GenerateResponse{
 			Schedules:     nil,
-			CourseResults: nil,
+			Asyncs:        append(reqAsyncs, optAsyncs...),
+			CourseResults: append(reqResults, optResults...),
 			Stats: GenerateStats{
 				TotalGenerated: 0,
 				TimeMs:         float64(time.Since(start).Microseconds()) / 1000,
@@ -42,23 +55,28 @@ func (s *Service) Generate(ctx context.Context, req GenerateRequest) (*GenerateR
 		}, nil
 	}
 
-	groups, asyncs, courseResults := s.buildCourseGroups(ctx, req.Term, req.Courses, forcedMask)
-
 	// Sort groups by section count (smallest first = better pruning)
-	slices.SortFunc(groups, func(a, b courseGroup) int {
+	// Required groups first, then optional groups
+	slices.SortFunc(requiredGroups, func(a, b courseGroup) int {
+		return len(a.sections) - len(b.sections)
+	})
+	slices.SortFunc(optionalGroups, func(a, b courseGroup) int {
 		return len(a.sections) - len(b.sections)
 	})
 
-	totalCourses := len(req.Courses) + len(forced)
-	minCourses, maxCourses := clampBounds(req.MinCourses, req.MaxCourses, totalCourses)
+	allGroups := append(requiredGroups, optionalGroups...)
+	numRequired := len(requiredGroups)
+	totalCourses := len(allGroups)
+
+	// min must be at least the number of required courses
+	minCourses, maxCourses := clampBounds(max(req.MinCourses, numRequired), req.MaxCourses, totalCourses)
 
 	schedules := backtrack(ctx, backtrackParams{
-		groups:     groups,
-		forced:     forced,
-		forcedMask: forcedMask,
-		minCourses: minCourses,
-		maxCourses: maxCourses,
-		limit:      MaxSchedulesToGenerate,
+		groups:      allGroups,
+		numRequired: numRequired,
+		minCourses:  minCourses,
+		maxCourses:  maxCourses,
+		limit:       MaxSchedulesToGenerate,
 	})
 
 	for i := range schedules {
@@ -77,8 +95,8 @@ func (s *Service) Generate(ctx context.Context, req GenerateRequest) (*GenerateR
 
 	return &GenerateResponse{
 		Schedules:     schedules,
-		Asyncs:        asyncs,
-		CourseResults: courseResults,
+		Asyncs:        append(reqAsyncs, optAsyncs...),
+		CourseResults: append(reqResults, optResults...),
 		Stats: GenerateStats{
 			TotalGenerated: totalGenerated,
 			TimeMs:         float64(time.Since(start).Microseconds()) / 1000,
@@ -86,68 +104,50 @@ func (s *Service) Generate(ctx context.Context, req GenerateRequest) (*GenerateR
 	}, nil
 }
 
-// buildForcedSections looks up forced CRNs and builds their combined mask.
-// Returns the sections, combined mask, and whether there's a conflict.
-func (s *Service) buildForcedSections(term string, crns []string, blockedMask TimeMask) ([]*sectionData, TimeMask, bool) {
-	if len(crns) == 0 {
-		return nil, blockedMask, false
-	}
-
-	forced := make([]*sectionData, 0, len(crns))
-	combinedMask := blockedMask
-
-	for _, crn := range crns {
-		course, ok := s.cache.GetCourse(term, crn)
-		if !ok {
-			continue // CRN not found, skip
-		}
-
-		mask := FromMeetingTimes(course.MeetingTimes)
-
-		// Check for conflict with blocked times or other forced sections
-		if combinedMask.Conflicts(mask) {
-			return nil, TimeMask{}, true
-		}
-
-		combinedMask = combinedMask.Merge(mask)
-		forced = append(forced, &sectionData{
-			course: course,
-			mask:   mask,
-		})
-	}
-
-	return forced, combinedMask, false
-}
-
-// buildCourseGroups fetches sections from cache, filters by blocked times, and groups by course.
-func (s *Service) buildCourseGroups(ctx context.Context, term string, courseNames []string, blockedMask TimeMask) ([]courseGroup, []*cache.Course, []CourseResult) {
+// buildCourseGroups fetches sections from cache, filters by blocked times and allowed CRNs, and groups by course.
+func (s *Service) buildCourseGroups(ctx context.Context, term string, specs []CourseSpec, blockedMask TimeMask) ([]courseGroup, []*cache.Course, []CourseResult) {
 	var groups []courseGroup
 	var asyncs []*cache.Course
 	var results []CourseResult
 
-	for _, name := range courseNames {
-		courseKey := normalizeCourseKey(name)
+	for _, spec := range specs {
+		courseKey := spec.Subject + ":" + spec.CourseNumber
+		displayName := spec.Subject + " " + spec.CourseNumber
 		sections := s.cache.GetCoursesByCourseCode(term, courseKey)
 
 		if len(sections) == 0 {
-			subject, courseNum := splitCourseKey(courseKey)
 			exists, _ := s.queries.CourseExistsAnyTerm(ctx, store.CourseExistsAnyTermParams{
-				Subject:      subject,
-				CourseNumber: courseNum,
+				Subject:      spec.Subject,
+				CourseNumber: spec.CourseNumber,
 			})
 			if exists > 0 {
-				results = append(results, CourseResult{Name: name, Status: StatusNotOffered})
+				results = append(results, CourseResult{Name: displayName, Status: StatusNotOffered})
 			} else {
-				results = append(results, CourseResult{Name: name, Status: StatusNotExists})
+				results = append(results, CourseResult{Name: displayName, Status: StatusNotExists})
 			}
 			continue
 		}
 
+		// Build allowed CRN set if specified
+		var allowedCRNs map[string]bool
+		if len(spec.AllowedCRNs) > 0 {
+			allowedCRNs = make(map[string]bool, len(spec.AllowedCRNs))
+			for _, crn := range spec.AllowedCRNs {
+				allowedCRNs[crn] = true
+			}
+		}
+
 		var group courseGroup
 		group.courseKey = courseKey
-		var asyncCount, blockedCount int
+		var asyncCount, blockedCount, filteredCount int
 
 		for _, sec := range sections {
+			// Filter by allowed CRNs if specified
+			if allowedCRNs != nil && !allowedCRNs[sec.CRN] {
+				filteredCount++
+				continue
+			}
+
 			if isAsyncOrTBD(sec) {
 				asyncs = append(asyncs, sec)
 				asyncCount++
@@ -170,14 +170,17 @@ func (s *Service) buildCourseGroups(ctx context.Context, term string, courseName
 		if len(group.sections) > 0 {
 			groups = append(groups, group)
 			results = append(results, CourseResult{
-				Name:   name,
+				Name:   displayName,
 				Status: StatusFound,
 				Count:  len(group.sections),
 			})
 		} else if asyncCount > 0 {
-			results = append(results, CourseResult{Name: name, Status: StatusAsyncOnly})
+			results = append(results, CourseResult{Name: displayName, Status: StatusAsyncOnly})
+		} else if filteredCount > 0 && blockedCount == 0 {
+			// All sections filtered by AllowedCRNs (none of the specified CRNs exist)
+			results = append(results, CourseResult{Name: displayName, Status: StatusCRNFiltered})
 		} else if blockedCount > 0 {
-			results = append(results, CourseResult{Name: name, Status: StatusBlocked})
+			results = append(results, CourseResult{Name: displayName, Status: StatusBlocked})
 		}
 	}
 
@@ -199,45 +202,6 @@ func clampBounds(minReq, maxReq, numCourses int) (int, int) {
 	return minCourses, maxCourses
 }
 
-// normalizeCourseKey converts various formats to "SUBJECT:NUMBER".
-// Examples: "CSCI 241" -> "CSCI:241", "csci241" -> "CSCI:241"
-func normalizeCourseKey(name string) string {
-	name = strings.ToUpper(strings.TrimSpace(name))
-	name = strings.ReplaceAll(name, ":", " ")
-
-	// Split on space first
-	parts := strings.Fields(name)
-	if len(parts) == 2 {
-		return parts[0] + ":" + parts[1]
-	}
-
-	// No space - try to split letters from numbers
-	var subject, number strings.Builder
-	inNumber := false
-	for _, r := range name {
-		if r >= '0' && r <= '9' {
-			inNumber = true
-			number.WriteRune(r)
-		} else if !inNumber {
-			subject.WriteRune(r)
-		}
-	}
-
-	if subject.Len() > 0 && number.Len() > 0 {
-		return subject.String() + ":" + number.String()
-	}
-
-	return name
-}
-
-// splitCourseKey splits "CSCI:241" into ("CSCI", "241").
-func splitCourseKey(key string) (string, string) {
-	parts := strings.Split(key, ":")
-	if len(parts) == 2 {
-		return parts[0], parts[1]
-	}
-	return key, ""
-}
 
 // isAsyncOrTBD returns true if the course has no scheduled meeting times.
 func isAsyncOrTBD(c *cache.Course) bool {

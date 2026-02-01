@@ -237,35 +237,35 @@ func TestBacktrack_MultipleSectionsPerCourse(t *testing.T) {
 	}
 }
 
-func TestBacktrack_WithForcedSections(t *testing.T) {
+func TestBacktrack_WithRequiredCourse(t *testing.T) {
 	ctx := context.Background()
 
-	// Forced section on Monday 8-9am
-	forced := makeTestSection(1, "11111", []cache.MeetingTime{
+	// Required section on Monday 8-9am
+	required := makeTestSection(1, "11111", []cache.MeetingTime{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0800", EndTime: "0900"},
 	})
-	forcedMask := FromMeetingTimes(forced.MeetingTimes)
 
-	// Optional section on Monday 9-10am (no conflict with forced)
+	// Optional section on Monday 9-10am (no conflict with required)
 	optional := makeTestSection(2, "22222", []cache.MeetingTime{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 	})
 
 	groups := []courseGroup{
+		{courseKey: "MATH:112", sections: []*sectionData{{course: required, mask: FromMeetingTimes(required.MeetingTimes)}}},
 		{courseKey: "CSCI:241", sections: []*sectionData{{course: optional, mask: FromMeetingTimes(optional.MeetingTimes)}}},
 	}
 
 	schedules := backtrack(ctx, backtrackParams{
-		groups:     groups,
-		forced:     []*sectionData{{course: forced, mask: forcedMask}},
-		forcedMask: forcedMask,
-		minCourses: 1,
-		maxCourses: 2,
-		limit:      100,
+		groups:      groups,
+		numRequired: 1, // First group is required
+		minCourses:  1,
+		maxCourses:  2,
+		limit:       100,
 	})
 
-	// Should produce schedules that all include the forced section
-	if len(schedules) != 2 { // [forced], [forced+optional]
+	// Should produce schedules that all include the required section
+	// [required], [required+optional] = 2 schedules
+	if len(schedules) != 2 {
 		t.Errorf("Expected 2 schedules, got %d", len(schedules))
 	}
 
@@ -278,7 +278,92 @@ func TestBacktrack_WithForcedSections(t *testing.T) {
 			}
 		}
 		if !found {
-			t.Error("All schedules should include forced section")
+			t.Error("All schedules should include required section")
+		}
+	}
+}
+
+func TestBacktrack_RequiredCourseConflict(t *testing.T) {
+	ctx := context.Background()
+
+	// Two required sections that conflict
+	required1 := makeTestSection(1, "11111", []cache.MeetingTime{
+		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
+	})
+	required2 := makeTestSection(2, "22222", []cache.MeetingTime{
+		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0930", EndTime: "1030"},
+	})
+
+	groups := []courseGroup{
+		{courseKey: "MATH:112", sections: []*sectionData{{course: required1, mask: FromMeetingTimes(required1.MeetingTimes)}}},
+		{courseKey: "CSCI:241", sections: []*sectionData{{course: required2, mask: FromMeetingTimes(required2.MeetingTimes)}}},
+	}
+
+	schedules := backtrack(ctx, backtrackParams{
+		groups:      groups,
+		numRequired: 2, // Both groups are required
+		minCourses:  2,
+		maxCourses:  2,
+		limit:       100,
+	})
+
+	// Should produce no schedules because required courses conflict
+	if len(schedules) != 0 {
+		t.Errorf("Expected 0 schedules due to required course conflict, got %d", len(schedules))
+	}
+}
+
+func TestBacktrack_MultipleRequiredCourses(t *testing.T) {
+	ctx := context.Background()
+
+	// Two required sections that don't conflict
+	required1 := makeTestSection(1, "11111", []cache.MeetingTime{
+		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "0950"},
+	})
+	required2 := makeTestSection(2, "22222", []cache.MeetingTime{
+		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "1000", EndTime: "1050"},
+	})
+
+	// Optional section
+	optional := makeTestSection(3, "33333", []cache.MeetingTime{
+		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "1100", EndTime: "1150"},
+	})
+
+	groups := []courseGroup{
+		{courseKey: "MATH:112", sections: []*sectionData{{course: required1, mask: FromMeetingTimes(required1.MeetingTimes)}}},
+		{courseKey: "CSCI:241", sections: []*sectionData{{course: required2, mask: FromMeetingTimes(required2.MeetingTimes)}}},
+		{courseKey: "ENG:101", sections: []*sectionData{{course: optional, mask: FromMeetingTimes(optional.MeetingTimes)}}},
+	}
+
+	schedules := backtrack(ctx, backtrackParams{
+		groups:      groups,
+		numRequired: 2, // First two groups are required
+		minCourses:  2,
+		maxCourses:  3,
+		limit:       100,
+	})
+
+	// Should produce [req1+req2], [req1+req2+opt] = 2 schedules
+	if len(schedules) != 2 {
+		t.Errorf("Expected 2 schedules, got %d", len(schedules))
+	}
+
+	for _, s := range schedules {
+		if len(s.Courses) < 2 {
+			t.Errorf("Expected at least 2 courses (both required), got %d", len(s.Courses))
+		}
+		// Verify both required sections are present
+		found1, found2 := false, false
+		for _, c := range s.Courses {
+			if c.CRN == "11111" {
+				found1 = true
+			}
+			if c.CRN == "22222" {
+				found2 = true
+			}
+		}
+		if !found1 || !found2 {
+			t.Error("All schedules should include both required sections")
 		}
 	}
 }
