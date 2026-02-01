@@ -83,7 +83,7 @@ export interface GeneratedSchedule {
 
 export interface CourseResult {
   name: string
-  status: "found" | "async_only" | "not_found"
+  status: "found" | "async_only" | "blocked" | "crn_filtered" | "not_offered" | "not_exists"
   count?: number
 }
 
@@ -97,10 +97,16 @@ export interface GenerateResponse {
   }
 }
 
+export interface CourseSpec {
+  subject: string
+  courseNumber: string
+  required: boolean
+  allowedCrns?: string[]
+}
+
 export interface GenerateRequest {
   term: string
-  courses: string[] // e.g., ["CSCI 241", "MATH 204"]
-  forcedCrns?: string[]
+  courseSpecs: CourseSpec[]
   minCourses?: number
   maxCourses?: number
 }

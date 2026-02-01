@@ -44,8 +44,14 @@ func BenchmarkGenerate_RealData_5Courses(b *testing.B) {
 	ctx := context.Background()
 
 	req := GenerateRequest{
-		Term:       term,
-		Courses:    []string{"ENG 101", "CHEM 161", "BIOL 101", "MATH 112", "PHYS 161"},
+		Term: term,
+		CourseSpecs: []CourseSpec{
+			{Subject: "ENG", CourseNumber: "101"},
+			{Subject: "CHEM", CourseNumber: "161"},
+			{Subject: "BIOL", CourseNumber: "101"},
+			{Subject: "MATH", CourseNumber: "112"},
+			{Subject: "PHYS", CourseNumber: "161"},
+		},
 		MinCourses: 2,
 		MaxCourses: 5,
 	}
@@ -66,8 +72,17 @@ func BenchmarkGenerate_RealData_8Courses(b *testing.B) {
 	ctx := context.Background()
 
 	req := GenerateRequest{
-		Term:       term,
-		Courses:    []string{"ENG 101", "CHEM 161", "BIOL 101", "MATH 112", "PHYS 161", "GEOL 101", "MATH 124", "BIOL 204"},
+		Term: term,
+		CourseSpecs: []CourseSpec{
+			{Subject: "ENG", CourseNumber: "101"},
+			{Subject: "CHEM", CourseNumber: "161"},
+			{Subject: "BIOL", CourseNumber: "101"},
+			{Subject: "MATH", CourseNumber: "112"},
+			{Subject: "PHYS", CourseNumber: "161"},
+			{Subject: "GEOL", CourseNumber: "101"},
+			{Subject: "MATH", CourseNumber: "124"},
+			{Subject: "BIOL", CourseNumber: "204"},
+		},
 		MinCourses: 2,
 		MaxCourses: 8,
 	}
@@ -88,8 +103,19 @@ func BenchmarkGenerate_RealData_10Courses(b *testing.B) {
 	ctx := context.Background()
 
 	req := GenerateRequest{
-		Term:       term,
-		Courses:    []string{"ENG 101", "CHEM 161", "BIOL 101", "MATH 112", "PHYS 161", "GEOL 101", "MATH 124", "BIOL 204", "HNRS 103", "COMM 101"},
+		Term: term,
+		CourseSpecs: []CourseSpec{
+			{Subject: "ENG", CourseNumber: "101"},
+			{Subject: "CHEM", CourseNumber: "161"},
+			{Subject: "BIOL", CourseNumber: "101"},
+			{Subject: "MATH", CourseNumber: "112"},
+			{Subject: "PHYS", CourseNumber: "161"},
+			{Subject: "GEOL", CourseNumber: "101"},
+			{Subject: "MATH", CourseNumber: "124"},
+			{Subject: "BIOL", CourseNumber: "204"},
+			{Subject: "HNRS", CourseNumber: "103"},
+			{Subject: "COMM", CourseNumber: "101"},
+		},
 		MinCourses: 2,
 		MaxCourses: 8,
 	}
@@ -110,8 +136,22 @@ func BenchmarkGenerate_RealData_13Courses(b *testing.B) {
 	ctx := context.Background()
 
 	req := GenerateRequest{
-		Term:       term,
-		Courses:    []string{"ENG 101", "CHEM 161", "BIOL 101", "MATH 112", "PHYS 161", "GEOL 101", "MATH 124", "BIOL 204", "HNRS 103", "CHEM 163", "CSCI 141", "COMM 101", "ANTH 201"},
+		Term: term,
+		CourseSpecs: []CourseSpec{
+			{Subject: "ENG", CourseNumber: "101"},
+			{Subject: "CHEM", CourseNumber: "161"},
+			{Subject: "BIOL", CourseNumber: "101"},
+			{Subject: "MATH", CourseNumber: "112"},
+			{Subject: "PHYS", CourseNumber: "161"},
+			{Subject: "GEOL", CourseNumber: "101"},
+			{Subject: "MATH", CourseNumber: "124"},
+			{Subject: "BIOL", CourseNumber: "204"},
+			{Subject: "HNRS", CourseNumber: "103"},
+			{Subject: "CHEM", CourseNumber: "163"},
+			{Subject: "CSCI", CourseNumber: "141"},
+			{Subject: "COMM", CourseNumber: "101"},
+			{Subject: "ANTH", CourseNumber: "201"},
+		},
 		MinCourses: 3,
 		MaxCourses: 8,
 	}
@@ -126,15 +166,20 @@ func BenchmarkGenerate_RealData_13Courses(b *testing.B) {
 	}
 }
 
-// BenchmarkGenerate_RealData_WithForced benchmarks with forced CRNs.
-func BenchmarkGenerate_RealData_WithForced(b *testing.B) {
+// BenchmarkGenerate_RealData_WithRequired benchmarks with required courses.
+func BenchmarkGenerate_RealData_WithRequired(b *testing.B) {
 	service, term := setupRealData(b)
 	ctx := context.Background()
 
 	req := GenerateRequest{
-		Term:       term,
-		Courses:    []string{"CHEM 161", "BIOL 101", "MATH 112", "PHYS 161", "GEOL 101"},
-		ForcedCRNs: []string{"40346"}, // Force a specific MATH 112 section
+		Term: term,
+		CourseSpecs: []CourseSpec{
+			{Subject: "MATH", CourseNumber: "112", Required: true, AllowedCRNs: []string{"40346"}}, // Force a specific section
+			{Subject: "CHEM", CourseNumber: "161"},
+			{Subject: "BIOL", CourseNumber: "101"},
+			{Subject: "PHYS", CourseNumber: "161"},
+			{Subject: "GEOL", CourseNumber: "101"},
+		},
 		MinCourses: 2,
 		MaxCourses: 6,
 	}
@@ -173,24 +218,64 @@ func TestGenerate_RealData_Stats(t *testing.T) {
 	ctx := context.Background()
 
 	testCases := []struct {
-		name    string
-		courses []string
-		min     int
-		max     int
+		name  string
+		specs []CourseSpec
+		min   int
+		max   int
 	}{
-		{"5 courses", []string{"ENG 101", "CHEM 161", "BIOL 101", "MATH 112", "PHYS 161"}, 2, 5},
-		{"8 courses", []string{"ENG 101", "CHEM 161", "BIOL 101", "MATH 112", "PHYS 161", "GEOL 101", "MATH 124", "BIOL 204"}, 2, 8},
-		{"10 courses", []string{"ENG 101", "CHEM 161", "BIOL 101", "MATH 112", "PHYS 161", "GEOL 101", "MATH 124", "BIOL 204", "HNRS 103", "COMM 101"}, 2, 8},
-		{"13 courses", []string{"ENG 101", "CHEM 161", "BIOL 101", "MATH 112", "PHYS 161", "GEOL 101", "MATH 124", "BIOL 204", "HNRS 103", "CHEM 163", "CSCI 141", "COMM 101", "ANTH 201"}, 3, 8},
+		{"5 courses", []CourseSpec{
+			{Subject: "ENG", CourseNumber: "101"},
+			{Subject: "CHEM", CourseNumber: "161"},
+			{Subject: "BIOL", CourseNumber: "101"},
+			{Subject: "MATH", CourseNumber: "112"},
+			{Subject: "PHYS", CourseNumber: "161"},
+		}, 2, 5},
+		{"8 courses", []CourseSpec{
+			{Subject: "ENG", CourseNumber: "101"},
+			{Subject: "CHEM", CourseNumber: "161"},
+			{Subject: "BIOL", CourseNumber: "101"},
+			{Subject: "MATH", CourseNumber: "112"},
+			{Subject: "PHYS", CourseNumber: "161"},
+			{Subject: "GEOL", CourseNumber: "101"},
+			{Subject: "MATH", CourseNumber: "124"},
+			{Subject: "BIOL", CourseNumber: "204"},
+		}, 2, 8},
+		{"10 courses", []CourseSpec{
+			{Subject: "ENG", CourseNumber: "101"},
+			{Subject: "CHEM", CourseNumber: "161"},
+			{Subject: "BIOL", CourseNumber: "101"},
+			{Subject: "MATH", CourseNumber: "112"},
+			{Subject: "PHYS", CourseNumber: "161"},
+			{Subject: "GEOL", CourseNumber: "101"},
+			{Subject: "MATH", CourseNumber: "124"},
+			{Subject: "BIOL", CourseNumber: "204"},
+			{Subject: "HNRS", CourseNumber: "103"},
+			{Subject: "COMM", CourseNumber: "101"},
+		}, 2, 8},
+		{"13 courses", []CourseSpec{
+			{Subject: "ENG", CourseNumber: "101"},
+			{Subject: "CHEM", CourseNumber: "161"},
+			{Subject: "BIOL", CourseNumber: "101"},
+			{Subject: "MATH", CourseNumber: "112"},
+			{Subject: "PHYS", CourseNumber: "161"},
+			{Subject: "GEOL", CourseNumber: "101"},
+			{Subject: "MATH", CourseNumber: "124"},
+			{Subject: "BIOL", CourseNumber: "204"},
+			{Subject: "HNRS", CourseNumber: "103"},
+			{Subject: "CHEM", CourseNumber: "163"},
+			{Subject: "CSCI", CourseNumber: "141"},
+			{Subject: "COMM", CourseNumber: "101"},
+			{Subject: "ANTH", CourseNumber: "201"},
+		}, 3, 8},
 	}
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			req := GenerateRequest{
-				Term:       term,
-				Courses:    tc.courses,
-				MinCourses: tc.min,
-				MaxCourses: tc.max,
+				Term:        term,
+				CourseSpecs: tc.specs,
+				MinCourses:  tc.min,
+				MaxCourses:  tc.max,
 			}
 
 			resp, err := service.Generate(ctx, req)
@@ -204,7 +289,7 @@ func TestGenerate_RealData_Stats(t *testing.T) {
 			}
 
 			t.Logf("Courses: %d, Sections: %d, Generated: %d, Time: %.2fms",
-				len(tc.courses), totalSections, resp.Stats.TotalGenerated, resp.Stats.TimeMs)
+				len(tc.specs), totalSections, resp.Stats.TotalGenerated, resp.Stats.TimeMs)
 		})
 	}
 }

@@ -17,7 +17,7 @@ import {
   type SectionFilter,
 } from "@/stores/app-store"
 import { useTerms, useGenerateSchedules, useValidateCourses } from "@/hooks/use-api"
-import type { CourseValidationResult } from "@/lib/api"
+import type { CourseValidationResult, CourseSpec } from "@/lib/api"
 import { cn } from "@/lib/utils"
 
 export function ScheduleBuilder() {
@@ -126,9 +126,16 @@ export function ScheduleBuilder() {
       setTab("schedule")
     }
 
+    const courseSpecs: CourseSpec[] = slots.map((slot) => ({
+      subject: slot.subject,
+      courseNumber: slot.courseNumber,
+      required: slot.required,
+      allowedCrns: slot.sections?.map((s) => s.crn),
+    }))
+
     generateMutation.mutate({
       term,
-      courses: slots.map((slot) => `${slot.subject} ${slot.courseNumber}`),
+      courseSpecs,
       minCourses: minCourses ?? undefined,
       maxCourses: maxCourses ?? undefined,
     })

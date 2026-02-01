@@ -12,11 +12,18 @@ const (
 	DefaultMaxCourses      = 8
 )
 
+// CourseSpec defines a single course with its constraints.
+type CourseSpec struct {
+	Subject      string   `json:"subject"`
+	CourseNumber string   `json:"courseNumber"`
+	Required     bool     `json:"required"`              // Must be in every schedule
+	AllowedCRNs  []string `json:"allowedCrns,omitempty"` // nil = all sections, non-empty = only these
+}
+
 // GenerateRequest contains the parameters for schedule generation.
 type GenerateRequest struct {
 	Term         string        `json:"term" binding:"required"`
-	Courses      []string      `json:"courses" binding:"required"`
-	ForcedCRNs   []string      `json:"forcedCrns,omitempty"`
+	CourseSpecs  []CourseSpec  `json:"courseSpecs" binding:"required"`
 	BlockedTimes []BlockedTime `json:"blockedTimes,omitempty"`
 	MinCourses   int           `json:"minCourses"`
 	MaxCourses   int           `json:"maxCourses"`
@@ -48,11 +55,12 @@ type CourseResult struct {
 type CourseStatus string
 
 const (
-	StatusFound      CourseStatus = "found"       // Has scheduleable sections
-	StatusAsyncOnly  CourseStatus = "async_only"  // Only async/TBD sections exist
-	StatusBlocked    CourseStatus = "blocked"     // All sections filtered by user's blocked times
-	StatusNotOffered CourseStatus = "not_offered" // Valid course, not offered this term
-	StatusNotExists  CourseStatus = "not_exists"  // Course code doesn't exist at all
+	StatusFound       CourseStatus = "found"        // Has scheduleable sections
+	StatusAsyncOnly   CourseStatus = "async_only"   // Only async/TBD sections exist
+	StatusBlocked     CourseStatus = "blocked"      // All sections filtered by user's blocked times
+	StatusCRNFiltered CourseStatus = "crn_filtered" // All sections filtered by AllowedCRNs (none matched)
+	StatusNotOffered  CourseStatus = "not_offered"  // Valid course, not offered this term
+	StatusNotExists   CourseStatus = "not_exists"   // Course code doesn't exist at all
 )
 
 // Schedule represents a valid combination of course sections.
