@@ -23,11 +23,7 @@ export function useSubjects(term?: string) {
   })
 }
 
-export function useCourse(
-  term: string,
-  subject: string,
-  courseNumber: string
-) {
+export function useCourse(term: string, subject: string, courseNumber: string) {
   return useQuery({
     queryKey: ["course", term, subject, courseNumber],
     queryFn: () => getCourse(term, subject, courseNumber),

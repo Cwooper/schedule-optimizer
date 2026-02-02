@@ -7,6 +7,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/joho/godotenv"
 	"github.com/lmittmann/tint"
 )
 
@@ -26,8 +27,11 @@ type Config struct {
 }
 
 // Load reads environment variables and returns a Config struct.
+// Loads .env file if present, then reads from environment.
 // Normalizes environment to lowercase.
 func Load() *Config {
+	_ = godotenv.Load() // .env is optional - env vars may be set externally
+
 	port := getEnv("PORT", "48920")
 	environment := strings.ToLower(getEnv("ENVIRONMENT", "development"))
 	corsOrigins := parseCORSOrigins(getEnv("CORS_ALLOWED_ORIGINS", "http://localhost:5173"))
