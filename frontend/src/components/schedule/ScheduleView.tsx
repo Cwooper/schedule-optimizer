@@ -74,7 +74,7 @@ export function ScheduleView() {
         >
           <ChevronLeft className="size-4" />
         </Button>
-        <span className="min-w-[8rem] text-center text-sm">
+        <span className="min-w-32 text-center text-sm">
           Schedule {safeIndex + 1} of {totalSchedules}
         </span>
         <Button
@@ -104,10 +104,8 @@ export function ScheduleView() {
                     <AlertTriangle className="size-4" />
                   </button>
                 </TooltipTrigger>
-                <TooltipContent side="right" className="max-w-[200px]">
-                  <p>
-                    Course list changed. Click to regenerate schedules.
-                  </p>
+                <TooltipContent side="right" className="max-w-50">
+                  <p>Course list changed. Click to regenerate schedules.</p>
                 </TooltipContent>
               </Tooltip>
             ) : undefined
