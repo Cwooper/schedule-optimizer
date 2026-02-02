@@ -17,8 +17,8 @@ export function Header() {
   const ThemeIcon = effectiveTheme === "dark" ? Moon : Sun
   const logoSrc =
     effectiveTheme === "dark"
-      ? "/schopt-logo-dark.svg"
-      : "/schopt-logo-light.svg"
+      ? `${import.meta.env.BASE_URL}schopt-logo-dark.svg`
+      : `${import.meta.env.BASE_URL}schopt-logo-light.svg`
 
   return (
     <header className="bg-background border-b">
