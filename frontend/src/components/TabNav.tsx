@@ -27,6 +27,7 @@ export function TabNav() {
             key={t.value}
             value={t.value}
             className="gap-2 px-4 text-base"
+            aria-label={t.label}
           >
             {t.icon}
             <span className="hidden sm:inline">{t.label}</span>

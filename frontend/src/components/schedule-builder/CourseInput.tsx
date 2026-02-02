@@ -220,22 +220,34 @@ function SubjectInput({
     (courseFetching || courseData !== undefined)
 
   return (
-    <Popover open={showPreview} modal={false}>
-      <PopoverTrigger asChild>
-        <div className="flex gap-2">
-          <Popover open={subjectOpen} onOpenChange={setSubjectOpen}>
-            <PopoverTrigger asChild>
-              <Button
-                variant="outline"
-                role="combobox"
-                aria-expanded={subjectOpen}
-                className="flex-1 justify-between px-2"
-                disabled={!term}
-              >
-                <span className="truncate">{selectedSubject || "Subject"}</span>
-                <ChevronsUpDown className="size-4 shrink-0 opacity-50" />
-              </Button>
-            </PopoverTrigger>
+    <TooltipProvider delayDuration={300}>
+      <Popover open={showPreview} modal={false}>
+        <PopoverTrigger asChild>
+          <div className="flex gap-2">
+            <Popover open={subjectOpen} onOpenChange={setSubjectOpen}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  {/* Wrapper div enables tooltip on disabled button */}
+                  <div className="flex-1">
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant="outline"
+                        aria-haspopup="listbox"
+                        aria-expanded={subjectOpen}
+                        aria-label={selectedSubject ? `Subject: ${selectedSubject}` : "Select subject"}
+                        className="w-full justify-between px-2"
+                        disabled={!term}
+                      >
+                        <span className="truncate">{selectedSubject || "Subject"}</span>
+                        <ChevronsUpDown className="size-4 shrink-0 opacity-50" />
+                      </Button>
+                    </PopoverTrigger>
+                  </div>
+                </TooltipTrigger>
+                {!term && (
+                  <TooltipContent>Select a term first</TooltipContent>
+                )}
+              </Tooltip>
             <PopoverContent className="w-64 p-0" align="start">
               <Command>
                 <CommandInput placeholder="Search subjects..." />
@@ -268,7 +280,7 @@ function SubjectInput({
             </PopoverContent>
           </Popover>
           <Input
-            placeholder="241"
+            placeholder="101"
             value={numberInput}
             onChange={(e) => setNumberInput(e.target.value)}
             onFocus={() => setNumberFocused(true)}
@@ -285,6 +297,7 @@ function SubjectInput({
             variant="outline"
             onClick={onAdd}
             disabled={!canAdd}
+            aria-label="Add course"
           >
             <Plus className="size-4" />
           </Button>
@@ -298,7 +311,8 @@ function SubjectInput({
       >
         <CoursePreview courseData={courseData} isLoading={courseFetching} />
       </PopoverContent>
-    </Popover>
+      </Popover>
+    </TooltipProvider>
   )
 }
 
@@ -326,46 +340,58 @@ function CRNInput({
   const [crnFocused, setCrnFocused] = useState(false)
 
   const showPreview =
-    crnFocused && isValidCrnFormat && (crnFetching || crnData !== undefined)
+    !!term && crnFocused && isValidCrnFormat && (crnFetching || crnData !== undefined)
 
   return (
-    <Popover open={showPreview} modal={false}>
-      <PopoverTrigger asChild>
-        <div className="flex gap-2">
-          <Input
-            placeholder="12345"
-            value={crnInput}
-            onChange={(e) => setCrnInput(e.target.value.replace(/\D/g, ""))}
-            onFocus={() => setCrnFocused(true)}
-            onBlur={() => setCrnFocused(false)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" && canAdd) onAdd()
-              if (e.key === "Escape") e.currentTarget.blur()
-            }}
-            inputMode="numeric"
-            className="flex-1"
-            maxLength={5}
-          />
-          <Button
-            size="icon"
-            variant="outline"
-            onClick={onAdd}
-            disabled={!canAdd}
-          >
-            <Plus className="size-4" />
-          </Button>
-        </div>
-      </PopoverTrigger>
-      <PopoverContent
-        className="w-72 p-0"
-        align="start"
-        onOpenAutoFocus={(e) => e.preventDefault()}
-        onCloseAutoFocus={(e) => e.preventDefault()}
-      >
-        <TooltipProvider delayDuration={300}>
+    <TooltipProvider delayDuration={300}>
+      <Popover open={showPreview} modal={false}>
+        <PopoverTrigger asChild>
+          <div className="flex gap-2">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                {/* Wrapper div enables tooltip on disabled input */}
+                <div className="flex-1">
+                  <Input
+                    placeholder="e.g. 12345"
+                    value={crnInput}
+                    onChange={(e) => setCrnInput(e.target.value.replace(/\D/g, ""))}
+                    onFocus={() => setCrnFocused(true)}
+                    onBlur={() => setCrnFocused(false)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" && canAdd) onAdd()
+                      if (e.key === "Escape") e.currentTarget.blur()
+                    }}
+                    inputMode="numeric"
+                    className="w-full"
+                    maxLength={5}
+                    disabled={!term}
+                  />
+                </div>
+              </TooltipTrigger>
+              {!term && (
+                <TooltipContent>Select a term first</TooltipContent>
+              )}
+            </Tooltip>
+            <Button
+              size="icon"
+              variant="outline"
+              onClick={onAdd}
+              disabled={!canAdd || !term}
+              aria-label="Add CRN"
+            >
+              <Plus className="size-4" />
+            </Button>
+          </div>
+        </PopoverTrigger>
+        <PopoverContent
+          className="w-72 p-0"
+          align="start"
+          onOpenAutoFocus={(e) => e.preventDefault()}
+          onCloseAutoFocus={(e) => e.preventDefault()}
+        >
           <CRNPreview crnData={crnData} isLoading={crnFetching} currentTerm={term} />
-        </TooltipProvider>
-      </PopoverContent>
-    </Popover>
+        </PopoverContent>
+      </Popover>
+    </TooltipProvider>
   )
 }

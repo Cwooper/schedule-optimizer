@@ -56,6 +56,8 @@ interface AppState {
   currentScheduleIndex: number
   // Incremented on slot changes to detect stale mutation results
   slotsVersion: number
+  // Flag to request regeneration from outside ScheduleBuilder
+  regenerateRequested: boolean
 
   // Course info dialog state (not persisted)
   courseDialog: CourseDialogState
@@ -76,6 +78,8 @@ interface AppState {
   getSlotsVersion: () => number
   openCourseDialog: (opts: { crn?: string; courseKey?: string }) => void
   closeCourseDialog: () => void
+  requestRegenerate: () => void
+  clearRegenerateRequest: () => void
 }
 
 // --- Store ---
@@ -96,6 +100,7 @@ export const useAppStore = create<AppState>()(
       isGenerateResultStale: false,
       currentScheduleIndex: 0,
       slotsVersion: 0,
+      regenerateRequested: false,
       courseDialog: { open: false },
 
       // Actions
@@ -183,6 +188,10 @@ export const useAppStore = create<AppState>()(
         set((state) => ({
           courseDialog: { ...state.courseDialog, open: false },
         })),
+
+      requestRegenerate: () => set({ regenerateRequested: true }),
+
+      clearRegenerateRequest: () => set({ regenerateRequested: false }),
     }),
     {
       name: "schedule-optimizer",

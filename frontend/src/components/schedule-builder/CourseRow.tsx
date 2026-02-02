@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/tooltip"
 import type { CourseSlot } from "@/stores/app-store"
 import type { Term, CourseValidationResult } from "@/lib/api"
-import { cn } from "@/lib/utils"
+import { cn, decodeHtmlEntities } from "@/lib/utils"
 
 interface CourseRowProps {
   slot: CourseSlot
@@ -112,7 +112,7 @@ export function CourseRow({
           <button
             type="button"
             className="flex-1 truncate text-left text-sm font-medium hover:underline"
-            title={slot.title}
+            title={slot.title ? decodeHtmlEntities(slot.title) : undefined}
             onClick={() => onCourseClick(`${slot.subject}:${slot.courseNumber}`)}
           >
             {slot.displayName}
@@ -120,7 +120,7 @@ export function CourseRow({
         ) : (
           <span
             className="flex-1 truncate text-sm font-medium"
-            title={slot.title}
+            title={slot.title ? decodeHtmlEntities(slot.title) : undefined}
           >
             {slot.displayName}
           </span>

@@ -34,8 +34,9 @@ export function useCourse(term: string, subject: string, courseNumber: string) {
 export function useCRN(crn: string, term?: string) {
   return useQuery({
     queryKey: ["crn", crn, term],
-    queryFn: () => getCRN(crn, term),
-    enabled: Boolean(crn),
+    // term! is safe: enabled guard ensures term exists when queryFn runs
+    queryFn: () => getCRN(crn, term!),
+    enabled: Boolean(crn && term),
   })
 }
 

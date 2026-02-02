@@ -5,7 +5,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import type { CRNResponse } from "@/lib/api"
-import { cn } from "@/lib/utils"
+import { cn, decodeHtmlEntities } from "@/lib/utils"
 
 interface CRNPreviewProps {
   crnData: CRNResponse | undefined
@@ -43,7 +43,7 @@ export function CRNPreview({
     <div className={cn("p-3 text-sm", termMismatch && "bg-amber-500/10")}>
       <div className="flex items-center gap-2">
         <span className="font-medium">
-          {section.subject} {section.courseNumber} – {section.title}
+          {section.subject} {section.courseNumber} – {decodeHtmlEntities(section.title)}
         </span>
         {termMismatch && (
           <Tooltip>

@@ -8,9 +8,10 @@ export function cn(...inputs: ClassValue[]) {
 /**
  * Decodes HTML entities in a string (e.g., "&amp;" -> "&", "&nbsp;" -> " ")
  * Uses a textarea element to leverage the browser's built-in decoding.
+ * Reuses a single element for performance.
  */
+const _htmlDecoder = document.createElement("textarea")
 export function decodeHtmlEntities(html: string): string {
-  const txt = document.createElement("textarea")
-  txt.innerHTML = html
-  return txt.value
+  _htmlDecoder.innerHTML = html
+  return _htmlDecoder.value
 }

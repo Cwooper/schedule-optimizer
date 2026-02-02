@@ -158,12 +158,12 @@ func TestScoreSchedule(t *testing.T) {
 
 	scoreSchedule(s)
 
-	if len(s.Weights) != 4 {
-		t.Errorf("Expected 4 weights, got %d", len(s.Weights))
+	if len(s.Weights) != 5 {
+		t.Errorf("Expected 5 weights, got %d", len(s.Weights))
 	}
 
 	// Check weight names
-	expectedNames := map[string]bool{"GPA": true, "Gap": true, "Start": true, "End": true}
+	expectedNames := map[string]bool{"GPA": true, "Gap": true, "Start": true, "End": true, "Seats": true}
 	for _, w := range s.Weights {
 		if !expectedNames[w.Name] {
 			t.Errorf("Unexpected weight name: %s", w.Name)
@@ -211,5 +211,65 @@ func TestFindLatestEnd(t *testing.T) {
 	expected := 11 * 60 // 11:00 AM in minutes
 	if latest != expected {
 		t.Errorf("Expected latest end %d, got %d", expected, latest)
+	}
+}
+
+func TestWeighSeats(t *testing.T) {
+	tests := []struct {
+		name     string
+		courses  []*cache.Course
+		expected float64
+	}{
+		{
+			name:     "empty schedule",
+			courses:  []*cache.Course{},
+			expected: 0.0,
+		},
+		{
+			name: "all open",
+			courses: []*cache.Course{
+				{IsOpen: true},
+				{IsOpen: true},
+				{IsOpen: true},
+			},
+			expected: 1.0,
+		},
+		{
+			name: "none open",
+			courses: []*cache.Course{
+				{IsOpen: false},
+				{IsOpen: false},
+			},
+			expected: 0.0,
+		},
+		{
+			name: "half open",
+			courses: []*cache.Course{
+				{IsOpen: true},
+				{IsOpen: false},
+				{IsOpen: true},
+				{IsOpen: false},
+			},
+			expected: 0.5,
+		},
+		{
+			name: "one of three open",
+			courses: []*cache.Course{
+				{IsOpen: true},
+				{IsOpen: false},
+				{IsOpen: false},
+			},
+			expected: 0.33,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			s := &Schedule{Courses: tt.courses}
+			score := weighSeats(s)
+			if math.Abs(score-tt.expected) > 0.01 {
+				t.Errorf("weighSeats: got %v, want %v", score, tt.expected)
+			}
+		})
 	}
 }
