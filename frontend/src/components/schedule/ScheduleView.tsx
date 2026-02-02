@@ -1,13 +1,22 @@
 import { useMemo } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight, AlertTriangle } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { ScheduleGrid } from "./ScheduleGrid"
 import { useAppStore } from "@/stores/app-store"
 import { hydrateSchedule } from "@/lib/schedule-utils"
 
 export function ScheduleView() {
-  const { generateResult, currentScheduleIndex, setCurrentScheduleIndex } =
-    useAppStore()
+  const {
+    generateResult,
+    isGenerateResultStale,
+    currentScheduleIndex,
+    setCurrentScheduleIndex,
+  } = useAppStore()
 
   // Hydrate the current schedule ref into full course data
   // Must be called before early return to satisfy Rules of Hooks
@@ -74,7 +83,25 @@ export function ScheduleView() {
 
       {/* Schedule grid */}
       <div className="flex-1 overflow-hidden">
-        <ScheduleGrid courses={currentSchedule!.courses} />
+        <ScheduleGrid
+          courses={currentSchedule!.courses}
+          cornerContent={
+            isGenerateResultStale ? (
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <div className="cursor-help rounded-full bg-amber-500/15 p-1 text-amber-600 dark:text-amber-400">
+                    <AlertTriangle className="size-4" />
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent side="right" className="max-w-[200px]">
+                  <p>
+                    Course list changed. Click Generate to see updated schedules.
+                  </p>
+                </TooltipContent>
+              </Tooltip>
+            ) : undefined
+          }
+        />
       </div>
 
       {/* Stats footer */}
