@@ -1,9 +1,9 @@
 import { useMemo } from "react"
-import type { ScheduleSection, MeetingTime } from "@/lib/api"
+import type { HydratedSection, MeetingTime } from "@/lib/api"
 import { cn } from "@/lib/utils"
 
 interface ScheduleGridProps {
-  courses: ScheduleSection[]
+  courses: HydratedSection[]
 }
 
 // Grid constants
@@ -54,7 +54,7 @@ function formatAmPm(hour: number): string {
 }
 
 interface CourseBlock {
-  course: ScheduleSection
+  course: HydratedSection
   meeting: MeetingTime
   dayIndex: number
   startMin: number
@@ -63,7 +63,7 @@ interface CourseBlock {
 }
 
 // Build color map for courses using hash for stable color assignment
-function buildColorMap(courses: ScheduleSection[]): Map<string, string> {
+function buildColorMap(courses: HydratedSection[]): Map<string, string> {
   const colorMap = new Map<string, string>()
   for (const course of courses) {
     const key = `${course.subject}:${course.courseNumber}`
@@ -77,7 +77,7 @@ function buildColorMap(courses: ScheduleSection[]): Map<string, string> {
 
 // Convert meeting days to individual blocks
 function meetingToBlocks(
-  course: ScheduleSection,
+  course: HydratedSection,
   meeting: MeetingTime,
   colorClass: string
 ): CourseBlock[] {
