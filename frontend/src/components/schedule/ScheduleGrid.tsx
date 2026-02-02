@@ -1,9 +1,10 @@
-import { useMemo } from "react"
+import { useMemo, type ReactNode } from "react"
 import type { HydratedSection, MeetingTime } from "@/lib/api"
 import { cn } from "@/lib/utils"
 
 interface ScheduleGridProps {
   courses: HydratedSection[]
+  cornerContent?: ReactNode
 }
 
 // Grid constants
@@ -101,7 +102,7 @@ function meetingToBlocks(
   return blocks
 }
 
-export function ScheduleGrid({ courses }: ScheduleGridProps) {
+export function ScheduleGrid({ courses, cornerContent }: ScheduleGridProps) {
   // Build course blocks with positions and colors
   const blocks = useMemo(() => {
     const colorMap = buildColorMap(courses)
@@ -124,7 +125,9 @@ export function ScheduleGrid({ courses }: ScheduleGridProps) {
       {/* Header row with day names */}
       <div className="border-b bg-muted/30">
         <div className="grid grid-cols-[3rem_repeat(5,1fr)]">
-          <div className="p-2" /> {/* Time column header */}
+          <div className="flex items-center justify-center p-1">
+            {cornerContent}
+          </div>
           {DAYS.map((day) => (
             <div
               key={day}

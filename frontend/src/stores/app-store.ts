@@ -44,8 +44,9 @@ interface AppState {
   theme: Theme
   sidebarCollapsed: boolean
 
-  // Generated schedules (cleared on slot change, not persisted)
+  // Generated schedules (not persisted)
   generateResult: GenerateResponse | null
+  isGenerateResultStale: boolean
   currentScheduleIndex: number
   // Incremented on slot changes to detect stale mutation results
   slotsVersion: number
@@ -81,6 +82,7 @@ export const useAppStore = create<AppState>()(
       theme: "system",
       sidebarCollapsed: false,
       generateResult: null,
+      isGenerateResultStale: false,
       currentScheduleIndex: 0,
       slotsVersion: 0,
 
@@ -90,9 +92,8 @@ export const useAppStore = create<AppState>()(
       setTerm: (term) =>
         set((state) => ({
           term,
-          // Clear schedules when term changes
-          generateResult: null,
-          currentScheduleIndex: 0,
+          // Mark schedules stale when term changes
+          isGenerateResultStale: true,
           slotsVersion: state.slotsVersion + 1,
         })),
 
@@ -107,16 +108,14 @@ export const useAppStore = create<AppState>()(
       addSlot: (slot) =>
         set((state) => ({
           slots: [...state.slots, slot],
-          generateResult: null,
-          currentScheduleIndex: 0,
+          isGenerateResultStale: true,
           slotsVersion: state.slotsVersion + 1,
         })),
 
       removeSlot: (id) =>
         set((state) => ({
           slots: state.slots.filter((s) => s.id !== id),
-          generateResult: null,
-          currentScheduleIndex: 0,
+          isGenerateResultStale: true,
           slotsVersion: state.slotsVersion + 1,
         })),
 
@@ -125,8 +124,7 @@ export const useAppStore = create<AppState>()(
           slots: state.slots.map((s) =>
             s.id === id ? { ...s, ...updates } : s
           ),
-          generateResult: null,
-          currentScheduleIndex: 0,
+          isGenerateResultStale: true,
           slotsVersion: state.slotsVersion + 1,
         })),
 
@@ -134,6 +132,7 @@ export const useAppStore = create<AppState>()(
         set((state) => ({
           slots: [],
           generateResult: null,
+          isGenerateResultStale: false,
           currentScheduleIndex: 0,
           slotsVersion: state.slotsVersion + 1,
         })),
@@ -145,6 +144,7 @@ export const useAppStore = create<AppState>()(
       setGenerateResult: (result) =>
         set({
           generateResult: result,
+          isGenerateResultStale: false,
           currentScheduleIndex: 0,
         }),
 

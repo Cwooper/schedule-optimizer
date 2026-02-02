@@ -41,6 +41,7 @@ describe("app-store", () => {
       theme: "system",
       sidebarCollapsed: false,
       generateResult: null,
+      isGenerateResultStale: false,
       currentScheduleIndex: 0,
       slotsVersion: 0,
     })
@@ -53,6 +54,7 @@ describe("app-store", () => {
       expect(state.term).toBe("")
       expect(state.slots).toEqual([])
       expect(state.generateResult).toBeNull()
+      expect(state.isGenerateResultStale).toBe(false)
       expect(state.theme).toBe("system")
     })
   })
@@ -91,44 +93,45 @@ describe("app-store", () => {
     })
   })
 
-  describe("schedule clearing", () => {
+  describe("schedule staleness", () => {
     beforeEach(() => {
       // Set up generateResult before each test in this group
       useAppStore.getState().setGenerateResult(mockGenerateResult)
       useAppStore.setState({ currentScheduleIndex: 5 })
       expect(useAppStore.getState().generateResult).not.toBeNull()
+      expect(useAppStore.getState().isGenerateResultStale).toBe(false)
     })
 
-    it("clears generateResult when adding a slot", () => {
+    it("marks stale when adding a slot", () => {
       useAppStore.getState().addSlot(mockSlot)
 
-      expect(useAppStore.getState().generateResult).toBeNull()
-      expect(useAppStore.getState().currentScheduleIndex).toBe(0)
+      expect(useAppStore.getState().generateResult).not.toBeNull()
+      expect(useAppStore.getState().isGenerateResultStale).toBe(true)
     })
 
-    it("clears generateResult when removing a slot", () => {
+    it("marks stale when removing a slot", () => {
       useAppStore.getState().addSlot(mockSlot)
       useAppStore.getState().setGenerateResult(mockGenerateResult)
       useAppStore.getState().removeSlot("test-1")
 
-      expect(useAppStore.getState().generateResult).toBeNull()
-      expect(useAppStore.getState().currentScheduleIndex).toBe(0)
+      expect(useAppStore.getState().generateResult).not.toBeNull()
+      expect(useAppStore.getState().isGenerateResultStale).toBe(true)
     })
 
-    it("clears generateResult when updating a slot", () => {
+    it("marks stale when updating a slot", () => {
       useAppStore.getState().addSlot(mockSlot)
       useAppStore.getState().setGenerateResult(mockGenerateResult)
       useAppStore.getState().updateSlot("test-1", { required: false })
 
-      expect(useAppStore.getState().generateResult).toBeNull()
-      expect(useAppStore.getState().currentScheduleIndex).toBe(0)
+      expect(useAppStore.getState().generateResult).not.toBeNull()
+      expect(useAppStore.getState().isGenerateResultStale).toBe(true)
     })
 
-    it("clears generateResult when changing term", () => {
+    it("marks stale when changing term", () => {
       useAppStore.getState().setTerm("202520")
 
-      expect(useAppStore.getState().generateResult).toBeNull()
-      expect(useAppStore.getState().currentScheduleIndex).toBe(0)
+      expect(useAppStore.getState().generateResult).not.toBeNull()
+      expect(useAppStore.getState().isGenerateResultStale).toBe(true)
       expect(useAppStore.getState().term).toBe("202520")
     })
 
@@ -138,19 +141,30 @@ describe("app-store", () => {
       useAppStore.getState().clearSlots()
 
       expect(useAppStore.getState().generateResult).toBeNull()
+      expect(useAppStore.getState().isGenerateResultStale).toBe(false)
     })
 
-    it("does NOT clear generateResult when changing tab", () => {
+    it("clears stale flag when setting new result", () => {
+      useAppStore.getState().addSlot(mockSlot)
+      expect(useAppStore.getState().isGenerateResultStale).toBe(true)
+
+      useAppStore.getState().setGenerateResult(mockGenerateResult)
+      expect(useAppStore.getState().isGenerateResultStale).toBe(false)
+    })
+
+    it("does NOT mark stale when changing tab", () => {
       useAppStore.getState().setTab("search")
 
       expect(useAppStore.getState().generateResult).not.toBeNull()
+      expect(useAppStore.getState().isGenerateResultStale).toBe(false)
       expect(useAppStore.getState().tab).toBe("search")
     })
 
-    it("does NOT clear generateResult when changing theme", () => {
+    it("does NOT mark stale when changing theme", () => {
       useAppStore.getState().setTheme("dark")
 
       expect(useAppStore.getState().generateResult).not.toBeNull()
+      expect(useAppStore.getState().isGenerateResultStale).toBe(false)
     })
   })
 
