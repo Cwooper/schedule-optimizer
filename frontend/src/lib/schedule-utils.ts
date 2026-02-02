@@ -82,3 +82,16 @@ export function hydrateAsyncs(response: GenerateResponse): HydratedSection[] {
 
   return hydrated
 }
+
+/**
+ * Sort sections: open sections first, then by CRN.
+ * Mutates the array in place and returns it.
+ */
+export function sortSectionsByAvailability(
+  sections: HydratedSection[]
+): HydratedSection[] {
+  return sections.sort((a, b) => {
+    if (a.isOpen !== b.isOpen) return a.isOpen ? -1 : 1
+    return a.crn.localeCompare(b.crn)
+  })
+}

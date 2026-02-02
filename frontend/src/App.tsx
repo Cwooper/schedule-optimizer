@@ -5,7 +5,7 @@ import { Header } from "@/components/Header"
 import { TabNav } from "@/components/TabNav"
 import { Footer } from "@/components/Footer"
 import { ScheduleBuilder } from "@/components/ScheduleBuilder"
-import { ScheduleView } from "@/components/schedule"
+import { ScheduleView, CourseInfoDialog } from "@/components/schedule"
 import { Button } from "@/components/ui/button"
 import {
   Drawer,
@@ -20,6 +20,10 @@ function App() {
   useThemeSync()
   const [drawerOpen, setDrawerOpen] = useState(false)
   const tab = useAppStore((s) => s.tab)
+  const term = useAppStore((s) => s.term)
+  const generateResult = useAppStore((s) => s.generateResult)
+  const courseDialog = useAppStore((s) => s.courseDialog)
+  const closeCourseDialog = useAppStore((s) => s.closeCourseDialog)
 
   return (
     <div className="bg-background text-foreground flex min-h-screen flex-col">
@@ -74,6 +78,17 @@ function App() {
       </div>
 
       <Footer />
+
+      {/* Course info dialog - rendered at app level so it's accessible from anywhere */}
+      <CourseInfoDialog
+        open={courseDialog.open}
+        onOpenChange={(open) => !open && closeCourseDialog()}
+        courses={generateResult?.courses}
+        sections={generateResult?.sections}
+        selectedCrn={courseDialog.selectedCrn}
+        selectedCourseKey={courseDialog.selectedCourseKey}
+        term={term}
+      />
     </div>
   )
 }

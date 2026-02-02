@@ -29,6 +29,12 @@ import type { GenerateResponse } from "@/lib/api"
 
 // --- Store State ---
 
+interface CourseDialogState {
+  open: boolean
+  selectedCrn?: string
+  selectedCourseKey?: string
+}
+
 interface AppState {
   // Navigation
   tab: Tab
@@ -51,6 +57,9 @@ interface AppState {
   // Incremented on slot changes to detect stale mutation results
   slotsVersion: number
 
+  // Course info dialog state (not persisted)
+  courseDialog: CourseDialogState
+
   // Actions
   setTab: (tab: Tab) => void
   setTerm: (term: string) => void
@@ -65,6 +74,8 @@ interface AppState {
   setGenerateResult: (result: GenerateResponse | null) => void
   setCurrentScheduleIndex: (index: number) => void
   getSlotsVersion: () => number
+  openCourseDialog: (opts: { crn?: string; courseKey?: string }) => void
+  closeCourseDialog: () => void
 }
 
 // --- Store ---
@@ -85,6 +96,7 @@ export const useAppStore = create<AppState>()(
       isGenerateResultStale: false,
       currentScheduleIndex: 0,
       slotsVersion: 0,
+      courseDialog: { open: false },
 
       // Actions
       setTab: (tab) => set({ tab }),
@@ -157,6 +169,20 @@ export const useAppStore = create<AppState>()(
         }),
 
       getSlotsVersion: () => get().slotsVersion,
+
+      openCourseDialog: (opts) =>
+        set({
+          courseDialog: {
+            open: true,
+            selectedCrn: opts.crn,
+            selectedCourseKey: opts.courseKey,
+          },
+        }),
+
+      closeCourseDialog: () =>
+        set((state) => ({
+          courseDialog: { ...state.courseDialog, open: false },
+        })),
     }),
     {
       name: "schedule-optimizer",

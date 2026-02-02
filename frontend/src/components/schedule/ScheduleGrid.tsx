@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils"
 interface ScheduleGridProps {
   courses: HydratedSection[]
   cornerContent?: ReactNode
+  onCourseClick?: (crn: string) => void
 }
 
 // Grid constants
@@ -102,7 +103,7 @@ function meetingToBlocks(
   return blocks
 }
 
-export function ScheduleGrid({ courses, cornerContent }: ScheduleGridProps) {
+export function ScheduleGrid({ courses, cornerContent, onCourseClick }: ScheduleGridProps) {
   // Build course blocks with positions and colors
   const blocks = useMemo(() => {
     const colorMap = buildColorMap(courses)
@@ -179,11 +180,13 @@ export function ScheduleGrid({ courses, cornerContent }: ScheduleGridProps) {
             const blockWidth = `calc(${dayWidth} - 4px)`
 
             return (
-              <div
+              <button
                 key={idx}
+                type="button"
                 className={cn(
-                  "absolute rounded border-l-2 px-1 py-0.5 text-xs overflow-hidden",
-                  block.colorClass
+                  "absolute rounded border-l-2 px-1 py-0.5 text-xs overflow-hidden text-left transition-all",
+                  block.colorClass,
+                  onCourseClick && "cursor-pointer hover:ring-2 hover:ring-primary/50 hover:brightness-95"
                 )}
                 style={{
                   top: `${top}%`,
@@ -191,6 +194,7 @@ export function ScheduleGrid({ courses, cornerContent }: ScheduleGridProps) {
                   left: leftOffset,
                   width: blockWidth,
                 }}
+                onClick={() => onCourseClick?.(block.course.crn)}
               >
                 <div className="font-medium truncate">
                   {block.course.subject} {block.course.courseNumber}
@@ -198,7 +202,7 @@ export function ScheduleGrid({ courses, cornerContent }: ScheduleGridProps) {
                 <div className="truncate opacity-75">
                   {block.meeting.building} {block.meeting.room}
                 </div>
-              </div>
+              </button>
             )
           })}
         </div>

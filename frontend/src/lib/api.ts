@@ -50,6 +50,12 @@ export interface SectionInfo {
   title: string
   instructor: string
   credits: number
+  enrollment: number
+  maxEnrollment: number
+  seatsAvailable: number
+  waitCount: number
+  isOpen: boolean
+  meetingTimes: MeetingTime[]
 }
 
 export interface CRNResponse {

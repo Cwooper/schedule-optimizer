@@ -28,14 +28,28 @@ type Handlers struct {
 
 // Response types for type-safe JSON serialization
 
+type MeetingTimeInfo struct {
+	Days      []bool `json:"days"` // [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
+	StartTime string `json:"startTime"`
+	EndTime   string `json:"endTime"`
+	Building  string `json:"building"`
+	Room      string `json:"room"`
+}
+
 type SectionResponse struct {
-	CRN          string `json:"crn"`
-	Term         string `json:"term"`
-	Subject      string `json:"subject"`
-	CourseNumber string `json:"courseNumber"`
-	Title        string `json:"title"`
-	Instructor   string `json:"instructor"`
-	Credits      int    `json:"credits"`
+	CRN            string            `json:"crn"`
+	Term           string            `json:"term"`
+	Subject        string            `json:"subject"`
+	CourseNumber   string            `json:"courseNumber"`
+	Title          string            `json:"title"`
+	Instructor     string            `json:"instructor"`
+	Credits        int               `json:"credits"`
+	Enrollment     int64             `json:"enrollment"`
+	MaxEnrollment  int64             `json:"maxEnrollment"`
+	SeatsAvailable int64             `json:"seatsAvailable"`
+	WaitCount      int64             `json:"waitCount"`
+	IsOpen         bool              `json:"isOpen"`
+	MeetingTimes   []MeetingTimeInfo `json:"meetingTimes"`
 }
 
 type CRNResponse struct {
@@ -300,7 +314,14 @@ func (h *Handlers) GetCRN(c *gin.Context) {
 			return
 		}
 
-		c.JSON(http.StatusOK, CRNResponse{Section: formatSectionResponse(section)})
+		meetings, err := h.queries.GetMeetingTimesBySection(c.Request.Context(), section.ID)
+		if err != nil {
+			slog.Error("Failed to fetch meeting times", "crn", crn, "term", term, "error", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch meeting times"})
+			return
+		}
+
+		c.JSON(http.StatusOK, CRNResponse{Section: formatSectionResponse(section, meetings)})
 		return
 	}
 
@@ -318,7 +339,13 @@ func (h *Handlers) GetCRN(c *gin.Context) {
 			Crn:  crn,
 		})
 		if err == nil {
-			c.JSON(http.StatusOK, CRNResponse{Section: formatSectionResponse(section)})
+			meetings, err := h.queries.GetMeetingTimesBySection(c.Request.Context(), section.ID)
+			if err != nil {
+				slog.Error("Failed to fetch meeting times", "crn", crn, "term", t.Code, "error", err)
+				c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch meeting times"})
+				return
+			}
+			c.JSON(http.StatusOK, CRNResponse{Section: formatSectionResponse(section, meetings)})
 			return
 		}
 		if !errors.Is(err, sql.ErrNoRows) {
@@ -331,15 +358,40 @@ func (h *Handlers) GetCRN(c *gin.Context) {
 	c.JSON(http.StatusOK, CRNResponse{Section: nil})
 }
 
-func formatSectionResponse(s *store.GetSectionWithInstructorByTermAndCRNRow) *SectionResponse {
+func formatSectionResponse(s *store.GetSectionWithInstructorByTermAndCRNRow, meetings []*store.MeetingTime) *SectionResponse {
+	meetingTimes := make([]MeetingTimeInfo, 0, len(meetings))
+	for _, m := range meetings {
+		meetingTimes = append(meetingTimes, MeetingTimeInfo{
+			Days: []bool{
+				m.Sunday.Valid && m.Sunday.Int64 != 0,
+				m.Monday.Valid && m.Monday.Int64 != 0,
+				m.Tuesday.Valid && m.Tuesday.Int64 != 0,
+				m.Wednesday.Valid && m.Wednesday.Int64 != 0,
+				m.Thursday.Valid && m.Thursday.Int64 != 0,
+				m.Friday.Valid && m.Friday.Int64 != 0,
+				m.Saturday.Valid && m.Saturday.Int64 != 0,
+			},
+			StartTime: fromNullString(m.StartTime),
+			EndTime:   fromNullString(m.EndTime),
+			Building:  fromNullString(m.Building),
+			Room:      fromNullString(m.Room),
+		})
+	}
+
 	return &SectionResponse{
-		CRN:          s.Crn,
-		Term:         s.Term,
-		Subject:      s.Subject,
-		CourseNumber: s.CourseNumber,
-		Title:        s.Title,
-		Instructor:   fromNullString(s.InstructorName),
-		Credits:      fromNullInt64(s.CreditHoursLow),
+		CRN:            s.Crn,
+		Term:           s.Term,
+		Subject:        s.Subject,
+		CourseNumber:   s.CourseNumber,
+		Title:          s.Title,
+		Instructor:     fromNullString(s.InstructorName),
+		Credits:        fromNullInt64(s.CreditHoursLow),
+		Enrollment:     fromNullInt64Raw(s.Enrollment),
+		MaxEnrollment:  fromNullInt64Raw(s.MaxEnrollment),
+		SeatsAvailable: fromNullInt64Raw(s.SeatsAvailable),
+		WaitCount:      fromNullInt64Raw(s.WaitCount),
+		IsOpen:         fromNullInt64ToBool(s.IsOpen),
+		MeetingTimes:   meetingTimes,
 	}
 }
 

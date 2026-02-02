@@ -30,6 +30,8 @@ interface CourseRowProps {
   onRemove: () => void
   onRemoveSection: (crn: string) => void
   onToggleSectionRequired: (crn: string) => void
+  onCourseClick?: (courseKey: string) => void
+  onSectionClick?: (crn: string) => void
   currentTerm: string
   terms: Term[]
   validation?: CourseValidationResult
@@ -43,6 +45,8 @@ export function CourseRow({
   onRemove,
   onRemoveSection,
   onToggleSectionRequired,
+  onCourseClick,
+  onSectionClick,
   currentTerm,
   terms,
   validation,
@@ -104,13 +108,23 @@ export function CourseRow({
         )}
 
         {/* Course name */}
-        {/* TODO: Add click handler to open course info dialog (shared with Search/Calendar) */}
-        <span
-          className="flex-1 truncate text-sm font-medium"
-          title={slot.title}
-        >
-          {slot.displayName}
-        </span>
+        {onCourseClick ? (
+          <button
+            type="button"
+            className="flex-1 truncate text-left text-sm font-medium hover:underline"
+            title={slot.title}
+            onClick={() => onCourseClick(`${slot.subject}:${slot.courseNumber}`)}
+          >
+            {slot.displayName}
+          </button>
+        ) : (
+          <span
+            className="flex-1 truncate text-sm font-medium"
+            title={slot.title}
+          >
+            {slot.displayName}
+          </span>
+        )}
 
         {/* Required toggle */}
         <Toggle
@@ -173,15 +187,31 @@ export function CourseRow({
                   )}
 
                   {/* CRN and instructor */}
-                  <span className="flex-1 truncate font-medium">
-                    {section.crn}
-                    {section.instructor && (
-                      <span className="text-muted-foreground font-normal">
-                        {" "}
-                        ({section.instructor})
-                      </span>
-                    )}
-                  </span>
+                  {onSectionClick ? (
+                    <button
+                      type="button"
+                      className="flex-1 truncate text-left font-medium hover:underline"
+                      onClick={() => onSectionClick(section.crn)}
+                    >
+                      {section.crn}
+                      {section.instructor && (
+                        <span className="text-muted-foreground font-normal">
+                          {" "}
+                          ({section.instructor})
+                        </span>
+                      )}
+                    </button>
+                  ) : (
+                    <span className="flex-1 truncate font-medium">
+                      {section.crn}
+                      {section.instructor && (
+                        <span className="text-muted-foreground font-normal">
+                          {" "}
+                          ({section.instructor})
+                        </span>
+                      )}
+                    </span>
+                  )}
 
                   {/* Required toggle */}
                   <Toggle
