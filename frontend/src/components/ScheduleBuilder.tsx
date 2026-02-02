@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react"
-import { Loader2 } from "lucide-react"
+import { CircleHelp, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -154,14 +154,24 @@ export function ScheduleBuilder() {
     }
   }
 
+  // Filter to only courses that exist in the current term
+  const validSlots = useMemo(
+    () =>
+      slots.filter((slot) => {
+        const validation = validationMap.get(`${slot.subject}:${slot.courseNumber}`)
+        return validation?.exists !== false
+      }),
+    [slots, validationMap]
+  )
+
   const handleGenerate = () => {
-    if (!term || slots.length === 0) return
+    if (!term || validSlots.length === 0) return
 
     if (tab !== "schedule") {
       setTab("schedule")
     }
 
-    const courseSpecs: CourseSpec[] = slots.map((slot) => ({
+    const courseSpecs: CourseSpec[] = validSlots.map((slot) => ({
       subject: slot.subject,
       courseNumber: slot.courseNumber,
       required: slot.required,
@@ -171,8 +181,8 @@ export function ScheduleBuilder() {
     handleGenerateMutate({
       term,
       courseSpecs,
-      minCourses: minCourses ?? undefined,
-      maxCourses: maxCourses ?? undefined,
+      minCourses: minCourses ?? courseSpecs.length,
+      maxCourses: maxCourses ?? 8,
     })
   }
 
@@ -191,9 +201,12 @@ export function ScheduleBuilder() {
   const hasInvalidBounds =
     minCourses !== null && maxCourses !== null && maxCourses < minCourses
 
+  const hasNoValidCourses = slots.length > 0 && validSlots.length === 0
+
   const getGenerateTooltip = () => {
     if (!term) return "Select a term first"
     if (slots.length === 0) return "Add courses to get started"
+    if (hasNoValidCourses) return "No courses available in this term"
     if (hasInvalidBounds) return "Max courses must be ≥ min courses"
     return null
   }
@@ -217,9 +230,7 @@ export function ScheduleBuilder() {
                 <Label htmlFor="min-courses">Min Courses</Label>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <span className="text-muted-foreground cursor-help text-xs">
-                      (?)
-                    </span>
+                    <CircleHelp className="text-muted-foreground size-4 cursor-help" />
                   </TooltipTrigger>
                   <TooltipContent>
                     Minimum number of courses to include in each schedule
@@ -248,9 +259,7 @@ export function ScheduleBuilder() {
                 <Label htmlFor="max-courses">Max Courses</Label>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <span className="text-muted-foreground cursor-help text-xs">
-                      (?)
-                    </span>
+                    <CircleHelp className="text-muted-foreground size-4 cursor-help" />
                   </TooltipTrigger>
                   <TooltipContent>
                     Maximum number of courses to include in each schedule
@@ -350,6 +359,7 @@ export function ScheduleBuilder() {
                   disabled={
                     !term ||
                     slots.length === 0 ||
+                    hasNoValidCourses ||
                     hasInvalidBounds ||
                     generateMutation.isPending
                   }
@@ -365,7 +375,7 @@ export function ScheduleBuilder() {
                 </Button>
               </div>
             </TooltipTrigger>
-            {(!term || slots.length === 0 || hasInvalidBounds) && (
+            {(!term || slots.length === 0 || hasNoValidCourses || hasInvalidBounds) && (
               <TooltipContent>{getGenerateTooltip()}</TooltipContent>
             )}
           </Tooltip>
