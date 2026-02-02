@@ -22,6 +22,7 @@ func scoreSchedule(s *Schedule) {
 		{Name: "Gap", Value: weighGap(s)},
 		{Name: "Start", Value: weighStart(s)},
 		{Name: "End", Value: weighEnd(s)},
+		{Name: "Seats", Value: weighSeats(s)},
 	}
 	s.Weights = weights
 
@@ -123,6 +124,25 @@ func weighEnd(s *Schedule) float64 {
 func weighGPA(_ *Schedule) float64 {
 	// TODO: integrate GPA data from CSV import
 	return 0
+}
+
+// weighSeats scores based on seat availability.
+// Returns the proportion of courses that have available seats (IsOpen = true).
+// Higher score = more courses have open seats.
+func weighSeats(s *Schedule) float64 {
+	if len(s.Courses) == 0 {
+		return 0
+	}
+
+	var openCount int
+	for _, c := range s.Courses {
+		if c.IsOpen {
+			openCount++
+		}
+	}
+
+	score := float64(openCount) / float64(len(s.Courses))
+	return math.Round(score*100) / 100
 }
 
 // findEarliestStart returns the earliest class start time across all days.

@@ -17,6 +17,7 @@ export function ScheduleView() {
     currentScheduleIndex,
     setCurrentScheduleIndex,
     openCourseDialog,
+    requestRegenerate,
   } = useAppStore()
 
   // Hydrate the current schedule ref into full course data
@@ -34,7 +35,7 @@ export function ScheduleView() {
     return (
       <div className="flex h-full flex-col items-center justify-center gap-2 p-8 text-center">
         <p className="text-muted-foreground">No schedules generated yet</p>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           Add courses in the sidebar and click Generate
         </p>
       </div>
@@ -95,13 +96,17 @@ export function ScheduleView() {
             isGenerateResultStale ? (
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <div className="cursor-help rounded-full bg-amber-500/15 p-1 text-amber-600 dark:text-amber-400">
+                  <button
+                    onClick={requestRegenerate}
+                    className="cursor-pointer rounded-full bg-amber-500/15 p-1 text-amber-600 transition-colors hover:bg-amber-500/25 dark:text-amber-400"
+                    aria-label="Regenerate schedules"
+                  >
                     <AlertTriangle className="size-4" />
-                  </div>
+                  </button>
                 </TooltipTrigger>
                 <TooltipContent side="right" className="max-w-[200px]">
                   <p>
-                    Course list changed. Click Generate to see updated schedules.
+                    Course list changed. Click to regenerate schedules.
                   </p>
                 </TooltipContent>
               </Tooltip>
@@ -111,7 +116,7 @@ export function ScheduleView() {
       </div>
 
       {/* Stats footer */}
-      <div className="border-t px-4 py-2 text-xs text-muted-foreground">
+      <div className="text-muted-foreground border-t px-4 py-2 text-xs">
         Generated {stats.totalGenerated.toLocaleString()} schedules in{" "}
         {stats.timeMs.toFixed(1)}ms
       </div>

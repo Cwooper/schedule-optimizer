@@ -6,16 +6,12 @@ import { useAppStore } from "@/stores/app-store"
 import { useEffectiveTheme } from "@/hooks/use-theme"
 
 export function Header() {
-  const { theme, setTheme, setTab } = useAppStore()
+  const { setTheme, setTab } = useAppStore()
   const effectiveTheme = useEffectiveTheme()
 
-  const cycleTheme = () => {
-    const nextTheme = {
-      light: "dark",
-      dark: "system",
-      system: "light",
-    } as const
-    setTheme(nextTheme[theme])
+  const toggleTheme = () => {
+    // Simple toggle between light and dark based on effective appearance
+    setTheme(effectiveTheme === "dark" ? "light" : "dark")
   }
 
   const ThemeIcon = effectiveTheme === "dark" ? Moon : Sun
@@ -45,8 +41,8 @@ export function Header() {
           <Button
             variant="ghost"
             size="icon-sm"
-            onClick={cycleTheme}
-            aria-label={`Current theme: ${theme}. Click to cycle.`}
+            onClick={toggleTheme}
+            aria-label={`Switch to ${effectiveTheme === "dark" ? "light" : "dark"} mode`}
           >
             <ThemeIcon className="size-4" />
           </Button>

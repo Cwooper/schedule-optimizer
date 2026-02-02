@@ -18,6 +18,7 @@ import type {
   MeetingTime,
 } from "@/lib/api"
 import { hydrateSection, sortSectionsByAvailability } from "@/lib/schedule-utils"
+import { decodeHtmlEntities } from "@/lib/utils"
 
 interface CourseInfoDialogProps {
   open: boolean
@@ -119,7 +120,7 @@ function DialogContentInner({
     <>
       <DialogHeader>
         <DialogTitle>
-          {course.subject} {course.courseNumber} - {course.title}
+          {course.subject} {course.courseNumber} - {decodeHtmlEntities(course.title)}
         </DialogTitle>
       </DialogHeader>
 
@@ -184,8 +185,14 @@ export function CourseInfoDialog({
     return null
   }, [selectedCourseKey, selectedCrn, sections])
 
+  // Check if the specific course exists in generateResult
+  const courseKeyForLookup = parsedCourseKey
+    ? `${parsedCourseKey.subject}:${parsedCourseKey.courseNumber}`
+    : null
+  const hasCourseInGenerate = courseKeyForLookup && courses?.[courseKeyForLookup]
+
   // Fetch course data if we don't have it from generateResult
-  const shouldFetch = open && parsedCourseKey && term && !courses
+  const shouldFetch = open && parsedCourseKey && term && !hasCourseInGenerate
   const { data: fetchedCourse, isLoading } = useCourse(
     shouldFetch ? term : "",
     shouldFetch ? parsedCourseKey?.subject ?? "" : "",

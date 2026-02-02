@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
 import { CircleHelp, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -16,7 +16,11 @@ import {
   type CourseSlot,
   type SectionFilter,
 } from "@/stores/app-store"
-import { useTerms, useGenerateSchedules, useValidateCourses } from "@/hooks/use-api"
+import {
+  useTerms,
+  useGenerateSchedules,
+  useValidateCourses,
+} from "@/hooks/use-api"
 import type { CourseValidationResult, CourseSpec } from "@/lib/api"
 import { cn } from "@/lib/utils"
 
@@ -38,13 +42,24 @@ export function ScheduleBuilder() {
     setGenerateResult,
     getSlotsVersion,
     openCourseDialog,
+    regenerateRequested,
+    clearRegenerateRequest,
   } = useAppStore()
 
   const { data: termsData, isLoading: termsLoading } = useTerms()
   const generateMutation = useGenerateSchedules()
 
+  // Auto-select the current term on first load if no term is set
+  useEffect(() => {
+    if (!term && termsData?.current) {
+      setTerm(termsData.current)
+    }
+  }, [term, termsData, setTerm])
+
   // Store result when generation succeeds, but only if slots haven't changed
-  const handleGenerateMutate = (req: Parameters<typeof generateMutation.mutate>[0]) => {
+  const handleGenerateMutate = (
+    req: Parameters<typeof generateMutation.mutate>[0]
+  ) => {
     const versionAtStart = getSlotsVersion()
     generateMutation.mutate(req, {
       onSuccess: (data) => {
@@ -60,7 +75,8 @@ export function ScheduleBuilder() {
 
   // Validate courses against current term
   const coursesToValidate = useMemo(
-    () => slots.map((s) => ({ subject: s.subject, courseNumber: s.courseNumber })),
+    () =>
+      slots.map((s) => ({ subject: s.subject, courseNumber: s.courseNumber })),
     [slots]
   )
   const { data: validationData } = useValidateCourses(term, coursesToValidate)
@@ -90,12 +106,16 @@ export function ScheduleBuilder() {
     title: string
   }) => {
     const existingSlot = slots.find(
-      (s) => s.subject === course.subject && s.courseNumber === course.courseNumber
+      (s) =>
+        s.subject === course.subject && s.courseNumber === course.courseNumber
     )
 
     if (existingSlot) {
       // Clear section filters to allow all sections
-      updateSlot(existingSlot.id, { sections: null, title: existingSlot.title || course.title })
+      updateSlot(existingSlot.id, {
+        sections: null,
+        title: existingSlot.title || course.title,
+      })
     } else {
       const id = crypto.randomUUID()
       const slot: CourseSlot = {
@@ -128,8 +148,7 @@ export function ScheduleBuilder() {
 
     const existingSlot = slots.find(
       (s) =>
-        s.subject === section.subject &&
-        s.courseNumber === section.courseNumber
+        s.subject === section.subject && s.courseNumber === section.courseNumber
     )
 
     if (existingSlot) {
@@ -159,7 +178,9 @@ export function ScheduleBuilder() {
   const validSlots = useMemo(
     () =>
       slots.filter((slot) => {
-        const validation = validationMap.get(`${slot.subject}:${slot.courseNumber}`)
+        const validation = validationMap.get(
+          `${slot.subject}:${slot.courseNumber}`
+        )
         return validation?.exists !== false
       }),
     [slots, validationMap]
@@ -186,6 +207,15 @@ export function ScheduleBuilder() {
       maxCourses: maxCourses ?? 8,
     })
   }
+
+  // Handle regenerate requests from other components (e.g., stale warning click)
+  useEffect(() => {
+    if (regenerateRequested) {
+      clearRegenerateRequest()
+      handleGenerate()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [regenerateRequested])
 
   const toggleExpanded = (id: string) => {
     setExpandedCourses((prev) => {
@@ -342,7 +372,9 @@ export function ScheduleBuilder() {
                   onSectionClick={(crn) => openCourseDialog({ crn })}
                   currentTerm={term}
                   terms={termsData?.terms ?? []}
-                  validation={validationMap.get(`${slot.subject}:${slot.courseNumber}`)}
+                  validation={validationMap.get(
+                    `${slot.subject}:${slot.courseNumber}`
+                  )}
                 />
               ))}
             </TooltipProvider>
@@ -378,7 +410,10 @@ export function ScheduleBuilder() {
                 </Button>
               </div>
             </TooltipTrigger>
-            {(!term || slots.length === 0 || hasNoValidCourses || hasInvalidBounds) && (
+            {(!term ||
+              slots.length === 0 ||
+              hasNoValidCourses ||
+              hasInvalidBounds) && (
               <TooltipContent>{getGenerateTooltip()}</TooltipContent>
             )}
           </Tooltip>
