@@ -16,6 +16,7 @@ export function ScheduleView() {
     isGenerateResultStale,
     currentScheduleIndex,
     setCurrentScheduleIndex,
+    openCourseDialog,
   } = useAppStore()
 
   // Hydrate the current schedule ref into full course data
@@ -56,6 +57,10 @@ export function ScheduleView() {
     }
   }
 
+  const handleCourseClick = (crn: string) => {
+    openCourseDialog({ crn })
+  }
+
   return (
     <div className="flex h-full flex-col">
       {/* Navigation header */}
@@ -85,6 +90,7 @@ export function ScheduleView() {
       <div className="flex-1 overflow-hidden">
         <ScheduleGrid
           courses={currentSchedule!.courses}
+          onCourseClick={handleCourseClick}
           cornerContent={
             isGenerateResultStale ? (
               <Tooltip>

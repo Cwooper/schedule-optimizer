@@ -37,6 +37,7 @@ export function ScheduleBuilder() {
     updateSlot,
     setGenerateResult,
     getSlotsVersion,
+    openCourseDialog,
   } = useAppStore()
 
   const { data: termsData, isLoading: termsLoading } = useTerms()
@@ -337,6 +338,8 @@ export function ScheduleBuilder() {
                     )
                     updateSlot(slot.id, { sections: newSections })
                   }}
+                  onCourseClick={(courseKey) => openCourseDialog({ courseKey })}
+                  onSectionClick={(crn) => openCourseDialog({ crn })}
                   currentTerm={term}
                   terms={termsData?.terms ?? []}
                   validation={validationMap.get(`${slot.subject}:${slot.courseNumber}`)}
