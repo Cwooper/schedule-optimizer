@@ -1,11 +1,19 @@
-.PHONY: build run test sqlc migrate-up migrate-down migrate-create
+.PHONY: build run test sqlc migrate-up migrate-down migrate-create build-frontend
 
 # Database path
 DB_PATH ?= data/schedule.db
 MIGRATIONS_PATH = migrations
 
-# Build the server
-build:
+# Build frontend (compiles to internal/static/dist)
+build-frontend:
+	cd ../frontend && pnpm build
+
+# Build the server (includes frontend)
+build: build-frontend
+	go build -o bin/server ./cmd/server
+
+# Build server only (assumes frontend already built)
+build-server:
 	go build -o bin/server ./cmd/server
 
 # Run the server

@@ -2,21 +2,25 @@ package server
 
 import (
 	"schedule-optimizer/internal/api"
+	"schedule-optimizer/internal/static"
 
 	"github.com/gin-gonic/gin"
 )
 
-// RegisterRoutes sets up all API routes.
+// RegisterRoutes sets up all API routes and static file serving.
 func RegisterRoutes(r *gin.Engine, h *api.Handlers) {
-	api := r.Group("/api")
+	apiGroup := r.Group("/api")
 	{
-		api.GET("/health", h.Health)
-		api.GET("/terms", h.GetTerms)
-		api.GET("/subjects", h.GetSubjects)
-		api.GET("/course/:subject/:courseNumber", h.GetCourse)
-		api.GET("/courses", h.SearchCourses)
-		api.GET("/crn/:crn", h.GetCRN)
-		api.POST("/courses/validate", h.ValidateCourses)
-		api.POST("/generate", h.Generate)
+		apiGroup.GET("/health", h.Health)
+		apiGroup.GET("/terms", h.GetTerms)
+		apiGroup.GET("/subjects", h.GetSubjects)
+		apiGroup.GET("/course/:subject/:courseNumber", h.GetCourse)
+		apiGroup.GET("/courses", h.SearchCourses)
+		apiGroup.GET("/crn/:crn", h.GetCRN)
+		apiGroup.POST("/courses/validate", h.ValidateCourses)
+		apiGroup.POST("/generate", h.Generate)
 	}
+
+	// Serve static files (compiled frontend)
+	r.NoRoute(gin.WrapH(static.Handler()))
 }

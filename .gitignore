@@ -52,3 +52,7 @@ backend/server
 
 # Air (Go hot reload)
 backend/tmp/
+
+# Embedded frontend build (built from frontend/)
+backend/internal/static/dist/
+!backend/internal/static/dist/.gitkeep
