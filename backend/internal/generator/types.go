@@ -8,7 +8,6 @@ const (
 	MaxSchedulesToReturn   = 2000  // Limit on schedules returned to client
 	MaxSchedulesToGenerate = 20000 // Safety limit to prevent runaway generation
 	MaxInputCourses        = 13
-	DefaultMinCourses      = 1
 	DefaultMaxCourses      = 8
 )
 

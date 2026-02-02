@@ -68,8 +68,14 @@ func (s *Service) Generate(ctx context.Context, req GenerateRequest) (*GenerateR
 	numRequired := len(requiredGroups)
 	totalCourses := len(allGroups)
 
-	// min must be at least the number of required courses
-	minCourses, maxCourses := clampBounds(max(req.MinCourses, numRequired), req.MaxCourses, totalCourses)
+	// Default minCourses to totalCourses if not specified (0), but at least numRequired
+	effectiveMin := req.MinCourses
+	if effectiveMin == 0 {
+		effectiveMin = totalCourses
+	}
+	effectiveMin = max(effectiveMin, numRequired)
+
+	minCourses, maxCourses := clampBounds(effectiveMin, req.MaxCourses, totalCourses)
 
 	schedules := backtrack(ctx, backtrackParams{
 		groups:      allGroups,
@@ -189,7 +195,7 @@ func (s *Service) buildCourseGroups(ctx context.Context, term string, specs []Co
 
 // clampBounds ensures min/max are within valid ranges.
 func clampBounds(minReq, maxReq, numCourses int) (int, int) {
-	minCourses := max(minReq, DefaultMinCourses)
+	minCourses := max(minReq, 1)
 	minCourses = min(minCourses, numCourses)
 
 	maxCourses := maxReq
