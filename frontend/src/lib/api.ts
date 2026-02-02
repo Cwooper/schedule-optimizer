@@ -64,19 +64,30 @@ export interface MeetingTime {
   room: string
 }
 
-export interface ScheduleSection {
-  crn: string
-  term: string
+// Wire format types - sent once per unique course/section
+
+export interface GenerateCourseInfo {
   subject: string
   courseNumber: string
   title: string
   credits: number
+}
+
+export interface GenerateSectionInfo {
+  crn: string
+  term: string
+  courseKey: string
   instructor: string
+  enrollment: number
+  maxEnrollment: number
+  seatsAvailable: number
+  waitCount: number
+  isOpen: boolean
   meetingTimes: MeetingTime[]
 }
 
-export interface GeneratedSchedule {
-  courses: ScheduleSection[]
+export interface ScheduleRef {
+  crns: string[]
   score: number
   weights: { name: string; value: number }[]
 }
@@ -88,13 +99,33 @@ export interface CourseResult {
 }
 
 export interface GenerateResponse {
-  schedules: GeneratedSchedule[]
-  asyncs: SectionInfo[]
+  courses: Record<string, GenerateCourseInfo>
+  sections: Record<string, GenerateSectionInfo>
+  schedules: ScheduleRef[]
+  asyncs: string[]
   courseResults: CourseResult[]
   stats: {
     totalGenerated: number
     timeMs: number
   }
+}
+
+// Hydrated types - for component consumption
+
+export interface HydratedSection {
+  crn: string
+  term: string
+  subject: string
+  courseNumber: string
+  title: string
+  credits: number
+  instructor: string
+  meetingTimes: MeetingTime[]
+  enrollment: number
+  maxEnrollment: number
+  seatsAvailable: number
+  waitCount: number
+  isOpen: boolean
 }
 
 export interface CourseSpec {

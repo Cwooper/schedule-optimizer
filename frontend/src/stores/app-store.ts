@@ -24,7 +24,7 @@ export interface CourseSlot {
 }
 
 // Re-export from api.ts for convenience
-export type { GeneratedSchedule, ScheduleSection, GenerateResponse } from "@/lib/api"
+export type { HydratedSection, ScheduleRef, GenerateResponse } from "@/lib/api"
 import type { GenerateResponse } from "@/lib/api"
 
 // --- Store State ---

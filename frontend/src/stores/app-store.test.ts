@@ -11,9 +11,11 @@ const mockSlot: CourseSlot = {
 }
 
 const mockGenerateResult: GenerateResponse = {
+  courses: {},
+  sections: {},
   schedules: [
     {
-      courses: [],
+      crns: [],
       score: 0.85,
       weights: [],
     },

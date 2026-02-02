@@ -1,11 +1,24 @@
+import { useMemo } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ScheduleGrid } from "./ScheduleGrid"
 import { useAppStore } from "@/stores/app-store"
+import { hydrateSchedule } from "@/lib/schedule-utils"
 
 export function ScheduleView() {
   const { generateResult, currentScheduleIndex, setCurrentScheduleIndex } =
     useAppStore()
+
+  // Hydrate the current schedule ref into full course data
+  // Must be called before early return to satisfy Rules of Hooks
+  const currentSchedule = useMemo(() => {
+    if (!generateResult || generateResult.schedules.length === 0) {
+      return null
+    }
+    const { schedules, courses, sections } = generateResult
+    const safeIndex = Math.min(currentScheduleIndex, schedules.length - 1)
+    return hydrateSchedule(schedules[safeIndex], courses, sections)
+  }, [generateResult, currentScheduleIndex])
 
   if (!generateResult || generateResult.schedules.length === 0) {
     return (
@@ -20,9 +33,7 @@ export function ScheduleView() {
 
   const { schedules, stats } = generateResult
   const totalSchedules = schedules.length
-  // Guard against out-of-bounds index
   const safeIndex = Math.min(currentScheduleIndex, totalSchedules - 1)
-  const currentSchedule = schedules[safeIndex]
 
   const handlePrev = () => {
     if (safeIndex > 0) {
@@ -63,7 +74,7 @@ export function ScheduleView() {
 
       {/* Schedule grid */}
       <div className="flex-1 overflow-hidden">
-        <ScheduleGrid courses={currentSchedule.courses} />
+        <ScheduleGrid courses={currentSchedule!.courses} />
       </div>
 
       {/* Stats footer */}

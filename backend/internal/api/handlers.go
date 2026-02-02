@@ -127,7 +127,7 @@ func (h *Handlers) Generate(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, resp)
+	c.JSON(http.StatusOK, resp.ToResponse())
 }
 
 // TermResponse represents a term in the API response.
