@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button"
 import {
   Drawer,
   DrawerContent,
+  DrawerDescription,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
@@ -48,6 +49,7 @@ function App() {
           <DrawerContent className="h-full w-80">
             <DrawerHeader className="sr-only">
               <DrawerTitle>Schedule Builder</DrawerTitle>
+              <DrawerDescription>Add and configure courses for schedule generation</DrawerDescription>
             </DrawerHeader>
             <ScheduleBuilder />
           </DrawerContent>
