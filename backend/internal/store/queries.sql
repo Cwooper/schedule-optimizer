@@ -175,3 +175,6 @@ SELECT
     COALESCE(MAX(title), '') AS title
 FROM sections
 WHERE term = ? AND subject = ? AND course_number = ?;
+
+-- name: CheckSchemaExists :one
+SELECT COUNT(*) AS count FROM sections LIMIT 1;

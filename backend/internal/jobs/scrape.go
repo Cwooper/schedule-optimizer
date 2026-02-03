@@ -200,6 +200,10 @@ func NewDailyScrapeJob(queries *store.Queries, scraper *scraper.Scraper, pastTer
 func (j *DailyScrapeJob) Name() string { return "daily-scrape" }
 
 func (j *DailyScrapeJob) ShouldRun(now time.Time) bool {
+	// Always run on first check to ensure pre-registration terms are scraped on startup
+	if j.lastRunDate.IsZero() {
+		return true
+	}
 	if now.Hour() != j.targetHour {
 		return false
 	}

@@ -10,6 +10,17 @@ import (
 	"database/sql"
 )
 
+const checkSchemaExists = `-- name: CheckSchemaExists :one
+SELECT COUNT(*) AS count FROM sections LIMIT 1
+`
+
+func (q *Queries) CheckSchemaExists(ctx context.Context) (int64, error) {
+	row := q.db.QueryRowContext(ctx, checkSchemaExists)
+	var count int64
+	err := row.Scan(&count)
+	return count, err
+}
+
 const courseExistsAnyTerm = `-- name: CourseExistsAnyTerm :one
 SELECT EXISTS(
     SELECT 1 FROM sections
