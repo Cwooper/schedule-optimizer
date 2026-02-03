@@ -38,6 +38,12 @@ func Run() {
 
 	queries := store.New(database)
 
+	// Validate that migrations have been applied
+	if _, err := queries.CheckSchemaExists(context.Background()); err != nil {
+		slog.Error("Database schema not initialized - run 'make migrate-up' first", "error", err)
+		os.Exit(1)
+	}
+
 	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
 	defer stop()
 
