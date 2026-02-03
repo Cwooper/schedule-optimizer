@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from "react"
+import { genId } from "@/lib/utils"
 import { toast } from "sonner"
 import { CircleHelp, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -126,7 +127,7 @@ export function ScheduleBuilder() {
         title: existingSlot.title || course.title,
       })
     } else {
-      const id = crypto.randomUUID()
+      const id = genId()
       const slot: CourseSlot = {
         id,
         subject: course.subject,
@@ -169,7 +170,7 @@ export function ScheduleBuilder() {
         })
       }
     } else {
-      const id = crypto.randomUUID()
+      const id = genId()
       const slot: CourseSlot = {
         id,
         subject: section.subject,

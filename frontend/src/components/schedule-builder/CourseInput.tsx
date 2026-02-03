@@ -235,87 +235,91 @@ function SubjectInput({
                         variant="outline"
                         aria-haspopup="listbox"
                         aria-expanded={subjectOpen}
-                        aria-label={selectedSubject ? `Subject: ${selectedSubject}` : "Select subject"}
+                        aria-label={
+                          selectedSubject
+                            ? `Subject: ${selectedSubject}`
+                            : "Select subject"
+                        }
                         className="w-full justify-between px-2"
                         disabled={!term}
                       >
-                        <span className="truncate">{selectedSubject || "Subject"}</span>
+                        <span className="truncate">
+                          {selectedSubject || "Subject"}
+                        </span>
                         <ChevronsUpDown className="size-4 shrink-0 opacity-50" />
                       </Button>
                     </PopoverTrigger>
                   </div>
                 </TooltipTrigger>
-                {!term && (
-                  <TooltipContent>Select a term first</TooltipContent>
-                )}
+                {!term && <TooltipContent>Select a term first</TooltipContent>}
               </Tooltip>
-            <PopoverContent className="w-64 p-0" align="start">
-              <Command>
-                <CommandInput placeholder="Search subjects..." />
-                <CommandList>
-                  <CommandEmpty>No subject found.</CommandEmpty>
-                  <CommandGroup>
-                    {subjects.map((subject) => (
-                      <CommandItem
-                        key={subject.code}
-                        value={`${subject.code} ${subject.name}`}
-                        onSelect={() => {
-                          onSubjectChange(subject.code)
-                          setSubjectOpen(false)
-                        }}
-                        className={cn(
-                          selectedSubject === subject.code && "bg-accent"
-                        )}
-                      >
-                        <span className="w-12 shrink-0 font-medium whitespace-nowrap">
-                          {subject.code}
-                        </span>
-                        <span className="text-muted-foreground truncate">
-                          {decodeHtmlEntities(subject.name)}
-                        </span>
-                      </CommandItem>
-                    ))}
-                  </CommandGroup>
-                </CommandList>
-              </Command>
-            </PopoverContent>
-          </Popover>
-          <Input
-            placeholder="101"
-            value={numberInput}
-            onChange={(e) => setNumberInput(e.target.value)}
-            onFocus={() => setNumberFocused(true)}
-            onBlur={() => setNumberFocused(false)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" && canAdd) onAdd()
-              if (e.key === "Escape") e.currentTarget.blur()
-            }}
-            className="w-16 flex-none"
-            maxLength={4}
+              <PopoverContent className="w-64 p-0" align="start">
+                <Command>
+                  <CommandInput placeholder="Search subjects..." />
+                  <CommandList>
+                    <CommandEmpty>No subject found.</CommandEmpty>
+                    <CommandGroup>
+                      {subjects.map((subject) => (
+                        <CommandItem
+                          key={subject.code}
+                          value={`${subject.code} ${subject.name}`}
+                          onSelect={() => {
+                            onSubjectChange(subject.code)
+                            setSubjectOpen(false)
+                          }}
+                          className={cn(
+                            selectedSubject === subject.code && "bg-accent"
+                          )}
+                        >
+                          <span className="w-12 shrink-0 font-medium whitespace-nowrap">
+                            {subject.code}
+                          </span>
+                          <span className="text-muted-foreground truncate">
+                            {decodeHtmlEntities(subject.name)}
+                          </span>
+                        </CommandItem>
+                      ))}
+                    </CommandGroup>
+                  </CommandList>
+                </Command>
+              </PopoverContent>
+            </Popover>
+            <Input
+              placeholder="101"
+              value={numberInput}
+              onChange={(e) => setNumberInput(e.target.value)}
+              onFocus={() => setNumberFocused(true)}
+              onBlur={() => setNumberFocused(false)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && canAdd) onAdd()
+                if (e.key === "Escape") e.currentTarget.blur()
+              }}
+              className="w-16 flex-none"
+              maxLength={4}
+            />
+            <Button
+              size="icon"
+              variant="outline"
+              onClick={onAdd}
+              disabled={!canAdd}
+              aria-label="Add course"
+            >
+              <Plus className="size-4" />
+            </Button>
+          </div>
+        </PopoverAnchor>
+        <PopoverContent
+          className="w-72 p-0"
+          align="start"
+          onOpenAutoFocus={(e) => e.preventDefault()}
+          onCloseAutoFocus={(e) => e.preventDefault()}
+        >
+          <CoursePreview
+            courseData={courseData}
+            isLoading={courseFetching}
+            onAdd={onAdd}
           />
-          <Button
-            size="icon"
-            variant="outline"
-            onClick={onAdd}
-            disabled={!canAdd}
-            aria-label="Add course"
-          >
-            <Plus className="size-4" />
-          </Button>
-        </div>
-      </PopoverAnchor>
-      <PopoverContent
-        className="w-72 p-0"
-        align="start"
-        onOpenAutoFocus={(e) => e.preventDefault()}
-        onCloseAutoFocus={(e) => e.preventDefault()}
-      >
-        <CoursePreview
-          courseData={courseData}
-          isLoading={courseFetching}
-          onAdd={onAdd}
-        />
-      </PopoverContent>
+        </PopoverContent>
       </Popover>
     </TooltipProvider>
   )
@@ -345,7 +349,10 @@ function CRNInput({
   const [crnFocused, setCrnFocused] = useState(false)
 
   const showPreview =
-    !!term && crnFocused && isValidCrnFormat && (crnFetching || crnData !== undefined)
+    !!term &&
+    crnFocused &&
+    isValidCrnFormat &&
+    (crnFetching || crnData !== undefined)
 
   return (
     <TooltipProvider delayDuration={300}>
@@ -359,7 +366,9 @@ function CRNInput({
                   <Input
                     placeholder="e.g. 12345"
                     value={crnInput}
-                    onChange={(e) => setCrnInput(e.target.value.replace(/\D/g, ""))}
+                    onChange={(e) =>
+                      setCrnInput(e.target.value.replace(/\D/g, ""))
+                    }
                     onFocus={() => setCrnFocused(true)}
                     onBlur={() => setCrnFocused(false)}
                     onKeyDown={(e) => {
@@ -373,9 +382,7 @@ function CRNInput({
                   />
                 </div>
               </TooltipTrigger>
-              {!term && (
-                <TooltipContent>Select a term first</TooltipContent>
-              )}
+              {!term && <TooltipContent>Select a term first</TooltipContent>}
             </Tooltip>
             <Button
               size="icon"
