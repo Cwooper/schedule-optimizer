@@ -11,7 +11,7 @@ import (
 )
 
 const checkSchemaExists = `-- name: CheckSchemaExists :one
-SELECT COUNT(*) AS count FROM sections LIMIT 1
+SELECT COUNT(*) AS count FROM sections
 `
 
 func (q *Queries) CheckSchemaExists(ctx context.Context) (int64, error) {

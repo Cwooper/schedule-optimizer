@@ -116,6 +116,22 @@ func NewHandlers(db *sql.DB, cache *cache.ScheduleCache, generator *generator.Se
 	}
 }
 
+// validateTerm checks if a term exists and sends an error response if not.
+// Returns true if the term is valid, false if an error response was sent.
+func (h *Handlers) validateTerm(c *gin.Context, term string) bool {
+	_, err := h.queries.GetTermByCode(c.Request.Context(), term)
+	if errors.Is(err, sql.ErrNoRows) {
+		c.JSON(http.StatusNotFound, gin.H{"error": "Term not found: " + term})
+		return false
+	}
+	if err != nil {
+		slog.Error("Failed to validate term", "term", term, "error", err)
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to validate term"})
+		return false
+	}
+	return true
+}
+
 // Health returns server health status.
 func (h *Handlers) Health(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"status": "healthy"})
@@ -127,6 +143,10 @@ func (h *Handlers) Generate(c *gin.Context) {
 	if err := c.ShouldBindJSON(&req); err != nil {
 		slog.Warn("Invalid generate request", "error", err)
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	if !h.validateTerm(c, req.Term) {
 		return
 	}
 
@@ -218,6 +238,10 @@ type SubjectResponse struct {
 func (h *Handlers) GetSubjects(c *gin.Context) {
 	term := c.Query("term")
 
+	if term != "" && !h.validateTerm(c, term) {
+		return
+	}
+
 	var subjects []SubjectResponse
 
 	if term != "" {
@@ -300,6 +324,9 @@ func (h *Handlers) GetCRN(c *gin.Context) {
 
 	// If term is specified, search only that term
 	if term != "" {
+		if !h.validateTerm(c, term) {
+			return
+		}
 		section, err := h.queries.GetSectionWithInstructorByTermAndCRN(c.Request.Context(), store.GetSectionWithInstructorByTermAndCRNParams{
 			Term: term,
 			Crn:  crn,
@@ -409,6 +436,9 @@ func (h *Handlers) GetCourse(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "term query parameter is required"})
 		return
 	}
+	if !h.validateTerm(c, term) {
+		return
+	}
 
 	sections, err := h.queries.GetSectionsWithInstructorByCourse(c.Request.Context(), store.GetSectionsWithInstructorByCourseParams{
 		Term:         term,
@@ -484,6 +514,10 @@ func (h *Handlers) ValidateCourses(c *gin.Context) {
 	if err := c.ShouldBindJSON(&req); err != nil {
 		slog.Warn("Invalid validate courses request", "error", err)
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	if !h.validateTerm(c, req.Term) {
 		return
 	}
 

@@ -187,6 +187,7 @@ func TestValidateCourses(t *testing.T) {
 
 func TestValidateCourses_BatchLimit(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
+	testutil.SeedTestData(t, db)
 	defer db.Close()
 
 	h := NewHandlers(db, nil, nil, queries)
