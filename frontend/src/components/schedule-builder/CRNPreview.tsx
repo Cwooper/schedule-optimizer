@@ -11,12 +11,14 @@ interface CRNPreviewProps {
   crnData: CRNResponse | undefined
   isLoading: boolean
   currentTerm: string
+  onAdd?: () => void
 }
 
 export function CRNPreview({
   crnData,
   isLoading,
   currentTerm,
+  onAdd,
 }: CRNPreviewProps) {
   if (isLoading) {
     return (
@@ -40,7 +42,14 @@ export function CRNPreview({
   const termMismatch = section.term !== currentTerm
 
   return (
-    <div className={cn("p-3 text-sm", termMismatch && "bg-amber-500/10")}>
+    <button
+      type="button"
+      className={cn(
+        "hover:bg-muted/50 w-full cursor-pointer p-3 text-left text-sm transition-colors",
+        termMismatch && "bg-amber-500/10 hover:bg-amber-500/20"
+      )}
+      onClick={() => onAdd?.()}
+    >
       <div className="flex items-center gap-2">
         <span className="font-medium">
           {section.subject} {section.courseNumber} – {decodeHtmlEntities(section.title)}
@@ -60,6 +69,6 @@ export function CRNPreview({
         </span>
         <span>{section.credits} cr</span>
       </div>
-    </div>
+    </button>
   )
 }

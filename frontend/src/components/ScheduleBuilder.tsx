@@ -388,7 +388,12 @@ export function ScheduleBuilder() {
                     updateSlot(slot.id, { sections: newSections })
                   }}
                   onCourseClick={(courseKey) => openCourseDialog({ courseKey })}
-                  onSectionClick={(crn) => openCourseDialog({ crn })}
+                  onSectionClick={(crn) =>
+                    openCourseDialog({
+                      crn,
+                      courseKey: `${slot.subject}:${slot.courseNumber}`,
+                    })
+                  }
                   currentTerm={term}
                   terms={termsData?.terms ?? []}
                   validation={validationMap.get(

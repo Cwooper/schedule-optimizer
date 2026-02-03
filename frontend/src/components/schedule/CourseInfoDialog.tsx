@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect, useCallback } from "react"
+import { useMemo, useState, useCallback } from "react"
 import { useQueryClient } from "@tanstack/react-query"
 import { BookOpen, Users, Loader2 } from "lucide-react"
 import {
@@ -15,7 +15,7 @@ import type {
   HydratedSection,
   GenerateCourseInfo,
   GenerateSectionInfo,
-  MeetingTime,
+  CRNResponse,
 } from "@/lib/api"
 import { hydrateSection, sortSectionsByAvailability } from "@/lib/schedule-utils"
 import { decodeHtmlEntities } from "@/lib/utils"
@@ -52,20 +52,22 @@ function DialogContentInner({
   const [expandedSection, setExpandedSection] = useState<string | null>(
     highlightCrn
   )
-  // Cache of fetched meeting times by CRN
-  const [fetchedMeetings, setFetchedMeetings] = useState<
-    Record<string, MeetingTime[]>
-  >({})
 
   // Find the expanded section to check if it needs meeting times
   const expandedSectionData = expandedSection
     ? courseSections.find((s) => s.crn === expandedSection)
     : null
+
+  // Check if we already have cached data for the expanded section
+  const cachedExpandedData = expandedSection
+    ? queryClient.getQueryData<CRNResponse>(["crn", expandedSection, term])
+    : null
+
   const needsFetch =
     expandedSection &&
     expandedSectionData &&
     expandedSectionData.meetingTimes.length === 0 &&
-    !fetchedMeetings[expandedSection]
+    !cachedExpandedData?.section?.meetingTimes
 
   // Fetch meeting times for expanded section if needed
   const { data: crnData, isFetching } = useCRN(
@@ -73,25 +75,13 @@ function DialogContentInner({
     needsFetch ? term : undefined
   )
 
-  // Store fetched meeting times when they arrive
-  useEffect(() => {
-    const fetchedCrn = crnData?.section?.crn
-    const meetings = crnData?.section?.meetingTimes
-    // Verify the fetched data matches the currently expanded section (race condition guard)
-    if (fetchedCrn && meetings && fetchedCrn === expandedSection) {
-      setFetchedMeetings((prev) => ({
-        ...prev,
-        [fetchedCrn]: meetings,
-      }))
-    }
-  }, [crnData, expandedSection])
-
   // Prefetch section details on hover or focus
   const handlePrefetch = useCallback(
     (crn: string) => {
       const section = courseSections.find((s) => s.crn === crn)
-      // Only prefetch if section doesn't have meeting times and we haven't fetched yet
-      if (section?.meetingTimes.length === 0 && !fetchedMeetings[crn] && term) {
+      const cached = queryClient.getQueryData<CRNResponse>(["crn", crn, term])
+      // Only prefetch if section doesn't have meeting times and not already cached
+      if (section?.meetingTimes.length === 0 && !cached && term) {
         queryClient.prefetchQuery({
           queryKey: ["crn", crn, term],
           queryFn: () => getCRN(crn, term),
@@ -99,20 +89,27 @@ function DialogContentInner({
         })
       }
     },
-    [courseSections, fetchedMeetings, term, queryClient]
+    [courseSections, term, queryClient]
   )
 
-  // Merge fetched meeting times into sections
+  // Merge cached meeting times into sections from TanStack Query cache
+  // crnData in deps ensures re-computation when the active fetch completes
   const sectionsWithMeetings = useMemo(() => {
     return courseSections.map((section) => {
       if (section.meetingTimes.length > 0) return section
-      const fetched = fetchedMeetings[section.crn]
-      if (fetched) {
-        return { ...section, meetingTimes: fetched }
+      // Pull from TanStack Query cache
+      const cached = queryClient.getQueryData<CRNResponse>([
+        "crn",
+        section.crn,
+        term,
+      ])
+      if (cached?.section?.meetingTimes) {
+        return { ...section, meetingTimes: cached.section.meetingTimes }
       }
       return section
     })
-  }, [courseSections, fetchedMeetings])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [courseSections, term, queryClient, crnData])
 
   const totalSections = courseSections.length
 
@@ -289,6 +286,7 @@ export function CourseInfoDialog({
           className="sm:max-w-lg"
           aria-describedby={undefined}
         >
+          <DialogTitle className="sr-only">Loading course details</DialogTitle>
           <div className="flex items-center justify-center py-8">
             <Loader2 className="size-6 animate-spin text-muted-foreground" />
           </div>
@@ -305,6 +303,7 @@ export function CourseInfoDialog({
           className="sm:max-w-lg"
           aria-describedby={undefined}
         >
+          <DialogTitle className="sr-only">Course not found</DialogTitle>
           <div className="py-8 text-center text-muted-foreground">
             Course not found
           </div>
