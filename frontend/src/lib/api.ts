@@ -165,23 +165,49 @@ export interface ValidateCoursesResponse {
   results: CourseValidationResult[]
 }
 
+// --- Errors ---
+
+export class ApiError extends Error {
+  status: number
+
+  constructor(message: string, status: number) {
+    super(message)
+    this.name = "ApiError"
+    this.status = status
+  }
+}
+
 // --- API Functions ---
 
 async function fetchAPI<T>(
   endpoint: string,
   options?: RequestInit
 ): Promise<T> {
-  const res = await fetch(`${API_BASE}${endpoint}`, {
-    ...options,
-    headers: {
-      "Content-Type": "application/json",
-      ...options?.headers,
-    },
-  })
+  let res: Response
+  try {
+    res = await fetch(`${API_BASE}${endpoint}`, {
+      ...options,
+      headers: {
+        "Content-Type": "application/json",
+        ...options?.headers,
+      },
+    })
+  } catch {
+    throw new ApiError(
+      "Unable to reach the server. Check your internet connection.",
+      0
+    )
+  }
 
   if (!res.ok) {
-    const error = await res.json().catch(() => ({ error: "Request failed" }))
-    throw new Error(error.error || `HTTP ${res.status}`)
+    if (res.status >= 500) {
+      throw new ApiError(
+        "Something went wrong on the server. Try again later.",
+        res.status
+      )
+    }
+    const body = await res.json().catch(() => ({ error: "Request failed" }))
+    throw new ApiError(body.error || `HTTP ${res.status}`, res.status)
   }
 
   return res.json()

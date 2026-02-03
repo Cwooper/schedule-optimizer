@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from "react"
+import { toast } from "sonner"
 import { CircleHelp, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -70,6 +71,11 @@ export function ScheduleBuilder() {
         if (getSlotsVersion() === versionAtStart) {
           setGenerateResult(data, params)
         }
+      },
+      onError: (error) => {
+        toast.error(
+          error.message || "Failed to generate schedules. Please try again."
+        )
       },
     })
   }
