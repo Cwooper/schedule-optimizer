@@ -16,6 +16,8 @@ import {
 } from "@/components/ui/drawer"
 import { useAppStore } from "@/stores/app-store"
 
+// TODO: Use framer-motion for more animations (course list enter/exit, tab content transitions, schedule navigation)
+
 function App() {
   useThemeSync()
   const [drawerOpen, setDrawerOpen] = useState(false)

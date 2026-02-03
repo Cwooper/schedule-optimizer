@@ -1,3 +1,4 @@
+// TODO: Finish schedule grid (styling, interactions, edge cases)
 import { useMemo, type ReactNode } from "react"
 import type { HydratedSection, MeetingTime } from "@/lib/api"
 import { cn } from "@/lib/utils"

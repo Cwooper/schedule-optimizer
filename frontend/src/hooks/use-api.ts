@@ -43,6 +43,7 @@ export function useCRN(crn: string, term?: string) {
 export function useGenerateSchedules() {
   return useMutation({
     mutationFn: (req: GenerateRequest) => generateSchedules(req),
+    meta: { handlesError: true },
   })
 }
 
