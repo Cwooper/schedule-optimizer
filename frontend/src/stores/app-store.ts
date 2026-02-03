@@ -23,6 +23,33 @@ export interface CourseSlot {
   sections: SectionFilter[] | null // null = all sections allowed
 }
 
+/** Parameters that affect schedule generation - used for stale detection */
+export interface GenerationParams {
+  term: string
+  minCourses: number
+  maxCourses: number
+  slotsFingerprint: string
+}
+
+/**
+ * Computes a content-based fingerprint of slots for stale detection.
+ * Excludes slot.id so re-adding the same course clears stale state.
+ * Sorts by course key for stable comparison regardless of UI order.
+ */
+export function computeSlotsFingerprint(slots: CourseSlot[]): string {
+  const normalized = slots
+    .map((s) => ({
+      key: `${s.subject}-${s.courseNumber}`,
+      required: s.required,
+      sections:
+        s.sections
+          ?.map((sec) => ({ crn: sec.crn, required: sec.required }))
+          .sort((a, b) => a.crn.localeCompare(b.crn)) ?? null,
+    }))
+    .sort((a, b) => a.key.localeCompare(b.key))
+  return JSON.stringify(normalized)
+}
+
 // Re-export from api.ts for convenience
 export type { HydratedSection, ScheduleRef, GenerateResponse } from "@/lib/api"
 import type { GenerateResponse } from "@/lib/api"
@@ -52,7 +79,7 @@ interface AppState {
 
   // Generated schedules (not persisted)
   generateResult: GenerateResponse | null
-  isGenerateResultStale: boolean
+  generatedWithParams: GenerationParams | null
   currentScheduleIndex: number
   // Incremented on slot changes to detect stale mutation results
   slotsVersion: number
@@ -73,9 +100,13 @@ interface AppState {
   clearSlots: () => void
   setTheme: (theme: Theme) => void
   setSidebarCollapsed: (collapsed: boolean) => void
-  setGenerateResult: (result: GenerateResponse | null) => void
+  setGenerateResult: (
+    result: GenerateResponse | null,
+    params?: GenerationParams
+  ) => void
   setCurrentScheduleIndex: (index: number) => void
   getSlotsVersion: () => number
+  isGenerateResultStale: () => boolean
   openCourseDialog: (opts: { crn?: string; courseKey?: string }) => void
   closeCourseDialog: () => void
   requestRegenerate: () => void
@@ -97,7 +128,7 @@ export const useAppStore = create<AppState>()(
       theme: "system",
       sidebarCollapsed: false,
       generateResult: null,
-      isGenerateResultStale: false,
+      generatedWithParams: null,
       currentScheduleIndex: 0,
       slotsVersion: 0,
       regenerateRequested: false,
@@ -109,8 +140,6 @@ export const useAppStore = create<AppState>()(
       setTerm: (term) =>
         set((state) => ({
           term,
-          // Mark schedules stale when term changes
-          isGenerateResultStale: true,
           slotsVersion: state.slotsVersion + 1,
         })),
 
@@ -125,14 +154,12 @@ export const useAppStore = create<AppState>()(
       addSlot: (slot) =>
         set((state) => ({
           slots: [...state.slots, slot],
-          isGenerateResultStale: true,
           slotsVersion: state.slotsVersion + 1,
         })),
 
       removeSlot: (id) =>
         set((state) => ({
           slots: state.slots.filter((s) => s.id !== id),
-          isGenerateResultStale: true,
           slotsVersion: state.slotsVersion + 1,
         })),
 
@@ -141,7 +168,6 @@ export const useAppStore = create<AppState>()(
           slots: state.slots.map((s) =>
             s.id === id ? { ...s, ...updates } : s
           ),
-          isGenerateResultStale: true,
           slotsVersion: state.slotsVersion + 1,
         })),
 
@@ -149,7 +175,7 @@ export const useAppStore = create<AppState>()(
         set((state) => ({
           slots: [],
           generateResult: null,
-          isGenerateResultStale: false,
+          generatedWithParams: null,
           currentScheduleIndex: 0,
           slotsVersion: state.slotsVersion + 1,
         })),
@@ -158,10 +184,10 @@ export const useAppStore = create<AppState>()(
 
       setSidebarCollapsed: (collapsed) => set({ sidebarCollapsed: collapsed }),
 
-      setGenerateResult: (result) =>
+      setGenerateResult: (result, params) =>
         set({
           generateResult: result,
-          isGenerateResultStale: false,
+          generatedWithParams: params ?? null,
           currentScheduleIndex: 0,
         }),
 
@@ -174,6 +200,25 @@ export const useAppStore = create<AppState>()(
         }),
 
       getSlotsVersion: () => get().slotsVersion,
+
+      isGenerateResultStale: () => {
+        const state = get()
+        if (!state.generateResult || !state.generatedWithParams) {
+          return false
+        }
+        const current: GenerationParams = {
+          term: state.term,
+          minCourses: state.minCourses ?? state.slots.length,
+          maxCourses: state.maxCourses ?? 8,
+          slotsFingerprint: computeSlotsFingerprint(state.slots),
+        }
+        return (
+          current.term !== state.generatedWithParams.term ||
+          current.minCourses !== state.generatedWithParams.minCourses ||
+          current.maxCourses !== state.generatedWithParams.maxCourses ||
+          current.slotsFingerprint !== state.generatedWithParams.slotsFingerprint
+        )
+      },
 
       openCourseDialog: (opts) =>
         set({

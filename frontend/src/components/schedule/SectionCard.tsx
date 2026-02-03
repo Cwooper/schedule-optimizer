@@ -6,7 +6,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
 import type { HydratedSection, MeetingTime } from "@/lib/api"
-import { cn } from "@/lib/utils"
+import { cn, decodeHtmlEntities } from "@/lib/utils"
 
 interface SectionCardProps {
   section: HydratedSection
@@ -144,7 +144,7 @@ export function SectionCard({
               <>
                 <span className="text-muted-foreground">·</span>
                 <span className="truncate text-sm text-muted-foreground">
-                  {section.instructor}
+                  {decodeHtmlEntities(section.instructor)}
                 </span>
               </>
             )}

@@ -55,7 +55,9 @@ export function CRNPreview({
         )}
       </div>
       <div className="text-muted-foreground mt-1 flex items-center justify-between text-xs">
-        <span>{section.instructor || "TBA"}</span>
+        <span>
+          {section.instructor ? decodeHtmlEntities(section.instructor) : "TBA"}
+        </span>
         <span>{section.credits} cr</span>
       </div>
     </div>

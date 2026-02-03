@@ -1,4 +1,9 @@
-import { useAppStore, type CourseSlot } from "./app-store"
+import {
+  useAppStore,
+  computeSlotsFingerprint,
+  type CourseSlot,
+  type GenerationParams,
+} from "./app-store"
 import type { GenerateResponse } from "@/lib/api"
 
 const mockSlot: CourseSlot = {
@@ -28,6 +33,21 @@ const mockGenerateResult: GenerateResponse = {
   },
 }
 
+/** Helper to create generation params matching current state */
+function createParams(
+  term: string,
+  slots: CourseSlot[],
+  minCourses?: number,
+  maxCourses?: number
+): GenerationParams {
+  return {
+    term,
+    minCourses: minCourses ?? slots.length,
+    maxCourses: maxCourses ?? 8,
+    slotsFingerprint: computeSlotsFingerprint(slots),
+  }
+}
+
 describe("app-store", () => {
   beforeEach(() => {
     // Reset store to initial state before each test
@@ -41,7 +61,7 @@ describe("app-store", () => {
       theme: "system",
       sidebarCollapsed: false,
       generateResult: null,
-      isGenerateResultStale: false,
+      generatedWithParams: null,
       currentScheduleIndex: 0,
       slotsVersion: 0,
     })
@@ -54,7 +74,8 @@ describe("app-store", () => {
       expect(state.term).toBe("")
       expect(state.slots).toEqual([])
       expect(state.generateResult).toBeNull()
-      expect(state.isGenerateResultStale).toBe(false)
+      expect(state.generatedWithParams).toBeNull()
+      expect(state.isGenerateResultStale()).toBe(false)
       expect(state.theme).toBe("system")
     })
   })
@@ -95,68 +116,159 @@ describe("app-store", () => {
 
   describe("schedule staleness", () => {
     beforeEach(() => {
-      // Set up generateResult before each test in this group
-      useAppStore.getState().setGenerateResult(mockGenerateResult)
+      // Set up a slot and generate result with matching params
+      useAppStore.getState().setTerm("202410")
+      useAppStore.getState().addSlot(mockSlot)
+      const slots = useAppStore.getState().slots
+      const params = createParams("202410", slots)
+      useAppStore.getState().setGenerateResult(mockGenerateResult, params)
       useAppStore.setState({ currentScheduleIndex: 5 })
       expect(useAppStore.getState().generateResult).not.toBeNull()
-      expect(useAppStore.getState().isGenerateResultStale).toBe(false)
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(false)
     })
 
     it("marks stale when adding a slot", () => {
-      useAppStore.getState().addSlot(mockSlot)
+      useAppStore.getState().addSlot({ ...mockSlot, id: "test-2", subject: "MATH" })
 
       expect(useAppStore.getState().generateResult).not.toBeNull()
-      expect(useAppStore.getState().isGenerateResultStale).toBe(true)
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(true)
     })
 
     it("marks stale when removing a slot", () => {
-      useAppStore.getState().addSlot(mockSlot)
-      useAppStore.getState().setGenerateResult(mockGenerateResult)
       useAppStore.getState().removeSlot("test-1")
 
       expect(useAppStore.getState().generateResult).not.toBeNull()
-      expect(useAppStore.getState().isGenerateResultStale).toBe(true)
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(true)
     })
 
-    it("marks stale when updating a slot", () => {
-      useAppStore.getState().addSlot(mockSlot)
-      useAppStore.getState().setGenerateResult(mockGenerateResult)
+    it("marks stale when updating slot required flag", () => {
       useAppStore.getState().updateSlot("test-1", { required: false })
 
       expect(useAppStore.getState().generateResult).not.toBeNull()
-      expect(useAppStore.getState().isGenerateResultStale).toBe(true)
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(true)
+    })
+
+    it("does NOT mark stale when updating slot title (non-generation field)", () => {
+      useAppStore.getState().updateSlot("test-1", { title: "New Title" })
+
+      expect(useAppStore.getState().generateResult).not.toBeNull()
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(false)
+    })
+
+    it("marks stale when adding a CRN to slot sections", () => {
+      // Slot starts with sections: null (all sections allowed)
+      expect(useAppStore.getState().slots[0].sections).toBeNull()
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(false)
+
+      // Add a specific CRN
+      useAppStore.getState().updateSlot("test-1", {
+        sections: [{ crn: "12345", term: "202410", instructor: null, required: true }],
+      })
+
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(true)
+    })
+
+    it("marks stale when removing a CRN from slot sections", () => {
+      // Set up with specific sections
+      useAppStore.getState().updateSlot("test-1", {
+        sections: [{ crn: "12345", term: "202410", instructor: null, required: true }],
+      })
+      // Update params to match current state
+      const newParams = createParams("202410", useAppStore.getState().slots)
+      useAppStore.getState().setGenerateResult(mockGenerateResult, newParams)
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(false)
+
+      // Remove the section (back to all sections)
+      useAppStore.getState().updateSlot("test-1", { sections: null })
+
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(true)
+    })
+
+    it("marks stale when toggling section required flag", () => {
+      useAppStore.getState().updateSlot("test-1", {
+        sections: [{ crn: "12345", term: "202410", instructor: null, required: true }],
+      })
+      const newParams = createParams("202410", useAppStore.getState().slots)
+      useAppStore.getState().setGenerateResult(mockGenerateResult, newParams)
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(false)
+
+      // Toggle section required flag
+      useAppStore.getState().updateSlot("test-1", {
+        sections: [{ crn: "12345", term: "202410", instructor: null, required: false }],
+      })
+
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(true)
     })
 
     it("marks stale when changing term", () => {
       useAppStore.getState().setTerm("202520")
 
       expect(useAppStore.getState().generateResult).not.toBeNull()
-      expect(useAppStore.getState().isGenerateResultStale).toBe(true)
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(true)
       expect(useAppStore.getState().term).toBe("202520")
     })
 
+    it("marks stale when changing minCourses", () => {
+      useAppStore.getState().setCourseBounds(2, null)
+
+      expect(useAppStore.getState().generateResult).not.toBeNull()
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(true)
+    })
+
+    it("marks stale when changing maxCourses", () => {
+      useAppStore.getState().setCourseBounds(null, 5)
+
+      expect(useAppStore.getState().generateResult).not.toBeNull()
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(true)
+    })
+
+    it("clears stale when returning to same state (term)", () => {
+      useAppStore.getState().setTerm("202520")
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(true)
+
+      useAppStore.getState().setTerm("202410")
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(false)
+    })
+
+    it("clears stale when returning to same state (slots)", () => {
+      useAppStore.getState().addSlot({ ...mockSlot, id: "test-2", subject: "MATH" })
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(true)
+
+      useAppStore.getState().removeSlot("test-2")
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(false)
+    })
+
+    it("clears stale when re-adding equivalent course (different id)", () => {
+      useAppStore.getState().removeSlot("test-1")
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(true)
+
+      // Re-add same course with different id
+      useAppStore.getState().addSlot({ ...mockSlot, id: "test-new" })
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(false)
+    })
+
     it("clears generateResult when clearing slots", () => {
-      useAppStore.getState().addSlot(mockSlot)
-      useAppStore.getState().setGenerateResult(mockGenerateResult)
       useAppStore.getState().clearSlots()
 
       expect(useAppStore.getState().generateResult).toBeNull()
-      expect(useAppStore.getState().isGenerateResultStale).toBe(false)
+      expect(useAppStore.getState().generatedWithParams).toBeNull()
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(false)
     })
 
-    it("clears stale flag when setting new result", () => {
-      useAppStore.getState().addSlot(mockSlot)
-      expect(useAppStore.getState().isGenerateResultStale).toBe(true)
+    it("clears stale flag when setting new result with params", () => {
+      useAppStore.getState().addSlot({ ...mockSlot, id: "test-2", subject: "MATH" })
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(true)
 
-      useAppStore.getState().setGenerateResult(mockGenerateResult)
-      expect(useAppStore.getState().isGenerateResultStale).toBe(false)
+      const newParams = createParams("202410", useAppStore.getState().slots)
+      useAppStore.getState().setGenerateResult(mockGenerateResult, newParams)
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(false)
     })
 
     it("does NOT mark stale when changing tab", () => {
       useAppStore.getState().setTab("search")
 
       expect(useAppStore.getState().generateResult).not.toBeNull()
-      expect(useAppStore.getState().isGenerateResultStale).toBe(false)
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(false)
       expect(useAppStore.getState().tab).toBe("search")
     })
 
@@ -164,16 +276,17 @@ describe("app-store", () => {
       useAppStore.getState().setTheme("dark")
 
       expect(useAppStore.getState().generateResult).not.toBeNull()
-      expect(useAppStore.getState().isGenerateResultStale).toBe(false)
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(false)
     })
   })
 
   describe("schedule navigation", () => {
-    it("setGenerateResult resets index to 0", () => {
+    it("setGenerateResult resets index to 0 and clears params when called without params", () => {
       useAppStore.setState({ currentScheduleIndex: 5 })
       useAppStore.getState().setGenerateResult(mockGenerateResult)
 
       expect(useAppStore.getState().currentScheduleIndex).toBe(0)
+      expect(useAppStore.getState().generatedWithParams).toBeNull()
     })
 
     it("setCurrentScheduleIndex updates index", () => {
@@ -279,6 +392,110 @@ describe("app-store", () => {
       useAppStore.getState().setTerm("202520")
       const v1 = useAppStore.getState().getSlotsVersion()
       expect(v1).toBe(v0 + 1)
+    })
+  })
+
+  describe("computeSlotsFingerprint", () => {
+    it("produces same fingerprint for slots with different ids but same content", () => {
+      const slot1: CourseSlot = { ...mockSlot, id: "a" }
+      const slot2: CourseSlot = { ...mockSlot, id: "b" }
+
+      expect(computeSlotsFingerprint([slot1])).toBe(
+        computeSlotsFingerprint([slot2])
+      )
+    })
+
+    it("produces same fingerprint regardless of slot order", () => {
+      const slotA: CourseSlot = { ...mockSlot, id: "1", subject: "CSCI" }
+      const slotB: CourseSlot = { ...mockSlot, id: "2", subject: "MATH" }
+
+      expect(computeSlotsFingerprint([slotA, slotB])).toBe(
+        computeSlotsFingerprint([slotB, slotA])
+      )
+    })
+
+    it("produces different fingerprint for different required flags", () => {
+      const slot1: CourseSlot = { ...mockSlot, required: true }
+      const slot2: CourseSlot = { ...mockSlot, required: false }
+
+      expect(computeSlotsFingerprint([slot1])).not.toBe(
+        computeSlotsFingerprint([slot2])
+      )
+    })
+
+    it("produces different fingerprint for different sections", () => {
+      const slot1: CourseSlot = {
+        ...mockSlot,
+        sections: [{ crn: "12345", term: "202410", instructor: null, required: true }],
+      }
+      const slot2: CourseSlot = {
+        ...mockSlot,
+        sections: [{ crn: "67890", term: "202410", instructor: null, required: true }],
+      }
+
+      expect(computeSlotsFingerprint([slot1])).not.toBe(
+        computeSlotsFingerprint([slot2])
+      )
+    })
+
+    it("ignores non-generation fields like title", () => {
+      const slot1: CourseSlot = { ...mockSlot, title: "Introduction" }
+      const slot2: CourseSlot = { ...mockSlot, title: "Advanced" }
+
+      expect(computeSlotsFingerprint([slot1])).toBe(
+        computeSlotsFingerprint([slot2])
+      )
+    })
+
+    it("ignores section instructor (display only)", () => {
+      const slot1: CourseSlot = {
+        ...mockSlot,
+        sections: [{ crn: "12345", term: "202410", instructor: "Smith", required: true }],
+      }
+      const slot2: CourseSlot = {
+        ...mockSlot,
+        sections: [{ crn: "12345", term: "202410", instructor: "Jones", required: true }],
+      }
+
+      expect(computeSlotsFingerprint([slot1])).toBe(
+        computeSlotsFingerprint([slot2])
+      )
+    })
+
+    it("produces different fingerprint for different section required flags", () => {
+      const slot1: CourseSlot = {
+        ...mockSlot,
+        sections: [{ crn: "12345", term: "202410", instructor: null, required: true }],
+      }
+      const slot2: CourseSlot = {
+        ...mockSlot,
+        sections: [{ crn: "12345", term: "202410", instructor: null, required: false }],
+      }
+
+      expect(computeSlotsFingerprint([slot1])).not.toBe(
+        computeSlotsFingerprint([slot2])
+      )
+    })
+
+    it("produces same fingerprint regardless of section order within slot", () => {
+      const slot1: CourseSlot = {
+        ...mockSlot,
+        sections: [
+          { crn: "11111", term: "202410", instructor: null, required: true },
+          { crn: "22222", term: "202410", instructor: null, required: true },
+        ],
+      }
+      const slot2: CourseSlot = {
+        ...mockSlot,
+        sections: [
+          { crn: "22222", term: "202410", instructor: null, required: true },
+          { crn: "11111", term: "202410", instructor: null, required: true },
+        ],
+      }
+
+      expect(computeSlotsFingerprint([slot1])).toBe(
+        computeSlotsFingerprint([slot2])
+      )
     })
   })
 })
