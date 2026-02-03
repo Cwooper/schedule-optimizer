@@ -73,8 +73,8 @@ export function CourseRow({
             aria-expanded={expanded}
             aria-label={expanded ? "Collapse sections" : "Expand sections"}
             className={cn(
-              "size-5 shrink-0",
-              !hasSections && "cursor-default opacity-0"
+              "size-5 shrink-0 cursor-pointer",
+              !hasSections && "!cursor-default opacity-0"
             )}
           >
             {expanded ? (
@@ -111,7 +111,7 @@ export function CourseRow({
         {onCourseClick ? (
           <button
             type="button"
-            className="flex-1 truncate text-left text-sm font-medium hover:underline"
+            className="flex-1 cursor-pointer truncate text-left text-sm font-medium hover:underline"
             title={slot.title ? decodeHtmlEntities(slot.title) : undefined}
             onClick={() => onCourseClick(`${slot.subject}:${slot.courseNumber}`)}
           >
@@ -190,7 +190,7 @@ export function CourseRow({
                   {onSectionClick ? (
                     <button
                       type="button"
-                      className="flex-1 truncate text-left font-medium hover:underline"
+                      className="flex-1 cursor-pointer truncate text-left font-medium hover:underline"
                       onClick={() => onSectionClick(section.crn)}
                     >
                       {section.crn}

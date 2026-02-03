@@ -5,9 +5,14 @@ import { decodeHtmlEntities } from "@/lib/utils"
 interface CoursePreviewProps {
   courseData: CourseResponse | undefined
   isLoading: boolean
+  onAdd?: () => void
 }
 
-export function CoursePreview({ courseData, isLoading }: CoursePreviewProps) {
+export function CoursePreview({
+  courseData,
+  isLoading,
+  onAdd,
+}: CoursePreviewProps) {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center p-4">
@@ -31,7 +36,11 @@ export function CoursePreview({ courseData, isLoading }: CoursePreviewProps) {
     courseData.sectionCount === 1 ? "section" : "sections"
 
   return (
-    <div className="p-3 text-sm">
+    <button
+      type="button"
+      className="hover:bg-muted/50 w-full cursor-pointer p-3 text-left text-sm transition-colors"
+      onClick={() => onAdd?.()}
+    >
       <div className="font-medium">
         {course.subject} {course.courseNumber} – {decodeHtmlEntities(course.title)}
       </div>
@@ -41,6 +50,6 @@ export function CoursePreview({ courseData, isLoading }: CoursePreviewProps) {
         </span>
         <span>{course.credits} cr</span>
       </div>
-    </div>
+    </button>
   )
 }

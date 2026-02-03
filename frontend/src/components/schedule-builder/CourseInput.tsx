@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import {
   Popover,
+  PopoverAnchor,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
@@ -109,7 +110,7 @@ export function CourseInput({
                   aria-pressed={inputMode === "subject"}
                   aria-label="Add course by subject"
                   className={cn(
-                    "rounded px-2 py-0.5 transition-colors",
+                    "cursor-pointer rounded px-2 py-0.5 transition-colors",
                     inputMode === "subject"
                       ? "bg-accent text-accent-foreground"
                       : "text-muted-foreground hover:text-foreground"
@@ -130,7 +131,7 @@ export function CourseInput({
                   aria-pressed={inputMode === "crn"}
                   aria-label="Add course by CRN"
                   className={cn(
-                    "rounded px-2 py-0.5 transition-colors",
+                    "cursor-pointer rounded px-2 py-0.5 transition-colors",
                     inputMode === "crn"
                       ? "bg-accent text-accent-foreground"
                       : "text-muted-foreground hover:text-foreground"
@@ -222,7 +223,7 @@ function SubjectInput({
   return (
     <TooltipProvider delayDuration={300}>
       <Popover open={showPreview} modal={false}>
-        <PopoverTrigger asChild>
+        <PopoverAnchor asChild>
           <div className="flex gap-2">
             <Popover open={subjectOpen} onOpenChange={setSubjectOpen}>
               <Tooltip>
@@ -302,14 +303,18 @@ function SubjectInput({
             <Plus className="size-4" />
           </Button>
         </div>
-      </PopoverTrigger>
+      </PopoverAnchor>
       <PopoverContent
         className="w-72 p-0"
         align="start"
         onOpenAutoFocus={(e) => e.preventDefault()}
         onCloseAutoFocus={(e) => e.preventDefault()}
       >
-        <CoursePreview courseData={courseData} isLoading={courseFetching} />
+        <CoursePreview
+          courseData={courseData}
+          isLoading={courseFetching}
+          onAdd={onAdd}
+        />
       </PopoverContent>
       </Popover>
     </TooltipProvider>
@@ -345,7 +350,7 @@ function CRNInput({
   return (
     <TooltipProvider delayDuration={300}>
       <Popover open={showPreview} modal={false}>
-        <PopoverTrigger asChild>
+        <PopoverAnchor asChild>
           <div className="flex gap-2">
             <Tooltip>
               <TooltipTrigger asChild>
@@ -382,14 +387,19 @@ function CRNInput({
               <Plus className="size-4" />
             </Button>
           </div>
-        </PopoverTrigger>
+        </PopoverAnchor>
         <PopoverContent
           className="w-72 p-0"
           align="start"
           onOpenAutoFocus={(e) => e.preventDefault()}
           onCloseAutoFocus={(e) => e.preventDefault()}
         >
-          <CRNPreview crnData={crnData} isLoading={crnFetching} currentTerm={term} />
+          <CRNPreview
+            crnData={crnData}
+            isLoading={crnFetching}
+            currentTerm={term}
+            onAdd={onAdd}
+          />
         </PopoverContent>
       </Popover>
     </TooltipProvider>
