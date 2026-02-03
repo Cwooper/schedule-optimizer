@@ -197,7 +197,7 @@ export function CourseRow({
                       {section.instructor && (
                         <span className="text-muted-foreground font-normal">
                           {" "}
-                          ({section.instructor})
+                          ({decodeHtmlEntities(section.instructor)})
                         </span>
                       )}
                     </button>
@@ -207,7 +207,7 @@ export function CourseRow({
                       {section.instructor && (
                         <span className="text-muted-foreground font-normal">
                           {" "}
-                          ({section.instructor})
+                          ({decodeHtmlEntities(section.instructor)})
                         </span>
                       )}
                     </span>

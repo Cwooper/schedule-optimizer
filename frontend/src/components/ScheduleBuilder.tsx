@@ -13,8 +13,10 @@ import { TermSelector } from "@/components/TermSelector"
 import { CourseInput, CourseRow } from "@/components/schedule-builder"
 import {
   useAppStore,
+  computeSlotsFingerprint,
   type CourseSlot,
   type SectionFilter,
+  type GenerationParams,
 } from "@/stores/app-store"
 import {
   useTerms,
@@ -58,14 +60,15 @@ export function ScheduleBuilder() {
 
   // Store result when generation succeeds, but only if slots haven't changed
   const handleGenerateMutate = (
-    req: Parameters<typeof generateMutation.mutate>[0]
+    req: Parameters<typeof generateMutation.mutate>[0],
+    params: GenerationParams
   ) => {
     const versionAtStart = getSlotsVersion()
     generateMutation.mutate(req, {
       onSuccess: (data) => {
         // Only set result if slots haven't changed during the request
         if (getSlotsVersion() === versionAtStart) {
-          setGenerateResult(data)
+          setGenerateResult(data, params)
         }
       },
     })
@@ -200,12 +203,28 @@ export function ScheduleBuilder() {
       allowedCrns: slot.sections?.map((s) => s.crn),
     }))
 
-    handleGenerateMutate({
+    const effectiveMin = minCourses ?? courseSpecs.length
+    const effectiveMax = maxCourses ?? 8
+
+    // Capture params at time of generation for stale detection.
+    // Uses `slots` (not `validSlots`) so fingerprint tracks user intent -
+    // if a course becomes valid later, stale detection still works correctly.
+    const params: GenerationParams = {
       term,
-      courseSpecs,
-      minCourses: minCourses ?? courseSpecs.length,
-      maxCourses: maxCourses ?? 8,
-    })
+      minCourses: effectiveMin,
+      maxCourses: effectiveMax,
+      slotsFingerprint: computeSlotsFingerprint(slots),
+    }
+
+    handleGenerateMutate(
+      {
+        term,
+        courseSpecs,
+        minCourses: effectiveMin,
+        maxCourses: effectiveMax,
+      },
+      params
+    )
   }
 
   // Handle regenerate requests from other components (e.g., stale warning click)

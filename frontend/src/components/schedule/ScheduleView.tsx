@@ -13,12 +13,12 @@ import { hydrateSchedule } from "@/lib/schedule-utils"
 export function ScheduleView() {
   const {
     generateResult,
-    isGenerateResultStale,
     currentScheduleIndex,
     setCurrentScheduleIndex,
     openCourseDialog,
     requestRegenerate,
   } = useAppStore()
+  const isGenerateResultStale = useAppStore((s) => s.isGenerateResultStale())
 
   // Hydrate the current schedule ref into full course data
   // Must be called before early return to satisfy Rules of Hooks
