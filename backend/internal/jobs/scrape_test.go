@@ -101,9 +101,16 @@ func TestDailyScrapeJob_ShouldRun(t *testing.T) {
 		want        bool
 	}{
 		{
-			name:        "wrong hour",
+			name:        "first run (zero lastRunDate)",
 			targetHour:  3,
 			lastRunDate: time.Time{},
+			now:         time.Date(2025, 1, 15, 10, 0, 0, 0, time.Local),
+			want:        true,
+		},
+		{
+			name:        "wrong hour after first run",
+			targetHour:  3,
+			lastRunDate: time.Date(2025, 1, 14, 0, 0, 0, 0, time.Local),
 			now:         time.Date(2025, 1, 15, 10, 0, 0, 0, time.Local),
 			want:        false,
 		},
