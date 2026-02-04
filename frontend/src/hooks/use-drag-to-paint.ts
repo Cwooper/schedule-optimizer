@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react"
 import type { BlockedTimeBlock } from "@/stores/app-store"
-import { GRID, parseTime, minsToTimeStr, clampToAvoidOverlap, type TimeRange } from "@/lib/schedule-utils"
+import { GRID, parseTime, minsToTimeStr, clampToAvoidOverlap, blocksToRanges, otherBlockRanges, type TimeRange } from "@/lib/schedule-utils"
 import { genId } from "@/lib/utils"
 
 // ── Types ──────────────────────────────────────────────────────────────
@@ -49,20 +49,6 @@ interface UseDragToPaintOptions {
 }
 
 // ── Helpers ────────────────────────────────────────────────────────────
-
-/** Convert BlockedTimeBlock[] to TimeRange[] for overlap utilities */
-function blocksToRanges(blocks: BlockedTimeBlock[]): TimeRange[] {
-  return blocks.map((b) => ({
-    day: b.day,
-    startMin: parseTime(b.startTime),
-    endMin: parseTime(b.endTime),
-  }))
-}
-
-/** Get existing ranges excluding a specific block */
-function otherBlockRanges(blocks: BlockedTimeBlock[], excludeId: string): TimeRange[] {
-  return blocksToRanges(blocks.filter((b) => b.id !== excludeId))
-}
 
 /**
  * Compute the snapped/clamped start position for a move drag.

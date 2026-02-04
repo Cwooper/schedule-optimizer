@@ -20,7 +20,7 @@ import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
-import { DAYS, BLOCKED_PRESET_COLORS, parseTime, minsToTimeStr, GRID } from "@/lib/schedule-utils"
+import { DAYS, BLOCKED_PRESET_COLORS, parseTime, minsToTimeStr, GRID, otherBlockRanges, clampToAvoidOverlap } from "@/lib/schedule-utils"
 import { useAppStore, type BlockedTimeBlock, type BlockedTimeGroup } from "@/stores/app-store"
 import { CustomStylePopover } from "./CustomStylePopover"
 
@@ -46,6 +46,28 @@ function fromInputTime(time: string): string {
   return time.replace(":", "")
 }
 
+
+/** Clamp a proposed block edit to avoid overlapping other blocks in the group. Returns null if too small. */
+function clampBlockEdit(
+  proposed: BlockedTimeBlock,
+  allBlocks: BlockedTimeBlock[]
+): BlockedTimeBlock | null {
+  const existing = otherBlockRanges(allBlocks, proposed.id)
+  const startMin = parseTime(proposed.startTime)
+  const endMin = parseTime(proposed.endTime)
+  const clamped = clampToAvoidOverlap(
+    { day: proposed.day, startMin, endMin },
+    existing,
+    "clamp"
+  )
+  if (!clamped || clamped.endMin - clamped.startMin < GRID.MIN_DRAG_MINUTES) return null
+  return {
+    ...proposed,
+    day: clamped.day,
+    startTime: minsToTimeStr(clamped.startMin),
+    endTime: minsToTimeStr(clamped.endMin),
+  }
+}
 
 function summarizeBlocks(group: BlockedTimeGroup): string {
   if (group.blocks.length === 0) return "No time blocks"
@@ -398,50 +420,11 @@ function GroupRow({
                     </div>
                     {/* Inline edit form */}
                     {isEditing && (
-                      <div className="flex items-center gap-1.5 px-2 pb-1.5 pt-0.5">
-                        <select
-                          value={block.day}
-                          onChange={(e) =>
-                            onUpdateBlock(block.id, { ...block, day: Number(e.target.value) })
-                          }
-                          className="h-7 rounded border border-input bg-background px-1 text-xs"
-                        >
-                          {DAYS.map((day, dayIdx) => (
-                            <option key={day} value={dayIdx}>{day}</option>
-                          ))}
-                        </select>
-                        <input
-                          type="time"
-                          value={toInputTime(block.startTime)}
-                          onChange={(e) => {
-                            const newStart = fromInputTime(e.target.value)
-                            const startMins = parseTime(newStart)
-                            const endMins = parseTime(block.endTime)
-                            if (startMins >= endMins) {
-                              onUpdateBlock(block.id, { ...block, startTime: newStart, endTime: minsToTimeStr(startMins + GRID.MIN_DRAG_MINUTES) })
-                            } else {
-                              onUpdateBlock(block.id, { ...block, startTime: newStart })
-                            }
-                          }}
-                          className="h-7 rounded border border-input bg-background px-1 text-xs tabular-nums"
-                        />
-                        <span className="text-muted-foreground text-xs">–</span>
-                        <input
-                          type="time"
-                          value={toInputTime(block.endTime)}
-                          onChange={(e) => {
-                            const newEnd = fromInputTime(e.target.value)
-                            const startMins = parseTime(block.startTime)
-                            const endMins = parseTime(newEnd)
-                            if (endMins <= startMins) {
-                              onUpdateBlock(block.id, { ...block, startTime: minsToTimeStr(endMins - GRID.MIN_DRAG_MINUTES), endTime: newEnd })
-                            } else {
-                              onUpdateBlock(block.id, { ...block, endTime: newEnd })
-                            }
-                          }}
-                          className="h-7 rounded border border-input bg-background px-1 text-xs tabular-nums"
-                        />
-                      </div>
+                      <BlockTimeEditor
+                        block={block}
+                        allBlocks={group.blocks}
+                        onUpdateBlock={onUpdateBlock}
+                      />
                     )}
                   </div>
                 )
@@ -451,6 +434,78 @@ function GroupRow({
 
         </div>
       )}
+    </div>
+  )
+}
+
+function BlockTimeEditor({
+  block,
+  allBlocks,
+  onUpdateBlock,
+}: {
+  block: BlockedTimeBlock
+  allBlocks: BlockedTimeBlock[]
+  onUpdateBlock: (blockId: string, block: BlockedTimeBlock) => void
+}) {
+  const [draftStart, setDraftStart] = useState(toInputTime(block.startTime))
+  const [draftEnd, setDraftEnd] = useState(toInputTime(block.endTime))
+
+  const commitTimes = (start: string, end: string) => {
+    const newStart = fromInputTime(start)
+    const newEnd = fromInputTime(end)
+    const startMins = parseTime(newStart)
+    const endMins = parseTime(newEnd)
+    if (endMins - startMins < GRID.MIN_DRAG_MINUTES) return
+    const proposed = { ...block, startTime: newStart, endTime: newEnd }
+    const clamped = clampBlockEdit(proposed, allBlocks)
+    if (clamped) {
+      onUpdateBlock(block.id, clamped)
+      setDraftStart(toInputTime(clamped.startTime))
+      setDraftEnd(toInputTime(clamped.endTime))
+    } else {
+      setDraftStart(toInputTime(block.startTime))
+      setDraftEnd(toInputTime(block.endTime))
+    }
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      e.currentTarget.blur()
+    }
+  }
+
+  return (
+    <div className="flex items-center gap-1.5 px-2 pb-1.5 pt-0.5">
+      <select
+        value={block.day}
+        onChange={(e) => {
+          const proposed = { ...block, day: Number(e.target.value) }
+          const clamped = clampBlockEdit(proposed, allBlocks)
+          if (clamped) onUpdateBlock(block.id, clamped)
+        }}
+        className="h-7 rounded border border-input bg-background px-1 text-xs"
+      >
+        {DAYS.map((day, dayIdx) => (
+          <option key={day} value={dayIdx}>{day}</option>
+        ))}
+      </select>
+      <input
+        type="time"
+        value={draftStart}
+        onChange={(e) => setDraftStart(e.target.value)}
+        onBlur={() => commitTimes(draftStart, draftEnd)}
+        onKeyDown={handleKeyDown}
+        className="h-7 rounded border border-input bg-background px-1 text-xs tabular-nums"
+      />
+      <span className="text-muted-foreground text-xs">–</span>
+      <input
+        type="time"
+        value={draftEnd}
+        onChange={(e) => setDraftEnd(e.target.value)}
+        onBlur={() => commitTimes(draftStart, draftEnd)}
+        onKeyDown={handleKeyDown}
+        className="h-7 rounded border border-input bg-background px-1 text-xs tabular-nums"
+      />
     </div>
   )
 }

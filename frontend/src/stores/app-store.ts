@@ -1,6 +1,7 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
 import { genId } from "@/lib/utils"
+import { mergeAdjacentBlocks } from "@/lib/schedule-utils"
 
 // --- Types ---
 
@@ -168,7 +169,7 @@ function updateBlockInGroup(
 ): BlockedTimeGroup[] {
   return groups.map((g) => {
     if (g.id !== groupId) return g
-    return { ...g, blocks: g.blocks.map((b) => (b.id === blockId ? block : b)) }
+    return { ...g, blocks: mergeAdjacentBlocks(g.blocks.map((b) => (b.id === blockId ? block : b))) }
   })
 }
 
@@ -293,7 +294,7 @@ export const useAppStore = create<AppState>()(
         set((state) => ({
           blockedTimeGroups: state.blockedTimeGroups.map((g) =>
             g.id === groupId
-              ? { ...g, blocks: [...g.blocks, { ...block, id: block.id || genId() }] }
+              ? { ...g, blocks: mergeAdjacentBlocks([...g.blocks, { ...block, id: block.id || genId() }]) }
               : g
           ),
         })),
