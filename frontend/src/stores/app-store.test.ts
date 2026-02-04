@@ -43,8 +43,8 @@ function createParams(
 ): GenerationParams {
   return {
     term,
-    minCourses: minCourses ?? slots.length,
-    maxCourses: maxCourses ?? 8,
+    minCourses: minCourses ?? 0,
+    maxCourses: maxCourses ?? 0,
     slotsFingerprint: computeSlotsFingerprint(slots),
     blockedTimesFingerprint: computeBlockedTimesFingerprint([]),
   }
