@@ -97,7 +97,7 @@ export function CustomStylePopover({
             value={hex}
             onChange={(e) => setHex(e.target.value)}
             placeholder="#6366f1"
-            className="h-7 font-mono text-xs"
+            className="h-7 font-mono"
             onKeyDown={(e) => {
               if (e.key === "Enter" && validHex) handleApply()
             }}

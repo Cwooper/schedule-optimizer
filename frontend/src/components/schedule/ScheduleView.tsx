@@ -159,16 +159,25 @@ export function ScheduleView() {
 
       const blob = await (await fetch(dataUrl)).blob()
       const fileName = `schedule-${safeIndex + 1}.png`
-      const file = new File([blob], fileName, { type: "image/png" })
 
-      if (navigator.canShare?.({ files: [file] })) {
-        await navigator.share({ files: [file], title: "My Schedule" })
-      } else {
-        const link = document.createElement("a")
-        link.download = fileName
-        link.href = dataUrl
-        link.click()
+      // Try Web Share API first (requires secure context / HTTPS)
+      if (navigator.share) {
+        try {
+          const file = new File([blob], fileName, { type: "image/png" })
+          await navigator.share({ files: [file], title: "My Schedule" })
+          return
+        } catch (err) {
+          if (err instanceof Error && err.name === "AbortError") return
+          // Other errors (NotAllowedError, TypeError, etc.): fall through to download
+        }
       }
+
+      // Fallback: standard file download
+      const link = document.createElement("a")
+      link.download = fileName
+      link.href = URL.createObjectURL(blob)
+      link.click()
+      URL.revokeObjectURL(link.href)
     } catch (err) {
       if (err instanceof Error && err.name !== "AbortError") {
         console.error("PNG export failed:", err)
