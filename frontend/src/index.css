@@ -122,6 +122,20 @@
   }
 }
 
+/* Single 360° spin animation for regenerate button */
+@keyframes spin-once {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-once {
+  animation: spin-once 0.5s ease-in-out;
+}
+
 /* Make placeholders less prominent in dark mode */
 .dark input::placeholder,
 .dark textarea::placeholder {

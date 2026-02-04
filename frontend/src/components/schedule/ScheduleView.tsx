@@ -1,6 +1,22 @@
-import { useMemo } from "react"
-import { ChevronLeft, ChevronRight, AlertTriangle } from "lucide-react"
+import { useMemo, useState } from "react"
+import {
+  ChevronLeft,
+  ChevronRight,
+  RefreshCw,
+  MoreVertical,
+  Clock,
+  Download,
+  Calendar,
+  Share2,
+  Map,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import {
   Tooltip,
   TooltipContent,
@@ -9,6 +25,7 @@ import {
 import { ScheduleGrid } from "./ScheduleGrid"
 import { useAppStore } from "@/stores/app-store"
 import { hydrateSchedule } from "@/lib/schedule-utils"
+import { cn } from "@/lib/utils"
 
 export function ScheduleView() {
   const {
@@ -17,8 +34,18 @@ export function ScheduleView() {
     setCurrentScheduleIndex,
     openCourseDialog,
     requestRegenerate,
+    slots,
   } = useAppStore()
   const isGenerateResultStale = useAppStore((s) => s.isGenerateResultStale())
+  const canRegenerate = slots.length > 0
+  const showStale = isGenerateResultStale && canRegenerate
+  const [spinCount, setSpinCount] = useState(0)
+
+  const regenerateTooltip = () => {
+    if (!canRegenerate) return "Add courses to regenerate"
+    if (showStale) return "Course list changed. Click to regenerate."
+    return "Regenerate schedules"
+  }
 
   // Hydrate the current schedule ref into full course data
   // Must be called before early return to satisfy Rules of Hooks
@@ -65,7 +92,37 @@ export function ScheduleView() {
   return (
     <div className="flex h-full flex-col">
       {/* Navigation header */}
-      <div className="flex items-center justify-center border-b px-4 py-2">
+      <div className="relative flex items-center justify-center border-b px-4 py-2">
+        {/* Regenerate button */}
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <div className="absolute left-2">
+              <Button
+                variant="ghost"
+                size="icon"
+                className={cn(
+                  showStale &&
+                    "text-amber-600 hover:text-amber-700 dark:text-amber-400 dark:hover:text-amber-300"
+                )}
+                onClick={() => {
+                  setSpinCount((c) => c + 1)
+                  requestRegenerate()
+                }}
+                disabled={!canRegenerate}
+              >
+                <RefreshCw
+                  key={spinCount}
+                  className={cn("size-4", spinCount > 0 && "animate-spin-once")}
+                />
+                <span className="sr-only">Regenerate schedules</span>
+              </Button>
+            </div>
+          </TooltipTrigger>
+          <TooltipContent side="bottom">
+            {regenerateTooltip()}
+          </TooltipContent>
+        </Tooltip>
+
         <Button
           variant="ghost"
           size="icon"
@@ -85,6 +142,42 @@ export function ScheduleView() {
         >
           <ChevronRight className="size-4" />
         </Button>
+
+        {/* Schedule actions dropdown */}
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute right-2"
+            >
+              <MoreVertical className="size-4" />
+              <span className="sr-only">Schedule options</span>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem disabled>
+              <Clock className="size-4" />
+              Blocked Times
+            </DropdownMenuItem>
+            <DropdownMenuItem disabled>
+              <Download className="size-4" />
+              Download PNG
+            </DropdownMenuItem>
+            <DropdownMenuItem disabled>
+              <Calendar className="size-4" />
+              Export ICS
+            </DropdownMenuItem>
+            <DropdownMenuItem disabled>
+              <Share2 className="size-4" />
+              Share Link
+            </DropdownMenuItem>
+            <DropdownMenuItem disabled>
+              <Map className="size-4" />
+              Campus Map
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
 
       {/* Schedule grid */}
@@ -92,24 +185,6 @@ export function ScheduleView() {
         <ScheduleGrid
           courses={currentSchedule!.courses}
           onCourseClick={handleCourseClick}
-          cornerContent={
-            isGenerateResultStale ? (
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <button
-                    onClick={requestRegenerate}
-                    className="cursor-pointer rounded-full bg-amber-500/15 p-1 text-amber-600 transition-colors hover:bg-amber-500/25 dark:text-amber-400"
-                    aria-label="Regenerate schedules"
-                  >
-                    <AlertTriangle className="size-4" />
-                  </button>
-                </TooltipTrigger>
-                <TooltipContent side="right" className="max-w-50">
-                  <p>Course list changed. Click to regenerate schedules.</p>
-                </TooltipContent>
-              </Tooltip>
-            ) : undefined
-          }
         />
       </div>
 

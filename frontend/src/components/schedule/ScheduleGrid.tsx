@@ -1,12 +1,10 @@
-import { useMemo, useCallback, useRef, useState, useEffect, type ReactNode } from "react"
+import { useMemo, useCallback, useRef, useState, useEffect } from "react"
 import type { HydratedSection, MeetingTime } from "@/lib/api"
 import { cn, decodeHtmlEntities } from "@/lib/utils"
 import type { BlockedTime } from "@/stores/app-store"
 
 export interface ScheduleGridProps {
   courses: HydratedSection[]
-  cornerContent?: ReactNode
-  menuContent?: ReactNode
   onCourseClick?: (crn: string) => void
   blockedTimes?: BlockedTime[]
   editingBlockedTimes?: boolean
@@ -163,8 +161,6 @@ function computeTimeRange(
 
 export function ScheduleGrid({
   courses,
-  cornerContent,
-  menuContent,
   onCourseClick,
   blockedTimes,
   editingBlockedTimes,
@@ -203,7 +199,9 @@ export function ScheduleGrid({
     currentMin: number
   } | null>(null)
   const dragRef = useRef(dragState)
-  dragRef.current = dragState
+  useEffect(() => {
+    dragRef.current = dragState
+  }, [dragState])
 
   const pointerToGridPos = useCallback(
     (clientX: number, clientY: number) => {
@@ -231,7 +229,8 @@ export function ScheduleGrid({
       if (!editingBlockedTimes) return
       const pos = pointerToGridPos(e.clientX, e.clientY)
       if (!pos) return
-      ;(e.target as HTMLElement).setPointerCapture(e.pointerId)
+      const target = e.target as HTMLElement
+      target.setPointerCapture(e.pointerId)
       setDragState({ dayIndex: pos.dayIndex, startMin: pos.minute, currentMin: pos.minute })
     },
     [editingBlockedTimes, pointerToGridPos]
@@ -282,9 +281,7 @@ export function ScheduleGrid({
       {/* Header row with day names */}
       <div className="border-b bg-muted/30">
         <div className="grid grid-cols-[2.5rem_repeat(5,1fr)]">
-          <div className="flex items-center justify-center p-1">
-            {cornerContent}
-          </div>
+          <div className="p-1" />
           {DAYS.map((day, idx) => (
             <div
               key={day}
@@ -472,12 +469,6 @@ export function ScheduleGrid({
           })}
         </div>
 
-        {/* Menu content positioned top-right */}
-        {menuContent && (
-          <div className="absolute top-1 right-1 z-30">
-            {menuContent}
-          </div>
-        )}
       </div>
     </div>
   )
