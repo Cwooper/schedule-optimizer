@@ -6,6 +6,12 @@ import { persist } from "zustand/middleware"
 export type Tab = "schedule" | "search" | "statistics"
 export type Theme = "light" | "dark" | "system"
 
+export interface BlockedTime {
+  day: number
+  startTime: string
+  endTime: string
+}
+
 export interface SectionFilter {
   crn: string
   term: string
