@@ -28,6 +28,7 @@ import {
 import { ScheduleGrid } from "./ScheduleGrid"
 import { BlockedTimesDialog } from "./BlockedTimesDialog"
 import { useAppStore } from "@/stores/app-store"
+import { useTerms } from "@/hooks/use-api"
 import { hydrateSchedule } from "@/lib/schedule-utils"
 import { cn } from "@/lib/utils"
 
@@ -47,6 +48,8 @@ export function ScheduleView() {
     updateBlockInGroupById,
     removeBlockFromGroupById,
   } = useAppStore()
+  const term = useAppStore((s) => s.term)
+  const { data: termsData } = useTerms()
   const isGenerateResultStale = useAppStore((s) => s.isGenerateResultStale())
   const canRegenerate = slots.length > 0
   const showStale = isGenerateResultStale && canRegenerate
@@ -158,7 +161,10 @@ export function ScheduleView() {
       node.style.cssText = savedCssText
 
       const blob = await (await fetch(dataUrl)).blob()
-      const fileName = `schedule-${safeIndex + 1}.png`
+      const termName = termsData?.terms.find((t) => t.code === term)?.name
+      const fileName = termName
+        ? `${termName.replace(/\s+/g, "")}-Schedule.png`
+        : "Schedule.png"
 
       // Try Web Share API first (requires secure context / HTTPS)
       if (navigator.share) {
@@ -185,7 +191,7 @@ export function ScheduleView() {
     } finally {
       setIsExporting(false)
     }
-  }, [safeIndex])
+  }, [term, termsData])
 
   return (
     <div className="flex h-full flex-col">
