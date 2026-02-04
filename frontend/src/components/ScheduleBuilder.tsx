@@ -26,7 +26,8 @@ import {
   useGenerateSchedules,
   useValidateCourses,
 } from "@/hooks/use-api"
-import type { CourseValidationResult, CourseSpec } from "@/lib/api"
+import type { CourseValidationResult, CourseSpec, GenerateResponse } from "@/lib/api"
+import { getGenerateWarnings } from "@/lib/generate-warnings"
 import { cn } from "@/lib/utils"
 
 export function ScheduleBuilder() {
@@ -62,6 +63,13 @@ export function ScheduleBuilder() {
     }
   }, [term, termsData, setTerm])
 
+  const showGenerateWarnings = (data: GenerateResponse) => {
+    for (const w of getGenerateWarnings(data)) {
+      if (w.type === "info") toast.info(w.message)
+      else toast.warning(w.message)
+    }
+  }
+
   // Store result when generation succeeds, but only if slots haven't changed
   const handleGenerateMutate = (
     req: Parameters<typeof generateMutation.mutate>[0],
@@ -74,6 +82,7 @@ export function ScheduleBuilder() {
         if (getSlotsVersion() === versionAtStart) {
           setGenerateResult(data, params)
         }
+        showGenerateWarnings(data)
       },
       onError: (error) => {
         toast.error(
@@ -212,8 +221,8 @@ export function ScheduleBuilder() {
       allowedCrns: slot.sections?.map((s) => s.crn),
     }))
 
-    const effectiveMin = minCourses ?? courseSpecs.length
-    const effectiveMax = maxCourses ?? 8
+    const effectiveMin = minCourses ?? 0
+    const effectiveMax = maxCourses ?? 0
 
     // Capture params at time of generation for stale detection.
     // Uses `slots` (not `validSlots`) so fingerprint tracks user intent -

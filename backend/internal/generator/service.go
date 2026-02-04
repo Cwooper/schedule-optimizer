@@ -70,12 +70,19 @@ func (s *Service) Generate(ctx context.Context, req GenerateRequest) (*GenerateR
 
 	// Default minCourses to totalCourses if not specified (0), but at least numRequired
 	effectiveMin := req.MinCourses
+	userSetMin := effectiveMin > 0
 	if effectiveMin == 0 {
 		effectiveMin = totalCourses
 	}
 	effectiveMin = max(effectiveMin, numRequired)
 
-	minCourses, maxCourses := clampBounds(effectiveMin, req.MaxCourses, totalCourses)
+	// When user didn't set min, allow one fewer course as fallback
+	fallbackMin := effectiveMin
+	if !userSetMin && effectiveMin > numRequired && effectiveMin > 1 {
+		fallbackMin = effectiveMin - 1
+	}
+
+	minCourses, maxCourses := clampBounds(fallbackMin, req.MaxCourses, totalCourses)
 
 	schedules := backtrack(ctx, backtrackParams{
 		groups:      allGroups,
@@ -91,6 +98,22 @@ func (s *Service) Generate(ctx context.Context, req GenerateRequest) (*GenerateR
 	slices.SortFunc(schedules, func(a, b Schedule) int {
 		return cmp.Compare(b.Score, a.Score) // Descending by score
 	})
+
+	// If we used a fallback min and there are full-count schedules,
+	// filter out the shorter ones (prefer full course load)
+	if !userSetMin && fallbackMin < effectiveMin && len(schedules) > 0 {
+		fullCount := 0
+		for _, s := range schedules {
+			if len(s.Courses) >= effectiveMin {
+				fullCount++
+			}
+		}
+		if fullCount > 0 {
+			schedules = slices.DeleteFunc(schedules, func(s Schedule) bool {
+				return len(s.Courses) < effectiveMin
+			})
+		}
+	}
 
 	totalGenerated := len(schedules)
 

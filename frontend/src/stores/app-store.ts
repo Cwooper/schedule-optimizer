@@ -340,8 +340,8 @@ export const useAppStore = create<AppState>()(
         }
         const current: GenerationParams = {
           term: state.term,
-          minCourses: state.minCourses ?? state.slots.length,
-          maxCourses: state.maxCourses ?? 8,
+          minCourses: state.minCourses ?? 0,
+          maxCourses: state.maxCourses ?? 0,
           slotsFingerprint: computeSlotsFingerprint(state.slots),
           blockedTimesFingerprint: computeBlockedTimesFingerprint(
             state.blockedTimeGroups
