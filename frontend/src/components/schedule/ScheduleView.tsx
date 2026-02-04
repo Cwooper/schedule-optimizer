@@ -201,9 +201,9 @@ export function ScheduleView() {
           <span className="text-sm font-medium">
             Painting: {editingGroup?.title || "Blocked Time"}
           </span>
-          <Button size="sm" variant="outline" onClick={handleDonePainting}>
-            <Check className="size-3.5" />
-            Done
+          <Button size="icon" variant="ghost" onClick={handleDonePainting}>
+            <Check className="size-4" />
+            <span className="sr-only">Done painting</span>
           </Button>
         </div>
       ) : (
