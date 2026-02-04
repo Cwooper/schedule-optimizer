@@ -70,7 +70,7 @@ function DialogContentInner({
     !cachedExpandedData?.section?.meetingTimes
 
   // Fetch meeting times for expanded section if needed
-  const { data: crnData, isFetching } = useCRN(
+  const { isFetching } = useCRN(
     needsFetch ? expandedSection : "",
     needsFetch ? term : undefined
   )
@@ -92,24 +92,22 @@ function DialogContentInner({
     [courseSections, term, queryClient]
   )
 
-  // Merge cached meeting times into sections from TanStack Query cache
-  // crnData in deps ensures re-computation when the active fetch completes
-  const sectionsWithMeetings = useMemo(() => {
-    return courseSections.map((section) => {
-      if (section.meetingTimes.length > 0) return section
-      // Pull from TanStack Query cache
-      const cached = queryClient.getQueryData<CRNResponse>([
-        "crn",
-        section.crn,
-        term,
-      ])
-      if (cached?.section?.meetingTimes) {
-        return { ...section, meetingTimes: cached.section.meetingTimes }
-      }
-      return section
-    })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [courseSections, term, queryClient, crnData])
+  // Merge cached meeting times into sections from TanStack Query cache.
+  // Computed every render (not memoized) because getQueryData is a synchronous
+  // cache read that doesn't subscribe to updates — a useMemo here would miss
+  // cache changes from prefetch or when the useCRN query key switches on completion.
+  const sectionsWithMeetings = courseSections.map((section) => {
+    if (section.meetingTimes.length > 0) return section
+    const cached = queryClient.getQueryData<CRNResponse>([
+      "crn",
+      section.crn,
+      term,
+    ])
+    if (cached?.section?.meetingTimes) {
+      return { ...section, meetingTimes: cached.section.meetingTimes }
+    }
+    return section
+  })
 
   const totalSections = courseSections.length
 
