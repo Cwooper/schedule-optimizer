@@ -1,15 +1,16 @@
 import { useMemo, useCallback, useRef, useState, useEffect } from "react"
 import type { HydratedSection, MeetingTime } from "@/lib/api"
 import { cn, decodeHtmlEntities } from "@/lib/utils"
-import type { BlockedTime } from "@/stores/app-store"
+import type { BlockedTimeBlock, BlockedTimeGroup } from "@/stores/app-store"
 
 export interface ScheduleGridProps {
   courses: HydratedSection[]
   onCourseClick?: (crn: string) => void
-  blockedTimes?: BlockedTime[]
-  editingBlockedTimes?: boolean
-  onAddBlockedTime?: (bt: BlockedTime) => void
-  onRemoveBlockedTime?: (index: number) => void
+  onBlockedTimeClick?: (groupId: string) => void
+  blockedTimeGroups?: BlockedTimeGroup[]
+  editingGroupId?: string | null
+  onAddBlock?: (block: BlockedTimeBlock) => void
+  onRemoveBlock?: (groupId: string, blockIndex: number) => void
 }
 
 // Grid constants
@@ -115,13 +116,13 @@ function ceilTo30(min: number): number {
   return Math.ceil(min / 30) * 30
 }
 
-/** Compute the visible time range based on course blocks and blocked times.
+/** Compute the visible time range based on course blocks and blocked time groups.
  *  - 10 min padding then floor/ceil to nearest 30-min mark
  *  - Default range: 8:00am–4:00pm
  *  - Minimum span of MIN_HOURS */
 function computeTimeRange(
   blocks: CourseBlock[],
-  blockedTimes?: BlockedTime[]
+  blockedTimeGroups?: BlockedTimeGroup[]
 ): { startMin: number; endMin: number } {
   let earliestMin = Infinity
   let latestMin = -Infinity
@@ -131,10 +132,13 @@ function computeTimeRange(
     latestMin = Math.max(latestMin, block.endMin)
   }
 
-  if (blockedTimes) {
-    for (const bt of blockedTimes) {
-      earliestMin = Math.min(earliestMin, parseTime(bt.startTime))
-      latestMin = Math.max(latestMin, parseTime(bt.endTime))
+  if (blockedTimeGroups) {
+    for (const group of blockedTimeGroups) {
+      if (!group.enabled) continue
+      for (const bt of group.blocks) {
+        earliestMin = Math.min(earliestMin, parseTime(bt.startTime))
+        latestMin = Math.max(latestMin, parseTime(bt.endTime))
+      }
     }
   }
 
@@ -162,11 +166,14 @@ function computeTimeRange(
 export function ScheduleGrid({
   courses,
   onCourseClick,
-  blockedTimes,
-  editingBlockedTimes,
-  onAddBlockedTime,
-  onRemoveBlockedTime,
+  onBlockedTimeClick,
+  blockedTimeGroups,
+  editingGroupId,
+  onAddBlock,
+  onRemoveBlock,
 }: ScheduleGridProps) {
+  const isEditing = editingGroupId != null
+
   const blocks = useMemo(() => {
     const colorMap = buildColorMap(courses)
     return courses.flatMap((course) => {
@@ -178,8 +185,8 @@ export function ScheduleGrid({
   }, [courses])
 
   const { startMin: gridStartMin, endMin: gridEndMin } = useMemo(
-    () => computeTimeRange(blocks, blockedTimes),
-    [blocks, blockedTimes]
+    () => computeTimeRange(blocks, blockedTimeGroups),
+    [blocks, blockedTimeGroups]
   )
 
   const gridHeight = gridEndMin - gridStartMin
@@ -193,6 +200,7 @@ export function ScheduleGrid({
 
   // Drag state for blocked time painting
   const gridBodyRef = useRef<HTMLDivElement>(null)
+  const gridContentRef = useRef<HTMLDivElement>(null)
   const [dragState, setDragState] = useState<{
     dayIndex: number
     startMin: number
@@ -206,7 +214,8 @@ export function ScheduleGrid({
   const pointerToGridPos = useCallback(
     (clientX: number, clientY: number) => {
       const el = gridBodyRef.current
-      if (!el) return null
+      const contentEl = gridContentRef.current
+      if (!el || !contentEl) return null
       const rect = el.getBoundingClientRect()
       const timeColWidth = TIME_COL_PX
       const x = clientX - rect.left - timeColWidth
@@ -214,11 +223,12 @@ export function ScheduleGrid({
       const dayColWidth = (rect.width - timeColWidth) / 5
       const dayIndex = Math.floor(x / dayColWidth)
       if (dayIndex < 0 || dayIndex > 4) return null
-      const totalHeight = el.scrollHeight
-      const minuteOffset = (y / totalHeight) * gridHeight
+      // Use the inner grid div's height — blocks are positioned as percentages of this
+      const contentHeight = contentEl.offsetHeight
+      const minuteOffset = (y / contentHeight) * gridHeight
       const minute = gridStartMin + minuteOffset
-      // Snap to 15-minute increments
-      const snapped = Math.round(minute / 15) * 15
+      // Snap to 10-minute increments
+      const snapped = Math.round(minute / 10) * 10
       return { dayIndex, minute: Math.max(gridStartMin, Math.min(gridEndMin, snapped)) }
     },
     [gridStartMin, gridEndMin, gridHeight]
@@ -226,14 +236,14 @@ export function ScheduleGrid({
 
   const handlePointerDown = useCallback(
     (e: React.PointerEvent) => {
-      if (!editingBlockedTimes) return
+      if (!isEditing) return
       const pos = pointerToGridPos(e.clientX, e.clientY)
       if (!pos) return
       const target = e.target as HTMLElement
       target.setPointerCapture(e.pointerId)
       setDragState({ dayIndex: pos.dayIndex, startMin: pos.minute, currentMin: pos.minute })
     },
-    [editingBlockedTimes, pointerToGridPos]
+    [isEditing, pointerToGridPos]
   )
 
   const handlePointerMove = useCallback(
@@ -249,22 +259,22 @@ export function ScheduleGrid({
 
   const handlePointerUp = useCallback(() => {
     const drag = dragRef.current
-    if (!drag || !onAddBlockedTime) return
+    if (!drag || !onAddBlock) return
     const minMin = Math.min(drag.startMin, drag.currentMin)
     const maxMin = Math.max(drag.startMin, drag.currentMin)
-    if (maxMin - minMin >= 15) {
+    if (maxMin - minMin >= 10) {
       const startH = String(Math.floor(minMin / 60)).padStart(2, "0")
       const startM = String(minMin % 60).padStart(2, "0")
       const endH = String(Math.floor(maxMin / 60)).padStart(2, "0")
       const endM = String(maxMin % 60).padStart(2, "0")
-      onAddBlockedTime({
+      onAddBlock({
         day: drag.dayIndex,
         startTime: `${startH}${startM}`,
         endTime: `${endH}${endM}`,
       })
     }
     setDragState(null)
-  }, [onAddBlockedTime])
+  }, [onAddBlock])
 
   // Cleanup drag on escape
   useEffect(() => {
@@ -301,13 +311,15 @@ export function ScheduleGrid({
         ref={gridBodyRef}
         className={cn(
           "relative flex-1 overflow-auto",
-          editingBlockedTimes && "cursor-crosshair"
+          isEditing && "cursor-crosshair"
         )}
+        style={isEditing ? { touchAction: "none", overscrollBehavior: "none" } : undefined}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
       >
         <div
+          ref={gridContentRef}
           className="relative grid grid-cols-[2.5rem_repeat(5,1fr)]"
           style={{ minHeight: `${(gridHeight / 60) * 3}rem` }}
         >
@@ -352,47 +364,98 @@ export function ScheduleGrid({
           ))}
 
           {/* Blocked time regions */}
-          {blockedTimes?.map((bt, idx) => {
-            const btStartMin = parseTime(bt.startTime)
-            const btEndMin = parseTime(bt.endTime)
-            const top = ((btStartMin - gridStartMin) / gridHeight) * 100
-            const height = ((btEndMin - btStartMin) / gridHeight) * 100
-            const dayWidth = `(100% - ${TIME_COL}) / 5`
-            const leftOffset = `calc(${TIME_COL} + (${dayWidth}) * ${bt.day})`
-            const blockWidth = `calc(${dayWidth})`
+          {blockedTimeGroups?.map((group) => {
+            if (!group.enabled && group.id !== editingGroupId) return null
+            const isEditingThisGroup = group.id === editingGroupId
 
-            return (
-              <button
-                key={`blocked-${idx}`}
-                type="button"
-                className={cn(
-                  "absolute z-10 rounded-sm",
-                  editingBlockedTimes
-                    ? "bg-red-500/25 dark:bg-red-500/30 border border-red-500/50 cursor-pointer hover:bg-red-500/40"
-                    : "pointer-events-none bg-[repeating-linear-gradient(45deg,transparent,transparent_4px,rgba(0,0,0,0.06)_4px,rgba(0,0,0,0.06)_8px)] dark:bg-[repeating-linear-gradient(45deg,transparent,transparent_4px,rgba(255,255,255,0.06)_4px,rgba(255,255,255,0.06)_8px)]"
-                )}
-                style={{
-                  top: `${top}%`,
-                  height: `${height}%`,
-                  left: leftOffset,
-                  width: blockWidth,
-                }}
-                onClick={
-                  editingBlockedTimes
-                    ? (e) => {
-                        e.stopPropagation()
-                        onRemoveBlockedTime?.(idx)
-                      }
-                    : undefined
-                }
-                tabIndex={editingBlockedTimes ? 0 : -1}
-                aria-label={
-                  editingBlockedTimes
-                    ? `Remove blocked time on ${DAYS[bt.day]}`
-                    : undefined
-                }
-              />
-            )
+            return group.blocks.map((bt, blockIdx) => {
+              const btStartMin = parseTime(bt.startTime)
+              const btEndMin = parseTime(bt.endTime)
+              const top = ((btStartMin - gridStartMin) / gridHeight) * 100
+              const height = ((btEndMin - btStartMin) / gridHeight) * 100
+              const durationMin = btEndMin - btStartMin
+              const dayWidth = `(100% - ${TIME_COL}) / 5`
+              const leftOffset = `calc(${TIME_COL} + (${dayWidth}) * ${bt.day} + 2px)`
+              const blockWidth = `calc(${dayWidth} - 4px)`
+
+              const hatchClass =
+                "bg-[repeating-linear-gradient(45deg,transparent,transparent_4px,rgba(0,0,0,0.06)_4px,rgba(0,0,0,0.06)_8px)] dark:bg-[repeating-linear-gradient(45deg,transparent,transparent_4px,rgba(255,255,255,0.06)_4px,rgba(255,255,255,0.06)_8px)]"
+
+              // First line of description only, for grid display
+              const descFirstLine = group.description
+                ? group.description.split("\n")[0]
+                : ""
+
+              return (
+                <button
+                  key={`blocked-${group.id}-${blockIdx}`}
+                  type="button"
+                  className={cn(
+                    "absolute z-10 rounded-sm overflow-hidden text-left flex flex-col justify-start",
+                    isEditingThisGroup
+                      ? "border border-red-500/50 cursor-pointer hover:brightness-125"
+                      : !isEditing && onBlockedTimeClick
+                        ? "cursor-pointer hover:ring-2 hover:ring-primary/50 hover:brightness-95"
+                        : "pointer-events-none",
+                    isEditing && !isEditingThisGroup && "opacity-30",
+                    !group.color && !isEditingThisGroup && hatchClass,
+                    isEditingThisGroup && !group.color && "bg-red-500/25 dark:bg-red-500/30"
+                  )}
+                  style={{
+                    top: `${top}%`,
+                    height: `${height}%`,
+                    left: leftOffset,
+                    width: blockWidth,
+                    ...(group.color && !isEditingThisGroup
+                      ? { backgroundColor: `${group.color}30`, borderLeft: `3px solid ${group.color}` }
+                      : {}),
+                    ...(group.color && isEditingThisGroup
+                      ? { backgroundColor: `${group.color}40`, borderColor: `${group.color}80` }
+                      : {}),
+                  }}
+                  onClick={
+                    isEditingThisGroup
+                      ? (e) => {
+                          e.stopPropagation()
+                          onRemoveBlock?.(group.id, blockIdx)
+                        }
+                      : !isEditing && onBlockedTimeClick
+                        ? (e) => {
+                            e.stopPropagation()
+                            onBlockedTimeClick(group.id)
+                          }
+                        : undefined
+                  }
+                  tabIndex={isEditingThisGroup || (!isEditing && onBlockedTimeClick) ? 0 : -1}
+                  aria-label={
+                    isEditingThisGroup
+                      ? `Remove blocked time on ${DAYS[bt.day]}`
+                      : undefined
+                  }
+                >
+                  {!isEditingThisGroup && group.color && (
+                    <>
+                      {group.title && (
+                        <div
+                          className="font-semibold leading-tight text-[10px] sm:text-xs overflow-hidden whitespace-nowrap px-1 sm:px-1.5 pt-0.5"
+                          style={{ color: group.color }}
+                        >
+                          {group.title}
+                        </div>
+                      )}
+                      {durationMin >= 80 && descFirstLine && (
+                        <div
+                          className="truncate text-[10px] leading-tight opacity-60 px-1 sm:px-1.5"
+                          style={{ color: group.color }}
+                        >
+                          {descFirstLine}
+                        </div>
+                      )}
+                    </>
+                  )}
+                </button>
+              )
+            })
           })}
 
           {/* Drag preview for blocked time painting */}
@@ -404,15 +467,19 @@ export function ScheduleGrid({
             const dayWidth = `(100% - ${TIME_COL}) / 5`
             const leftOffset = `calc(${TIME_COL} + (${dayWidth}) * ${dragState.dayIndex})`
             const blockWidth = `calc(${dayWidth})`
+            const editingGroup = blockedTimeGroups?.find((g) => g.id === editingGroupId)
+            const groupColor = editingGroup?.color
 
             return (
               <div
-                className="pointer-events-none absolute z-20 rounded-sm border-2 border-red-500/60 bg-red-500/20"
+                className="pointer-events-none absolute z-20 rounded-sm border-2"
                 style={{
                   top: `${top}%`,
                   height: `${height}%`,
                   left: leftOffset,
                   width: blockWidth,
+                  borderColor: groupColor ? `${groupColor}99` : "rgba(239, 68, 68, 0.6)",
+                  backgroundColor: groupColor ? `${groupColor}33` : "rgba(239, 68, 68, 0.2)",
                 }}
               />
             )
@@ -434,8 +501,8 @@ export function ScheduleGrid({
                 className={cn(
                   "absolute z-20 rounded border-l-3 px-1 sm:px-1.5 pt-0.5 text-xs overflow-hidden text-left transition-all flex flex-col justify-start",
                   block.colorClass,
-                  editingBlockedTimes && "opacity-40 pointer-events-none",
-                  !editingBlockedTimes && onCourseClick && "cursor-pointer hover:ring-2 hover:ring-primary/50 hover:brightness-95"
+                  isEditing && "opacity-40 pointer-events-none",
+                  !isEditing && onCourseClick && "cursor-pointer hover:ring-2 hover:ring-primary/50 hover:brightness-95"
                 )}
                 style={{
                   top: `${top}%`,
@@ -443,8 +510,8 @@ export function ScheduleGrid({
                   left: leftOffset,
                   width: blockWidth,
                 }}
-                onClick={() => !editingBlockedTimes && onCourseClick?.(block.course.crn)}
-                tabIndex={editingBlockedTimes ? -1 : 0}
+                onClick={() => !isEditing && onCourseClick?.(block.course.crn)}
+                tabIndex={isEditing ? -1 : 0}
               >
                 <div className="font-semibold leading-tight text-[10px] sm:text-xs overflow-hidden whitespace-nowrap">
                   {block.course.subject} {block.course.courseNumber}

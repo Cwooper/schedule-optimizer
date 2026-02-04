@@ -144,6 +144,7 @@ export interface CourseSpec {
 export interface GenerateRequest {
   term: string
   courseSpecs: CourseSpec[]
+  blockedTimes?: { day: number; startTime: string; endTime: string }[]
   minCourses?: number
   maxCourses?: number
 }
