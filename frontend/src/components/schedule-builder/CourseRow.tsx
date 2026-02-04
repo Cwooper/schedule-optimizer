@@ -64,9 +64,9 @@ export function CourseRow({
     <Collapsible open={expanded} onOpenChange={onToggleExpand}>
       <div
         className={cn(
-          "hover:bg-muted/50 flex items-center gap-2 rounded px-2 py-1.5 transition-colors",
+          "hover:bg-muted/50 flex items-center gap-2 rounded border-l-2 border-l-transparent px-2 py-1.5 transition-colors",
           (hasTermMismatch || courseNotInTerm) && "text-muted-foreground",
-          !expanded && hasPinnedSections && "border-l-2 border-l-primary"
+          !expanded && hasPinnedSections && "border-l-primary"
         )}
       >
         {/* Expand/collapse trigger */}
