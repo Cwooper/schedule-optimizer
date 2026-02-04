@@ -143,3 +143,24 @@
 .dark textarea::placeholder {
   color: oklch(0.5 0 0);
 }
+
+/* Tooltip animations only on hover-capable devices (mobile gets instant show/hide) */
+@media (hover: hover) {
+  .tooltip-content[data-state="delayed-open"],
+  .tooltip-content[data-state="instant-open"] {
+    animation: tooltip-in 150ms ease-out;
+  }
+  .tooltip-content[data-state="closed"] {
+    animation: tooltip-out 100ms ease-in;
+  }
+}
+
+@keyframes tooltip-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes tooltip-out {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.95); }
+}
