@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react"
 import type { BlockedTimeBlock } from "@/stores/app-store"
 import { GRID } from "@/lib/schedule-utils"
+import { genId } from "@/lib/utils"
 
 export interface DragState {
   dayIndex: number
@@ -93,6 +94,7 @@ export function useDragToPaint({
       const endH = String(Math.floor(maxMin / 60)).padStart(2, "0")
       const endM = String(maxMin % 60).padStart(2, "0")
       onAddBlock({
+        id: genId(),
         day: drag.dayIndex,
         startTime: `${startH}${startM}`,
         endTime: `${endH}${endM}`,

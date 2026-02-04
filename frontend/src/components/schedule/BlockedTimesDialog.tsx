@@ -20,8 +20,8 @@ import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
-import { DAYS, BLOCKED_PRESET_COLORS } from "@/lib/schedule-utils"
-import { useAppStore, type BlockedTimeGroup } from "@/stores/app-store"
+import { DAYS, BLOCKED_PRESET_COLORS, parseTime, GRID } from "@/lib/schedule-utils"
+import { useAppStore, type BlockedTimeBlock, type BlockedTimeGroup } from "@/stores/app-store"
 import { CustomStylePopover } from "./CustomStylePopover"
 
 function formatTime(time: string): string {
@@ -33,6 +33,25 @@ function formatTime(time: string): string {
   if (h === 0) hour = 12
   else if (h > 12) hour = h - 12
   return m === 0 ? `${hour}${suffix}` : `${hour}:${String(m).padStart(2, "0")}${suffix}`
+}
+
+/** Convert stored time "0900" or "1430" to input[type=time] format "09:00" or "14:30" */
+function toInputTime(time: string): string {
+  const clean = time.replace(":", "").padStart(4, "0")
+  return `${clean.slice(0, 2)}:${clean.slice(2, 4)}`
+}
+
+/** Convert input[type=time] format "09:00" to stored format "0900" */
+function fromInputTime(time: string): string {
+  return time.replace(":", "")
+}
+
+/** Convert total minutes (e.g. 570) to stored format "0930", clamped to 00:00–23:50 */
+function minsToStored(mins: number): string {
+  const clamped = Math.max(0, Math.min(23 * 60 + 50, mins))
+  const h = Math.floor(clamped / 60)
+  const m = clamped % 60
+  return `${String(h).padStart(2, "0")}${String(m).padStart(2, "0")}`
 }
 
 function summarizeBlocks(group: BlockedTimeGroup): string {
@@ -64,6 +83,7 @@ export function BlockedTimesDialog({
     addBlockedTimeGroup,
     removeBlockedTimeGroup,
     updateBlockedTimeGroup,
+    updateBlockInGroup,
     removeBlockFromGroup,
   } = useAppStore()
 
@@ -155,6 +175,9 @@ export function BlockedTimesDialog({
                 onCustomApply={(updates) =>
                   updateBlockedTimeGroup(group.id, updates)
                 }
+                onUpdateBlock={(blockIdx, block) =>
+                  updateBlockInGroup(group.id, blockIdx, block)
+                }
                 onRemoveBlock={(blockIdx) =>
                   removeBlockFromGroup(group.id, blockIdx)
                 }
@@ -192,6 +215,7 @@ interface GroupRowProps {
   onColorSelect: (color: string | null) => void
   onHatchedToggle: (hatched: boolean) => void
   onCustomApply: (updates: Partial<BlockedTimeGroup>) => void
+  onUpdateBlock: (blockIdx: number, block: BlockedTimeBlock) => void
   onRemoveBlock: (blockIdx: number) => void
   onDelete: () => void
   onPaint: () => void
@@ -208,10 +232,12 @@ function GroupRow({
   onColorSelect,
   onHatchedToggle,
   onCustomApply,
+  onUpdateBlock,
   onRemoveBlock,
   onDelete,
   onPaint,
 }: GroupRowProps) {
+  const [editingBlockId, setEditingBlockId] = useState<string | null>(null)
   const displayName = group.title || defaultName
   return (
     <div className="rounded-md border">
@@ -335,25 +361,90 @@ function GroupRow({
           {group.blocks.length > 0 && (
             <div className="space-y-1">
               <Label className="text-xs">Time Blocks</Label>
-              {group.blocks.map((block, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center justify-between rounded px-2 py-1 text-xs hover:bg-muted/50"
-                >
-                  <span>
-                    {DAYS[block.day]} {formatTime(block.startTime)}
-                    {"–"}
-                    {formatTime(block.endTime)}
-                  </span>
-                  <button
-                    type="button"
-                    className="text-muted-foreground hover:text-destructive"
-                    onClick={() => onRemoveBlock(idx)}
-                  >
-                    <X className="size-3.5" />
-                  </button>
-                </div>
-              ))}
+              {group.blocks.map((block, idx) => {
+                const isEditing = editingBlockId === block.id
+                return (
+                  <div key={block.id} className="rounded border border-transparent hover:border-border">
+                    {/* Summary row — click to expand */}
+                    <div
+                      role="button"
+                      tabIndex={0}
+                      className="flex cursor-pointer items-center justify-between rounded px-2 py-1 text-xs hover:bg-muted/50"
+                      onClick={() => setEditingBlockId(isEditing ? null : block.id)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault()
+                          setEditingBlockId(isEditing ? null : block.id)
+                        }
+                      }}
+                    >
+                      <span>
+                        {DAYS[block.day]} {formatTime(block.startTime)}
+                        {"–"}
+                        {formatTime(block.endTime)}
+                      </span>
+                      <button
+                        type="button"
+                        className="text-muted-foreground hover:text-destructive"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          if (isEditing) setEditingBlockId(null)
+                          onRemoveBlock(idx)
+                        }}
+                      >
+                        <X className="size-3.5" />
+                      </button>
+                    </div>
+                    {/* Inline edit form */}
+                    {isEditing && (
+                      <div className="flex items-center gap-1.5 px-2 pb-1.5 pt-0.5">
+                        <select
+                          value={block.day}
+                          onChange={(e) =>
+                            onUpdateBlock(idx, { ...block, day: Number(e.target.value) })
+                          }
+                          className="h-7 rounded border border-input bg-background px-1 text-xs"
+                        >
+                          {DAYS.map((day, dayIdx) => (
+                            <option key={day} value={dayIdx}>{day}</option>
+                          ))}
+                        </select>
+                        <input
+                          type="time"
+                          value={toInputTime(block.startTime)}
+                          onChange={(e) => {
+                            const newStart = fromInputTime(e.target.value)
+                            const startMins = parseTime(newStart)
+                            const endMins = parseTime(block.endTime)
+                            if (startMins >= endMins) {
+                              onUpdateBlock(idx, { ...block, startTime: newStart, endTime: minsToStored(startMins + GRID.MIN_DRAG_MINUTES) })
+                            } else {
+                              onUpdateBlock(idx, { ...block, startTime: newStart })
+                            }
+                          }}
+                          className="h-7 rounded border border-input bg-background px-1 text-xs tabular-nums"
+                        />
+                        <span className="text-muted-foreground text-xs">–</span>
+                        <input
+                          type="time"
+                          value={toInputTime(block.endTime)}
+                          onChange={(e) => {
+                            const newEnd = fromInputTime(e.target.value)
+                            const startMins = parseTime(block.startTime)
+                            const endMins = parseTime(newEnd)
+                            if (endMins <= startMins) {
+                              onUpdateBlock(idx, { ...block, startTime: minsToStored(endMins - GRID.MIN_DRAG_MINUTES), endTime: newEnd })
+                            } else {
+                              onUpdateBlock(idx, { ...block, endTime: newEnd })
+                            }
+                          }}
+                          className="h-7 rounded border border-input bg-background px-1 text-xs tabular-nums"
+                        />
+                      </div>
+                    )}
+                  </div>
+                )
+              })}
             </div>
           )}
 

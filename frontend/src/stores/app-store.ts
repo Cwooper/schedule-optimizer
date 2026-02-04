@@ -8,6 +8,7 @@ export type Tab = "schedule" | "search" | "statistics"
 export type Theme = "light" | "dark" | "system"
 
 export interface BlockedTimeBlock {
+  id: string
   day: number
   startTime: string
   endTime: string
@@ -139,6 +140,7 @@ interface AppState {
     updates: Partial<BlockedTimeGroup>
   ) => void
   addBlockToGroup: (groupId: string, block: BlockedTimeBlock) => void
+  updateBlockInGroup: (groupId: string, blockIndex: number, block: BlockedTimeBlock) => void
   removeBlockFromGroup: (groupId: string, blockIndex: number) => void
   setEditingBlockedTimeGroupId: (id: string | null) => void
   setTheme: (theme: Theme) => void
@@ -265,8 +267,20 @@ export const useAppStore = create<AppState>()(
       addBlockToGroup: (groupId, block) =>
         set((state) => ({
           blockedTimeGroups: state.blockedTimeGroups.map((g) =>
-            g.id === groupId ? { ...g, blocks: [...g.blocks, block] } : g
+            g.id === groupId
+              ? { ...g, blocks: [...g.blocks, { ...block, id: block.id || genId() }] }
+              : g
           ),
+        })),
+
+      updateBlockInGroup: (groupId, blockIndex, block) =>
+        set((state) => ({
+          blockedTimeGroups: state.blockedTimeGroups.map((g) => {
+            if (g.id !== groupId) return g
+            const blocks = [...g.blocks]
+            blocks[blockIndex] = block
+            return { ...g, blocks }
+          }),
         })),
 
       removeBlockFromGroup: (groupId, blockIndex) =>
@@ -348,7 +362,6 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: "schedule-optimizer",
-      version: 1,
       partialize: (state) => ({
         // Only persist these fields
         tab: state.tab,
@@ -364,19 +377,6 @@ export const useAppStore = create<AppState>()(
         generatedWithParams: state.generatedWithParams,
         currentScheduleIndex: state.currentScheduleIndex,
       }),
-      migrate: (persisted, version) => {
-        const state = persisted as Record<string, unknown>
-        if (version === 0) {
-          // v0 → v1: Add hatched + opacity to blocked time groups
-          const groups = (state.blockedTimeGroups ?? []) as Record<string, unknown>[]
-          state.blockedTimeGroups = groups.map((g) => ({
-            ...g,
-            hatched: g.hatched ?? (g.color === null),
-            opacity: g.opacity ?? 20,
-          }))
-        }
-        return state as unknown as AppState
-      },
     }
   )
 )
