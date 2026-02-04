@@ -51,7 +51,7 @@ Current grid (`frontend/src/components/schedule/ScheduleGrid.tsx`, 213 lines) is
 
 ---
 
-## Phase 4: Blocked Times (Grid Toggle Mode)
+## Phase 4: Blocked Times (Grid Toggle Mode) ✅
 
 **Files:** `ScheduleGrid.tsx`, `ScheduleView.tsx`, `app-store.ts`, `api.ts`, `ScheduleBuilder.tsx`
 
@@ -91,7 +91,7 @@ Current grid (`frontend/src/components/schedule/ScheduleGrid.tsx`, 213 lines) is
 
 ---
 
-## Phase 5: Generation Feedback (Sonners)
+## Phase 5: Generation Feedback (Sonners) ✅
 
 **Files:** `ScheduleBuilder.tsx`, `ScheduleView.tsx`
 
@@ -115,7 +115,7 @@ Current grid (`frontend/src/components/schedule/ScheduleGrid.tsx`, 213 lines) is
 
 ---
 
-## Phase 6: Pinned Section Indicator
+## Phase 6: Pinned Section Indicator ✅
 
 **Files:** `ScheduleGrid.tsx`, `ScheduleView.tsx`
 
