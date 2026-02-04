@@ -43,17 +43,36 @@ function formatTime(time: string): string {
   return `${displayHour}:${mins}${suffix}`
 }
 
+function hasScheduledTime(meeting: MeetingTime): boolean {
+  const hasWeekday = meeting.days.slice(1, 6).some(Boolean)
+  return hasWeekday && !!meeting.startTime && !!meeting.endTime
+}
+
+function isAsync(meeting: MeetingTime): boolean {
+  return meeting.room === "ASNC"
+}
+
 function formatMeetingTime(meeting: MeetingTime): string {
-  const days = formatDays(meeting.days)
-  const time = `${formatTime(meeting.startTime)}-${formatTime(meeting.endTime)}`
-  return `${days} ${time}`
+  if (hasScheduledTime(meeting)) {
+    const days = formatDays(meeting.days)
+    const time = `${formatTime(meeting.startTime)}-${formatTime(meeting.endTime)}`
+    return `${days} ${time}`
+  }
+  if (isAsync(meeting)) return "Asynchronous, no set times"
+  return "Times arranged with instructor"
 }
 
 function formatLocation(meeting: MeetingTime): string | null {
-  if (!meeting.building && !meeting.room) return null
-  if (!meeting.building) return meeting.room
-  if (!meeting.room) return meeting.building
-  return `${meeting.building} ${meeting.room}`
+  const building = meeting.building || null
+  // Don't show ASNC/SYNC as room names — they're schedule modifiers, not locations
+  const room =
+    meeting.room && meeting.room !== "ASNC" && meeting.room !== "SYNC"
+      ? meeting.room
+      : null
+  if (!building && !room) return null
+  if (!building) return room
+  if (!room) return building
+  return `${building} ${room}`
 }
 
 function formatEnrollment(section: HydratedSection): string {
