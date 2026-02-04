@@ -52,6 +52,7 @@ export function CourseRow({
   validation,
 }: CourseRowProps) {
   const hasSections = slot.sections && slot.sections.length > 0
+  const hasPinnedSections = slot.sections?.some((s) => s.required) ?? false
   const hasTermMismatch =
     slot.sections?.some((s) => s.term !== currentTerm) ?? false
   const courseNotInTerm = validation?.exists === false
@@ -64,7 +65,8 @@ export function CourseRow({
       <div
         className={cn(
           "hover:bg-muted/50 flex items-center gap-2 rounded px-2 py-1.5 transition-colors",
-          (hasTermMismatch || courseNotInTerm) && "text-muted-foreground"
+          (hasTermMismatch || courseNotInTerm) && "text-muted-foreground",
+          !expanded && hasPinnedSections && "border-l-2 border-l-primary"
         )}
       >
         {/* Expand/collapse trigger */}
