@@ -22,7 +22,7 @@ export function Header() {
 
   return (
     <header className="bg-background border-b">
-      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4">
+      <div className="mx-auto flex h-14 max-w-[1920px] items-center justify-between px-4">
         {/* Logo + Title */}
         <button
           onClick={() => setTab("schedule")}

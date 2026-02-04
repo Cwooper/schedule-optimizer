@@ -22,7 +22,8 @@ export const GRID = {
   SNAP_MINUTES: 10,
   MIN_DRAG_MINUTES: 10,
   BLOCK_INSET_PX: 2,
-  REM_PER_HOUR: 3,
+  REM_PER_HOUR_MOBILE: 3,
+  REM_PER_HOUR_DESKTOP: 4,
 } as const
 
 // ── Color palette ───────────────────────────────────────────────────────
