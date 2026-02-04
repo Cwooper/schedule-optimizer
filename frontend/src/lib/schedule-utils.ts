@@ -92,6 +92,14 @@ export function formatAmPm(hour: number): string {
   return hour >= 12 ? "pm" : "am"
 }
 
+/** Convert total minutes (e.g. 570) to stored time format "0930", clamped to 00:00–23:50 */
+export function minsToTimeStr(mins: number): string {
+  const clamped = Math.max(0, Math.min(23 * 60 + 50, mins))
+  const h = String(Math.floor(clamped / 60)).padStart(2, "0")
+  const m = String(clamped % 60).padStart(2, "0")
+  return `${h}${m}`
+}
+
 export function floorTo30(min: number): number {
   return Math.floor(min / 30) * 30
 }
@@ -126,6 +134,113 @@ export function computeTimeRange(
   }
 
   return { startMin, endMin }
+}
+
+// ── Overlap prevention ──────────────────────────────────────────────────
+
+export interface TimeRange {
+  day: number
+  startMin: number
+  endMin: number
+}
+
+/** Clamp a proposed range at existing block boundaries (create & resize). */
+function clampRange(
+  proposed: TimeRange,
+  sameDayBlocks: TimeRange[],
+  anchor?: number
+): TimeRange | null {
+  let { startMin, endMin } = proposed
+
+  for (const block of sameDayBlocks) {
+    if (endMin <= block.startMin || startMin >= block.endMin) continue
+
+    if (anchor !== undefined) {
+      if (anchor <= startMin) {
+        endMin = Math.min(endMin, block.startMin)
+      } else {
+        startMin = Math.max(startMin, block.endMin)
+      }
+    } else {
+      const distToStart = Math.abs(endMin - block.startMin)
+      const distToEnd = Math.abs(startMin - block.endMin)
+      if (distToStart <= distToEnd) {
+        endMin = Math.min(endMin, block.startMin)
+      } else {
+        startMin = Math.max(startMin, block.endMin)
+      }
+    }
+  }
+
+  if (endMin - startMin <= 0) return null
+  return { day: proposed.day, startMin, endMin }
+}
+
+/** Snap a proposed range to sit adjacent to overlapping blocks (move). */
+function snapRange(
+  proposed: TimeRange,
+  sameDayBlocks: TimeRange[],
+  dur: number
+): TimeRange | null {
+  const hasOverlap = sameDayBlocks.some(
+    (b) => proposed.startMin < b.endMin && proposed.endMin > b.startMin
+  )
+  if (!hasOverlap) return proposed
+
+  type Candidate = { startMin: number; endMin: number; dist: number }
+  const candidates: Candidate[] = []
+  const center = proposed.startMin + dur / 2
+
+  for (const block of sameDayBlocks) {
+    if (proposed.startMin >= block.endMin || proposed.endMin <= block.startMin) continue
+    const aboveStart = block.startMin - dur
+    if (aboveStart >= 0) {
+      candidates.push({
+        startMin: aboveStart, endMin: block.startMin,
+        dist: Math.abs(aboveStart + dur / 2 - center),
+      })
+    }
+    const belowEnd = block.endMin + dur
+    if (belowEnd <= 24 * 60) {
+      candidates.push({
+        startMin: block.endMin, endMin: belowEnd,
+        dist: Math.abs(block.endMin + dur / 2 - center),
+      })
+    }
+  }
+
+  if (candidates.length === 0) return null
+  candidates.sort((a, b) => a.dist - b.dist)
+
+  for (const c of candidates) {
+    const overlapsOther = sameDayBlocks.some(
+      (b) => c.startMin < b.endMin && c.endMin > b.startMin
+    )
+    if (!overlapsOther) {
+      return { day: proposed.day, startMin: c.startMin, endMin: c.endMin }
+    }
+  }
+  return null
+}
+
+/**
+ * Clamp or snap a proposed time range to avoid overlapping with existing blocks.
+ *
+ * - **"clamp" mode** (create & resize): Truncates at the nearest block boundary.
+ * - **"snap" mode** (move): Snaps adjacent to the overlapping block.
+ */
+export function clampToAvoidOverlap(
+  proposed: TimeRange,
+  existing: TimeRange[],
+  mode: "clamp" | "snap",
+  duration?: number,
+  anchor?: number
+): TimeRange | null {
+  const sameDayBlocks = existing.filter((b) => b.day === proposed.day)
+  if (sameDayBlocks.length === 0) return proposed
+
+  if (mode === "clamp") return clampRange(proposed, sameDayBlocks, anchor)
+  return snapRange(proposed, sameDayBlocks, duration ?? (proposed.endMin - proposed.startMin))
 }
 
 export function buildColorMap(courses: HydratedSection[]): Map<string, string> {

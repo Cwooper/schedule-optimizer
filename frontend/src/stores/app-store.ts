@@ -140,8 +140,8 @@ interface AppState {
     updates: Partial<BlockedTimeGroup>
   ) => void
   addBlockToGroup: (groupId: string, block: BlockedTimeBlock) => void
-  updateBlockInGroup: (groupId: string, blockIndex: number, block: BlockedTimeBlock) => void
-  removeBlockFromGroup: (groupId: string, blockIndex: number) => void
+  updateBlockInGroupById: (groupId: string, blockId: string, block: BlockedTimeBlock) => void
+  removeBlockFromGroupById: (groupId: string, blockId: string) => void
   setEditingBlockedTimeGroupId: (id: string | null) => void
   setTheme: (theme: Theme) => void
   setSidebarCollapsed: (collapsed: boolean) => void
@@ -156,6 +156,31 @@ interface AppState {
   closeCourseDialog: () => void
   requestRegenerate: () => void
   clearRegenerateRequest: () => void
+}
+
+// --- Helpers ---
+
+function updateBlockInGroup(
+  groups: BlockedTimeGroup[],
+  groupId: string,
+  blockId: string,
+  block: BlockedTimeBlock
+): BlockedTimeGroup[] {
+  return groups.map((g) => {
+    if (g.id !== groupId) return g
+    return { ...g, blocks: g.blocks.map((b) => (b.id === blockId ? block : b)) }
+  })
+}
+
+function removeBlockFromGroup(
+  groups: BlockedTimeGroup[],
+  groupId: string,
+  blockId: string
+): BlockedTimeGroup[] {
+  return groups.map((g) => {
+    if (g.id !== groupId) return g
+    return { ...g, blocks: g.blocks.filter((b) => b.id !== blockId) }
+  })
 }
 
 // --- Store ---
@@ -273,25 +298,15 @@ export const useAppStore = create<AppState>()(
           ),
         })),
 
-      updateBlockInGroup: (groupId, blockIndex, block) =>
+      updateBlockInGroupById: (groupId, blockId, block) =>
         set((state) => ({
-          blockedTimeGroups: state.blockedTimeGroups.map((g) => {
-            if (g.id !== groupId) return g
-            const blocks = [...g.blocks]
-            blocks[blockIndex] = block
-            return { ...g, blocks }
-          }),
+          blockedTimeGroups: updateBlockInGroup(state.blockedTimeGroups, groupId, blockId, block),
         })),
 
-      removeBlockFromGroup: (groupId, blockIndex) =>
-        set((state) => {
-          const updated = state.blockedTimeGroups.map((g) => {
-            if (g.id !== groupId) return g
-            const blocks = [...g.blocks.slice(0, blockIndex), ...g.blocks.slice(blockIndex + 1)]
-            return { ...g, blocks }
-          })
-          return { blockedTimeGroups: updated }
-        }),
+      removeBlockFromGroupById: (groupId, blockId) =>
+        set((state) => ({
+          blockedTimeGroups: removeBlockFromGroup(state.blockedTimeGroups, groupId, blockId),
+        })),
 
       setEditingBlockedTimeGroupId: (id) =>
         set({ editingBlockedTimeGroupId: id }),

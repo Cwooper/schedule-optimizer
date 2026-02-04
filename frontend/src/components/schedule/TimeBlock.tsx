@@ -1,3 +1,4 @@
+import { X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { GRID, HATCH_GRADIENT, opacityToHex } from "@/lib/schedule-utils"
 
@@ -34,6 +35,7 @@ export interface TimeBlockProps {
   dimmed: boolean
   editing?: boolean
 
+  onDelete?: (e: React.UIEvent) => void
   onClick?: (e: React.MouseEvent) => void
   tabIndex?: number
   ariaLabel?: string
@@ -53,6 +55,7 @@ export function TimeBlock({
   interactive,
   dimmed,
   editing,
+  onDelete,
   onClick,
   tabIndex,
   ariaLabel,
@@ -99,6 +102,28 @@ export function TimeBlock({
       tabIndex={tabIndex}
       aria-label={ariaLabel}
     >
+      {editing && onDelete && (
+        <span
+          role="button"
+          tabIndex={0}
+          className="absolute top-0 right-0 z-30 flex size-5 items-center justify-center rounded-bl bg-red-500/80 text-white hover:bg-red-600 transition-colors"
+          onPointerDown={(e) => e.stopPropagation()}
+          onClick={(e) => {
+            e.stopPropagation()
+            onDelete(e)
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault()
+              e.stopPropagation()
+              onDelete(e)
+            }
+          }}
+          aria-label="Delete block"
+        >
+          <X className="size-3" />
+        </span>
+      )}
       {children}
     </button>
   )

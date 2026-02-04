@@ -10,10 +10,10 @@ import {
   formatAmPm,
   computeTimeRange,
   buildColorMap,
-  opacityToHex,
 } from "@/lib/schedule-utils"
 import { useDragToPaint } from "@/hooks/use-drag-to-paint"
 import { TimeBlock } from "./TimeBlock"
+import { DragPreview } from "./DragPreview"
 
 export interface ScheduleGridProps {
   courses: HydratedSection[]
@@ -22,7 +22,8 @@ export interface ScheduleGridProps {
   blockedTimeGroups?: BlockedTimeGroup[]
   editingGroupId?: string | null
   onAddBlock?: (block: BlockedTimeBlock) => void
-  onRemoveBlock?: (groupId: string, blockIndex: number) => void
+  onUpdateBlock?: (blockId: string, block: BlockedTimeBlock) => void
+  onRemoveBlock?: (blockId: string) => void
 }
 
 interface CourseBlock {
@@ -65,9 +66,11 @@ export function ScheduleGrid({
   blockedTimeGroups,
   editingGroupId,
   onAddBlock,
+  onUpdateBlock,
   onRemoveBlock,
 }: ScheduleGridProps) {
   const isEditing = editingGroupId != null
+  const editingGroup = blockedTimeGroups?.find((g) => g.id === editingGroupId)
 
   const blocks = useMemo(() => {
     const colorMap = buildColorMap(courses)
@@ -112,12 +115,15 @@ export function ScheduleGrid({
     return Array.from({ length: lastHour - firstHour + 1 }, (_, i) => firstHour + i)
   }, [gridStartMin, gridEndMin])
 
-  const { dragState, gridBodyRef, gridContentRef, pointerHandlers } =
+  const { dragState, hoveredEdge, gridBodyRef, gridContentRef, pointerHandlers } =
     useDragToPaint({
       enabled: isEditing,
       gridStartMin,
       gridEndMin,
+      groupBlocks: editingGroup?.blocks,
       onAddBlock,
+      onUpdateBlock,
+      onRemoveBlock,
     })
 
   return (
@@ -145,7 +151,8 @@ export function ScheduleGrid({
         ref={gridBodyRef}
         className={cn(
           "relative flex-1 overflow-hidden",
-          isEditing && "cursor-crosshair"
+          isEditing && !hoveredEdge && "cursor-crosshair",
+          isEditing && hoveredEdge && "cursor-ns-resize"
         )}
         style={isEditing ? { touchAction: "none", overscrollBehavior: "none" } : undefined}
         {...pointerHandlers}
@@ -198,17 +205,20 @@ export function ScheduleGrid({
             if (!group.enabled && group.id !== editingGroupId) return null
             const isEditingThisGroup = group.id === editingGroupId
 
-            return group.blocks.map((bt, blockIdx) => {
+            return group.blocks.map((bt) => {
               const btStartMin = parseTime(bt.startTime)
               const btEndMin = parseTime(bt.endTime)
               const durationMin = btEndMin - btStartMin
               const descFirstLine = group.description
                 ? group.description.split("\n")[0]
                 : ""
+              const isBeingDragged =
+                (dragState?.mode === "resize" || dragState?.mode === "move") &&
+                dragState.blockId === bt.id
 
               return (
                 <TimeBlock
-                  key={`blocked-${group.id}-${blockIdx}`}
+                  key={`blocked-${group.id}-${bt.id}`}
                   variant="blocked"
                   dayIndex={bt.day}
                   startMin={btStartMin}
@@ -219,20 +229,22 @@ export function ScheduleGrid({
                   hatched={group.hatched}
                   opacity={group.opacity}
                   interactive={!isEditing && !!onBlockedTimeClick && !isEditingThisGroup}
-                  dimmed={isEditing && !isEditingThisGroup}
+                  dimmed={(isEditing && !isEditingThisGroup) || isBeingDragged}
                   editing={isEditingThisGroup}
+                  onDelete={isEditingThisGroup ? (e) => {
+                    e.stopPropagation()
+                    onRemoveBlock?.(bt.id)
+                  } : undefined}
                   onClick={(e) => {
                     e.stopPropagation()
-                    if (isEditingThisGroup) {
-                      onRemoveBlock?.(group.id, blockIdx)
-                    } else if (!isEditing && onBlockedTimeClick) {
+                    if (!isEditing && onBlockedTimeClick) {
                       onBlockedTimeClick(group.id)
                     }
                   }}
-                  tabIndex={isEditingThisGroup || (!isEditing && onBlockedTimeClick) ? 0 : -1}
+                  tabIndex={(!isEditing && onBlockedTimeClick) ? 0 : -1}
                   ariaLabel={
                     isEditingThisGroup
-                      ? `Remove blocked time on ${DAYS[bt.day]}`
+                      ? `Blocked time on ${DAYS[bt.day]}`
                       : undefined
                   }
                 >
@@ -255,35 +267,16 @@ export function ScheduleGrid({
             })
           })}
 
-          {/* Drag preview for blocked time painting */}
-          {dragState && (() => {
-            const minMin = Math.min(dragState.startMin, dragState.currentMin)
-            const maxMin = Math.max(dragState.startMin, dragState.currentMin)
-            const top = ((minMin - gridStartMin) / gridHeight) * 100
-            const height = ((maxMin - minMin) / gridHeight) * 100
-            const dayWidth = `(100% - ${GRID.TIME_COL}) / ${GRID.DAY_COUNT}`
-            const leftOffset = `calc(${GRID.TIME_COL} + (${dayWidth}) * ${dragState.dayIndex})`
-            const blockWidth = `calc(${dayWidth})`
-            const editingGroup = blockedTimeGroups?.find((g) => g.id === editingGroupId)
-            const groupColor = editingGroup?.color
-            const groupOpacity = editingGroup?.opacity ?? 20
-            const previewBgHex = opacityToHex(groupOpacity)
-            const previewBorderHex = opacityToHex(Math.min(groupOpacity + 40, 100))
-
-            return (
-              <div
-                className="pointer-events-none absolute z-20 rounded border-2"
-                style={{
-                  top: `${top}%`,
-                  height: `${height}%`,
-                  left: leftOffset,
-                  width: blockWidth,
-                  borderColor: groupColor ? `${groupColor}${previewBorderHex}` : "rgba(239, 68, 68, 0.6)",
-                  backgroundColor: groupColor ? `${groupColor}${previewBgHex}` : "rgba(239, 68, 68, 0.2)",
-                }}
-              />
-            )
-          })()}
+          {/* Drag preview for blocked time painting / resizing / moving */}
+          {dragState && (
+            <DragPreview
+              dragState={dragState}
+              editingGroup={editingGroup}
+              gridStartMin={gridStartMin}
+              gridEndMin={gridEndMin}
+              gridHeight={gridHeight}
+            />
+          )}
 
           {/* Course blocks overlay */}
           {blocks.map((block, idx) => {
