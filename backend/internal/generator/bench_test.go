@@ -143,7 +143,7 @@ func makeTestGroups(numCourses, sectionsPerCourse int, withConflicts bool) []cou
 
 			course := &cache.Course{
 				ID:  int64(i*100 + j),
-				CRN: string(rune('0' + i)) + string(rune('0' + j)),
+				CRN: string(rune('0'+i)) + string(rune('0'+j)),
 				MeetingTimes: []cache.MeetingTime{
 					{
 						Days:      [7]bool{false, true, false, true, false, true, false}, // MWF
