@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest"
-import { hydrateSection, hydrateSchedule, hydrateAsyncs } from "./schedule-utils"
+import { hydrateSection, hydrateSchedule, hydrateAsyncs, clampToAvoidOverlap, type TimeRange } from "./schedule-utils"
 import type {
   GenerateCourseInfo,
   GenerateSectionInfo,
@@ -189,5 +189,160 @@ describe("hydrateAsyncs", () => {
     const result = hydrateAsyncs(response)
 
     expect(result).toHaveLength(0)
+  })
+})
+
+describe("clampToAvoidOverlap", () => {
+  describe("clamp mode", () => {
+    it("returns proposed unchanged when no existing blocks", () => {
+      const proposed: TimeRange = { day: 0, startMin: 540, endMin: 600 }
+      const result = clampToAvoidOverlap(proposed, [], "clamp")
+      expect(result).toEqual(proposed)
+    })
+
+    it("returns proposed unchanged when existing blocks are on different days", () => {
+      const proposed: TimeRange = { day: 0, startMin: 540, endMin: 600 }
+      const existing: TimeRange[] = [{ day: 1, startMin: 540, endMin: 600 }]
+      const result = clampToAvoidOverlap(proposed, existing, "clamp")
+      expect(result).toEqual(proposed)
+    })
+
+    it("clamps end when painting downward into existing block", () => {
+      const proposed: TimeRange = { day: 0, startMin: 480, endMin: 600 }
+      const existing: TimeRange[] = [{ day: 0, startMin: 540, endMin: 660 }]
+      const result = clampToAvoidOverlap(proposed, existing, "clamp")
+      expect(result).toEqual({ day: 0, startMin: 480, endMin: 540 })
+    })
+
+    it("clamps start when painting upward into existing block", () => {
+      const proposed: TimeRange = { day: 0, startMin: 480, endMin: 600 }
+      const existing: TimeRange[] = [{ day: 0, startMin: 420, endMin: 540 }]
+      const result = clampToAvoidOverlap(proposed, existing, "clamp")
+      expect(result).toEqual({ day: 0, startMin: 540, endMin: 600 })
+    })
+
+    it("returns null when proposed is completely inside existing block", () => {
+      const proposed: TimeRange = { day: 0, startMin: 540, endMin: 600 }
+      const existing: TimeRange[] = [{ day: 0, startMin: 480, endMin: 660 }]
+      const result = clampToAvoidOverlap(proposed, existing, "clamp")
+      expect(result).toBeNull()
+    })
+
+    it("clamps end when dragging downward fully over a block (anchor-aware)", () => {
+      // Drag from 9am to 1pm over a 10am-11am block, anchor at 9am
+      const proposed: TimeRange = { day: 0, startMin: 540, endMin: 780 }
+      const existing: TimeRange[] = [{ day: 0, startMin: 600, endMin: 660 }]
+      const result = clampToAvoidOverlap(proposed, existing, "clamp", undefined, 540)
+      expect(result).toEqual({ day: 0, startMin: 540, endMin: 600 })
+    })
+
+    it("clamps start when dragging upward fully over a block (anchor-aware)", () => {
+      // Drag from 1pm up to 9am over a 10am-11am block, anchor at 1pm
+      const proposed: TimeRange = { day: 0, startMin: 540, endMin: 780 }
+      const existing: TimeRange[] = [{ day: 0, startMin: 600, endMin: 660 }]
+      const result = clampToAvoidOverlap(proposed, existing, "clamp", undefined, 780)
+      expect(result).toEqual({ day: 0, startMin: 660, endMin: 780 })
+    })
+
+    it("returns proposed unchanged when no overlap on same day", () => {
+      const proposed: TimeRange = { day: 0, startMin: 480, endMin: 540 }
+      const existing: TimeRange[] = [{ day: 0, startMin: 600, endMin: 660 }]
+      const result = clampToAvoidOverlap(proposed, existing, "clamp")
+      expect(result).toEqual(proposed)
+    })
+
+    it("clamps at the nearest block when multiple blocks overlap", () => {
+      // Two blocks: 10-11am and 12-1pm. Paint from 9am to 2pm with anchor at 9am.
+      const proposed: TimeRange = { day: 0, startMin: 540, endMin: 840 }
+      const existing: TimeRange[] = [
+        { day: 0, startMin: 600, endMin: 660 },
+        { day: 0, startMin: 720, endMin: 780 },
+      ]
+      const result = clampToAvoidOverlap(proposed, existing, "clamp", undefined, 540)
+      // Should stop at the first block boundary (10am = 600)
+      expect(result).toEqual({ day: 0, startMin: 540, endMin: 600 })
+    })
+
+    it("returns null for zero-duration proposed range", () => {
+      const proposed: TimeRange = { day: 0, startMin: 600, endMin: 600 }
+      const existing: TimeRange[] = [{ day: 0, startMin: 540, endMin: 660 }]
+      const result = clampToAvoidOverlap(proposed, existing, "clamp")
+      expect(result).toBeNull()
+    })
+
+    it("handles blocks at day boundaries (midnight)", () => {
+      const proposed: TimeRange = { day: 0, startMin: 0, endMin: 60 }
+      const result = clampToAvoidOverlap(proposed, [], "clamp")
+      expect(result).toEqual({ day: 0, startMin: 0, endMin: 60 })
+    })
+
+    it("handles blocks at end of day (1440)", () => {
+      const proposed: TimeRange = { day: 0, startMin: 1380, endMin: 1440 }
+      const result = clampToAvoidOverlap(proposed, [], "clamp")
+      expect(result).toEqual({ day: 0, startMin: 1380, endMin: 1440 })
+    })
+  })
+
+  describe("snap mode", () => {
+    it("returns proposed unchanged when no overlap", () => {
+      const proposed: TimeRange = { day: 0, startMin: 480, endMin: 540 }
+      const existing: TimeRange[] = [{ day: 0, startMin: 600, endMin: 660 }]
+      const result = clampToAvoidOverlap(proposed, existing, "snap")
+      expect(result).toEqual(proposed)
+    })
+
+    it("snaps above overlapping block when closer to top", () => {
+      const proposed: TimeRange = { day: 0, startMin: 520, endMin: 580 }
+      const existing: TimeRange[] = [{ day: 0, startMin: 540, endMin: 660 }]
+      const result = clampToAvoidOverlap(proposed, existing, "snap", 60)
+      expect(result).toEqual({ day: 0, startMin: 480, endMin: 540 })
+    })
+
+    it("snaps below overlapping block when closer to bottom", () => {
+      const proposed: TimeRange = { day: 0, startMin: 620, endMin: 680 }
+      const existing: TimeRange[] = [{ day: 0, startMin: 540, endMin: 660 }]
+      const result = clampToAvoidOverlap(proposed, existing, "snap", 60)
+      expect(result).toEqual({ day: 0, startMin: 660, endMin: 720 })
+    })
+
+    it("returns null when no valid snap position exists", () => {
+      // Block fills entire day, leaving no room
+      const proposed: TimeRange = { day: 0, startMin: 600, endMin: 720 }
+      const existing: TimeRange[] = [
+        { day: 0, startMin: 0, endMin: 720 },
+        { day: 0, startMin: 720, endMin: 1440 },
+      ]
+      const result = clampToAvoidOverlap(proposed, existing, "snap", 120)
+      expect(result).toBeNull()
+    })
+
+    it("does not interact with blocks on different days", () => {
+      const proposed: TimeRange = { day: 0, startMin: 540, endMin: 600 }
+      const existing: TimeRange[] = [{ day: 1, startMin: 540, endMin: 600 }]
+      const result = clampToAvoidOverlap(proposed, existing, "snap")
+      expect(result).toEqual(proposed)
+    })
+
+    it("snaps into tight gap between two blocks", () => {
+      // Two blocks with exactly 60min gap: 9-10am and 11am-12pm. Move 60min block into gap.
+      const proposed: TimeRange = { day: 0, startMin: 570, endMin: 630 }
+      const existing: TimeRange[] = [
+        { day: 0, startMin: 540, endMin: 600 },
+        { day: 0, startMin: 660, endMin: 720 },
+      ]
+      const result = clampToAvoidOverlap(proposed, existing, "snap", 60)
+      expect(result).toEqual({ day: 0, startMin: 600, endMin: 660 })
+    })
+
+    it("snaps above when gap below is too small", () => {
+      // 30min gap between blocks, 60min block can't fit in gap but can snap above
+      const proposed: TimeRange = { day: 0, startMin: 590, endMin: 650 }
+      const existing: TimeRange[] = [
+        { day: 0, startMin: 540, endMin: 600 },
+        { day: 0, startMin: 630, endMin: 720 },
+      ]
+      const result = clampToAvoidOverlap(proposed, existing, "snap", 60)
+      expect(result).toEqual({ day: 0, startMin: 480, endMin: 540 })
+    })
   })
 })

@@ -41,8 +41,9 @@ export function ScheduleView() {
     editingBlockedTimeGroupId,
     setEditingBlockedTimeGroupId,
     addBlockToGroup,
-    removeBlockFromGroup,
     removeBlockedTimeGroup,
+    updateBlockInGroupById,
+    removeBlockFromGroupById,
   } = useAppStore()
   const isGenerateResultStale = useAppStore((s) => s.isGenerateResultStale())
   const canRegenerate = slots.length > 0
@@ -251,7 +252,16 @@ export function ScheduleView() {
               addBlockToGroup(editingBlockedTimeGroupId, block)
             }
           }}
-          onRemoveBlock={removeBlockFromGroup}
+          onUpdateBlock={(blockId, block) => {
+            if (editingBlockedTimeGroupId) {
+              updateBlockInGroupById(editingBlockedTimeGroupId, blockId, block)
+            }
+          }}
+          onRemoveBlock={(blockId) => {
+            if (editingBlockedTimeGroupId) {
+              removeBlockFromGroupById(editingBlockedTimeGroupId, blockId)
+            }
+          }}
         />
       </div>
 

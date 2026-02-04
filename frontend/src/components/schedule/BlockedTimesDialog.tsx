@@ -20,7 +20,7 @@ import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
-import { DAYS, BLOCKED_PRESET_COLORS, parseTime, GRID } from "@/lib/schedule-utils"
+import { DAYS, BLOCKED_PRESET_COLORS, parseTime, minsToTimeStr, GRID } from "@/lib/schedule-utils"
 import { useAppStore, type BlockedTimeBlock, type BlockedTimeGroup } from "@/stores/app-store"
 import { CustomStylePopover } from "./CustomStylePopover"
 
@@ -46,13 +46,6 @@ function fromInputTime(time: string): string {
   return time.replace(":", "")
 }
 
-/** Convert total minutes (e.g. 570) to stored format "0930", clamped to 00:00–23:50 */
-function minsToStored(mins: number): string {
-  const clamped = Math.max(0, Math.min(23 * 60 + 50, mins))
-  const h = Math.floor(clamped / 60)
-  const m = clamped % 60
-  return `${String(h).padStart(2, "0")}${String(m).padStart(2, "0")}`
-}
 
 function summarizeBlocks(group: BlockedTimeGroup): string {
   if (group.blocks.length === 0) return "No time blocks"
@@ -83,8 +76,8 @@ export function BlockedTimesDialog({
     addBlockedTimeGroup,
     removeBlockedTimeGroup,
     updateBlockedTimeGroup,
-    updateBlockInGroup,
-    removeBlockFromGroup,
+    updateBlockInGroupById,
+    removeBlockFromGroupById,
   } = useAppStore()
 
   const [expandedId, setExpandedId] = useState<string | null>(null)
@@ -175,11 +168,11 @@ export function BlockedTimesDialog({
                 onCustomApply={(updates) =>
                   updateBlockedTimeGroup(group.id, updates)
                 }
-                onUpdateBlock={(blockIdx, block) =>
-                  updateBlockInGroup(group.id, blockIdx, block)
+                onUpdateBlock={(blockId, block) =>
+                  updateBlockInGroupById(group.id, blockId, block)
                 }
-                onRemoveBlock={(blockIdx) =>
-                  removeBlockFromGroup(group.id, blockIdx)
+                onRemoveBlock={(blockId) =>
+                  removeBlockFromGroupById(group.id, blockId)
                 }
                 onDelete={() => {
                   removeBlockedTimeGroup(group.id)
@@ -215,8 +208,8 @@ interface GroupRowProps {
   onColorSelect: (color: string | null) => void
   onHatchedToggle: (hatched: boolean) => void
   onCustomApply: (updates: Partial<BlockedTimeGroup>) => void
-  onUpdateBlock: (blockIdx: number, block: BlockedTimeBlock) => void
-  onRemoveBlock: (blockIdx: number) => void
+  onUpdateBlock: (blockId: string, block: BlockedTimeBlock) => void
+  onRemoveBlock: (blockId: string) => void
   onDelete: () => void
   onPaint: () => void
 }
@@ -277,6 +270,14 @@ function GroupRow({
             checked={group.enabled}
             onCheckedChange={onToggleEnabled}
           />
+          <button
+            type="button"
+            className="text-muted-foreground hover:text-primary rounded p-0.5 transition-colors"
+            onClick={onPaint}
+            aria-label="Paint blocked time on grid"
+          >
+            <Paintbrush className="size-4" />
+          </button>
           <button
             type="button"
             className="text-muted-foreground hover:text-destructive rounded p-0.5 transition-colors"
@@ -361,7 +362,7 @@ function GroupRow({
           {group.blocks.length > 0 && (
             <div className="space-y-1">
               <Label className="text-xs">Time Blocks</Label>
-              {group.blocks.map((block, idx) => {
+              {group.blocks.map((block) => {
                 const isEditing = editingBlockId === block.id
                 return (
                   <div key={block.id} className="rounded border border-transparent hover:border-border">
@@ -389,7 +390,7 @@ function GroupRow({
                         onClick={(e) => {
                           e.stopPropagation()
                           if (isEditing) setEditingBlockId(null)
-                          onRemoveBlock(idx)
+                          onRemoveBlock(block.id)
                         }}
                       >
                         <X className="size-3.5" />
@@ -401,7 +402,7 @@ function GroupRow({
                         <select
                           value={block.day}
                           onChange={(e) =>
-                            onUpdateBlock(idx, { ...block, day: Number(e.target.value) })
+                            onUpdateBlock(block.id, { ...block, day: Number(e.target.value) })
                           }
                           className="h-7 rounded border border-input bg-background px-1 text-xs"
                         >
@@ -417,9 +418,9 @@ function GroupRow({
                             const startMins = parseTime(newStart)
                             const endMins = parseTime(block.endTime)
                             if (startMins >= endMins) {
-                              onUpdateBlock(idx, { ...block, startTime: newStart, endTime: minsToStored(startMins + GRID.MIN_DRAG_MINUTES) })
+                              onUpdateBlock(block.id, { ...block, startTime: newStart, endTime: minsToTimeStr(startMins + GRID.MIN_DRAG_MINUTES) })
                             } else {
-                              onUpdateBlock(idx, { ...block, startTime: newStart })
+                              onUpdateBlock(block.id, { ...block, startTime: newStart })
                             }
                           }}
                           className="h-7 rounded border border-input bg-background px-1 text-xs tabular-nums"
@@ -433,9 +434,9 @@ function GroupRow({
                             const startMins = parseTime(block.startTime)
                             const endMins = parseTime(newEnd)
                             if (endMins <= startMins) {
-                              onUpdateBlock(idx, { ...block, startTime: minsToStored(endMins - GRID.MIN_DRAG_MINUTES), endTime: newEnd })
+                              onUpdateBlock(block.id, { ...block, startTime: minsToTimeStr(endMins - GRID.MIN_DRAG_MINUTES), endTime: newEnd })
                             } else {
-                              onUpdateBlock(idx, { ...block, endTime: newEnd })
+                              onUpdateBlock(block.id, { ...block, endTime: newEnd })
                             }
                           }}
                           className="h-7 rounded border border-input bg-background px-1 text-xs tabular-nums"
@@ -448,18 +449,6 @@ function GroupRow({
             </div>
           )}
 
-          {/* Actions */}
-          <div className="pt-1">
-            <Button
-              variant="outline"
-              size="sm"
-              className="w-full text-xs"
-              onClick={onPaint}
-            >
-              <Paintbrush className="size-3.5" />
-              Paint on Grid
-            </Button>
-          </div>
         </div>
       )}
     </div>
