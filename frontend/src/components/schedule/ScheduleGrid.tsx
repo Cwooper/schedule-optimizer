@@ -12,6 +12,7 @@ import {
   buildColorMap,
 } from "@/lib/schedule-utils"
 import { useDragToPaint } from "@/hooks/use-drag-to-paint"
+import { useIsDesktop } from "@/hooks/use-media-query"
 import { TimeBlock } from "./TimeBlock"
 import { DragPreview } from "./DragPreview"
 
@@ -71,6 +72,9 @@ export function ScheduleGrid({
   onRemoveBlock,
   captureRef,
 }: ScheduleGridProps) {
+  const isDesktop = useIsDesktop()
+  const remPerHour = isDesktop ? GRID.REM_PER_HOUR_DESKTOP : GRID.REM_PER_HOUR_MOBILE
+
   const isEditing = editingGroupId != null
   const editingGroup = blockedTimeGroups?.find((g) => g.id === editingGroupId)
 
@@ -162,7 +166,7 @@ export function ScheduleGrid({
         <div
           ref={gridContentRef}
           className="relative grid grid-cols-[2.5rem_repeat(5,1fr)]"
-          style={{ minHeight: `${(gridHeight / 60) * GRID.REM_PER_HOUR}rem` }}
+          style={{ minHeight: `${(gridHeight / 60) * remPerHour}rem` }}
         >
           {/* Time labels column */}
           <div className="relative">
@@ -280,7 +284,11 @@ export function ScheduleGrid({
             />
           )}
 
-          {/* Course blocks overlay */}
+          {/* Course blocks overlay
+              Content display logic:
+              - Desktop: always show 3 lines (subject, instructor, room), +title if >= 70min
+              - Mobile: duration-based (subject always, +room @50min, +title @70min, +instructor @80min)
+          */}
           {blocks.map((block, idx) => {
             const durationMin = block.endMin - block.startMin
 
@@ -307,12 +315,12 @@ export function ScheduleGrid({
                     {decodeHtmlEntities(block.course.title)}
                   </div>
                 )}
-                {durationMin >= 80 && (
+                {(isDesktop || durationMin >= 80) && (
                   <div className="truncate text-[10px] leading-tight opacity-70">
                     {decodeHtmlEntities(block.course.instructor)}
                   </div>
                 )}
-                {durationMin >= 50 && (
+                {(isDesktop || durationMin >= 50) && (
                   <div className="truncate text-[10px] leading-tight opacity-60">
                     {block.meeting.building} {block.meeting.room}
                   </div>

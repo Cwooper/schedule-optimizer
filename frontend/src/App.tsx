@@ -32,53 +32,56 @@ function App() {
     <div className="bg-background text-foreground flex min-h-screen flex-col">
       <Header />
 
-      {/* Tab Navigation with mobile hamburger */}
-      <div className="relative flex items-center justify-center border-b px-4 py-3">
-        {/* Mobile drawer trigger - positioned left of tabs */}
-        <Drawer direction="left" open={drawerOpen} onOpenChange={setDrawerOpen}>
-          <DrawerTrigger asChild>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute left-4 md:hidden"
-            >
-              <Menu className="size-5" />
-              <span className="sr-only">Open course builder</span>
-            </Button>
-          </DrawerTrigger>
-          <DrawerContent className="h-full w-80">
-            <DrawerHeader className="sr-only">
-              <DrawerTitle>Schedule Builder</DrawerTitle>
-              <DrawerDescription>Add and configure courses for schedule generation</DrawerDescription>
-            </DrawerHeader>
+      {/* Tab nav + main content wrapper with max-width constraint */}
+      <div className="mx-auto flex w-full max-w-[1920px] flex-1 flex-col overflow-hidden min-[1920px]:border-x">
+        {/* Tab Navigation with mobile hamburger */}
+        <div className="relative flex items-center justify-center border-b px-4 py-3">
+          {/* Mobile drawer trigger - positioned left of tabs */}
+          <Drawer direction="left" open={drawerOpen} onOpenChange={setDrawerOpen}>
+            <DrawerTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute left-4 md:hidden"
+              >
+                <Menu className="size-5" />
+                <span className="sr-only">Open course builder</span>
+              </Button>
+            </DrawerTrigger>
+            <DrawerContent className="h-full w-80">
+              <DrawerHeader className="sr-only">
+                <DrawerTitle>Schedule Builder</DrawerTitle>
+                <DrawerDescription>Add and configure courses for schedule generation</DrawerDescription>
+              </DrawerHeader>
+              <ScheduleBuilder />
+            </DrawerContent>
+          </Drawer>
+
+          <TabNav />
+        </div>
+
+        {/* Main content area with sidebar */}
+        <div className="flex flex-1 overflow-hidden">
+          {/* Desktop sidebar */}
+          <aside className="hidden w-80 flex-col border-r md:flex">
             <ScheduleBuilder />
-          </DrawerContent>
-        </Drawer>
+          </aside>
 
-        <TabNav />
-      </div>
-
-      {/* Main content area with sidebar */}
-      <div className="flex flex-1 overflow-hidden">
-        {/* Desktop sidebar */}
-        <aside className="hidden w-80 flex-col border-r md:flex">
-          <ScheduleBuilder />
-        </aside>
-
-        {/* Main content */}
-        <main className="flex-1 overflow-hidden">
-          {tab === "schedule" && <ScheduleView />}
-          {tab === "search" && (
-            <div className="flex h-full items-center justify-center">
-              <p className="text-muted-foreground">Search (coming soon)</p>
-            </div>
-          )}
-          {tab === "statistics" && (
-            <div className="flex h-full items-center justify-center">
-              <p className="text-muted-foreground">Statistics (coming soon)</p>
-            </div>
-          )}
-        </main>
+          {/* Main content */}
+          <main className="flex-1 overflow-hidden">
+            {tab === "schedule" && <ScheduleView />}
+            {tab === "search" && (
+              <div className="flex h-full items-center justify-center">
+                <p className="text-muted-foreground">Search (coming soon)</p>
+              </div>
+            )}
+            {tab === "statistics" && (
+              <div className="flex h-full items-center justify-center">
+                <p className="text-muted-foreground">Statistics (coming soon)</p>
+              </div>
+            )}
+          </main>
+        </div>
       </div>
 
       <Footer />
