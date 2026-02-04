@@ -20,19 +20,9 @@ import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
-import { DAYS } from "@/lib/schedule-utils"
+import { DAYS, BLOCKED_PRESET_COLORS } from "@/lib/schedule-utils"
 import { useAppStore, type BlockedTimeGroup } from "@/stores/app-store"
-
-const PRESET_COLORS = [
-  { key: "slate", hex: "#64748b", label: "Slate" },
-  { key: "rose", hex: "#f43f5e", label: "Rose" },
-  { key: "amber", hex: "#f59e0b", label: "Amber" },
-  { key: "emerald", hex: "#10b981", label: "Emerald" },
-  { key: "sky", hex: "#0ea5e9", label: "Sky" },
-  { key: "violet", hex: "#8b5cf6", label: "Violet" },
-  { key: "orange", hex: "#f97316", label: "Orange" },
-  { key: "pink", hex: "#ec4899", label: "Pink" },
-]
+import { CustomStylePopover } from "./CustomStylePopover"
 
 function formatTime(time: string): string {
   const clean = time.replace(":", "").padStart(4, "0")
@@ -78,8 +68,6 @@ export function BlockedTimesDialog({
   } = useAppStore()
 
   const [expandedId, setExpandedId] = useState<string | null>(null)
-  const [customColorId, setCustomColorId] = useState<string | null>(null)
-  const [customHex, setCustomHex] = useState("")
 
   // Expand the target group when dialog opens via grid click
   const [prevOpen, setPrevOpen] = useState(false)
@@ -103,20 +91,26 @@ export function BlockedTimesDialog({
 
   const toggleExpanded = (id: string) => {
     setExpandedId((prev) => (prev === id ? null : id))
-    setCustomColorId(null)
   }
 
   const handleColorSelect = (groupId: string, color: string | null) => {
-    updateBlockedTimeGroup(groupId, { color })
-    setCustomColorId(null)
+    const group = blockedTimeGroups.find((g) => g.id === groupId)
+    if (!group) return
+
+    if (color === null) {
+      updateBlockedTimeGroup(groupId, { color: null, hatched: true })
+    } else if (group.color === color) {
+      updateBlockedTimeGroup(groupId, { color: null, hatched: true })
+    } else {
+      updateBlockedTimeGroup(groupId, { color })
+    }
   }
 
-  const handleCustomColorSubmit = (groupId: string) => {
-    if (/^#[0-9a-fA-F]{6}$/.test(customHex)) {
-      updateBlockedTimeGroup(groupId, { color: customHex })
-      setCustomColorId(null)
-      setCustomHex("")
-    }
+  const handleHatchedToggle = (groupId: string, hatched: boolean) => {
+    const group = blockedTimeGroups.find((g) => g.id === groupId)
+    if (!group) return
+    if (!hatched && group.color === null) return
+    updateBlockedTimeGroup(groupId, { hatched })
   }
 
   return (
@@ -155,15 +149,11 @@ export function BlockedTimesDialog({
                 onColorSelect={(color) =>
                   handleColorSelect(group.id, color)
                 }
-                onCustomColorOpen={() => {
-                  setCustomColorId(group.id)
-                  setCustomHex(group.color ?? "")
-                }}
-                customColorOpen={customColorId === group.id}
-                customHex={customHex}
-                onCustomHexChange={setCustomHex}
-                onCustomColorSubmit={() =>
-                  handleCustomColorSubmit(group.id)
+                onHatchedToggle={(hatched) =>
+                  handleHatchedToggle(group.id, hatched)
+                }
+                onCustomApply={(updates) =>
+                  updateBlockedTimeGroup(group.id, updates)
                 }
                 onRemoveBlock={(blockIdx) =>
                   removeBlockFromGroup(group.id, blockIdx)
@@ -200,11 +190,8 @@ interface GroupRowProps {
   onTitleChange: (title: string) => void
   onDescriptionChange: (description: string) => void
   onColorSelect: (color: string | null) => void
-  onCustomColorOpen: () => void
-  customColorOpen: boolean
-  customHex: string
-  onCustomHexChange: (hex: string) => void
-  onCustomColorSubmit: () => void
+  onHatchedToggle: (hatched: boolean) => void
+  onCustomApply: (updates: Partial<BlockedTimeGroup>) => void
   onRemoveBlock: (blockIdx: number) => void
   onDelete: () => void
   onPaint: () => void
@@ -219,11 +206,8 @@ function GroupRow({
   onTitleChange,
   onDescriptionChange,
   onColorSelect,
-  onCustomColorOpen,
-  customColorOpen,
-  customHex,
-  onCustomHexChange,
-  onCustomColorSubmit,
+  onHatchedToggle,
+  onCustomApply,
   onRemoveBlock,
   onDelete,
   onPaint,
@@ -249,7 +233,7 @@ function GroupRow({
         ) : (
           <ChevronRight className="text-muted-foreground size-4 shrink-0" />
         )}
-        <ColorIndicator color={group.color} />
+        <ColorIndicator color={group.color} hatched={group.hatched} />
         <div className="min-w-0 flex-1">
           <div className="truncate font-medium">{displayName}</div>
           <div className="text-muted-foreground truncate text-xs">
@@ -257,6 +241,7 @@ function GroupRow({
           </div>
         </div>
         <div
+          className="flex items-center gap-1.5"
           onClick={(e) => e.stopPropagation()}
           onKeyDown={(e) => {
             if (e.key === " ") e.stopPropagation()
@@ -266,6 +251,14 @@ function GroupRow({
             checked={group.enabled}
             onCheckedChange={onToggleEnabled}
           />
+          <button
+            type="button"
+            className="text-muted-foreground hover:text-destructive rounded p-0.5 transition-colors"
+            onClick={onDelete}
+            aria-label="Delete blocked time group"
+          >
+            <Trash2 className="size-4" />
+          </button>
         </div>
       </div>
 
@@ -294,28 +287,31 @@ function GroupRow({
             />
           </div>
 
-          {/* Color picker */}
-          <div className="space-y-1">
-            <Label className="text-xs">Color</Label>
-            <div className="flex flex-wrap gap-1.5">
-              {/* Hatched option */}
+          {/* Style controls */}
+          <div className="space-y-2">
+            <Label className="text-xs">Style</Label>
+            <div className="flex flex-wrap items-center gap-1.5">
+              {/* Hatched toggle */}
               <button
                 type="button"
                 title="Hatched pattern"
                 className={cn(
                   "size-6 rounded-sm border-2 transition-colors",
-                  group.color === null
+                  group.hatched
                     ? "border-foreground"
-                    : "border-border hover:border-foreground/50"
+                    : "border-border hover:border-foreground/50",
+                  !group.hatched && group.color === null && "opacity-50 cursor-not-allowed"
                 )}
                 style={{
                   background:
                     "repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(128,128,128,0.3) 2px, rgba(128,128,128,0.3) 4px)",
                 }}
-                onClick={() => onColorSelect(null)}
+                onClick={() => onHatchedToggle(!group.hatched)}
               />
+              {/* Separator */}
+              <div className="mx-0.5 h-5 w-px bg-border" />
               {/* Preset colors */}
-              {PRESET_COLORS.map((c) => (
+              {BLOCKED_PRESET_COLORS.map((c) => (
                 <button
                   key={c.key}
                   type="button"
@@ -330,49 +326,9 @@ function GroupRow({
                   onClick={() => onColorSelect(c.hex)}
                 />
               ))}
-              {/* Custom color toggle */}
-              <button
-                type="button"
-                title="Custom color"
-                className={cn(
-                  "flex size-6 items-center justify-center rounded-sm border-2 text-[10px] font-medium transition-colors",
-                  customColorOpen || (group.color && !PRESET_COLORS.some((c) => c.hex === group.color))
-                    ? "border-foreground"
-                    : "border-border hover:border-foreground/50"
-                )}
-                style={
-                  group.color && !PRESET_COLORS.some((c) => c.hex === group.color)
-                    ? { backgroundColor: group.color }
-                    : {}
-                }
-                onClick={onCustomColorOpen}
-              >
-                {!(group.color && !PRESET_COLORS.some((c) => c.hex === group.color)) && "#"}
-              </button>
+              {/* Custom popover */}
+              <CustomStylePopover group={group} onApply={onCustomApply} />
             </div>
-            {/* Custom hex input */}
-            {customColorOpen && (
-              <div className="flex items-center gap-2 pt-1">
-                <Input
-                  value={customHex}
-                  onChange={(e) => onCustomHexChange(e.target.value)}
-                  placeholder="#6366f1"
-                  className="h-7 flex-1 font-mono text-xs"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") onCustomColorSubmit()
-                  }}
-                />
-                <Button
-                  size="sm"
-                  variant="outline"
-                  className="h-7 px-2 text-xs"
-                  onClick={onCustomColorSubmit}
-                  disabled={!/^#[0-9a-fA-F]{6}$/.test(customHex)}
-                >
-                  Apply
-                </Button>
-              </div>
-            )}
           </div>
 
           {/* Block list */}
@@ -402,24 +358,15 @@ function GroupRow({
           )}
 
           {/* Actions */}
-          <div className="flex gap-2 pt-1">
+          <div className="pt-1">
             <Button
               variant="outline"
               size="sm"
-              className="flex-1 text-xs"
+              className="w-full text-xs"
               onClick={onPaint}
             >
               <Paintbrush className="size-3.5" />
               Paint on Grid
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              className="text-destructive hover:bg-destructive/10 text-xs"
-              onClick={onDelete}
-            >
-              <Trash2 className="size-3.5" />
-              Delete
             </Button>
           </div>
         </div>
@@ -428,14 +375,15 @@ function GroupRow({
   )
 }
 
-function ColorIndicator({ color }: { color: string | null }) {
+function ColorIndicator({ color, hatched }: { color: string | null; hatched: boolean }) {
+  const hatchGradient = "repeating-linear-gradient(45deg, transparent, transparent 1.5px, rgba(128,128,128,0.4) 1.5px, rgba(128,128,128,0.4) 3px)"
+
   if (color === null) {
     return (
       <span
         className="size-3.5 shrink-0 rounded-sm border border-border"
         style={{
-          background:
-            "repeating-linear-gradient(45deg, transparent, transparent 1.5px, rgba(128,128,128,0.4) 1.5px, rgba(128,128,128,0.4) 3px)",
+          background: hatched ? hatchGradient : undefined,
         }}
       />
     )
@@ -443,7 +391,10 @@ function ColorIndicator({ color }: { color: string | null }) {
   return (
     <span
       className="size-3.5 shrink-0 rounded-sm border border-border"
-      style={{ backgroundColor: color }}
+      style={{
+        backgroundColor: color,
+        backgroundImage: hatched ? hatchGradient : undefined,
+      }}
     />
   )
 }

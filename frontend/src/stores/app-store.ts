@@ -17,7 +17,9 @@ export interface BlockedTimeGroup {
   id: string
   title: string // user-set label; empty = auto "Blocked Time N" in dialog only
   description: string
-  color: string | null // null = hatched pattern, string = palette key or hex
+  color: string | null // null = no color, string = palette key or hex
+  hatched: boolean // show hatched overlay pattern
+  opacity: number // 10-80, background opacity percentage when color is set
   enabled: boolean // ON = visible on grid + used in generation
   blocks: BlockedTimeBlock[]
 }
@@ -234,6 +236,8 @@ export const useAppStore = create<AppState>()(
               title: "",
               description: "",
               color: null,
+              hatched: true,
+              opacity: 20,
               enabled: true,
               blocks: [],
             },
@@ -344,6 +348,7 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: "schedule-optimizer",
+      version: 1,
       partialize: (state) => ({
         // Only persist these fields
         tab: state.tab,
@@ -359,6 +364,19 @@ export const useAppStore = create<AppState>()(
         generatedWithParams: state.generatedWithParams,
         currentScheduleIndex: state.currentScheduleIndex,
       }),
+      migrate: (persisted, version) => {
+        const state = persisted as Record<string, unknown>
+        if (version === 0) {
+          // v0 → v1: Add hatched + opacity to blocked time groups
+          const groups = (state.blockedTimeGroups ?? []) as Record<string, unknown>[]
+          state.blockedTimeGroups = groups.map((g) => ({
+            ...g,
+            hatched: g.hatched ?? (g.color === null),
+            opacity: g.opacity ?? 20,
+          }))
+        }
+        return state as unknown as AppState
+      },
     }
   )
 )

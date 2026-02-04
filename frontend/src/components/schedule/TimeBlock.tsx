@@ -1,8 +1,21 @@
 import { cn } from "@/lib/utils"
-import { GRID } from "@/lib/schedule-utils"
+import { GRID, HATCH_GRADIENT, opacityToHex } from "@/lib/schedule-utils"
 
-const HATCH_CLASS =
-  "bg-[repeating-linear-gradient(45deg,transparent,transparent_4px,rgba(0,0,0,0.06)_4px,rgba(0,0,0,0.06)_8px)] dark:bg-[repeating-linear-gradient(45deg,transparent,transparent_4px,rgba(255,255,255,0.06)_4px,rgba(255,255,255,0.06)_8px)]"
+function blockedColorStyle(
+  color: string,
+  editing: boolean,
+  hatched: boolean,
+  opacity: number,
+): React.CSSProperties {
+  const bgHex = opacityToHex(editing ? Math.min(opacity + 10, 100) : opacity)
+  const borderHex = opacityToHex(editing ? Math.min(opacity + 30, 100) : 100)
+  return {
+    backgroundColor: `${color}${bgHex}`,
+    borderLeft: `3px solid ${color}${borderHex}`,
+    ...(editing ? { borderColor: `${color}${borderHex}` } : {}),
+    ...(hatched ? { backgroundImage: HATCH_GRADIENT } : {}),
+  }
+}
 
 export interface TimeBlockProps {
   dayIndex: number
@@ -11,9 +24,11 @@ export interface TimeBlockProps {
   gridStartMin: number
   gridHeight: number
 
-  /** Tailwind class string (courses) OR hex string (blocked) OR null (hatched) */
+  /** Tailwind class string (courses) OR hex string (blocked) OR null (no color) */
   color: string | null
   variant: "course" | "blocked"
+  hatched?: boolean
+  opacity?: number
 
   interactive: boolean
   dimmed: boolean
@@ -33,6 +48,8 @@ export function TimeBlock({
   gridHeight,
   color,
   variant,
+  hatched,
+  opacity,
   interactive,
   dimmed,
   editing,
@@ -49,7 +66,7 @@ export function TimeBlock({
 
   const isCourse = variant === "course"
   const isBlockedWithColor = variant === "blocked" && color !== null
-  const isHatched = variant === "blocked" && color === null && !editing
+  const isHatchedOnly = variant === "blocked" && hatched && color === null && !editing
 
   const className = cn(
     "absolute z-20 rounded overflow-hidden text-left flex flex-col justify-start transition-all px-1 sm:px-1.5 pt-0.5",
@@ -59,7 +76,6 @@ export function TimeBlock({
     interactive && "cursor-pointer hover:ring-2 hover:ring-primary/50 hover:brightness-95",
     editing && "border border-red-500/50 cursor-pointer hover:brightness-125",
     editing && !color && "bg-red-500/25 dark:bg-red-500/30",
-    isHatched && HATCH_CLASS,
     !interactive && !editing && !dimmed && "pointer-events-none",
   )
 
@@ -68,12 +84,10 @@ export function TimeBlock({
     height: `${height}%`,
     left: leftOffset,
     width: blockWidth,
-    ...(isBlockedWithColor && !editing
-      ? { backgroundColor: `${color}30`, borderLeft: `3px solid ${color}` }
+    ...(isBlockedWithColor
+      ? blockedColorStyle(color, !!editing, !!hatched, opacity ?? 20)
       : {}),
-    ...(isBlockedWithColor && editing
-      ? { backgroundColor: `${color}40`, borderColor: `${color}80` }
-      : {}),
+    ...(isHatchedOnly ? { backgroundImage: HATCH_GRADIENT } : {}),
   }
 
   return (
