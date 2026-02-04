@@ -6,6 +6,114 @@ import type {
   ScheduleRef,
 } from "./api"
 
+// ── Grid constants ──────────────────────────────────────────────────────
+
+export const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri"] as const
+
+export const GRID = {
+  TIME_COL: "2.5rem",
+  TIME_COL_PX: 40,
+  DEFAULT_START_MIN: 480,   // 8:00am
+  DEFAULT_END_MIN: 960,     // 4:00pm
+  PADDING_MIN: 10,
+  MIN_HOURS: 8,
+  DAY_COUNT: 5,
+  SNAP_MINUTES: 10,
+  MIN_DRAG_MINUTES: 10,
+  BLOCK_INSET_PX: 2,
+  REM_PER_HOUR: 3,
+} as const
+
+// ── Color palette ───────────────────────────────────────────────────────
+
+export const COURSE_COLORS = [
+  "bg-blue-500/40 dark:bg-blue-500/35 border-blue-500 text-blue-950 dark:text-blue-100",
+  "bg-emerald-500/40 dark:bg-emerald-500/35 border-emerald-500 text-emerald-950 dark:text-emerald-100",
+  "bg-rose-500/40 dark:bg-rose-500/35 border-rose-500 text-rose-950 dark:text-rose-100",
+  "bg-orange-500/40 dark:bg-orange-500/35 border-orange-500 text-orange-950 dark:text-orange-100",
+  "bg-violet-500/40 dark:bg-violet-500/35 border-violet-500 text-violet-950 dark:text-violet-100",
+  "bg-teal-500/40 dark:bg-teal-500/35 border-teal-500 text-teal-950 dark:text-teal-100",
+  "bg-amber-500/40 dark:bg-amber-500/35 border-amber-500 text-amber-950 dark:text-amber-100",
+  "bg-fuchsia-500/40 dark:bg-fuchsia-500/35 border-fuchsia-500 text-fuchsia-950 dark:text-fuchsia-100",
+]
+
+// ── Time helpers ────────────────────────────────────────────────────────
+
+export function hashString(str: string): number {
+  let hash = 0
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i)
+    hash = (hash << 5) - hash + char
+    hash = hash & hash
+  }
+  return Math.abs(hash)
+}
+
+export function parseTime(time: string): number {
+  if (!time) return 0
+  const clean = time.replace(":", "").padStart(4, "0")
+  const hours = parseInt(clean.slice(0, 2), 10) || 0
+  const mins = parseInt(clean.slice(2, 4), 10) || 0
+  return hours * 60 + mins
+}
+
+export function formatHour(hour: number): string {
+  if (hour === 0 || hour === 12) return "12"
+  return hour > 12 ? `${hour - 12}` : `${hour}`
+}
+
+export function formatAmPm(hour: number): string {
+  return hour >= 12 ? "pm" : "am"
+}
+
+export function floorTo30(min: number): number {
+  return Math.floor(min / 30) * 30
+}
+
+export function ceilTo30(min: number): number {
+  return Math.ceil(min / 30) * 30
+}
+
+export function computeTimeRange(
+  timeSpans: { startMin: number; endMin: number }[]
+): { startMin: number; endMin: number } {
+  let earliestMin = Infinity
+  let latestMin = -Infinity
+
+  for (const span of timeSpans) {
+    earliestMin = Math.min(earliestMin, span.startMin)
+    latestMin = Math.max(latestMin, span.endMin)
+  }
+
+  if (!isFinite(earliestMin)) {
+    return { startMin: GRID.DEFAULT_START_MIN, endMin: GRID.DEFAULT_END_MIN }
+  }
+
+  let startMin = floorTo30(earliestMin - GRID.PADDING_MIN)
+  let endMin = ceilTo30(latestMin + GRID.PADDING_MIN)
+
+  startMin = Math.max(0, Math.min(startMin, GRID.DEFAULT_START_MIN))
+  endMin = Math.min(24 * 60, Math.max(endMin, GRID.DEFAULT_END_MIN))
+
+  if (endMin - startMin < GRID.MIN_HOURS * 60) {
+    endMin = Math.min(24 * 60, startMin + GRID.MIN_HOURS * 60)
+  }
+
+  return { startMin, endMin }
+}
+
+export function buildColorMap(courses: HydratedSection[]): Map<string, string> {
+  const colorMap = new Map<string, string>()
+  for (const course of courses) {
+    const key = `${course.subject}:${course.courseNumber}`
+    if (!colorMap.has(key)) {
+      const colorIndex = hashString(key) % COURSE_COLORS.length
+      colorMap.set(key, COURSE_COLORS[colorIndex])
+    }
+  }
+  return colorMap
+}
+
 /**
  * Hydrate a single CRN into a full HydratedSection by joining course and section data.
  * Returns null if section or course not found.

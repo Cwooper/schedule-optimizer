@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import {
   ChevronDown,
   ChevronRight,
@@ -20,9 +20,8 @@ import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
+import { DAYS } from "@/lib/schedule-utils"
 import { useAppStore, type BlockedTimeGroup } from "@/stores/app-store"
-
-const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri"]
 
 const PRESET_COLORS = [
   { key: "slate", hex: "#64748b", label: "Slate" },
@@ -40,7 +39,9 @@ function formatTime(time: string): string {
   const h = parseInt(clean.slice(0, 2), 10)
   const m = parseInt(clean.slice(2, 4), 10)
   const suffix = h >= 12 ? "pm" : "am"
-  const hour = h === 0 ? 12 : h > 12 ? h - 12 : h
+  let hour = h
+  if (h === 0) hour = 12
+  else if (h > 12) hour = h - 12
   return m === 0 ? `${hour}${suffix}` : `${hour}:${String(m).padStart(2, "0")}${suffix}`
 }
 
@@ -81,11 +82,13 @@ export function BlockedTimesDialog({
   const [customHex, setCustomHex] = useState("")
 
   // Expand the target group when dialog opens via grid click
-  useEffect(() => {
+  const [prevOpen, setPrevOpen] = useState(false)
+  if (open !== prevOpen) {
+    setPrevOpen(open)
     if (open && initialExpandedId) {
       setExpandedId(initialExpandedId)
     }
-  }, [open, initialExpandedId])
+  }
 
   const handleAddAndPaint = () => {
     const id = addBlockedTimeGroup()

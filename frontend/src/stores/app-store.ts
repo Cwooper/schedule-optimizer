@@ -266,13 +266,14 @@ export const useAppStore = create<AppState>()(
         })),
 
       removeBlockFromGroup: (groupId, blockIndex) =>
-        set((state) => ({
-          blockedTimeGroups: state.blockedTimeGroups.map((g) =>
-            g.id === groupId
-              ? { ...g, blocks: g.blocks.filter((_, i) => i !== blockIndex) }
-              : g
-          ),
-        })),
+        set((state) => {
+          const updated = state.blockedTimeGroups.map((g) => {
+            if (g.id !== groupId) return g
+            const blocks = [...g.blocks.slice(0, blockIndex), ...g.blocks.slice(blockIndex + 1)]
+            return { ...g, blocks }
+          })
+          return { blockedTimeGroups: updated }
+        }),
 
       setEditingBlockedTimeGroupId: (id) =>
         set({ editingBlockedTimeGroupId: id }),
