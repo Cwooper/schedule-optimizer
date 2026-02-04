@@ -140,11 +140,11 @@ export function ScheduleGrid({
         </div>
       </div>
 
-      {/* Scrollable grid body */}
+      {/* Grid body — no overflow, grows with content; page scrollbar handles it */}
       <div
         ref={gridBodyRef}
         className={cn(
-          "relative flex-1 overflow-auto",
+          "relative flex-1 overflow-hidden",
           isEditing && "cursor-crosshair"
         )}
         style={isEditing ? { touchAction: "none", overscrollBehavior: "none" } : undefined}
