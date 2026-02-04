@@ -14,8 +14,8 @@ export const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri"] as const
 export const GRID = {
   TIME_COL: "2.5rem",
   TIME_COL_PX: 40,
-  DEFAULT_START_MIN: 480,   // 8:00am
-  DEFAULT_END_MIN: 960,     // 4:00pm
+  DEFAULT_START_MIN: 465,   // 7:45am (15min buffer so 8am label isn't clipped)
+  DEFAULT_END_MIN: 975,     // 4:15pm (15min buffer so 4pm label isn't clipped)
   PADDING_MIN: 10,
   MIN_HOURS: 8,
   DAY_COUNT: 5,
@@ -133,6 +133,14 @@ export function computeTimeRange(
   if (endMin - startMin < GRID.MIN_HOURS * 60) {
     endMin = Math.min(24 * 60, startMin + GRID.MIN_HOURS * 60)
   }
+
+  // Ensure hour labels at the edges aren't clipped by overflow-hidden.
+  // When the range starts/ends exactly on an hour, the label (centered via
+  // -translate-y-1/2) has half its height outside the container.
+  const firstHour = Math.ceil(startMin / 60)
+  if (firstHour * 60 === startMin) startMin = Math.max(0, startMin - 15)
+  const lastHour = Math.floor(endMin / 60)
+  if (lastHour * 60 === endMin) endMin = Math.min(24 * 60, endMin + 15)
 
   return { startMin, endMin }
 }
