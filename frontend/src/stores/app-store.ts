@@ -256,7 +256,9 @@ export const useAppStore = create<AppState>()(
         slots: state.slots,
         theme: state.theme,
         sidebarCollapsed: state.sidebarCollapsed,
-        // Don't persist generated schedules - they should be regenerated
+        generateResult: state.generateResult,
+        generatedWithParams: state.generatedWithParams,
+        currentScheduleIndex: state.currentScheduleIndex,
       }),
     }
   )
