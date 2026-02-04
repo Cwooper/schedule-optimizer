@@ -8,86 +8,46 @@ Current grid (`frontend/src/components/schedule/ScheduleGrid.tsx`, 213 lines) is
 
 ---
 
-## Phase 1: Grid Visual Polish
+## Phase 1: Grid Visual Polish ✅
 
-**Files:** `ScheduleGrid.tsx`, possibly `index.css`
+**Files:** `ScheduleGrid.tsx`, `index.css`
 
-### 1a. Color system overhaul
-- Current colors use `bg-{color}-500/20` (very light wash). Make backgrounds more saturated/visible -- something like `bg-{color}-500/30` or `/35` in light mode, stronger in dark mode
-- Ensure good contrast in both themes -- test all 8 colors against light and dark backgrounds
-- Consider making the left border thicker (`border-l-3`) for better visual anchoring
-
-### 1b. Course block content improvements
-- Currently shows: `CSCI 247` + `Building Room`
-- Better layout depending on block height:
-  - **Tall blocks (50+ min):** Show subject+number, title (truncated), instructor, building/room
-  - **Medium blocks (40-50 min):** Show subject+number, instructor or building
-  - **Short blocks (<40 min):** Show subject+number only, maybe tooltip for details
-- Use the `title` and `instructor` fields from `HydratedSection` (already available in the data)
-
-### 1c. Grid background/lines
-- Slightly darker alternating day column backgrounds for visual separation
-- Clearer hour lines (currently `border-dashed border-muted` -- may be too subtle)
-- Consider half-hour lines as lighter dashes
-
-### 1d. Time label improvements
-- Current labels are small (`text-xs`) and right-aligned in a 3rem column
-- Ensure they align cleanly with hour lines
-
-**Test:** Generate a schedule with 3-5 courses, verify readability in both light/dark mode. Check short (50-min MWF) and long (75-min TTh) blocks.
+- Color system: `bg-{color}-500/40` light / `/35` dark with `border-l-3` anchoring
+- Height-dependent content: subject+number always, title ≥70min, instructor ≥80min, building ≥50min
+- Alternating day columns (`bg-muted/20`), solid hour lines, dashed half-hour lines
+- Time labels: 11px with am/pm suffix, tabular-nums, centered on hour lines
 
 ---
 
-## Phase 2: Dynamic Grid Sizing
+## Phase 2: Dynamic Grid Sizing ✅
 
 **Files:** `ScheduleGrid.tsx`, `ScheduleView.tsx`
 
-### 2a. Compute visible time range
-- Scan all course blocks to find earliest start and latest end
-- Add 1-hour padding on each side
-- Enforce minimum range of **8am-5pm** (covers 95%+ of classes per DB data)
-- When no courses: show 8am-5pm default
-- Include blocked times in the range calculation (Phase 4)
-
-### 2b. Update grid rendering
-- Replace hardcoded `START_HOUR=7` / `END_HOUR=22` with computed values
-- Recalculate `HOURS` array, grid height, and block positioning based on dynamic range
-- The `minHeight` style (`HOURS.length * 3rem`) adjusts automatically
-
-### 2c. Height fitting
-- Goal: grid fits in viewport without scrolling for typical schedules (8am-5pm = 9 hours)
-- If range exceeds viewport, allow scrolling (keeps current `overflow-auto`)
-- Consider using `vh`-based sizing or flex-grow to fill available space
-
-**Test:** Generate schedules with different time spreads -- early morning classes, evening classes, compact midday-only schedules. Verify grid crops appropriately.
+- `computeTimeRange()` scans course blocks + blocked times, 10min padding, 30-min snap
+- Default range 8am–4pm, minimum 8-hour span
+- Fully dynamic `gridStartMin`/`gridEndMin`, `flex-1 overflow-auto` for viewport fitting
 
 ---
 
-## Phase 3: Schedule Nav Bar Enhancements
+## Phase 3: Schedule Nav Bar Enhancements ✅
 
-**Files:** `ScheduleView.tsx`
+**Files:** `ScheduleView.tsx`, `ScheduleGrid.tsx`, `app-store.ts`, `index.css`
 
 **Deferred:** A clickable "Schedule X of Y" stats dialog was considered but deferred — the grid and course block clicks already surface per-course details, and weight display is blocked on scorer rework (see Phase 7). Revisit if needed. Inline credits display in the nav bar is also a candidate for later.
 
-### 3a. Dropdown menu in the nav bar
-- Three-dots icon (`MoreVertical` from lucide) positioned on the **right side of the nav bar**, after the navigation arrows
-- Layout: `[<] Schedule 3 of 128 [>]  [⋮]`
-- Uses shadcn `DropdownMenu` component (may need to add: `pnpm dlx shadcn@latest add dropdown-menu`)
-
-### 3b. Menu items
-- Items listed but most disabled/coming-soon initially:
-  - **Edit Blocked Times** -> toggles grid into blocked-times mode (Phase 4)
-  - **Download as PNG** -> (coming soon)
-  - **Export to Calendar (.ics)** -> (coming soon)
-  - **Share Link** -> (coming soon, links to #35)
-  - **Add Custom Course** -> (coming soon, links to #32)
-  - **View on Campus Map** -> (coming soon, links to #33)
-
-### 3c. Remove `menuContent` prop
-- The existing `menuContent` prop on ScheduleGrid (top-right absolute positioning over the grid) is no longer needed since the menu lives in the nav bar
-- Clean up the prop and its rendering code
-
-**Test:** Menu opens from nav bar, items render, disabled items show as grayed out with "(coming soon)" labels.
+### Completed:
+- **Dropdown menu** (`MoreVertical` icon) absolutely positioned right side of nav bar
+  - Menu items: Blocked Times, Download PNG, Export ICS, Share Link, Campus Map (all disabled until wired)
+  - Uses shadcn `DropdownMenu` component
+- **Regenerate button** (`RefreshCw` icon) absolutely positioned left side of nav bar
+  - Turns amber when schedule is stale, disabled when no courses
+  - Tooltip: contextual ("Course list changed...", "Regenerate schedules", "Add courses to regenerate")
+  - CSS spin animation (`animate-spin-once`) on click via key-based remount
+  - Replaces the old `cornerContent` stale indicator from the grid corner cell
+- **Cleaned up ScheduleGrid**: removed dead `cornerContent` and `menuContent` props, unused `ReactNode` import
+- **Fixed pre-existing lint issues**: `dragRef.current` assignment moved to `useEffect`, semicolon-led cast replaced with local variable
+- **Added `BlockedTime` type** export to `app-store.ts` (was imported but never defined)
+- **Persisted schedule state**: `generateResult`, `generatedWithParams`, and `currentScheduleIndex` now saved to localStorage so schedules survive page reload. Worst-case localStorage size ~520KB (2000 schedules × 8 courses).
 
 ---
 
@@ -221,11 +181,12 @@ Current grid (`frontend/src/components/schedule/ScheduleGrid.tsx`, 213 lines) is
 
 | File | Phases |
 |------|--------|
-| `components/schedule/ScheduleGrid.tsx` | 1, 2, 4, 6 |
-| `components/schedule/ScheduleView.tsx` | 2, 3, 4, 6 |
-| `stores/app-store.ts` | 4, 7 |
+| `components/schedule/ScheduleGrid.tsx` | ~~1~~, ~~2~~, ~~3~~, 4, 6 |
+| `components/schedule/ScheduleView.tsx` | ~~2~~, ~~3~~, 4, 6 |
+| `stores/app-store.ts` | ~~3~~, 4, 7 |
 | `lib/api.ts` | 4, 7 |
 | `components/ScheduleBuilder.tsx` | 4, 5, 7 |
-| `index.css` | 1 (maybe) |
+| `components/ui/dropdown-menu.tsx` | ~~3~~ (new, shadcn) |
+| `index.css` | ~~3~~ |
 | backend `generator/scorer.go` | 7 |
 | backend `generator/types.go` | 7 |
