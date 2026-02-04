@@ -24,6 +24,7 @@ export interface ScheduleGridProps {
   onAddBlock?: (block: BlockedTimeBlock) => void
   onUpdateBlock?: (blockId: string, block: BlockedTimeBlock) => void
   onRemoveBlock?: (blockId: string) => void
+  captureRef?: React.Ref<HTMLDivElement>
 }
 
 interface CourseBlock {
@@ -68,6 +69,7 @@ export function ScheduleGrid({
   onAddBlock,
   onUpdateBlock,
   onRemoveBlock,
+  captureRef,
 }: ScheduleGridProps) {
   const isEditing = editingGroupId != null
   const editingGroup = blockedTimeGroups?.find((g) => g.id === editingGroupId)
@@ -127,7 +129,7 @@ export function ScheduleGrid({
     })
 
   return (
-    <div className="flex h-full flex-col overflow-hidden">
+    <div ref={captureRef} className="flex h-full flex-col overflow-hidden">
       {/* Header row with day names */}
       <div className="border-b bg-muted/30">
         <div className="grid grid-cols-[2.5rem_repeat(5,1fr)]">

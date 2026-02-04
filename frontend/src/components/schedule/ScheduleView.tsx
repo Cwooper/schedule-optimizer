@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react"
+import { useCallback, useMemo, useRef, useState } from "react"
 import {
   ChevronLeft,
   ChevronRight,
@@ -10,7 +10,9 @@ import {
   Share2,
   Map,
   Check,
+  Loader2,
 } from "lucide-react"
+import { toPng } from "html-to-image"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -51,6 +53,8 @@ export function ScheduleView() {
   const [spinCount, setSpinCount] = useState(0)
   const [dialogOpen, setDialogOpen] = useState(false)
   const [focusedGroupId, setFocusedGroupId] = useState<string | null>(null)
+  const [isExporting, setIsExporting] = useState(false)
+  const gridRef = useRef<HTMLDivElement>(null)
 
   const isEditing = editingBlockedTimeGroupId != null
   const editingGroup = blockedTimeGroups.find(
@@ -126,6 +130,53 @@ export function ScheduleView() {
     setFocusedGroupId(groupId)
     setDialogOpen(true)
   }
+
+  const handleDownloadPng = useCallback(async () => {
+    const node = gridRef.current
+    if (!node) return
+
+    setIsExporting(true)
+    try {
+      const EXPORT_WIDTH = 1200
+      const bgColor = getComputedStyle(document.body).backgroundColor
+
+      // Temporarily resize the node so the browser re-layouts at export width
+      const savedCssText = node.style.cssText
+      Object.assign(node.style, {
+        width: `${EXPORT_WIDTH}px`,
+        height: "auto",
+        overflow: "visible",
+        flex: "none",
+      })
+
+      const dataUrl = await toPng(node, {
+        pixelRatio: 2,
+        backgroundColor: bgColor,
+      })
+
+      // Restore original styles
+      node.style.cssText = savedCssText
+
+      const blob = await (await fetch(dataUrl)).blob()
+      const fileName = `schedule-${safeIndex + 1}.png`
+      const file = new File([blob], fileName, { type: "image/png" })
+
+      if (navigator.canShare?.({ files: [file] })) {
+        await navigator.share({ files: [file], title: "My Schedule" })
+      } else {
+        const link = document.createElement("a")
+        link.download = fileName
+        link.href = dataUrl
+        link.click()
+      }
+    } catch (err) {
+      if (err instanceof Error && err.name !== "AbortError") {
+        console.error("PNG export failed:", err)
+      }
+    } finally {
+      setIsExporting(false)
+    }
+  }, [safeIndex])
 
   return (
     <div className="flex h-full flex-col">
@@ -218,9 +269,16 @@ export function ScheduleView() {
                 <Clock className="size-4" />
                 Blocked Times
               </DropdownMenuItem>
-              <DropdownMenuItem disabled>
-                <Download className="size-4" />
-                Download PNG
+              <DropdownMenuItem
+                disabled={!hasSchedules || isExporting}
+                onClick={handleDownloadPng}
+              >
+                {isExporting ? (
+                  <Loader2 className="size-4 animate-spin" />
+                ) : (
+                  <Download className="size-4" />
+                )}
+                {isExporting ? "Exporting..." : "Download PNG"}
               </DropdownMenuItem>
               <DropdownMenuItem disabled>
                 <Calendar className="size-4" />
@@ -242,6 +300,7 @@ export function ScheduleView() {
       {/* Schedule grid — always visible, empty when no schedules */}
       <div className="flex-1 overflow-hidden">
         <ScheduleGrid
+          captureRef={gridRef}
           courses={currentSchedule?.courses ?? []}
           onCourseClick={handleCourseClick}
           onBlockedTimeClick={handleBlockedTimeClick}

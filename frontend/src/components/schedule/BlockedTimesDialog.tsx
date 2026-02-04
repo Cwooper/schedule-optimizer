@@ -321,7 +321,7 @@ function GroupRow({
               value={group.title}
               onChange={(e) => onTitleChange(e.target.value)}
               placeholder={defaultName}
-              className="h-8 text-sm"
+              className="h-8"
             />
           </div>
 
@@ -332,7 +332,7 @@ function GroupRow({
               value={group.description}
               onChange={(e) => onDescriptionChange(e.target.value)}
               placeholder="Optional description..."
-              className="min-h-16 resize-none text-sm"
+              className="min-h-16 resize-none"
             />
           </div>
 
@@ -483,7 +483,7 @@ function BlockTimeEditor({
           const clamped = clampBlockEdit(proposed, allBlocks)
           if (clamped) onUpdateBlock(block.id, clamped)
         }}
-        className="h-7 rounded border border-input bg-background px-1 text-xs"
+        className="h-7 rounded border border-input bg-background px-1 text-base md:text-xs"
       >
         {DAYS.map((day, dayIdx) => (
           <option key={day} value={dayIdx}>{day}</option>
@@ -495,7 +495,7 @@ function BlockTimeEditor({
         onChange={(e) => setDraftStart(e.target.value)}
         onBlur={() => commitTimes(draftStart, draftEnd)}
         onKeyDown={handleKeyDown}
-        className="h-7 rounded border border-input bg-background px-1 text-xs tabular-nums"
+        className="h-7 rounded border border-input bg-background px-1 text-base tabular-nums md:text-xs"
       />
       <span className="text-muted-foreground text-xs">–</span>
       <input
@@ -504,7 +504,7 @@ function BlockTimeEditor({
         onChange={(e) => setDraftEnd(e.target.value)}
         onBlur={() => commitTimes(draftStart, draftEnd)}
         onKeyDown={handleKeyDown}
-        className="h-7 rounded border border-input bg-background px-1 text-xs tabular-nums"
+        className="h-7 rounded border border-input bg-background px-1 text-base tabular-nums md:text-xs"
       />
     </div>
   )
