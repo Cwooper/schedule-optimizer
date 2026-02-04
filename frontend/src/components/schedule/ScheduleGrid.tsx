@@ -254,14 +254,14 @@ export function ScheduleGrid({
                       : undefined
                   }
                 >
-                  {!isEditingThisGroup && group.color && (
+                  {!isEditingThisGroup && (
                     <>
                       {group.title && (
                         <div className="font-semibold leading-tight text-[10px] sm:text-xs overflow-hidden whitespace-nowrap">
                           {group.title}
                         </div>
                       )}
-                      {durationMin >= 80 && descFirstLine && (
+                      {durationMin >= 30 && descFirstLine && (
                         <div className="truncate text-[10px] leading-tight opacity-60">
                           {descFirstLine}
                         </div>
