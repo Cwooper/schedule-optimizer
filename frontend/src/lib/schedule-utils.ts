@@ -5,6 +5,7 @@ import type {
   HydratedSection,
   ScheduleRef,
 } from "./api"
+import type { BlockedTimeBlock } from "@/stores/app-store"
 
 // ── Grid constants ──────────────────────────────────────────────────────
 
@@ -241,6 +242,51 @@ export function clampToAvoidOverlap(
 
   if (mode === "clamp") return clampRange(proposed, sameDayBlocks, anchor)
   return snapRange(proposed, sameDayBlocks, duration ?? (proposed.endMin - proposed.startMin))
+}
+
+// ── Blocked time block utilities ─────────────────────────────────────
+
+/** Convert BlockedTimeBlock[] to TimeRange[] for overlap utilities */
+export function blocksToRanges(blocks: BlockedTimeBlock[]): TimeRange[] {
+  return blocks.map((b) => ({
+    day: b.day,
+    startMin: parseTime(b.startTime),
+    endMin: parseTime(b.endTime),
+  }))
+}
+
+/** Get existing ranges excluding a specific block */
+export function otherBlockRanges(blocks: BlockedTimeBlock[], excludeId: string): TimeRange[] {
+  return blocksToRanges(blocks.filter((b) => b.id !== excludeId))
+}
+
+/**
+ * Merge adjacent blocks on the same day within a group.
+ * Two blocks are adjacent when prev.endTime === curr.startTime on the same day.
+ * Merged block keeps the earlier block's ID.
+ */
+export function mergeAdjacentBlocks(blocks: BlockedTimeBlock[]): BlockedTimeBlock[] {
+  if (blocks.length <= 1) return blocks
+
+  const sorted = [...blocks].sort((a, b) => {
+    if (a.day !== b.day) return a.day - b.day
+    return parseTime(a.startTime) - parseTime(b.startTime)
+  })
+
+  const merged: BlockedTimeBlock[] = [sorted[0]]
+
+  for (let i = 1; i < sorted.length; i++) {
+    const prev = merged[merged.length - 1]
+    const curr = sorted[i]
+
+    if (prev.day === curr.day && parseTime(prev.endTime) === parseTime(curr.startTime)) {
+      merged[merged.length - 1] = { ...prev, endTime: curr.endTime }
+    } else {
+      merged.push(curr)
+    }
+  }
+
+  return merged
 }
 
 export function buildColorMap(courses: HydratedSection[]): Map<string, string> {

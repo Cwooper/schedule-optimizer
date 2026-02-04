@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest"
-import { hydrateSection, hydrateSchedule, hydrateAsyncs, clampToAvoidOverlap, type TimeRange } from "./schedule-utils"
+import { hydrateSection, hydrateSchedule, hydrateAsyncs, clampToAvoidOverlap, blocksToRanges, otherBlockRanges, mergeAdjacentBlocks, type TimeRange } from "./schedule-utils"
+import type { BlockedTimeBlock } from "@/stores/app-store"
 import type {
   GenerateCourseInfo,
   GenerateSectionInfo,
@@ -344,5 +345,130 @@ describe("clampToAvoidOverlap", () => {
       const result = clampToAvoidOverlap(proposed, existing, "snap", 60)
       expect(result).toEqual({ day: 0, startMin: 480, endMin: 540 })
     })
+  })
+})
+
+// ── Block utility tests ──────────────────────────────────────────────
+
+function makeBlock(id: string, day: number, start: string, end: string): BlockedTimeBlock {
+  return { id, day, startTime: start, endTime: end }
+}
+
+describe("blocksToRanges", () => {
+  it("converts blocks to time ranges", () => {
+    const blocks = [
+      makeBlock("a", 0, "0900", "1000"),
+      makeBlock("b", 2, "1400", "1530"),
+    ]
+    expect(blocksToRanges(blocks)).toEqual([
+      { day: 0, startMin: 540, endMin: 600 },
+      { day: 2, startMin: 840, endMin: 930 },
+    ])
+  })
+
+  it("returns empty array for empty input", () => {
+    expect(blocksToRanges([])).toEqual([])
+  })
+})
+
+describe("otherBlockRanges", () => {
+  it("excludes block with matching id", () => {
+    const blocks = [
+      makeBlock("a", 0, "0900", "1000"),
+      makeBlock("b", 0, "1100", "1200"),
+    ]
+    const result = otherBlockRanges(blocks, "a")
+    expect(result).toEqual([{ day: 0, startMin: 660, endMin: 720 }])
+  })
+
+  it("returns all ranges when excludeId matches nothing", () => {
+    const blocks = [makeBlock("a", 0, "0900", "1000")]
+    const result = otherBlockRanges(blocks, "z")
+    expect(result).toHaveLength(1)
+  })
+})
+
+describe("mergeAdjacentBlocks", () => {
+  it("returns empty array unchanged", () => {
+    expect(mergeAdjacentBlocks([])).toEqual([])
+  })
+
+  it("returns single block unchanged", () => {
+    const blocks = [makeBlock("a", 0, "0900", "1000")]
+    expect(mergeAdjacentBlocks(blocks)).toEqual(blocks)
+  })
+
+  it("merges two adjacent blocks on same day", () => {
+    const blocks = [
+      makeBlock("a", 0, "0900", "1000"),
+      makeBlock("b", 0, "1000", "1100"),
+    ]
+    const result = mergeAdjacentBlocks(blocks)
+    expect(result).toHaveLength(1)
+    expect(result[0]).toEqual(makeBlock("a", 0, "0900", "1100"))
+  })
+
+  it("keeps earlier block's ID after merge", () => {
+    const blocks = [
+      makeBlock("b", 0, "1000", "1100"),
+      makeBlock("a", 0, "0900", "1000"),
+    ]
+    const result = mergeAdjacentBlocks(blocks)
+    expect(result).toHaveLength(1)
+    expect(result[0].id).toBe("a")
+  })
+
+  it("does not merge blocks on different days", () => {
+    const blocks = [
+      makeBlock("a", 0, "0900", "1000"),
+      makeBlock("b", 1, "1000", "1100"),
+    ]
+    const result = mergeAdjacentBlocks(blocks)
+    expect(result).toHaveLength(2)
+  })
+
+  it("does not merge non-adjacent blocks on same day", () => {
+    const blocks = [
+      makeBlock("a", 0, "0900", "1000"),
+      makeBlock("b", 0, "1100", "1200"),
+    ]
+    const result = mergeAdjacentBlocks(blocks)
+    expect(result).toHaveLength(2)
+  })
+
+  it("chain-merges three adjacent blocks into one", () => {
+    const blocks = [
+      makeBlock("c", 0, "1100", "1200"),
+      makeBlock("a", 0, "0900", "1000"),
+      makeBlock("b", 0, "1000", "1100"),
+    ]
+    const result = mergeAdjacentBlocks(blocks)
+    expect(result).toHaveLength(1)
+    expect(result[0]).toEqual(makeBlock("a", 0, "0900", "1200"))
+  })
+
+  it("merges adjacent pair but keeps separate non-adjacent block", () => {
+    const blocks = [
+      makeBlock("a", 0, "0900", "1000"),
+      makeBlock("b", 0, "1000", "1100"),
+      makeBlock("c", 0, "1300", "1400"),
+    ]
+    const result = mergeAdjacentBlocks(blocks)
+    expect(result).toHaveLength(2)
+    expect(result[0]).toEqual(makeBlock("a", 0, "0900", "1100"))
+    expect(result[1]).toEqual(makeBlock("c", 0, "1300", "1400"))
+  })
+
+  it("merges across multiple days independently", () => {
+    const blocks = [
+      makeBlock("a", 0, "0900", "1000"),
+      makeBlock("b", 0, "1000", "1100"),
+      makeBlock("c", 1, "0900", "1000"),
+      makeBlock("d", 1, "1000", "1100"),
+    ]
+    const result = mergeAdjacentBlocks(blocks)
+    expect(result).toHaveLength(2)
+    expect(result[0]).toEqual(makeBlock("a", 0, "0900", "1100"))
+    expect(result[1]).toEqual(makeBlock("c", 1, "0900", "1100"))
   })
 })
