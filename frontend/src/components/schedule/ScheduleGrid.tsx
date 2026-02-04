@@ -10,6 +10,7 @@ import {
   formatAmPm,
   computeTimeRange,
   buildColorMap,
+  opacityToHex,
 } from "@/lib/schedule-utils"
 import { useDragToPaint } from "@/hooks/use-drag-to-paint"
 import { TimeBlock } from "./TimeBlock"
@@ -215,6 +216,8 @@ export function ScheduleGrid({
                   gridStartMin={gridStartMin}
                   gridHeight={gridHeight}
                   color={group.color}
+                  hatched={group.hatched}
+                  opacity={group.opacity}
                   interactive={!isEditing && !!onBlockedTimeClick && !isEditingThisGroup}
                   dimmed={isEditing && !isEditingThisGroup}
                   editing={isEditingThisGroup}
@@ -263,6 +266,9 @@ export function ScheduleGrid({
             const blockWidth = `calc(${dayWidth})`
             const editingGroup = blockedTimeGroups?.find((g) => g.id === editingGroupId)
             const groupColor = editingGroup?.color
+            const groupOpacity = editingGroup?.opacity ?? 20
+            const previewBgHex = opacityToHex(groupOpacity)
+            const previewBorderHex = opacityToHex(Math.min(groupOpacity + 40, 100))
 
             return (
               <div
@@ -272,8 +278,8 @@ export function ScheduleGrid({
                   height: `${height}%`,
                   left: leftOffset,
                   width: blockWidth,
-                  borderColor: groupColor ? `${groupColor}99` : "rgba(239, 68, 68, 0.6)",
-                  backgroundColor: groupColor ? `${groupColor}33` : "rgba(239, 68, 68, 0.2)",
+                  borderColor: groupColor ? `${groupColor}${previewBorderHex}` : "rgba(239, 68, 68, 0.6)",
+                  backgroundColor: groupColor ? `${groupColor}${previewBgHex}` : "rgba(239, 68, 68, 0.2)",
                 }}
               />
             )

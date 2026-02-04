@@ -37,6 +37,32 @@ export const COURSE_COLORS = [
   "bg-fuchsia-500/40 dark:bg-fuchsia-500/35 border-fuchsia-500 text-fuchsia-950 dark:text-fuchsia-100",
 ]
 
+// ── Blocked time constants ──────────────────────────────────────────────
+
+export const BLOCKED_PRESET_COLORS = [
+  { key: "slate", hex: "#64748b", label: "Slate" },
+  { key: "rose", hex: "#f43f5e", label: "Rose" },
+  { key: "amber", hex: "#f59e0b", label: "Amber" },
+  { key: "emerald", hex: "#10b981", label: "Emerald" },
+  { key: "sky", hex: "#0ea5e9", label: "Sky" },
+  { key: "violet", hex: "#8b5cf6", label: "Violet" },
+  { key: "orange", hex: "#f97316", label: "Orange" },
+  { key: "pink", hex: "#ec4899", label: "Pink" },
+]
+
+// ── Blocked time helpers ────────────────────────────────────────────────
+
+/** Convert 0-100 opacity percentage to a two-character hex string ("00"–"ff") */
+export function opacityToHex(value: number): string {
+  const clamped = Math.max(0, Math.min(100, Math.round(value)))
+  const byte = Math.round((clamped / 100) * 255)
+  return byte.toString(16).padStart(2, "0")
+}
+
+/** CSS gradient for the hatched pattern overlay, uses --hatch-color CSS variable */
+export const HATCH_GRADIENT =
+  "repeating-linear-gradient(45deg, transparent, transparent 4px, var(--hatch-color) 4px, var(--hatch-color) 8px)"
+
 // ── Time helpers ────────────────────────────────────────────────────────
 
 export function hashString(str: string): number {
