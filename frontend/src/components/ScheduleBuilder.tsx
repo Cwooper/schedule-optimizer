@@ -16,6 +16,7 @@ import { CourseInput, CourseRow } from "@/components/schedule-builder"
 import {
   useAppStore,
   computeSlotsFingerprint,
+  computeBlockedTimesFingerprint,
   type CourseSlot,
   type SectionFilter,
   type GenerationParams,
@@ -46,6 +47,7 @@ export function ScheduleBuilder() {
     setGenerateResult,
     getSlotsVersion,
     openCourseDialog,
+    blockedTimeGroups,
     regenerateRequested,
     clearRegenerateRequest,
   } = useAppStore()
@@ -221,12 +223,20 @@ export function ScheduleBuilder() {
       minCourses: effectiveMin,
       maxCourses: effectiveMax,
       slotsFingerprint: computeSlotsFingerprint(slots),
+      blockedTimesFingerprint: computeBlockedTimesFingerprint(
+        blockedTimeGroups
+      ),
     }
+
+    const blockedTimes = blockedTimeGroups
+      .filter((g) => g.enabled)
+      .flatMap((g) => g.blocks)
 
     handleGenerateMutate(
       {
         term,
         courseSpecs,
+        blockedTimes: blockedTimes.length > 0 ? blockedTimes : undefined,
         minCourses: effectiveMin,
         maxCourses: effectiveMax,
       },

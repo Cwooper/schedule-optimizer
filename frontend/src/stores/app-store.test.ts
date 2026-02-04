@@ -1,6 +1,7 @@
 import {
   useAppStore,
   computeSlotsFingerprint,
+  computeBlockedTimesFingerprint,
   type CourseSlot,
   type GenerationParams,
 } from "./app-store"
@@ -45,6 +46,7 @@ function createParams(
     minCourses: minCourses ?? slots.length,
     maxCourses: maxCourses ?? 8,
     slotsFingerprint: computeSlotsFingerprint(slots),
+    blockedTimesFingerprint: computeBlockedTimesFingerprint([]),
   }
 }
 

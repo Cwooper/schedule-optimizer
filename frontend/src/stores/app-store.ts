@@ -1,15 +1,25 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
+import { genId } from "@/lib/utils"
 
 // --- Types ---
 
 export type Tab = "schedule" | "search" | "statistics"
 export type Theme = "light" | "dark" | "system"
 
-export interface BlockedTime {
+export interface BlockedTimeBlock {
   day: number
   startTime: string
   endTime: string
+}
+
+export interface BlockedTimeGroup {
+  id: string
+  title: string // user-set label; empty = auto "Blocked Time N" in dialog only
+  description: string
+  color: string | null // null = hatched pattern, string = palette key or hex
+  enabled: boolean // ON = visible on grid + used in generation
+  blocks: BlockedTimeBlock[]
 }
 
 export interface SectionFilter {
@@ -35,6 +45,7 @@ export interface GenerationParams {
   minCourses: number
   maxCourses: number
   slotsFingerprint: string
+  blockedTimesFingerprint: string
 }
 
 /**
@@ -54,6 +65,17 @@ export function computeSlotsFingerprint(slots: CourseSlot[]): string {
     }))
     .sort((a, b) => a.key.localeCompare(b.key))
   return JSON.stringify(normalized)
+}
+
+export function computeBlockedTimesFingerprint(
+  groups: BlockedTimeGroup[]
+): string {
+  const enabled = groups
+    .filter((g) => g.enabled)
+    .flatMap((g) => g.blocks)
+    .map((b) => `${b.day}-${b.startTime}-${b.endTime}`)
+    .sort()
+  return JSON.stringify(enabled)
 }
 
 // Re-export from api.ts for convenience
@@ -78,6 +100,10 @@ interface AppState {
   minCourses: number | null
   maxCourses: number | null
   slots: CourseSlot[]
+
+  // Blocked times
+  blockedTimeGroups: BlockedTimeGroup[]
+  editingBlockedTimeGroupId: string | null
 
   // UI state
   theme: Theme
@@ -104,6 +130,15 @@ interface AppState {
   removeSlot: (id: string) => void
   updateSlot: (id: string, updates: Partial<CourseSlot>) => void
   clearSlots: () => void
+  addBlockedTimeGroup: () => string
+  removeBlockedTimeGroup: (id: string) => void
+  updateBlockedTimeGroup: (
+    id: string,
+    updates: Partial<BlockedTimeGroup>
+  ) => void
+  addBlockToGroup: (groupId: string, block: BlockedTimeBlock) => void
+  removeBlockFromGroup: (groupId: string, blockIndex: number) => void
+  setEditingBlockedTimeGroupId: (id: string | null) => void
   setTheme: (theme: Theme) => void
   setSidebarCollapsed: (collapsed: boolean) => void
   setGenerateResult: (
@@ -131,6 +166,8 @@ export const useAppStore = create<AppState>()(
       minCourses: null,
       maxCourses: null,
       slots: [],
+      blockedTimeGroups: [],
+      editingBlockedTimeGroupId: null,
       theme: "system",
       sidebarCollapsed: false,
       generateResult: null,
@@ -186,6 +223,60 @@ export const useAppStore = create<AppState>()(
           slotsVersion: state.slotsVersion + 1,
         })),
 
+      addBlockedTimeGroup: () => {
+        const id = genId()
+        const state = get()
+        set({
+          blockedTimeGroups: [
+            ...state.blockedTimeGroups,
+            {
+              id,
+              title: "",
+              description: "",
+              color: null,
+              enabled: true,
+              blocks: [],
+            },
+          ],
+        })
+        return id
+      },
+
+      removeBlockedTimeGroup: (id) =>
+        set((state) => ({
+          blockedTimeGroups: state.blockedTimeGroups.filter((g) => g.id !== id),
+          editingBlockedTimeGroupId:
+            state.editingBlockedTimeGroupId === id
+              ? null
+              : state.editingBlockedTimeGroupId,
+        })),
+
+      updateBlockedTimeGroup: (id, updates) =>
+        set((state) => ({
+          blockedTimeGroups: state.blockedTimeGroups.map((g) =>
+            g.id === id ? { ...g, ...updates } : g
+          ),
+        })),
+
+      addBlockToGroup: (groupId, block) =>
+        set((state) => ({
+          blockedTimeGroups: state.blockedTimeGroups.map((g) =>
+            g.id === groupId ? { ...g, blocks: [...g.blocks, block] } : g
+          ),
+        })),
+
+      removeBlockFromGroup: (groupId, blockIndex) =>
+        set((state) => ({
+          blockedTimeGroups: state.blockedTimeGroups.map((g) =>
+            g.id === groupId
+              ? { ...g, blocks: g.blocks.filter((_, i) => i !== blockIndex) }
+              : g
+          ),
+        })),
+
+      setEditingBlockedTimeGroupId: (id) =>
+        set({ editingBlockedTimeGroupId: id }),
+
       setTheme: (theme) => set({ theme }),
 
       setSidebarCollapsed: (collapsed) => set({ sidebarCollapsed: collapsed }),
@@ -217,12 +308,18 @@ export const useAppStore = create<AppState>()(
           minCourses: state.minCourses ?? state.slots.length,
           maxCourses: state.maxCourses ?? 8,
           slotsFingerprint: computeSlotsFingerprint(state.slots),
+          blockedTimesFingerprint: computeBlockedTimesFingerprint(
+            state.blockedTimeGroups
+          ),
         }
         return (
           current.term !== state.generatedWithParams.term ||
           current.minCourses !== state.generatedWithParams.minCourses ||
           current.maxCourses !== state.generatedWithParams.maxCourses ||
-          current.slotsFingerprint !== state.generatedWithParams.slotsFingerprint
+          current.slotsFingerprint !==
+            state.generatedWithParams.slotsFingerprint ||
+          current.blockedTimesFingerprint !==
+            state.generatedWithParams.blockedTimesFingerprint
         )
       },
 
@@ -254,6 +351,7 @@ export const useAppStore = create<AppState>()(
         minCourses: state.minCourses,
         maxCourses: state.maxCourses,
         slots: state.slots,
+        blockedTimeGroups: state.blockedTimeGroups,
         theme: state.theme,
         sidebarCollapsed: state.sidebarCollapsed,
         generateResult: state.generateResult,
