@@ -231,7 +231,6 @@ func clampBounds(minReq, maxReq, numCourses int) (int, int) {
 	return minCourses, maxCourses
 }
 
-
 // isAsyncOrTBD returns true if the course has no scheduled meeting times.
 func isAsyncOrTBD(c *cache.Course) bool {
 	if len(c.MeetingTimes) == 0 {

@@ -12,15 +12,15 @@ type CourseInfo struct {
 
 // SectionInfo contains section-level data sent once per unique CRN.
 type SectionInfo struct {
-	CRN            string             `json:"crn"`
-	Term           string             `json:"term"`
-	CourseKey      string             `json:"courseKey"`
-	Instructor     string             `json:"instructor,omitempty"`
-	Enrollment     int                `json:"enrollment"`
-	MaxEnrollment  int                `json:"maxEnrollment"`
-	SeatsAvailable int                `json:"seatsAvailable"`
-	WaitCount      int                `json:"waitCount"`
-	IsOpen         bool               `json:"isOpen"`
+	CRN            string              `json:"crn"`
+	Term           string              `json:"term"`
+	CourseKey      string              `json:"courseKey"`
+	Instructor     string              `json:"instructor,omitempty"`
+	Enrollment     int                 `json:"enrollment"`
+	MaxEnrollment  int                 `json:"maxEnrollment"`
+	SeatsAvailable int                 `json:"seatsAvailable"`
+	WaitCount      int                 `json:"waitCount"`
+	IsOpen         bool                `json:"isOpen"`
 	MeetingTimes   []cache.MeetingTime `json:"meetingTimes"`
 }
 

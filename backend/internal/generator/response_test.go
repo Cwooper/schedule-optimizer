@@ -12,15 +12,15 @@ func TestToResponse_BasicTransformation(t *testing.T) {
 			{
 				Courses: []*cache.Course{
 					{
-						CRN:          "12345",
-						Term:         "202510",
-						Subject:      "CSCI",
-						CourseNumber: "241",
-						Title:        "Data Structures",
-						Credits:      4,
-						Instructor:   "Smith",
-						Enrollment:   25,
-						MaxEnrollment: 30,
+						CRN:            "12345",
+						Term:           "202510",
+						Subject:        "CSCI",
+						CourseNumber:   "241",
+						Title:          "Data Structures",
+						Credits:        4,
+						Instructor:     "Smith",
+						Enrollment:     25,
+						MaxEnrollment:  30,
 						SeatsAvailable: 5,
 						MeetingTimes: []cache.MeetingTime{
 							{Days: [7]bool{false, true, false, true, false, false, false}, StartTime: "0900", EndTime: "0950"},
@@ -229,15 +229,15 @@ func BenchmarkToResponse_2000Schedules(b *testing.B) {
 	courses := make([]*cache.Course, 5)
 	for i := range 5 {
 		courses[i] = &cache.Course{
-			CRN:           string(rune('1' + i)) + "0000",
-			Term:          "202510",
-			Subject:       "CSCI",
-			CourseNumber:  string(rune('1' + i)) + "00",
-			Title:         "Course " + string(rune('A'+i)),
-			Credits:       4,
-			Instructor:    "Instructor",
-			Enrollment:    25,
-			MaxEnrollment: 30,
+			CRN:            string(rune('1'+i)) + "0000",
+			Term:           "202510",
+			Subject:        "CSCI",
+			CourseNumber:   string(rune('1'+i)) + "00",
+			Title:          "Course " + string(rune('A'+i)),
+			Credits:        4,
+			Instructor:     "Instructor",
+			Enrollment:     25,
+			MaxEnrollment:  30,
 			SeatsAvailable: 5,
 			MeetingTimes: []cache.MeetingTime{
 				{Days: [7]bool{false, true, false, true, false, false, false}, StartTime: "0900", EndTime: "0950"},

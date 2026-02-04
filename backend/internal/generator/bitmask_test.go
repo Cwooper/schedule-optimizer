@@ -40,16 +40,16 @@ func TestTimeToSlot(t *testing.T) {
 		input string
 		want  int
 	}{
-		{"0700", 0},   // 7:00 AM = slot 0
-		{"0710", 1},   // 7:10 AM = slot 1
-		{"0800", 6},   // 8:00 AM = slot 6
-		{"0830", 9},   // 8:30 AM = slot 9
-		{"1000", 18},  // 10:00 AM = slot 18
-		{"1200", 30},  // 12:00 PM = slot 30
-		{"1700", 60},  // 5:00 PM = slot 60
-		{"2150", 89},  // 9:50 PM = slot 89 (last valid slot)
-		{"0600", -1},  // Before 7 AM
-		{"2200", -1},  // After 10 PM
+		{"0700", 0},  // 7:00 AM = slot 0
+		{"0710", 1},  // 7:10 AM = slot 1
+		{"0800", 6},  // 8:00 AM = slot 6
+		{"0830", 9},  // 8:30 AM = slot 9
+		{"1000", 18}, // 10:00 AM = slot 18
+		{"1200", 30}, // 12:00 PM = slot 30
+		{"1700", 60}, // 5:00 PM = slot 60
+		{"2150", 89}, // 9:50 PM = slot 89 (last valid slot)
+		{"0600", -1}, // Before 7 AM
+		{"2200", -1}, // After 10 PM
 		{"", -1},
 	}
 
