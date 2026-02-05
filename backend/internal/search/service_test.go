@@ -2,6 +2,7 @@ package search
 
 import (
 	"context"
+	"strings"
 	"testing"
 
 	"schedule-optimizer/internal/testutil"
@@ -158,13 +159,27 @@ func TestSearch_SubjectFilter(t *testing.T) {
 		t.Fatalf("unexpected error: %v", err)
 	}
 
+	// Should have 2 sections (CSCI 247 and CSCI 301)
 	if len(resp.Sections) != 2 {
 		t.Errorf("expected 2 CSCI sections, got %d", len(resp.Sections))
 	}
 
-	for _, s := range resp.Sections {
-		if s.Subject != "CSCI" {
-			t.Errorf("expected subject CSCI, got %s", s.Subject)
+	// Should have 2 courses
+	if len(resp.Courses) != 2 {
+		t.Errorf("expected 2 CSCI courses, got %d", len(resp.Courses))
+	}
+
+	// Verify all sections reference valid courses
+	for crn, section := range resp.Sections {
+		if _, exists := resp.Courses[section.CourseKey]; !exists {
+			t.Errorf("section %s references non-existent course %s", crn, section.CourseKey)
+		}
+	}
+
+	// Verify all courses are CSCI
+	for _, course := range resp.Courses {
+		if course.Subject != "CSCI" {
+			t.Errorf("expected subject CSCI, got %s", course.Subject)
 		}
 	}
 }
@@ -185,12 +200,18 @@ func TestSearch_CourseNumberExact(t *testing.T) {
 		t.Fatalf("unexpected error: %v", err)
 	}
 
-	if len(resp.Sections) != 1 {
-		t.Errorf("expected 1 section for exact 247, got %d", len(resp.Sections))
+	if len(resp.Results) != 1 {
+		t.Errorf("expected 1 course for exact 247, got %d", len(resp.Results))
 	}
 
-	if len(resp.Sections) > 0 && resp.Sections[0].CourseNumber != "247" {
-		t.Errorf("expected course number 247, got %s", resp.Sections[0].CourseNumber)
+	if len(resp.Results) > 0 {
+		courseKey := resp.Results[0].CourseKey
+		course, exists := resp.Courses[courseKey]
+		if !exists {
+			t.Error("course key from results not found in courses map")
+		} else if course.CourseNumber != "247" {
+			t.Errorf("expected course number 247, got %s", course.CourseNumber)
+		}
 	}
 }
 
@@ -211,15 +232,15 @@ func TestSearch_CourseNumberWildcard(t *testing.T) {
 		t.Fatalf("unexpected error: %v", err)
 	}
 
-	// Should match 247, 204, 301 (all start with 2 or 3... wait, 301 starts with 3)
-	// Actually 247 and 204 start with 2, 301 starts with 3
-	if len(resp.Sections) != 2 {
-		t.Errorf("expected 2 sections for 2*, got %d", len(resp.Sections))
+	// Should match 247 and 204 (both start with 2)
+	if len(resp.Results) != 2 {
+		t.Errorf("expected 2 courses for 2*, got %d", len(resp.Results))
 	}
 
-	for _, s := range resp.Sections {
-		if s.CourseNumber[0] != '2' {
-			t.Errorf("expected course number starting with 2, got %s", s.CourseNumber)
+	for _, ref := range resp.Results {
+		course := resp.Courses[ref.CourseKey]
+		if course.CourseNumber[0] != '2' {
+			t.Errorf("expected course number starting with 2, got %s", course.CourseNumber)
 		}
 	}
 }
@@ -241,8 +262,8 @@ func TestSearch_CourseNumberAutoWildcard(t *testing.T) {
 		t.Fatalf("unexpected error: %v", err)
 	}
 
-	if len(resp.Sections) != 2 {
-		t.Errorf("expected 2 sections for auto-wildcard 2, got %d", len(resp.Sections))
+	if len(resp.Results) != 2 {
+		t.Errorf("expected 2 courses for auto-wildcard 2, got %d", len(resp.Results))
 	}
 }
 
@@ -262,12 +283,15 @@ func TestSearch_TitleToken(t *testing.T) {
 		t.Fatalf("unexpected error: %v", err)
 	}
 
-	if len(resp.Sections) != 1 {
-		t.Errorf("expected 1 section matching 'data', got %d", len(resp.Sections))
+	if len(resp.Results) != 1 {
+		t.Errorf("expected 1 course matching 'data', got %d", len(resp.Results))
 	}
 
-	if len(resp.Sections) > 0 && resp.Sections[0].Title != "Data Structures" {
-		t.Errorf("expected 'Data Structures', got %s", resp.Sections[0].Title)
+	if len(resp.Results) > 0 {
+		course := resp.Courses[resp.Results[0].CourseKey]
+		if course.Title != "Data Structures" {
+			t.Errorf("expected 'Data Structures', got %s", course.Title)
+		}
 	}
 }
 
@@ -291,8 +315,10 @@ func TestSearch_InstructorToken(t *testing.T) {
 		t.Errorf("expected 1 section with instructor Smith, got %d", len(resp.Sections))
 	}
 
-	if len(resp.Sections) > 0 && resp.Sections[0].Instructor != "Dr. Smith" {
-		t.Errorf("expected 'Dr. Smith', got %s", resp.Sections[0].Instructor)
+	for _, section := range resp.Sections {
+		if section.Instructor != "Dr. Smith" {
+			t.Errorf("expected 'Dr. Smith', got %s", section.Instructor)
+		}
 	}
 }
 
@@ -353,9 +379,9 @@ func TestSearch_OpenSeatsFilter(t *testing.T) {
 		t.Errorf("expected fewer sections with open_seats filter, got %d (total: %d)", len(resp.Sections), totalSections)
 	}
 
-	for _, s := range resp.Sections {
-		if s.SeatsAvailable <= 0 {
-			t.Errorf("expected section with open seats, got %d available", s.SeatsAvailable)
+	for _, section := range resp.Sections {
+		if section.SeatsAvailable <= 0 {
+			t.Errorf("expected section with open seats, got %d available", section.SeatsAvailable)
 		}
 	}
 }
@@ -378,9 +404,9 @@ func TestSearch_CreditRange(t *testing.T) {
 		t.Fatalf("unexpected error: %v", err)
 	}
 
-	for _, s := range resp.Sections {
-		if s.Credits < minCredits {
-			t.Errorf("expected credits >= %d, got %d", minCredits, s.Credits)
+	for _, course := range resp.Courses {
+		if course.Credits < minCredits {
+			t.Errorf("expected credits >= %d, got %d", minCredits, course.Credits)
 		}
 	}
 }
@@ -403,64 +429,8 @@ func TestSearch_CombinedFilters(t *testing.T) {
 		t.Fatalf("unexpected error: %v", err)
 	}
 
-	if len(resp.Sections) != 1 {
-		t.Errorf("expected 1 section, got %d", len(resp.Sections))
-	}
-}
-
-func TestSearch_Pagination(t *testing.T) {
-	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
-	testutil.SeedTestData(t, db)
-
-	svc := NewService(db, queries)
-
-	// Get all results
-	resp, err := svc.Search(context.Background(), SearchRequest{
-		Term:    "202520",
-		Subject: "CSCI",
-		Limit:   10,
-	})
-
-	if err != nil {
-		t.Fatalf("unexpected error: %v", err)
-	}
-
-	totalSections := len(resp.Sections)
-
-	// Get with limit 1
-	resp, err = svc.Search(context.Background(), SearchRequest{
-		Term:    "202520",
-		Subject: "CSCI",
-		Limit:   1,
-	})
-
-	if err != nil {
-		t.Fatalf("unexpected error: %v", err)
-	}
-
-	if len(resp.Sections) != 1 {
-		t.Errorf("expected 1 section with limit 1, got %d", len(resp.Sections))
-	}
-
-	if totalSections > 1 && !resp.HasMore {
-		t.Error("expected HasMore to be true")
-	}
-
-	// Get with offset 1
-	resp, err = svc.Search(context.Background(), SearchRequest{
-		Term:    "202520",
-		Subject: "CSCI",
-		Limit:   10,
-		Offset:  1,
-	})
-
-	if err != nil {
-		t.Fatalf("unexpected error: %v", err)
-	}
-
-	if totalSections > 1 && len(resp.Sections) != totalSections-1 {
-		t.Errorf("expected %d sections with offset 1, got %d", totalSections-1, len(resp.Sections))
+	if len(resp.Results) != 1 {
+		t.Errorf("expected 1 course, got %d", len(resp.Results))
 	}
 }
 
@@ -478,6 +448,14 @@ func TestSearch_NoResults(t *testing.T) {
 
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
+	}
+
+	if len(resp.Results) != 0 {
+		t.Errorf("expected 0 results, got %d", len(resp.Results))
+	}
+
+	if len(resp.Courses) != 0 {
+		t.Errorf("expected 0 courses, got %d", len(resp.Courses))
 	}
 
 	if len(resp.Sections) != 0 {
@@ -505,11 +483,17 @@ func TestSearch_MeetingTimes(t *testing.T) {
 		t.Fatalf("unexpected error: %v", err)
 	}
 
-	if len(resp.Sections) != 1 {
-		t.Fatalf("expected 1 section, got %d", len(resp.Sections))
+	if len(resp.Results) != 1 {
+		t.Fatalf("expected 1 course, got %d", len(resp.Results))
 	}
 
-	section := resp.Sections[0]
+	// Get the section from results
+	sectionKey := resp.Results[0].SectionKeys[0]
+	section, exists := resp.Sections[sectionKey]
+	if !exists {
+		t.Fatal("section key from results not found in sections map")
+	}
+
 	if len(section.MeetingTimes) == 0 {
 		t.Error("expected meeting times to be populated")
 	}
@@ -539,14 +523,24 @@ func TestSearch_AllTimeScope(t *testing.T) {
 		t.Fatalf("unexpected error: %v", err)
 	}
 
-	// Should find sections from multiple terms (202520 and 202510)
+	// Should find 1 course (CSCI 247) with sections from multiple terms (202520 and 202510)
+	if len(resp.Results) != 1 {
+		t.Errorf("expected 1 course across terms, got %d", len(resp.Results))
+	}
+
+	// Should have 2 sections (one per term)
 	if len(resp.Sections) != 2 {
 		t.Errorf("expected 2 sections across terms, got %d", len(resp.Sections))
 	}
 
+	// Course ref should have 2 section keys (one per term)
+	if len(resp.Results) > 0 && len(resp.Results[0].SectionKeys) != 2 {
+		t.Errorf("expected 2 section keys for course, got %d", len(resp.Results[0].SectionKeys))
+	}
+
 	// Should have relevance scores
-	for _, s := range resp.Sections {
-		if s.RelevanceScore == 0 {
+	for _, ref := range resp.Results {
+		if ref.RelevanceScore == 0 {
 			t.Error("expected relevance score to be set for all-time search")
 		}
 	}
@@ -570,9 +564,118 @@ func TestSearch_SingleTermScoring(t *testing.T) {
 	}
 
 	// Should have relevance score from match quality (not recency since single term)
-	for _, s := range resp.Sections {
-		if s.RelevanceScore == 0 {
+	for _, ref := range resp.Results {
+		if ref.RelevanceScore == 0 {
 			t.Error("expected relevance score to be set for single-term search (from match quality)")
+		}
+	}
+}
+
+func TestSearch_CourseGrouping(t *testing.T) {
+	db, queries := testutil.SetupTestDB(t)
+	defer db.Close()
+	testutil.SeedTestData(t, db)
+
+	svc := NewService(db, queries)
+
+	// Search for CSCI without term - should group sections by course
+	resp, err := svc.Search(context.Background(), SearchRequest{
+		Subject: "CSCI",
+	})
+
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+
+	// Verify results structure
+	if resp.Courses == nil {
+		t.Fatal("courses map should not be nil")
+	}
+	if resp.Sections == nil {
+		t.Fatal("sections map should not be nil")
+	}
+	if resp.Results == nil {
+		t.Fatal("results slice should not be nil")
+	}
+
+	// Each result should reference a valid course
+	for _, ref := range resp.Results {
+		if _, exists := resp.Courses[ref.CourseKey]; !exists {
+			t.Errorf("result references non-existent course: %s", ref.CourseKey)
+		}
+		// Each section key should reference a valid section
+		for _, sectionKey := range ref.SectionKeys {
+			section, exists := resp.Sections[sectionKey]
+			if !exists {
+				t.Errorf("result section key references non-existent section: %s", sectionKey)
+			}
+			// Section's courseKey should match
+			if section.CourseKey != ref.CourseKey {
+				t.Errorf("section courseKey %s doesn't match result courseKey %s", section.CourseKey, ref.CourseKey)
+			}
+		}
+	}
+
+	// Total should match results count
+	if resp.Total != len(resp.Results) {
+		t.Errorf("total %d doesn't match results length %d", resp.Total, len(resp.Results))
+	}
+}
+
+func TestSearch_ResponseStructure(t *testing.T) {
+	db, queries := testutil.SetupTestDB(t)
+	defer db.Close()
+	testutil.SeedTestData(t, db)
+
+	svc := NewService(db, queries)
+
+	resp, err := svc.Search(context.Background(), SearchRequest{
+		Term:    "202520",
+		Subject: "CSCI",
+	})
+
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+
+	// Verify CourseInfo structure
+	for key, course := range resp.Courses {
+		expectedKey := course.Subject + ":" + course.CourseNumber
+		if key != expectedKey {
+			t.Errorf("course key %s doesn't match expected %s", key, expectedKey)
+		}
+		if course.Subject == "" {
+			t.Error("course subject should not be empty")
+		}
+		if course.CourseNumber == "" {
+			t.Error("course number should not be empty")
+		}
+		if course.Title == "" {
+			t.Error("course title should not be empty")
+		}
+	}
+
+	// Verify SectionInfo structure
+	for sectionKey, section := range resp.Sections {
+		expectedKey := section.Term + ":" + section.CRN
+		if sectionKey != expectedKey {
+			t.Errorf("section key %s doesn't match expected %s", sectionKey, expectedKey)
+		}
+		if section.CourseKey == "" {
+			t.Error("section courseKey should not be empty")
+		}
+		if section.Term == "" {
+			t.Error("section term should not be empty")
+		}
+	}
+
+	// Verify CourseRef structure
+	for _, ref := range resp.Results {
+		if ref.CourseKey == "" {
+			t.Error("result courseKey should not be empty")
+		}
+		if len(ref.SectionKeys) == 0 {
+			t.Error("result should have at least one section key")
 		}
 	}
 }
@@ -583,8 +686,8 @@ func TestRecencyScorer(t *testing.T) {
 	scorer := NewRecencyScorer()
 
 	// More recent terms should score higher for all-time searches
-	currentSection := &SectionResult{Term: "202520"}
-	olderSection := &SectionResult{Term: "202510"}
+	currentSection := &sectionRow{Term: "202520"}
+	olderSection := &sectionRow{Term: "202510"}
 
 	allTimeReq := &SearchRequest{} // No term = all-time
 	currentScore := scorer.Score(currentSection, allTimeReq)
@@ -607,8 +710,8 @@ func TestMatchQualityScorer(t *testing.T) {
 	scorer := NewMatchQualityScorer()
 
 	// Exact match should score higher than partial
-	exactSection := &SectionResult{CourseNumber: "247", Subject: "CSCI"}
-	partialSection := &SectionResult{CourseNumber: "2471", Subject: "CSCI"}
+	exactSection := &sectionRow{CourseNumber: "247", Subject: "CSCI"}
+	partialSection := &sectionRow{CourseNumber: "2471", Subject: "CSCI"}
 
 	req := &SearchRequest{CourseNumber: "247", Subject: "CSCI"}
 
@@ -620,21 +723,97 @@ func TestMatchQualityScorer(t *testing.T) {
 	}
 }
 
-func TestCompositeScorer(t *testing.T) {
-	recency := NewRecencyScorer()
-	quality := NewMatchQualityScorer()
-	composite := NewCompositeScorer([]Scorer{recency, quality}, []float64{1.0, 1.0})
+func TestSearch_YearScope(t *testing.T) {
+	db, queries := testutil.SetupTestDB(t)
+	defer db.Close()
+	testutil.SeedTestData(t, db)
 
-	section := &SectionResult{Term: "202520", CourseNumber: "247", Subject: "CSCI"}
-	req := &SearchRequest{CourseNumber: "247", Subject: "CSCI"}
+	svc := NewService(db, queries)
 
-	compositeScore := composite.Score(section, req)
-	recencyScore := recency.Score(section, req)
-	qualityScore := quality.Score(section, req)
+	// Search with year scope (2025 = Fall 2024 through Summer 2025)
+	// Our test data has terms 202520 (Spring 2025) and 202510 (Winter 2025)
+	resp, err := svc.Search(context.Background(), SearchRequest{
+		Year:         2025,
+		Subject:      "CSCI",
+		CourseNumber: "247",
+	})
 
-	expectedScore := recencyScore + qualityScore
-	if compositeScore != expectedScore {
-		t.Errorf("expected composite score %f, got %f", expectedScore, compositeScore)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+
+	// Should find sections from both terms in the academic year
+	if len(resp.Sections) < 1 {
+		t.Errorf("expected at least 1 section for year scope, got %d", len(resp.Sections))
+	}
+}
+
+func TestSearch_SectionKeyUniqueness(t *testing.T) {
+	db, queries := testutil.SetupTestDB(t)
+	defer db.Close()
+	testutil.SeedTestData(t, db)
+
+	svc := NewService(db, queries)
+
+	// Search across terms for CSCI 247 which exists in both 202520 and 202510
+	resp, err := svc.Search(context.Background(), SearchRequest{
+		Subject:      "CSCI",
+		CourseNumber: "247",
+	})
+
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+
+	// Should have 2 sections (one per term), not 1 (which would indicate collision)
+	if len(resp.Sections) != 2 {
+		t.Errorf("expected 2 sections (one per term), got %d - possible CRN collision", len(resp.Sections))
+	}
+
+	// Verify section keys are in term:crn format
+	for sectionKey := range resp.Sections {
+		if !strings.Contains(sectionKey, ":") {
+			t.Errorf("section key %s should be in term:crn format", sectionKey)
+		}
+	}
+
+	// Verify each section key is unique
+	seen := make(map[string]bool)
+	for _, ref := range resp.Results {
+		for _, key := range ref.SectionKeys {
+			if seen[key] {
+				t.Errorf("duplicate section key: %s", key)
+			}
+			seen[key] = true
+		}
+	}
+}
+
+func TestSearch_StatsPopulated(t *testing.T) {
+	db, queries := testutil.SetupTestDB(t)
+	defer db.Close()
+	testutil.SeedTestData(t, db)
+
+	svc := NewService(db, queries)
+
+	resp, err := svc.Search(context.Background(), SearchRequest{
+		Term:    "202520",
+		Subject: "CSCI",
+	})
+
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+
+	// Verify stats are populated
+	if resp.Stats.TotalSections != len(resp.Sections) {
+		t.Errorf("stats.TotalSections %d doesn't match sections count %d", resp.Stats.TotalSections, len(resp.Sections))
+	}
+	if resp.Stats.TotalCourses != len(resp.Courses) {
+		t.Errorf("stats.TotalCourses %d doesn't match courses count %d", resp.Stats.TotalCourses, len(resp.Courses))
+	}
+	if resp.Stats.TimeMs <= 0 {
+		t.Error("stats.TimeMs should be positive")
 	}
 }
 

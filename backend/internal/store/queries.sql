@@ -68,6 +68,14 @@ DELETE FROM instructors WHERE section_id = ?;
 -- name: GetMeetingTimesBySection :many
 SELECT * FROM meeting_times WHERE section_id = ?;
 
+-- name: GetMeetingTimesBySectionIDs :many
+SELECT
+    section_id, start_time, end_time, building, room,
+    sunday, monday, tuesday, wednesday, thursday, friday, saturday
+FROM meeting_times
+WHERE section_id IN (sqlc.slice('section_ids'))
+ORDER BY section_id;
+
 -- name: InsertMeetingTime :exec
 INSERT INTO meeting_times (
     section_id, start_time, end_time, start_date, end_date,
@@ -209,4 +217,4 @@ WHERE
     AND (sqlc.narg('min_credits') IS NULL OR s.credit_hours_low >= sqlc.narg('min_credits'))
     AND (sqlc.narg('max_credits') IS NULL OR s.credit_hours_low <= sqlc.narg('max_credits'))
 ORDER BY s.term DESC, s.subject, s.course_number, s.crn
-LIMIT sqlc.arg('result_limit') OFFSET sqlc.arg('result_offset');
+LIMIT sqlc.arg('result_limit');

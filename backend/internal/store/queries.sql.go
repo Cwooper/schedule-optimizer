@@ -8,6 +8,7 @@ package store
 import (
 	"context"
 	"database/sql"
+	"strings"
 )
 
 const checkSchemaExists = `-- name: CheckSchemaExists :one
@@ -225,6 +226,76 @@ func (q *Queries) GetMeetingTimesBySection(ctx context.Context, sectionID int64)
 			&i.MeetingType,
 			&i.CreditHours,
 			&i.HoursPerWeek,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, &i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const getMeetingTimesBySectionIDs = `-- name: GetMeetingTimesBySectionIDs :many
+SELECT
+    section_id, start_time, end_time, building, room,
+    sunday, monday, tuesday, wednesday, thursday, friday, saturday
+FROM meeting_times
+WHERE section_id IN (/*SLICE:section_ids*/?)
+ORDER BY section_id
+`
+
+type GetMeetingTimesBySectionIDsRow struct {
+	SectionID int64          `json:"section_id"`
+	StartTime sql.NullString `json:"start_time"`
+	EndTime   sql.NullString `json:"end_time"`
+	Building  sql.NullString `json:"building"`
+	Room      sql.NullString `json:"room"`
+	Sunday    sql.NullInt64  `json:"sunday"`
+	Monday    sql.NullInt64  `json:"monday"`
+	Tuesday   sql.NullInt64  `json:"tuesday"`
+	Wednesday sql.NullInt64  `json:"wednesday"`
+	Thursday  sql.NullInt64  `json:"thursday"`
+	Friday    sql.NullInt64  `json:"friday"`
+	Saturday  sql.NullInt64  `json:"saturday"`
+}
+
+func (q *Queries) GetMeetingTimesBySectionIDs(ctx context.Context, sectionIds []int64) ([]*GetMeetingTimesBySectionIDsRow, error) {
+	query := getMeetingTimesBySectionIDs
+	var queryParams []interface{}
+	if len(sectionIds) > 0 {
+		for _, v := range sectionIds {
+			queryParams = append(queryParams, v)
+		}
+		query = strings.Replace(query, "/*SLICE:section_ids*/?", strings.Repeat(",?", len(sectionIds))[1:], 1)
+	} else {
+		query = strings.Replace(query, "/*SLICE:section_ids*/?", "NULL", 1)
+	}
+	rows, err := q.db.QueryContext(ctx, query, queryParams...)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []*GetMeetingTimesBySectionIDsRow{}
+	for rows.Next() {
+		var i GetMeetingTimesBySectionIDsRow
+		if err := rows.Scan(
+			&i.SectionID,
+			&i.StartTime,
+			&i.EndTime,
+			&i.Building,
+			&i.Room,
+			&i.Sunday,
+			&i.Monday,
+			&i.Tuesday,
+			&i.Wednesday,
+			&i.Thursday,
+			&i.Friday,
+			&i.Saturday,
 		); err != nil {
 			return nil, err
 		}
@@ -983,7 +1054,7 @@ WHERE
     AND (?11 IS NULL OR s.credit_hours_low >= ?11)
     AND (?12 IS NULL OR s.credit_hours_low <= ?12)
 ORDER BY s.term DESC, s.subject, s.course_number, s.crn
-LIMIT ?14 OFFSET ?13
+LIMIT ?13
 `
 
 type SearchSectionsParams struct {
@@ -999,7 +1070,6 @@ type SearchSectionsParams struct {
 	OpenSeats    interface{} `json:"open_seats"`
 	MinCredits   interface{} `json:"min_credits"`
 	MaxCredits   interface{} `json:"max_credits"`
-	ResultOffset int64       `json:"result_offset"`
 	ResultLimit  int64       `json:"result_limit"`
 }
 
@@ -1039,7 +1109,6 @@ func (q *Queries) SearchSections(ctx context.Context, arg SearchSectionsParams) 
 		arg.OpenSeats,
 		arg.MinCredits,
 		arg.MaxCredits,
-		arg.ResultOffset,
 		arg.ResultLimit,
 	)
 	if err != nil {

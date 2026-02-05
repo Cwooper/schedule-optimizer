@@ -8,18 +8,19 @@ import (
 	"log/slog"
 	"slices"
 	"strings"
+	"time"
 
 	"schedule-optimizer/internal/jobs"
 	"schedule-optimizer/internal/store"
 )
 
 var (
-	ErrNoFilters       = errors.New("at least one search filter is required (subject, courseNumber, title, or instructor)")
-	ErrTooManyTokens   = errors.New("too many search terms (max 3 words per field)")
-	ErrInvalidTerm     = errors.New("invalid term code")
-	ErrInvalidYear     = errors.New("invalid academic year")
-	ErrWildcardOnly    = errors.New("search filter cannot be only wildcards")
-	ErrFilterTooShort  = errors.New("search filter must be at least 2 characters (excluding wildcards)")
+	ErrNoFilters      = errors.New("at least one search filter is required (subject, courseNumber, title, or instructor)")
+	ErrTooManyTokens  = errors.New("too many search terms (max 3 words per field)")
+	ErrInvalidTerm    = errors.New("invalid term code")
+	ErrInvalidYear    = errors.New("invalid academic year")
+	ErrWildcardOnly   = errors.New("search filter cannot be only wildcards")
+	ErrFilterTooShort = errors.New("search filter must be at least 2 characters (excluding wildcards)")
 )
 
 // Service handles course search operations.
@@ -43,21 +44,12 @@ func NewService(db *sql.DB, queries *store.Queries) *Service {
 
 // Search performs a course search with the given parameters.
 func (s *Service) Search(ctx context.Context, req SearchRequest) (*SearchResponse, error) {
-	// Validate request
+	startTime := time.Now()
+
 	if err := s.validateRequest(req); err != nil {
 		return nil, err
 	}
 
-	// Apply defaults
-	limit := req.Limit
-	if limit <= 0 {
-		limit = DefaultLimit
-	}
-	if limit > MaxLimit {
-		limit = MaxLimit
-	}
-
-	// Split tokens for title and instructor
 	titleTokens, err := splitTokens(req.Title, MaxTokens)
 	if err != nil {
 		return nil, fmt.Errorf("title: %w", err)
@@ -67,109 +59,195 @@ func (s *Service) Search(ctx context.Context, req SearchRequest) (*SearchRespons
 		return nil, fmt.Errorf("instructor: %w", err)
 	}
 
-	// Resolve terms based on scope
 	terms, err := s.resolveTerms(ctx, req)
 	if err != nil {
 		return nil, err
 	}
 
-	// Build course number pattern
 	courseNumberPattern := buildCourseNumberPattern(req.CourseNumber)
 
-	// Execute search for each term (or once if specific term or all-time)
 	var allResults []*store.SearchSectionsRow
 
 	if len(terms) == 0 {
 		// All-time search (no term filter)
-		results, err := s.executeSearch(ctx, nil, req, courseNumberPattern, titleTokens, instrTokens, limit+1, req.Offset)
+		results, err := s.executeSearch(ctx, nil, req, courseNumberPattern, titleTokens, instrTokens, MaxSectionFetch)
 		if err != nil {
 			return nil, err
 		}
 		allResults = results
 	} else if len(terms) == 1 {
 		// Single term search
-		results, err := s.executeSearch(ctx, &terms[0], req, courseNumberPattern, titleTokens, instrTokens, limit+1, req.Offset)
+		results, err := s.executeSearch(ctx, &terms[0], req, courseNumberPattern, titleTokens, instrTokens, MaxSectionFetch)
 		if err != nil {
 			return nil, err
 		}
 		allResults = results
 	} else {
 		// Multi-term search (year scope) - search each term and combine
-		// Fetch extra to account for offset, since we can't push offset to individual term queries
-		fetchPerTerm := limit + req.Offset + 1
 		for _, term := range terms {
 			termCopy := term
-			results, err := s.executeSearch(ctx, &termCopy, req, courseNumberPattern, titleTokens, instrTokens, fetchPerTerm, 0)
+			results, err := s.executeSearch(ctx, &termCopy, req, courseNumberPattern, titleTokens, instrTokens, MaxSectionFetch)
 			if err != nil {
 				return nil, err
 			}
 			allResults = append(allResults, results...)
 		}
-		// Results are already ordered by term DESC within each batch
-		// Apply offset after combining
-		if req.Offset > 0 && len(allResults) > req.Offset {
-			allResults = allResults[req.Offset:]
-		} else if req.Offset > 0 {
-			allResults = nil // Offset beyond available results
-		}
-		// Trim to limit+1 (for hasMore detection)
-		if len(allResults) > limit+1 {
-			allResults = allResults[:limit+1]
+		// Safety limit after combining
+		if len(allResults) > MaxSectionFetch {
+			allResults = allResults[:MaxSectionFetch]
 		}
 	}
 
-	// Check if there are more results
-	hasMore := len(allResults) > limit
-	if hasMore {
-		allResults = allResults[:limit]
-	}
-
-	// Convert to SectionResult
-	sections := make([]*SectionResult, len(allResults))
+	// Convert to sectionRow and fetch meeting times
+	rows := make([]*sectionRow, len(allResults))
 	sectionIDs := make([]int64, len(allResults))
 	for i, row := range allResults {
-		sections[i] = rowToSectionResult(row)
+		rows[i] = rowToSectionRow(row)
 		sectionIDs[i] = row.ID
 	}
 
-	// Fetch meeting times for all sections
 	if len(sectionIDs) > 0 {
 		meetingsBySection, err := s.fetchMeetingTimes(ctx, sectionIDs)
 		if err != nil {
 			slog.Warn("Failed to fetch meeting times for search results", "error", err)
 		} else {
 			for i, id := range sectionIDs {
-				sections[i].MeetingTimes = meetingsBySection[id]
+				rows[i].MeetingTimes = meetingsBySection[id]
 			}
 		}
 	}
 
-	// Apply scoring to all searches (scorers decide their relevance per search type)
-	if len(s.scorers) > 0 {
-		for _, section := range sections {
-			var totalScore float64
-			for _, scorer := range s.scorers {
-				totalScore += scorer.Score(section, &req)
-			}
-			section.RelevanceScore = totalScore
+	// Apply scoring to all sections
+	for _, row := range rows {
+		var totalScore float64
+		for _, scorer := range s.scorers {
+			totalScore += scorer.Score(row, &req)
 		}
-		// Sort by relevance score descending
-		sortByRelevance(sections)
+		row.RelevanceScore = totalScore
 	}
 
-	// Build response
-	response := &SearchResponse{
+	return s.buildResponse(rows, startTime)
+}
+
+// buildResponse groups sections by course and builds the normalized response.
+func (s *Service) buildResponse(rows []*sectionRow, startTime time.Time) (*SearchResponse, error) {
+	courses := make(map[string]CourseInfo)
+	sections := make(map[string]SectionInfo)
+
+	// Track course refs with their max scores for ordering
+	type courseRefData struct {
+		courseKey   string
+		sectionKeys []string
+		maxScore    float64
+	}
+	courseRefMap := make(map[string]*courseRefData)
+
+	for _, row := range rows {
+		courseKey := row.Subject + ":" + row.CourseNumber
+		sectionKey := row.Term + ":" + row.CRN // Unique across terms
+
+		// Add course if not seen
+		if _, exists := courses[courseKey]; !exists {
+			courses[courseKey] = CourseInfo{
+				Subject:      row.Subject,
+				CourseNumber: row.CourseNumber,
+				Title:        row.Title,
+				Credits:      row.Credits,
+				CreditsHigh:  row.CreditsHigh,
+			}
+			courseRefMap[courseKey] = &courseRefData{
+				courseKey:   courseKey,
+				sectionKeys: []string{},
+				maxScore:    0,
+			}
+		}
+
+		// Add section (keyed by term:crn for cross-term uniqueness)
+		sections[sectionKey] = SectionInfo{
+			CRN:             row.CRN,
+			Term:            row.Term,
+			CourseKey:       courseKey,
+			Instructor:      row.Instructor,
+			InstructorEmail: row.InstructorEmail,
+			Enrollment:      row.Enrollment,
+			MaxEnrollment:   row.MaxEnrollment,
+			SeatsAvailable:  row.SeatsAvailable,
+			WaitCount:       row.WaitCount,
+			IsOpen:          row.IsOpen,
+			Campus:          row.Campus,
+			ScheduleType:    row.ScheduleType,
+			MeetingTimes:    row.MeetingTimes,
+		}
+
+		// Update course ref
+		ref := courseRefMap[courseKey]
+		ref.sectionKeys = append(ref.sectionKeys, sectionKey)
+		if row.RelevanceScore > ref.maxScore {
+			ref.maxScore = row.RelevanceScore
+		}
+	}
+
+	// Build results slice sorted by relevance score
+	results := make([]CourseRef, 0, len(courseRefMap))
+	for _, ref := range courseRefMap {
+		results = append(results, CourseRef{
+			CourseKey:      ref.courseKey,
+			SectionKeys:    ref.sectionKeys,
+			RelevanceScore: ref.maxScore,
+		})
+	}
+
+	// Sort by relevance score descending
+	slices.SortFunc(results, func(a, b CourseRef) int {
+		if a.RelevanceScore > b.RelevanceScore {
+			return -1
+		}
+		if a.RelevanceScore < b.RelevanceScore {
+			return 1
+		}
+		return 0
+	})
+
+	// Check if we need to truncate
+	var warning string
+	if len(results) > MaxCourseResults {
+		results = results[:MaxCourseResults]
+		warning = WarningMessage
+
+		// Remove sections and courses that are no longer in results
+		keepCourses := make(map[string]bool)
+		keepSectionKeys := make(map[string]bool)
+		for _, ref := range results {
+			keepCourses[ref.CourseKey] = true
+			for _, sectionKey := range ref.SectionKeys {
+				keepSectionKeys[sectionKey] = true
+			}
+		}
+
+		for key := range courses {
+			if !keepCourses[key] {
+				delete(courses, key)
+			}
+		}
+		for sectionKey := range sections {
+			if !keepSectionKeys[sectionKey] {
+				delete(sections, sectionKey)
+			}
+		}
+	}
+
+	return &SearchResponse{
+		Courses:  courses,
 		Sections: sections,
-		Total:    len(sections),
-		HasMore:  hasMore,
-	}
-
-	// Add warning for broad queries
-	if hasMore || len(sections) >= limit {
-		response.Warning = WarningMessage
-	}
-
-	return response, nil
+		Results:  results,
+		Total:    len(results),
+		Warning:  warning,
+		Stats: SearchStats{
+			TotalSections: len(sections),
+			TotalCourses:  len(courses),
+			TimeMs:        float64(time.Since(startTime).Microseconds()) / 1000.0,
+		},
+	}, nil
 }
 
 // validateRequest checks that the request has valid filters.
@@ -237,11 +315,10 @@ func (s *Service) executeSearch(
 	req SearchRequest,
 	courseNumberPattern *string,
 	titleTokens, instrTokens []any,
-	limit, offset int,
+	limit int,
 ) ([]*store.SearchSectionsRow, error) {
 	params := store.SearchSectionsParams{
-		ResultLimit:  int64(limit),
-		ResultOffset: int64(offset),
+		ResultLimit: int64(limit),
 	}
 
 	// Set term filter
@@ -297,36 +374,35 @@ func (s *Service) executeSearch(
 	return s.queries.SearchSections(ctx, params)
 }
 
-// fetchMeetingTimes retrieves meeting times for multiple sections efficiently.
+// fetchMeetingTimes retrieves meeting times for multiple sections in a single batch query.
 func (s *Service) fetchMeetingTimes(ctx context.Context, sectionIDs []int64) (map[int64][]MeetingTimeInfo, error) {
 	result := make(map[int64][]MeetingTimeInfo)
+	if len(sectionIDs) == 0 {
+		return result, nil
+	}
 
-	// Fetch meeting times for each section
-	// TODO: Optimize with a batch query if performance becomes an issue
-	for _, sectionID := range sectionIDs {
-		meetings, err := s.queries.GetMeetingTimesBySection(ctx, sectionID)
-		if err != nil {
-			continue // Skip sections with no meeting times
-		}
+	meetings, err := s.queries.GetMeetingTimesBySectionIDs(ctx, sectionIDs)
+	if err != nil {
+		return nil, err
+	}
 
-		for _, m := range meetings {
-			mt := MeetingTimeInfo{
-				Days: []bool{
-					m.Sunday.Valid && m.Sunday.Int64 == 1,
-					m.Monday.Valid && m.Monday.Int64 == 1,
-					m.Tuesday.Valid && m.Tuesday.Int64 == 1,
-					m.Wednesday.Valid && m.Wednesday.Int64 == 1,
-					m.Thursday.Valid && m.Thursday.Int64 == 1,
-					m.Friday.Valid && m.Friday.Int64 == 1,
-					m.Saturday.Valid && m.Saturday.Int64 == 1,
-				},
-				StartTime: nullString(m.StartTime),
-				EndTime:   nullString(m.EndTime),
-				Building:  nullString(m.Building),
-				Room:      nullString(m.Room),
-			}
-			result[sectionID] = append(result[sectionID], mt)
+	for _, m := range meetings {
+		mt := MeetingTimeInfo{
+			Days: []bool{
+				m.Sunday.Valid && m.Sunday.Int64 == 1,
+				m.Monday.Valid && m.Monday.Int64 == 1,
+				m.Tuesday.Valid && m.Tuesday.Int64 == 1,
+				m.Wednesday.Valid && m.Wednesday.Int64 == 1,
+				m.Thursday.Valid && m.Thursday.Int64 == 1,
+				m.Friday.Valid && m.Friday.Int64 == 1,
+				m.Saturday.Valid && m.Saturday.Int64 == 1,
+			},
+			StartTime: nullString(m.StartTime),
+			EndTime:   nullString(m.EndTime),
+			Building:  nullString(m.Building),
+			Room:      nullString(m.Room),
 		}
+		result[m.SectionID] = append(result[m.SectionID], mt)
 	}
 
 	return result, nil
@@ -389,9 +465,9 @@ func buildCourseNumberPattern(input string) *string {
 	return &input
 }
 
-// rowToSectionResult converts a database row to a SectionResult.
-func rowToSectionResult(row *store.SearchSectionsRow) *SectionResult {
-	return &SectionResult{
+// rowToSectionRow converts a database row to the internal sectionRow type.
+func rowToSectionRow(row *store.SearchSectionsRow) *sectionRow {
+	return &sectionRow{
 		ID:              row.ID,
 		CRN:             row.Crn,
 		Term:            row.Term,
@@ -410,19 +486,6 @@ func rowToSectionResult(row *store.SearchSectionsRow) *SectionResult {
 		Instructor:      nullString(row.InstructorName),
 		InstructorEmail: nullString(row.InstructorEmail),
 	}
-}
-
-// sortByRelevance sorts sections by relevance score in descending order.
-func sortByRelevance(sections []*SectionResult) {
-	slices.SortFunc(sections, func(a, b *SectionResult) int {
-		if a.RelevanceScore > b.RelevanceScore {
-			return -1
-		}
-		if a.RelevanceScore < b.RelevanceScore {
-			return 1
-		}
-		return 0
-	})
 }
 
 // Helper functions for null types

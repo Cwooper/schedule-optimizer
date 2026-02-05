@@ -166,6 +166,65 @@ export interface ValidateCoursesResponse {
   results: CourseValidationResult[]
 }
 
+// Search API types - normalized wire format
+
+export interface SearchCourseInfo {
+  subject: string
+  courseNumber: string
+  title: string
+  credits: number
+  creditsHigh?: number
+}
+
+export interface SearchSectionInfo {
+  crn: string
+  term: string
+  courseKey: string
+  instructor?: string
+  instructorEmail?: string
+  enrollment: number
+  maxEnrollment: number
+  seatsAvailable: number
+  waitCount: number
+  isOpen: boolean
+  campus?: string
+  scheduleType?: string
+  meetingTimes: MeetingTime[]
+}
+
+export interface SearchCourseRef {
+  courseKey: string
+  sectionKeys: string[] // Format: "term:crn" for cross-term uniqueness
+  relevanceScore?: number
+}
+
+export interface SearchRequest {
+  term?: string
+  year?: number
+  subject?: string
+  courseNumber?: string
+  title?: string
+  instructor?: string
+  openSeats?: boolean
+  minCredits?: number
+  maxCredits?: number
+}
+
+export interface SearchStats {
+  totalSections: number
+  totalCourses: number
+  timeMs: number
+}
+
+export interface SearchResponse {
+  courses: Record<string, SearchCourseInfo>
+  sections: Record<string, SearchSectionInfo>
+  results: SearchCourseRef[]
+  total: number
+  warning?: string
+  stats: SearchStats
+}
+
 // --- Errors ---
 
 export class ApiError extends Error {
@@ -255,4 +314,20 @@ export async function validateCourses(
     method: "POST",
     body: JSON.stringify(req),
   })
+}
+
+export async function searchCourses(
+  req: SearchRequest
+): Promise<SearchResponse> {
+  const params = new URLSearchParams()
+  if (req.term) params.set("term", req.term)
+  if (req.year) params.set("year", String(req.year))
+  if (req.subject) params.set("subject", req.subject)
+  if (req.courseNumber) params.set("courseNumber", req.courseNumber)
+  if (req.title) params.set("title", req.title)
+  if (req.instructor) params.set("instructor", req.instructor)
+  if (req.openSeats) params.set("openSeats", "true")
+  if (req.minCredits !== undefined) params.set("minCredits", String(req.minCredits))
+  if (req.maxCredits !== undefined) params.set("maxCredits", String(req.maxCredits))
+  return fetchAPI<SearchResponse>(`/search?${params.toString()}`)
 }
