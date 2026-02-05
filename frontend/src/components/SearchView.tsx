@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from "react"
+import { useState, useCallback, useMemo, useEffect } from "react"
 import { RotateCcw } from "lucide-react"
 import { toast } from "sonner"
 import { Button } from "@/components/ui/button"
@@ -26,7 +26,7 @@ import {
   getAcademicYearsFromTerms,
   formatAcademicYear,
 } from "@/lib/schedule-utils"
-import { genId } from "@/lib/utils"
+import { cn, genId } from "@/lib/utils"
 
 const SCOPE_OPTIONS: { value: SearchScope; label: string }[] = [
   { value: "term", label: "Term" },
@@ -55,13 +55,32 @@ export function SearchView() {
     return getAcademicYearsFromTerms(termsData.terms.map((t) => t.code))
   }, [termsData])
 
-  const searchRequest = useMemo(
-    () => filtersToSearchRequest(searchFilters),
-    [searchFilters]
-  )
-
-  const { isFetching, refetch } = useSearch(searchRequest)
+  // Only pass request to useSearch when user clicks Search (not on every filter change)
+  const [submittedRequest, setSubmittedRequest] = useState<ReturnType<typeof filtersToSearchRequest> | null>(null)
+  const { data: searchData, isFetching, error: searchError } = useSearch(submittedRequest ?? {})
   const [hasSearched, setHasSearched] = useState(false)
+
+  // Sync search results to store when data arrives
+  useEffect(() => {
+    if (searchData) {
+      setSearchResult(searchData)
+    }
+  }, [searchData, setSearchResult])
+
+  // Show error toast when search fails
+  useEffect(() => {
+    if (searchError) {
+      toast.error("Search failed. Please try again.")
+    }
+  }, [searchError])
+
+  // Stale detection: compare current filters against what was searched
+  const hasSearchResult = !!searchResult
+  const isSearchStale = useMemo(() => {
+    if (!hasSearchResult || !submittedRequest) return false
+    const currentRequest = filtersToSearchRequest(searchFilters)
+    return JSON.stringify(currentRequest) !== JSON.stringify(submittedRequest)
+  }, [searchFilters, submittedRequest, hasSearchResult])
 
   // Dialog state
   const [dialogOpen, setDialogOpen] = useState(false)
@@ -69,17 +88,12 @@ export function SearchView() {
 
   const handleSearch = useCallback(() => {
     setHasSearched(true)
-    refetch()
-      .then(({ data }) => {
-        if (data) setSearchResult(data)
-      })
-      .catch(() => {
-        toast.error("Search failed. Please try again.")
-      })
-  }, [refetch, setSearchResult])
+    setSubmittedRequest(filtersToSearchRequest(searchFilters))
+  }, [searchFilters])
 
   const handleClear = useCallback(() => {
     clearSearchFilters()
+    setSubmittedRequest(null)
     setHasSearched(false)
   }, [clearSearchFilters])
 
@@ -178,7 +192,7 @@ export function SearchView() {
   const dialogTerm = searchFilters.term || scheduleTerm || currentTerm || ""
 
   return (
-    <div className="scrollbar-styled h-full overflow-auto">
+    <div className="flex h-full flex-col">
       {/* Filters */}
       <div className="border-b p-4">
         <div className="grid grid-cols-3 items-end gap-3 sm:grid-cols-4 lg:grid-cols-10 xl:grid-cols-12">
@@ -361,7 +375,10 @@ export function SearchView() {
             <Button
               onClick={handleSearch}
               disabled={isFetching}
-              className="flex-1"
+              className={cn(
+                "flex-1",
+                isSearchStale && "ring-2 ring-amber-500 ring-offset-2 ring-offset-background"
+              )}
             >
               {isFetching ? "Searching..." : "Search"}
             </Button>
@@ -378,7 +395,7 @@ export function SearchView() {
       </div>
 
       {/* Results */}
-      <div className="p-4">
+      <div className="scrollbar-styled flex-1 overflow-y-auto p-4">
         <SearchResults
           hasSearched={hasSearched}
           isFetching={isFetching}
@@ -388,6 +405,19 @@ export function SearchView() {
           isCourseAdded={isCourseAdded}
         />
       </div>
+
+      {/* Stats footer */}
+      {searchResult && searchResult.results.length > 0 && (
+        <div className="text-muted-foreground border-t px-4 py-2 text-xs">
+          Found {searchResult.total} courses ({searchResult.stats.totalSections}{" "}
+          sections) in {searchResult.stats.timeMs.toFixed(1)}ms
+          {searchResult.warning && (
+            <span className="ml-2 text-amber-600 dark:text-amber-400">
+              — {searchResult.warning}
+            </span>
+          )}
+        </div>
+      )}
 
       {/* Course Detail Dialog */}
       <CourseInfoDialog
@@ -473,32 +503,20 @@ function SearchResults({
   }
 
   return (
-    <div className="space-y-1">
-      <p className="text-muted-foreground mb-3 text-xs">
-        Found {searchResult.total} courses ({searchResult.stats.totalSections}{" "}
-        sections) in {searchResult.stats.timeMs.toFixed(1)}ms
-        {searchResult.warning && (
-          <span className="ml-2 text-amber-600 dark:text-amber-400">
-            — {searchResult.warning}
-          </span>
-        )}
-      </p>
-
-      <div className="space-y-2">
-        {searchResult.results.map((ref) => {
-          const course = searchResult.courses[ref.courseKey]
-          if (!course) return null
-          return (
-            <CourseListItem
-              key={ref.courseKey}
-              course={toListItemData(ref.courseKey, searchResult)}
-              onClick={() => onCourseClick(ref.courseKey)}
-              onAdd={() => onAddCourse(ref.courseKey)}
-              isAdded={isCourseAdded(course.subject, course.courseNumber)}
-            />
-          )
-        })}
-      </div>
+    <div className="space-y-2">
+      {searchResult.results.map((ref) => {
+        const course = searchResult.courses[ref.courseKey]
+        if (!course) return null
+        return (
+          <CourseListItem
+            key={ref.courseKey}
+            course={toListItemData(ref.courseKey, searchResult)}
+            onClick={() => onCourseClick(ref.courseKey)}
+            onAdd={() => onAddCourse(ref.courseKey)}
+            isAdded={isCourseAdded(course.subject, course.courseNumber)}
+          />
+        )
+      })}
     </div>
   )
 }

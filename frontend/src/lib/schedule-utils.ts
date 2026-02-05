@@ -318,11 +318,11 @@ export function buildColorMap(courses: HydratedSection[]): Map<string, string> {
 export type SectionInfoLike = Omit<GenerateSectionInfo, 'instructor'> & { instructor?: string }
 
 export function hydrateSection(
-  crn: string,
+  sectionKey: string,
   courses: Record<string, GenerateCourseInfo>,
   sections: Record<string, SectionInfoLike>
 ): HydratedSection | null {
-  const section = sections[crn]
+  const section = sections[sectionKey]
   if (!section) return null
 
   const course = courses[section.courseKey]
