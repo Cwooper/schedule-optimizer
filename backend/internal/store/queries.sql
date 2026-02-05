@@ -178,3 +178,35 @@ WHERE term = ? AND subject = ? AND course_number = ?;
 
 -- name: CheckSchemaExists :one
 SELECT COUNT(*) AS count FROM sections;
+
+-- name: SearchSections :many
+SELECT
+    s.id, s.term, s.crn, s.subject, s.subject_description,
+    s.course_number, s.title, s.credit_hours_low, s.credit_hours_high,
+    s.enrollment, s.max_enrollment, s.seats_available, s.wait_count, s.is_open,
+    s.instructional_method, s.schedule_type, s.campus,
+    i.name AS instructor_name, i.email AS instructor_email
+FROM sections s
+LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1
+WHERE
+    -- Term filter (NULL = all terms)
+    (sqlc.narg('term') IS NULL OR s.term = sqlc.narg('term'))
+    -- Subject filter (exact match)
+    AND (sqlc.narg('subject') IS NULL OR s.subject = sqlc.narg('subject'))
+    -- Course number filter (supports LIKE for wildcards)
+    AND (sqlc.narg('course_number') IS NULL OR s.course_number LIKE sqlc.narg('course_number'))
+    -- Title tokens (up to 3)
+    AND (sqlc.narg('title_t1') IS NULL OR LOWER(s.title) LIKE '%' || LOWER(sqlc.narg('title_t1')) || '%')
+    AND (sqlc.narg('title_t2') IS NULL OR LOWER(s.title) LIKE '%' || LOWER(sqlc.narg('title_t2')) || '%')
+    AND (sqlc.narg('title_t3') IS NULL OR LOWER(s.title) LIKE '%' || LOWER(sqlc.narg('title_t3')) || '%')
+    -- Instructor tokens (up to 3)
+    AND (sqlc.narg('instr_t1') IS NULL OR LOWER(i.name) LIKE '%' || LOWER(sqlc.narg('instr_t1')) || '%')
+    AND (sqlc.narg('instr_t2') IS NULL OR LOWER(i.name) LIKE '%' || LOWER(sqlc.narg('instr_t2')) || '%')
+    AND (sqlc.narg('instr_t3') IS NULL OR LOWER(i.name) LIKE '%' || LOWER(sqlc.narg('instr_t3')) || '%')
+    -- Open seats filter
+    AND (sqlc.narg('open_seats') IS NULL OR sqlc.narg('open_seats') = 0 OR s.seats_available > 0)
+    -- Credit range
+    AND (sqlc.narg('min_credits') IS NULL OR s.credit_hours_low >= sqlc.narg('min_credits'))
+    AND (sqlc.narg('max_credits') IS NULL OR s.credit_hours_low <= sqlc.narg('max_credits'))
+ORDER BY s.term DESC, s.subject, s.course_number, s.crn
+LIMIT sqlc.arg('result_limit') OFFSET sqlc.arg('result_offset');

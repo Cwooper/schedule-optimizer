@@ -11,6 +11,7 @@ import (
 	"schedule-optimizer/internal/cache"
 	"schedule-optimizer/internal/generator"
 	"schedule-optimizer/internal/jobs"
+	"schedule-optimizer/internal/search"
 	"schedule-optimizer/internal/store"
 
 	"github.com/gin-gonic/gin"
@@ -24,6 +25,7 @@ type Handlers struct {
 	cache     *cache.ScheduleCache
 	generator *generator.Service
 	queries   *store.Queries
+	search    *search.Service
 }
 
 // Response types for type-safe JSON serialization
@@ -107,12 +109,13 @@ func fromNullInt64ToBool(ni sql.NullInt64) bool {
 }
 
 // NewHandlers creates a new Handlers instance with all dependencies.
-func NewHandlers(db *sql.DB, cache *cache.ScheduleCache, generator *generator.Service, queries *store.Queries) *Handlers {
+func NewHandlers(db *sql.DB, cache *cache.ScheduleCache, generator *generator.Service, queries *store.Queries, searchSvc *search.Service) *Handlers {
 	return &Handlers{
 		db:        db,
 		cache:     cache,
 		generator: generator,
 		queries:   queries,
+		search:    searchSvc,
 	}
 }
 
@@ -283,32 +286,33 @@ func (h *Handlers) GetSubjects(c *gin.Context) {
 	})
 }
 
-// SearchCourses searches for courses/sections with filters.
-func (h *Handlers) SearchCourses(c *gin.Context) {
-	// TODO: implement with real data from store
-	c.JSON(http.StatusOK, gin.H{
-		"sections": []gin.H{
-			{
-				"crn":            "41328",
-				"term":           "202520",
-				"subject":        "CSCI",
-				"courseNumber":   "247",
-				"title":          "Computer Systems",
-				"credits":        5,
-				"instructor":     "See-Mong Tan",
-				"maxEnrollment":  30,
-				"enrollment":     28,
-				"seatsAvailable": 2,
-				"waitCount":      0,
-				"isOpen":         true,
-				"meetingTimes": []gin.H{
-					{"days": []bool{false, true, false, true, false, true, false}, "startTime": "0900", "endTime": "0950", "building": "CF", "room": "225"},
-				},
-			},
-		},
-		"total":   1,
-		"hasMore": false,
-	})
+// Search searches for courses/sections with filters.
+func (h *Handlers) Search(c *gin.Context) {
+	var req search.SearchRequest
+	if err := c.ShouldBindQuery(&req); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	result, err := h.search.Search(c.Request.Context(), req)
+	if err != nil {
+		switch {
+		case errors.Is(err, search.ErrNoFilters):
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		case errors.Is(err, search.ErrTooManyTokens):
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		case errors.Is(err, search.ErrInvalidTerm):
+			c.JSON(http.StatusNotFound, gin.H{"error": err.Error()})
+		case errors.Is(err, search.ErrInvalidYear):
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		default:
+			slog.Error("Search failed", "error", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Search failed"})
+		}
+		return
+	}
+
+	c.JSON(http.StatusOK, result)
 }
 
 // GetCRN looks up a specific CRN.
