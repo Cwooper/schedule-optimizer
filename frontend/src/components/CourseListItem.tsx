@@ -60,16 +60,16 @@ function getInstructors(sections: CourseListSectionInfo[]): string {
 
 /** Get unique terms from sections */
 function getTerms(sections: CourseListSectionInfo[]): string {
-  const terms = new Set<string>()
+  const termSet = new Set<string>()
   for (const s of sections) {
-    if (s.term) terms.add(s.term)
+    if (s.term) termSet.add(s.term)
   }
-  if (terms.size === 0) return ""
-  if (terms.size === 1) {
-    // Format single term nicely
-    return formatTermCode([...terms][0])
+  const terms = [...termSet]
+  if (terms.length === 0) return ""
+  if (terms.length === 1) {
+    return formatTermCode(terms[0])
   }
-  return `${terms.size} terms`
+  return `${terms.length} terms`
 }
 
 /** Format term code to readable name */
