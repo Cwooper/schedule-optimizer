@@ -133,7 +133,7 @@ export function ScheduleGrid({
     })
 
   return (
-    <div ref={captureRef} className="flex h-full flex-col overflow-hidden">
+    <div ref={captureRef} className="flex min-h-96 flex-col">
       {/* Header row with day names */}
       <div className="border-b bg-muted/30">
         <div className="grid grid-cols-[2.5rem_repeat(5,1fr)]">
@@ -152,11 +152,11 @@ export function ScheduleGrid({
         </div>
       </div>
 
-      {/* Grid body — no overflow, grows with content; page scrollbar handles it */}
+      {/* Grid body — grows with content, parent handles scrolling */}
       <div
         ref={gridBodyRef}
         className={cn(
-          "relative flex-1 overflow-hidden",
+          "relative flex-1",
           isEditing && !hoveredEdge && "cursor-crosshair",
           isEditing && hoveredEdge && "cursor-ns-resize"
         )}

@@ -124,6 +124,34 @@
   }
 }
 
+/* Reusable styled scrollbar for scrollable content areas */
+.scrollbar-styled {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(0.8 0 0) transparent;
+}
+.scrollbar-styled::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollbar-styled::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-styled::-webkit-scrollbar-thumb {
+  background: oklch(0.8 0 0);
+  border-radius: 3px;
+}
+.scrollbar-styled::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.7 0 0);
+}
+.dark .scrollbar-styled {
+  scrollbar-color: oklch(0.4 0 0) transparent;
+}
+.dark .scrollbar-styled::-webkit-scrollbar-thumb {
+  background: oklch(0.4 0 0);
+}
+.dark .scrollbar-styled::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.5 0 0);
+}
+
 /* Single 360° spin animation for regenerate button */
 @keyframes spin-once {
   from {

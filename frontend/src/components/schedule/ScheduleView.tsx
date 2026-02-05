@@ -313,7 +313,7 @@ export function ScheduleView() {
       )}
 
       {/* Schedule grid — always visible, empty when no schedules */}
-      <div className="flex-1 overflow-hidden">
+      <div className="scrollbar-styled min-h-96 flex-1 overflow-auto">
         <ScheduleGrid
           captureRef={gridRef}
           courses={currentSchedule?.courses ?? []}
