@@ -227,38 +227,38 @@ JOBS_PAST_TERM_YEARS=5          # years of past terms to scrape (default 5)
 ### Completed
 - [x] #9 - Frontend Mockup/Wireframes
 - [x] #10 - Design Schedule Optimizer Icon/Logo
-
-### Backend
+- [x] #11 - Frontend SEO
+- [x] #12 - Define API Contract
 - [x] #13 - Set up new Go Backend with Gin
 - [x] #14 - Implement SQLite Database Layer
 - [x] #15 - Implement Structured Logging with slog *(tint for colored dev logs)*
-- [ ] #16 - Implement Analytics/Statistics Collection
-- [x] #17 - Migrate Data Pipeline to SQLite *(scraper done, needs real API validation)*
+- [x] #17 - Migrate Data Pipeline to SQLite
 - [x] #18 - Implement Jobs Service (scheduled scraping)
 - [x] #19 - Schedule Generation Logic *(bitmask-based conflict detection, 4-9x faster than v1)*
-- [ ] #20 - Implement Course Search Service (NLP, advanced search)
-- [ ] #21 - Backend Tests
-- [ ] #34 - Explore ML Features
-- [ ] #37 - Extra Dates and Times *(jobs use 40-day registration estimate, TODO: scrape actual dates)*
+- [x] #20 - Implement Course Search Service
+- [x] #21 - Backend Tests
+- [x] #22 - Frontend Initialization (Vite + TypeScript + Tailwind v4)
+- [x] #23 - Component Library (shadcn/ui)
+- [x] #24 - Build API Client (TanStack Query hooks)
+- [x] #25 - Schedule Builder
+- [x] #26 - Course Search Mode
+- [x] #28 - Add Mobile Responsive Layout
+- [x] #32 - Custom Courses in Schedule (blocked times)
 
-### Frontend
-- [ ] #11 - Frontend SEO
-- [ ] #22 - Frontend Initialization (Vite + TypeScript + Tailwind v4)
-- [ ] #23 - Component Library
-- [ ] #24 - Build API Client
-- [ ] #25 - Schedule Builder
-- [ ] #26 - Course Search Mode
+### v2 Milestone (remaining for launch)
+- [ ] #16 - Implement Analytics/Statistics Collection
 - [ ] #27 - Implement Stats Dashboard
-- [ ] #28 - Add Mobile Responsive Layout
-- [ ] #32 - Custom Courses in Schedule
-- [ ] #33 - Campus Map Feature
-
-### API & Infrastructure
-- [ ] #12 - Define API Contract
 - [ ] #30 - v2 Documentation
 - [ ] #31 - Deploy v2
+- [ ] #37 - Extra Dates and Times *(jobs use 40-day registration estimate, TODO: scrape actual dates)*
+- [ ] #39 - Scrape Detailed Data
+- [ ] #40 - CI/CD
+
+### v2 Enhancements (post-launch)
+- [ ] #33 - Campus Map Feature (frontend)
+- [ ] #34 - Explore ML Features
 - [ ] #35 - Share Schedule Feature
-- [ ] #36 - Campus Map
+- [ ] #36 - Campus Map (backend/data)
 
 ## Testing Strategy
 
