@@ -31,11 +31,11 @@ function App() {
   const closeCourseDialog = useAppStore((s) => s.closeCourseDialog)
 
   return (
-    <div className="bg-background text-foreground flex min-h-screen flex-col">
+    <div className="bg-background text-foreground flex h-screen flex-col overflow-hidden">
       <Header />
 
       {/* Tab nav + main content wrapper with max-width constraint */}
-      <div className="mx-auto flex w-full max-w-[1920px] flex-1 flex-col overflow-hidden min-[1920px]:border-x">
+      <div className="mx-auto flex w-full min-h-0 max-w-[1920px] flex-1 flex-col overflow-hidden min-[1920px]:border-x">
         {/* Tab Navigation with mobile hamburger */}
         <div className="relative flex items-center justify-center border-b px-4 py-3">
           {/* Mobile drawer trigger - positioned left of tabs */}
@@ -65,10 +65,10 @@ function App() {
         </div>
 
         {/* Main content area with sidebar */}
-        <div className="flex flex-1 overflow-hidden">
+        <div className="flex min-h-0 flex-1 overflow-hidden">
           {/* Desktop sidebar */}
           {showSidebar && (
-            <aside className="hidden w-80 flex-col border-r md:flex">
+            <aside className="hidden w-80 min-h-0 flex-col overflow-hidden border-r md:flex">
               <ScheduleBuilder />
             </aside>
           )}

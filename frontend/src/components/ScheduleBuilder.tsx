@@ -379,7 +379,7 @@ export function ScheduleBuilder() {
       <div className="bg-border h-px" />
 
       {/* Course List */}
-      <div className="flex-1 overflow-y-auto p-4">
+      <div className="scrollbar-styled flex-1 overflow-y-auto p-4">
         <Label className="mb-2 block">Courses</Label>
         <div className="min-h-45 space-y-1">
           {sortedSlots.length === 0 ? (
