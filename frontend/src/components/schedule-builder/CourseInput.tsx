@@ -1,21 +1,12 @@
 import { useState } from "react"
-import { ChevronsUpDown, Plus } from "lucide-react"
+import { Plus } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import {
   Popover,
   PopoverAnchor,
   PopoverContent,
-  PopoverTrigger,
 } from "@/components/ui/popover"
 import {
   Tooltip,
@@ -23,11 +14,12 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import { SubjectCombobox } from "@/components/SubjectCombobox"
 import { CoursePreview } from "./CoursePreview"
 import { CRNPreview } from "./CRNPreview"
 import { useCourse, useCRN, useSubjects } from "@/hooks/use-api"
 import type { Subject } from "@/lib/api"
-import { cn, decodeHtmlEntities } from "@/lib/utils"
+import { cn } from "@/lib/utils"
 
 type InputMode = "subject" | "crn"
 
@@ -58,7 +50,6 @@ export function CourseInput({
   onAddCrn,
 }: CourseInputProps) {
   const [inputMode, setInputMode] = useState<InputMode>("subject")
-  const [subjectOpen, setSubjectOpen] = useState(false)
   const [numberInput, setNumberInput] = useState("")
   const [crnInput, setCrnInput] = useState("")
 
@@ -155,8 +146,6 @@ export function CourseInput({
           subjects={subjects}
           selectedSubject={selectedSubject}
           onSubjectChange={onSubjectChange}
-          subjectOpen={subjectOpen}
-          setSubjectOpen={setSubjectOpen}
           numberInput={numberInput}
           setNumberInput={setNumberInput}
           isValidCourseNumber={isValidCourseNumber}
@@ -186,8 +175,6 @@ interface SubjectInputProps {
   subjects: Subject[]
   selectedSubject: string
   onSubjectChange: (subject: string) => void
-  subjectOpen: boolean
-  setSubjectOpen: (open: boolean) => void
   numberInput: string
   setNumberInput: (value: string) => void
   isValidCourseNumber: boolean
@@ -202,8 +189,6 @@ function SubjectInput({
   subjects,
   selectedSubject,
   onSubjectChange,
-  subjectOpen,
-  setSubjectOpen,
   numberInput,
   setNumberInput,
   isValidCourseNumber,
@@ -225,65 +210,21 @@ function SubjectInput({
       <Popover open={showPreview} modal={false}>
         <PopoverAnchor asChild>
           <div className="flex gap-2">
-            <Popover open={subjectOpen} onOpenChange={setSubjectOpen}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  {/* Wrapper div enables tooltip on disabled button */}
-                  <div className="flex-1">
-                    <PopoverTrigger asChild>
-                      <Button
-                        variant="outline"
-                        aria-haspopup="listbox"
-                        aria-expanded={subjectOpen}
-                        aria-label={
-                          selectedSubject
-                            ? `Subject: ${selectedSubject}`
-                            : "Select subject"
-                        }
-                        className="w-full justify-between px-2"
-                        disabled={!term}
-                      >
-                        <span className="truncate">
-                          {selectedSubject || "Subject"}
-                        </span>
-                        <ChevronsUpDown className="size-4 shrink-0 opacity-50" />
-                      </Button>
-                    </PopoverTrigger>
-                  </div>
-                </TooltipTrigger>
-                {!term && <TooltipContent>Select a term first</TooltipContent>}
-              </Tooltip>
-              <PopoverContent className="w-64 p-0" align="start">
-                <Command>
-                  <CommandInput placeholder="Search subjects..." />
-                  <CommandList>
-                    <CommandEmpty>No subject found.</CommandEmpty>
-                    <CommandGroup>
-                      {subjects.map((subject) => (
-                        <CommandItem
-                          key={subject.code}
-                          value={`${subject.code} ${subject.name}`}
-                          onSelect={() => {
-                            onSubjectChange(subject.code)
-                            setSubjectOpen(false)
-                          }}
-                          className={cn(
-                            selectedSubject === subject.code && "bg-accent"
-                          )}
-                        >
-                          <span className="w-12 shrink-0 font-medium whitespace-nowrap">
-                            {subject.code}
-                          </span>
-                          <span className="text-muted-foreground truncate">
-                            {decodeHtmlEntities(subject.name)}
-                          </span>
-                        </CommandItem>
-                      ))}
-                    </CommandGroup>
-                  </CommandList>
-                </Command>
-              </PopoverContent>
-            </Popover>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="flex-1">
+                  <SubjectCombobox
+                    subjects={subjects}
+                    value={selectedSubject}
+                    onChange={onSubjectChange}
+                    placeholder="Subject"
+                    disabled={!term}
+                    className="px-2"
+                  />
+                </div>
+              </TooltipTrigger>
+              {!term && <TooltipContent>Select a term first</TooltipContent>}
+            </Tooltip>
             <Input
               placeholder="101"
               value={numberInput}
