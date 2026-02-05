@@ -18,6 +18,7 @@ type Scorer interface {
 
 // RecencyScorer scores sections based on term recency.
 // More recent terms score higher using exponential decay.
+// Only applies when searching across multiple terms (year scope or all-time).
 type RecencyScorer struct {
 	decayRate float64 // How quickly score decays per term (default 0.3)
 	maxScore  float64 // Maximum score for current term
@@ -32,7 +33,12 @@ func NewRecencyScorer() *RecencyScorer {
 }
 
 // Score implements Scorer.
+// Returns 0 for single-term searches since recency is meaningless when all results are from the same term.
 func (s *RecencyScorer) Score(section *SectionResult, req *SearchRequest) float64 {
+	// Skip recency scoring for single-term searches
+	if req.Term != "" {
+		return 0
+	}
 	currentTerm := jobs.CurrentTermCode(time.Now())
 	distance := termDistance(section.Term, currentTerm)
 	return s.maxScore * math.Exp(-float64(distance)*s.decayRate)
