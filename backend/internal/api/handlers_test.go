@@ -20,7 +20,7 @@ func TestValidateCourses(t *testing.T) {
 	testutil.SeedTestData(t, db)
 	defer db.Close()
 
-	h := NewHandlers(db, nil, nil, queries)
+	h := NewHandlers(db, nil, nil, queries, nil)
 
 	tests := []struct {
 		name           string
@@ -190,7 +190,7 @@ func TestValidateCourses_BatchLimit(t *testing.T) {
 	testutil.SeedTestData(t, db)
 	defer db.Close()
 
-	h := NewHandlers(db, nil, nil, queries)
+	h := NewHandlers(db, nil, nil, queries, nil)
 
 	// Create request with 21 courses (exceeds limit of 20)
 	courses := make([]struct {

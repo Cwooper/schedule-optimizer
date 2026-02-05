@@ -953,6 +953,136 @@ func (q *Queries) LogSearch(ctx context.Context, arg LogSearchParams) error {
 	return err
 }
 
+const searchSections = `-- name: SearchSections :many
+SELECT
+    s.id, s.term, s.crn, s.subject, s.subject_description,
+    s.course_number, s.title, s.credit_hours_low, s.credit_hours_high,
+    s.enrollment, s.max_enrollment, s.seats_available, s.wait_count, s.is_open,
+    s.instructional_method, s.schedule_type, s.campus,
+    i.name AS instructor_name, i.email AS instructor_email
+FROM sections s
+LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1
+WHERE
+    -- Term filter (NULL = all terms)
+    (?1 IS NULL OR s.term = ?1)
+    -- Subject filter (exact match)
+    AND (?2 IS NULL OR s.subject = ?2)
+    -- Course number filter (supports LIKE for wildcards)
+    AND (?3 IS NULL OR s.course_number LIKE ?3)
+    -- Title tokens (up to 3)
+    AND (?4 IS NULL OR LOWER(s.title) LIKE '%' || LOWER(?4) || '%')
+    AND (?5 IS NULL OR LOWER(s.title) LIKE '%' || LOWER(?5) || '%')
+    AND (?6 IS NULL OR LOWER(s.title) LIKE '%' || LOWER(?6) || '%')
+    -- Instructor tokens (up to 3)
+    AND (?7 IS NULL OR LOWER(i.name) LIKE '%' || LOWER(?7) || '%')
+    AND (?8 IS NULL OR LOWER(i.name) LIKE '%' || LOWER(?8) || '%')
+    AND (?9 IS NULL OR LOWER(i.name) LIKE '%' || LOWER(?9) || '%')
+    -- Open seats filter
+    AND (?10 IS NULL OR ?10 = 0 OR s.seats_available > 0)
+    -- Credit range
+    AND (?11 IS NULL OR s.credit_hours_low >= ?11)
+    AND (?12 IS NULL OR s.credit_hours_low <= ?12)
+ORDER BY s.term DESC, s.subject, s.course_number, s.crn
+LIMIT ?14 OFFSET ?13
+`
+
+type SearchSectionsParams struct {
+	Term         interface{} `json:"term"`
+	Subject      interface{} `json:"subject"`
+	CourseNumber interface{} `json:"course_number"`
+	TitleT1      interface{} `json:"title_t1"`
+	TitleT2      interface{} `json:"title_t2"`
+	TitleT3      interface{} `json:"title_t3"`
+	InstrT1      interface{} `json:"instr_t1"`
+	InstrT2      interface{} `json:"instr_t2"`
+	InstrT3      interface{} `json:"instr_t3"`
+	OpenSeats    interface{} `json:"open_seats"`
+	MinCredits   interface{} `json:"min_credits"`
+	MaxCredits   interface{} `json:"max_credits"`
+	ResultOffset int64       `json:"result_offset"`
+	ResultLimit  int64       `json:"result_limit"`
+}
+
+type SearchSectionsRow struct {
+	ID                  int64          `json:"id"`
+	Term                string         `json:"term"`
+	Crn                 string         `json:"crn"`
+	Subject             string         `json:"subject"`
+	SubjectDescription  sql.NullString `json:"subject_description"`
+	CourseNumber        string         `json:"course_number"`
+	Title               string         `json:"title"`
+	CreditHoursLow      sql.NullInt64  `json:"credit_hours_low"`
+	CreditHoursHigh     sql.NullInt64  `json:"credit_hours_high"`
+	Enrollment          sql.NullInt64  `json:"enrollment"`
+	MaxEnrollment       sql.NullInt64  `json:"max_enrollment"`
+	SeatsAvailable      sql.NullInt64  `json:"seats_available"`
+	WaitCount           sql.NullInt64  `json:"wait_count"`
+	IsOpen              sql.NullInt64  `json:"is_open"`
+	InstructionalMethod sql.NullString `json:"instructional_method"`
+	ScheduleType        sql.NullString `json:"schedule_type"`
+	Campus              sql.NullString `json:"campus"`
+	InstructorName      sql.NullString `json:"instructor_name"`
+	InstructorEmail     sql.NullString `json:"instructor_email"`
+}
+
+func (q *Queries) SearchSections(ctx context.Context, arg SearchSectionsParams) ([]*SearchSectionsRow, error) {
+	rows, err := q.db.QueryContext(ctx, searchSections,
+		arg.Term,
+		arg.Subject,
+		arg.CourseNumber,
+		arg.TitleT1,
+		arg.TitleT2,
+		arg.TitleT3,
+		arg.InstrT1,
+		arg.InstrT2,
+		arg.InstrT3,
+		arg.OpenSeats,
+		arg.MinCredits,
+		arg.MaxCredits,
+		arg.ResultOffset,
+		arg.ResultLimit,
+	)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []*SearchSectionsRow{}
+	for rows.Next() {
+		var i SearchSectionsRow
+		if err := rows.Scan(
+			&i.ID,
+			&i.Term,
+			&i.Crn,
+			&i.Subject,
+			&i.SubjectDescription,
+			&i.CourseNumber,
+			&i.Title,
+			&i.CreditHoursLow,
+			&i.CreditHoursHigh,
+			&i.Enrollment,
+			&i.MaxEnrollment,
+			&i.SeatsAvailable,
+			&i.WaitCount,
+			&i.IsOpen,
+			&i.InstructionalMethod,
+			&i.ScheduleType,
+			&i.Campus,
+			&i.InstructorName,
+			&i.InstructorEmail,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, &i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
 const updateTermScrapedAt = `-- name: UpdateTermScrapedAt :exec
 UPDATE terms SET last_scraped_at = CURRENT_TIMESTAMP WHERE code = ?
 `

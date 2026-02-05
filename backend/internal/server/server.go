@@ -17,6 +17,7 @@ import (
 	"schedule-optimizer/internal/db"
 	"schedule-optimizer/internal/generator"
 	"schedule-optimizer/internal/jobs"
+	"schedule-optimizer/internal/search"
 	"schedule-optimizer/internal/store"
 
 	"github.com/gin-gonic/gin"
@@ -58,7 +59,8 @@ func Run() {
 
 	scheduleCache := cache.NewScheduleCache(queries)
 	generatorService := generator.NewService(scheduleCache, queries)
-	handlers := api.NewHandlers(database, scheduleCache, generatorService, queries)
+	searchService := search.NewService(database, queries)
+	handlers := api.NewHandlers(database, scheduleCache, generatorService, queries, searchService)
 
 	RegisterRoutes(r, handlers)
 

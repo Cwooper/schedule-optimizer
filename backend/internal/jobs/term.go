@@ -172,3 +172,15 @@ func CurrentTermCode(now time.Time) string {
 
 	return MakeTermCode(year, quarter)
 }
+
+// GetAcademicYearTerms returns the four term codes for an academic year.
+// Academic year N runs from Fall of year N-1 through Summer of year N.
+// Example: GetAcademicYearTerms(2025) returns ["202440", "202510", "202520", "202530"]
+func GetAcademicYearTerms(academicYear int) []string {
+	return []string{
+		MakeTermCode(academicYear-1, QuarterFall),
+		MakeTermCode(academicYear, QuarterWinter),
+		MakeTermCode(academicYear, QuarterSpring),
+		MakeTermCode(academicYear, QuarterSummer),
+	}
+}
