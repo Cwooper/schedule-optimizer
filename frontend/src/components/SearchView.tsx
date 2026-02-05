@@ -206,7 +206,7 @@ export function SearchView() {
                   onKeyDown={handleKeyDown}
                   className="w-full"
                   min={0}
-                  max={20}
+                  max={36}
                 />
                 <span className="text-muted-foreground">-</span>
                 <Input
@@ -223,7 +223,7 @@ export function SearchView() {
                   onKeyDown={handleKeyDown}
                   className="w-full"
                   min={0}
-                  max={20}
+                  max={36}
                 />
               </div>
               <div className="flex justify-center px-2">
