@@ -14,23 +14,26 @@ import { getCRN } from "@/lib/api"
 import type {
   HydratedSection,
   GenerateCourseInfo,
-  GenerateSectionInfo,
   CRNResponse,
 } from "@/lib/api"
-import { hydrateSection, sortSectionsByAvailability } from "@/lib/schedule-utils"
+import { hydrateSection, sortSectionsByAvailability, type SectionInfoLike } from "@/lib/schedule-utils"
 import { decodeHtmlEntities } from "@/lib/utils"
 
 interface CourseInfoDialogProps {
   open: boolean
   onOpenChange: (open: boolean) => void
-  // Course data from generate response (optional - will fetch if not provided)
+  // Course data from generate/search response (optional - will fetch if not provided)
   courses?: Record<string, GenerateCourseInfo>
-  sections?: Record<string, GenerateSectionInfo>
+  sections?: Record<string, SectionInfoLike>
   // Selection - either CRN or courseKey
   selectedCrn?: string
   selectedCourseKey?: string // "SUBJECT:NUMBER" format
   // Term for fetching data when generate result isn't available
   term?: string
+  // Add section action - when provided, shows "+" buttons on sections
+  onAddSection?: (crn: string, term: string) => void
+  // Check if a section is already added
+  isSectionAdded?: (crn: string) => boolean
 }
 
 interface DialogContentInnerProps {
@@ -38,6 +41,8 @@ interface DialogContentInnerProps {
   courseSections: HydratedSection[]
   highlightCrn: string | null
   term: string
+  onAddSection?: (crn: string, term: string) => void
+  isSectionAdded?: (crn: string) => boolean
 }
 
 function DialogContentInner({
@@ -45,6 +50,8 @@ function DialogContentInner({
   courseSections,
   highlightCrn,
   term,
+  onAddSection,
+  isSectionAdded,
 }: DialogContentInnerProps) {
   const queryClient = useQueryClient()
 
@@ -150,6 +157,8 @@ function DialogContentInner({
               section.meetingTimes.length === 0
             }
             onPrefetch={() => handlePrefetch(section.crn)}
+            onAdd={onAddSection ? () => onAddSection(section.crn, section.term) : undefined}
+            isAdded={isSectionAdded?.(section.crn) ?? false}
           />
         ))}
       </div>
@@ -165,6 +174,8 @@ export function CourseInfoDialog({
   selectedCrn,
   selectedCourseKey,
   term,
+  onAddSection,
+  isSectionAdded,
 }: CourseInfoDialogProps) {
   // Parse courseKey to get subject and courseNumber for fetching
   const parsedCourseKey = useMemo(() => {
@@ -327,6 +338,8 @@ export function CourseInfoDialog({
           courseSections={courseSections}
           highlightCrn={highlightCrn}
           term={term ?? ""}
+          onAddSection={onAddSection}
+          isSectionAdded={isSectionAdded}
         />
       </DialogContent>
     </Dialog>

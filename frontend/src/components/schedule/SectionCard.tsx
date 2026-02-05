@@ -1,10 +1,11 @@
 import { useState } from "react"
-import { ChevronDown, ChevronRight, Check, Copy } from "lucide-react"
+import { ChevronDown, ChevronRight, Check, Copy, Plus } from "lucide-react"
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
+import { Button } from "@/components/ui/button"
 import type { HydratedSection, MeetingTime } from "@/lib/api"
 import { cn, decodeHtmlEntities } from "@/lib/utils"
 
@@ -16,6 +17,10 @@ interface SectionCardProps {
   isLoadingDetails?: boolean
   /** Called on hover or focus to prefetch section details */
   onPrefetch?: () => void
+  /** Called when "+" button is clicked to add this section */
+  onAdd?: () => void
+  /** Whether this section is already added to schedule */
+  isAdded?: boolean
 }
 
 // Single-letter day abbreviations (R = Thursday to distinguish from Tuesday)
@@ -90,10 +95,19 @@ export function SectionCard({
   highlighted = false,
   isLoadingDetails = false,
   onPrefetch,
+  onAdd,
+  isAdded = false,
 }: SectionCardProps) {
   const [copied, setCopied] = useState(false)
   const hasMeetings = section.meetingTimes.length > 0
   const isClickable = !!onToggleExpand
+
+  const handleAdd = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    if (!isAdded) {
+      onAdd?.()
+    }
+  }
 
   const handleCopy = async (e: React.MouseEvent | React.KeyboardEvent) => {
     e.stopPropagation()
@@ -180,6 +194,23 @@ export function SectionCard({
           >
             {section.isOpen ? "Open" : "Closed"}
           </div>
+
+          {/* Add button */}
+          {onAdd && (
+            <Button
+              variant="ghost"
+              size="icon"
+              className={cn(
+                "size-7 shrink-0",
+                isAdded && "text-emerald-600 dark:text-emerald-400"
+              )}
+              onClick={handleAdd}
+              disabled={isAdded}
+              title={isAdded ? "Already in schedule" : "Add this section to schedule"}
+            >
+              {isAdded ? <Check className="size-4" /> : <Plus className="size-4" />}
+            </Button>
+          )}
         </CollapsibleTrigger>
 
         {/* Expanded details */}
