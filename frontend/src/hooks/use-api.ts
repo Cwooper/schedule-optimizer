@@ -1,4 +1,4 @@
-import { useQuery, useMutation } from "@tanstack/react-query"
+import { useQuery, useMutation, keepPreviousData } from "@tanstack/react-query"
 import {
   getTerms,
   getSubjects,
@@ -6,7 +6,9 @@ import {
   getCRN,
   generateSchedules,
   validateCourses,
+  searchCourses,
   type GenerateRequest,
+  type SearchRequest,
 } from "@/lib/api"
 
 export function useTerms() {
@@ -59,5 +61,33 @@ export function useValidateCourses(
     queryKey: ["validate-courses", term, limitedCourses],
     queryFn: () => validateCourses({ term, courses: limitedCourses }),
     enabled: Boolean(term && limitedCourses.length > 0),
+  })
+}
+
+/** Strip wildcard characters to match backend validation logic */
+function stripWildcards(s: string): string {
+  return s.replace(/[*%_]/g, "")
+}
+
+/**
+ * Check if search request has at least one valid filter.
+ * Mirrors backend validation: requires subject, courseNumber, title, or instructor
+ * with minimum character counts after stripping wildcards.
+ */
+function hasValidSearchFilter(req: SearchRequest): boolean {
+  const subjectValid = stripWildcards(req.subject ?? "").length >= 2
+  const courseNumberValid = stripWildcards(req.courseNumber ?? "").length >= 1
+  const titleValid = stripWildcards(req.title ?? "").length >= 2
+  const instructorValid = stripWildcards(req.instructor ?? "").length >= 2
+  return subjectValid || courseNumberValid || titleValid || instructorValid
+}
+
+export function useSearch(req: SearchRequest) {
+  return useQuery({
+    queryKey: ["search", req],
+    queryFn: () => searchCourses(req),
+    enabled: hasValidSearchFilter(req),
+    placeholderData: keepPreviousData,
+    staleTime: 30_000, // 30 seconds - search results don't change often
   })
 }

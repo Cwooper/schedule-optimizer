@@ -7,6 +7,61 @@ import { mergeAdjacentBlocks } from "@/lib/schedule-utils"
 
 export type Tab = "schedule" | "search" | "statistics"
 export type Theme = "light" | "dark" | "system"
+export type SearchScope = "term" | "year" | "all"
+
+export interface SearchFilters {
+  scope: SearchScope
+  term: string // used when scope is "term"
+  year: number | null // used when scope is "year"
+  subject: string
+  courseNumber: string
+  title: string
+  instructor: string
+  openSeats: boolean
+  minCredits: number | null
+  maxCredits: number | null
+}
+
+export const DEFAULT_SEARCH_FILTERS: SearchFilters = {
+  scope: "term",
+  term: "",
+  year: null,
+  subject: "",
+  courseNumber: "",
+  title: "",
+  instructor: "",
+  openSeats: false,
+  minCredits: null,
+  maxCredits: null,
+}
+
+/** Convert SearchFilters to SearchRequest for API call */
+export function filtersToSearchRequest(
+  filters: SearchFilters
+): import("@/lib/api").SearchRequest {
+  const req: import("@/lib/api").SearchRequest = {}
+
+  // Scope determines term/year
+  if (filters.scope === "term" && filters.term) {
+    req.term = filters.term
+  } else if (filters.scope === "year" && filters.year !== null) {
+    req.year = filters.year
+  }
+  // scope === "all" sends neither term nor year
+
+  // Text filters - only include if non-empty
+  if (filters.subject) req.subject = filters.subject
+  if (filters.courseNumber) req.courseNumber = filters.courseNumber
+  if (filters.title) req.title = filters.title
+  if (filters.instructor) req.instructor = filters.instructor
+
+  // Boolean/number filters
+  if (filters.openSeats) req.openSeats = true
+  if (filters.minCredits !== null) req.minCredits = filters.minCredits
+  if (filters.maxCredits !== null) req.maxCredits = filters.maxCredits
+
+  return req
+}
 
 export interface BlockedTimeBlock {
   id: string
@@ -83,8 +138,14 @@ export function computeBlockedTimesFingerprint(
 }
 
 // Re-export from api.ts for convenience
-export type { HydratedSection, ScheduleRef, GenerateResponse } from "@/lib/api"
-import type { GenerateResponse } from "@/lib/api"
+export type {
+  HydratedSection,
+  ScheduleRef,
+  GenerateResponse,
+  SearchResponse,
+  SearchRequest,
+} from "@/lib/api"
+import type { GenerateResponse, SearchResponse } from "@/lib/api"
 
 // --- Store State ---
 
@@ -125,6 +186,11 @@ interface AppState {
   // Course info dialog state (not persisted)
   courseDialog: CourseDialogState
 
+  // Search state
+  searchFilters: SearchFilters
+  searchResult: SearchResponse | null
+  expandedSearchCourses: Set<string> // courseKeys that are expanded in results
+
   // Actions
   setTab: (tab: Tab) => void
   setTerm: (term: string) => void
@@ -157,6 +223,13 @@ interface AppState {
   closeCourseDialog: () => void
   requestRegenerate: () => void
   clearRegenerateRequest: () => void
+
+  // Search actions
+  setSearchFilters: (filters: Partial<SearchFilters>) => void
+  clearSearchFilters: () => void
+  setSearchResult: (result: SearchResponse | null) => void
+  toggleSearchCourseExpanded: (courseKey: string) => void
+  clearExpandedSearchCourses: () => void
 }
 
 // --- Helpers ---
@@ -206,6 +279,9 @@ export const useAppStore = create<AppState>()(
       slotsVersion: 0,
       regenerateRequested: false,
       courseDialog: { open: false },
+      searchFilters: { ...DEFAULT_SEARCH_FILTERS },
+      searchResult: null,
+      expandedSearchCourses: new Set(),
 
       // Actions
       setTab: (tab) => set({ tab }),
@@ -375,6 +451,35 @@ export const useAppStore = create<AppState>()(
       requestRegenerate: () => set({ regenerateRequested: true }),
 
       clearRegenerateRequest: () => set({ regenerateRequested: false }),
+
+      // Search actions
+      setSearchFilters: (filters) =>
+        set((state) => ({
+          searchFilters: { ...state.searchFilters, ...filters },
+        })),
+
+      clearSearchFilters: () =>
+        set({
+          searchFilters: { ...DEFAULT_SEARCH_FILTERS },
+          searchResult: null,
+          expandedSearchCourses: new Set(),
+        }),
+
+      setSearchResult: (result) => set({ searchResult: result }),
+
+      toggleSearchCourseExpanded: (courseKey) =>
+        set((state) => {
+          const next = new Set(state.expandedSearchCourses)
+          if (next.has(courseKey)) {
+            next.delete(courseKey)
+          } else {
+            next.add(courseKey)
+          }
+          return { expandedSearchCourses: next }
+        }),
+
+      clearExpandedSearchCourses: () =>
+        set({ expandedSearchCourses: new Set() }),
     }),
     {
       name: "schedule-optimizer",
@@ -392,6 +497,8 @@ export const useAppStore = create<AppState>()(
         generateResult: state.generateResult,
         generatedWithParams: state.generatedWithParams,
         currentScheduleIndex: state.currentScheduleIndex,
+        searchFilters: state.searchFilters,
+        // Note: searchResult and expandedSearchCourses are NOT persisted
       }),
     }
   )
