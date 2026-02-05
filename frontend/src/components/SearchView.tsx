@@ -84,9 +84,9 @@ export function SearchView() {
     <div className="scrollbar-styled h-full overflow-auto">
       {/* Filters */}
       <div className="border-b p-4">
-        <div className="grid grid-cols-2 items-end gap-3 sm:grid-cols-6 lg:grid-cols-12">
+        <div className="grid grid-cols-3 items-end gap-3 sm:grid-cols-4 lg:grid-cols-10 xl:grid-cols-12">
           {/* Scope */}
-          <div className="col-span-2 space-y-1.5">
+          <div className="col-span-3 space-y-1.5 sm:col-span-2 xl:col-span-2">
             <Label>Scope</Label>
             <Select
               value={searchFilters.scope}
@@ -94,7 +94,7 @@ export function SearchView() {
                 setSearchFilters({ scope: v as SearchScope })
               }
             >
-              <SelectTrigger>
+              <SelectTrigger className="w-full">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -107,50 +107,58 @@ export function SearchView() {
             </Select>
           </div>
 
-          {/* Term/Year - hidden when scope is "all" */}
-          {searchFilters.scope !== "all" && (
-            <div className="col-span-2 space-y-1.5">
-              <Label>{searchFilters.scope === "term" ? "Term" : "Year"}</Label>
-              {searchFilters.scope === "term" ? (
-                <Select
-                  value={searchFilters.term || currentTerm || ""}
-                  onValueChange={(v) => setSearchFilters({ term: v })}
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select term" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {terms.map((t) => (
-                      <SelectItem key={t.code} value={t.code}>
-                        {t.name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              ) : (
-                <Select
-                  value={searchFilters.year?.toString() ?? ""}
-                  onValueChange={(v) =>
-                    setSearchFilters({ year: parseInt(v, 10) })
-                  }
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select year" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {academicYears.map((y) => (
-                      <SelectItem key={y} value={y.toString()}>
-                        {formatAcademicYear(y)}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              )}
-            </div>
-          )}
+          {/* Term/Year */}
+          <div className="col-span-3 space-y-1.5 sm:col-span-2 lg:col-span-3 xl:col-span-2">
+            <Label>
+              {searchFilters.scope === "term"
+                ? "Term"
+                : searchFilters.scope === "year"
+                  ? "Year"
+                  : "Range"}
+            </Label>
+            {searchFilters.scope === "term" ? (
+              <Select
+                value={searchFilters.term || currentTerm || ""}
+                onValueChange={(v) => setSearchFilters({ term: v })}
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select term" />
+                </SelectTrigger>
+                <SelectContent>
+                  {terms.map((t) => (
+                    <SelectItem key={t.code} value={t.code}>
+                      {t.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            ) : searchFilters.scope === "year" ? (
+              <Select
+                value={searchFilters.year?.toString() ?? ""}
+                onValueChange={(v) =>
+                  setSearchFilters({ year: parseInt(v, 10) })
+                }
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select year" />
+                </SelectTrigger>
+                <SelectContent>
+                  {academicYears.map((y) => (
+                    <SelectItem key={y} value={y.toString()}>
+                      {formatAcademicYear(y)}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            ) : (
+              <div className="text-muted-foreground flex h-9 items-center rounded-md border px-3 text-sm">
+                All Time
+              </div>
+            )}
+          </div>
 
           {/* Subject */}
-          <div className="col-span-2 space-y-1.5">
+          <div className="col-span-2 space-y-1.5 sm:col-span-2 lg:col-span-3 xl:col-span-3">
             <Label>Subject</Label>
             <SubjectCombobox
               subjects={subjects}
@@ -162,7 +170,7 @@ export function SearchView() {
           </div>
 
           {/* Course # */}
-          <div className="col-span-1 space-y-1.5">
+          <div className="col-span-1 space-y-1.5 sm:col-span-2 xl:col-span-2">
             <Label>Course #</Label>
             <Input
               placeholder="241"
@@ -174,64 +182,66 @@ export function SearchView() {
             />
           </div>
 
-          {/* Credits */}
-          <div className="col-span-1 space-y-1.5 sm:col-span-2">
-            <Label>Credits</Label>
-            <div className="flex items-center gap-1">
-              <Input
-                type="number"
-                placeholder="Min"
-                value={searchFilters.minCredits ?? ""}
-                onChange={(e) =>
-                  setSearchFilters({
-                    minCredits: e.target.value
-                      ? parseInt(e.target.value, 10)
-                      : null,
-                  })
-                }
-                onKeyDown={handleKeyDown}
-                className="w-full"
-                min={0}
-                max={20}
-              />
-              <span className="text-muted-foreground">-</span>
-              <Input
-                type="number"
-                placeholder="Max"
-                value={searchFilters.maxCredits ?? ""}
-                onChange={(e) =>
-                  setSearchFilters({
-                    maxCredits: e.target.value
-                      ? parseInt(e.target.value, 10)
-                      : null,
-                  })
-                }
-                onKeyDown={handleKeyDown}
-                className="w-full"
-                min={0}
-                max={20}
-              />
+          {/* Credits + Open */}
+          <div className="col-span-3 space-y-1.5 sm:col-span-4 lg:col-span-4 xl:col-span-3">
+            <div className="flex items-center">
+              <Label className="flex-1">Credits</Label>
+              <div className="flex justify-center px-2">
+                <Label>Open</Label>
+              </div>
             </div>
-          </div>
-
-          {/* Open */}
-          <div className="col-span-1 space-y-1.5">
-            <Label>Open</Label>
-            <div className="flex h-9 items-center">
-              <Switch
-                checked={searchFilters.openSeats}
-                onCheckedChange={(checked) =>
-                  setSearchFilters({ openSeats: checked })
-                }
-              />
+            <div className="flex items-center gap-2">
+              <div className="flex flex-1 items-center gap-1">
+                <Input
+                  type="number"
+                  placeholder="Min"
+                  value={searchFilters.minCredits ?? ""}
+                  onChange={(e) =>
+                    setSearchFilters({
+                      minCredits: e.target.value
+                        ? parseInt(e.target.value, 10)
+                        : null,
+                    })
+                  }
+                  onKeyDown={handleKeyDown}
+                  className="w-full"
+                  min={0}
+                  max={20}
+                />
+                <span className="text-muted-foreground">-</span>
+                <Input
+                  type="number"
+                  placeholder="Max"
+                  value={searchFilters.maxCredits ?? ""}
+                  onChange={(e) =>
+                    setSearchFilters({
+                      maxCredits: e.target.value
+                        ? parseInt(e.target.value, 10)
+                        : null,
+                    })
+                  }
+                  onKeyDown={handleKeyDown}
+                  className="w-full"
+                  min={0}
+                  max={20}
+                />
+              </div>
+              <div className="flex justify-center px-2">
+                <Switch
+                  checked={searchFilters.openSeats}
+                  onCheckedChange={(checked) =>
+                    setSearchFilters({ openSeats: checked })
+                  }
+                />
+              </div>
             </div>
           </div>
 
           {/* Title */}
-          <div className="col-span-2 space-y-1.5 lg:col-span-4">
+          <div className="col-span-3 space-y-1.5 sm:col-span-2 lg:col-span-3 xl:col-span-4">
             <Label>Title</Label>
             <Input
-              placeholder="e.g. Data Structures"
+              placeholder="Creative Seminar"
               value={searchFilters.title}
               onChange={(e) => setSearchFilters({ title: e.target.value })}
               onKeyDown={handleKeyDown}
@@ -239,7 +249,7 @@ export function SearchView() {
           </div>
 
           {/* Instructor */}
-          <div className="col-span-2 space-y-1.5 lg:col-span-4">
+          <div className="col-span-3 space-y-1.5 sm:col-span-2 lg:col-span-3 xl:col-span-4">
             <Label>Instructor</Label>
             <Input
               placeholder="e.g. Smith"
@@ -250,7 +260,7 @@ export function SearchView() {
           </div>
 
           {/* Actions */}
-          <div className="col-span-2 flex items-end gap-2 lg:col-span-4">
+          <div className="col-span-3 flex items-end gap-2 sm:col-span-4 lg:col-span-10 xl:col-span-4">
             <Button
               onClick={handleSearch}
               disabled={isFetching}
@@ -301,7 +311,7 @@ function SearchResults({
     )
   }
 
-  if (isFetching) {
+  if (isFetching && !searchResult) {
     return (
       <p className="text-muted-foreground py-8 text-center text-sm">
         Searching...
