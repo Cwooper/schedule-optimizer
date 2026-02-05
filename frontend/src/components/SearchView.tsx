@@ -19,6 +19,7 @@ import {
   type SearchScope,
 } from "@/stores/app-store"
 import { useTerms, useSubjects, useSearch } from "@/hooks/use-api"
+import type { SearchResponse } from "@/lib/api"
 import {
   getAcademicYearsFromTerms,
   formatAcademicYear,
@@ -109,9 +110,7 @@ export function SearchView() {
           {/* Term/Year - hidden when scope is "all" */}
           {searchFilters.scope !== "all" && (
             <div className="col-span-2 space-y-1.5">
-              <Label>
-                {searchFilters.scope === "term" ? "Term" : "Year"}
-              </Label>
+              <Label>{searchFilters.scope === "term" ? "Term" : "Year"}</Label>
               {searchFilters.scope === "term" ? (
                 <Select
                   value={searchFilters.term || currentTerm || ""}
@@ -286,7 +285,7 @@ export function SearchView() {
 interface SearchResultsProps {
   hasSearched: boolean
   isFetching: boolean
-  searchResult: ReturnType<typeof useAppStore>["searchResult"]
+  searchResult: SearchResponse | null
 }
 
 function SearchResults({
@@ -334,12 +333,7 @@ function SearchResults({
         {searchResult.results.map((ref) => {
           const course = searchResult.courses[ref.courseKey]
           if (!course) return null
-          return (
-            <CourseListItem
-              key={ref.courseKey}
-              course={course}
-            />
-          )
+          return <CourseListItem key={ref.courseKey} course={course} />
         })}
       </div>
     </div>

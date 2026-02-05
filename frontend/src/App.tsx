@@ -36,12 +36,16 @@ function App() {
       <Header />
 
       {/* Tab nav + main content wrapper with max-width constraint */}
-      <div className="mx-auto flex w-full min-h-0 max-w-[1920px] flex-1 flex-col overflow-hidden min-[1920px]:border-x">
+      <div className="mx-auto flex min-h-0 w-full max-w-480 flex-1 flex-col overflow-hidden min-[1920px]:border-x">
         {/* Tab Navigation with mobile hamburger */}
         <div className="relative flex items-center justify-center border-b px-4 py-3">
           {/* Mobile drawer trigger - positioned left of tabs */}
           {showSidebar && (
-            <Drawer direction="left" open={drawerOpen} onOpenChange={setDrawerOpen}>
+            <Drawer
+              direction="left"
+              open={drawerOpen}
+              onOpenChange={setDrawerOpen}
+            >
               <DrawerTrigger asChild>
                 <Button
                   variant="ghost"
@@ -55,7 +59,9 @@ function App() {
               <DrawerContent className="h-full w-80">
                 <DrawerHeader className="sr-only">
                   <DrawerTitle>Schedule Builder</DrawerTitle>
-                  <DrawerDescription>Add and configure courses for schedule generation</DrawerDescription>
+                  <DrawerDescription>
+                    Add and configure courses for schedule generation
+                  </DrawerDescription>
                 </DrawerHeader>
                 <ScheduleBuilder />
               </DrawerContent>
@@ -69,7 +75,7 @@ function App() {
         <div className="flex min-h-0 flex-1 overflow-hidden">
           {/* Desktop sidebar */}
           {showSidebar && (
-            <aside className="hidden w-80 min-h-0 flex-col overflow-hidden border-r md:flex">
+            <aside className="hidden min-h-0 w-80 flex-col overflow-hidden border-r md:flex">
               <ScheduleBuilder />
             </aside>
           )}
@@ -80,7 +86,9 @@ function App() {
             {tab === "search" && <SearchView />}
             {tab === "statistics" && (
               <div className="flex h-full items-center justify-center">
-                <p className="text-muted-foreground">Statistics (coming soon)</p>
+                <p className="text-muted-foreground">
+                  Statistics (coming soon)
+                </p>
               </div>
             )}
           </main>
