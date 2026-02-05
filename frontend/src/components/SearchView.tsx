@@ -1,5 +1,6 @@
 import { useState, useCallback, useMemo } from "react"
 import { RotateCcw } from "lucide-react"
+import { toast } from "sonner"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -12,7 +13,8 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { SubjectCombobox } from "@/components/SubjectCombobox"
-import { CourseListItem } from "@/components/CourseListItem"
+import { CourseListItem, type CourseListItemData } from "@/components/CourseListItem"
+import { CourseInfoDialog } from "@/components/schedule/CourseInfoDialog"
 import {
   useAppStore,
   filtersToSearchRequest,
@@ -24,6 +26,7 @@ import {
   getAcademicYearsFromTerms,
   formatAcademicYear,
 } from "@/lib/schedule-utils"
+import { genId } from "@/lib/utils"
 
 const SCOPE_OPTIONS: { value: SearchScope; label: string }[] = [
   { value: "term", label: "Term" },
@@ -38,6 +41,9 @@ export function SearchView() {
     clearSearchFilters,
     searchResult,
     setSearchResult,
+    addSlot,
+    slots,
+    term: scheduleTerm,
   } = useAppStore()
 
   const { data: termsData } = useTerms()
@@ -57,11 +63,19 @@ export function SearchView() {
   const { isFetching, refetch } = useSearch(searchRequest)
   const [hasSearched, setHasSearched] = useState(false)
 
+  // Dialog state
+  const [dialogOpen, setDialogOpen] = useState(false)
+  const [selectedCourseKey, setSelectedCourseKey] = useState<string | undefined>()
+
   const handleSearch = useCallback(() => {
     setHasSearched(true)
-    refetch().then(({ data }) => {
-      if (data) setSearchResult(data)
-    })
+    refetch()
+      .then(({ data }) => {
+        if (data) setSearchResult(data)
+      })
+      .catch(() => {
+        toast.error("Search failed. Please try again.")
+      })
   }, [refetch, setSearchResult])
 
   const handleClear = useCallback(() => {
@@ -76,9 +90,92 @@ export function SearchView() {
     [handleSearch]
   )
 
+  // Open course detail dialog
+  const handleCourseClick = useCallback((courseKey: string) => {
+    setSelectedCourseKey(courseKey)
+    setDialogOpen(true)
+  }, [])
+
+  // Add course to schedule (all sections)
+  const handleAddCourse = useCallback(
+    (courseKey: string) => {
+      if (!searchResult) return
+      const course = searchResult.courses[courseKey]
+      if (!course) return
+
+      addSlot({
+        id: genId(),
+        subject: course.subject,
+        courseNumber: course.courseNumber,
+        displayName: `${course.subject} ${course.courseNumber}`,
+        title: course.title,
+        required: true,
+        sections: null, // All sections allowed
+      })
+      toast.success(`Added ${course.subject} ${course.courseNumber} to schedule`)
+      setDialogOpen(false)
+    },
+    [searchResult, addSlot]
+  )
+
+  // Add specific section to schedule
+  const handleAddSection = useCallback(
+    (crn: string, term: string) => {
+      if (!searchResult) return
+      const sectionKey = `${term}:${crn}`
+      const section = searchResult.sections[sectionKey]
+      if (!section) return
+
+      const course = searchResult.courses[section.courseKey]
+      if (!course) return
+
+      addSlot({
+        id: genId(),
+        subject: course.subject,
+        courseNumber: course.courseNumber,
+        displayName: `${course.subject} ${course.courseNumber}`,
+        title: course.title,
+        required: false, // Not forcing the course, just filtering to this CRN
+        sections: [
+          {
+            crn,
+            term,
+            instructor: section.instructor ?? null,
+            required: false, // Just a filter, not pinned
+          },
+        ],
+      })
+      toast.success(`Added ${course.subject} ${course.courseNumber} (CRN: ${crn}) to schedule`)
+    },
+    [searchResult, addSlot]
+  )
+
   const terms = termsData?.terms ?? []
   const currentTerm = termsData?.current
   const subjects = subjectsData?.subjects ?? []
+
+  // Check if a course is already in the schedule
+  const isCourseAdded = useCallback(
+    (subject: string, courseNumber: string) => {
+      return slots.some(
+        (s) => s.subject === subject && s.courseNumber === courseNumber
+      )
+    },
+    [slots]
+  )
+
+  // Check if a specific section (CRN) is already in the schedule
+  const isSectionAdded = useCallback(
+    (crn: string) => {
+      return slots.some(
+        (s) => s.sections?.some((sec) => sec.crn === crn)
+      )
+    },
+    [slots]
+  )
+
+  // Determine term for dialog (use search filter term, or schedule term, or current)
+  const dialogTerm = searchFilters.term || scheduleTerm || currentTerm || ""
 
   return (
     <div className="scrollbar-styled h-full overflow-auto">
@@ -286,8 +383,23 @@ export function SearchView() {
           hasSearched={hasSearched}
           isFetching={isFetching}
           searchResult={searchResult}
+          onCourseClick={handleCourseClick}
+          onAddCourse={handleAddCourse}
+          isCourseAdded={isCourseAdded}
         />
       </div>
+
+      {/* Course Detail Dialog */}
+      <CourseInfoDialog
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        courses={searchResult?.courses}
+        sections={searchResult?.sections}
+        selectedCourseKey={selectedCourseKey}
+        term={dialogTerm}
+        onAddSection={handleAddSection}
+        isSectionAdded={isSectionAdded}
+      />
     </div>
   )
 }
@@ -296,12 +408,45 @@ interface SearchResultsProps {
   hasSearched: boolean
   isFetching: boolean
   searchResult: SearchResponse | null
+  onCourseClick: (courseKey: string) => void
+  onAddCourse: (courseKey: string) => void
+  /** Check if a course is already in the schedule */
+  isCourseAdded: (subject: string, courseNumber: string) => boolean
+}
+
+/** Convert search result to CourseListItem data format */
+function toListItemData(
+  courseKey: string,
+  searchResult: SearchResponse
+): CourseListItemData {
+  const course = searchResult.courses[courseKey]
+  const sections = Object.entries(searchResult.sections)
+    .filter(([, s]) => s.courseKey === courseKey)
+    .map(([, s]) => ({
+      crn: s.crn,
+      term: s.term,
+      instructor: s.instructor,
+      seatsAvailable: s.seatsAvailable,
+      isOpen: s.isOpen,
+    }))
+
+  return {
+    subject: course.subject,
+    courseNumber: course.courseNumber,
+    title: course.title,
+    credits: course.credits,
+    creditsHigh: course.creditsHigh,
+    sections,
+  }
 }
 
 function SearchResults({
   hasSearched,
   isFetching,
   searchResult,
+  onCourseClick,
+  onAddCourse,
+  isCourseAdded,
 }: SearchResultsProps) {
   if (!hasSearched && !searchResult) {
     return (
@@ -339,11 +484,19 @@ function SearchResults({
         )}
       </p>
 
-      <div className="divide-y">
+      <div className="space-y-2">
         {searchResult.results.map((ref) => {
           const course = searchResult.courses[ref.courseKey]
           if (!course) return null
-          return <CourseListItem key={ref.courseKey} course={course} />
+          return (
+            <CourseListItem
+              key={ref.courseKey}
+              course={toListItemData(ref.courseKey, searchResult)}
+              onClick={() => onCourseClick(ref.courseKey)}
+              onAdd={() => onAddCourse(ref.courseKey)}
+              isAdded={isCourseAdded(course.subject, course.courseNumber)}
+            />
+          )
         })}
       </div>
     </div>

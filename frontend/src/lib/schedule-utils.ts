@@ -314,10 +314,13 @@ export function buildColorMap(courses: HydratedSection[]): Map<string, string> {
  * Hydrate a single CRN into a full HydratedSection by joining course and section data.
  * Returns null if section or course not found.
  */
+// Section info type that supports both generate and search responses (instructor optional)
+export type SectionInfoLike = Omit<GenerateSectionInfo, 'instructor'> & { instructor?: string }
+
 export function hydrateSection(
   crn: string,
   courses: Record<string, GenerateCourseInfo>,
-  sections: Record<string, GenerateSectionInfo>
+  sections: Record<string, SectionInfoLike>
 ): HydratedSection | null {
   const section = sections[crn]
   if (!section) return null
@@ -332,7 +335,7 @@ export function hydrateSection(
     courseNumber: course.courseNumber,
     title: course.title,
     credits: course.credits,
-    instructor: section.instructor,
+    instructor: section.instructor ?? "",
     meetingTimes: section.meetingTimes,
     enrollment: section.enrollment,
     maxEnrollment: section.maxEnrollment,
