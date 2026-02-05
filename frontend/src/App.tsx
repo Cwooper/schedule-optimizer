@@ -7,6 +7,7 @@ import { TabNav } from "@/components/TabNav"
 import { Footer } from "@/components/Footer"
 import { ScheduleBuilder } from "@/components/ScheduleBuilder"
 import { ScheduleView, CourseInfoDialog } from "@/components/schedule"
+import { SearchView } from "@/components/SearchView"
 import { Button } from "@/components/ui/button"
 import {
   Drawer,
@@ -76,11 +77,7 @@ function App() {
           {/* Main content */}
           <main className="flex-1 overflow-hidden">
             {tab === "schedule" && <ScheduleView />}
-            {tab === "search" && (
-              <div className="flex h-full items-center justify-center">
-                <p className="text-muted-foreground">Search (coming soon)</p>
-              </div>
-            )}
+            {tab === "search" && <SearchView />}
             {tab === "statistics" && (
               <div className="flex h-full items-center justify-center">
                 <p className="text-muted-foreground">Statistics (coming soon)</p>

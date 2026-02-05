@@ -399,3 +399,58 @@ export function sortSectionsByAvailability(
     return a.crn.localeCompare(b.crn)
   })
 }
+
+// ── Term/Academic Year utilities ─────────────────────────────────────────
+
+const QUARTER_FALL = 40
+const QUARTER_WINTER = 10
+const QUARTER_SPRING = 20
+const QUARTER_SUMMER = 30
+
+/**
+ * Parse a term code into year and quarter.
+ * Term codes are YYYYQQ where QQ is 10 (Winter), 20 (Spring), 30 (Summer), 40 (Fall).
+ */
+export function parseTermCode(code: string): { year: number; quarter: number } | null {
+  if (code.length !== 6) return null
+  const year = parseInt(code.slice(0, 4), 10)
+  const quarter = parseInt(code.slice(4), 10)
+  if (isNaN(year) || isNaN(quarter)) return null
+  if (![QUARTER_WINTER, QUARTER_SPRING, QUARTER_SUMMER, QUARTER_FALL].includes(quarter)) {
+    return null
+  }
+  return { year, quarter }
+}
+
+/**
+ * Get the academic year for a term code.
+ * Academic year N runs from Fall(N-1) through Summer(N).
+ * Example: Fall 2024 (202440) → academic year 2025
+ */
+export function getAcademicYear(termCode: string): number | null {
+  const parsed = parseTermCode(termCode)
+  if (!parsed) return null
+  // Fall starts the next academic year
+  return parsed.quarter === QUARTER_FALL ? parsed.year + 1 : parsed.year
+}
+
+/**
+ * Format academic year for display.
+ * Example: 2025 → "2024-2025"
+ */
+export function formatAcademicYear(academicYear: number): string {
+  return `${academicYear - 1}-${academicYear}`
+}
+
+/**
+ * Derive unique academic years from a list of term codes.
+ * Returns years in descending order (newest first).
+ */
+export function getAcademicYearsFromTerms(termCodes: string[]): number[] {
+  const years = new Set<number>()
+  for (const code of termCodes) {
+    const year = getAcademicYear(code)
+    if (year !== null) years.add(year)
+  }
+  return Array.from(years).sort((a, b) => b - a)
+}
