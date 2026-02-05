@@ -11,7 +11,7 @@ import (
 // Scorer calculates relevance scores for search results.
 type Scorer interface {
 	// Score returns a relevance score for the given section and search request.
-	Score(section *SectionResult, req *SearchRequest) float64
+	Score(section *sectionRow, req *SearchRequest) float64
 	// Name returns the scorer's name for debugging/logging.
 	Name() string
 }
@@ -34,7 +34,7 @@ func NewRecencyScorer() *RecencyScorer {
 
 // Score implements Scorer.
 // Returns 0 for single-term searches since recency is meaningless when all results are from the same term.
-func (s *RecencyScorer) Score(section *SectionResult, req *SearchRequest) float64 {
+func (s *RecencyScorer) Score(section *sectionRow, req *SearchRequest) float64 {
 	// Skip recency scoring for single-term searches
 	if req.Term != "" {
 		return 0
@@ -65,7 +65,7 @@ func NewMatchQualityScorer() *MatchQualityScorer {
 }
 
 // Score implements Scorer.
-func (s *MatchQualityScorer) Score(section *SectionResult, req *SearchRequest) float64 {
+func (s *MatchQualityScorer) Score(section *sectionRow, req *SearchRequest) float64 {
 	var score float64
 
 	// Course number match quality
@@ -106,41 +106,6 @@ func (s *MatchQualityScorer) Score(section *SectionResult, req *SearchRequest) f
 // Name implements Scorer.
 func (s *MatchQualityScorer) Name() string {
 	return "match_quality"
-}
-
-// CompositeScorer combines multiple scorers with weights.
-type CompositeScorer struct {
-	scorers []Scorer
-	weights []float64
-}
-
-// NewCompositeScorer creates a scorer that combines multiple scorers with weights.
-func NewCompositeScorer(scorers []Scorer, weights []float64) *CompositeScorer {
-	if len(weights) != len(scorers) {
-		// Default to equal weights if mismatch
-		weights = make([]float64, len(scorers))
-		for i := range weights {
-			weights[i] = 1.0
-		}
-	}
-	return &CompositeScorer{
-		scorers: scorers,
-		weights: weights,
-	}
-}
-
-// Score implements Scorer.
-func (s *CompositeScorer) Score(section *SectionResult, req *SearchRequest) float64 {
-	var total float64
-	for i, scorer := range s.scorers {
-		total += scorer.Score(section, req) * s.weights[i]
-	}
-	return total
-}
-
-// Name implements Scorer.
-func (s *CompositeScorer) Name() string {
-	return "composite"
 }
 
 // termDistance calculates the number of terms between two term codes.
