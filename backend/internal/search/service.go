@@ -14,10 +14,12 @@ import (
 )
 
 var (
-	ErrNoFilters      = errors.New("at least one search filter is required (subject, courseNumber, title, or instructor)")
-	ErrTooManyTokens  = errors.New("too many search terms (max 3 words per field)")
-	ErrInvalidTerm    = errors.New("invalid term code")
-	ErrInvalidYear    = errors.New("invalid academic year")
+	ErrNoFilters       = errors.New("at least one search filter is required (subject, courseNumber, title, or instructor)")
+	ErrTooManyTokens   = errors.New("too many search terms (max 3 words per field)")
+	ErrInvalidTerm     = errors.New("invalid term code")
+	ErrInvalidYear     = errors.New("invalid academic year")
+	ErrWildcardOnly    = errors.New("search filter cannot be only wildcards")
+	ErrFilterTooShort  = errors.New("search filter must be at least 2 characters (excluding wildcards)")
 )
 
 // Service handles course search operations.
@@ -142,9 +144,8 @@ func (s *Service) Search(ctx context.Context, req SearchRequest) (*SearchRespons
 		}
 	}
 
-	// Apply scoring for all-time searches
-	isAllTime := req.Term == "" && req.Year == 0
-	if isAllTime && len(s.scorers) > 0 {
+	// Apply scoring to all searches (scorers decide their relevance per search type)
+	if len(s.scorers) > 0 {
 		for _, section := range sections {
 			var totalScore float64
 			for _, scorer := range s.scorers {
@@ -171,17 +172,37 @@ func (s *Service) Search(ctx context.Context, req SearchRequest) (*SearchRespons
 	return response, nil
 }
 
-// validateRequest checks that the request has at least one filter.
+// validateRequest checks that the request has valid filters.
 func (s *Service) validateRequest(req SearchRequest) error {
-	hasFilter := req.Subject != "" ||
-		req.CourseNumber != "" ||
-		req.Title != "" ||
-		req.Instructor != ""
+	// Check each filter for validity (not just wildcards, minimum meaningful content)
+	subjectValid := isValidFilter(req.Subject, 2)
+	courseNumValid := isValidFilter(req.CourseNumber, 1) // Allow single digit for level search
+	titleValid := isValidFilter(req.Title, 2)
+	instructorValid := isValidFilter(req.Instructor, 2)
+
+	hasFilter := subjectValid || courseNumValid || titleValid || instructorValid
 
 	if !hasFilter {
+		// Check if they provided filters that were rejected
+		if req.Subject != "" || req.CourseNumber != "" || req.Title != "" || req.Instructor != "" {
+			return ErrFilterTooShort
+		}
 		return ErrNoFilters
 	}
 	return nil
+}
+
+// isValidFilter checks if a filter value is meaningful (not just wildcards).
+// Returns true if the filter has at least minChars non-wildcard characters.
+func isValidFilter(value string, minChars int) bool {
+	if value == "" {
+		return false
+	}
+	// Strip wildcards and check remaining length
+	cleaned := strings.ReplaceAll(value, "*", "")
+	cleaned = strings.ReplaceAll(cleaned, "%", "")
+	cleaned = strings.ReplaceAll(cleaned, "_", "") // Also treat _ as wildcard
+	return len(cleaned) >= minChars
 }
 
 // resolveTerms converts scope parameters to actual term codes.
@@ -333,9 +354,15 @@ func splitTokens(input string, max int) ([]any, error) {
 }
 
 // buildCourseNumberPattern converts user input to a LIKE pattern.
-// Auto-wildcards 1-2 digit inputs: "2" -> "2%", "20" -> "20%"
-// Explicit wildcards: "2*" -> "2%"
-// Exact match: "201" -> "201"
+// Wildcards (*) can appear anywhere and are converted to SQL %.
+// Examples:
+//   - "247"   -> "247"  (exact match)
+//   - "2"     -> "2%"   (auto-wildcard for 1-2 chars)
+//   - "2*"    -> "2%"   (suffix wildcard)
+//   - "*97"   -> "%97"  (prefix wildcard - matches 197, 297, 397, etc.)
+//   - "2*7"   -> "2%7"  (internal wildcard - matches 207, 217, 247, etc.)
+//   - "*97*"  -> "%97%" (both - matches anything containing 97)
+//   - "4*7X"  -> "4%7X" (matches 407X, 417X, 497X, etc.)
 func buildCourseNumberPattern(input string) *string {
 	if input == "" {
 		return nil
@@ -343,13 +370,16 @@ func buildCourseNumberPattern(input string) *string {
 
 	input = strings.ToUpper(input)
 
-	// Handle explicit wildcards
-	if strings.HasSuffix(input, "*") || strings.HasSuffix(input, "%") {
-		pattern := strings.TrimSuffix(strings.TrimSuffix(input, "*"), "%") + "%"
+	// Check if input contains any wildcards
+	hasWildcard := strings.Contains(input, "*") || strings.Contains(input, "%")
+
+	if hasWildcard {
+		// Replace * with % for SQL LIKE
+		pattern := strings.ReplaceAll(input, "*", "%")
 		return &pattern
 	}
 
-	// Auto-wildcard for 1-2 digit inputs
+	// Auto-wildcard for 1-2 character inputs (convenience for level searches)
 	if len(input) <= 2 {
 		pattern := input + "%"
 		return &pattern

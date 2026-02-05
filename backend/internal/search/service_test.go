@@ -23,6 +23,82 @@ func TestSearch_NoFilters(t *testing.T) {
 	}
 }
 
+func TestSearch_WildcardOnlyFilter(t *testing.T) {
+	db, queries := testutil.SetupTestDB(t)
+	defer db.Close()
+	testutil.SeedTestData(t, db)
+
+	svc := NewService(db, queries)
+
+	// Wildcard-only course number should be rejected
+	_, err := svc.Search(context.Background(), SearchRequest{
+		Term:         "202520",
+		CourseNumber: "*",
+	})
+
+	if err != ErrFilterTooShort {
+		t.Errorf("expected ErrFilterTooShort for wildcard-only courseNumber, got %v", err)
+	}
+
+	// Wildcard-only title should be rejected
+	_, err = svc.Search(context.Background(), SearchRequest{
+		Term:  "202520",
+		Title: "***",
+	})
+
+	if err != ErrFilterTooShort {
+		t.Errorf("expected ErrFilterTooShort for wildcard-only title, got %v", err)
+	}
+
+	// Underscore-only should also be rejected (SQL single-char wildcard)
+	_, err = svc.Search(context.Background(), SearchRequest{
+		Term:       "202520",
+		Instructor: "___",
+	})
+
+	if err != ErrFilterTooShort {
+		t.Errorf("expected ErrFilterTooShort for underscore-only instructor, got %v", err)
+	}
+}
+
+func TestSearch_FilterMinimumLength(t *testing.T) {
+	db, queries := testutil.SetupTestDB(t)
+	defer db.Close()
+	testutil.SeedTestData(t, db)
+
+	svc := NewService(db, queries)
+
+	// Single character subject should be rejected (min 2)
+	_, err := svc.Search(context.Background(), SearchRequest{
+		Term:    "202520",
+		Subject: "C",
+	})
+
+	if err != ErrFilterTooShort {
+		t.Errorf("expected ErrFilterTooShort for single-char subject, got %v", err)
+	}
+
+	// Single digit course number should be allowed (convenience for level search)
+	_, err = svc.Search(context.Background(), SearchRequest{
+		Term:         "202520",
+		CourseNumber: "2",
+	})
+
+	if err != nil {
+		t.Errorf("single digit courseNumber should be allowed, got %v", err)
+	}
+
+	// Two-character subject should be allowed
+	_, err = svc.Search(context.Background(), SearchRequest{
+		Term:    "202520",
+		Subject: "CS",
+	})
+
+	if err != nil {
+		t.Errorf("two-char subject should be allowed, got %v", err)
+	}
+}
+
 func TestSearch_TooManyTokens(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	defer db.Close()

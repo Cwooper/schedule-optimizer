@@ -305,6 +305,10 @@ func (h *Handlers) Search(c *gin.Context) {
 			c.JSON(http.StatusNotFound, gin.H{"error": err.Error()})
 		case errors.Is(err, search.ErrInvalidYear):
 			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		case errors.Is(err, search.ErrWildcardOnly):
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		case errors.Is(err, search.ErrFilterTooShort):
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		default:
 			slog.Error("Search failed", "error", err)
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "Search failed"})
