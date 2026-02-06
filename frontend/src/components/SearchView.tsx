@@ -34,6 +34,7 @@ import {
   formatAcademicYear,
 } from "@/lib/schedule-utils"
 import { cn, genId } from "@/lib/utils"
+import { useDebouncedState } from "@/hooks/use-debounced-state"
 
 const SCOPE_OPTIONS: { value: SearchScope; label: string }[] = [
   { value: "term", label: "Term" },
@@ -42,17 +43,16 @@ const SCOPE_OPTIONS: { value: SearchScope; label: string }[] = [
 ]
 
 export function SearchView() {
-  const {
-    searchFilters,
-    setSearchFilters,
-    clearSearchFilters,
-    searchResult,
-    setSearchResult,
-    addSlot,
-    slots,
-    openCourseDialog,
-    closeCourseDialog,
-  } = useAppStore()
+  // Zustand selectors — only re-render when these specific slices change
+  const searchFilters = useAppStore((s) => s.searchFilters)
+  const setSearchFilters = useAppStore((s) => s.setSearchFilters)
+  const clearSearchFilters = useAppStore((s) => s.clearSearchFilters)
+  const searchResult = useAppStore((s) => s.searchResult)
+  const setSearchResult = useAppStore((s) => s.setSearchResult)
+  const addSlot = useAppStore((s) => s.addSlot)
+  const slots = useAppStore((s) => s.slots)
+  const openCourseDialog = useAppStore((s) => s.openCourseDialog)
+  const closeCourseDialog = useAppStore((s) => s.closeCourseDialog)
 
   const { data: termsData } = useTerms()
   const termForSubjects = searchFilters.term || termsData?.current || ""
@@ -62,6 +62,27 @@ export function SearchView() {
     if (!termsData?.terms) return []
     return getAcademicYearsFromTerms(termsData.terms.map((t) => t.code))
   }, [termsData])
+
+  // Debounced text inputs — local state for instant typing, syncs to store after 200ms
+  const setCourseNumber = useCallback(
+    (v: string) => setSearchFilters({ courseNumber: v }),
+    [setSearchFilters]
+  )
+  const setTitle = useCallback(
+    (v: string) => setSearchFilters({ title: v }),
+    [setSearchFilters]
+  )
+  const setInstructor = useCallback(
+    (v: string) => setSearchFilters({ instructor: v }),
+    [setSearchFilters]
+  )
+
+  const [localCourseNumber, setLocalCourseNumber, flushCourseNumber] =
+    useDebouncedState(searchFilters.courseNumber, setCourseNumber)
+  const [localTitle, setLocalTitle, flushTitle] =
+    useDebouncedState(searchFilters.title, setTitle)
+  const [localInstructor, setLocalInstructor, flushInstructor] =
+    useDebouncedState(searchFilters.instructor, setInstructor)
 
   // Only pass request to useSearch when user clicks Search (not on every filter change)
   const [submittedRequest, setSubmittedRequest] = useState<ReturnType<
@@ -88,18 +109,32 @@ export function SearchView() {
     }
   }, [searchError])
 
-  // Stale detection: compare current filters against what was searched
+  // Stale detection uses local values for instant feedback
+  const currentFiltersWithLocal = useMemo(
+    () => ({
+      ...searchFilters,
+      courseNumber: localCourseNumber,
+      title: localTitle,
+      instructor: localInstructor,
+    }),
+    [searchFilters, localCourseNumber, localTitle, localInstructor]
+  )
+
   const hasSearchResult = !!searchResult
   const isSearchStale = useMemo(() => {
     if (!hasSearchResult || !submittedRequest) return false
-    const currentRequest = filtersToSearchRequest(searchFilters)
+    const currentRequest = filtersToSearchRequest(currentFiltersWithLocal)
     return JSON.stringify(currentRequest) !== JSON.stringify(submittedRequest)
-  }, [searchFilters, submittedRequest, hasSearchResult])
+  }, [currentFiltersWithLocal, submittedRequest, hasSearchResult])
 
   const handleSearch = useCallback(() => {
+    // Flush debounced values to store before building the request
+    flushCourseNumber()
+    flushTitle()
+    flushInstructor()
     setHasSearched(true)
-    setSubmittedRequest(filtersToSearchRequest(searchFilters))
-  }, [searchFilters])
+    setSubmittedRequest(filtersToSearchRequest(currentFiltersWithLocal))
+  }, [currentFiltersWithLocal, flushCourseNumber, flushTitle, flushInstructor])
 
   const handleClear = useCallback(() => {
     clearSearchFilters()
@@ -114,13 +149,11 @@ export function SearchView() {
     [handleSearch]
   )
 
-  // Open course detail dialog (uses the shared app-level dialog)
   const handleCourseClick = useCallback(
     (courseKey: string) => openCourseDialog({ courseKey }),
     [openCourseDialog]
   )
 
-  // Add course to schedule (all sections)
   const handleAddCourse = useCallback(
     (courseKey: string) => {
       if (!searchResult) return
@@ -134,7 +167,7 @@ export function SearchView() {
         displayName: `${course.subject} ${course.courseNumber}`,
         title: course.title,
         required: true,
-        sections: null, // All sections allowed
+        sections: null,
       })
       toast.success(
         `Added ${course.subject} ${course.courseNumber} to schedule`
@@ -148,7 +181,6 @@ export function SearchView() {
   const currentTerm = termsData?.current
   const subjects = subjectsData?.subjects ?? []
 
-  // Check if a course is already in the schedule
   const isCourseAdded = useCallback(
     (subject: string, courseNumber: string) => {
       return slots.some(
@@ -158,10 +190,10 @@ export function SearchView() {
     [slots]
   )
 
-  // Count active advanced filters for the badge
+  // Badge uses local values for instant feedback
   const advancedFilterCount = [
-    searchFilters.title,
-    searchFilters.instructor,
+    localTitle,
+    localInstructor,
     searchFilters.minCredits != null,
     searchFilters.maxCredits != null,
     searchFilters.openSeats,
@@ -169,11 +201,12 @@ export function SearchView() {
 
   return (
     <div className="flex h-full flex-col">
-      {/* Filters — primary bar */}
-      <div className="border-b p-3">
-        <div className="flex flex-col gap-2 xl:flex-row xl:items-end">
-          {/* Filter inputs — equal-width columns via grid, takes 2/3 width on xl */}
-          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 xl:flex-2">
+      {/* Single scrollable container — filters scroll with results on mobile */}
+      <div className="scrollbar-styled flex-1 overflow-y-auto">
+        <div className="p-3">
+          <div className="flex flex-col gap-2 xl:flex-row xl:items-end">
+            {/* Filter inputs — equal-width columns via grid, takes 2/3 width on xl */}
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 xl:flex-2">
             {/* Scope */}
             <Select
               value={searchFilters.scope}
@@ -217,10 +250,8 @@ export function SearchView() {
             <Input
               placeholder="Course number"
               aria-label="Course number"
-              value={searchFilters.courseNumber}
-              onChange={(e) =>
-                setSearchFilters({ courseNumber: e.target.value })
-              }
+              value={localCourseNumber}
+              onChange={(e) => setLocalCourseNumber(e.target.value)}
               onKeyDown={handleKeyDown}
             />
           </div>
@@ -262,10 +293,8 @@ export function SearchView() {
                   <Label>Title</Label>
                   <Input
                     placeholder="e.g. Creative Seminar"
-                    value={searchFilters.title}
-                    onChange={(e) =>
-                      setSearchFilters({ title: e.target.value })
-                    }
+                    value={localTitle}
+                    onChange={(e) => setLocalTitle(e.target.value)}
                     onKeyDown={handleKeyDown}
                   />
                 </div>
@@ -273,10 +302,8 @@ export function SearchView() {
                   <Label>Instructor</Label>
                   <Input
                     placeholder="e.g. Smith"
-                    value={searchFilters.instructor}
-                    onChange={(e) =>
-                      setSearchFilters({ instructor: e.target.value })
-                    }
+                    value={localInstructor}
+                    onChange={(e) => setLocalInstructor(e.target.value)}
                     onKeyDown={handleKeyDown}
                   />
                 </div>
@@ -340,21 +367,22 @@ export function SearchView() {
             </Button>
           </div>
         </div>
+        </div>
+
+        {/* Results */}
+        <div className="p-4">
+          <SearchResults
+            hasSearched={hasSearched}
+            isFetching={isFetching}
+            searchResult={searchResult}
+            onCourseClick={handleCourseClick}
+            onAddCourse={handleAddCourse}
+            isCourseAdded={isCourseAdded}
+          />
+        </div>
       </div>
 
-      {/* Results */}
-      <div className="scrollbar-styled flex-1 overflow-y-auto p-4">
-        <SearchResults
-          hasSearched={hasSearched}
-          isFetching={isFetching}
-          searchResult={searchResult}
-          onCourseClick={handleCourseClick}
-          onAddCourse={handleAddCourse}
-          isCourseAdded={isCourseAdded}
-        />
-      </div>
-
-      {/* Stats footer */}
+      {/* Stats footer — stays visible at bottom */}
       {searchResult && searchResult.results.length > 0 && (
         <div className="text-muted-foreground border-t px-4 py-2 text-xs">
           Found {searchResult.total} courses ({searchResult.stats.totalSections}{" "}
