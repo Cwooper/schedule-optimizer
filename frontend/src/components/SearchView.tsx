@@ -125,7 +125,7 @@ export function SearchView() {
   }, [clearSearchFilters])
 
   const handleCourseClick = useCallback(
-    (courseKey: string) => openCourseDialog({ courseKey }),
+    (courseKey: string) => openCourseDialog({ courseKey, source: "search" }),
     [openCourseDialog]
   )
 

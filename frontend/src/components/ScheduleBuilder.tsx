@@ -411,11 +411,12 @@ export function ScheduleBuilder() {
                     )
                     updateSlot(slot.id, { sections: newSections })
                   }}
-                  onCourseClick={(courseKey) => openCourseDialog({ courseKey })}
+                  onCourseClick={(courseKey) => openCourseDialog({ courseKey, source: "schedule" })}
                   onSectionClick={(crn) =>
                     openCourseDialog({
                       crn,
                       courseKey: `${slot.subject}:${slot.courseNumber}`,
+                      source: "schedule",
                     })
                   }
                   currentTerm={term}
