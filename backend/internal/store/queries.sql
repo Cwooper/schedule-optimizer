@@ -229,3 +229,10 @@ WHERE
     AND (sqlc.narg('max_credits') IS NULL OR s.credit_hours_low <= sqlc.narg('max_credits'))
 ORDER BY s.term DESC, s.subject, s.course_number, s.crn
 LIMIT sqlc.arg('result_limit');
+
+-- name: GetActiveAnnouncement :one
+SELECT id, title, body, type FROM announcements
+WHERE active = 1 ORDER BY id DESC LIMIT 1;
+
+-- name: InsertFeedback :exec
+INSERT INTO feedback (session_id, message) VALUES (?, ?);

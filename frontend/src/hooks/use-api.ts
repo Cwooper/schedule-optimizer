@@ -7,9 +7,18 @@ import {
   generateSchedules,
   validateCourses,
   searchCourses,
+  getAnnouncement,
   type GenerateRequest,
   type SearchRequest,
 } from "@/lib/api"
+
+export function useAnnouncement() {
+  return useQuery({
+    queryKey: ["announcement"],
+    queryFn: getAnnouncement,
+    staleTime: 5 * 60 * 1000,
+  })
+}
 
 export function useTerms() {
   return useQuery({

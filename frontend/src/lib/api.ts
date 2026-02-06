@@ -274,6 +274,8 @@ async function fetchAPI<T>(
     throw new ApiError(body.error || `HTTP ${res.status}`, res.status)
   }
 
+  if (res.status === 204) return undefined as T
+
   return res.json()
 }
 
@@ -319,6 +321,32 @@ export async function validateCourses(
     body: JSON.stringify(req),
   })
 }
+
+// --- Announcements & Feedback ---
+
+export interface Announcement {
+  id: number
+  title: string
+  body: string
+  type: "info" | "warning" | "beta"
+}
+
+export interface AnnouncementResponse {
+  announcement: Announcement | null
+}
+
+export async function getAnnouncement(): Promise<AnnouncementResponse> {
+  return fetchAPI<AnnouncementResponse>("/announcement")
+}
+
+export async function submitFeedback(message: string): Promise<void> {
+  await fetchAPI<void>("/feedback", {
+    method: "POST",
+    body: JSON.stringify({ message }),
+  })
+}
+
+// --- Search ---
 
 export async function searchCourses(
   req: SearchRequest

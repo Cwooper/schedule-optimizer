@@ -3,6 +3,7 @@ import { Menu } from "lucide-react"
 import { toast } from "sonner"
 import { useThemeSync } from "@/hooks/use-theme"
 import { useSidebarVisible } from "@/hooks/use-sidebar"
+import { AnnouncementBanner } from "@/components/AnnouncementBanner"
 import { Header } from "@/components/Header"
 import { TabNav } from "@/components/TabNav"
 import { Footer } from "@/components/Footer"
@@ -89,6 +90,7 @@ function App() {
 
   return (
     <div className="bg-background text-foreground flex h-screen flex-col overflow-hidden">
+      <AnnouncementBanner />
       <Header />
 
       {/* Tab nav + main content wrapper with max-width constraint */}

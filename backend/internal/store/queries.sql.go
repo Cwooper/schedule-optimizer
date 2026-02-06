@@ -77,6 +77,30 @@ func (q *Queries) DeleteSectionsByTerm(ctx context.Context, term string) error {
 	return err
 }
 
+const getActiveAnnouncement = `-- name: GetActiveAnnouncement :one
+SELECT id, title, body, type FROM announcements
+WHERE active = 1 ORDER BY id DESC LIMIT 1
+`
+
+type GetActiveAnnouncementRow struct {
+	ID    int64  `json:"id"`
+	Title string `json:"title"`
+	Body  string `json:"body"`
+	Type  string `json:"type"`
+}
+
+func (q *Queries) GetActiveAnnouncement(ctx context.Context) (*GetActiveAnnouncementRow, error) {
+	row := q.db.QueryRowContext(ctx, getActiveAnnouncement)
+	var i GetActiveAnnouncementRow
+	err := row.Scan(
+		&i.ID,
+		&i.Title,
+		&i.Body,
+		&i.Type,
+	)
+	return &i, err
+}
+
 const getDistinctSubjects = `-- name: GetDistinctSubjects :many
 SELECT DISTINCT subject FROM sections ORDER BY subject
 `
@@ -882,6 +906,20 @@ func (q *Queries) GetTermsNeverScraped(ctx context.Context) ([]*Term, error) {
 		return nil, err
 	}
 	return items, nil
+}
+
+const insertFeedback = `-- name: InsertFeedback :exec
+INSERT INTO feedback (session_id, message) VALUES (?, ?)
+`
+
+type InsertFeedbackParams struct {
+	SessionID sql.NullString `json:"session_id"`
+	Message   string         `json:"message"`
+}
+
+func (q *Queries) InsertFeedback(ctx context.Context, arg InsertFeedbackParams) error {
+	_, err := q.db.ExecContext(ctx, insertFeedback, arg.SessionID, arg.Message)
+	return err
 }
 
 const insertInstructor = `-- name: InsertInstructor :exec

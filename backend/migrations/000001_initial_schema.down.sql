@@ -1,5 +1,6 @@
 -- Rollback initial schema
 
+DROP INDEX IF EXISTS idx_feedback_created;
 DROP INDEX IF EXISTS idx_search_logs_created;
 DROP INDEX IF EXISTS idx_search_logs_session;
 DROP INDEX IF EXISTS idx_generation_log_courses_subject;
@@ -16,6 +17,8 @@ DROP INDEX IF EXISTS idx_sections_term_subject;
 DROP INDEX IF EXISTS idx_sections_subject;
 DROP INDEX IF EXISTS idx_sections_term;
 
+DROP TABLE IF EXISTS feedback;
+DROP TABLE IF EXISTS announcements;
 DROP TABLE IF EXISTS generation_log_courses;
 DROP TABLE IF EXISTS generation_logs;
 DROP TABLE IF EXISTS search_logs;
