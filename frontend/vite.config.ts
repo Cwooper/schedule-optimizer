@@ -7,6 +7,9 @@ import compression from 'vite-plugin-compression'
 // https://vite.dev/config/
 export default defineConfig({
   base: '/schedule-optimizer/',
+  define: {
+    __APP_BASE_URL__: JSON.stringify('/schedule-optimizer/'),
+  },
   plugins: [
     react(),
     tailwindcss(),

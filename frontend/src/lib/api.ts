@@ -1,6 +1,6 @@
 import { useAppStore } from "@/stores/app-store"
 
-const API_BASE = `${import.meta.env.BASE_URL}api`
+const API_BASE = `${__APP_BASE_URL__}api`
 
 // --- Types ---
 
