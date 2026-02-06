@@ -138,6 +138,7 @@
 .scrollbar-styled::-webkit-scrollbar-thumb {
   background: oklch(0.8 0 0);
   border-radius: 3px;
+  min-height: 40px;
 }
 .scrollbar-styled::-webkit-scrollbar-thumb:hover {
   background: oklch(0.7 0 0);

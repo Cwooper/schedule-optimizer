@@ -38,5 +38,5 @@ export function formatTermCode(code: string): string {
     "40": "Fall",
   }
   const name = quarterNames[quarter]
-  return name ? `${name} ${year}` : code
+  return name ? `${name} '${year.slice(2)}` : code
 }
