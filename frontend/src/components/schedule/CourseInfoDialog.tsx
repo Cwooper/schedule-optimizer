@@ -125,6 +125,7 @@ function DialogContentInner({
   const totalSections = courseSections.length
 
   const scrollRef = useRef<HTMLDivElement>(null)
+  // eslint-disable-next-line react-hooks/incompatible-library -- useVirtualizer returns mutable refs; React Compiler skips this component, which is fine since it's already isolated in DialogContentInner
   const virtualizer = useVirtualizer({
     count: sectionsWithMeetings.length,
     getScrollElement: () => scrollRef.current,
@@ -277,7 +278,7 @@ export function CourseInfoDialog({
       sections: courseSections,
       highlightCrn,
     }
-  }, [courses, sections, selectedCrn, selectedCourseKey])
+  }, [courses, sections, selectedCrn, selectedCourseKey, term])
 
   // Convert fetched course data to dialog format
   const dialogDataFromFetch = useMemo(() => {

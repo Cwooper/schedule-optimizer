@@ -40,12 +40,11 @@ function App() {
   // This prevents duplicate sections when the same course exists in both
   // generate and search results (they use different section key formats).
   const dialogSource = courseDialog.source
-  const dialogCourses =
-    dialogSource === "search"
-      ? searchResult?.courses
-      : dialogSource === "schedule"
-        ? generateResult?.courses
-        : undefined
+  const dialogCourses = (() => {
+    if (dialogSource === "search") return searchResult?.courses
+    if (dialogSource === "schedule") return generateResult?.courses
+    return undefined
+  })()
   const dialogSections = (() => {
     if (dialogSource === "schedule") return generateResult?.sections
     if (dialogSource === "search") return searchResult?.sections
