@@ -185,6 +185,68 @@ func TestValidateCourses(t *testing.T) {
 	}
 }
 
+func TestGetSessionID(t *testing.T) {
+	tests := []struct {
+		name      string
+		headerVal string
+		wantValid bool
+		wantStr   string
+	}{
+		{
+			name:      "valid UUID v4 with dashes",
+			headerVal: "550e8400-e29b-41d4-a716-446655440000",
+			wantValid: true,
+			wantStr:   "550e8400-e29b-41d4-a716-446655440000",
+		},
+		{
+			name:      "valid UUID without dashes (32 hex chars)",
+			headerVal: "550e8400e29b41d4a716446655440000",
+			wantValid: true,
+			wantStr:   "550e8400e29b41d4a716446655440000",
+		},
+		{
+			name:      "empty header",
+			headerVal: "",
+			wantValid: false,
+		},
+		{
+			name:      "invalid format - too short",
+			headerVal: "abc123",
+			wantValid: false,
+		},
+		{
+			name:      "SQL injection attempt",
+			headerVal: "'; DROP TABLE search_logs; --",
+			wantValid: false,
+		},
+		{
+			name:      "invalid characters",
+			headerVal: "550e8400-e29b-41d4-a716-44665544000g",
+			wantValid: false,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			w := httptest.NewRecorder()
+			c, _ := gin.CreateTestContext(w)
+			req := httptest.NewRequest(http.MethodGet, "/", nil)
+			if tt.headerVal != "" {
+				req.Header.Set("X-Session-ID", tt.headerVal)
+			}
+			c.Request = req
+
+			got := getSessionID(c)
+			if got.Valid != tt.wantValid {
+				t.Errorf("Valid = %v, want %v", got.Valid, tt.wantValid)
+			}
+			if tt.wantValid && got.String != tt.wantStr {
+				t.Errorf("String = %q, want %q", got.String, tt.wantStr)
+			}
+		})
+	}
+}
+
 func TestValidateCourses_BatchLimit(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)

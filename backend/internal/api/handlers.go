@@ -1,10 +1,12 @@
 package api
 
 import (
+	"context"
 	"database/sql"
 	"errors"
 	"log/slog"
 	"net/http"
+	"regexp"
 	"strings"
 	"time"
 
@@ -108,6 +110,45 @@ func fromNullInt64ToBool(ni sql.NullInt64) bool {
 	return ni.Valid && ni.Int64 != 0
 }
 
+// Analytics helper: matches UUID v4 format (with or without dashes) or 32-char hex
+var uuidPattern = regexp.MustCompile(`^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$`)
+
+func getSessionID(c *gin.Context) sql.NullString {
+	id := c.GetHeader("X-Session-ID")
+	if id == "" || !uuidPattern.MatchString(strings.ToLower(id)) {
+		return sql.NullString{}
+	}
+	return sql.NullString{String: id, Valid: true}
+}
+
+func nullStr(s string) sql.NullString {
+	if s == "" {
+		return sql.NullString{}
+	}
+	return sql.NullString{String: s, Valid: true}
+}
+
+func nullInt64(n int) sql.NullInt64 {
+	if n == 0 {
+		return sql.NullInt64{}
+	}
+	return sql.NullInt64{Int64: int64(n), Valid: true}
+}
+
+func nullIntPtr(p *int) sql.NullInt64 {
+	if p == nil {
+		return sql.NullInt64{}
+	}
+	return sql.NullInt64{Int64: int64(*p), Valid: true}
+}
+
+func boolToInt64(b bool) int64 {
+	if b {
+		return 1
+	}
+	return 0
+}
+
 // NewHandlers creates a new Handlers instance with all dependencies.
 func NewHandlers(db *sql.DB, cache *cache.ScheduleCache, generator *generator.Service, queries *store.Queries, searchSvc *search.Service) *Handlers {
 	return &Handlers{
@@ -163,6 +204,34 @@ func (h *Handlers) Generate(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
+
+	sessionID := getSessionID(c)
+	go func() {
+		logID, err := h.queries.LogGeneration(context.Background(), store.LogGenerationParams{
+			SessionID:          sessionID,
+			Term:               req.Term,
+			CoursesCount:       int64(len(req.CourseSpecs)),
+			SchedulesGenerated: int64(resp.Stats.TotalGenerated),
+			MinCourses:         nullInt64(req.MinCourses),
+			MaxCourses:         nullInt64(req.MaxCourses),
+			BlockedTimesCount:  int64(len(req.BlockedTimes)),
+			DurationMs:         sql.NullFloat64{Float64: resp.Stats.TimeMs, Valid: true},
+		})
+		if err != nil {
+			slog.Warn("Failed to log generation", "error", err)
+			return
+		}
+		for _, spec := range req.CourseSpecs {
+			if err := h.queries.LogGenerationCourse(context.Background(), store.LogGenerationCourseParams{
+				GenerationLogID: logID,
+				Subject:         spec.Subject,
+				CourseNumber:     spec.CourseNumber,
+				Required:        boolToInt64(spec.Required),
+			}); err != nil {
+				slog.Warn("Failed to log generation course", "error", err)
+			}
+		}
+	}()
 
 	c.JSON(http.StatusOK, resp.ToResponse())
 }
@@ -315,6 +384,32 @@ func (h *Handlers) Search(c *gin.Context) {
 		}
 		return
 	}
+
+	sessionID := getSessionID(c)
+	scope := "all"
+	if req.Term != "" {
+		scope = "term"
+	} else if req.Year != 0 {
+		scope = "year"
+	}
+	go func() {
+		if err := h.queries.LogSearch(context.Background(), store.LogSearchParams{
+			SessionID:    sessionID,
+			Term:         nullStr(req.Term),
+			Scope:        nullStr(scope),
+			Subject:      nullStr(req.Subject),
+			CourseNumber: nullStr(req.CourseNumber),
+			Title:        nullStr(req.Title),
+			Instructor:   nullStr(req.Instructor),
+			OpenSeats:    boolToInt64(req.OpenSeats),
+			MinCredits:   nullIntPtr(req.MinCredits),
+			MaxCredits:   nullIntPtr(req.MaxCredits),
+			ResultsCount: int64(result.Total),
+			DurationMs:   sql.NullFloat64{Float64: result.Stats.TimeMs, Valid: true},
+		}); err != nil {
+			slog.Warn("Failed to log search", "error", err)
+		}
+	}()
 
 	c.JSON(http.StatusOK, result)
 }

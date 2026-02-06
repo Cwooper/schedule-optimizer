@@ -159,6 +159,9 @@ interface CourseDialogState {
 export type SlotAddResult = "added" | "updated" | "duplicate"
 
 interface AppState {
+  // Analytics
+  sessionId: string
+
   // Navigation
   tab: Tab
 
@@ -268,6 +271,7 @@ export const useAppStore = create<AppState>()(
   persist(
     (set, get) => ({
       // Initial state
+      sessionId: genId(),
       tab: "schedule",
       term: "",
       selectedSubject: "",
@@ -576,6 +580,7 @@ export const useAppStore = create<AppState>()(
       name: "schedule-optimizer",
       partialize: (state) => ({
         // Only persist these fields
+        sessionId: state.sessionId,
         tab: state.tab,
         term: state.term,
         selectedSubject: state.selectedSubject,

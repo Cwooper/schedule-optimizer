@@ -1,3 +1,5 @@
+import { useAppStore } from "@/stores/app-store"
+
 const API_BASE = "/api"
 
 // --- Types ---
@@ -243,12 +245,14 @@ async function fetchAPI<T>(
   endpoint: string,
   options?: RequestInit
 ): Promise<T> {
+  const sessionId = useAppStore.getState().sessionId
   let res: Response
   try {
     res = await fetch(`${API_BASE}${endpoint}`, {
       ...options,
       headers: {
         "Content-Type": "application/json",
+        ...(sessionId ? { "X-Session-ID": sessionId } : {}),
         ...options?.headers,
       },
     })
