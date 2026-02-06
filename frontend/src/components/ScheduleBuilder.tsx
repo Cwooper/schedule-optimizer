@@ -1,5 +1,4 @@
 import { useState, useMemo, useEffect } from "react"
-import { genId } from "@/lib/utils"
 import { toast } from "sonner"
 import { CircleHelp, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -17,8 +16,6 @@ import {
   useAppStore,
   computeSlotsFingerprint,
   computeBlockedTimesFingerprint,
-  type CourseSlot,
-  type SectionFilter,
   type GenerationParams,
 } from "@/stores/app-store"
 import {
@@ -41,7 +38,8 @@ export function ScheduleBuilder() {
   const maxCourses = useAppStore((s) => s.maxCourses)
   const setCourseBounds = useAppStore((s) => s.setCourseBounds)
   const slots = useAppStore((s) => s.slots)
-  const addSlot = useAppStore((s) => s.addSlot)
+  const addCourseToSlot = useAppStore((s) => s.addCourseToSlot)
+  const addSectionToSlot = useAppStore((s) => s.addSectionToSlot)
   const removeSlot = useAppStore((s) => s.removeSlot)
   const updateSlot = useAppStore((s) => s.updateSlot)
   const setGenerateResult = useAppStore((s) => s.setGenerateResult)
@@ -124,30 +122,7 @@ export function ScheduleBuilder() {
     courseNumber: string
     title: string
   }) => {
-    const existingSlot = slots.find(
-      (s) =>
-        s.subject === course.subject && s.courseNumber === course.courseNumber
-    )
-
-    if (existingSlot) {
-      // Clear section filters to allow all sections
-      updateSlot(existingSlot.id, {
-        sections: null,
-        title: existingSlot.title || course.title,
-      })
-    } else {
-      const id = genId()
-      const slot: CourseSlot = {
-        id,
-        subject: course.subject,
-        courseNumber: course.courseNumber,
-        displayName: `${course.subject} ${course.courseNumber}`,
-        title: course.title,
-        required: false,
-        sections: null,
-      }
-      addSlot(slot)
-    }
+    addCourseToSlot(course.subject, course.courseNumber, course.title)
   }
 
   const handleAddCrn = (section: {
@@ -158,39 +133,14 @@ export function ScheduleBuilder() {
     title: string
     instructor: string
   }) => {
-    const sectionFilter: SectionFilter = {
-      crn: section.crn,
-      term: section.term,
-      instructor: section.instructor || null,
-      required: true,
-    }
-
-    const existingSlot = slots.find(
-      (s) =>
-        s.subject === section.subject && s.courseNumber === section.courseNumber
+    addSectionToSlot(
+      section.crn,
+      section.term,
+      section.subject,
+      section.courseNumber,
+      section.title,
+      section.instructor || null
     )
-
-    if (existingSlot) {
-      const existingSections = existingSlot.sections ?? []
-      if (!existingSections.some((s) => s.crn === section.crn && s.term === section.term)) {
-        updateSlot(existingSlot.id, {
-          sections: [...existingSections, sectionFilter],
-          title: existingSlot.title || section.title,
-        })
-      }
-    } else {
-      const id = genId()
-      const slot: CourseSlot = {
-        id,
-        subject: section.subject,
-        courseNumber: section.courseNumber,
-        displayName: `${section.subject} ${section.courseNumber}`,
-        title: section.title,
-        required: false,
-        sections: [sectionFilter],
-      }
-      addSlot(slot)
-    }
   }
 
   // Filter to only courses that exist in the current term

@@ -65,7 +65,7 @@ export function getGenerateWarnings(data: GenerateResponse): GenerateWarning[] {
   if (data.schedules.length === 0) {
     warnings.push({
       type: "warning",
-      message: "No valid schedules found for the selected courses",
+      message: "No valid schedules found — try adjusting min/max courses, removing pinned sections, or relaxing blocked times",
     })
   } else if (data.stats.totalGenerated > data.schedules.length) {
     warnings.push({

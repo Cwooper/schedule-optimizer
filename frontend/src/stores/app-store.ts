@@ -156,6 +156,8 @@ interface CourseDialogState {
   source?: "schedule" | "search"
 }
 
+export type SlotAddResult = "added" | "updated" | "duplicate"
+
 interface AppState {
   // Navigation
   tab: Tab
@@ -198,6 +200,8 @@ interface AppState {
   setSelectedSubject: (subject: string) => void
   setCourseBounds: (min: number | null, max: number | null) => void
   addSlot: (slot: CourseSlot) => void
+  addCourseToSlot: (subject: string, courseNumber: string, title: string) => SlotAddResult
+  addSectionToSlot: (crn: string, term: string, subject: string, courseNumber: string, title: string, instructor: string | null) => SlotAddResult
   removeSlot: (id: string) => void
   updateSlot: (id: string, updates: Partial<CourseSlot>) => void
   clearSlots: () => void
@@ -306,6 +310,91 @@ export const useAppStore = create<AppState>()(
           slots: [...state.slots, slot],
           slotsVersion: state.slotsVersion + 1,
         })),
+
+      addCourseToSlot: (subject, courseNumber, title) => {
+        const state = get()
+        const existing = state.slots.find(
+          (s) => s.subject === subject && s.courseNumber === courseNumber
+        )
+        if (existing) {
+          if (existing.sections === null && (existing.title || !title)) {
+            return "duplicate"
+          }
+          set({
+            slots: state.slots.map((s) =>
+              s.id === existing.id
+                ? { ...s, sections: null, title: s.title || title }
+                : s
+            ),
+            slotsVersion: state.slotsVersion + 1,
+          })
+          return "updated"
+        }
+        set({
+          slots: [
+            ...state.slots,
+            {
+              id: genId(),
+              subject,
+              courseNumber,
+              displayName: `${subject} ${courseNumber}`,
+              title,
+              required: false,
+              sections: null,
+            },
+          ],
+          slotsVersion: state.slotsVersion + 1,
+        })
+        return "added"
+      },
+
+      addSectionToSlot: (crn, term, subject, courseNumber, title, instructor) => {
+        const state = get()
+        const sectionFilter: SectionFilter = {
+          crn,
+          term,
+          instructor,
+          required: true,
+        }
+        const existing = state.slots.find(
+          (s) => s.subject === subject && s.courseNumber === courseNumber
+        )
+        if (existing) {
+          const existingSections = existing.sections ?? []
+          if (existingSections.some((s) => s.crn === crn && s.term === term)) {
+            return "duplicate"
+          }
+          set({
+            slots: state.slots.map((s) =>
+              s.id === existing.id
+                ? {
+                    ...s,
+                    sections: [...existingSections, sectionFilter],
+                    title: s.title || title,
+                  }
+                : s
+            ),
+            slotsVersion: state.slotsVersion + 1,
+          })
+          return "updated"
+        }
+        set({
+          slots: [
+            ...state.slots,
+            {
+              id: genId(),
+              subject,
+              courseNumber,
+              displayName: `${subject} ${courseNumber}`,
+              title,
+              required: false,
+              sections: [sectionFilter],
+            },
+          ],
+          slotsVersion: state.slotsVersion + 1,
+        })
+        return "added"
+      },
 
       removeSlot: (id) =>
         set((state) => ({

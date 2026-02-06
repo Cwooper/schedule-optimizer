@@ -116,6 +116,128 @@ describe("app-store", () => {
     })
   })
 
+  describe("addCourseToSlot", () => {
+    it("creates a new slot when course does not exist", () => {
+      const result = useAppStore.getState().addCourseToSlot("CSCI", "247", "Computer Systems")
+      expect(result).toBe("added")
+      const slots = useAppStore.getState().slots
+      expect(slots).toHaveLength(1)
+      expect(slots[0].subject).toBe("CSCI")
+      expect(slots[0].courseNumber).toBe("247")
+      expect(slots[0].title).toBe("Computer Systems")
+      expect(slots[0].sections).toBeNull()
+      expect(slots[0].required).toBe(false)
+    })
+
+    it("returns duplicate when course already exists with sections: null", () => {
+      useAppStore.getState().addCourseToSlot("CSCI", "247", "Computer Systems")
+      const result = useAppStore.getState().addCourseToSlot("CSCI", "247", "Computer Systems")
+      expect(result).toBe("duplicate")
+      expect(useAppStore.getState().slots).toHaveLength(1)
+    })
+
+    it("resets pinned sections to null when re-adding course", () => {
+      useAppStore.getState().addSlot({
+        ...mockSlot,
+        sections: [{ crn: "12345", term: "202410", instructor: null, required: true }],
+      })
+      const result = useAppStore.getState().addCourseToSlot("CSCI", "247", "Computer Systems")
+      expect(result).toBe("updated")
+      expect(useAppStore.getState().slots[0].sections).toBeNull()
+    })
+
+    it("fills in missing title on existing slot", () => {
+      useAppStore.getState().addSlot({ ...mockSlot, title: undefined, sections: [{ crn: "12345", term: "202410", instructor: null, required: true }] })
+      useAppStore.getState().addCourseToSlot("CSCI", "247", "Computer Systems")
+      expect(useAppStore.getState().slots[0].title).toBe("Computer Systems")
+    })
+
+    it("does not overwrite existing title", () => {
+      useAppStore.getState().addSlot({ ...mockSlot, title: "Original Title", sections: [{ crn: "12345", term: "202410", instructor: null, required: true }] })
+      useAppStore.getState().addCourseToSlot("CSCI", "247", "New Title")
+      expect(useAppStore.getState().slots[0].title).toBe("Original Title")
+    })
+
+    it("increments slotsVersion on add", () => {
+      const v0 = useAppStore.getState().getSlotsVersion()
+      useAppStore.getState().addCourseToSlot("CSCI", "247", "Computer Systems")
+      expect(useAppStore.getState().getSlotsVersion()).toBe(v0 + 1)
+    })
+
+    it("does not increment slotsVersion on duplicate", () => {
+      useAppStore.getState().addCourseToSlot("CSCI", "247", "Computer Systems")
+      const v1 = useAppStore.getState().getSlotsVersion()
+      useAppStore.getState().addCourseToSlot("CSCI", "247", "Computer Systems")
+      expect(useAppStore.getState().getSlotsVersion()).toBe(v1)
+    })
+  })
+
+  describe("addSectionToSlot", () => {
+    it("creates a new slot when course does not exist", () => {
+      const result = useAppStore.getState().addSectionToSlot("12345", "202410", "CSCI", "247", "Computer Systems", "Smith")
+      expect(result).toBe("added")
+      const slots = useAppStore.getState().slots
+      expect(slots).toHaveLength(1)
+      expect(slots[0].subject).toBe("CSCI")
+      expect(slots[0].sections).toHaveLength(1)
+      expect(slots[0].sections![0].crn).toBe("12345")
+      expect(slots[0].sections![0].required).toBe(true)
+      expect(slots[0].required).toBe(false)
+    })
+
+    it("appends section to existing slot with sections: null", () => {
+      useAppStore.getState().addCourseToSlot("CSCI", "247", "Computer Systems")
+      const result = useAppStore.getState().addSectionToSlot("12345", "202410", "CSCI", "247", "Computer Systems", "Smith")
+      expect(result).toBe("updated")
+      expect(useAppStore.getState().slots).toHaveLength(1)
+      expect(useAppStore.getState().slots[0].sections).toHaveLength(1)
+    })
+
+    it("appends section to existing slot with other sections", () => {
+      useAppStore.getState().addSectionToSlot("12345", "202410", "CSCI", "247", "Computer Systems", "Smith")
+      const result = useAppStore.getState().addSectionToSlot("67890", "202410", "CSCI", "247", "Computer Systems", "Jones")
+      expect(result).toBe("updated")
+      expect(useAppStore.getState().slots).toHaveLength(1)
+      expect(useAppStore.getState().slots[0].sections).toHaveLength(2)
+    })
+
+    it("returns duplicate when same CRN+term already pinned", () => {
+      useAppStore.getState().addSectionToSlot("12345", "202410", "CSCI", "247", "Computer Systems", "Smith")
+      const result = useAppStore.getState().addSectionToSlot("12345", "202410", "CSCI", "247", "Computer Systems", "Smith")
+      expect(result).toBe("duplicate")
+      expect(useAppStore.getState().slots[0].sections).toHaveLength(1)
+    })
+
+    it("allows same CRN from different terms", () => {
+      useAppStore.getState().addSectionToSlot("12345", "202410", "CSCI", "247", "Computer Systems", "Smith")
+      const result = useAppStore.getState().addSectionToSlot("12345", "202520", "CSCI", "247", "Computer Systems", "Jones")
+      expect(result).toBe("updated")
+      expect(useAppStore.getState().slots[0].sections).toHaveLength(2)
+    })
+
+    it("fills in missing title on existing slot", () => {
+      useAppStore.getState().addSlot({ ...mockSlot, title: undefined })
+      useAppStore.getState().addSectionToSlot("12345", "202410", "CSCI", "247", "Computer Systems", "Smith")
+      expect(useAppStore.getState().slots[0].title).toBe("Computer Systems")
+    })
+
+    it("increments slotsVersion on add and update", () => {
+      const v0 = useAppStore.getState().getSlotsVersion()
+      useAppStore.getState().addSectionToSlot("12345", "202410", "CSCI", "247", "Computer Systems", "Smith")
+      expect(useAppStore.getState().getSlotsVersion()).toBe(v0 + 1)
+      const v1 = useAppStore.getState().getSlotsVersion()
+      useAppStore.getState().addSectionToSlot("67890", "202410", "CSCI", "247", "Computer Systems", "Jones")
+      expect(useAppStore.getState().getSlotsVersion()).toBe(v1 + 1)
+    })
+
+    it("does not increment slotsVersion on duplicate", () => {
+      useAppStore.getState().addSectionToSlot("12345", "202410", "CSCI", "247", "Computer Systems", "Smith")
+      const v1 = useAppStore.getState().getSlotsVersion()
+      useAppStore.getState().addSectionToSlot("12345", "202410", "CSCI", "247", "Computer Systems", "Smith")
+      expect(useAppStore.getState().getSlotsVersion()).toBe(v1)
+    })
+  })
+
   describe("schedule staleness", () => {
     beforeEach(() => {
       // Set up a slot and generate result with matching params
