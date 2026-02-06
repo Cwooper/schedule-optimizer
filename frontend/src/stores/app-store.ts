@@ -1,0 +1,601 @@
+import { create } from "zustand"
+import { persist } from "zustand/middleware"
+import { genId } from "@/lib/utils"
+import { mergeAdjacentBlocks } from "@/lib/schedule-utils"
+
+// --- Types ---
+
+export type Tab = "schedule" | "search" | "statistics"
+export type Theme = "light" | "dark" | "system"
+export type SearchScope = "term" | "year" | "all"
+
+export interface SearchFilters {
+  scope: SearchScope
+  term: string // used when scope is "term"
+  year: number | null // used when scope is "year"
+  subject: string
+  courseNumber: string
+  title: string
+  instructor: string
+  openSeats: boolean
+  minCredits: number | null
+  maxCredits: number | null
+}
+
+export const DEFAULT_SEARCH_FILTERS: SearchFilters = {
+  scope: "term",
+  term: "",
+  year: null,
+  subject: "",
+  courseNumber: "",
+  title: "",
+  instructor: "",
+  openSeats: false,
+  minCredits: null,
+  maxCredits: null,
+}
+
+/** Convert SearchFilters to SearchRequest for API call */
+export function filtersToSearchRequest(
+  filters: SearchFilters
+): import("@/lib/api").SearchRequest {
+  const req: import("@/lib/api").SearchRequest = {}
+
+  // Scope determines term/year
+  if (filters.scope === "term" && filters.term) {
+    req.term = filters.term
+  } else if (filters.scope === "year" && filters.year !== null) {
+    req.year = filters.year
+  }
+  // scope === "all" sends neither term nor year
+
+  // Text filters - only include if non-empty
+  if (filters.subject) req.subject = filters.subject
+  if (filters.courseNumber) req.courseNumber = filters.courseNumber
+  if (filters.title) req.title = filters.title
+  if (filters.instructor) req.instructor = filters.instructor
+
+  // Boolean/number filters
+  if (filters.openSeats) req.openSeats = true
+  if (filters.minCredits !== null) req.minCredits = filters.minCredits
+  if (filters.maxCredits !== null) req.maxCredits = filters.maxCredits
+
+  return req
+}
+
+export interface BlockedTimeBlock {
+  id: string
+  day: number
+  startTime: string
+  endTime: string
+}
+
+export interface BlockedTimeGroup {
+  id: string
+  title: string // user-set label; empty = auto "Blocked Time N" in dialog only
+  description: string
+  color: string | null // null = no color, string = palette key or hex
+  hatched: boolean // show hatched overlay pattern
+  opacity: number // 10-80, background opacity percentage when color is set
+  enabled: boolean // ON = visible on grid + used in generation
+  blocks: BlockedTimeBlock[]
+}
+
+export interface SectionFilter {
+  crn: string
+  term: string
+  instructor: string | null
+  required: boolean
+}
+
+export interface CourseSlot {
+  id: string
+  subject: string
+  courseNumber: string
+  displayName: string
+  title?: string // e.g., "Computer Systems"
+  required: boolean
+  sections: SectionFilter[] | null // null = all sections allowed
+}
+
+/** Parameters that affect schedule generation - used for stale detection */
+export interface GenerationParams {
+  term: string
+  minCourses: number
+  maxCourses: number
+  slotsFingerprint: string
+  blockedTimesFingerprint: string
+}
+
+/**
+ * Computes a content-based fingerprint of slots for stale detection.
+ * Excludes slot.id so re-adding the same course clears stale state.
+ * Sorts by course key for stable comparison regardless of UI order.
+ */
+export function computeSlotsFingerprint(slots: CourseSlot[]): string {
+  const normalized = slots
+    .map((s) => ({
+      key: `${s.subject}-${s.courseNumber}`,
+      required: s.required,
+      sections:
+        s.sections
+          ?.map((sec) => ({ crn: sec.crn, required: sec.required }))
+          .sort((a, b) => a.crn.localeCompare(b.crn)) ?? null,
+    }))
+    .sort((a, b) => a.key.localeCompare(b.key))
+  return JSON.stringify(normalized)
+}
+
+export function computeBlockedTimesFingerprint(
+  groups: BlockedTimeGroup[]
+): string {
+  const enabled = groups
+    .filter((g) => g.enabled)
+    .flatMap((g) => g.blocks)
+    .map((b) => `${b.day}-${b.startTime}-${b.endTime}`)
+    .sort()
+  return JSON.stringify(enabled)
+}
+
+// Re-export from api.ts for convenience
+export type {
+  HydratedSection,
+  ScheduleRef,
+  GenerateResponse,
+  SearchResponse,
+  SearchRequest,
+} from "@/lib/api"
+import type { GenerateResponse, SearchResponse } from "@/lib/api"
+
+// --- Store State ---
+
+interface CourseDialogState {
+  open: boolean
+  selectedCrn?: string
+  selectedCourseKey?: string
+  source?: "schedule" | "search"
+}
+
+export type SlotAddResult = "added" | "updated" | "duplicate"
+
+interface AppState {
+  // Analytics
+  sessionId: string
+
+  // Navigation
+  tab: Tab
+
+  // Sidebar state
+  term: string
+  selectedSubject: string
+  minCourses: number | null
+  maxCourses: number | null
+  slots: CourseSlot[]
+
+  // Blocked times
+  blockedTimeGroups: BlockedTimeGroup[]
+  editingBlockedTimeGroupId: string | null
+
+  // UI state
+  theme: Theme
+  sidebarCollapsed: boolean
+
+  // Generated schedules (not persisted)
+  generateResult: GenerateResponse | null
+  generatedWithParams: GenerationParams | null
+  currentScheduleIndex: number
+  // Incremented on slot changes to detect stale mutation results
+  slotsVersion: number
+  // Flag to request regeneration from outside ScheduleBuilder
+  regenerateRequested: boolean
+
+  // Course info dialog state (not persisted)
+  courseDialog: CourseDialogState
+
+  // Search state
+  searchFilters: SearchFilters
+  searchResult: SearchResponse | null
+  expandedSearchCourses: Set<string> // courseKeys that are expanded in results
+
+  // Actions
+  setTab: (tab: Tab) => void
+  setTerm: (term: string) => void
+  setSelectedSubject: (subject: string) => void
+  setCourseBounds: (min: number | null, max: number | null) => void
+  addSlot: (slot: CourseSlot) => void
+  addCourseToSlot: (subject: string, courseNumber: string, title: string) => SlotAddResult
+  addSectionToSlot: (crn: string, term: string, subject: string, courseNumber: string, title: string, instructor: string | null) => SlotAddResult
+  removeSlot: (id: string) => void
+  updateSlot: (id: string, updates: Partial<CourseSlot>) => void
+  clearSlots: () => void
+  addBlockedTimeGroup: () => string
+  removeBlockedTimeGroup: (id: string) => void
+  updateBlockedTimeGroup: (
+    id: string,
+    updates: Partial<BlockedTimeGroup>
+  ) => void
+  addBlockToGroup: (groupId: string, block: BlockedTimeBlock) => void
+  updateBlockInGroupById: (groupId: string, blockId: string, block: BlockedTimeBlock) => void
+  removeBlockFromGroupById: (groupId: string, blockId: string) => void
+  setEditingBlockedTimeGroupId: (id: string | null) => void
+  setTheme: (theme: Theme) => void
+  setSidebarCollapsed: (collapsed: boolean) => void
+  setGenerateResult: (
+    result: GenerateResponse | null,
+    params?: GenerationParams
+  ) => void
+  setCurrentScheduleIndex: (index: number) => void
+  getSlotsVersion: () => number
+  isGenerateResultStale: () => boolean
+  openCourseDialog: (opts: { crn?: string; courseKey?: string; source: "schedule" | "search" }) => void
+  closeCourseDialog: () => void
+  requestRegenerate: () => void
+  clearRegenerateRequest: () => void
+
+  // Search actions
+  setSearchFilters: (filters: Partial<SearchFilters>) => void
+  clearSearchFilters: () => void
+  setSearchResult: (result: SearchResponse | null) => void
+  toggleSearchCourseExpanded: (courseKey: string) => void
+  clearExpandedSearchCourses: () => void
+}
+
+// --- Helpers ---
+
+function updateBlockInGroup(
+  groups: BlockedTimeGroup[],
+  groupId: string,
+  blockId: string,
+  block: BlockedTimeBlock
+): BlockedTimeGroup[] {
+  return groups.map((g) => {
+    if (g.id !== groupId) return g
+    return { ...g, blocks: mergeAdjacentBlocks(g.blocks.map((b) => (b.id === blockId ? block : b))) }
+  })
+}
+
+function removeBlockFromGroup(
+  groups: BlockedTimeGroup[],
+  groupId: string,
+  blockId: string
+): BlockedTimeGroup[] {
+  return groups.map((g) => {
+    if (g.id !== groupId) return g
+    return { ...g, blocks: g.blocks.filter((b) => b.id !== blockId) }
+  })
+}
+
+// --- Store ---
+
+export const useAppStore = create<AppState>()(
+  persist(
+    (set, get) => ({
+      // Initial state
+      sessionId: genId(),
+      tab: "schedule",
+      term: "",
+      selectedSubject: "",
+      minCourses: null,
+      maxCourses: null,
+      slots: [],
+      blockedTimeGroups: [],
+      editingBlockedTimeGroupId: null,
+      theme: "system",
+      sidebarCollapsed: false,
+      generateResult: null,
+      generatedWithParams: null,
+      currentScheduleIndex: 0,
+      slotsVersion: 0,
+      regenerateRequested: false,
+      courseDialog: { open: false },
+      searchFilters: { ...DEFAULT_SEARCH_FILTERS },
+      searchResult: null,
+      expandedSearchCourses: new Set(),
+
+      // Actions
+      setTab: (tab) => set({ tab }),
+
+      setTerm: (term) =>
+        set((state) => ({
+          term,
+          slotsVersion: state.slotsVersion + 1,
+        })),
+
+      setSelectedSubject: (subject) => set({ selectedSubject: subject }),
+
+      setCourseBounds: (min, max) =>
+        set({
+          minCourses: min,
+          maxCourses: max,
+        }),
+
+      addSlot: (slot) =>
+        set((state) => ({
+          slots: [...state.slots, slot],
+          slotsVersion: state.slotsVersion + 1,
+        })),
+
+      addCourseToSlot: (subject, courseNumber, title) => {
+        const state = get()
+        const existing = state.slots.find(
+          (s) => s.subject === subject && s.courseNumber === courseNumber
+        )
+        if (existing) {
+          if (existing.sections === null && (existing.title || !title)) {
+            return "duplicate"
+          }
+          set({
+            slots: state.slots.map((s) =>
+              s.id === existing.id
+                ? { ...s, sections: null, title: s.title || title }
+                : s
+            ),
+            slotsVersion: state.slotsVersion + 1,
+          })
+          return "updated"
+        }
+        set({
+          slots: [
+            ...state.slots,
+            {
+              id: genId(),
+              subject,
+              courseNumber,
+              displayName: `${subject} ${courseNumber}`,
+              title,
+              required: false,
+              sections: null,
+            },
+          ],
+          slotsVersion: state.slotsVersion + 1,
+        })
+        return "added"
+      },
+
+      addSectionToSlot: (crn, term, subject, courseNumber, title, instructor) => {
+        const state = get()
+        const sectionFilter: SectionFilter = {
+          crn,
+          term,
+          instructor,
+          required: true,
+        }
+        const existing = state.slots.find(
+          (s) => s.subject === subject && s.courseNumber === courseNumber
+        )
+        if (existing) {
+          const existingSections = existing.sections ?? []
+          if (existingSections.some((s) => s.crn === crn && s.term === term)) {
+            return "duplicate"
+          }
+          set({
+            slots: state.slots.map((s) =>
+              s.id === existing.id
+                ? {
+                    ...s,
+                    sections: [...existingSections, sectionFilter],
+                    title: s.title || title,
+                  }
+                : s
+            ),
+            slotsVersion: state.slotsVersion + 1,
+          })
+          return "updated"
+        }
+        set({
+          slots: [
+            ...state.slots,
+            {
+              id: genId(),
+              subject,
+              courseNumber,
+              displayName: `${subject} ${courseNumber}`,
+              title,
+              required: false,
+              sections: [sectionFilter],
+            },
+          ],
+          slotsVersion: state.slotsVersion + 1,
+        })
+        return "added"
+      },
+
+      removeSlot: (id) =>
+        set((state) => ({
+          slots: state.slots.filter((s) => s.id !== id),
+          slotsVersion: state.slotsVersion + 1,
+        })),
+
+      updateSlot: (id, updates) =>
+        set((state) => ({
+          slots: state.slots.map((s) =>
+            s.id === id ? { ...s, ...updates } : s
+          ),
+          slotsVersion: state.slotsVersion + 1,
+        })),
+
+      clearSlots: () =>
+        set((state) => ({
+          slots: [],
+          generateResult: null,
+          generatedWithParams: null,
+          currentScheduleIndex: 0,
+          slotsVersion: state.slotsVersion + 1,
+        })),
+
+      addBlockedTimeGroup: () => {
+        const id = genId()
+        const state = get()
+        set({
+          blockedTimeGroups: [
+            ...state.blockedTimeGroups,
+            {
+              id,
+              title: "",
+              description: "",
+              color: null,
+              hatched: true,
+              opacity: 20,
+              enabled: true,
+              blocks: [],
+            },
+          ],
+        })
+        return id
+      },
+
+      removeBlockedTimeGroup: (id) =>
+        set((state) => ({
+          blockedTimeGroups: state.blockedTimeGroups.filter((g) => g.id !== id),
+          editingBlockedTimeGroupId:
+            state.editingBlockedTimeGroupId === id
+              ? null
+              : state.editingBlockedTimeGroupId,
+        })),
+
+      updateBlockedTimeGroup: (id, updates) =>
+        set((state) => ({
+          blockedTimeGroups: state.blockedTimeGroups.map((g) =>
+            g.id === id ? { ...g, ...updates } : g
+          ),
+        })),
+
+      addBlockToGroup: (groupId, block) =>
+        set((state) => ({
+          blockedTimeGroups: state.blockedTimeGroups.map((g) =>
+            g.id === groupId
+              ? { ...g, blocks: mergeAdjacentBlocks([...g.blocks, { ...block, id: block.id || genId() }]) }
+              : g
+          ),
+        })),
+
+      updateBlockInGroupById: (groupId, blockId, block) =>
+        set((state) => ({
+          blockedTimeGroups: updateBlockInGroup(state.blockedTimeGroups, groupId, blockId, block),
+        })),
+
+      removeBlockFromGroupById: (groupId, blockId) =>
+        set((state) => ({
+          blockedTimeGroups: removeBlockFromGroup(state.blockedTimeGroups, groupId, blockId),
+        })),
+
+      setEditingBlockedTimeGroupId: (id) =>
+        set({ editingBlockedTimeGroupId: id }),
+
+      setTheme: (theme) => set({ theme }),
+
+      setSidebarCollapsed: (collapsed) => set({ sidebarCollapsed: collapsed }),
+
+      setGenerateResult: (result, params) =>
+        set({
+          generateResult: result,
+          generatedWithParams: params ?? null,
+          currentScheduleIndex: 0,
+        }),
+
+      setCurrentScheduleIndex: (index) =>
+        set((state) => {
+          const maxIndex = state.generateResult
+            ? state.generateResult.schedules.length - 1
+            : 0
+          return { currentScheduleIndex: Math.max(0, Math.min(index, maxIndex)) }
+        }),
+
+      getSlotsVersion: () => get().slotsVersion,
+
+      isGenerateResultStale: () => {
+        const state = get()
+        if (!state.generateResult || !state.generatedWithParams) {
+          return false
+        }
+        const current: GenerationParams = {
+          term: state.term,
+          minCourses: state.minCourses ?? 0,
+          maxCourses: state.maxCourses ?? 0,
+          slotsFingerprint: computeSlotsFingerprint(state.slots),
+          blockedTimesFingerprint: computeBlockedTimesFingerprint(
+            state.blockedTimeGroups
+          ),
+        }
+        return (
+          current.term !== state.generatedWithParams.term ||
+          current.minCourses !== state.generatedWithParams.minCourses ||
+          current.maxCourses !== state.generatedWithParams.maxCourses ||
+          current.slotsFingerprint !==
+            state.generatedWithParams.slotsFingerprint ||
+          current.blockedTimesFingerprint !==
+            state.generatedWithParams.blockedTimesFingerprint
+        )
+      },
+
+      openCourseDialog: (opts) =>
+        set({
+          courseDialog: {
+            open: true,
+            selectedCrn: opts.crn,
+            selectedCourseKey: opts.courseKey,
+            source: opts.source,
+          },
+        }),
+
+      closeCourseDialog: () =>
+        set((state) => ({
+          courseDialog: { ...state.courseDialog, open: false },
+        })),
+
+      requestRegenerate: () => set({ regenerateRequested: true }),
+
+      clearRegenerateRequest: () => set({ regenerateRequested: false }),
+
+      // Search actions
+      setSearchFilters: (filters) =>
+        set((state) => ({
+          searchFilters: { ...state.searchFilters, ...filters },
+        })),
+
+      clearSearchFilters: () =>
+        set({
+          searchFilters: { ...DEFAULT_SEARCH_FILTERS },
+          searchResult: null,
+          expandedSearchCourses: new Set(),
+        }),
+
+      setSearchResult: (result) => set({ searchResult: result }),
+
+      toggleSearchCourseExpanded: (courseKey) =>
+        set((state) => {
+          const next = new Set(state.expandedSearchCourses)
+          if (next.has(courseKey)) {
+            next.delete(courseKey)
+          } else {
+            next.add(courseKey)
+          }
+          return { expandedSearchCourses: next }
+        }),
+
+      clearExpandedSearchCourses: () =>
+        set({ expandedSearchCourses: new Set() }),
+    }),
+    {
+      name: "schedule-optimizer",
+      partialize: (state) => ({
+        // Only persist these fields
+        sessionId: state.sessionId,
+        tab: state.tab,
+        term: state.term,
+        selectedSubject: state.selectedSubject,
+        minCourses: state.minCourses,
+        maxCourses: state.maxCourses,
+        slots: state.slots,
+        blockedTimeGroups: state.blockedTimeGroups,
+        theme: state.theme,
+        sidebarCollapsed: state.sidebarCollapsed,
+        generateResult: state.generateResult,
+        generatedWithParams: state.generatedWithParams,
+        currentScheduleIndex: state.currentScheduleIndex,
+        searchFilters: state.searchFilters,
+        // Note: searchResult and expandedSearchCourses are NOT persisted
+      }),
+    }
+  )
+)
