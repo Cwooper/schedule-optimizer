@@ -187,7 +187,7 @@ func (s *Service) buildResponse(rows []*sectionRow, sectionLimitHit bool, startT
 		})
 	}
 
-	// Sort by relevance score descending
+	// Sort by relevance score descending, then course number + subject as tiebreakers
 	slices.SortFunc(results, func(a, b CourseRef) int {
 		if a.RelevanceScore > b.RelevanceScore {
 			return -1
@@ -195,7 +195,14 @@ func (s *Service) buildResponse(rows []*sectionRow, sectionLimitHit bool, startT
 		if a.RelevanceScore < b.RelevanceScore {
 			return 1
 		}
-		return 0
+		aParts := strings.SplitN(a.CourseKey, ":", 2)
+		bParts := strings.SplitN(b.CourseKey, ":", 2)
+		// Course number asc
+		if c := strings.Compare(aParts[1], bParts[1]); c != 0 {
+			return c
+		}
+		// Subject asc
+		return strings.Compare(aParts[0], bParts[0])
 	})
 
 	// Build warning from whichever limits were hit
