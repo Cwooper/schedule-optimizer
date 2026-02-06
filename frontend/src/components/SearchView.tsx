@@ -61,6 +61,15 @@ export function SearchView() {
   const closeCourseDialog = useAppStore((s) => s.closeCourseDialog)
 
   const { data: termsData } = useTerms()
+
+  // Sync current term into store on first load so the displayed value matches
+  // what gets sent to the backend (fixes empty term on initial search)
+  useEffect(() => {
+    if (termsData?.current && !searchFilters.term) {
+      setSearchFilters({ term: termsData.current })
+    }
+  }, [termsData?.current, searchFilters.term, setSearchFilters])
+
   const termForSubjects = searchFilters.term || termsData?.current || ""
   const { data: subjectsData } = useSubjects(termForSubjects)
 
