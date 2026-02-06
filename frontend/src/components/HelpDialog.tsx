@@ -125,6 +125,7 @@ export function HelpDialog() {
                 placeholder="What went wrong? What could be better?"
                 className="min-h-32 resize-none"
                 maxLength={MAX_LENGTH}
+                // eslint-disable-next-line jsx-a11y/no-autofocus -- user explicitly navigated to feedback view
                 autoFocus
               />
               <div className="flex items-center justify-between">

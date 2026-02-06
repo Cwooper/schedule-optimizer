@@ -281,6 +281,7 @@ function GroupRow({
             {summarizeBlocks(group)}
           </div>
         </div>
+        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions -- propagation barrier, not interactive */}
         <div
           className="flex items-center gap-1.5"
           onClick={(e) => e.stopPropagation()}
