@@ -390,6 +390,56 @@ export function hydrateAsyncs(response: GenerateResponse): HydratedSection[] {
   return hydrated
 }
 
+export interface GroupedCourse {
+  subject: string
+  courseNumber: string
+  title: string
+  credits: number
+  firstCrn: string
+  sections: {
+    crn: string
+    term: string
+    instructor?: string
+    seatsAvailable: number
+    isOpen: boolean
+  }[]
+}
+
+/** Group hydrated sections by course for list display. */
+export function groupSectionsByCourse(
+  sections: HydratedSection[]
+): GroupedCourse[] {
+  const grouped = new Map<
+    string,
+    { course: HydratedSection; sections: HydratedSection[] }
+  >()
+
+  for (const section of sections) {
+    const key = `${section.subject}:${section.courseNumber}`
+    const existing = grouped.get(key)
+    if (existing) {
+      existing.sections.push(section)
+    } else {
+      grouped.set(key, { course: section, sections: [section] })
+    }
+  }
+
+  return Array.from(grouped.values()).map(({ course, sections }) => ({
+    subject: course.subject,
+    courseNumber: course.courseNumber,
+    title: course.title,
+    credits: course.credits,
+    firstCrn: sections[0].crn,
+    sections: sections.map((s) => ({
+      crn: s.crn,
+      term: s.term,
+      instructor: s.instructor || undefined,
+      seatsAvailable: s.seatsAvailable,
+      isOpen: s.isOpen,
+    })),
+  }))
+}
+
 /**
  * Sort sections contextually based on term spread.
  *

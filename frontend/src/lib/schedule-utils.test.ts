@@ -1,10 +1,11 @@
 import { describe, it, expect } from "vitest"
-import { hydrateSection, hydrateSchedule, hydrateAsyncs, clampToAvoidOverlap, blocksToRanges, otherBlockRanges, mergeAdjacentBlocks, type TimeRange } from "./schedule-utils"
+import { hydrateSection, hydrateSchedule, hydrateAsyncs, groupSectionsByCourse, clampToAvoidOverlap, blocksToRanges, otherBlockRanges, mergeAdjacentBlocks, type TimeRange } from "./schedule-utils"
 import type { BlockedTimeBlock } from "@/stores/app-store"
 import type {
   GenerateCourseInfo,
   GenerateSectionInfo,
   GenerateResponse,
+  HydratedSection,
   ScheduleRef,
 } from "./api"
 
@@ -470,5 +471,89 @@ describe("mergeAdjacentBlocks", () => {
     expect(result).toHaveLength(2)
     expect(result[0]).toEqual(makeBlock("a", 0, "0900", "1100"))
     expect(result[1]).toEqual(makeBlock("c", 1, "0900", "1100"))
+  })
+})
+
+// ── groupSectionsByCourse tests ──────────────────────────────────────
+
+function makeHydratedSection(overrides: Partial<HydratedSection> = {}): HydratedSection {
+  return {
+    crn: "11111",
+    term: "202510",
+    subject: "CSCI",
+    courseNumber: "101",
+    title: "Intro to CS",
+    credits: 4,
+    instructor: "Smith",
+    meetingTimes: [],
+    enrollment: 20,
+    maxEnrollment: 30,
+    seatsAvailable: 10,
+    waitCount: 0,
+    isOpen: true,
+    ...overrides,
+  }
+}
+
+describe("groupSectionsByCourse", () => {
+  it("returns empty array for no sections", () => {
+    expect(groupSectionsByCourse([])).toEqual([])
+  })
+
+  it("returns single course item for single section", () => {
+    const result = groupSectionsByCourse([makeHydratedSection()])
+
+    expect(result).toHaveLength(1)
+    expect(result[0].subject).toBe("CSCI")
+    expect(result[0].courseNumber).toBe("101")
+    expect(result[0].title).toBe("Intro to CS")
+    expect(result[0].credits).toBe(4)
+    expect(result[0].sections).toHaveLength(1)
+    expect(result[0].sections[0].crn).toBe("11111")
+    expect(result[0].firstCrn).toBe("11111")
+  })
+
+  it("groups multiple sections of the same course", () => {
+    const sections = [
+      makeHydratedSection({ crn: "11111", instructor: "Smith" }),
+      makeHydratedSection({ crn: "22222", instructor: "Jones" }),
+    ]
+
+    const result = groupSectionsByCourse(sections)
+
+    expect(result).toHaveLength(1)
+    expect(result[0].sections).toHaveLength(2)
+    expect(result[0].sections[0].crn).toBe("11111")
+    expect(result[0].sections[1].crn).toBe("22222")
+    expect(result[0].firstCrn).toBe("11111")
+  })
+
+  it("separates different courses", () => {
+    const sections = [
+      makeHydratedSection({ crn: "11111", subject: "CSCI", courseNumber: "101" }),
+      makeHydratedSection({ crn: "22222", subject: "MATH", courseNumber: "204", title: "Linear Algebra", credits: 5 }),
+    ]
+
+    const result = groupSectionsByCourse(sections)
+
+    expect(result).toHaveLength(2)
+    expect(result[0].subject).toBe("CSCI")
+    expect(result[1].subject).toBe("MATH")
+    expect(result[1].title).toBe("Linear Algebra")
+  })
+
+  it("converts empty instructor to undefined", () => {
+    const result = groupSectionsByCourse([makeHydratedSection({ instructor: "" })])
+
+    expect(result[0].sections[0].instructor).toBeUndefined()
+  })
+
+  it("preserves section enrollment info", () => {
+    const result = groupSectionsByCourse([
+      makeHydratedSection({ seatsAvailable: 5, isOpen: false }),
+    ])
+
+    expect(result[0].sections[0].seatsAvailable).toBe(5)
+    expect(result[0].sections[0].isOpen).toBe(false)
   })
 })

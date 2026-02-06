@@ -25,6 +25,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { ScheduleGrid } from "./ScheduleGrid"
+import { AsyncCoursesList } from "./AsyncCoursesList"
 import { BlockedTimesDialog } from "./BlockedTimesDialog"
 import { useAppStore, type BlockedTimeBlock } from "@/stores/app-store"
 import { useTerms } from "@/hooks/use-api"
@@ -295,6 +296,12 @@ export function ScheduleView() {
           onUpdateBlock={handleUpdateBlock}
           onRemoveBlock={handleRemoveBlock}
         />
+        {generateResult && (
+          <AsyncCoursesList
+            generateResult={generateResult}
+            onCourseClick={handleCourseClick}
+          />
+        )}
       </div>
 
       {/* Stats footer — only when schedules exist */}
