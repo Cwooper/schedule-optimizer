@@ -52,12 +52,28 @@ function App() {
 
   // Self-contained handler — receives all info from the dialog, no data source lookup
   const handleAddSection = useCallback(
-    (crn: string, sectionTerm: string, course: { subject: string; courseNumber: string; title: string }, instructor: string | null) => {
-      const result = addSectionToSlot(crn, sectionTerm, course.subject, course.courseNumber, course.title, instructor)
+    (
+      crn: string,
+      sectionTerm: string,
+      course: { subject: string; courseNumber: string; title: string },
+      instructor: string | null
+    ) => {
+      const result = addSectionToSlot(
+        crn,
+        sectionTerm,
+        course.subject,
+        course.courseNumber,
+        course.title,
+        instructor
+      )
       if (result === "added") {
-        toast.success(`Added ${course.subject} ${course.courseNumber} (CRN: ${crn}) to schedule`)
+        toast.success(
+          `Added ${course.subject} ${course.courseNumber} (CRN: ${crn}) to schedule`
+        )
       } else if (result === "updated") {
-        toast.success(`Pinned CRN ${crn} to ${course.subject} ${course.courseNumber}`)
+        toast.success(
+          `Pinned CRN ${crn} to ${course.subject} ${course.courseNumber}`
+        )
       }
     },
     [addSectionToSlot]
@@ -65,7 +81,9 @@ function App() {
 
   const isSectionAdded = useCallback(
     (crn: string, sectionTerm: string) =>
-      slots.some((s) => s.sections?.some((sec) => sec.crn === crn && sec.term === sectionTerm)),
+      slots.some((s) =>
+        s.sections?.some((sec) => sec.crn === crn && sec.term === sectionTerm)
+      ),
     [slots]
   )
 
@@ -123,9 +141,12 @@ function App() {
             {tab === "schedule" && <ScheduleView />}
             {tab === "search" && <SearchView />}
             {tab === "statistics" && (
-              <div className="flex h-full items-center justify-center">
+              <div className="flex h-full flex-col items-center justify-center">
                 <p className="text-muted-foreground">
                   Statistics (coming soon)
+                </p>
+                <p className="text-muted mt-8 text-xs">
+                  I'm waiting for Western to get back to me :(
                 </p>
               </div>
             )}
