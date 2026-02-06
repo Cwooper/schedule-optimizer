@@ -41,7 +41,6 @@ type SectionInfo struct {
 	IsOpen          bool              `json:"isOpen"`
 	Campus          string            `json:"campus,omitempty"`
 	ScheduleType    string            `json:"scheduleType,omitempty"`
-	MeetingTimes    []MeetingTimeInfo `json:"meetingTimes,omitempty"`
 }
 
 // CourseRef groups sections of a course with relevance score.
@@ -64,18 +63,10 @@ type SearchResponse struct {
 
 // SearchStats contains timing and count information about the search.
 type SearchStats struct {
-	TotalSections int     `json:"totalSections"` // Number of sections found
-	TotalCourses  int     `json:"totalCourses"`  // Number of unique courses
-	TimeMs        float64 `json:"timeMs"`        // Search duration in milliseconds
-}
-
-// MeetingTimeInfo represents a single meeting time for a section.
-type MeetingTimeInfo struct {
-	Days      []bool `json:"days"`      // [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
-	StartTime string `json:"startTime"` // "0900" format
-	EndTime   string `json:"endTime"`   // "0950" format
-	Building  string `json:"building,omitempty"`
-	Room      string `json:"room,omitempty"`
+	TotalSections   int     `json:"totalSections"`             // Number of sections found
+	TotalCourses    int     `json:"totalCourses"`              // Number of unique courses
+	TimeMs          float64 `json:"timeMs"`                    // Search duration in milliseconds
+	SectionLimitHit bool    `json:"sectionLimitHit,omitempty"` // True if section fetch limit was reached
 }
 
 // sectionRow is the internal representation for processing section data before grouping.
@@ -97,14 +88,14 @@ type sectionRow struct {
 	ScheduleType    string
 	Instructor      string
 	InstructorEmail string
-	MeetingTimes    []MeetingTimeInfo
 	RelevanceScore  float64
 }
 
 // Constants for validation
 const (
-	MaxCourseResults = 200
-	MaxSectionFetch  = 1000 // Safety limit for SQL query (200 courses * ~5 sections)
-	MaxTokens        = 3
-	WarningMessage   = "Showing maximum results. Try narrowing your search for better results."
+	MaxCourseResults      = 200
+	MaxSectionFetch       = 2000 // Safety limit for SQL query
+	MaxTokens             = 3
+	CourseWarningMessage  = "Showing maximum results. Try narrowing your search for better results."
+	SectionWarningMessage = "Too many matching sections — some results may be missing."
 )

@@ -65,9 +65,13 @@ function DialogContentInner({
     ? courseSections.find((s) => s.crn === expandedSection)
     : null
 
+  // Use the section's own term for CRN fetches — search sections can span
+  // multiple terms, so the global term prop may not match.
+  const expandedTerm = expandedSectionData?.term || term
+
   // Check if we already have cached data for the expanded section
   const cachedExpandedData = expandedSection
-    ? queryClient.getQueryData<CRNResponse>(["crn", expandedSection, term])
+    ? queryClient.getQueryData<CRNResponse>(["crn", expandedSection, expandedTerm])
     : null
 
   const needsFetch =
@@ -79,24 +83,25 @@ function DialogContentInner({
   // Fetch meeting times for expanded section if needed
   const { isFetching } = useCRN(
     needsFetch ? expandedSection : "",
-    needsFetch ? term : undefined
+    needsFetch ? expandedTerm : undefined
   )
 
   // Prefetch section details on hover or focus
   const handlePrefetch = useCallback(
     (crn: string) => {
       const section = courseSections.find((s) => s.crn === crn)
-      const cached = queryClient.getQueryData<CRNResponse>(["crn", crn, term])
+      if (!section) return
+      const cached = queryClient.getQueryData<CRNResponse>(["crn", crn, section.term])
       // Only prefetch if section doesn't have meeting times and not already cached
-      if (section?.meetingTimes.length === 0 && !cached && term) {
+      if (section.meetingTimes.length === 0 && !cached && section.term) {
         queryClient.prefetchQuery({
-          queryKey: ["crn", crn, term],
-          queryFn: () => getCRN(crn, term),
+          queryKey: ["crn", crn, section.term],
+          queryFn: () => getCRN(crn, section.term),
           staleTime: 5 * 60 * 1000, // 5 minutes
         })
       }
     },
-    [courseSections, term, queryClient]
+    [courseSections, queryClient]
   )
 
   // Merge cached meeting times into sections from TanStack Query cache.
@@ -108,7 +113,7 @@ function DialogContentInner({
     const cached = queryClient.getQueryData<CRNResponse>([
       "crn",
       section.crn,
-      term,
+      section.term,
     ])
     if (cached?.section?.meetingTimes) {
       return { ...section, meetingTimes: cached.section.meetingTimes }

@@ -5,7 +5,6 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
-	"log/slog"
 	"slices"
 	"strings"
 	"time"
@@ -67,6 +66,7 @@ func (s *Service) Search(ctx context.Context, req SearchRequest) (*SearchRespons
 	courseNumberPattern := buildCourseNumberPattern(req.CourseNumber)
 
 	var allResults []*store.SearchSectionsRow
+	var sectionLimitHit bool
 
 	if len(terms) == 0 {
 		// All-time search (no term filter)
@@ -98,23 +98,14 @@ func (s *Service) Search(ctx context.Context, req SearchRequest) (*SearchRespons
 		}
 	}
 
-	// Convert to sectionRow and fetch meeting times
-	rows := make([]*sectionRow, len(allResults))
-	sectionIDs := make([]int64, len(allResults))
-	for i, row := range allResults {
-		rows[i] = rowToSectionRow(row)
-		sectionIDs[i] = row.ID
+	if len(allResults) >= MaxSectionFetch {
+		sectionLimitHit = true
 	}
 
-	if len(sectionIDs) > 0 {
-		meetingsBySection, err := s.fetchMeetingTimes(ctx, sectionIDs)
-		if err != nil {
-			slog.Warn("Failed to fetch meeting times for search results", "error", err)
-		} else {
-			for i, id := range sectionIDs {
-				rows[i].MeetingTimes = meetingsBySection[id]
-			}
-		}
+	// Convert to sectionRow for scoring and grouping
+	rows := make([]*sectionRow, len(allResults))
+	for i, row := range allResults {
+		rows[i] = rowToSectionRow(row)
 	}
 
 	// Apply scoring to all sections
@@ -126,17 +117,17 @@ func (s *Service) Search(ctx context.Context, req SearchRequest) (*SearchRespons
 		row.RelevanceScore = totalScore
 	}
 
-	return s.buildResponse(rows, startTime)
+	return s.buildResponse(rows, sectionLimitHit, startTime)
 }
 
 // buildResponse groups sections by course and builds the normalized response.
-func (s *Service) buildResponse(rows []*sectionRow, startTime time.Time) (*SearchResponse, error) {
+func (s *Service) buildResponse(rows []*sectionRow, sectionLimitHit bool, startTime time.Time) (*SearchResponse, error) {
 	courses := make(map[string]CourseInfo)
 	sections := make(map[string]SectionInfo)
 
 	// Track course refs with their max scores for ordering
 	type courseRefData struct {
-		courseKey   string
+		courseKey    string
 		sectionKeys []string
 		maxScore    float64
 	}
@@ -156,7 +147,7 @@ func (s *Service) buildResponse(rows []*sectionRow, startTime time.Time) (*Searc
 				CreditsHigh:  row.CreditsHigh,
 			}
 			courseRefMap[courseKey] = &courseRefData{
-				courseKey:   courseKey,
+				courseKey:    courseKey,
 				sectionKeys: []string{},
 				maxScore:    0,
 			}
@@ -176,7 +167,6 @@ func (s *Service) buildResponse(rows []*sectionRow, startTime time.Time) (*Searc
 			IsOpen:          row.IsOpen,
 			Campus:          row.Campus,
 			ScheduleType:    row.ScheduleType,
-			MeetingTimes:    row.MeetingTimes,
 		}
 
 		// Update course ref
@@ -208,11 +198,10 @@ func (s *Service) buildResponse(rows []*sectionRow, startTime time.Time) (*Searc
 		return 0
 	})
 
-	// Check if we need to truncate
-	var warning string
-	if len(results) > MaxCourseResults {
+	// Build warning from whichever limits were hit
+	courseLimitHit := len(results) > MaxCourseResults
+	if courseLimitHit {
 		results = results[:MaxCourseResults]
-		warning = WarningMessage
 
 		// Remove sections and courses that are no longer in results
 		keepCourses := make(map[string]bool)
@@ -236,6 +225,16 @@ func (s *Service) buildResponse(rows []*sectionRow, startTime time.Time) (*Searc
 		}
 	}
 
+	var warning string
+	switch {
+	case sectionLimitHit && courseLimitHit:
+		warning = SectionWarningMessage + " " + CourseWarningMessage
+	case sectionLimitHit:
+		warning = SectionWarningMessage
+	case courseLimitHit:
+		warning = CourseWarningMessage
+	}
+
 	return &SearchResponse{
 		Courses:  courses,
 		Sections: sections,
@@ -243,9 +242,10 @@ func (s *Service) buildResponse(rows []*sectionRow, startTime time.Time) (*Searc
 		Total:    len(results),
 		Warning:  warning,
 		Stats: SearchStats{
-			TotalSections: len(sections),
-			TotalCourses:  len(courses),
-			TimeMs:        float64(time.Since(startTime).Microseconds()) / 1000.0,
+			TotalSections:   len(sections),
+			TotalCourses:    len(courses),
+			TimeMs:          float64(time.Since(startTime).Microseconds()) / 1000.0,
+			SectionLimitHit: sectionLimitHit,
 		},
 	}, nil
 }
@@ -372,40 +372,6 @@ func (s *Service) executeSearch(
 	}
 
 	return s.queries.SearchSections(ctx, params)
-}
-
-// fetchMeetingTimes retrieves meeting times for multiple sections in a single batch query.
-func (s *Service) fetchMeetingTimes(ctx context.Context, sectionIDs []int64) (map[int64][]MeetingTimeInfo, error) {
-	result := make(map[int64][]MeetingTimeInfo)
-	if len(sectionIDs) == 0 {
-		return result, nil
-	}
-
-	meetings, err := s.queries.GetMeetingTimesBySectionIDs(ctx, sectionIDs)
-	if err != nil {
-		return nil, err
-	}
-
-	for _, m := range meetings {
-		mt := MeetingTimeInfo{
-			Days: []bool{
-				m.Sunday.Valid && m.Sunday.Int64 == 1,
-				m.Monday.Valid && m.Monday.Int64 == 1,
-				m.Tuesday.Valid && m.Tuesday.Int64 == 1,
-				m.Wednesday.Valid && m.Wednesday.Int64 == 1,
-				m.Thursday.Valid && m.Thursday.Int64 == 1,
-				m.Friday.Valid && m.Friday.Int64 == 1,
-				m.Saturday.Valid && m.Saturday.Int64 == 1,
-			},
-			StartTime: nullString(m.StartTime),
-			EndTime:   nullString(m.EndTime),
-			Building:  nullString(m.Building),
-			Room:      nullString(m.Room),
-		}
-		result[m.SectionID] = append(result[m.SectionID], mt)
-	}
-
-	return result, nil
 }
 
 // splitTokens splits input on spaces and hyphens into up to max tokens.

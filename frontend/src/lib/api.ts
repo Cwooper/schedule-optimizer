@@ -189,7 +189,6 @@ export interface SearchSectionInfo {
   isOpen: boolean
   campus?: string
   scheduleType?: string
-  meetingTimes: MeetingTime[]
 }
 
 export interface SearchCourseRef {

@@ -86,6 +86,7 @@ CREATE INDEX idx_sections_term_subject ON sections(term, subject);
 CREATE INDEX idx_sections_term_subject_course ON sections(term, subject, course_number);
 CREATE INDEX idx_sections_crn ON sections(term, crn);
 CREATE INDEX idx_instructors_section ON instructors(section_id);
+CREATE INDEX idx_instructors_primary ON instructors(section_id, is_primary);
 CREATE INDEX idx_meeting_times_section ON meeting_times(section_id);
 CREATE INDEX idx_section_attributes_section ON section_attributes(section_id);
 
