@@ -1,0 +1,52 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: 922
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            set -e
+            export PATH="/usr/local/go/bin:$HOME/go/bin:$HOME/.local/share/pnpm:$PATH"
+            cd ~/Code/schedule-optimizer
+
+            # Pull latest changes
+            echo "Pulling latest changes..."
+            git fetch origin main
+            git reset --hard origin/main
+
+            # Build frontend
+            echo "Installing frontend dependencies..."
+            cd frontend
+            pnpm install --frozen-lockfile
+            echo "Building frontend..."
+            pnpm build
+            cd ..
+
+            # Build backend (frontend already compiled to backend/internal/static/dist)
+            echo "Building Go binary..."
+            cd backend
+            go build -o bin/server ./cmd/server
+
+            # Run tests
+            echo "Running tests..."
+            go test ./...
+            cd ..
+
+            # Restart service
+            echo "Restarting service..."
+            sudo systemctl restart cwooper-schedule-optimizer
+
+            echo "Deploy complete!"
