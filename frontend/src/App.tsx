@@ -69,7 +69,8 @@ function App() {
   )
 
   const isSectionAdded = useCallback(
-    (crn: string) => slots.some((s) => s.sections?.some((sec) => sec.crn === crn)),
+    (crn: string, sectionTerm: string) =>
+      slots.some((s) => s.sections?.some((sec) => sec.crn === crn && sec.term === sectionTerm)),
     [slots]
   )
 

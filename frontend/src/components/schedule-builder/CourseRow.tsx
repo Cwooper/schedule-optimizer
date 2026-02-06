@@ -28,8 +28,8 @@ interface CourseRowProps {
   onToggleExpand: () => void
   onToggleRequired: () => void
   onRemove: () => void
-  onRemoveSection: (crn: string) => void
-  onToggleSectionRequired: (crn: string) => void
+  onRemoveSection: (crn: string, term: string) => void
+  onToggleSectionRequired: (crn: string, term: string) => void
   onCourseClick?: (courseKey: string) => void
   onSectionClick?: (crn: string) => void
   currentTerm: string
@@ -163,7 +163,7 @@ export function CourseRow({
               const isLast = idx === slot.sections!.length - 1
               return (
                 <div
-                  key={section.crn}
+                  key={`${section.term}:${section.crn}`}
                   className={cn(
                     "hover:bg-muted/50 relative flex items-center gap-2 rounded px-2 py-1.5 text-sm",
                     section.term !== currentTerm && "text-muted-foreground"
@@ -219,7 +219,7 @@ export function CourseRow({
                   <Toggle
                     size="sm"
                     pressed={section.required}
-                    onPressedChange={() => onToggleSectionRequired(section.crn)}
+                    onPressedChange={() => onToggleSectionRequired(section.crn, section.term)}
                     className="size-7 p-0"
                     title={section.required ? "Required" : "Optional"}
                   >
@@ -235,7 +235,7 @@ export function CourseRow({
                     variant="ghost"
                     size="icon"
                     className="size-7"
-                    onClick={() => onRemoveSection(section.crn)}
+                    onClick={() => onRemoveSection(section.crn, section.term)}
                     title="Remove section"
                     aria-label={`Remove section ${section.crn}`}
                   >

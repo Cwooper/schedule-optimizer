@@ -34,7 +34,7 @@ interface CourseInfoDialogProps {
   // Add section action - when provided, shows "+" buttons on sections
   onAddSection?: (crn: string, term: string, course: { subject: string; courseNumber: string; title: string }, instructor: string | null) => void
   // Check if a section is already added
-  isSectionAdded?: (crn: string) => boolean
+  isSectionAdded?: (crn: string, term: string) => boolean
 }
 
 interface DialogContentInnerProps {
@@ -43,7 +43,7 @@ interface DialogContentInnerProps {
   highlightCrn: string | null
   term: string
   onAddSection?: (crn: string, term: string, course: { subject: string; courseNumber: string; title: string }, instructor: string | null) => void
-  isSectionAdded?: (crn: string) => boolean
+  isSectionAdded?: (crn: string, term: string) => boolean
 }
 
 function DialogContentInner({
@@ -56,14 +56,17 @@ function DialogContentInner({
 }: DialogContentInnerProps) {
   const queryClient = useQueryClient()
 
-  // Initialize expanded section to the highlighted one
-  const [expandedSection, setExpandedSection] = useState<string | null>(
-    highlightCrn
-  )
+  // Initialize expanded section to the highlighted one (using term:crn composite
+  // key for cross-term safety — CRNs can be reused across terms)
+  const [expandedSection, setExpandedSection] = useState<string | null>(() => {
+    if (!highlightCrn) return null
+    const match = courseSections.find((s) => s.crn === highlightCrn)
+    return match ? `${match.term}:${match.crn}` : null
+  })
 
   // Find the expanded section to check if it needs meeting times
   const expandedSectionData = expandedSection
-    ? courseSections.find((s) => s.crn === expandedSection)
+    ? courseSections.find((s) => `${s.term}:${s.crn}` === expandedSection)
     : null
 
   // Use the section's own term for CRN fetches — search sections can span
@@ -71,28 +74,27 @@ function DialogContentInner({
   const expandedTerm = expandedSectionData?.term || term
 
   // Check if we already have cached data for the expanded section
-  const cachedExpandedData = expandedSection
-    ? queryClient.getQueryData<CRNResponse>(["crn", expandedSection, expandedTerm])
+  const cachedExpandedData = expandedSectionData
+    ? queryClient.getQueryData<CRNResponse>(["crn", expandedSectionData.crn, expandedTerm])
     : null
 
   const needsFetch =
-    expandedSection &&
     expandedSectionData &&
     expandedSectionData.meetingTimes.length === 0 &&
     !cachedExpandedData?.section?.meetingTimes
 
   // Fetch meeting times for expanded section if needed
   const { isFetching } = useCRN(
-    needsFetch ? expandedSection : "",
+    needsFetch ? expandedSectionData.crn : "",
     needsFetch ? expandedTerm : undefined
   )
 
   // Prefetch section details on hover or focus
   const handlePrefetch = useCallback(
-    (crn: string) => {
-      const section = courseSections.find((s) => s.crn === crn)
+    (crn: string, sectionTerm: string) => {
+      const section = courseSections.find((s) => s.crn === crn && s.term === sectionTerm)
       if (!section) return
-      const cached = queryClient.getQueryData<CRNResponse>(["crn", crn, section.term])
+      const cached = queryClient.getQueryData<CRNResponse>(["crn", crn, sectionTerm])
       // Only prefetch if section doesn't have meeting times and not already cached
       if (section.meetingTimes.length === 0 && !cached && section.term) {
         queryClient.prefetchQuery({
@@ -175,21 +177,20 @@ function DialogContentInner({
                 <div className="pb-2">
                   <SectionCard
                     section={section}
-                    expanded={expandedSection === section.crn}
-                    onToggleExpand={() =>
-                      setExpandedSection((prev) =>
-                        prev === section.crn ? null : section.crn
-                      )
-                    }
+                    expanded={expandedSection === `${section.term}:${section.crn}`}
+                    onToggleExpand={() => {
+                      const key = `${section.term}:${section.crn}`
+                      setExpandedSection((prev) => prev === key ? null : key)
+                    }}
                     highlighted={section.crn === highlightCrn}
                     isLoadingDetails={
-                      expandedSection === section.crn &&
+                      expandedSection === `${section.term}:${section.crn}` &&
                       isFetching &&
                       section.meetingTimes.length === 0
                     }
-                    onPrefetch={() => handlePrefetch(section.crn)}
+                    onPrefetch={() => handlePrefetch(section.crn, section.term)}
                     onAdd={onAddSection ? () => onAddSection(section.crn, section.term, { subject: course.subject, courseNumber: course.courseNumber, title: course.title }, section.instructor ?? null) : undefined}
-                    isAdded={isSectionAdded?.(section.crn) ?? false}
+                    isAdded={isSectionAdded?.(section.crn, section.term) ?? false}
                     termLabel={formatTermCode(section.term)}
                   />
                 </div>

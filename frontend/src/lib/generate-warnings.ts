@@ -5,6 +5,7 @@ export interface GenerateWarning {
   message: string
 }
 
+// Messages for individual courses (named)
 const statusMessages: Record<string, (name: string) => string> = {
   not_exists: (name) => `${name} doesn't exist`,
   not_offered: (name) => `${name} is not offered this term`,
@@ -13,37 +14,53 @@ const statusMessages: Record<string, (name: string) => string> = {
   async_only: (name) => `${name} only has async sections (shown separately)`,
 }
 
-function getCourseIssues(courseResults: CourseResult[]): GenerateWarning | null {
+// Summary messages for multiple courses with the same status
+const statusSummaries: Record<string, (count: number) => string> = {
+  not_exists: (n) => `${n} courses don't exist`,
+  not_offered: (n) => `${n} courses are not offered this term`,
+  blocked: (n) => `${n} courses have all sections blocked`,
+  crn_filtered: (n) => `${n} courses have no sections matching CRN filters`,
+  async_only: (n) => `${n} courses only have async sections (shown separately)`,
+}
+
+function getCourseIssues(courseResults: CourseResult[]): GenerateWarning[] {
   const issues = courseResults.filter((r) => r.status !== "found")
-  if (issues.length === 0) return null
+  if (issues.length === 0) return []
 
-  if (issues.length === 1) {
-    const issue = issues[0]
-    const getMessage = statusMessages[issue.status]
-    if (!getMessage) return null
-    return { type: "warning", message: getMessage(issue.name) }
+  // Group issues by status
+  const grouped = new Map<string, CourseResult[]>()
+  for (const issue of issues) {
+    const group = grouped.get(issue.status)
+    if (group) {
+      group.push(issue)
+    } else {
+      grouped.set(issue.status, [issue])
+    }
   }
 
-  const lines = issues
-    .map((issue) => {
-      const getMessage = statusMessages[issue.status]
-      return getMessage ? `- ${getMessage(issue.name)}` : null
-    })
-    .filter(Boolean)
-
-  if (lines.length === 0) return null
-
-  return {
-    type: "warning",
-    message: `Course issues:\n${lines.join("\n")}`,
+  // One warning per status group
+  const warnings: GenerateWarning[] = []
+  for (const [status, group] of grouped) {
+    if (group.length === 1) {
+      const getMessage = statusMessages[status]
+      if (getMessage) {
+        warnings.push({ type: "warning", message: getMessage(group[0].name) })
+      }
+    } else {
+      const getSummary = statusSummaries[status]
+      if (getSummary) {
+        warnings.push({ type: "warning", message: getSummary(group.length) })
+      }
+    }
   }
+
+  return warnings
 }
 
 export function getGenerateWarnings(data: GenerateResponse): GenerateWarning[] {
   const warnings: GenerateWarning[] = []
 
-  const courseIssue = getCourseIssues(data.courseResults)
-  if (courseIssue) warnings.push(courseIssue)
+  warnings.push(...getCourseIssues(data.courseResults))
 
   if (data.schedules.length === 0) {
     warnings.push({
