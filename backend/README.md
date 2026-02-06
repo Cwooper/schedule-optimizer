@@ -174,6 +174,44 @@ make sqlc  # Regenerates internal/store/*.go
 
 **Note:** sqlc reads the schema directly from the migrations folder (configured in `sqlc.yaml`).
 
+## Admin Operations
+
+### Announcements
+
+Announcements are managed directly via `sqlite3`. The frontend fetches the active announcement and shows a dismissable banner (tracked per announcement ID in localStorage).
+
+```bash
+# Set a new announcement (types: 'info', 'warning', 'beta')
+sqlite3 data/schedule.db <<'SQL'
+INSERT INTO announcements(title, body, type)
+VALUES('Beta Notice', 'This is a beta release, expect bugs!', 'beta');
+SQL
+
+# Update: deactivate old, insert new
+sqlite3 data/schedule.db <<'SQL'
+UPDATE announcements SET active = 0;
+INSERT INTO announcements(title, body, type)
+VALUES('Maintenance', 'Scheduled maintenance tonight at 10pm.', 'warning');
+SQL
+
+# Clear all announcements
+sqlite3 data/schedule.db "UPDATE announcements SET active = 0;"
+```
+
+> **Note:** Use heredocs (`<<'SQL'`) to avoid shell escaping issues with `!` and other special characters.
+
+### Viewing Feedback
+
+User feedback is stored in the `feedback` table with session IDs linking to analytics.
+
+```bash
+# View recent feedback
+sqlite3 data/schedule.db "SELECT id, session_id, message, created_at FROM feedback ORDER BY id DESC LIMIT 20;"
+
+# Count feedback entries
+sqlite3 data/schedule.db "SELECT COUNT(*) FROM feedback;"
+```
+
 ## Development
 
 ### Adding a New Query

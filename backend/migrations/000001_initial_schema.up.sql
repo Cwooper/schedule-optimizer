@@ -137,3 +137,23 @@ CREATE INDEX idx_generation_log_courses_log ON generation_log_courses(generation
 CREATE INDEX idx_generation_log_courses_subject ON generation_log_courses(subject);
 CREATE INDEX idx_search_logs_session ON search_logs(session_id);
 CREATE INDEX idx_search_logs_created ON search_logs(created_at);
+
+-- Announcements (managed via sqlite3 CLI)
+CREATE TABLE announcements (
+    id INTEGER PRIMARY KEY,
+    title TEXT NOT NULL,
+    body TEXT NOT NULL,
+    type TEXT NOT NULL DEFAULT 'info',
+    active INTEGER NOT NULL DEFAULT 1,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- User feedback
+CREATE TABLE feedback (
+    id INTEGER PRIMARY KEY,
+    session_id TEXT,
+    message TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_feedback_created ON feedback(created_at);

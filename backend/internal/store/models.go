@@ -8,6 +8,22 @@ import (
 	"database/sql"
 )
 
+type Announcement struct {
+	ID        int64        `json:"id"`
+	Title     string       `json:"title"`
+	Body      string       `json:"body"`
+	Type      string       `json:"type"`
+	Active    int64        `json:"active"`
+	CreatedAt sql.NullTime `json:"created_at"`
+}
+
+type Feedback struct {
+	ID        int64          `json:"id"`
+	SessionID sql.NullString `json:"session_id"`
+	Message   string         `json:"message"`
+	CreatedAt sql.NullTime   `json:"created_at"`
+}
+
 type GenerationLog struct {
 	ID                 int64           `json:"id"`
 	SessionID          sql.NullString  `json:"session_id"`
