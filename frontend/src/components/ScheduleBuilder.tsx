@@ -31,27 +31,25 @@ import { getGenerateWarnings } from "@/lib/generate-warnings"
 import { cn } from "@/lib/utils"
 
 export function ScheduleBuilder() {
-  const {
-    tab,
-    setTab,
-    term,
-    setTerm,
-    selectedSubject,
-    setSelectedSubject,
-    minCourses,
-    maxCourses,
-    setCourseBounds,
-    slots,
-    addSlot,
-    removeSlot,
-    updateSlot,
-    setGenerateResult,
-    getSlotsVersion,
-    openCourseDialog,
-    blockedTimeGroups,
-    regenerateRequested,
-    clearRegenerateRequest,
-  } = useAppStore()
+  const tab = useAppStore((s) => s.tab)
+  const setTab = useAppStore((s) => s.setTab)
+  const term = useAppStore((s) => s.term)
+  const setTerm = useAppStore((s) => s.setTerm)
+  const selectedSubject = useAppStore((s) => s.selectedSubject)
+  const setSelectedSubject = useAppStore((s) => s.setSelectedSubject)
+  const minCourses = useAppStore((s) => s.minCourses)
+  const maxCourses = useAppStore((s) => s.maxCourses)
+  const setCourseBounds = useAppStore((s) => s.setCourseBounds)
+  const slots = useAppStore((s) => s.slots)
+  const addSlot = useAppStore((s) => s.addSlot)
+  const removeSlot = useAppStore((s) => s.removeSlot)
+  const updateSlot = useAppStore((s) => s.updateSlot)
+  const setGenerateResult = useAppStore((s) => s.setGenerateResult)
+  const getSlotsVersion = useAppStore((s) => s.getSlotsVersion)
+  const openCourseDialog = useAppStore((s) => s.openCourseDialog)
+  const blockedTimeGroups = useAppStore((s) => s.blockedTimeGroups)
+  const regenerateRequested = useAppStore((s) => s.regenerateRequested)
+  const clearRegenerateRequest = useAppStore((s) => s.clearRegenerateRequest)
 
   const { data: termsData, isLoading: termsLoading } = useTerms()
   const generateMutation = useGenerateSchedules()

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, memo } from "react"
 import { ChevronsUpDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
@@ -27,7 +27,7 @@ interface SubjectComboboxProps {
   className?: string
 }
 
-export function SubjectCombobox({
+export const SubjectCombobox = memo(function SubjectCombobox({
   subjects,
   value,
   onChange,
@@ -95,4 +95,4 @@ export function SubjectCombobox({
       </PopoverContent>
     </Popover>
   )
-}
+})
