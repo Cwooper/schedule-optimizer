@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { memo, useState } from "react"
 import { ChevronDown, ChevronRight, Check, Copy, Plus } from "lucide-react"
 import {
   Collapsible,
@@ -90,7 +90,7 @@ function formatEnrollment(section: HydratedSection): string {
   return `${enrollment}/${maxEnrollment} seats`
 }
 
-export function SectionCard({
+export const SectionCard = memo(function SectionCard({
   section,
   expanded = false,
   onToggleExpand,
@@ -278,4 +278,4 @@ export function SectionCard({
       </div>
     </Collapsible>
   )
-}
+})

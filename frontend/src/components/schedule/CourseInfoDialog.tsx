@@ -1,5 +1,6 @@
-import { useMemo, useState, useCallback } from "react"
+import { useMemo, useState, useCallback, useRef } from "react"
 import { useQueryClient } from "@tanstack/react-query"
+import { useVirtualizer } from "@tanstack/react-virtual"
 import { BookOpen, Users, Loader2 } from "lucide-react"
 import {
   Dialog,
@@ -123,6 +124,14 @@ function DialogContentInner({
 
   const totalSections = courseSections.length
 
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const virtualizer = useVirtualizer({
+    count: sectionsWithMeetings.length,
+    getScrollElement: () => scrollRef.current,
+    estimateSize: () => 52,
+    overscan: 10,
+  })
+
   return (
     <>
       <DialogHeader>
@@ -143,30 +152,50 @@ function DialogContentInner({
         </Badge>
       </div>
 
-      {/* Section list */}
-      <div className="-mx-2 max-h-[50vh] space-y-2 overflow-y-auto px-2 py-1">
-        {sectionsWithMeetings.map((section) => (
-          <SectionCard
-            key={`${section.term}:${section.crn}`}
-            section={section}
-            expanded={expandedSection === section.crn}
-            onToggleExpand={() =>
-              setExpandedSection((prev) =>
-                prev === section.crn ? null : section.crn
-              )
-            }
-            highlighted={section.crn === highlightCrn}
-            isLoadingDetails={
-              expandedSection === section.crn &&
-              isFetching &&
-              section.meetingTimes.length === 0
-            }
-            onPrefetch={() => handlePrefetch(section.crn)}
-            onAdd={onAddSection ? () => onAddSection(section.crn, section.term, { subject: course.subject, courseNumber: course.courseNumber, title: course.title }, section.instructor ?? null) : undefined}
-            isAdded={isSectionAdded?.(section.crn) ?? false}
-            termLabel={formatTermCode(section.term)}
-          />
-        ))}
+      {/* Virtualized section list */}
+      <div
+        ref={scrollRef}
+        className="scrollbar-styled -mx-2 max-h-[50vh] overflow-y-auto px-2 py-1"
+      >
+        <div
+          className="relative w-full"
+          style={{ height: virtualizer.getTotalSize() }}
+        >
+          {virtualizer.getVirtualItems().map((virtualItem) => {
+            const section = sectionsWithMeetings[virtualItem.index]
+            return (
+              <div
+                key={`${section.term}:${section.crn}`}
+                data-index={virtualItem.index}
+                ref={virtualizer.measureElement}
+                className="absolute left-0 w-full"
+                style={{ transform: `translateY(${virtualItem.start}px)` }}
+              >
+                <div className="pb-2">
+                  <SectionCard
+                    section={section}
+                    expanded={expandedSection === section.crn}
+                    onToggleExpand={() =>
+                      setExpandedSection((prev) =>
+                        prev === section.crn ? null : section.crn
+                      )
+                    }
+                    highlighted={section.crn === highlightCrn}
+                    isLoadingDetails={
+                      expandedSection === section.crn &&
+                      isFetching &&
+                      section.meetingTimes.length === 0
+                    }
+                    onPrefetch={() => handlePrefetch(section.crn)}
+                    onAdd={onAddSection ? () => onAddSection(section.crn, section.term, { subject: course.subject, courseNumber: course.courseNumber, title: course.title }, section.instructor ?? null) : undefined}
+                    isAdded={isSectionAdded?.(section.crn) ?? false}
+                    termLabel={formatTermCode(section.term)}
+                  />
+                </div>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </>
   )
@@ -261,7 +290,7 @@ export function CourseInfoDialog({
       credits: fetchedCourse.course.credits,
     }
 
-    // Convert sections - note: no meeting times available from this endpoint
+    // Meeting times not available from this endpoint — fetched per-CRN on expand
     const courseSections: HydratedSection[] = fetchedCourse.sections.map(
       (s) => ({
         crn: s.crn,
@@ -271,7 +300,7 @@ export function CourseInfoDialog({
         title: course.title,
         credits: course.credits,
         instructor: s.instructor,
-        meetingTimes: [], // Not available from getCourse endpoint
+        meetingTimes: [],
         enrollment: s.enrollment,
         maxEnrollment: s.maxEnrollment,
         seatsAvailable: s.seatsAvailable,

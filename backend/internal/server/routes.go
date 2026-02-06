@@ -4,12 +4,14 @@ import (
 	"schedule-optimizer/internal/api"
 	"schedule-optimizer/internal/static"
 
+	"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"
 )
 
 // RegisterRoutes sets up all API routes and static file serving.
 func RegisterRoutes(r *gin.Engine, h *api.Handlers) {
 	apiGroup := r.Group("/api")
+	apiGroup.Use(gzip.Gzip(gzip.DefaultCompression))
 	{
 		apiGroup.GET("/health", h.Health)
 		apiGroup.GET("/terms", h.GetTerms)

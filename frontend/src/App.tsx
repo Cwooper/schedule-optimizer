@@ -20,7 +20,6 @@ import {
 } from "@/components/ui/drawer"
 import { useAppStore } from "@/stores/app-store"
 import { genId } from "@/lib/utils"
-import type { MeetingTime } from "@/lib/api"
 
 // TODO: Use framer-motion for more animations (course list enter/exit, tab content transitions, schedule navigation)
 
@@ -49,16 +48,7 @@ function App() {
         : undefined
   const dialogSections = (() => {
     if (dialogSource === "schedule") return generateResult?.sections
-    if (dialogSource === "search" && searchResult?.sections) {
-      // Search sections lack meetingTimes — pad with empty array.
-      // The dialog's CRN fallback fetch handles loading them on expand.
-      return Object.fromEntries(
-        Object.entries(searchResult.sections).map(([key, s]) => [
-          key,
-          { ...s, meetingTimes: [] as MeetingTime[] },
-        ])
-      )
-    }
+    if (dialogSource === "search") return searchResult?.sections
     return undefined
   })()
 
