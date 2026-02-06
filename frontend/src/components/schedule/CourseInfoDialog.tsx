@@ -240,7 +240,7 @@ export function CourseInfoDialog({
       }
     }
 
-    sortSectionsByAvailability(courseSections)
+    sortSectionsByAvailability(courseSections, term)
 
     return {
       course,
@@ -280,7 +280,7 @@ export function CourseInfoDialog({
       })
     )
 
-    sortSectionsByAvailability(courseSections)
+    sortSectionsByAvailability(courseSections, term)
 
     return {
       course,

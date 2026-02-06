@@ -391,15 +391,48 @@ export function hydrateAsyncs(response: GenerateResponse): HydratedSection[] {
 }
 
 /**
- * Sort sections: open sections first, then by CRN.
+ * Sort sections contextually based on term spread.
+ *
+ * Single-term (schedule builder, single-term search):
+ *   open first → CRN
+ *
+ * Multi-term (cross-term search):
+ *   active term first → open first → instructor asc (empty last) → term desc
+ *
  * Mutates the array in place and returns it.
  */
 export function sortSectionsByAvailability(
-  sections: HydratedSection[]
+  sections: HydratedSection[],
+  activeTerm?: string
 ): HydratedSection[] {
+  const isMultiTerm = new Set(sections.map((s) => s.term)).size > 1
+
+  if (!isMultiTerm) {
+    return sections.sort((a, b) => {
+      if (a.isOpen !== b.isOpen) return a.isOpen ? -1 : 1
+      return a.crn.localeCompare(b.crn)
+    })
+  }
+
   return sections.sort((a, b) => {
+    // Active term first
+    if (activeTerm) {
+      const aActive = a.term === activeTerm
+      const bActive = b.term === activeTerm
+      if (aActive !== bActive) return aActive ? -1 : 1
+    }
+    // Open seats first
     if (a.isOpen !== b.isOpen) return a.isOpen ? -1 : 1
-    return a.crn.localeCompare(b.crn)
+    // Instructor asc, empty last
+    const aInst = a.instructor || ""
+    const bInst = b.instructor || ""
+    if (aInst !== bInst) {
+      if (!aInst) return 1
+      if (!bInst) return -1
+      return aInst.localeCompare(bInst)
+    }
+    // Term desc (most recent first)
+    return b.term.localeCompare(a.term)
   })
 }
 
