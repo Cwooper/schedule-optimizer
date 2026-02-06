@@ -91,20 +91,49 @@ CREATE INDEX idx_meeting_times_section ON meeting_times(section_id);
 CREATE INDEX idx_section_attributes_section ON section_attributes(section_id);
 
 -- Analytics logs
-CREATE TABLE search_logs (
+CREATE TABLE generation_logs (
     id INTEGER PRIMARY KEY,
-    query TEXT NOT NULL,
-    term TEXT,
-    results_count INTEGER,
     session_id TEXT,
+    term TEXT NOT NULL,
+    courses_count INTEGER NOT NULL,
+    schedules_generated INTEGER NOT NULL,
+    min_courses INTEGER,
+    max_courses INTEGER,
+    blocked_times_count INTEGER NOT NULL DEFAULT 0,
+    duration_ms REAL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE generation_logs (
+-- Individual courses per generation request (enables per-subject analytics)
+CREATE TABLE generation_log_courses (
     id INTEGER PRIMARY KEY,
-    term TEXT,
-    courses_requested TEXT,
-    schedules_generated INTEGER,
+    generation_log_id INTEGER NOT NULL,
+    subject TEXT NOT NULL,
+    course_number TEXT NOT NULL,
+    required INTEGER NOT NULL DEFAULT 0,
+    FOREIGN KEY (generation_log_id) REFERENCES generation_logs(id) ON DELETE CASCADE
+);
+
+CREATE TABLE search_logs (
+    id INTEGER PRIMARY KEY,
     session_id TEXT,
+    term TEXT,
+    scope TEXT,
+    subject TEXT,
+    course_number TEXT,
+    title TEXT,
+    instructor TEXT,
+    open_seats INTEGER NOT NULL DEFAULT 0,
+    min_credits INTEGER,
+    max_credits INTEGER,
+    results_count INTEGER NOT NULL,
+    duration_ms REAL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE INDEX idx_generation_logs_session ON generation_logs(session_id);
+CREATE INDEX idx_generation_logs_created ON generation_logs(created_at);
+CREATE INDEX idx_generation_log_courses_log ON generation_log_courses(generation_log_id);
+CREATE INDEX idx_generation_log_courses_subject ON generation_log_courses(subject);
+CREATE INDEX idx_search_logs_session ON search_logs(session_id);
+CREATE INDEX idx_search_logs_created ON search_logs(created_at);

@@ -97,13 +97,24 @@ VALUES (?, ?, ?);
 -- name: DeleteSectionAttributesBySection :exec
 DELETE FROM section_attributes WHERE section_id = ?;
 
--- name: LogSearch :exec
-INSERT INTO search_logs (query, term, results_count, session_id)
-VALUES (?, ?, ?, ?);
+-- name: LogGeneration :one
+INSERT INTO generation_logs (
+    session_id, term, courses_count, schedules_generated,
+    min_courses, max_courses, blocked_times_count, duration_ms
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+RETURNING id;
 
--- name: LogGeneration :exec
-INSERT INTO generation_logs (term, courses_requested, schedules_generated, session_id)
-VALUES (?, ?, ?, ?);
+-- name: LogGenerationCourse :exec
+INSERT INTO generation_log_courses (
+    generation_log_id, subject, course_number, required
+) VALUES (?, ?, ?, ?);
+
+-- name: LogSearch :exec
+INSERT INTO search_logs (
+    session_id, term, scope, subject, course_number,
+    title, instructor, open_seats, min_credits, max_credits,
+    results_count, duration_ms
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
 
 -- name: GetSectionCount :one
 SELECT COUNT(*) FROM sections WHERE term = ?;

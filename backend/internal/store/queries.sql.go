@@ -980,46 +980,101 @@ func (q *Queries) InsertSectionAttribute(ctx context.Context, arg InsertSectionA
 	return err
 }
 
-const logGeneration = `-- name: LogGeneration :exec
-INSERT INTO generation_logs (term, courses_requested, schedules_generated, session_id)
-VALUES (?, ?, ?, ?)
+const logGeneration = `-- name: LogGeneration :one
+INSERT INTO generation_logs (
+    session_id, term, courses_count, schedules_generated,
+    min_courses, max_courses, blocked_times_count, duration_ms
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+RETURNING id
 `
 
 type LogGenerationParams struct {
-	Term               sql.NullString `json:"term"`
-	CoursesRequested   sql.NullString `json:"courses_requested"`
-	SchedulesGenerated sql.NullInt64  `json:"schedules_generated"`
-	SessionID          sql.NullString `json:"session_id"`
+	SessionID          sql.NullString  `json:"session_id"`
+	Term               string          `json:"term"`
+	CoursesCount       int64           `json:"courses_count"`
+	SchedulesGenerated int64           `json:"schedules_generated"`
+	MinCourses         sql.NullInt64   `json:"min_courses"`
+	MaxCourses         sql.NullInt64   `json:"max_courses"`
+	BlockedTimesCount  int64           `json:"blocked_times_count"`
+	DurationMs         sql.NullFloat64 `json:"duration_ms"`
 }
 
-func (q *Queries) LogGeneration(ctx context.Context, arg LogGenerationParams) error {
-	_, err := q.db.ExecContext(ctx, logGeneration,
-		arg.Term,
-		arg.CoursesRequested,
-		arg.SchedulesGenerated,
+func (q *Queries) LogGeneration(ctx context.Context, arg LogGenerationParams) (int64, error) {
+	row := q.db.QueryRowContext(ctx, logGeneration,
 		arg.SessionID,
+		arg.Term,
+		arg.CoursesCount,
+		arg.SchedulesGenerated,
+		arg.MinCourses,
+		arg.MaxCourses,
+		arg.BlockedTimesCount,
+		arg.DurationMs,
+	)
+	var id int64
+	err := row.Scan(&id)
+	return id, err
+}
+
+const logGenerationCourse = `-- name: LogGenerationCourse :exec
+INSERT INTO generation_log_courses (
+    generation_log_id, subject, course_number, required
+) VALUES (?, ?, ?, ?)
+`
+
+type LogGenerationCourseParams struct {
+	GenerationLogID int64  `json:"generation_log_id"`
+	Subject         string `json:"subject"`
+	CourseNumber    string `json:"course_number"`
+	Required        int64  `json:"required"`
+}
+
+func (q *Queries) LogGenerationCourse(ctx context.Context, arg LogGenerationCourseParams) error {
+	_, err := q.db.ExecContext(ctx, logGenerationCourse,
+		arg.GenerationLogID,
+		arg.Subject,
+		arg.CourseNumber,
+		arg.Required,
 	)
 	return err
 }
 
 const logSearch = `-- name: LogSearch :exec
-INSERT INTO search_logs (query, term, results_count, session_id)
-VALUES (?, ?, ?, ?)
+INSERT INTO search_logs (
+    session_id, term, scope, subject, course_number,
+    title, instructor, open_seats, min_credits, max_credits,
+    results_count, duration_ms
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `
 
 type LogSearchParams struct {
-	Query        string         `json:"query"`
-	Term         sql.NullString `json:"term"`
-	ResultsCount sql.NullInt64  `json:"results_count"`
-	SessionID    sql.NullString `json:"session_id"`
+	SessionID    sql.NullString  `json:"session_id"`
+	Term         sql.NullString  `json:"term"`
+	Scope        sql.NullString  `json:"scope"`
+	Subject      sql.NullString  `json:"subject"`
+	CourseNumber sql.NullString  `json:"course_number"`
+	Title        sql.NullString  `json:"title"`
+	Instructor   sql.NullString  `json:"instructor"`
+	OpenSeats    int64           `json:"open_seats"`
+	MinCredits   sql.NullInt64   `json:"min_credits"`
+	MaxCredits   sql.NullInt64   `json:"max_credits"`
+	ResultsCount int64           `json:"results_count"`
+	DurationMs   sql.NullFloat64 `json:"duration_ms"`
 }
 
 func (q *Queries) LogSearch(ctx context.Context, arg LogSearchParams) error {
 	_, err := q.db.ExecContext(ctx, logSearch,
-		arg.Query,
-		arg.Term,
-		arg.ResultsCount,
 		arg.SessionID,
+		arg.Term,
+		arg.Scope,
+		arg.Subject,
+		arg.CourseNumber,
+		arg.Title,
+		arg.Instructor,
+		arg.OpenSeats,
+		arg.MinCredits,
+		arg.MaxCredits,
+		arg.ResultsCount,
+		arg.DurationMs,
 	)
 	return err
 }

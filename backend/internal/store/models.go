@@ -9,12 +9,24 @@ import (
 )
 
 type GenerationLog struct {
-	ID                 int64          `json:"id"`
-	Term               sql.NullString `json:"term"`
-	CoursesRequested   sql.NullString `json:"courses_requested"`
-	SchedulesGenerated sql.NullInt64  `json:"schedules_generated"`
-	SessionID          sql.NullString `json:"session_id"`
-	CreatedAt          sql.NullTime   `json:"created_at"`
+	ID                 int64           `json:"id"`
+	SessionID          sql.NullString  `json:"session_id"`
+	Term               string          `json:"term"`
+	CoursesCount       int64           `json:"courses_count"`
+	SchedulesGenerated int64           `json:"schedules_generated"`
+	MinCourses         sql.NullInt64   `json:"min_courses"`
+	MaxCourses         sql.NullInt64   `json:"max_courses"`
+	BlockedTimesCount  int64           `json:"blocked_times_count"`
+	DurationMs         sql.NullFloat64 `json:"duration_ms"`
+	CreatedAt          sql.NullTime    `json:"created_at"`
+}
+
+type GenerationLogCourse struct {
+	ID              int64  `json:"id"`
+	GenerationLogID int64  `json:"generation_log_id"`
+	Subject         string `json:"subject"`
+	CourseNumber    string `json:"course_number"`
+	Required        int64  `json:"required"`
 }
 
 type Instructor struct {
@@ -50,12 +62,20 @@ type MeetingTime struct {
 }
 
 type SearchLog struct {
-	ID           int64          `json:"id"`
-	Query        string         `json:"query"`
-	Term         sql.NullString `json:"term"`
-	ResultsCount sql.NullInt64  `json:"results_count"`
-	SessionID    sql.NullString `json:"session_id"`
-	CreatedAt    sql.NullTime   `json:"created_at"`
+	ID           int64           `json:"id"`
+	SessionID    sql.NullString  `json:"session_id"`
+	Term         sql.NullString  `json:"term"`
+	Scope        sql.NullString  `json:"scope"`
+	Subject      sql.NullString  `json:"subject"`
+	CourseNumber sql.NullString  `json:"course_number"`
+	Title        sql.NullString  `json:"title"`
+	Instructor   sql.NullString  `json:"instructor"`
+	OpenSeats    int64           `json:"open_seats"`
+	MinCredits   sql.NullInt64   `json:"min_credits"`
+	MaxCredits   sql.NullInt64   `json:"max_credits"`
+	ResultsCount int64           `json:"results_count"`
+	DurationMs   sql.NullFloat64 `json:"duration_ms"`
+	CreatedAt    sql.NullTime    `json:"created_at"`
 }
 
 type Section struct {
