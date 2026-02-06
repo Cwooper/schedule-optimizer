@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import { Menu } from "lucide-react"
+import { toast } from "sonner"
 import { useThemeSync } from "@/hooks/use-theme"
 import { useSidebarVisible } from "@/hooks/use-sidebar"
 import { Header } from "@/components/Header"
@@ -18,6 +19,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer"
 import { useAppStore } from "@/stores/app-store"
+import { genId } from "@/lib/utils"
 
 // TODO: Use framer-motion for more animations (course list enter/exit, tab content transitions, schedule navigation)
 
@@ -28,8 +30,39 @@ function App() {
   const showSidebar = useSidebarVisible()
   const term = useAppStore((s) => s.term)
   const generateResult = useAppStore((s) => s.generateResult)
+  const searchResult = useAppStore((s) => s.searchResult)
+  const slots = useAppStore((s) => s.slots)
+  const addSlot = useAppStore((s) => s.addSlot)
   const courseDialog = useAppStore((s) => s.courseDialog)
   const closeCourseDialog = useAppStore((s) => s.closeCourseDialog)
+
+  // Merge both datasets so the dialog works regardless of where it was opened.
+  // Course keys use the same format (SUBJECT:NUMBER) — search data (fresher) overrides.
+  // Section keys differ (CRN vs term:CRN) so they coexist without collision.
+  const dialogCourses = { ...generateResult?.courses, ...searchResult?.courses }
+  const dialogSections = { ...generateResult?.sections, ...searchResult?.sections }
+
+  // Self-contained handler — receives all info from the dialog, no data source lookup
+  const handleAddSection = useCallback(
+    (crn: string, sectionTerm: string, course: { subject: string; courseNumber: string; title: string }, instructor: string | null) => {
+      addSlot({
+        id: genId(),
+        subject: course.subject,
+        courseNumber: course.courseNumber,
+        displayName: `${course.subject} ${course.courseNumber}`,
+        title: course.title,
+        required: false,
+        sections: [{ crn, term: sectionTerm, instructor, required: false }],
+      })
+      toast.success(`Added ${course.subject} ${course.courseNumber} (CRN: ${crn}) to schedule`)
+    },
+    [addSlot]
+  )
+
+  const isSectionAdded = useCallback(
+    (crn: string) => slots.some((s) => s.sections?.some((sec) => sec.crn === crn)),
+    [slots]
+  )
 
   return (
     <div className="bg-background text-foreground flex h-screen flex-col overflow-hidden">
@@ -97,15 +130,17 @@ function App() {
 
       <Footer />
 
-      {/* Course info dialog - rendered at app level so it's accessible from anywhere */}
+      {/* Course info dialog - single instance, accessible from anywhere */}
       <CourseInfoDialog
         open={courseDialog.open}
         onOpenChange={(open) => !open && closeCourseDialog()}
-        courses={generateResult?.courses}
-        sections={generateResult?.sections}
+        courses={dialogCourses}
+        sections={dialogSections}
         selectedCrn={courseDialog.selectedCrn}
         selectedCourseKey={courseDialog.selectedCourseKey}
         term={term}
+        onAddSection={handleAddSection}
+        isSectionAdded={isSectionAdded}
       />
     </div>
   )
