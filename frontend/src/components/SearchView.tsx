@@ -1,10 +1,15 @@
 import { useState, useCallback, useMemo, useEffect } from "react"
-import { RotateCcw } from "lucide-react"
+import { RotateCcw, SlidersHorizontal } from "lucide-react"
 import { toast } from "sonner"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 import {
   Select,
   SelectContent,
@@ -13,7 +18,10 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { SubjectCombobox } from "@/components/SubjectCombobox"
-import { CourseListItem, type CourseListItemData } from "@/components/CourseListItem"
+import {
+  CourseListItem,
+  type CourseListItemData,
+} from "@/components/CourseListItem"
 import {
   useAppStore,
   filtersToSearchRequest,
@@ -56,8 +64,14 @@ export function SearchView() {
   }, [termsData])
 
   // Only pass request to useSearch when user clicks Search (not on every filter change)
-  const [submittedRequest, setSubmittedRequest] = useState<ReturnType<typeof filtersToSearchRequest> | null>(null)
-  const { data: searchData, isFetching, error: searchError } = useSearch(submittedRequest ?? {})
+  const [submittedRequest, setSubmittedRequest] = useState<ReturnType<
+    typeof filtersToSearchRequest
+  > | null>(null)
+  const {
+    data: searchData,
+    isFetching,
+    error: searchError,
+  } = useSearch(submittedRequest ?? {})
   const [hasSearched, setHasSearched] = useState(false)
 
   // Sync search results to store when data arrives
@@ -122,7 +136,9 @@ export function SearchView() {
         required: true,
         sections: null, // All sections allowed
       })
-      toast.success(`Added ${course.subject} ${course.courseNumber} to schedule`)
+      toast.success(
+        `Added ${course.subject} ${course.courseNumber} to schedule`
+      )
       closeCourseDialog()
     },
     [searchResult, addSlot, closeCourseDialog]
@@ -142,21 +158,30 @@ export function SearchView() {
     [slots]
   )
 
+  // Count active advanced filters for the badge
+  const advancedFilterCount = [
+    searchFilters.title,
+    searchFilters.instructor,
+    searchFilters.minCredits != null,
+    searchFilters.maxCredits != null,
+    searchFilters.openSeats,
+  ].filter(Boolean).length
+
   return (
     <div className="flex h-full flex-col">
-      {/* Filters */}
-      <div className="border-b p-4">
-        <div className="grid grid-cols-3 items-end gap-3 sm:grid-cols-4 lg:grid-cols-10 xl:grid-cols-12">
-          {/* Scope */}
-          <div className="col-span-3 space-y-1.5 sm:col-span-2 xl:col-span-2">
-            <Label>Scope</Label>
+      {/* Filters — primary bar */}
+      <div className="border-b p-3">
+        <div className="flex flex-col gap-2 xl:flex-row xl:items-end">
+          {/* Filter inputs — equal-width columns via grid, takes 2/3 width on xl */}
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 xl:flex-2">
+            {/* Scope */}
             <Select
               value={searchFilters.scope}
               onValueChange={(v) =>
                 setSearchFilters({ scope: v as SearchScope })
               }
             >
-              <SelectTrigger className="w-full">
+              <SelectTrigger className="w-full" aria-label="Search scope">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -167,75 +192,31 @@ export function SearchView() {
                 ))}
               </SelectContent>
             </Select>
-          </div>
 
-          {/* Term/Year */}
-          <div className="col-span-3 space-y-1.5 sm:col-span-2 lg:col-span-3 xl:col-span-2">
-            <Label>
-              {searchFilters.scope === "term"
-                ? "Term"
-                : searchFilters.scope === "year"
-                  ? "Year"
-                  : "Range"}
-            </Label>
-            {searchFilters.scope === "term" ? (
-              <Select
-                value={searchFilters.term || currentTerm || ""}
-                onValueChange={(v) => setSearchFilters({ term: v })}
-              >
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select term" />
-                </SelectTrigger>
-                <SelectContent>
-                  {terms.map((t) => (
-                    <SelectItem key={t.code} value={t.code}>
-                      {t.name}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            ) : searchFilters.scope === "year" ? (
-              <Select
-                value={searchFilters.year?.toString() ?? ""}
-                onValueChange={(v) =>
-                  setSearchFilters({ year: parseInt(v, 10) })
-                }
-              >
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select year" />
-                </SelectTrigger>
-                <SelectContent>
-                  {academicYears.map((y) => (
-                    <SelectItem key={y} value={y.toString()}>
-                      {formatAcademicYear(y)}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            ) : (
-              <div className="text-muted-foreground flex h-9 items-center rounded-md border px-3 text-sm">
-                All Time
-              </div>
-            )}
-          </div>
+            {/* Term/Year/All */}
+            <ScopeSelector
+              scope={searchFilters.scope}
+              term={searchFilters.term || currentTerm || ""}
+              year={searchFilters.year}
+              terms={terms}
+              academicYears={academicYears}
+              onTermChange={(v) => setSearchFilters({ term: v })}
+              onYearChange={(v) => setSearchFilters({ year: parseInt(v, 10) })}
+            />
 
-          {/* Subject */}
-          <div className="col-span-2 space-y-1.5 sm:col-span-2 lg:col-span-3 xl:col-span-3">
-            <Label>Subject</Label>
+            {/* Subject */}
             <SubjectCombobox
               subjects={subjects}
               value={searchFilters.subject}
               onChange={(v) => setSearchFilters({ subject: v })}
-              placeholder="Any"
+              placeholder="Subject"
               showAnyOption
             />
-          </div>
 
-          {/* Course # */}
-          <div className="col-span-1 space-y-1.5 sm:col-span-2 xl:col-span-2">
-            <Label>Course #</Label>
+            {/* Course # */}
             <Input
-              placeholder="241"
+              placeholder="Course number"
+              aria-label="Course number"
               value={searchFilters.courseNumber}
               onChange={(e) =>
                 setSearchFilters({ courseNumber: e.target.value })
@@ -244,100 +225,116 @@ export function SearchView() {
             />
           </div>
 
-          {/* Credits + Open */}
-          <div className="col-span-3 space-y-1.5 sm:col-span-4 lg:col-span-4 xl:col-span-3">
-            <div className="flex items-center">
-              <Label className="flex-1">Credits</Label>
-              <div className="flex justify-center px-2">
-                <Label>Open</Label>
-              </div>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="flex flex-1 items-center gap-1">
-                <Input
-                  type="number"
-                  placeholder="Min"
-                  value={searchFilters.minCredits ?? ""}
-                  onChange={(e) =>
-                    setSearchFilters({
-                      minCredits: e.target.value
-                        ? parseInt(e.target.value, 10)
-                        : null,
-                    })
-                  }
-                  onKeyDown={handleKeyDown}
-                  className="w-full"
-                  min={0}
-                  max={36}
-                />
-                <span className="text-muted-foreground">-</span>
-                <Input
-                  type="number"
-                  placeholder="Max"
-                  value={searchFilters.maxCredits ?? ""}
-                  onChange={(e) =>
-                    setSearchFilters({
-                      maxCredits: e.target.value
-                        ? parseInt(e.target.value, 10)
-                        : null,
-                    })
-                  }
-                  onKeyDown={handleKeyDown}
-                  className="w-full"
-                  min={0}
-                  max={36}
-                />
-              </div>
-              <div className="flex justify-center px-2">
-                <Switch
-                  checked={searchFilters.openSeats}
-                  onCheckedChange={(checked) =>
-                    setSearchFilters({ openSeats: checked })
-                  }
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Title */}
-          <div className="col-span-3 space-y-1.5 sm:col-span-2 lg:col-span-3 xl:col-span-4">
-            <Label>Title</Label>
-            <Input
-              placeholder="Creative Seminar"
-              value={searchFilters.title}
-              onChange={(e) => setSearchFilters({ title: e.target.value })}
-              onKeyDown={handleKeyDown}
-            />
-          </div>
-
-          {/* Instructor */}
-          <div className="col-span-3 space-y-1.5 sm:col-span-2 lg:col-span-3 xl:col-span-4">
-            <Label>Instructor</Label>
-            <Input
-              placeholder="e.g. Smith"
-              value={searchFilters.instructor}
-              onChange={(e) => setSearchFilters({ instructor: e.target.value })}
-              onKeyDown={handleKeyDown}
-            />
-          </div>
-
-          {/* Actions */}
-          <div className="col-span-3 flex items-end gap-2 sm:col-span-4 lg:col-span-10 xl:col-span-4">
+          {/* Buttons */}
+          <div className="flex items-end gap-2 xl:flex-1">
             <Button
               onClick={handleSearch}
               disabled={isFetching}
               className={cn(
                 "flex-1",
-                isSearchStale && "ring-2 ring-amber-500 ring-offset-2 ring-offset-background"
+                isSearchStale &&
+                  "ring-offset-background ring-2 ring-amber-500 ring-offset-2"
               )}
             >
               {isFetching ? "Searching..." : "Search"}
             </Button>
+
+            {/* Advanced filters popover */}
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  title="More filters"
+                  aria-label="More filters"
+                  className="relative shrink-0"
+                >
+                  <SlidersHorizontal className="size-4" />
+                  {advancedFilterCount > 0 && (
+                    <span className="bg-primary text-primary-foreground absolute -top-1.5 -right-1.5 flex size-4 items-center justify-center rounded-full text-[10px] font-medium">
+                      {advancedFilterCount}
+                    </span>
+                  )}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent align="end" className="w-72 space-y-3">
+                <div className="space-y-1.5">
+                  <Label>Title</Label>
+                  <Input
+                    placeholder="e.g. Creative Seminar"
+                    value={searchFilters.title}
+                    onChange={(e) =>
+                      setSearchFilters({ title: e.target.value })
+                    }
+                    onKeyDown={handleKeyDown}
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <Label>Instructor</Label>
+                  <Input
+                    placeholder="e.g. Smith"
+                    value={searchFilters.instructor}
+                    onChange={(e) =>
+                      setSearchFilters({ instructor: e.target.value })
+                    }
+                    onKeyDown={handleKeyDown}
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <Label>Credits</Label>
+                  <div className="flex items-center gap-1">
+                    <Input
+                      type="number"
+                      placeholder="Min"
+                      value={searchFilters.minCredits ?? ""}
+                      onChange={(e) =>
+                        setSearchFilters({
+                          minCredits: e.target.value
+                            ? parseInt(e.target.value, 10)
+                            : null,
+                        })
+                      }
+                      onKeyDown={handleKeyDown}
+                      min={0}
+                      max={36}
+                    />
+                    <span className="text-muted-foreground">-</span>
+                    <Input
+                      type="number"
+                      placeholder="Max"
+                      value={searchFilters.maxCredits ?? ""}
+                      onChange={(e) =>
+                        setSearchFilters({
+                          maxCredits: e.target.value
+                            ? parseInt(e.target.value, 10)
+                            : null,
+                        })
+                      }
+                      onKeyDown={handleKeyDown}
+                      min={0}
+                      max={36}
+                    />
+                  </div>
+                </div>
+                <div className="flex items-center justify-between">
+                  <Label>Open Seats Only</Label>
+                  <Switch
+                    checked={searchFilters.openSeats}
+                    onCheckedChange={(checked) =>
+                      setSearchFilters({ openSeats: checked })
+                    }
+                  />
+                </div>
+              </PopoverContent>
+            </Popover>
+
             <Button
               variant="outline"
               size="icon"
               onClick={handleClear}
               title="Clear all filters"
+              aria-label="Clear all filters"
+              className="shrink-0"
             >
               <RotateCcw className="size-4" />
             </Button>
@@ -369,7 +366,6 @@ export function SearchView() {
           )}
         </div>
       )}
-
     </div>
   )
 }
@@ -457,6 +453,65 @@ function SearchResults({
           />
         )
       })}
+    </div>
+  )
+}
+
+/** Term/Year/All selector — extracted to avoid nested ternary */
+function ScopeSelector({
+  scope,
+  term,
+  year,
+  terms,
+  academicYears,
+  onTermChange,
+  onYearChange,
+}: {
+  scope: SearchScope
+  term: string
+  year: number | null
+  terms: { code: string; name: string }[]
+  academicYears: number[]
+  onTermChange: (value: string) => void
+  onYearChange: (value: string) => void
+}) {
+  if (scope === "term") {
+    return (
+      <Select value={term} onValueChange={onTermChange}>
+        <SelectTrigger className="w-full">
+          <SelectValue placeholder="Select term" />
+        </SelectTrigger>
+        <SelectContent>
+          {terms.map((t) => (
+            <SelectItem key={t.code} value={t.code}>
+              {t.name}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+    )
+  }
+
+  if (scope === "year") {
+    return (
+      <Select value={year?.toString() ?? ""} onValueChange={onYearChange}>
+        <SelectTrigger className="w-full">
+          <SelectValue placeholder="Select year" />
+        </SelectTrigger>
+        <SelectContent>
+          {academicYears.map((y) => (
+            <SelectItem key={y} value={y.toString()}>
+              {formatAcademicYear(y)}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+    )
+  }
+
+  return (
+    <div className="text-muted-foreground flex h-9 w-full items-center rounded-md border px-3 text-sm">
+      All Time
     </div>
   )
 }
