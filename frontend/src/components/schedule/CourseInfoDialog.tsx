@@ -31,7 +31,7 @@ interface CourseInfoDialogProps {
   // Term for fetching data when generate result isn't available
   term?: string
   // Add section action - when provided, shows "+" buttons on sections
-  onAddSection?: (crn: string, term: string) => void
+  onAddSection?: (crn: string, term: string, course: { subject: string; courseNumber: string; title: string }, instructor: string | null) => void
   // Check if a section is already added
   isSectionAdded?: (crn: string) => boolean
 }
@@ -41,7 +41,7 @@ interface DialogContentInnerProps {
   courseSections: HydratedSection[]
   highlightCrn: string | null
   term: string
-  onAddSection?: (crn: string, term: string) => void
+  onAddSection?: (crn: string, term: string, course: { subject: string; courseNumber: string; title: string }, instructor: string | null) => void
   isSectionAdded?: (crn: string) => boolean
 }
 
@@ -157,7 +157,7 @@ function DialogContentInner({
               section.meetingTimes.length === 0
             }
             onPrefetch={() => handlePrefetch(section.crn)}
-            onAdd={onAddSection ? () => onAddSection(section.crn, section.term) : undefined}
+            onAdd={onAddSection ? () => onAddSection(section.crn, section.term, { subject: course.subject, courseNumber: course.courseNumber, title: course.title }, section.instructor ?? null) : undefined}
             isAdded={isSectionAdded?.(section.crn) ?? false}
           />
         ))}

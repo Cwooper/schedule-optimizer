@@ -14,7 +14,6 @@ import {
 } from "@/components/ui/select"
 import { SubjectCombobox } from "@/components/SubjectCombobox"
 import { CourseListItem, type CourseListItemData } from "@/components/CourseListItem"
-import { CourseInfoDialog } from "@/components/schedule/CourseInfoDialog"
 import {
   useAppStore,
   filtersToSearchRequest,
@@ -43,7 +42,8 @@ export function SearchView() {
     setSearchResult,
     addSlot,
     slots,
-    term: scheduleTerm,
+    openCourseDialog,
+    closeCourseDialog,
   } = useAppStore()
 
   const { data: termsData } = useTerms()
@@ -82,10 +82,6 @@ export function SearchView() {
     return JSON.stringify(currentRequest) !== JSON.stringify(submittedRequest)
   }, [searchFilters, submittedRequest, hasSearchResult])
 
-  // Dialog state
-  const [dialogOpen, setDialogOpen] = useState(false)
-  const [selectedCourseKey, setSelectedCourseKey] = useState<string | undefined>()
-
   const handleSearch = useCallback(() => {
     setHasSearched(true)
     setSubmittedRequest(filtersToSearchRequest(searchFilters))
@@ -104,11 +100,11 @@ export function SearchView() {
     [handleSearch]
   )
 
-  // Open course detail dialog
-  const handleCourseClick = useCallback((courseKey: string) => {
-    setSelectedCourseKey(courseKey)
-    setDialogOpen(true)
-  }, [])
+  // Open course detail dialog (uses the shared app-level dialog)
+  const handleCourseClick = useCallback(
+    (courseKey: string) => openCourseDialog({ courseKey }),
+    [openCourseDialog]
+  )
 
   // Add course to schedule (all sections)
   const handleAddCourse = useCallback(
@@ -127,41 +123,9 @@ export function SearchView() {
         sections: null, // All sections allowed
       })
       toast.success(`Added ${course.subject} ${course.courseNumber} to schedule`)
-      setDialogOpen(false)
+      closeCourseDialog()
     },
-    [searchResult, addSlot]
-  )
-
-  // Add specific section to schedule
-  const handleAddSection = useCallback(
-    (crn: string, term: string) => {
-      if (!searchResult) return
-      const sectionKey = `${term}:${crn}`
-      const section = searchResult.sections[sectionKey]
-      if (!section) return
-
-      const course = searchResult.courses[section.courseKey]
-      if (!course) return
-
-      addSlot({
-        id: genId(),
-        subject: course.subject,
-        courseNumber: course.courseNumber,
-        displayName: `${course.subject} ${course.courseNumber}`,
-        title: course.title,
-        required: false, // Not forcing the course, just filtering to this CRN
-        sections: [
-          {
-            crn,
-            term,
-            instructor: section.instructor ?? null,
-            required: false, // Just a filter, not pinned
-          },
-        ],
-      })
-      toast.success(`Added ${course.subject} ${course.courseNumber} (CRN: ${crn}) to schedule`)
-    },
-    [searchResult, addSlot]
+    [searchResult, addSlot, closeCourseDialog]
   )
 
   const terms = termsData?.terms ?? []
@@ -177,19 +141,6 @@ export function SearchView() {
     },
     [slots]
   )
-
-  // Check if a specific section (CRN) is already in the schedule
-  const isSectionAdded = useCallback(
-    (crn: string) => {
-      return slots.some(
-        (s) => s.sections?.some((sec) => sec.crn === crn)
-      )
-    },
-    [slots]
-  )
-
-  // Determine term for dialog (use search filter term, or schedule term, or current)
-  const dialogTerm = searchFilters.term || scheduleTerm || currentTerm || ""
 
   return (
     <div className="flex h-full flex-col">
@@ -419,17 +370,6 @@ export function SearchView() {
         </div>
       )}
 
-      {/* Course Detail Dialog */}
-      <CourseInfoDialog
-        open={dialogOpen}
-        onOpenChange={setDialogOpen}
-        courses={searchResult?.courses}
-        sections={searchResult?.sections}
-        selectedCourseKey={selectedCourseKey}
-        term={dialogTerm}
-        onAddSection={handleAddSection}
-        isSectionAdded={isSectionAdded}
-      />
     </div>
   )
 }
