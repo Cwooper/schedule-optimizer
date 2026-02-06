@@ -21,6 +21,8 @@ import { useCourse, useCRN, useSubjects } from "@/hooks/use-api"
 import type { Subject } from "@/lib/api"
 import { cn } from "@/lib/utils"
 
+const EMPTY_SUBJECTS: Subject[] = []
+
 type InputMode = "subject" | "crn"
 
 interface CourseInputProps {
@@ -54,7 +56,7 @@ export function CourseInput({
   const [crnInput, setCrnInput] = useState("")
 
   const { data: subjectsData } = useSubjects(term)
-  const subjects = subjectsData?.subjects ?? []
+  const subjects = subjectsData?.subjects ?? EMPTY_SUBJECTS
 
   // Course lookup
   const numberTrimmed = numberInput.trim().toUpperCase()

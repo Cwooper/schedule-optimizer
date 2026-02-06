@@ -2,7 +2,6 @@ import { useState, useCallback, useMemo, useEffect } from "react"
 import { RotateCcw, SlidersHorizontal } from "lucide-react"
 import { toast } from "sonner"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import {
@@ -18,24 +17,21 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { SubjectCombobox } from "@/components/SubjectCombobox"
-import {
-  CourseListItem,
-  type CourseListItemData,
-} from "@/components/CourseListItem"
+import { DebouncedInput } from "@/components/DebouncedInput"
+import { SearchResults } from "@/components/SearchResults"
 import {
   useAppStore,
   filtersToSearchRequest,
   type SearchScope,
 } from "@/stores/app-store"
 import { useTerms, useSubjects, useSearch } from "@/hooks/use-api"
-import type { SearchResponse } from "@/lib/api"
 import {
   getAcademicYearsFromTerms,
   formatAcademicYear,
 } from "@/lib/schedule-utils"
 import { cn, genId } from "@/lib/utils"
-import { useDebouncedState } from "@/hooks/use-debounced-state"
 
+const EMPTY_SUBJECTS: { code: string; name: string }[] = []
 const SCOPE_OPTIONS: { value: SearchScope; label: string }[] = [
   { value: "term", label: "Term" },
   { value: "year", label: "Year" },
@@ -43,7 +39,6 @@ const SCOPE_OPTIONS: { value: SearchScope; label: string }[] = [
 ]
 
 export function SearchView() {
-  // Zustand selectors — only re-render when these specific slices change
   const searchFilters = useAppStore((s) => s.searchFilters)
   const setSearchFilters = useAppStore((s) => s.setSearchFilters)
   const clearSearchFilters = useAppStore((s) => s.clearSearchFilters)
@@ -63,7 +58,7 @@ export function SearchView() {
     return getAcademicYearsFromTerms(termsData.terms.map((t) => t.code))
   }, [termsData])
 
-  // Debounced text inputs — local state for instant typing, syncs to store after 200ms
+  // Stable callbacks for DebouncedInput onSync props
   const setCourseNumber = useCallback(
     (v: string) => setSearchFilters({ courseNumber: v }),
     [setSearchFilters]
@@ -76,13 +71,10 @@ export function SearchView() {
     (v: string) => setSearchFilters({ instructor: v }),
     [setSearchFilters]
   )
-
-  const [localCourseNumber, setLocalCourseNumber, flushCourseNumber] =
-    useDebouncedState(searchFilters.courseNumber, setCourseNumber)
-  const [localTitle, setLocalTitle, flushTitle] =
-    useDebouncedState(searchFilters.title, setTitle)
-  const [localInstructor, setLocalInstructor, flushInstructor] =
-    useDebouncedState(searchFilters.instructor, setInstructor)
+  const setSubject = useCallback(
+    (v: string) => setSearchFilters({ subject: v }),
+    [setSearchFilters]
+  )
 
   // Only pass request to useSearch when user clicks Search (not on every filter change)
   const [submittedRequest, setSubmittedRequest] = useState<ReturnType<
@@ -95,59 +87,39 @@ export function SearchView() {
   } = useSearch(submittedRequest ?? {})
   const [hasSearched, setHasSearched] = useState(false)
 
-  // Sync search results to store when data arrives
   useEffect(() => {
     if (searchData) {
       setSearchResult(searchData)
     }
   }, [searchData, setSearchResult])
 
-  // Show error toast when search fails
   useEffect(() => {
     if (searchError) {
       toast.error("Search failed. Please try again.")
     }
   }, [searchError])
 
-  // Stale detection uses local values for instant feedback
-  const currentFiltersWithLocal = useMemo(
-    () => ({
-      ...searchFilters,
-      courseNumber: localCourseNumber,
-      title: localTitle,
-      instructor: localInstructor,
-    }),
-    [searchFilters, localCourseNumber, localTitle, localInstructor]
-  )
-
+  // Stale detection — uses store values (200ms delay after typing is fine)
   const hasSearchResult = !!searchResult
   const isSearchStale = useMemo(() => {
     if (!hasSearchResult || !submittedRequest) return false
-    const currentRequest = filtersToSearchRequest(currentFiltersWithLocal)
+    const currentRequest = filtersToSearchRequest(searchFilters)
     return JSON.stringify(currentRequest) !== JSON.stringify(submittedRequest)
-  }, [currentFiltersWithLocal, submittedRequest, hasSearchResult])
+  }, [searchFilters, submittedRequest, hasSearchResult])
 
+  // Read fresh values from store directly — DebouncedInput flushes on blur/Enter
+  // before this runs, and Zustand's set() is synchronous
   const handleSearch = useCallback(() => {
-    // Flush debounced values to store before building the request
-    flushCourseNumber()
-    flushTitle()
-    flushInstructor()
+    const filters = useAppStore.getState().searchFilters
     setHasSearched(true)
-    setSubmittedRequest(filtersToSearchRequest(currentFiltersWithLocal))
-  }, [currentFiltersWithLocal, flushCourseNumber, flushTitle, flushInstructor])
+    setSubmittedRequest(filtersToSearchRequest(filters))
+  }, [])
 
   const handleClear = useCallback(() => {
     clearSearchFilters()
     setSubmittedRequest(null)
     setHasSearched(false)
   }, [clearSearchFilters])
-
-  const handleKeyDown = useCallback(
-    (e: React.KeyboardEvent) => {
-      if (e.key === "Enter") handleSearch()
-    },
-    [handleSearch]
-  )
 
   const handleCourseClick = useCallback(
     (courseKey: string) => openCourseDialog({ courseKey }),
@@ -179,7 +151,7 @@ export function SearchView() {
 
   const terms = termsData?.terms ?? []
   const currentTerm = termsData?.current
-  const subjects = subjectsData?.subjects ?? []
+  const subjects = subjectsData?.subjects ?? EMPTY_SUBJECTS
 
   const isCourseAdded = useCallback(
     (subject: string, courseNumber: string) => {
@@ -190,10 +162,9 @@ export function SearchView() {
     [slots]
   )
 
-  // Badge uses local values for instant feedback
   const advancedFilterCount = [
-    localTitle,
-    localInstructor,
+    searchFilters.title,
+    searchFilters.instructor,
     searchFilters.minCredits != null,
     searchFilters.maxCredits != null,
     searchFilters.openSeats,
@@ -205,168 +176,170 @@ export function SearchView() {
       <div className="scrollbar-styled flex-1 overflow-y-auto">
         <div className="p-3">
           <div className="flex flex-col gap-2 xl:flex-row xl:items-end">
-            {/* Filter inputs — equal-width columns via grid, takes 2/3 width on xl */}
+            {/* Filter inputs */}
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 xl:flex-2">
-            {/* Scope */}
-            <Select
-              value={searchFilters.scope}
-              onValueChange={(v) =>
-                setSearchFilters({ scope: v as SearchScope })
-              }
-            >
-              <SelectTrigger className="w-full" aria-label="Search scope">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {SCOPE_OPTIONS.map((opt) => (
-                  <SelectItem key={opt.value} value={opt.value}>
-                    {opt.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+              {/* Scope */}
+              <Select
+                value={searchFilters.scope}
+                onValueChange={(v) =>
+                  setSearchFilters({ scope: v as SearchScope })
+                }
+              >
+                <SelectTrigger className="w-full" aria-label="Search scope">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {SCOPE_OPTIONS.map((opt) => (
+                    <SelectItem key={opt.value} value={opt.value}>
+                      {opt.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
 
-            {/* Term/Year/All */}
-            <ScopeSelector
-              scope={searchFilters.scope}
-              term={searchFilters.term || currentTerm || ""}
-              year={searchFilters.year}
-              terms={terms}
-              academicYears={academicYears}
-              onTermChange={(v) => setSearchFilters({ term: v })}
-              onYearChange={(v) => setSearchFilters({ year: parseInt(v, 10) })}
-            />
+              {/* Term/Year/All */}
+              <ScopeSelector
+                scope={searchFilters.scope}
+                term={searchFilters.term || currentTerm || ""}
+                year={searchFilters.year}
+                terms={terms}
+                academicYears={academicYears}
+                onTermChange={(v) => setSearchFilters({ term: v })}
+                onYearChange={(v) =>
+                  setSearchFilters({ year: parseInt(v, 10) })
+                }
+              />
 
-            {/* Subject */}
-            <SubjectCombobox
-              subjects={subjects}
-              value={searchFilters.subject}
-              onChange={(v) => setSearchFilters({ subject: v })}
-              placeholder="Subject"
-              showAnyOption
-            />
+              {/* Subject */}
+              <SubjectCombobox
+                subjects={subjects}
+                value={searchFilters.subject}
+                onChange={setSubject}
+                placeholder="Subject"
+                showAnyOption
+              />
 
-            {/* Course # */}
-            <Input
-              placeholder="Course number"
-              aria-label="Course number"
-              value={localCourseNumber}
-              onChange={(e) => setLocalCourseNumber(e.target.value)}
-              onKeyDown={handleKeyDown}
-            />
-          </div>
+              {/* Course # */}
+              <DebouncedInput
+                placeholder="Course number"
+                aria-label="Course number"
+                storeValue={searchFilters.courseNumber}
+                onSync={setCourseNumber}
+                onSubmit={handleSearch}
+              />
+            </div>
 
-          {/* Buttons */}
-          <div className="flex items-end gap-2 xl:flex-1">
-            <Button
-              onClick={handleSearch}
-              disabled={isFetching}
-              className={cn(
-                "flex-1",
-                isSearchStale &&
-                  "ring-offset-background ring-2 ring-amber-500 ring-offset-2"
-              )}
-            >
-              {isFetching ? "Searching..." : "Search"}
-            </Button>
+            {/* Buttons */}
+            <div className="flex items-end gap-2 xl:flex-1">
+              <Button
+                onClick={handleSearch}
+                disabled={isFetching}
+                className={cn(
+                  "flex-1",
+                  isSearchStale &&
+                    "ring-offset-background ring-2 ring-amber-500 ring-offset-2"
+                )}
+              >
+                {isFetching ? "Searching..." : "Search"}
+              </Button>
 
-            {/* Advanced filters popover */}
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  title="More filters"
-                  aria-label="More filters"
-                  className="relative shrink-0"
-                >
-                  <SlidersHorizontal className="size-4" />
-                  {advancedFilterCount > 0 && (
-                    <span className="bg-primary text-primary-foreground absolute -top-1.5 -right-1.5 flex size-4 items-center justify-center rounded-full text-[10px] font-medium">
-                      {advancedFilterCount}
-                    </span>
-                  )}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent align="end" className="w-72 space-y-3">
-                <div className="space-y-1.5">
-                  <Label>Title</Label>
-                  <Input
-                    placeholder="e.g. Creative Seminar"
-                    value={localTitle}
-                    onChange={(e) => setLocalTitle(e.target.value)}
-                    onKeyDown={handleKeyDown}
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <Label>Instructor</Label>
-                  <Input
-                    placeholder="e.g. Smith"
-                    value={localInstructor}
-                    onChange={(e) => setLocalInstructor(e.target.value)}
-                    onKeyDown={handleKeyDown}
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <Label>Credits</Label>
-                  <div className="flex items-center gap-1">
-                    <Input
-                      type="number"
-                      placeholder="Min"
-                      value={searchFilters.minCredits ?? ""}
-                      onChange={(e) =>
-                        setSearchFilters({
-                          minCredits: e.target.value
-                            ? parseInt(e.target.value, 10)
-                            : null,
-                        })
-                      }
-                      onKeyDown={handleKeyDown}
-                      min={0}
-                      max={36}
-                    />
-                    <span className="text-muted-foreground">-</span>
-                    <Input
-                      type="number"
-                      placeholder="Max"
-                      value={searchFilters.maxCredits ?? ""}
-                      onChange={(e) =>
-                        setSearchFilters({
-                          maxCredits: e.target.value
-                            ? parseInt(e.target.value, 10)
-                            : null,
-                        })
-                      }
-                      onKeyDown={handleKeyDown}
-                      min={0}
-                      max={36}
+              {/* Advanced filters popover */}
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    title="More filters"
+                    aria-label="More filters"
+                    className="relative shrink-0"
+                  >
+                    <SlidersHorizontal className="size-4" />
+                    {advancedFilterCount > 0 && (
+                      <span className="bg-primary text-primary-foreground absolute -top-1.5 -right-1.5 flex size-4 items-center justify-center rounded-full text-[10px] font-medium">
+                        {advancedFilterCount}
+                      </span>
+                    )}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent align="end" className="w-72 space-y-3">
+                  <div className="space-y-1.5">
+                    <Label>Title</Label>
+                    <DebouncedInput
+                      placeholder="e.g. Creative Seminar"
+                      storeValue={searchFilters.title}
+                      onSync={setTitle}
+                      onSubmit={handleSearch}
                     />
                   </div>
-                </div>
-                <div className="flex items-center justify-between">
-                  <Label>Open Seats Only</Label>
-                  <Switch
-                    checked={searchFilters.openSeats}
-                    onCheckedChange={(checked) =>
-                      setSearchFilters({ openSeats: checked })
-                    }
-                  />
-                </div>
-              </PopoverContent>
-            </Popover>
+                  <div className="space-y-1.5">
+                    <Label>Instructor</Label>
+                    <DebouncedInput
+                      placeholder="e.g. Smith"
+                      storeValue={searchFilters.instructor}
+                      onSync={setInstructor}
+                      onSubmit={handleSearch}
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <Label>Credits</Label>
+                    <div className="flex items-center gap-1">
+                      <DebouncedInput
+                        type="number"
+                        placeholder="Min"
+                        storeValue={
+                          searchFilters.minCredits?.toString() ?? ""
+                        }
+                        onSync={(v) =>
+                          setSearchFilters({
+                            minCredits: v ? parseInt(v, 10) : null,
+                          })
+                        }
+                        onSubmit={handleSearch}
+                        min={0}
+                        max={36}
+                      />
+                      <span className="text-muted-foreground">-</span>
+                      <DebouncedInput
+                        type="number"
+                        placeholder="Max"
+                        storeValue={
+                          searchFilters.maxCredits?.toString() ?? ""
+                        }
+                        onSync={(v) =>
+                          setSearchFilters({
+                            maxCredits: v ? parseInt(v, 10) : null,
+                          })
+                        }
+                        onSubmit={handleSearch}
+                        min={0}
+                        max={36}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <Label>Open Seats Only</Label>
+                    <Switch
+                      checked={searchFilters.openSeats}
+                      onCheckedChange={(checked) =>
+                        setSearchFilters({ openSeats: checked })
+                      }
+                    />
+                  </div>
+                </PopoverContent>
+              </Popover>
 
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={handleClear}
-              title="Clear all filters"
-              aria-label="Clear all filters"
-              className="shrink-0"
-            >
-              <RotateCcw className="size-4" />
-            </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={handleClear}
+                title="Clear all filters"
+                aria-label="Clear all filters"
+                className="shrink-0"
+              >
+                <RotateCcw className="size-4" />
+              </Button>
+            </div>
           </div>
-        </div>
         </div>
 
         {/* Results */}
@@ -385,8 +358,9 @@ export function SearchView() {
       {/* Stats footer — stays visible at bottom */}
       {searchResult && searchResult.results.length > 0 && (
         <div className="text-muted-foreground border-t px-4 py-2 text-xs">
-          Found {searchResult.total} courses ({searchResult.stats.totalSections}{" "}
-          sections) in {searchResult.stats.timeMs.toFixed(1)}ms
+          Found {searchResult.total} courses (
+          {searchResult.stats.totalSections} sections) in{" "}
+          {searchResult.stats.timeMs.toFixed(1)}ms
           {searchResult.warning && (
             <span className="ml-2 text-amber-600 dark:text-amber-400">
               — {searchResult.warning}
@@ -394,93 +368,6 @@ export function SearchView() {
           )}
         </div>
       )}
-    </div>
-  )
-}
-
-interface SearchResultsProps {
-  hasSearched: boolean
-  isFetching: boolean
-  searchResult: SearchResponse | null
-  onCourseClick: (courseKey: string) => void
-  onAddCourse: (courseKey: string) => void
-  /** Check if a course is already in the schedule */
-  isCourseAdded: (subject: string, courseNumber: string) => boolean
-}
-
-/** Convert search result to CourseListItem data format */
-function toListItemData(
-  courseKey: string,
-  searchResult: SearchResponse
-): CourseListItemData {
-  const course = searchResult.courses[courseKey]
-  const sections = Object.entries(searchResult.sections)
-    .filter(([, s]) => s.courseKey === courseKey)
-    .map(([, s]) => ({
-      crn: s.crn,
-      term: s.term,
-      instructor: s.instructor,
-      seatsAvailable: s.seatsAvailable,
-      isOpen: s.isOpen,
-    }))
-
-  return {
-    subject: course.subject,
-    courseNumber: course.courseNumber,
-    title: course.title,
-    credits: course.credits,
-    creditsHigh: course.creditsHigh,
-    sections,
-  }
-}
-
-function SearchResults({
-  hasSearched,
-  isFetching,
-  searchResult,
-  onCourseClick,
-  onAddCourse,
-  isCourseAdded,
-}: SearchResultsProps) {
-  if (!hasSearched && !searchResult) {
-    return (
-      <p className="text-muted-foreground py-8 text-center text-sm">
-        Enter search criteria and click Search
-      </p>
-    )
-  }
-
-  if (isFetching && !searchResult) {
-    return (
-      <p className="text-muted-foreground py-8 text-center text-sm">
-        Searching...
-      </p>
-    )
-  }
-
-  if (!searchResult || searchResult.results.length === 0) {
-    return (
-      <p className="text-muted-foreground py-8 text-center text-sm">
-        No courses found
-      </p>
-    )
-  }
-
-  return (
-    <div className="space-y-2">
-      {searchResult.results.map((ref) => {
-        const course = searchResult.courses[ref.courseKey]
-        if (!course) return null
-        return (
-          <CourseListItem
-            key={ref.courseKey}
-            course={toListItemData(ref.courseKey, searchResult)}
-            onClick={() => onCourseClick(ref.courseKey)}
-            onAdd={() => onAddCourse(ref.courseKey)}
-            isAdded={isCourseAdded(course.subject, course.courseNumber)}
-          />
-        )
-      })}
     </div>
   )
 }
