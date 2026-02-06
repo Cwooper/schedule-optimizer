@@ -83,7 +83,7 @@ function stripWildcards(s: string): string {
  * Mirrors backend validation: requires subject, courseNumber, title, or instructor
  * with minimum character counts after stripping wildcards.
  */
-function hasValidSearchFilter(req: SearchRequest): boolean {
+export function hasValidSearchFilter(req: SearchRequest): boolean {
   const subjectValid = stripWildcards(req.subject ?? "").length >= 2
   const courseNumberValid = stripWildcards(req.courseNumber ?? "").length >= 1
   const titleValid = stripWildcards(req.title ?? "").length >= 2

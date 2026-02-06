@@ -17,7 +17,6 @@ import {
   DrawerDescription,
   DrawerHeader,
   DrawerTitle,
-  DrawerTrigger,
 } from "@/components/ui/drawer"
 import { useAppStore } from "@/stores/app-store"
 
@@ -89,6 +88,7 @@ function App() {
   )
 
   return (
+    <>
     <div className="bg-background text-foreground flex h-screen flex-col overflow-hidden">
       <AnnouncementBanner />
       <Header />
@@ -99,31 +99,18 @@ function App() {
         <div className="relative flex items-center justify-center border-b px-4 py-3">
           {/* Mobile drawer trigger - positioned left of tabs */}
           {showSidebar && (
-            <Drawer
-              direction="left"
-              open={drawerOpen}
-              onOpenChange={setDrawerOpen}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute left-4 md:hidden"
+              onClick={(e) => {
+                e.currentTarget.blur()
+                setDrawerOpen(true)
+              }}
             >
-              <DrawerTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="absolute left-4 md:hidden"
-                >
-                  <Menu className="size-5" />
-                  <span className="sr-only">Open course builder</span>
-                </Button>
-              </DrawerTrigger>
-              <DrawerContent className="h-full w-80">
-                <DrawerHeader className="sr-only">
-                  <DrawerTitle>Schedule Builder</DrawerTitle>
-                  <DrawerDescription>
-                    Add and configure courses for schedule generation
-                  </DrawerDescription>
-                </DrawerHeader>
-                <ScheduleBuilder />
-              </DrawerContent>
-            </Drawer>
+              <Menu className="size-5" />
+              <span className="sr-only">Open course builder</span>
+            </Button>
           )}
 
           <TabNav />
@@ -171,6 +158,22 @@ function App() {
         isSectionAdded={isSectionAdded}
       />
     </div>
+
+    {/* Mobile drawer - kept outside root div to avoid aria-hidden focus conflict */}
+    {showSidebar && (
+      <Drawer direction="left" open={drawerOpen} onOpenChange={setDrawerOpen}>
+        <DrawerContent className="h-full w-80">
+          <DrawerHeader className="sr-only">
+            <DrawerTitle>Schedule Builder</DrawerTitle>
+            <DrawerDescription>
+              Add and configure courses for schedule generation
+            </DrawerDescription>
+          </DrawerHeader>
+          <ScheduleBuilder />
+        </DrawerContent>
+      </Drawer>
+    )}
+    </>
   )
 }
 

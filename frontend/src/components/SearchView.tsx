@@ -24,11 +24,22 @@ import {
   filtersToSearchRequest,
   type SearchScope,
 } from "@/stores/app-store"
-import { useTerms, useSubjects, useSearch } from "@/hooks/use-api"
+import {
+  useTerms,
+  useSubjects,
+  useSearch,
+  hasValidSearchFilter,
+} from "@/hooks/use-api"
 import {
   getAcademicYearsFromTerms,
   formatAcademicYear,
 } from "@/lib/schedule-utils"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
 
 const EMPTY_SUBJECTS: { code: string; name: string }[] = []
@@ -163,6 +174,11 @@ export function SearchView() {
     [slots]
   )
 
+  const canSearch = useMemo(
+    () => hasValidSearchFilter(filtersToSearchRequest(searchFilters)),
+    [searchFilters]
+  )
+
   const advancedFilterCount = [
     searchFilters.title,
     searchFilters.instructor,
@@ -232,17 +248,30 @@ export function SearchView() {
 
             {/* Buttons */}
             <div className="flex items-end gap-2 xl:flex-1">
-              <Button
-                onClick={handleSearch}
-                disabled={isFetching}
-                className={cn(
-                  "flex-1",
-                  isSearchStale &&
-                    "ring-offset-background ring-2 ring-amber-500 ring-offset-2"
-                )}
-              >
-                {isFetching ? "Searching..." : "Search"}
-              </Button>
+              <TooltipProvider delayDuration={0}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <div className="flex-1">
+                      <Button
+                        className={cn(
+                          "w-full",
+                          isSearchStale &&
+                            "ring-offset-background ring-2 ring-amber-500 ring-offset-2"
+                        )}
+                        onClick={handleSearch}
+                        disabled={!canSearch || isFetching}
+                      >
+                        {isFetching ? "Searching..." : "Search"}
+                      </Button>
+                    </div>
+                  </TooltipTrigger>
+                  {!canSearch && (
+                    <TooltipContent>
+                      Enter a subject, course number, title, or instructor
+                    </TooltipContent>
+                  )}
+                </Tooltip>
+              </TooltipProvider>
 
               {/* Advanced filters popover */}
               <Popover>
