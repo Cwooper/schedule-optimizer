@@ -23,9 +23,10 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      "/api": {
+      "/schedule-optimizer/api": {
         target: "http://localhost:48920",
         changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/schedule-optimizer/, ""),
       },
     },
   },
