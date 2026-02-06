@@ -177,12 +177,12 @@ export const SectionCard = memo(function SectionCard({
               )}
             </div>
             {section.instructor && (
-              <>
+              <span className="hidden items-baseline gap-1.5 sm:flex">
                 <span className="text-muted-foreground">·</span>
                 <span className="truncate text-sm text-muted-foreground">
                   {decodeHtmlEntities(section.instructor)}
                 </span>
-              </>
+              </span>
             )}
             {termLabel && (
               <>
@@ -197,7 +197,7 @@ export const SectionCard = memo(function SectionCard({
           {/* Status badge */}
           <div
             className={cn(
-              "shrink-0 rounded-full px-2 py-0.5 text-xs font-medium",
+              "shrink-0 rounded-full px-1.5 py-0.5 text-xs font-medium sm:px-2",
               section.isOpen
                 ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-400"
                 : "bg-red-500/15 text-red-700 dark:text-red-400"
