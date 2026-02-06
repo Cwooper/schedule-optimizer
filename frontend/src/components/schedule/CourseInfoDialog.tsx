@@ -17,7 +17,7 @@ import type {
   CRNResponse,
 } from "@/lib/api"
 import { hydrateSection, sortSectionsByAvailability, type SectionInfoLike } from "@/lib/schedule-utils"
-import { decodeHtmlEntities } from "@/lib/utils"
+import { decodeHtmlEntities, formatTermCode } from "@/lib/utils"
 
 interface CourseInfoDialogProps {
   open: boolean
@@ -123,6 +123,12 @@ function DialogContentInner({
 
   const totalSections = courseSections.length
 
+  // Show term labels only when sections span multiple terms
+  const isMultiTerm = useMemo(() => {
+    const terms = new Set(courseSections.map((s) => s.term))
+    return terms.size > 1
+  }, [courseSections])
+
   return (
     <>
       <DialogHeader>
@@ -147,7 +153,7 @@ function DialogContentInner({
       <div className="-mx-2 max-h-[50vh] space-y-2 overflow-y-auto px-2 py-1">
         {sectionsWithMeetings.map((section) => (
           <SectionCard
-            key={section.crn}
+            key={`${section.term}:${section.crn}`}
             section={section}
             expanded={expandedSection === section.crn}
             onToggleExpand={() =>
@@ -164,6 +170,7 @@ function DialogContentInner({
             onPrefetch={() => handlePrefetch(section.crn)}
             onAdd={onAddSection ? () => onAddSection(section.crn, section.term, { subject: course.subject, courseNumber: course.courseNumber, title: course.title }, section.instructor ?? null) : undefined}
             isAdded={isSectionAdded?.(section.crn) ?? false}
+            termLabel={isMultiTerm ? formatTermCode(section.term) : undefined}
           />
         ))}
       </div>

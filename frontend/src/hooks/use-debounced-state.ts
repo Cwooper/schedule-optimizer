@@ -16,6 +16,8 @@ export function useDebouncedState<T>(
   // Track what we last wrote to the store so we can detect external changes
   const lastSyncedRef = useRef(storeValue)
 
+  // Must stay in sync during render so flush() reads the latest value
+  // eslint-disable-next-line react-hooks/refs
   latestRef.current = local
 
   // Sync from store → local when store changes externally (e.g. clear filters).

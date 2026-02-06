@@ -25,3 +25,18 @@ export function decodeHtmlEntities(html: string): string {
   _htmlDecoder.innerHTML = html
   return _htmlDecoder.value
 }
+
+/** Format a 6-digit term code to a readable name (e.g., "202620" → "Spring 2026") */
+export function formatTermCode(code: string): string {
+  if (code.length !== 6) return code
+  const year = code.slice(0, 4)
+  const quarter = code.slice(4)
+  const quarterNames: Record<string, string> = {
+    "10": "Winter",
+    "20": "Spring",
+    "30": "Summer",
+    "40": "Fall",
+  }
+  const name = quarterNames[quarter]
+  return name ? `${name} ${year}` : code
+}

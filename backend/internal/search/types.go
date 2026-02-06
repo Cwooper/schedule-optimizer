@@ -97,5 +97,5 @@ const (
 	MaxSectionFetch       = 2000 // Safety limit for SQL query
 	MaxTokens             = 3
 	CourseWarningMessage  = "Showing maximum results. Try narrowing your search for better results."
-	SectionWarningMessage = "Too many matching sections — some results may be missing."
+	SectionWarningMessage = "Showing maximum sections. Try narrowing your search for better results."
 )

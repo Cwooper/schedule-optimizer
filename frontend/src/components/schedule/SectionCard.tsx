@@ -21,6 +21,8 @@ interface SectionCardProps {
   onAdd?: () => void
   /** Whether this section is already added to schedule */
   isAdded?: boolean
+  /** Optional term label shown when sections span multiple terms */
+  termLabel?: string
 }
 
 // Single-letter day abbreviations (R = Thursday to distinguish from Tuesday)
@@ -97,6 +99,7 @@ export function SectionCard({
   onPrefetch,
   onAdd,
   isAdded = false,
+  termLabel,
 }: SectionCardProps) {
   const [copied, setCopied] = useState(false)
   const hasMeetings = section.meetingTimes.length > 0
@@ -178,6 +181,14 @@ export function SectionCard({
                 <span className="text-muted-foreground">·</span>
                 <span className="truncate text-sm text-muted-foreground">
                   {decodeHtmlEntities(section.instructor)}
+                </span>
+              </>
+            )}
+            {termLabel && (
+              <>
+                <span className="text-muted-foreground">·</span>
+                <span className="shrink-0 text-xs text-muted-foreground">
+                  {termLabel}
                 </span>
               </>
             )}
