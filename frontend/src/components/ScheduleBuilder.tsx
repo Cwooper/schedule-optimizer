@@ -172,7 +172,7 @@ export function ScheduleBuilder() {
 
     if (existingSlot) {
       const existingSections = existingSlot.sections ?? []
-      if (!existingSections.some((s) => s.crn === section.crn)) {
+      if (!existingSections.some((s) => s.crn === section.crn && s.term === section.term)) {
         updateSlot(existingSlot.id, {
           sections: [...existingSections, sectionFilter],
           title: existingSlot.title || section.title,
@@ -396,18 +396,18 @@ export function ScheduleBuilder() {
                     updateSlot(slot.id, { required: !slot.required })
                   }
                   onRemove={() => removeSlot(slot.id)}
-                  onRemoveSection={(crn) => {
+                  onRemoveSection={(crn, sectionTerm) => {
                     const newSections = slot.sections?.filter(
-                      (s) => s.crn !== crn
+                      (s) => !(s.crn === crn && s.term === sectionTerm)
                     )
                     // Set to null (all sections) when last specific section is removed
                     updateSlot(slot.id, {
                       sections: newSections?.length ? newSections : null,
                     })
                   }}
-                  onToggleSectionRequired={(crn) => {
+                  onToggleSectionRequired={(crn, sectionTerm) => {
                     const newSections = slot.sections?.map((s) =>
-                      s.crn === crn ? { ...s, required: !s.required } : s
+                      s.crn === crn && s.term === sectionTerm ? { ...s, required: !s.required } : s
                     )
                     updateSlot(slot.id, { sections: newSections })
                   }}

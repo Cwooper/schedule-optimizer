@@ -79,7 +79,20 @@ describe("getGenerateWarnings", () => {
     )
   })
 
-  it("combines multiple course issues into bullet list", () => {
+  it("summarizes multiple courses with same status", () => {
+    const data = makeResponse({
+      schedules: [{ crns: ["123"], score: 1, weights: [] }],
+      courseResults: [
+        { name: "CSCI 999", status: "not_exists" },
+        { name: "MATH 888", status: "not_exists" },
+      ],
+    })
+    const warnings = getGenerateWarnings(data)
+    expect(warnings).toHaveLength(1)
+    expect(warnings[0].message).toBe("2 courses don't exist")
+  })
+
+  it("produces separate warnings for different status types", () => {
     const data = makeResponse({
       schedules: [{ crns: ["123"], score: 1, weights: [] }],
       courseResults: [
@@ -88,11 +101,25 @@ describe("getGenerateWarnings", () => {
       ],
     })
     const warnings = getGenerateWarnings(data)
-    expect(warnings).toHaveLength(1)
-    expect(warnings[0].message).toContain("Course issues:")
-    expect(warnings[0].message).toContain("CSCI 999 doesn't exist")
-    expect(warnings[0].message).toContain(
-      "MATH 101 is not offered this term"
+    expect(warnings).toHaveLength(2)
+    expect(warnings[0].message).toBe("CSCI 999 doesn't exist")
+    expect(warnings[1].message).toBe("MATH 101 is not offered this term")
+  })
+
+  it("mixes summary and individual for different statuses", () => {
+    const data = makeResponse({
+      schedules: [{ crns: ["123"], score: 1, weights: [] }],
+      courseResults: [
+        { name: "CSCI 999", status: "not_exists" },
+        { name: "MATH 888", status: "not_exists" },
+        { name: "PHYS 101", status: "async_only" },
+      ],
+    })
+    const warnings = getGenerateWarnings(data)
+    expect(warnings).toHaveLength(2)
+    expect(warnings[0].message).toBe("2 courses don't exist")
+    expect(warnings[1].message).toBe(
+      "PHYS 101 only has async sections (shown separately)"
     )
   })
 
