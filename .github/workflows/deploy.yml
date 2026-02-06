@@ -20,7 +20,7 @@ jobs:
           script: |
             set -e
             export PATH="/usr/local/go/bin:$HOME/go/bin:$HOME/.local/share/pnpm:$PATH"
-            cd ~/Code/schedule-optimizer
+            cd ~/schedule-optimizer
 
             # Pull latest changes
             echo "Pulling latest changes..."
@@ -47,6 +47,6 @@ jobs:
 
             # Restart service
             echo "Restarting service..."
-            sudo systemctl restart cwooper-schedule-optimizer
+            sudo systemctl restart schedule-optimizer
 
             echo "Deploy complete!"
