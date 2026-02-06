@@ -1,24 +1,55 @@
-# Makefile
-# Used for compiling protobufs
+.PHONY: build run test sqlc migrate-up migrate-down migrate-create build-frontend
 
-# Variables
-PROTO_DIR := internal/models/proto
-PROTO_GO_DIR := internal/proto/generated
+# Database path
+DB_PATH ?= data/schedule.db
+MIGRATIONS_PATH = migrations
 
-# Targets
-.PHONY: proto
-proto:
-	protoc --go_out=$(PROTO_GO_DIR) --go_opt=paths=source_relative \
-		--proto_path=$(PROTO_DIR) $(PROTO_DIR)/*.proto
-	@echo "Protocol Buffers saved in $(PROTO_GO_DIR)."
+# Build frontend (compiles to internal/static/dist)
+build-frontend:
+	cd ../frontend && pnpm build
 
-.PHONY: clean
-clean:
-	rm -f $(PROTO_GO_DIR)/*.pb.go
+# Build the server (includes frontend)
+build: build-frontend
+	go build -o bin/server ./cmd/server
 
-.PHONY: help
-help:
-	@echo "Available targets:"
-	@echo "  proto  - Compile Protocol Buffer files"
-	@echo "  clean  - Remove generated Protocol Buffer Go files"
-	@echo "  help   - Show this help message"
+# Build server only (assumes frontend already built)
+build-server:
+	go build -o bin/server ./cmd/server
+
+# Run the server
+run:
+	go run ./cmd/server
+
+# Run tests
+test:
+	go test ./...
+
+# Run tests with coverage
+test-coverage:
+	go test -cover ./...
+
+# Run benchmarks
+bench:
+	go test -bench=. ./...
+
+# Generate sqlc code
+sqlc:
+	sqlc generate
+
+# Run database migrations
+migrate-up:
+	migrate -path $(MIGRATIONS_PATH) -database "sqlite3://$(DB_PATH)" up
+
+migrate-down:
+	migrate -path $(MIGRATIONS_PATH) -database "sqlite3://$(DB_PATH)" down
+
+migrate-drop:
+	migrate -path $(MIGRATIONS_PATH) -database "sqlite3://$(DB_PATH)" drop -f
+
+# Create a new migration (usage: make migrate-create name=add_foo_table)
+migrate-create:
+	migrate create -ext sql -dir $(MIGRATIONS_PATH) -seq $(name)
+
+# Tidy dependencies
+tidy:
+	go mod tidy

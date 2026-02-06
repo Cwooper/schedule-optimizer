@@ -2,49 +2,37 @@ import js from '@eslint/js'
 import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
+import jsxA11y from 'eslint-plugin-jsx-a11y'
+import sonarjs from 'eslint-plugin-sonarjs'
 import tseslint from 'typescript-eslint'
+import { defineConfig, globalIgnores } from 'eslint/config'
 
-export default tseslint.config(
-  { ignores: ['dist'] },
+export default defineConfig([
+  globalIgnores(['dist']),
   {
+    files: ['**/*.{ts,tsx}'],
     extends: [
       js.configs.recommended,
-      ...tseslint.configs.recommendedTypechecked,
-      ...tseslint.configs.stylisticTypeChecked // Added stylistic rules
+      tseslint.configs.recommended,
+      reactHooks.configs.flat.recommended,
+      reactRefresh.configs.vite,
+      jsxA11y.flatConfigs.recommended,
+      sonarjs.configs.recommended,
     ],
-    files: ['**/*.{ts,tsx,css}'],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: {
-        ...globals.browser,
-        React: 'readonly'
-      },
-      parser: tseslint.parser,
-      parserOptions: {
-        project: './tsconfig.app.json',  // Enable project-wide type checking
-      }
-    },
-    plugins: {
-      '@typescript-eslint': tseslint.plugin,
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
+      globals: globals.browser,
     },
     rules: {
-      ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-
-      // Strict TypeScript rules
-      '@typescript-eslint/no-explicit-any': 'error',
-      '@typescript-eslint/explicit-function-return-type': 'error',
-      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-      '@typescript-eslint/no-non-null-assertion': 'error',
-      '@typescript-eslint/strict-boolean-expressions': 'error',
-      '@typescript-eslint/no-floating-promises': 'error',
-
-      // General strictness
-      'no-console': ['warn', { allow: ['warn', 'error'] }],
-      'prefer-const': 'error',
-      'eqeqeq': ['error', 'always'],
+      'sonarjs/todo-tag': 'off', // TODOs are intentional markers
     },
   },
-)
+  {
+    // shadcn/ui generated components — suppress lint rules for generated code
+    files: ['src/components/ui/**/*.{ts,tsx}'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+      'jsx-a11y/heading-has-content': 'off',
+    },
+  },
+])

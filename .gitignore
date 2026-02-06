@@ -1,5 +1,59 @@
-# Frontend download, build
-build/
-frontend/node_modules/
-data/server_stats.json
+# Node modules
+/node_modules/
 
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+*.log
+logs/
+
+# Build / output
+/dist/
+/build/
+/out/
+/coverage/
+/.nyc_output/
+
+# Environment files
+.env
+.env.*.local
+.env.local
+
+# Editor / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Caches and tool directories
+.cache/
+.parcel-cache/
+.eslintcache
+.pnp.*
+.turbo/
+
+# SQLite files
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.sqlite-shm
+*.sqlite-wal
+*.db-shm
+*.db-wal
+
+# Data directory
+backend/data/
+
+# Go binaries and test binaries
+backend/bin/
+backend/server
+*.test
+
+# Air (Go hot reload)
+backend/tmp/
+
+# Embedded frontend build (built from frontend/)
+backend/internal/static/dist/
+!backend/internal/static/dist/.gitkeep
