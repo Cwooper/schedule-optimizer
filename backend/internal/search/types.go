@@ -27,6 +27,15 @@ type CourseInfo struct {
 	CreditsHigh  int    `json:"creditsHigh,omitempty"`
 }
 
+// MeetingTimeInfo represents a single meeting time for a section.
+type MeetingTimeInfo struct {
+	Days      []bool `json:"days"` // [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
+	StartTime string `json:"startTime"`
+	EndTime   string `json:"endTime"`
+	Building  string `json:"building"`
+	Room      string `json:"room"`
+}
+
 // SectionInfo contains section-level data sent once per unique term:CRN combination.
 type SectionInfo struct {
 	CRN             string            `json:"crn"`
@@ -41,6 +50,7 @@ type SectionInfo struct {
 	IsOpen          bool              `json:"isOpen"`
 	Campus          string            `json:"campus,omitempty"`
 	ScheduleType    string            `json:"scheduleType,omitempty"`
+	MeetingTimes    []MeetingTimeInfo `json:"meetingTimes"`
 }
 
 // CourseRef groups sections of a course with relevance score.

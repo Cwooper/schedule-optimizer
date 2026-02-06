@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
+	"log/slog"
 	"slices"
 	"strings"
 	"time"
@@ -117,11 +118,43 @@ func (s *Service) Search(ctx context.Context, req SearchRequest) (*SearchRespons
 		row.RelevanceScore = totalScore
 	}
 
-	return s.buildResponse(rows, sectionLimitHit, startTime)
+	return s.buildResponse(ctx, rows, sectionLimitHit, startTime)
 }
 
 // buildResponse groups sections by course and builds the normalized response.
-func (s *Service) buildResponse(rows []*sectionRow, sectionLimitHit bool, startTime time.Time) (*SearchResponse, error) {
+func (s *Service) buildResponse(ctx context.Context, rows []*sectionRow, sectionLimitHit bool, startTime time.Time) (*SearchResponse, error) {
+	// Batch-fetch meeting times for all sections in one query
+	sectionIDs := make([]int64, len(rows))
+	idToKey := make(map[int64]string, len(rows))
+	for i, row := range rows {
+		sectionIDs[i] = row.ID
+		idToKey[row.ID] = row.Term + ":" + row.CRN
+	}
+
+	meetingsByKey := make(map[string][]MeetingTimeInfo, len(rows))
+	meetingRows, err := s.queries.GetMeetingTimesBySectionIDs(ctx, sectionIDs)
+	if err != nil {
+		slog.Error("Failed to fetch meeting times for search results", "error", err, "sectionCount", len(sectionIDs))
+	}
+	for _, m := range meetingRows {
+		key := idToKey[m.SectionID]
+		meetingsByKey[key] = append(meetingsByKey[key], MeetingTimeInfo{
+			Days: []bool{
+				m.Sunday.Valid && m.Sunday.Int64 != 0,
+				m.Monday.Valid && m.Monday.Int64 != 0,
+				m.Tuesday.Valid && m.Tuesday.Int64 != 0,
+				m.Wednesday.Valid && m.Wednesday.Int64 != 0,
+				m.Thursday.Valid && m.Thursday.Int64 != 0,
+				m.Friday.Valid && m.Friday.Int64 != 0,
+				m.Saturday.Valid && m.Saturday.Int64 != 0,
+			},
+			StartTime: nullString(m.StartTime),
+			EndTime:   nullString(m.EndTime),
+			Building:  nullString(m.Building),
+			Room:      nullString(m.Room),
+		})
+	}
+
 	courses := make(map[string]CourseInfo)
 	sections := make(map[string]SectionInfo)
 
@@ -154,6 +187,10 @@ func (s *Service) buildResponse(rows []*sectionRow, sectionLimitHit bool, startT
 		}
 
 		// Add section (keyed by term:crn for cross-term uniqueness)
+		meetings := meetingsByKey[sectionKey]
+		if meetings == nil {
+			meetings = []MeetingTimeInfo{}
+		}
 		sections[sectionKey] = SectionInfo{
 			CRN:             row.CRN,
 			Term:            row.Term,
@@ -167,6 +204,7 @@ func (s *Service) buildResponse(rows []*sectionRow, sectionLimitHit bool, startT
 			IsOpen:          row.IsOpen,
 			Campus:          row.Campus,
 			ScheduleType:    row.ScheduleType,
+			MeetingTimes:    meetings,
 		}
 
 		// Update course ref
