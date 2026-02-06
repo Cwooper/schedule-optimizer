@@ -37,21 +37,30 @@ function App() {
   const courseDialog = useAppStore((s) => s.courseDialog)
   const closeCourseDialog = useAppStore((s) => s.closeCourseDialog)
 
-  // Merge both datasets so the dialog works regardless of where it was opened.
-  // Course keys use the same format (SUBJECT:NUMBER) — search data (fresher) overrides.
-  // Section keys differ (CRN vs term:CRN) so they coexist without collision.
-  // Search sections lack meetingTimes — pad with empty array for dialog compatibility.
-  // The dialog's CRN fallback fetch handles loading them on expand.
-  const paddedSearchSections = searchResult?.sections
-    ? Object.fromEntries(
+  // Select the correct data source based on which view opened the dialog.
+  // This prevents duplicate sections when the same course exists in both
+  // generate and search results (they use different section key formats).
+  const dialogSource = courseDialog.source
+  const dialogCourses =
+    dialogSource === "search"
+      ? searchResult?.courses
+      : dialogSource === "schedule"
+        ? generateResult?.courses
+        : undefined
+  const dialogSections = (() => {
+    if (dialogSource === "schedule") return generateResult?.sections
+    if (dialogSource === "search" && searchResult?.sections) {
+      // Search sections lack meetingTimes — pad with empty array.
+      // The dialog's CRN fallback fetch handles loading them on expand.
+      return Object.fromEntries(
         Object.entries(searchResult.sections).map(([key, s]) => [
           key,
           { ...s, meetingTimes: [] as MeetingTime[] },
         ])
       )
-    : {}
-  const dialogCourses = { ...generateResult?.courses, ...searchResult?.courses }
-  const dialogSections = { ...generateResult?.sections, ...paddedSearchSections }
+    }
+    return undefined
+  })()
 
   // Self-contained handler — receives all info from the dialog, no data source lookup
   const handleAddSection = useCallback(

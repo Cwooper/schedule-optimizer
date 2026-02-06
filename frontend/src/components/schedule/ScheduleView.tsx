@@ -128,7 +128,7 @@ export function ScheduleView() {
   }
 
   const handleCourseClick = (crn: string) => {
-    openCourseDialog({ crn })
+    openCourseDialog({ crn, source: "schedule" })
   }
 
   const handleBlockedTimeClick = (groupId: string) => {

@@ -123,12 +123,6 @@ function DialogContentInner({
 
   const totalSections = courseSections.length
 
-  // Show term labels only when sections span multiple terms
-  const isMultiTerm = useMemo(() => {
-    const terms = new Set(courseSections.map((s) => s.term))
-    return terms.size > 1
-  }, [courseSections])
-
   return (
     <>
       <DialogHeader>
@@ -170,7 +164,7 @@ function DialogContentInner({
             onPrefetch={() => handlePrefetch(section.crn)}
             onAdd={onAddSection ? () => onAddSection(section.crn, section.term, { subject: course.subject, courseNumber: course.courseNumber, title: course.title }, section.instructor ?? null) : undefined}
             isAdded={isSectionAdded?.(section.crn) ?? false}
-            termLabel={isMultiTerm ? formatTermCode(section.term) : undefined}
+            termLabel={formatTermCode(section.term)}
           />
         ))}
       </div>

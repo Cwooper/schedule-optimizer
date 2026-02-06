@@ -153,6 +153,7 @@ interface CourseDialogState {
   open: boolean
   selectedCrn?: string
   selectedCourseKey?: string
+  source?: "schedule" | "search"
 }
 
 interface AppState {
@@ -219,7 +220,7 @@ interface AppState {
   setCurrentScheduleIndex: (index: number) => void
   getSlotsVersion: () => number
   isGenerateResultStale: () => boolean
-  openCourseDialog: (opts: { crn?: string; courseKey?: string }) => void
+  openCourseDialog: (opts: { crn?: string; courseKey?: string; source: "schedule" | "search" }) => void
   closeCourseDialog: () => void
   requestRegenerate: () => void
   clearRegenerateRequest: () => void
@@ -440,6 +441,7 @@ export const useAppStore = create<AppState>()(
             open: true,
             selectedCrn: opts.crn,
             selectedCourseKey: opts.courseKey,
+            source: opts.source,
           },
         }),
 
