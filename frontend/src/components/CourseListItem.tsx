@@ -170,9 +170,16 @@ export function CourseListItem({
 
   if (onClick) {
     return (
-      <button
-        type="button"
+      <div
+        role="button"
+        tabIndex={0}
         onClick={onClick}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault()
+            onClick()
+          }
+        }}
         className={cn(
           "flex w-full items-center py-3 px-3 text-left text-sm transition-colors rounded-lg border cursor-pointer",
           "hover:bg-muted/50 hover:border-muted-foreground/20",
@@ -180,7 +187,7 @@ export function CourseListItem({
         )}
       >
         {content}
-      </button>
+      </div>
     )
   }
 
