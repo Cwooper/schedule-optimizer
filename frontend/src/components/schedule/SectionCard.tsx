@@ -135,78 +135,80 @@ export const SectionCard = memo(function SectionCard({
         onFocus={onPrefetch}
       >
         {/* Header - always visible */}
-        <CollapsibleTrigger
-          className={cn(
-            "flex w-full items-center gap-3 p-3 text-left",
-            isClickable && "cursor-pointer hover:bg-muted/50"
-          )}
-          disabled={!isClickable}
-        >
-          {/* Expand indicator */}
-          <div className="shrink-0 text-muted-foreground">
-            {expanded ? (
-              <ChevronDown className="size-4" />
-            ) : (
-              <ChevronRight className="size-4" />
+        <div className="flex items-center gap-3 p-3">
+          <CollapsibleTrigger
+            className={cn(
+              "flex min-w-0 flex-1 items-center gap-3 text-left",
+              isClickable && "cursor-pointer hover:bg-muted/50 rounded-md -m-1.5 p-1.5"
             )}
-          </div>
-
-          {/* CRN + copy + instructor */}
-          <div className="flex min-w-0 flex-1 items-baseline gap-1.5">
-            <span className="shrink-0 font-mono text-sm font-medium">
-              {section.crn}
-            </span>
-            <div
-              role="button"
-              tabIndex={0}
-              className="shrink-0 inline-flex size-5 translate-y-0.5 items-center justify-center rounded hover:bg-muted"
-              onClick={handleCopy}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault()
-                  handleCopy(e)
-                }
-              }}
-              title="Copy CRN"
-              aria-label={copied ? "CRN copied" : "Copy CRN to clipboard"}
-            >
-              {copied ? (
-                <Check className="size-3 text-emerald-600" />
+            disabled={!isClickable}
+          >
+            {/* Expand indicator */}
+            <div className="shrink-0 text-muted-foreground">
+              {expanded ? (
+                <ChevronDown className="size-4" />
               ) : (
-                <Copy className="size-3 text-muted-foreground" />
+                <ChevronRight className="size-4" />
               )}
             </div>
-            {section.instructor && (
-              <span className="hidden items-baseline gap-1.5 sm:flex">
-                <span className="text-muted-foreground">·</span>
-                <span className="truncate text-sm text-muted-foreground">
-                  {decodeHtmlEntities(section.instructor)}
-                </span>
+
+            {/* CRN + copy + instructor */}
+            <div className="flex min-w-0 flex-1 items-baseline gap-1.5">
+              <span className="shrink-0 font-mono text-sm font-medium">
+                {section.crn}
               </span>
-            )}
-            {termLabel && (
-              <>
-                <span className="text-muted-foreground">·</span>
-                <span className="shrink-0 text-xs text-muted-foreground">
-                  {termLabel}
+              <div
+                role="button"
+                tabIndex={0}
+                className="shrink-0 inline-flex size-5 translate-y-0.5 items-center justify-center rounded hover:bg-muted"
+                onClick={handleCopy}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault()
+                    handleCopy(e)
+                  }
+                }}
+                title="Copy CRN"
+                aria-label={copied ? "CRN copied" : "Copy CRN to clipboard"}
+              >
+                {copied ? (
+                  <Check className="size-3 text-emerald-600" />
+                ) : (
+                  <Copy className="size-3 text-muted-foreground" />
+                )}
+              </div>
+              {section.instructor && (
+                <span className="hidden items-baseline gap-1.5 sm:flex">
+                  <span className="text-muted-foreground">·</span>
+                  <span className="truncate text-sm text-muted-foreground">
+                    {decodeHtmlEntities(section.instructor)}
+                  </span>
                 </span>
-              </>
-            )}
-          </div>
+              )}
+              {termLabel && (
+                <>
+                  <span className="text-muted-foreground">·</span>
+                  <span className="shrink-0 text-xs text-muted-foreground">
+                    {termLabel}
+                  </span>
+                </>
+              )}
+            </div>
 
-          {/* Status badge */}
-          <div
-            className={cn(
-              "shrink-0 rounded-full px-1.5 py-0.5 text-xs font-medium sm:px-2",
-              section.isOpen
-                ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-400"
-                : "bg-red-500/15 text-red-700 dark:text-red-400"
-            )}
-          >
-            {section.isOpen ? "Open" : "Closed"}
-          </div>
+            {/* Status badge */}
+            <div
+              className={cn(
+                "shrink-0 rounded-full px-1.5 py-0.5 text-xs font-medium sm:px-2",
+                section.isOpen
+                  ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-400"
+                  : "bg-red-500/15 text-red-700 dark:text-red-400"
+              )}
+            >
+              {section.isOpen ? "Open" : "Closed"}
+            </div>
+          </CollapsibleTrigger>
 
-          {/* Add button */}
+          {/* Add button - outside the trigger to avoid nested buttons */}
           {onAdd && (
             <Button
               variant="ghost"
@@ -222,7 +224,7 @@ export const SectionCard = memo(function SectionCard({
               {isAdded ? <Check className="size-4" /> : <Plus className="size-4" />}
             </Button>
           )}
-        </CollapsibleTrigger>
+        </div>
 
         {/* Expanded details */}
         <CollapsibleContent>
