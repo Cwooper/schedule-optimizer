@@ -35,7 +35,7 @@ export function HelpDialog() {
     setSubmitting(true)
     try {
       await submitFeedback(trimmed)
-      toast.success("Thanks for the feedback!")
+      toast.success("Thank you for the feedback!")
       resetFeedback()
     } catch {
       toast.error("Failed to submit feedback. Please try again.")
