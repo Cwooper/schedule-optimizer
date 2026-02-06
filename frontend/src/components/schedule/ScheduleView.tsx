@@ -12,7 +12,6 @@ import {
   Check,
   Loader2,
 } from "lucide-react"
-import { toPng } from "html-to-image"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -27,11 +26,13 @@ import {
 } from "@/components/ui/tooltip"
 import { ScheduleGrid } from "./ScheduleGrid"
 import { BlockedTimesDialog } from "./BlockedTimesDialog"
-import { useAppStore } from "@/stores/app-store"
+import { useAppStore, type BlockedTimeBlock } from "@/stores/app-store"
 import { useTerms } from "@/hooks/use-api"
+import { useExportPng } from "@/hooks/use-export-png"
 import { hydrateSchedule } from "@/lib/schedule-utils"
 import { cn } from "@/lib/utils"
 
+// eslint-disable-next-line sonarjs/cognitive-complexity
 export function ScheduleView() {
   const {
     generateResult,
@@ -56,8 +57,9 @@ export function ScheduleView() {
   const [spinCount, setSpinCount] = useState(0)
   const [dialogOpen, setDialogOpen] = useState(false)
   const [focusedGroupId, setFocusedGroupId] = useState<string | null>(null)
-  const [isExporting, setIsExporting] = useState(false)
   const gridRef = useRef<HTMLDivElement>(null)
+  const termName = termsData?.terms.find((t) => t.code === term)?.name
+  const { isExporting, handleDownloadPng } = useExportPng(gridRef, termName)
 
   const isEditing = editingBlockedTimeGroupId != null
   const editingGroup = blockedTimeGroups.find(
@@ -134,64 +136,32 @@ export function ScheduleView() {
     setDialogOpen(true)
   }
 
-  const handleDownloadPng = useCallback(async () => {
-    const node = gridRef.current
-    if (!node) return
-
-    setIsExporting(true)
-    try {
-      const EXPORT_WIDTH = 1200
-      const bgColor = getComputedStyle(document.body).backgroundColor
-
-      // Temporarily resize the node so the browser re-layouts at export width
-      const savedCssText = node.style.cssText
-      Object.assign(node.style, {
-        width: `${EXPORT_WIDTH}px`,
-        height: "auto",
-        overflow: "visible",
-        flex: "none",
-      })
-
-      const dataUrl = await toPng(node, {
-        pixelRatio: 2,
-        backgroundColor: bgColor,
-      })
-
-      // Restore original styles
-      node.style.cssText = savedCssText
-
-      const blob = await (await fetch(dataUrl)).blob()
-      const termName = termsData?.terms.find((t) => t.code === term)?.name
-      const fileName = termName
-        ? `${termName.replace(/\s+/g, "")}-Schedule.png`
-        : "Schedule.png"
-
-      // Try Web Share API first (requires secure context / HTTPS)
-      if (navigator.share) {
-        try {
-          const file = new File([blob], fileName, { type: "image/png" })
-          await navigator.share({ files: [file], title: "My Schedule" })
-          return
-        } catch (err) {
-          if (err instanceof Error && err.name === "AbortError") return
-          // Other errors (NotAllowedError, TypeError, etc.): fall through to download
-        }
+  const handleAddBlock = useCallback(
+    (block: BlockedTimeBlock) => {
+      if (editingBlockedTimeGroupId) {
+        addBlockToGroup(editingBlockedTimeGroupId, block)
       }
+    },
+    [editingBlockedTimeGroupId, addBlockToGroup]
+  )
 
-      // Fallback: standard file download
-      const link = document.createElement("a")
-      link.download = fileName
-      link.href = URL.createObjectURL(blob)
-      link.click()
-      URL.revokeObjectURL(link.href)
-    } catch (err) {
-      if (err instanceof Error && err.name !== "AbortError") {
-        console.error("PNG export failed:", err)
+  const handleUpdateBlock = useCallback(
+    (blockId: string, block: BlockedTimeBlock) => {
+      if (editingBlockedTimeGroupId) {
+        updateBlockInGroupById(editingBlockedTimeGroupId, blockId, block)
       }
-    } finally {
-      setIsExporting(false)
-    }
-  }, [term, termsData])
+    },
+    [editingBlockedTimeGroupId, updateBlockInGroupById]
+  )
+
+  const handleRemoveBlock = useCallback(
+    (blockId: string) => {
+      if (editingBlockedTimeGroupId) {
+        removeBlockFromGroupById(editingBlockedTimeGroupId, blockId)
+      }
+    },
+    [editingBlockedTimeGroupId, removeBlockFromGroupById]
+  )
 
   return (
     <div className="flex h-full flex-col">
@@ -321,21 +291,9 @@ export function ScheduleView() {
           onBlockedTimeClick={handleBlockedTimeClick}
           blockedTimeGroups={blockedTimeGroups}
           editingGroupId={editingBlockedTimeGroupId}
-          onAddBlock={(block) => {
-            if (editingBlockedTimeGroupId) {
-              addBlockToGroup(editingBlockedTimeGroupId, block)
-            }
-          }}
-          onUpdateBlock={(blockId, block) => {
-            if (editingBlockedTimeGroupId) {
-              updateBlockInGroupById(editingBlockedTimeGroupId, blockId, block)
-            }
-          }}
-          onRemoveBlock={(blockId) => {
-            if (editingBlockedTimeGroupId) {
-              removeBlockFromGroupById(editingBlockedTimeGroupId, blockId)
-            }
-          }}
+          onAddBlock={handleAddBlock}
+          onUpdateBlock={handleUpdateBlock}
+          onRemoveBlock={handleRemoveBlock}
         />
       </div>
 

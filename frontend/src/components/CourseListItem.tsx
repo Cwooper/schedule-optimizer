@@ -1,5 +1,5 @@
 import { Plus, Check } from "lucide-react"
-import { cn, decodeHtmlEntities } from "@/lib/utils"
+import { cn, decodeHtmlEntities, formatTermCode } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 
 // Flexible section info - works with both search and generate responses
@@ -72,20 +72,7 @@ function getTerms(sections: CourseListSectionInfo[]): string {
   return `${terms.length} terms`
 }
 
-/** Format term code to readable name */
-function formatTermCode(code: string): string {
-  if (code.length !== 6) return code
-  const year = code.slice(0, 4)
-  const quarter = code.slice(4)
-  const quarterNames: Record<string, string> = {
-    "10": "Winter",
-    "20": "Spring",
-    "30": "Summer",
-    "40": "Fall",
-  }
-  const name = quarterNames[quarter]
-  return name ? `${name} ${year}` : code
-}
+
 
 /** Check if course has any open sections */
 function hasOpenSections(sections: CourseListSectionInfo[]): boolean {

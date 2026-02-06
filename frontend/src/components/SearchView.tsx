@@ -90,6 +90,9 @@ export function SearchView() {
   useEffect(() => {
     if (searchData) {
       setSearchResult(searchData)
+      if (searchData.warning) {
+        toast.warning(searchData.warning)
+      }
     }
   }, [searchData, setSearchResult])
 
@@ -361,11 +364,6 @@ export function SearchView() {
           Found {searchResult.total} courses (
           {searchResult.stats.totalSections} sections) in{" "}
           {searchResult.stats.timeMs.toFixed(1)}ms
-          {searchResult.warning && (
-            <span className="ml-2 text-amber-600 dark:text-amber-400">
-              — {searchResult.warning}
-            </span>
-          )}
         </div>
       )}
     </div>
