@@ -46,9 +46,10 @@ Thumbs.db
 # Data directory
 backend/data/
 
-# Go binaries
+# Go binaries and test binaries
 backend/bin/
 backend/server
+*.test
 
 # Air (Go hot reload)
 backend/tmp/
