@@ -26,6 +26,9 @@ logs/
 .DS_Store
 Thumbs.db
 
+# TypeScript build info
+*.tsbuildinfo
+
 # Caches and tool directories
 .cache/
 .parcel-cache/
