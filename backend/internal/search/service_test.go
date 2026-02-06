@@ -467,7 +467,7 @@ func TestSearch_NoResults(t *testing.T) {
 	}
 }
 
-func TestSearch_MeetingTimes(t *testing.T) {
+func TestSearch_NoMeetingTimes(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	defer db.Close()
 	testutil.SeedTestData(t, db)
@@ -487,22 +487,18 @@ func TestSearch_MeetingTimes(t *testing.T) {
 		t.Fatalf("expected 1 course, got %d", len(resp.Results))
 	}
 
-	// Get the section from results
+	// Verify section exists and has expected fields but no meetingTimes
 	sectionKey := resp.Results[0].SectionKeys[0]
 	section, exists := resp.Sections[sectionKey]
 	if !exists {
 		t.Fatal("section key from results not found in sections map")
 	}
 
-	if len(section.MeetingTimes) == 0 {
-		t.Error("expected meeting times to be populated")
+	if section.CRN == "" {
+		t.Error("expected section to have a CRN")
 	}
-
-	if len(section.MeetingTimes) > 0 {
-		mt := section.MeetingTimes[0]
-		if mt.StartTime != "1000" || mt.EndTime != "1050" {
-			t.Errorf("expected meeting time 1000-1050, got %s-%s", mt.StartTime, mt.EndTime)
-		}
+	if section.Term != "202520" {
+		t.Errorf("expected term 202520, got %s", section.Term)
 	}
 }
 

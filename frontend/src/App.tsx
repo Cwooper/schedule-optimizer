@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/drawer"
 import { useAppStore } from "@/stores/app-store"
 import { genId } from "@/lib/utils"
+import type { MeetingTime } from "@/lib/api"
 
 // TODO: Use framer-motion for more animations (course list enter/exit, tab content transitions, schedule navigation)
 
@@ -39,8 +40,18 @@ function App() {
   // Merge both datasets so the dialog works regardless of where it was opened.
   // Course keys use the same format (SUBJECT:NUMBER) — search data (fresher) overrides.
   // Section keys differ (CRN vs term:CRN) so they coexist without collision.
+  // Search sections lack meetingTimes — pad with empty array for dialog compatibility.
+  // The dialog's CRN fallback fetch handles loading them on expand.
+  const paddedSearchSections = searchResult?.sections
+    ? Object.fromEntries(
+        Object.entries(searchResult.sections).map(([key, s]) => [
+          key,
+          { ...s, meetingTimes: [] as MeetingTime[] },
+        ])
+      )
+    : {}
   const dialogCourses = { ...generateResult?.courses, ...searchResult?.courses }
-  const dialogSections = { ...generateResult?.sections, ...searchResult?.sections }
+  const dialogSections = { ...generateResult?.sections, ...paddedSearchSections }
 
   // Self-contained handler — receives all info from the dialog, no data source lookup
   const handleAddSection = useCallback(
