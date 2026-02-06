@@ -29,7 +29,7 @@ import {
   getAcademicYearsFromTerms,
   formatAcademicYear,
 } from "@/lib/schedule-utils"
-import { cn, genId } from "@/lib/utils"
+import { cn } from "@/lib/utils"
 
 const EMPTY_SUBJECTS: { code: string; name: string }[] = []
 const SCOPE_OPTIONS: { value: SearchScope; label: string }[] = [
@@ -44,7 +44,7 @@ export function SearchView() {
   const clearSearchFilters = useAppStore((s) => s.clearSearchFilters)
   const searchResult = useAppStore((s) => s.searchResult)
   const setSearchResult = useAppStore((s) => s.setSearchResult)
-  const addSlot = useAppStore((s) => s.addSlot)
+  const addCourseToSlot = useAppStore((s) => s.addCourseToSlot)
   const slots = useAppStore((s) => s.slots)
   const openCourseDialog = useAppStore((s) => s.openCourseDialog)
   const closeCourseDialog = useAppStore((s) => s.closeCourseDialog)
@@ -135,21 +135,19 @@ export function SearchView() {
       const course = searchResult.courses[courseKey]
       if (!course) return
 
-      addSlot({
-        id: genId(),
-        subject: course.subject,
-        courseNumber: course.courseNumber,
-        displayName: `${course.subject} ${course.courseNumber}`,
-        title: course.title,
-        required: true,
-        sections: null,
-      })
-      toast.success(
-        `Added ${course.subject} ${course.courseNumber} to schedule`
-      )
+      const result = addCourseToSlot(course.subject, course.courseNumber, course.title)
+      if (result === "added") {
+        toast.success(
+          `Added ${course.subject} ${course.courseNumber} to schedule`
+        )
+      } else if (result === "updated") {
+        toast.success(
+          `Updated ${course.subject} ${course.courseNumber} in schedule`
+        )
+      }
       closeCourseDialog()
     },
-    [searchResult, addSlot, closeCourseDialog]
+    [searchResult, addCourseToSlot, closeCourseDialog]
   )
 
   const terms = termsData?.terms ?? []

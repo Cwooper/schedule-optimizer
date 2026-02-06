@@ -234,7 +234,7 @@ export function ScheduleView() {
             </>
           ) : (
             <span className="text-muted-foreground flex h-9 items-center text-sm">
-              {generateResult ? "No valid schedules found" : "No schedules generated"}
+              {generateResult ? "No valid schedules found" : "No schedules yet"}
             </span>
           )}
 

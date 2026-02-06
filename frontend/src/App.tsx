@@ -19,7 +19,6 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer"
 import { useAppStore } from "@/stores/app-store"
-import { genId } from "@/lib/utils"
 
 // TODO: Use framer-motion for more animations (course list enter/exit, tab content transitions, schedule navigation)
 
@@ -32,7 +31,7 @@ function App() {
   const generateResult = useAppStore((s) => s.generateResult)
   const searchResult = useAppStore((s) => s.searchResult)
   const slots = useAppStore((s) => s.slots)
-  const addSlot = useAppStore((s) => s.addSlot)
+  const addSectionToSlot = useAppStore((s) => s.addSectionToSlot)
   const courseDialog = useAppStore((s) => s.courseDialog)
   const closeCourseDialog = useAppStore((s) => s.closeCourseDialog)
 
@@ -54,18 +53,14 @@ function App() {
   // Self-contained handler — receives all info from the dialog, no data source lookup
   const handleAddSection = useCallback(
     (crn: string, sectionTerm: string, course: { subject: string; courseNumber: string; title: string }, instructor: string | null) => {
-      addSlot({
-        id: genId(),
-        subject: course.subject,
-        courseNumber: course.courseNumber,
-        displayName: `${course.subject} ${course.courseNumber}`,
-        title: course.title,
-        required: false,
-        sections: [{ crn, term: sectionTerm, instructor, required: false }],
-      })
-      toast.success(`Added ${course.subject} ${course.courseNumber} (CRN: ${crn}) to schedule`)
+      const result = addSectionToSlot(crn, sectionTerm, course.subject, course.courseNumber, course.title, instructor)
+      if (result === "added") {
+        toast.success(`Added ${course.subject} ${course.courseNumber} (CRN: ${crn}) to schedule`)
+      } else if (result === "updated") {
+        toast.success(`Pinned CRN ${crn} to ${course.subject} ${course.courseNumber}`)
+      }
     },
-    [addSlot]
+    [addSectionToSlot]
   )
 
   const isSectionAdded = useCallback(
