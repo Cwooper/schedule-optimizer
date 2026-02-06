@@ -42,7 +42,7 @@ export function AboutDialog() {
               href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground inline-flex items-center gap-1 hover:underline"
+              className="text-foreground inline-flex items-baseline gap-1 hover:underline"
             >
               <SiGithub className="size-3" />
               GitHub
