@@ -130,15 +130,40 @@ function DialogContentInner({
   })
 
   const totalSections = courseSections.length
+  const useVirtual = totalSections > 50
 
   const scrollRef = useRef<HTMLDivElement>(null)
   // eslint-disable-next-line react-hooks/incompatible-library -- useVirtualizer returns mutable refs; React Compiler skips this component, which is fine since it's already isolated in DialogContentInner
   const virtualizer = useVirtualizer({
-    count: sectionsWithMeetings.length,
+    count: useVirtual ? sectionsWithMeetings.length : 0,
     getScrollElement: () => scrollRef.current,
     estimateSize: () => 52,
     overscan: 10,
+    enabled: useVirtual,
   })
+
+  const renderSectionCard = (section: HydratedSection) => (
+    <div key={`${section.term}:${section.crn}`} className="pb-2">
+      <SectionCard
+        section={section}
+        expanded={expandedSection === `${section.term}:${section.crn}`}
+        onToggleExpand={() => {
+          const key = `${section.term}:${section.crn}`
+          setExpandedSection((prev) => prev === key ? null : key)
+        }}
+        highlighted={section.crn === highlightCrn}
+        isLoadingDetails={
+          expandedSection === `${section.term}:${section.crn}` &&
+          isFetching &&
+          section.meetingTimes.length === 0
+        }
+        onPrefetch={() => handlePrefetch(section.crn, section.term)}
+        onAdd={onAddSection ? () => onAddSection(section.crn, section.term, { subject: course.subject, courseNumber: course.courseNumber, title: course.title }, section.instructor ?? null) : undefined}
+        isAdded={isSectionAdded?.(section.crn, section.term) ?? false}
+        termLabel={formatTermCode(section.term)}
+      />
+    </div>
+  )
 
   return (
     <>
@@ -182,49 +207,34 @@ function DialogContentInner({
         </Badge>
       </div>
 
-      {/* Virtualized section list */}
+      {/* Section list — plain render for ≤50 sections, virtualized for large lists */}
       <div
         ref={scrollRef}
         className="scrollbar-styled -mx-2 max-h-[50vh] overflow-y-auto px-2 py-1"
       >
-        <div
-          className="relative w-full"
-          style={{ height: virtualizer.getTotalSize() }}
-        >
-          {virtualizer.getVirtualItems().map((virtualItem) => {
-            const section = sectionsWithMeetings[virtualItem.index]
-            return (
-              <div
-                key={`${section.term}:${section.crn}`}
-                data-index={virtualItem.index}
-                ref={virtualizer.measureElement}
-                className="absolute left-0 w-full"
-                style={{ transform: `translateY(${virtualItem.start}px)` }}
-              >
-                <div className="pb-2">
-                  <SectionCard
-                    section={section}
-                    expanded={expandedSection === `${section.term}:${section.crn}`}
-                    onToggleExpand={() => {
-                      const key = `${section.term}:${section.crn}`
-                      setExpandedSection((prev) => prev === key ? null : key)
-                    }}
-                    highlighted={section.crn === highlightCrn}
-                    isLoadingDetails={
-                      expandedSection === `${section.term}:${section.crn}` &&
-                      isFetching &&
-                      section.meetingTimes.length === 0
-                    }
-                    onPrefetch={() => handlePrefetch(section.crn, section.term)}
-                    onAdd={onAddSection ? () => onAddSection(section.crn, section.term, { subject: course.subject, courseNumber: course.courseNumber, title: course.title }, section.instructor ?? null) : undefined}
-                    isAdded={isSectionAdded?.(section.crn, section.term) ?? false}
-                    termLabel={formatTermCode(section.term)}
-                  />
+        {useVirtual ? (
+          <div
+            className="relative w-full"
+            style={{ height: virtualizer.getTotalSize() }}
+          >
+            {virtualizer.getVirtualItems().map((virtualItem) => {
+              const section = sectionsWithMeetings[virtualItem.index]
+              return (
+                <div
+                  key={`${section.term}:${section.crn}`}
+                  data-index={virtualItem.index}
+                  ref={virtualizer.measureElement}
+                  className="absolute left-0 w-full"
+                  style={{ transform: `translateY(${virtualItem.start}px)` }}
+                >
+                  {renderSectionCard(section)}
                 </div>
-              </div>
-            )
-          })}
-        </div>
+              )
+            })}
+          </div>
+        ) : (
+          sectionsWithMeetings.map(renderSectionCard)
+        )}
       </div>
     </>
   )
