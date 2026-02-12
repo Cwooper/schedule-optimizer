@@ -193,23 +193,23 @@ func (s *Service) IsLoaded() bool {
 	return s.loaded
 }
 
-// LookupCourseGPA returns the course-level average GPA for a Banner course.
-func (s *Service) LookupCourseGPA(bannerSubject, courseNumber string) (float64, bool) {
+// LookupCourseGPA returns the course-level average GPA and pass rate for a Banner course.
+func (s *Service) LookupCourseGPA(bannerSubject, courseNumber string) (float64, *float64, bool) {
 	s.mu.RLock()
 	defer s.mu.RUnlock()
 
 	gradeSubject := s.mapSubject(bannerSubject)
 	key := gradeSubject + ":" + courseNumber
 	if agg, ok := s.courseAgg[key]; ok {
-		return agg.GPA, true
+		return agg.GPA, agg.PassRate, true
 	}
-	return 0, false
+	return 0, nil, false
 }
 
-// LookupSectionGPA returns the GPA for a specific section (course+instructor combo).
+// LookupSectionGPA returns the GPA, pass rate, and source for a specific section (course+instructor combo).
 // Falls back to course-level average if no course+prof aggregate exists.
 // Returns the source: "course_professor", "course", or "" (no data).
-func (s *Service) LookupSectionGPA(bannerSubject, courseNumber, bannerInstructor string) (float64, string) {
+func (s *Service) LookupSectionGPA(bannerSubject, courseNumber, bannerInstructor string) (float64, *float64, string) {
 	s.mu.RLock()
 	defer s.mu.RUnlock()
 
@@ -220,17 +220,17 @@ func (s *Service) LookupSectionGPA(bannerSubject, courseNumber, bannerInstructor
 	if gradeInstructor != "" {
 		key := gradeSubject + ":" + courseNumber + ":" + gradeInstructor
 		if agg, ok := s.courseProfAgg[key]; ok {
-			return agg.GPA, "course_professor"
+			return agg.GPA, agg.PassRate, "course_professor"
 		}
 	}
 
 	// Fallback to course average
 	key := gradeSubject + ":" + courseNumber
 	if agg, ok := s.courseAgg[key]; ok {
-		return agg.GPA, "course"
+		return agg.GPA, agg.PassRate, "course"
 	}
 
-	return 0, ""
+	return 0, nil, ""
 }
 
 // GetAggregate returns a specific aggregate by level and key fields.

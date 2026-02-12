@@ -214,12 +214,18 @@ func TestLookupSectionGPA(t *testing.T) {
 	svc.instructorMap = map[string]string{
 		"Dr. Smith": "Smith, John",
 	}
+	pr95 := 0.95
+	pr80 := 0.80
 	svc.courseProfAgg = map[string]*GradeAggregate{
 		"CS:247:Smith, John": {GPA: 3.5},
+		"CS:590:Smith, John": {GPA: 0, PassRate: &pr95},
+		"CS:301:Smith, John": {GPA: 3.1, PassRate: &pr80},
 	}
 	svc.courseAgg = map[string]*GradeAggregate{
 		"CS:247":   {GPA: 3.2},
 		"MATH:204": {GPA: 2.9},
+		"CS:590":   {GPA: 0, PassRate: &pr95},
+		"CS:301":   {GPA: 3.0, PassRate: &pr80},
 	}
 	svc.professorAgg = map[string]*GradeAggregate{
 		"Smith, John": {GPA: 3.4},
@@ -231,9 +237,12 @@ func TestLookupSectionGPA(t *testing.T) {
 	svc.mu.Unlock()
 
 	t.Run("course+professor match", func(t *testing.T) {
-		gpa, source := svc.LookupSectionGPA("CSCI", "247", "Dr. Smith")
+		gpa, passRate, source := svc.LookupSectionGPA("CSCI", "247", "Dr. Smith")
 		if !almostEqual(gpa, 3.5, 0.001) {
 			t.Errorf("GPA = %v, want 3.5", gpa)
+		}
+		if passRate != nil {
+			t.Errorf("passRate = %v, want nil", *passRate)
 		}
 		if source != "course_professor" {
 			t.Errorf("source = %q, want %q", source, "course_professor")
@@ -241,7 +250,7 @@ func TestLookupSectionGPA(t *testing.T) {
 	})
 
 	t.Run("falls back to course when instructor unmapped", func(t *testing.T) {
-		gpa, source := svc.LookupSectionGPA("CSCI", "247", "Dr. Unknown")
+		gpa, _, source := svc.LookupSectionGPA("CSCI", "247", "Dr. Unknown")
 		if !almostEqual(gpa, 3.2, 0.001) {
 			t.Errorf("GPA = %v, want 3.2", gpa)
 		}
@@ -251,7 +260,7 @@ func TestLookupSectionGPA(t *testing.T) {
 	})
 
 	t.Run("falls back to course when no prof aggregate", func(t *testing.T) {
-		gpa, source := svc.LookupSectionGPA("MATH", "204", "Dr. Brown")
+		gpa, _, source := svc.LookupSectionGPA("MATH", "204", "Dr. Brown")
 		if !almostEqual(gpa, 2.9, 0.001) {
 			t.Errorf("GPA = %v, want 2.9", gpa)
 		}
@@ -261,12 +270,63 @@ func TestLookupSectionGPA(t *testing.T) {
 	})
 
 	t.Run("no data returns zero and empty source", func(t *testing.T) {
-		gpa, source := svc.LookupSectionGPA("PHYS", "101", "Anyone")
+		gpa, passRate, source := svc.LookupSectionGPA("PHYS", "101", "Anyone")
 		if gpa != 0 {
 			t.Errorf("GPA = %v, want 0", gpa)
 		}
+		if passRate != nil {
+			t.Errorf("passRate = %v, want nil", *passRate)
+		}
 		if source != "" {
 			t.Errorf("source = %q, want empty", source)
+		}
+	})
+
+	t.Run("pure S/U course returns pass rate", func(t *testing.T) {
+		gpa, passRate, source := svc.LookupSectionGPA("CSCI", "590", "Dr. Smith")
+		if gpa != 0 {
+			t.Errorf("GPA = %v, want 0", gpa)
+		}
+		if passRate == nil {
+			t.Fatal("passRate = nil, want non-nil")
+		}
+		if !almostEqual(*passRate, 0.95, 0.001) {
+			t.Errorf("passRate = %v, want 0.95", *passRate)
+		}
+		if source != "course_professor" {
+			t.Errorf("source = %q, want %q", source, "course_professor")
+		}
+	})
+
+	t.Run("pure S/U course falls back to course level", func(t *testing.T) {
+		gpa, passRate, source := svc.LookupSectionGPA("CSCI", "590", "Dr. Unknown")
+		if gpa != 0 {
+			t.Errorf("GPA = %v, want 0", gpa)
+		}
+		if passRate == nil {
+			t.Fatal("passRate = nil, want non-nil")
+		}
+		if !almostEqual(*passRate, 0.95, 0.001) {
+			t.Errorf("passRate = %v, want 0.95", *passRate)
+		}
+		if source != "course" {
+			t.Errorf("source = %q, want %q", source, "course")
+		}
+	})
+
+	t.Run("mixed course returns both GPA and pass rate", func(t *testing.T) {
+		gpa, passRate, source := svc.LookupSectionGPA("CSCI", "301", "Dr. Smith")
+		if !almostEqual(gpa, 3.1, 0.001) {
+			t.Errorf("GPA = %v, want 3.1", gpa)
+		}
+		if passRate == nil {
+			t.Fatal("passRate = nil, want non-nil")
+		}
+		if !almostEqual(*passRate, 0.80, 0.001) {
+			t.Errorf("passRate = %v, want 0.80", *passRate)
+		}
+		if source != "course_professor" {
+			t.Errorf("source = %q, want %q", source, "course_professor")
 		}
 	})
 }
@@ -285,17 +345,20 @@ func TestLookupCourseGPA(t *testing.T) {
 	svc.mu.Unlock()
 
 	t.Run("found", func(t *testing.T) {
-		gpa, ok := svc.LookupCourseGPA("CSCI", "247")
+		gpa, passRate, ok := svc.LookupCourseGPA("CSCI", "247")
 		if !ok {
 			t.Fatal("expected found=true")
 		}
 		if !almostEqual(gpa, 3.2, 0.001) {
 			t.Errorf("GPA = %v, want 3.2", gpa)
 		}
+		if passRate != nil {
+			t.Errorf("passRate = %v, want nil", *passRate)
+		}
 	})
 
 	t.Run("not found", func(t *testing.T) {
-		_, ok := svc.LookupCourseGPA("PHYS", "101")
+		_, _, ok := svc.LookupCourseGPA("PHYS", "101")
 		if ok {
 			t.Error("expected found=false")
 		}
@@ -306,12 +369,33 @@ func TestLookupCourseGPA(t *testing.T) {
 		svc.courseAgg["MATH:204"] = &GradeAggregate{GPA: 2.8}
 		svc.mu.Unlock()
 
-		gpa, ok := svc.LookupCourseGPA("MATH", "204")
+		gpa, _, ok := svc.LookupCourseGPA("MATH", "204")
 		if !ok {
 			t.Fatal("expected found=true with identity mapping")
 		}
 		if !almostEqual(gpa, 2.8, 0.001) {
 			t.Errorf("GPA = %v, want 2.8", gpa)
+		}
+	})
+
+	t.Run("pure S/U course returns pass rate", func(t *testing.T) {
+		pr := 0.99
+		svc.mu.Lock()
+		svc.courseAgg["CS:591"] = &GradeAggregate{GPA: 0, PassRate: &pr}
+		svc.mu.Unlock()
+
+		gpa, passRate, ok := svc.LookupCourseGPA("CSCI", "591")
+		if !ok {
+			t.Fatal("expected found=true")
+		}
+		if gpa != 0 {
+			t.Errorf("GPA = %v, want 0", gpa)
+		}
+		if passRate == nil {
+			t.Fatal("passRate = nil, want non-nil")
+		}
+		if !almostEqual(*passRate, 0.99, 0.001) {
+			t.Errorf("passRate = %v, want 0.99", *passRate)
 		}
 	})
 }
@@ -450,9 +534,12 @@ func TestLoadFromDB(t *testing.T) {
 	}
 
 	// Verify lookup works end-to-end
-	gpa, source := svc.LookupSectionGPA("CSCI", "247", "Dr. Smith")
+	gpa, passRate, source := svc.LookupSectionGPA("CSCI", "247", "Dr. Smith")
 	if !almostEqual(gpa, 3.45, 0.01) {
 		t.Errorf("GPA = %v, want 3.45", gpa)
+	}
+	if passRate != nil {
+		t.Errorf("passRate = %v, want nil", *passRate)
 	}
 	if source != "course_professor" {
 		t.Errorf("source = %q, want course_professor", source)
