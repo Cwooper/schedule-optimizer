@@ -7,6 +7,7 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"html"
 	"log/slog"
 	"sync"
 
@@ -260,9 +261,12 @@ func (s *Service) mapSubject(bannerSubject string) string {
 }
 
 // mapInstructor translates a Banner instructor name to the grade-data name.
+// Banner names may contain HTML entities (e.g. O&#39;Neil) that must be
+// unescaped before lookup since mappings are stored with clean names.
 // Returns empty string if no mapping exists.
 func (s *Service) mapInstructor(bannerName string) string {
-	if mapped, ok := s.instructorMap[bannerName]; ok {
+	clean := html.UnescapeString(bannerName)
+	if mapped, ok := s.instructorMap[clean]; ok {
 		return mapped
 	}
 	return ""
