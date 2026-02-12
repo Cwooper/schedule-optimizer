@@ -18,6 +18,8 @@ import (
 	"schedule-optimizer/internal/generator"
 	"schedule-optimizer/internal/jobs"
 	"schedule-optimizer/internal/search"
+	"schedule-optimizer/internal/stats"
+	"schedule-optimizer/internal/stats/grades"
 	"schedule-optimizer/internal/store"
 
 	"github.com/gin-gonic/gin"
@@ -48,7 +50,10 @@ func Run() {
 	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
 	defer stop()
 
-	jobsService := jobs.Setup(ctx, cfg, queries)
+	gradeService := grades.NewService(database, queries, cfg.GradeDataPath)
+	_ = stats.NewService(gradeService) // TODO: pass to handlers when stats endpoints are added
+
+	jobsService := jobs.Setup(ctx, cfg, queries, gradeService)
 
 	if cfg.Environment == "production" {
 		gin.SetMode(gin.ReleaseMode)
@@ -57,9 +62,9 @@ func Run() {
 	r := gin.Default()
 	SetupMiddleware(r, cfg)
 
-	scheduleCache := cache.NewScheduleCache(queries)
+	scheduleCache := cache.NewScheduleCache(queries, gradeService)
 	generatorService := generator.NewService(scheduleCache, queries)
-	searchService := search.NewService(database, queries)
+	searchService := search.NewService(database, queries, gradeService)
 	handlers := api.NewHandlers(database, scheduleCache, generatorService, queries, searchService)
 
 	RegisterRoutes(r, handlers)

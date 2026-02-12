@@ -120,10 +120,20 @@ func weighEnd(s *Schedule) float64 {
 }
 
 // weighGPA scores based on instructor GPA data.
-// Currently returns 0 (excluded from average) until GPA data is integrated.
-func weighGPA(_ *Schedule) float64 {
-	// TODO: integrate GPA data from CSV import
-	return 0
+// Returns average GPA / 4.0, normalized to 0-1 scale.
+func weighGPA(s *Schedule) float64 {
+	var total float64
+	var count int
+	for _, c := range s.Courses {
+		if c.GPA > 0 {
+			total += c.GPA
+			count++
+		}
+	}
+	if count == 0 {
+		return 0
+	}
+	return math.Round((total/float64(count))/4.0*100) / 100
 }
 
 // weighSeats scores based on seat availability.

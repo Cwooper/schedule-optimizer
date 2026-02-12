@@ -45,6 +45,64 @@ type GenerationLogCourse struct {
 	Required        int64  `json:"required"`
 }
 
+type GradeAggregate struct {
+	ID            int64           `json:"id"`
+	Level         string          `json:"level"`
+	Subject       string          `json:"subject"`
+	CourseNumber  string          `json:"course_number"`
+	Instructor    string          `json:"instructor"`
+	SectionsCount int64           `json:"sections_count"`
+	StudentsCount int64           `json:"students_count"`
+	CntA          int64           `json:"cnt_a"`
+	CntAm         int64           `json:"cnt_am"`
+	CntBp         int64           `json:"cnt_bp"`
+	CntB          int64           `json:"cnt_b"`
+	CntBm         int64           `json:"cnt_bm"`
+	CntCp         int64           `json:"cnt_cp"`
+	CntC          int64           `json:"cnt_c"`
+	CntCm         int64           `json:"cnt_cm"`
+	CntDp         int64           `json:"cnt_dp"`
+	CntD          int64           `json:"cnt_d"`
+	CntDm         int64           `json:"cnt_dm"`
+	CntF          int64           `json:"cnt_f"`
+	CntW          int64           `json:"cnt_w"`
+	CntP          int64           `json:"cnt_p"`
+	CntNp         int64           `json:"cnt_np"`
+	CntS          int64           `json:"cnt_s"`
+	CntU          int64           `json:"cnt_u"`
+	Gpa           float64         `json:"gpa"`
+	PassRate      sql.NullFloat64 `json:"pass_rate"`
+}
+
+type GradeRow struct {
+	ID               int64  `json:"id"`
+	Term             string `json:"term"`
+	Crn              string `json:"crn"`
+	Subject          string `json:"subject"`
+	CourseNumber     string `json:"course_number"`
+	Title            string `json:"title"`
+	Professor        string `json:"professor"`
+	StudentsEnrolled int64  `json:"students_enrolled"`
+	GradeCount       int64  `json:"grade_count"`
+	CntA             int64  `json:"cnt_a"`
+	CntAm            int64  `json:"cnt_am"`
+	CntBp            int64  `json:"cnt_bp"`
+	CntB             int64  `json:"cnt_b"`
+	CntBm            int64  `json:"cnt_bm"`
+	CntCp            int64  `json:"cnt_cp"`
+	CntC             int64  `json:"cnt_c"`
+	CntCm            int64  `json:"cnt_cm"`
+	CntDp            int64  `json:"cnt_dp"`
+	CntD             int64  `json:"cnt_d"`
+	CntDm            int64  `json:"cnt_dm"`
+	CntF             int64  `json:"cnt_f"`
+	CntW             int64  `json:"cnt_w"`
+	CntP             int64  `json:"cnt_p"`
+	CntNp            int64  `json:"cnt_np"`
+	CntS             int64  `json:"cnt_s"`
+	CntU             int64  `json:"cnt_u"`
+}
+
 type Instructor struct {
 	ID        int64          `json:"id"`
 	SectionID int64          `json:"section_id"`
@@ -52,6 +110,12 @@ type Instructor struct {
 	Name      string         `json:"name"`
 	Email     sql.NullString `json:"email"`
 	IsPrimary sql.NullInt64  `json:"is_primary"`
+}
+
+type InstructorMapping struct {
+	BannerName string `json:"banner_name"`
+	GradeName  string `json:"grade_name"`
+	MatchCount int64  `json:"match_count"`
 }
 
 type MeetingTime struct {
@@ -123,6 +187,12 @@ type SectionAttribute struct {
 	SectionID   int64          `json:"section_id"`
 	Code        string         `json:"code"`
 	Description sql.NullString `json:"description"`
+}
+
+type SubjectMapping struct {
+	BannerSubject string `json:"banner_subject"`
+	GradeSubject  string `json:"grade_subject"`
+	MatchCount    int64  `json:"match_count"`
 }
 
 type Term struct {

@@ -20,11 +20,12 @@ type SearchRequest struct {
 
 // CourseInfo contains course-level data sent once per unique course code.
 type CourseInfo struct {
-	Subject      string `json:"subject"`
-	CourseNumber string `json:"courseNumber"`
-	Title        string `json:"title"`
-	Credits      int    `json:"credits"`
-	CreditsHigh  int    `json:"creditsHigh,omitempty"`
+	Subject      string  `json:"subject"`
+	CourseNumber string  `json:"courseNumber"`
+	Title        string  `json:"title"`
+	Credits      int     `json:"credits"`
+	CreditsHigh  int     `json:"creditsHigh,omitempty"`
+	GPA          float64 `json:"gpa,omitempty"`
 }
 
 // MeetingTimeInfo represents a single meeting time for a section.
@@ -51,6 +52,8 @@ type SectionInfo struct {
 	Campus          string            `json:"campus,omitempty"`
 	ScheduleType    string            `json:"scheduleType,omitempty"`
 	MeetingTimes    []MeetingTimeInfo `json:"meetingTimes"`
+	GPA             float64           `json:"gpa,omitempty"`
+	GPASource       string            `json:"gpaSource,omitempty"`
 }
 
 // CourseRef groups sections of a course with relevance score.
