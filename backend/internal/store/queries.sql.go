@@ -41,6 +41,15 @@ func (q *Queries) CourseExistsAnyTerm(ctx context.Context, arg CourseExistsAnyTe
 	return course_exists, err
 }
 
+const deleteAllGradeAggregates = `-- name: DeleteAllGradeAggregates :exec
+DELETE FROM grade_aggregates
+`
+
+func (q *Queries) DeleteAllGradeAggregates(ctx context.Context) error {
+	_, err := q.db.ExecContext(ctx, deleteAllGradeAggregates)
+	return err
+}
+
 const deleteInstructorsBySection = `-- name: DeleteInstructorsBySection :exec
 DELETE FROM instructors WHERE section_id = ?
 `
@@ -99,6 +108,114 @@ func (q *Queries) GetActiveAnnouncement(ctx context.Context) (*GetActiveAnnounce
 		&i.Type,
 	)
 	return &i, err
+}
+
+const getAllGradeAggregates = `-- name: GetAllGradeAggregates :many
+SELECT id, level, subject, course_number, instructor, sections_count, students_count, cnt_a, cnt_am, cnt_bp, cnt_b, cnt_bm, cnt_cp, cnt_c, cnt_cm, cnt_dp, cnt_d, cnt_dm, cnt_f, cnt_w, cnt_p, cnt_np, cnt_s, cnt_u, gpa, pass_rate FROM grade_aggregates
+`
+
+func (q *Queries) GetAllGradeAggregates(ctx context.Context) ([]*GradeAggregate, error) {
+	rows, err := q.db.QueryContext(ctx, getAllGradeAggregates)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []*GradeAggregate{}
+	for rows.Next() {
+		var i GradeAggregate
+		if err := rows.Scan(
+			&i.ID,
+			&i.Level,
+			&i.Subject,
+			&i.CourseNumber,
+			&i.Instructor,
+			&i.SectionsCount,
+			&i.StudentsCount,
+			&i.CntA,
+			&i.CntAm,
+			&i.CntBp,
+			&i.CntB,
+			&i.CntBm,
+			&i.CntCp,
+			&i.CntC,
+			&i.CntCm,
+			&i.CntDp,
+			&i.CntD,
+			&i.CntDm,
+			&i.CntF,
+			&i.CntW,
+			&i.CntP,
+			&i.CntNp,
+			&i.CntS,
+			&i.CntU,
+			&i.Gpa,
+			&i.PassRate,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, &i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const getAllGradeRows = `-- name: GetAllGradeRows :many
+SELECT id, term, crn, subject, course_number, title, professor, students_enrolled, grade_count, cnt_a, cnt_am, cnt_bp, cnt_b, cnt_bm, cnt_cp, cnt_c, cnt_cm, cnt_dp, cnt_d, cnt_dm, cnt_f, cnt_w, cnt_p, cnt_np, cnt_s, cnt_u FROM grade_rows
+`
+
+func (q *Queries) GetAllGradeRows(ctx context.Context) ([]*GradeRow, error) {
+	rows, err := q.db.QueryContext(ctx, getAllGradeRows)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []*GradeRow{}
+	for rows.Next() {
+		var i GradeRow
+		if err := rows.Scan(
+			&i.ID,
+			&i.Term,
+			&i.Crn,
+			&i.Subject,
+			&i.CourseNumber,
+			&i.Title,
+			&i.Professor,
+			&i.StudentsEnrolled,
+			&i.GradeCount,
+			&i.CntA,
+			&i.CntAm,
+			&i.CntBp,
+			&i.CntB,
+			&i.CntBm,
+			&i.CntCp,
+			&i.CntC,
+			&i.CntCm,
+			&i.CntDp,
+			&i.CntD,
+			&i.CntDm,
+			&i.CntF,
+			&i.CntW,
+			&i.CntP,
+			&i.CntNp,
+			&i.CntS,
+			&i.CntU,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, &i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
 }
 
 const getDistinctSubjects = `-- name: GetDistinctSubjects :many
@@ -172,6 +289,104 @@ func (q *Queries) GetDistinctTerms(ctx context.Context) ([]string, error) {
 			return nil, err
 		}
 		items = append(items, term)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const getGradeAggregateCount = `-- name: GetGradeAggregateCount :one
+SELECT COUNT(*) FROM grade_aggregates
+`
+
+func (q *Queries) GetGradeAggregateCount(ctx context.Context) (int64, error) {
+	row := q.db.QueryRowContext(ctx, getGradeAggregateCount)
+	var count int64
+	err := row.Scan(&count)
+	return count, err
+}
+
+const getGradeBannerJoinData = `-- name: GetGradeBannerJoinData :many
+SELECT g.subject as grade_subject, g.course_number as grade_course_number,
+       g.professor as grade_professor,
+       s.subject as banner_subject, s.course_number as banner_course_number,
+       i.name as banner_instructor
+FROM grade_rows g
+JOIN sections s ON g.term = s.term AND g.crn = s.crn
+LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1
+`
+
+type GetGradeBannerJoinDataRow struct {
+	GradeSubject       string         `json:"grade_subject"`
+	GradeCourseNumber  string         `json:"grade_course_number"`
+	GradeProfessor     string         `json:"grade_professor"`
+	BannerSubject      string         `json:"banner_subject"`
+	BannerCourseNumber string         `json:"banner_course_number"`
+	BannerInstructor   sql.NullString `json:"banner_instructor"`
+}
+
+func (q *Queries) GetGradeBannerJoinData(ctx context.Context) ([]*GetGradeBannerJoinDataRow, error) {
+	rows, err := q.db.QueryContext(ctx, getGradeBannerJoinData)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []*GetGradeBannerJoinDataRow{}
+	for rows.Next() {
+		var i GetGradeBannerJoinDataRow
+		if err := rows.Scan(
+			&i.GradeSubject,
+			&i.GradeCourseNumber,
+			&i.GradeProfessor,
+			&i.BannerSubject,
+			&i.BannerCourseNumber,
+			&i.BannerInstructor,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, &i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const getGradeRowCount = `-- name: GetGradeRowCount :one
+SELECT COUNT(*) FROM grade_rows
+`
+
+func (q *Queries) GetGradeRowCount(ctx context.Context) (int64, error) {
+	row := q.db.QueryRowContext(ctx, getGradeRowCount)
+	var count int64
+	err := row.Scan(&count)
+	return count, err
+}
+
+const getInstructorMappings = `-- name: GetInstructorMappings :many
+SELECT banner_name, grade_name, match_count FROM instructor_mappings
+`
+
+func (q *Queries) GetInstructorMappings(ctx context.Context) ([]*InstructorMapping, error) {
+	rows, err := q.db.QueryContext(ctx, getInstructorMappings)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []*InstructorMapping{}
+	for rows.Next() {
+		var i InstructorMapping
+		if err := rows.Scan(&i.BannerName, &i.GradeName, &i.MatchCount); err != nil {
+			return nil, err
+		}
+		items = append(items, &i)
 	}
 	if err := rows.Close(); err != nil {
 		return nil, err
@@ -807,6 +1022,44 @@ func (q *Queries) GetSectionsWithInstructorByTerm(ctx context.Context, term stri
 	return items, nil
 }
 
+const getSubjectMappingCount = `-- name: GetSubjectMappingCount :one
+SELECT COUNT(*) FROM subject_mappings
+`
+
+func (q *Queries) GetSubjectMappingCount(ctx context.Context) (int64, error) {
+	row := q.db.QueryRowContext(ctx, getSubjectMappingCount)
+	var count int64
+	err := row.Scan(&count)
+	return count, err
+}
+
+const getSubjectMappings = `-- name: GetSubjectMappings :many
+SELECT banner_subject, grade_subject, match_count FROM subject_mappings
+`
+
+func (q *Queries) GetSubjectMappings(ctx context.Context) ([]*SubjectMapping, error) {
+	rows, err := q.db.QueryContext(ctx, getSubjectMappings)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []*SubjectMapping{}
+	for rows.Next() {
+		var i SubjectMapping
+		if err := rows.Scan(&i.BannerSubject, &i.GradeSubject, &i.MatchCount); err != nil {
+			return nil, err
+		}
+		items = append(items, &i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
 const getSubjectsWithDescriptionsByTerm = `-- name: GetSubjectsWithDescriptionsByTerm :many
 SELECT DISTINCT subject, subject_description
 FROM sections
@@ -919,6 +1172,141 @@ type InsertFeedbackParams struct {
 
 func (q *Queries) InsertFeedback(ctx context.Context, arg InsertFeedbackParams) error {
 	_, err := q.db.ExecContext(ctx, insertFeedback, arg.SessionID, arg.Message)
+	return err
+}
+
+const insertGradeAggregate = `-- name: InsertGradeAggregate :exec
+INSERT INTO grade_aggregates (level, subject, course_number, instructor,
+    sections_count, students_count,
+    cnt_a, cnt_am, cnt_bp, cnt_b, cnt_bm, cnt_cp, cnt_c, cnt_cm,
+    cnt_dp, cnt_d, cnt_dm, cnt_f, cnt_w, cnt_p, cnt_np, cnt_s, cnt_u,
+    gpa, pass_rate)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+`
+
+type InsertGradeAggregateParams struct {
+	Level         string          `json:"level"`
+	Subject       string          `json:"subject"`
+	CourseNumber  string          `json:"course_number"`
+	Instructor    string          `json:"instructor"`
+	SectionsCount int64           `json:"sections_count"`
+	StudentsCount int64           `json:"students_count"`
+	CntA          int64           `json:"cnt_a"`
+	CntAm         int64           `json:"cnt_am"`
+	CntBp         int64           `json:"cnt_bp"`
+	CntB          int64           `json:"cnt_b"`
+	CntBm         int64           `json:"cnt_bm"`
+	CntCp         int64           `json:"cnt_cp"`
+	CntC          int64           `json:"cnt_c"`
+	CntCm         int64           `json:"cnt_cm"`
+	CntDp         int64           `json:"cnt_dp"`
+	CntD          int64           `json:"cnt_d"`
+	CntDm         int64           `json:"cnt_dm"`
+	CntF          int64           `json:"cnt_f"`
+	CntW          int64           `json:"cnt_w"`
+	CntP          int64           `json:"cnt_p"`
+	CntNp         int64           `json:"cnt_np"`
+	CntS          int64           `json:"cnt_s"`
+	CntU          int64           `json:"cnt_u"`
+	Gpa           float64         `json:"gpa"`
+	PassRate      sql.NullFloat64 `json:"pass_rate"`
+}
+
+func (q *Queries) InsertGradeAggregate(ctx context.Context, arg InsertGradeAggregateParams) error {
+	_, err := q.db.ExecContext(ctx, insertGradeAggregate,
+		arg.Level,
+		arg.Subject,
+		arg.CourseNumber,
+		arg.Instructor,
+		arg.SectionsCount,
+		arg.StudentsCount,
+		arg.CntA,
+		arg.CntAm,
+		arg.CntBp,
+		arg.CntB,
+		arg.CntBm,
+		arg.CntCp,
+		arg.CntC,
+		arg.CntCm,
+		arg.CntDp,
+		arg.CntD,
+		arg.CntDm,
+		arg.CntF,
+		arg.CntW,
+		arg.CntP,
+		arg.CntNp,
+		arg.CntS,
+		arg.CntU,
+		arg.Gpa,
+		arg.PassRate,
+	)
+	return err
+}
+
+const insertGradeRow = `-- name: InsertGradeRow :exec
+INSERT INTO grade_rows (term, crn, subject, course_number, title, professor,
+    students_enrolled, grade_count,
+    cnt_a, cnt_am, cnt_bp, cnt_b, cnt_bm, cnt_cp, cnt_c, cnt_cm,
+    cnt_dp, cnt_d, cnt_dm, cnt_f, cnt_w, cnt_p, cnt_np, cnt_s, cnt_u)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+`
+
+type InsertGradeRowParams struct {
+	Term             string `json:"term"`
+	Crn              string `json:"crn"`
+	Subject          string `json:"subject"`
+	CourseNumber     string `json:"course_number"`
+	Title            string `json:"title"`
+	Professor        string `json:"professor"`
+	StudentsEnrolled int64  `json:"students_enrolled"`
+	GradeCount       int64  `json:"grade_count"`
+	CntA             int64  `json:"cnt_a"`
+	CntAm            int64  `json:"cnt_am"`
+	CntBp            int64  `json:"cnt_bp"`
+	CntB             int64  `json:"cnt_b"`
+	CntBm            int64  `json:"cnt_bm"`
+	CntCp            int64  `json:"cnt_cp"`
+	CntC             int64  `json:"cnt_c"`
+	CntCm            int64  `json:"cnt_cm"`
+	CntDp            int64  `json:"cnt_dp"`
+	CntD             int64  `json:"cnt_d"`
+	CntDm            int64  `json:"cnt_dm"`
+	CntF             int64  `json:"cnt_f"`
+	CntW             int64  `json:"cnt_w"`
+	CntP             int64  `json:"cnt_p"`
+	CntNp            int64  `json:"cnt_np"`
+	CntS             int64  `json:"cnt_s"`
+	CntU             int64  `json:"cnt_u"`
+}
+
+func (q *Queries) InsertGradeRow(ctx context.Context, arg InsertGradeRowParams) error {
+	_, err := q.db.ExecContext(ctx, insertGradeRow,
+		arg.Term,
+		arg.Crn,
+		arg.Subject,
+		arg.CourseNumber,
+		arg.Title,
+		arg.Professor,
+		arg.StudentsEnrolled,
+		arg.GradeCount,
+		arg.CntA,
+		arg.CntAm,
+		arg.CntBp,
+		arg.CntB,
+		arg.CntBm,
+		arg.CntCp,
+		arg.CntC,
+		arg.CntCm,
+		arg.CntDp,
+		arg.CntD,
+		arg.CntDm,
+		arg.CntF,
+		arg.CntW,
+		arg.CntP,
+		arg.CntNp,
+		arg.CntS,
+		arg.CntU,
+	)
 	return err
 }
 
@@ -1254,6 +1642,25 @@ func (q *Queries) UpdateTermScrapedAt(ctx context.Context, code string) error {
 	return err
 }
 
+const upsertInstructorMapping = `-- name: UpsertInstructorMapping :exec
+INSERT INTO instructor_mappings (banner_name, grade_name, match_count)
+VALUES (?, ?, ?)
+ON CONFLICT(banner_name) DO UPDATE SET
+    grade_name = excluded.grade_name,
+    match_count = excluded.match_count
+`
+
+type UpsertInstructorMappingParams struct {
+	BannerName string `json:"banner_name"`
+	GradeName  string `json:"grade_name"`
+	MatchCount int64  `json:"match_count"`
+}
+
+func (q *Queries) UpsertInstructorMapping(ctx context.Context, arg UpsertInstructorMappingParams) error {
+	_, err := q.db.ExecContext(ctx, upsertInstructorMapping, arg.BannerName, arg.GradeName, arg.MatchCount)
+	return err
+}
+
 const upsertSection = `-- name: UpsertSection :one
 INSERT INTO sections (
     term, crn, subject, subject_description, course_number, sequence_number,
@@ -1330,6 +1737,25 @@ func (q *Queries) UpsertSection(ctx context.Context, arg UpsertSectionParams) (i
 	var id int64
 	err := row.Scan(&id)
 	return id, err
+}
+
+const upsertSubjectMapping = `-- name: UpsertSubjectMapping :exec
+INSERT INTO subject_mappings (banner_subject, grade_subject, match_count)
+VALUES (?, ?, ?)
+ON CONFLICT(banner_subject) DO UPDATE SET
+    grade_subject = excluded.grade_subject,
+    match_count = excluded.match_count
+`
+
+type UpsertSubjectMappingParams struct {
+	BannerSubject string `json:"banner_subject"`
+	GradeSubject  string `json:"grade_subject"`
+	MatchCount    int64  `json:"match_count"`
+}
+
+func (q *Queries) UpsertSubjectMapping(ctx context.Context, arg UpsertSubjectMappingParams) error {
+	_, err := q.db.ExecContext(ctx, upsertSubjectMapping, arg.BannerSubject, arg.GradeSubject, arg.MatchCount)
+	return err
 }
 
 const upsertTerm = `-- name: UpsertTerm :exec

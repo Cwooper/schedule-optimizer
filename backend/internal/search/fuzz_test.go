@@ -15,7 +15,7 @@ func FuzzSearch(f *testing.F) {
 	defer db.Close()
 	testutil.SeedTestData(f, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 	ctx := context.Background()
 
 	// Seed corpus with known interesting inputs
@@ -154,7 +154,7 @@ func TestSearch_ResponseInvariants(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 	ctx := context.Background()
 
 	tests := []struct {
@@ -212,7 +212,7 @@ func TestSearch_InvariantsWithUnicode(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 	ctx := context.Background()
 
 	unicodeInputs := []string{

@@ -12,7 +12,7 @@ func BenchmarkSearch_SubjectFilter(b *testing.B) {
 	defer db.Close()
 	testutil.SeedTestData(b, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 	ctx := context.Background()
 	req := SearchRequest{
 		Term:    "202520",
@@ -33,7 +33,7 @@ func BenchmarkSearch_TitleToken(b *testing.B) {
 	defer db.Close()
 	testutil.SeedTestData(b, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 	ctx := context.Background()
 	req := SearchRequest{
 		Term:  "202520",
@@ -54,7 +54,7 @@ func BenchmarkSearch_AllTimeScope(b *testing.B) {
 	defer db.Close()
 	testutil.SeedTestData(b, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 	ctx := context.Background()
 	req := SearchRequest{
 		Subject:      "CSCI",
@@ -75,7 +75,7 @@ func BenchmarkSearch_CombinedFilters(b *testing.B) {
 	defer db.Close()
 	testutil.SeedTestData(b, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 	ctx := context.Background()
 	req := SearchRequest{
 		Term:         "202520",

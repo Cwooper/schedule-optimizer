@@ -244,6 +244,31 @@ function HelpContent() {
 
       <hr className="border-border" />
 
+      {/* GPA Data */}
+      <div>
+        <h3 className="mb-1.5 font-medium">GPA Data</h3>
+        <ul className="text-muted-foreground list-inside list-disc space-y-1">
+          <li>
+            GPA is calculated from historical grade data,{" "}
+            <strong className="text-foreground">Fall 2015 to Fall 2025</strong>
+          </li>
+          <li>
+            A <strong className="text-foreground">person icon</strong> means the
+            GPA is specific to that professor teaching that course
+          </li>
+          <li>
+            A <strong className="text-foreground">book icon</strong> means
+            it&apos;s the average GPA across all professors for that course
+          </li>
+          <li>
+            Some courses use <strong className="text-foreground">S/U or P/NP grading</strong> instead
+            of letter grades &mdash; these show a <strong className="text-foreground">pass rate</strong> percentage
+          </li>
+        </ul>
+      </div>
+
+      <hr className="border-border" />
+
       {/* Tips */}
       <div>
         <h3 className="mb-1.5 font-medium">Tips</h3>
