@@ -322,7 +322,11 @@ func TestMapSubjectAndInstructor(t *testing.T) {
 
 	svc.mu.Lock()
 	svc.subjectMap = map[string]string{"CSCI": "CS"}
-	svc.instructorMap = map[string]string{"Dr. Smith": "Smith, John"}
+	svc.instructorMap = map[string]string{
+		"Dr. Smith":       "Smith, John",
+		"O'Neil, Gregory": "Gregory O'Neil",
+		"Montaño, Manuel": "Manuel Montaño",
+	}
 	svc.mu.Unlock()
 
 	t.Run("mapSubject with mapping", func(t *testing.T) {
@@ -340,6 +344,17 @@ func TestMapSubjectAndInstructor(t *testing.T) {
 	t.Run("mapInstructor with mapping", func(t *testing.T) {
 		if got := svc.mapInstructor("Dr. Smith"); got != "Smith, John" {
 			t.Errorf("mapInstructor(Dr. Smith) = %q, want Smith, John", got)
+		}
+	})
+
+	t.Run("mapInstructor unescapes HTML entities", func(t *testing.T) {
+		// Banner stores names with HTML entities like O&#39;Neil
+		if got := svc.mapInstructor("O&#39;Neil, Gregory"); got != "Gregory O'Neil" {
+			t.Errorf("mapInstructor(O&#39;Neil) = %q, want Gregory O'Neil", got)
+		}
+		// Named entities like &ntilde;
+		if got := svc.mapInstructor("Monta&ntilde;o, Manuel"); got != "Manuel Montaño" {
+			t.Errorf("mapInstructor(Monta&ntilde;o) = %q, want Manuel Montaño", got)
 		}
 	})
 
