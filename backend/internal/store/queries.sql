@@ -236,3 +236,65 @@ WHERE active = 1 ORDER BY id DESC LIMIT 1;
 
 -- name: InsertFeedback :exec
 INSERT INTO feedback (session_id, message) VALUES (?, ?);
+
+-- name: InsertGradeRow :exec
+INSERT INTO grade_rows (term, crn, subject, course_number, title, professor,
+    students_enrolled, grade_count,
+    cnt_a, cnt_am, cnt_bp, cnt_b, cnt_bm, cnt_cp, cnt_c, cnt_cm,
+    cnt_dp, cnt_d, cnt_dm, cnt_f, cnt_w, cnt_p, cnt_np, cnt_s, cnt_u)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+-- name: GetGradeRowCount :one
+SELECT COUNT(*) FROM grade_rows;
+
+-- name: GetAllGradeRows :many
+SELECT * FROM grade_rows;
+
+-- name: UpsertSubjectMapping :exec
+INSERT INTO subject_mappings (banner_subject, grade_subject, match_count)
+VALUES (?, ?, ?)
+ON CONFLICT(banner_subject) DO UPDATE SET
+    grade_subject = excluded.grade_subject,
+    match_count = excluded.match_count;
+
+-- name: GetSubjectMappings :many
+SELECT * FROM subject_mappings;
+
+-- name: GetSubjectMappingCount :one
+SELECT COUNT(*) FROM subject_mappings;
+
+-- name: UpsertInstructorMapping :exec
+INSERT INTO instructor_mappings (banner_name, grade_name, match_count)
+VALUES (?, ?, ?)
+ON CONFLICT(banner_name) DO UPDATE SET
+    grade_name = excluded.grade_name,
+    match_count = excluded.match_count;
+
+-- name: GetInstructorMappings :many
+SELECT * FROM instructor_mappings;
+
+-- name: InsertGradeAggregate :exec
+INSERT INTO grade_aggregates (level, subject, course_number, instructor,
+    sections_count, students_count,
+    cnt_a, cnt_am, cnt_bp, cnt_b, cnt_bm, cnt_cp, cnt_c, cnt_cm,
+    cnt_dp, cnt_d, cnt_dm, cnt_f, cnt_w, cnt_p, cnt_np, cnt_s, cnt_u,
+    gpa, pass_rate)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+-- name: DeleteAllGradeAggregates :exec
+DELETE FROM grade_aggregates;
+
+-- name: GetGradeAggregateCount :one
+SELECT COUNT(*) FROM grade_aggregates;
+
+-- name: GetAllGradeAggregates :many
+SELECT * FROM grade_aggregates;
+
+-- name: GetGradeBannerJoinData :many
+SELECT g.subject as grade_subject, g.course_number as grade_course_number,
+       g.professor as grade_professor,
+       s.subject as banner_subject, s.course_number as banner_course_number,
+       i.name as banner_instructor
+FROM grade_rows g
+JOIN sections s ON g.term = s.term AND g.crn = s.crn
+LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1;

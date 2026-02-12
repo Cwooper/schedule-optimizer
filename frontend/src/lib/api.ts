@@ -31,6 +31,9 @@ export interface CourseSectionInfo {
   seatsAvailable: number
   waitCount: number
   isOpen: boolean
+  gpa?: number
+  gpaSource?: string
+  passRate?: number
 }
 
 export interface CourseInfo {
@@ -38,6 +41,8 @@ export interface CourseInfo {
   courseNumber: string
   title: string
   credits: number
+  gpa?: number
+  passRate?: number
 }
 
 export type CourseResponse =
@@ -58,6 +63,9 @@ export interface SectionInfo {
   waitCount: number
   isOpen: boolean
   meetingTimes: MeetingTime[]
+  gpa?: number
+  gpaSource?: string
+  passRate?: number
 }
 
 export interface CRNResponse {
@@ -79,6 +87,8 @@ export interface GenerateCourseInfo {
   courseNumber: string
   title: string
   credits: number
+  gpa?: number
+  passRate?: number
 }
 
 export interface GenerateSectionInfo {
@@ -92,6 +102,9 @@ export interface GenerateSectionInfo {
   waitCount: number
   isOpen: boolean
   meetingTimes: MeetingTime[]
+  gpa?: number
+  gpaSource?: string
+  passRate?: number
 }
 
 export interface ScheduleRef {
@@ -134,6 +147,9 @@ export interface HydratedSection {
   seatsAvailable: number
   waitCount: number
   isOpen: boolean
+  gpa?: number
+  gpaSource?: string
+  passRate?: number
 }
 
 export interface CourseSpec {
@@ -176,6 +192,8 @@ export interface SearchCourseInfo {
   title: string
   credits: number
   creditsHigh?: number
+  gpa?: number
+  passRate?: number
 }
 
 export interface SearchSectionInfo {
@@ -192,6 +210,9 @@ export interface SearchSectionInfo {
   campus?: string
   scheduleType?: string
   meetingTimes: MeetingTime[]
+  gpa?: number
+  gpaSource?: string
+  passRate?: number
 }
 
 export interface SearchCourseRef {

@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"schedule-optimizer/internal/jobs"
+	"schedule-optimizer/internal/stats/grades"
 	"schedule-optimizer/internal/store"
 )
 
@@ -25,16 +26,18 @@ var (
 
 // Service handles course search operations.
 type Service struct {
-	db      *sql.DB
-	queries *store.Queries
-	scorers []Scorer
+	db           *sql.DB
+	queries      *store.Queries
+	scorers      []Scorer
+	gradeService *grades.Service
 }
 
 // NewService creates a new search service.
-func NewService(db *sql.DB, queries *store.Queries) *Service {
+func NewService(db *sql.DB, queries *store.Queries, gradeService *grades.Service) *Service {
 	return &Service{
-		db:      db,
-		queries: queries,
+		db:           db,
+		queries:      queries,
+		gradeService: gradeService,
 		scorers: []Scorer{
 			NewRecencyScorer(),
 			NewMatchQualityScorer(),
@@ -172,13 +175,17 @@ func (s *Service) buildResponse(ctx context.Context, rows []*sectionRow, section
 
 		// Add course if not seen
 		if _, exists := courses[courseKey]; !exists {
-			courses[courseKey] = CourseInfo{
+			ci := CourseInfo{
 				Subject:      row.Subject,
 				CourseNumber: row.CourseNumber,
 				Title:        row.Title,
 				Credits:      row.Credits,
 				CreditsHigh:  row.CreditsHigh,
 			}
+			if s.gradeService != nil && s.gradeService.IsLoaded() {
+				ci.GPA, ci.PassRate, _ = s.gradeService.LookupCourseGPA(row.Subject, row.CourseNumber)
+			}
+			courses[courseKey] = ci
 			courseRefMap[courseKey] = &courseRefData{
 				courseKey:    courseKey,
 				sectionKeys: []string{},
@@ -191,7 +198,7 @@ func (s *Service) buildResponse(ctx context.Context, rows []*sectionRow, section
 		if meetings == nil {
 			meetings = []MeetingTimeInfo{}
 		}
-		sections[sectionKey] = SectionInfo{
+		si := SectionInfo{
 			CRN:             row.CRN,
 			Term:            row.Term,
 			CourseKey:       courseKey,
@@ -206,6 +213,12 @@ func (s *Service) buildResponse(ctx context.Context, rows []*sectionRow, section
 			ScheduleType:    row.ScheduleType,
 			MeetingTimes:    meetings,
 		}
+		if s.gradeService != nil && s.gradeService.IsLoaded() {
+			si.GPA, si.PassRate, si.GPASource = s.gradeService.LookupSectionGPA(
+				row.Subject, row.CourseNumber, row.Instructor,
+			)
+		}
+		sections[sectionKey] = si
 
 		// Update course ref
 		ref := courseRefMap[courseKey]

@@ -14,6 +14,7 @@ import (
 	"schedule-optimizer/internal/generator"
 	"schedule-optimizer/internal/jobs"
 	"schedule-optimizer/internal/search"
+	"schedule-optimizer/internal/stats/grades"
 	"schedule-optimizer/internal/store"
 
 	"github.com/gin-gonic/gin"
@@ -28,6 +29,7 @@ type Handlers struct {
 	generator *generator.Service
 	queries   *store.Queries
 	search    *search.Service
+	grades    *grades.Service
 }
 
 // Response types for type-safe JSON serialization
@@ -54,6 +56,9 @@ type SectionResponse struct {
 	WaitCount      int64             `json:"waitCount"`
 	IsOpen         bool              `json:"isOpen"`
 	MeetingTimes   []MeetingTimeInfo `json:"meetingTimes"`
+	GPA            float64           `json:"gpa,omitempty"`
+	GPASource      string            `json:"gpaSource,omitempty"`
+	PassRate       *float64          `json:"passRate,omitempty"`
 }
 
 type CRNResponse struct {
@@ -61,20 +66,25 @@ type CRNResponse struct {
 }
 
 type CourseInfo struct {
-	Subject      string `json:"subject"`
-	CourseNumber string `json:"courseNumber"`
-	Title        string `json:"title"`
-	Credits      int    `json:"credits"`
+	Subject      string  `json:"subject"`
+	CourseNumber string  `json:"courseNumber"`
+	Title        string  `json:"title"`
+	Credits      int      `json:"credits"`
+	GPA          float64  `json:"gpa,omitempty"`
+	PassRate     *float64 `json:"passRate,omitempty"`
 }
 
 type CourseSectionInfo struct {
-	CRN            string `json:"crn"`
-	Instructor     string `json:"instructor"`
-	Enrollment     int64  `json:"enrollment"`
-	MaxEnrollment  int64  `json:"maxEnrollment"`
-	SeatsAvailable int64  `json:"seatsAvailable"`
-	WaitCount      int64  `json:"waitCount"`
-	IsOpen         bool   `json:"isOpen"`
+	CRN            string  `json:"crn"`
+	Instructor     string  `json:"instructor"`
+	Enrollment     int64   `json:"enrollment"`
+	MaxEnrollment  int64   `json:"maxEnrollment"`
+	SeatsAvailable int64   `json:"seatsAvailable"`
+	WaitCount      int64   `json:"waitCount"`
+	IsOpen         bool    `json:"isOpen"`
+	GPA            float64  `json:"gpa,omitempty"`
+	GPASource      string   `json:"gpaSource,omitempty"`
+	PassRate       *float64 `json:"passRate,omitempty"`
 }
 
 type CourseResponse struct {
@@ -150,13 +160,14 @@ func boolToInt64(b bool) int64 {
 }
 
 // NewHandlers creates a new Handlers instance with all dependencies.
-func NewHandlers(db *sql.DB, cache *cache.ScheduleCache, generator *generator.Service, queries *store.Queries, searchSvc *search.Service) *Handlers {
+func NewHandlers(db *sql.DB, cache *cache.ScheduleCache, generator *generator.Service, queries *store.Queries, searchSvc *search.Service, gradesSvc *grades.Service) *Handlers {
 	return &Handlers{
 		db:        db,
 		cache:     cache,
 		generator: generator,
 		queries:   queries,
 		search:    searchSvc,
+		grades:    gradesSvc,
 	}
 }
 
@@ -451,7 +462,11 @@ func (h *Handlers) GetCRN(c *gin.Context) {
 			return
 		}
 
-		c.JSON(http.StatusOK, CRNResponse{Section: formatSectionResponse(section, meetings)})
+		resp := formatSectionResponse(section, meetings)
+		if h.grades != nil && h.grades.IsLoaded() {
+			resp.GPA, resp.PassRate, resp.GPASource = h.grades.LookupSectionGPA(resp.Subject, resp.CourseNumber, resp.Instructor)
+		}
+		c.JSON(http.StatusOK, CRNResponse{Section: resp})
 		return
 	}
 
@@ -475,7 +490,11 @@ func (h *Handlers) GetCRN(c *gin.Context) {
 				c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch meeting times"})
 				return
 			}
-			c.JSON(http.StatusOK, CRNResponse{Section: formatSectionResponse(section, meetings)})
+			resp := formatSectionResponse(section, meetings)
+			if h.grades != nil && h.grades.IsLoaded() {
+				resp.GPA, resp.PassRate, resp.GPASource = h.grades.LookupSectionGPA(resp.Subject, resp.CourseNumber, resp.Instructor)
+			}
+			c.JSON(http.StatusOK, CRNResponse{Section: resp})
 			return
 		}
 		if !errors.Is(err, sql.ErrNoRows) {
@@ -562,7 +581,7 @@ func (h *Handlers) GetCourse(c *gin.Context) {
 	// Build sections response
 	sectionList := make([]CourseSectionInfo, 0, len(sections))
 	for _, s := range sections {
-		sectionList = append(sectionList, CourseSectionInfo{
+		si := CourseSectionInfo{
 			CRN:            s.Crn,
 			Instructor:     fromNullString(s.InstructorName),
 			Enrollment:     fromNullInt64Raw(s.Enrollment),
@@ -570,17 +589,25 @@ func (h *Handlers) GetCourse(c *gin.Context) {
 			SeatsAvailable: fromNullInt64Raw(s.SeatsAvailable),
 			WaitCount:      fromNullInt64Raw(s.WaitCount),
 			IsOpen:         fromNullInt64ToBool(s.IsOpen),
-		})
+		}
+		if h.grades != nil && h.grades.IsLoaded() {
+			si.GPA, si.PassRate, si.GPASource = h.grades.LookupSectionGPA(subject, courseNumber, fromNullString(s.InstructorName))
+		}
+		sectionList = append(sectionList, si)
 	}
 
 	first := sections[0]
+	courseInfo := &CourseInfo{
+		Subject:      first.Subject,
+		CourseNumber: first.CourseNumber,
+		Title:        first.Title,
+		Credits:      fromNullInt64(first.CreditHoursLow),
+	}
+	if h.grades != nil && h.grades.IsLoaded() {
+		courseInfo.GPA, courseInfo.PassRate, _ = h.grades.LookupCourseGPA(subject, courseNumber)
+	}
 	c.JSON(http.StatusOK, CourseResponse{
-		Course: &CourseInfo{
-			Subject:      first.Subject,
-			CourseNumber: first.CourseNumber,
-			Title:        first.Title,
-			Credits:      fromNullInt64(first.CreditHoursLow),
-		},
+		Course:       courseInfo,
 		Sections:     sectionList,
 		SectionCount: len(sections),
 	})

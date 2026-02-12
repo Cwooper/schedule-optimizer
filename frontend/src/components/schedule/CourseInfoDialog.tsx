@@ -1,7 +1,7 @@
 import { useMemo, useState, useCallback, useRef } from "react"
 import { useQueryClient } from "@tanstack/react-query"
 import { useVirtualizer } from "@tanstack/react-virtual"
-import { BookOpen, Users, Loader2 } from "lucide-react"
+import { BookOpen, Users, Loader2, TrendingUp, CircleHelp } from "lucide-react"
 import {
   Dialog,
   DialogContent,
@@ -9,6 +9,11 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { SectionCard } from "./SectionCard"
 import { useCourse, useCRN } from "@/hooks/use-api"
 import { getCRN } from "@/lib/api"
@@ -125,15 +130,40 @@ function DialogContentInner({
   })
 
   const totalSections = courseSections.length
+  const useVirtual = totalSections > 50
 
   const scrollRef = useRef<HTMLDivElement>(null)
   // eslint-disable-next-line react-hooks/incompatible-library -- useVirtualizer returns mutable refs; React Compiler skips this component, which is fine since it's already isolated in DialogContentInner
   const virtualizer = useVirtualizer({
-    count: sectionsWithMeetings.length,
+    count: useVirtual ? sectionsWithMeetings.length : 0,
     getScrollElement: () => scrollRef.current,
     estimateSize: () => 52,
     overscan: 10,
+    enabled: useVirtual,
   })
+
+  const renderSectionCard = (section: HydratedSection) => (
+    <div key={`${section.term}:${section.crn}`} className="pb-2">
+      <SectionCard
+        section={section}
+        expanded={expandedSection === `${section.term}:${section.crn}`}
+        onToggleExpand={() => {
+          const key = `${section.term}:${section.crn}`
+          setExpandedSection((prev) => prev === key ? null : key)
+        }}
+        highlighted={section.crn === highlightCrn}
+        isLoadingDetails={
+          expandedSection === `${section.term}:${section.crn}` &&
+          isFetching &&
+          section.meetingTimes.length === 0
+        }
+        onPrefetch={() => handlePrefetch(section.crn, section.term)}
+        onAdd={onAddSection ? () => onAddSection(section.crn, section.term, { subject: course.subject, courseNumber: course.courseNumber, title: course.title }, section.instructor ?? null) : undefined}
+        isAdded={isSectionAdded?.(section.crn, section.term) ?? false}
+        termLabel={formatTermCode(section.term)}
+      />
+    </div>
+  )
 
   return (
     <>
@@ -153,51 +183,58 @@ function DialogContentInner({
           <Users className="size-3.5" />
           {totalSections} section{totalSections !== 1 && "s"}
         </Badge>
+        <Badge variant="secondary" className="gap-1.5 rounded-md">
+          <TrendingUp className="size-3.5" />
+          {course.gpa
+            ? `${course.gpa.toFixed(2)} GPA`
+            : course.passRate != null
+              ? `${Math.round(course.passRate * 100)}% pass`
+              : "N/A"}
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <span className="inline-flex cursor-help">
+                <CircleHelp className="size-3.5 text-muted-foreground" />
+              </span>
+            </TooltipTrigger>
+            <TooltipContent>
+              {course.gpa
+                ? "Average GPA for this course"
+                : course.passRate != null
+                  ? "Historical pass rate for this S/U graded course"
+                  : "No historical grade data available"}
+            </TooltipContent>
+          </Tooltip>
+        </Badge>
       </div>
 
-      {/* Virtualized section list */}
+      {/* Section list — plain render for ≤50 sections, virtualized for large lists */}
       <div
         ref={scrollRef}
         className="scrollbar-styled -mx-2 max-h-[50vh] overflow-y-auto px-2 py-1"
       >
-        <div
-          className="relative w-full"
-          style={{ height: virtualizer.getTotalSize() }}
-        >
-          {virtualizer.getVirtualItems().map((virtualItem) => {
-            const section = sectionsWithMeetings[virtualItem.index]
-            return (
-              <div
-                key={`${section.term}:${section.crn}`}
-                data-index={virtualItem.index}
-                ref={virtualizer.measureElement}
-                className="absolute left-0 w-full"
-                style={{ transform: `translateY(${virtualItem.start}px)` }}
-              >
-                <div className="pb-2">
-                  <SectionCard
-                    section={section}
-                    expanded={expandedSection === `${section.term}:${section.crn}`}
-                    onToggleExpand={() => {
-                      const key = `${section.term}:${section.crn}`
-                      setExpandedSection((prev) => prev === key ? null : key)
-                    }}
-                    highlighted={section.crn === highlightCrn}
-                    isLoadingDetails={
-                      expandedSection === `${section.term}:${section.crn}` &&
-                      isFetching &&
-                      section.meetingTimes.length === 0
-                    }
-                    onPrefetch={() => handlePrefetch(section.crn, section.term)}
-                    onAdd={onAddSection ? () => onAddSection(section.crn, section.term, { subject: course.subject, courseNumber: course.courseNumber, title: course.title }, section.instructor ?? null) : undefined}
-                    isAdded={isSectionAdded?.(section.crn, section.term) ?? false}
-                    termLabel={formatTermCode(section.term)}
-                  />
+        {useVirtual ? (
+          <div
+            className="relative w-full"
+            style={{ height: virtualizer.getTotalSize() }}
+          >
+            {virtualizer.getVirtualItems().map((virtualItem) => {
+              const section = sectionsWithMeetings[virtualItem.index]
+              return (
+                <div
+                  key={`${section.term}:${section.crn}`}
+                  data-index={virtualItem.index}
+                  ref={virtualizer.measureElement}
+                  className="absolute left-0 w-full"
+                  style={{ transform: `translateY(${virtualItem.start}px)` }}
+                >
+                  {renderSectionCard(section)}
                 </div>
-              </div>
-            )
-          })}
-        </div>
+              )
+            })}
+          </div>
+        ) : (
+          sectionsWithMeetings.map(renderSectionCard)
+        )}
       </div>
     </>
   )
@@ -290,6 +327,8 @@ export function CourseInfoDialog({
       courseNumber: fetchedCourse.course.courseNumber,
       title: fetchedCourse.course.title,
       credits: fetchedCourse.course.credits,
+      gpa: fetchedCourse.course.gpa,
+      passRate: fetchedCourse.course.passRate,
     }
 
     // Meeting times not available from this endpoint — fetched per-CRN on expand
@@ -308,6 +347,9 @@ export function CourseInfoDialog({
         seatsAvailable: s.seatsAvailable,
         waitCount: s.waitCount,
         isOpen: s.isOpen,
+        gpa: s.gpa,
+        gpaSource: s.gpaSource,
+        passRate: s.passRate,
       })
     )
 
