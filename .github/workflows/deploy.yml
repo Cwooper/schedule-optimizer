@@ -27,6 +27,12 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
 
+            # Run database migrations
+            echo "Running migrations..."
+            cd backend
+            make migrate-up
+            cd ..
+
             # Build frontend
             echo "Installing frontend dependencies..."
             cd frontend
