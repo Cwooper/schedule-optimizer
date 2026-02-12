@@ -12,7 +12,7 @@ import (
 func TestNewScheduleCache(t *testing.T) {
 	_, queries := testutil.SetupTestDB(t)
 
-	cache := NewScheduleCache(queries)
+	cache := NewScheduleCache(queries, nil)
 
 	if cache == nil {
 		t.Fatal("NewScheduleCache returned nil")
@@ -29,7 +29,7 @@ func TestLoadTerm(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
 
-	cache := NewScheduleCache(queries)
+	cache := NewScheduleCache(queries, nil)
 	ctx := context.Background()
 
 	t.Run("loads term successfully", func(t *testing.T) {
@@ -91,7 +91,7 @@ func TestGetCourse(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
 
-	cache := NewScheduleCache(queries)
+	cache := NewScheduleCache(queries, nil)
 	ctx := context.Background()
 	cache.LoadTerm(ctx, "202520")
 
@@ -124,7 +124,7 @@ func TestGetCoursesByCRNs(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
 
-	cache := NewScheduleCache(queries)
+	cache := NewScheduleCache(queries, nil)
 	ctx := context.Background()
 	cache.LoadTerm(ctx, "202520")
 
@@ -154,7 +154,7 @@ func TestGetCoursesBySubject(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
 
-	cache := NewScheduleCache(queries)
+	cache := NewScheduleCache(queries, nil)
 	ctx := context.Background()
 	cache.LoadTerm(ctx, "202520")
 
@@ -177,7 +177,7 @@ func TestGetAllCourses(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
 
-	cache := NewScheduleCache(queries)
+	cache := NewScheduleCache(queries, nil)
 	ctx := context.Background()
 	cache.LoadTerm(ctx, "202520")
 
@@ -191,7 +191,7 @@ func TestGetActiveTerms(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
 
-	cache := NewScheduleCache(queries)
+	cache := NewScheduleCache(queries, nil)
 	ctx := context.Background()
 
 	// Initially empty
@@ -214,7 +214,7 @@ func TestUnloadTerm(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
 
-	cache := NewScheduleCache(queries)
+	cache := NewScheduleCache(queries, nil)
 	ctx := context.Background()
 	cache.LoadTerm(ctx, "202520")
 
@@ -266,7 +266,7 @@ func TestConcurrentReads(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
 
-	cache := NewScheduleCache(queries)
+	cache := NewScheduleCache(queries, nil)
 	ctx := context.Background()
 	cache.LoadTerm(ctx, "202520")
 
@@ -293,7 +293,7 @@ func TestConcurrentReadWrite(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
 
-	cache := NewScheduleCache(queries)
+	cache := NewScheduleCache(queries, nil)
 	ctx := context.Background()
 
 	const numReaders = 50
@@ -335,7 +335,7 @@ func TestConcurrentLoadSameTerm(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
 
-	cache := NewScheduleCache(queries)
+	cache := NewScheduleCache(queries, nil)
 	ctx := context.Background()
 
 	const numGoroutines = 20
@@ -367,7 +367,7 @@ func TestLoadTermIfNeeded(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
 
-	cache := NewScheduleCache(queries)
+	cache := NewScheduleCache(queries, nil)
 	ctx := context.Background()
 
 	t.Run("loads term when not cached", func(t *testing.T) {
@@ -400,7 +400,7 @@ func TestLoadTermIfNeeded_Concurrent(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
 
-	cache := NewScheduleCache(queries)
+	cache := NewScheduleCache(queries, nil)
 	ctx := context.Background()
 
 	const numGoroutines = 50
@@ -440,7 +440,7 @@ func BenchmarkLoadTerm(b *testing.B) {
 	ctx := context.Background()
 
 	for b.Loop() {
-		cache := NewScheduleCache(queries)
+		cache := NewScheduleCache(queries, nil)
 		if err := cache.LoadTerm(ctx, "202520"); err != nil {
 			b.Fatalf("LoadTerm failed: %v", err)
 		}
@@ -451,7 +451,7 @@ func BenchmarkGetCourse(b *testing.B) {
 	db, queries := testutil.SetupTestDB(b)
 	seedBenchmarkData(b, db, 100)
 
-	cache := NewScheduleCache(queries)
+	cache := NewScheduleCache(queries, nil)
 	ctx := context.Background()
 	cache.LoadTerm(ctx, "202520")
 
@@ -464,7 +464,7 @@ func BenchmarkGetCoursesByCRNs(b *testing.B) {
 	db, queries := testutil.SetupTestDB(b)
 	seedBenchmarkData(b, db, 100)
 
-	cache := NewScheduleCache(queries)
+	cache := NewScheduleCache(queries, nil)
 	ctx := context.Background()
 	cache.LoadTerm(ctx, "202520")
 
@@ -479,7 +479,7 @@ func BenchmarkConcurrentReads(b *testing.B) {
 	db, queries := testutil.SetupTestDB(b)
 	seedBenchmarkData(b, db, 100)
 
-	cache := NewScheduleCache(queries)
+	cache := NewScheduleCache(queries, nil)
 	ctx := context.Background()
 	cache.LoadTerm(ctx, "202520")
 

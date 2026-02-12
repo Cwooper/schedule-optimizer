@@ -13,6 +13,7 @@ import (
 
 	"golang.org/x/sync/singleflight"
 
+	"schedule-optimizer/internal/stats/grades"
 	"schedule-optimizer/internal/store"
 )
 
@@ -36,6 +37,8 @@ type Course struct {
 	IsOpen              bool          `json:"isOpen"`
 	InstructionalMethod string        `json:"instructionalMethod,omitempty"`
 	MeetingTimes        []MeetingTime `json:"meetingTimes"`
+	GPA                 float64       `json:"gpa,omitempty"`
+	GPASource           string        `json:"gpaSource,omitempty"` // "course_professor", "course", ""
 }
 
 // MeetingTime represents when and where a course meets.
@@ -58,18 +61,20 @@ type TermData struct {
 
 // ScheduleCache holds course data for active terms used in schedule generation.
 type ScheduleCache struct {
-	mu          sync.RWMutex
-	terms       map[string]*TermData
-	activeTerms []string
-	queries     *store.Queries
-	loadGroup   singleflight.Group // Deduplicates concurrent LoadTerm calls
+	mu           sync.RWMutex
+	terms        map[string]*TermData
+	activeTerms  []string
+	queries      *store.Queries
+	gradeService *grades.Service
+	loadGroup    singleflight.Group // Deduplicates concurrent LoadTerm calls
 }
 
 // NewScheduleCache creates a new schedule cache.
-func NewScheduleCache(queries *store.Queries) *ScheduleCache {
+func NewScheduleCache(queries *store.Queries, gradeService *grades.Service) *ScheduleCache {
 	return &ScheduleCache{
-		terms:   make(map[string]*TermData),
-		queries: queries,
+		terms:        make(map[string]*TermData),
+		queries:      queries,
+		gradeService: gradeService,
 	}
 }
 
@@ -140,6 +145,13 @@ func (c *ScheduleCache) LoadTerm(ctx context.Context, term string) error {
 				Room:      nullString(m.Room),
 			}
 			course.MeetingTimes = append(course.MeetingTimes, mt)
+		}
+
+		// Look up GPA from grade data
+		if c.gradeService != nil && c.gradeService.IsLoaded() {
+			course.GPA, course.GPASource = c.gradeService.LookupSectionGPA(
+				course.Subject, course.CourseNumber, course.Instructor,
+			)
 		}
 
 		// Index by CRN, subject, and course code

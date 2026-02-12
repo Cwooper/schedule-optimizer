@@ -27,7 +27,7 @@ func setupRealData(b *testing.B) (*Service, string) {
 	}
 
 	queries := store.New(db)
-	scheduleCache := cache.NewScheduleCache(queries)
+	scheduleCache := cache.NewScheduleCache(queries, nil)
 
 	term := "202540"
 	if err := scheduleCache.LoadTerm(context.Background(), term); err != nil {
@@ -207,7 +207,7 @@ func TestGenerate_RealData_Stats(t *testing.T) {
 	}
 
 	queries := store.New(db)
-	scheduleCache := cache.NewScheduleCache(queries)
+	scheduleCache := cache.NewScheduleCache(queries, nil)
 
 	term := "202540"
 	if err := scheduleCache.LoadTerm(context.Background(), term); err != nil {

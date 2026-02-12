@@ -6,12 +6,13 @@ import (
 
 	"schedule-optimizer/internal/config"
 	"schedule-optimizer/internal/scraper"
+	"schedule-optimizer/internal/stats/grades"
 	"schedule-optimizer/internal/store"
 )
 
 // Setup creates and starts the jobs service if enabled in config.
 // Returns nil if jobs are disabled. The context controls job lifecycle.
-func Setup(ctx context.Context, cfg *config.Config, queries *store.Queries) *Service {
+func Setup(ctx context.Context, cfg *config.Config, queries *store.Queries, gradeService *grades.Service) *Service {
 	if !cfg.JobsEnabled {
 		return nil
 	}
@@ -22,12 +23,15 @@ func Setup(ctx context.Context, cfg *config.Config, queries *store.Queries) *Ser
 		return nil
 	}
 
+	gradeImportJob := NewGradeImportJob(gradeService)
+
 	pastTermJob := NewPastTermBackfillJob(queries, sc, cfg.PastTermYears)
 	activeJob := NewActiveScrapeJob(queries, sc, cfg.PastTermYears, cfg.ActiveScrapeHours)
 	dailyJob := NewDailyScrapeJob(queries, sc, cfg.PastTermYears, cfg.DailyScrapeHour)
 	bootstrapJob := NewBootstrapJob(sc, []Job{pastTermJob, activeJob, dailyJob})
 
 	service := NewService(time.Minute)
+	service.Register(gradeImportJob)
 	service.Register(bootstrapJob)
 	service.Register(pastTermJob)
 	service.Register(activeJob)

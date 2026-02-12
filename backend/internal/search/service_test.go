@@ -13,7 +13,7 @@ func TestSearch_NoFilters(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	_, err := svc.Search(context.Background(), SearchRequest{
 		Term: "202520",
@@ -29,7 +29,7 @@ func TestSearch_WildcardOnlyFilter(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	// Wildcard-only course number should be rejected
 	_, err := svc.Search(context.Background(), SearchRequest{
@@ -67,7 +67,7 @@ func TestSearch_FilterMinimumLength(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	// Single character subject should be rejected (min 2)
 	_, err := svc.Search(context.Background(), SearchRequest{
@@ -105,7 +105,7 @@ func TestSearch_TooManyTokens(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	_, err := svc.Search(context.Background(), SearchRequest{
 		Term:  "202520",
@@ -131,7 +131,7 @@ func TestSearch_InvalidTerm(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	_, err := svc.Search(context.Background(), SearchRequest{
 		Term:    "999999",
@@ -148,7 +148,7 @@ func TestSearch_SubjectFilter(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	resp, err := svc.Search(context.Background(), SearchRequest{
 		Term:    "202520",
@@ -189,7 +189,7 @@ func TestSearch_CourseNumberExact(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	resp, err := svc.Search(context.Background(), SearchRequest{
 		Term:         "202520",
@@ -220,7 +220,7 @@ func TestSearch_CourseNumberWildcard(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	// Test explicit wildcard "2*"
 	resp, err := svc.Search(context.Background(), SearchRequest{
@@ -250,7 +250,7 @@ func TestSearch_CourseNumberAutoWildcard(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	// Test auto-wildcard for 1-2 digit input
 	resp, err := svc.Search(context.Background(), SearchRequest{
@@ -272,7 +272,7 @@ func TestSearch_TitleToken(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	resp, err := svc.Search(context.Background(), SearchRequest{
 		Term:  "202520",
@@ -300,7 +300,7 @@ func TestSearch_InstructorToken(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	resp, err := svc.Search(context.Background(), SearchRequest{
 		Term:       "202520",
@@ -327,7 +327,7 @@ func TestSearch_InstructorMultipleTokens(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	// "Dr Smith" should match "Dr. Smith" (both tokens must match)
 	resp, err := svc.Search(context.Background(), SearchRequest{
@@ -349,7 +349,7 @@ func TestSearch_OpenSeatsFilter(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	// Without open_seats filter
 	resp, err := svc.Search(context.Background(), SearchRequest{
@@ -391,7 +391,7 @@ func TestSearch_CreditRange(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	minCredits := 5
 	resp, err := svc.Search(context.Background(), SearchRequest{
@@ -416,7 +416,7 @@ func TestSearch_CombinedFilters(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	resp, err := svc.Search(context.Background(), SearchRequest{
 		Term:         "202520",
@@ -439,7 +439,7 @@ func TestSearch_NoResults(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	resp, err := svc.Search(context.Background(), SearchRequest{
 		Term:    "202520",
@@ -472,7 +472,7 @@ func TestSearch_NoMeetingTimes(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	resp, err := svc.Search(context.Background(), SearchRequest{
 		Term:         "202520",
@@ -507,7 +507,7 @@ func TestSearch_AllTimeScope(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	// Search without term (all-time)
 	resp, err := svc.Search(context.Background(), SearchRequest{
@@ -547,7 +547,7 @@ func TestSearch_SingleTermScoring(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	// Single term search should still have relevance scores (from MatchQualityScorer)
 	resp, err := svc.Search(context.Background(), SearchRequest{
@@ -572,7 +572,7 @@ func TestSearch_CourseGrouping(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	// Search for CSCI without term - should group sections by course
 	resp, err := svc.Search(context.Background(), SearchRequest{
@@ -623,7 +623,7 @@ func TestSearch_ResponseStructure(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	resp, err := svc.Search(context.Background(), SearchRequest{
 		Term:    "202520",
@@ -724,7 +724,7 @@ func TestSearch_YearScope(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	// Search with year scope (2025 = Fall 2024 through Summer 2025)
 	// Our test data has terms 202520 (Spring 2025) and 202510 (Winter 2025)
@@ -749,7 +749,7 @@ func TestSearch_SectionKeyUniqueness(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	// Search across terms for CSCI 247 which exists in both 202520 and 202510
 	resp, err := svc.Search(context.Background(), SearchRequest{
@@ -790,7 +790,7 @@ func TestSearch_StatsPopulated(t *testing.T) {
 	defer db.Close()
 	testutil.SeedTestData(t, db)
 
-	svc := NewService(db, queries)
+	svc := NewService(db, queries, nil)
 
 	resp, err := svc.Search(context.Background(), SearchRequest{
 		Term:    "202520",

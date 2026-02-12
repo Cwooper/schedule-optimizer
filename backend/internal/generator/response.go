@@ -4,10 +4,11 @@ import "schedule-optimizer/internal/cache"
 
 // CourseInfo contains course-level data sent once per unique course code.
 type CourseInfo struct {
-	Subject      string `json:"subject"`
-	CourseNumber string `json:"courseNumber"`
-	Title        string `json:"title"`
-	Credits      int    `json:"credits"`
+	Subject      string  `json:"subject"`
+	CourseNumber string  `json:"courseNumber"`
+	Title        string  `json:"title"`
+	Credits      int     `json:"credits"`
+	GPA          float64 `json:"gpa,omitempty"`
 }
 
 // SectionInfo contains section-level data sent once per unique CRN.
@@ -22,6 +23,8 @@ type SectionInfo struct {
 	WaitCount      int                 `json:"waitCount"`
 	IsOpen         bool                `json:"isOpen"`
 	MeetingTimes   []cache.MeetingTime `json:"meetingTimes"`
+	GPA            float64             `json:"gpa,omitempty"`
+	GPASource      string              `json:"gpaSource,omitempty"`
 }
 
 // ScheduleRef contains CRN references for a single schedule.
@@ -78,6 +81,8 @@ func (r *GenerateResponse) ToResponse() *Response {
 					WaitCount:      course.WaitCount,
 					IsOpen:         course.IsOpen,
 					MeetingTimes:   course.MeetingTimes,
+					GPA:            course.GPA,
+					GPASource:      course.GPASource,
 				}
 			}
 
@@ -118,10 +123,35 @@ func (r *GenerateResponse) ToResponse() *Response {
 				WaitCount:      course.WaitCount,
 				IsOpen:         course.IsOpen,
 				MeetingTimes:   course.MeetingTimes,
+				GPA:            course.GPA,
+				GPASource:      course.GPASource,
 			}
 		}
 
 		asyncs = append(asyncs, course.CRN)
+	}
+
+	// Compute course-level GPA as average of all section GPAs for each course
+	type gpaAcc struct {
+		total float64
+		count int
+	}
+	courseGPAs := make(map[string]*gpaAcc)
+	for _, sec := range sections {
+		if sec.GPA > 0 {
+			acc, ok := courseGPAs[sec.CourseKey]
+			if !ok {
+				acc = &gpaAcc{}
+				courseGPAs[sec.CourseKey] = acc
+			}
+			acc.total += sec.GPA
+			acc.count++
+		}
+	}
+	for key, acc := range courseGPAs {
+		ci := courses[key]
+		ci.GPA = acc.total / float64(acc.count)
+		courses[key] = ci
 	}
 
 	return &Response{

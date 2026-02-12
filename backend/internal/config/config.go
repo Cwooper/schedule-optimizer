@@ -24,6 +24,8 @@ type Config struct {
 	DailyScrapeHour   int // Hour of day (0-23) for daily scrapes
 	LogRetentionDays  int // Days to keep logs before pruning
 	PastTermYears     int // Years of past terms to scrape
+
+	GradeDataPath string // Path to PRR Excel file for grade data
 }
 
 // Load reads environment variables and returns a Config struct.
@@ -44,6 +46,7 @@ func Load() *Config {
 	dailyScrapeHour := getEnvInt("JOBS_DAILY_SCRAPE_HOUR", 3)
 	logRetentionDays := getEnvInt("JOBS_LOG_RETENTION_DAYS", 90)
 	pastTermYears := getEnvInt("JOBS_PAST_TERM_YEARS", 5)
+	gradeDataPath := getEnv("GRADE_DATA_PATH", "data/PRR-S002163-020326.xlsx")
 
 	slog.Info("Configuration loaded",
 		"port", port,
@@ -56,6 +59,7 @@ func Load() *Config {
 		"daily_scrape_hour", dailyScrapeHour,
 		"log_retention_days", logRetentionDays,
 		"past_term_years", pastTermYears,
+		"grade_data_path", gradeDataPath,
 	)
 
 	return &Config{
@@ -69,6 +73,7 @@ func Load() *Config {
 		DailyScrapeHour:    dailyScrapeHour,
 		LogRetentionDays:   logRetentionDays,
 		PastTermYears:      pastTermYears,
+		GradeDataPath:      gradeDataPath,
 	}
 }
 
