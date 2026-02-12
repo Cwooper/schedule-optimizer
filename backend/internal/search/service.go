@@ -183,7 +183,7 @@ func (s *Service) buildResponse(ctx context.Context, rows []*sectionRow, section
 				CreditsHigh:  row.CreditsHigh,
 			}
 			if s.gradeService != nil && s.gradeService.IsLoaded() {
-				ci.GPA, _ = s.gradeService.LookupCourseGPA(row.Subject, row.CourseNumber)
+				ci.GPA, ci.PassRate, _ = s.gradeService.LookupCourseGPA(row.Subject, row.CourseNumber)
 			}
 			courses[courseKey] = ci
 			courseRefMap[courseKey] = &courseRefData{
@@ -214,7 +214,7 @@ func (s *Service) buildResponse(ctx context.Context, rows []*sectionRow, section
 			MeetingTimes:    meetings,
 		}
 		if s.gradeService != nil && s.gradeService.IsLoaded() {
-			si.GPA, si.GPASource = s.gradeService.LookupSectionGPA(
+			si.GPA, si.PassRate, si.GPASource = s.gradeService.LookupSectionGPA(
 				row.Subject, row.CourseNumber, row.Instructor,
 			)
 		}

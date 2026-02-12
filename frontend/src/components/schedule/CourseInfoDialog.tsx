@@ -1,7 +1,7 @@
 import { useMemo, useState, useCallback, useRef } from "react"
 import { useQueryClient } from "@tanstack/react-query"
 import { useVirtualizer } from "@tanstack/react-virtual"
-import { BookOpen, Users, Loader2 } from "lucide-react"
+import { BookOpen, Users, Loader2, TrendingUp, CircleHelp } from "lucide-react"
 import {
   Dialog,
   DialogContent,
@@ -9,6 +9,11 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { SectionCard } from "./SectionCard"
 import { useCourse, useCRN } from "@/hooks/use-api"
 import { getCRN } from "@/lib/api"
@@ -153,6 +158,28 @@ function DialogContentInner({
           <Users className="size-3.5" />
           {totalSections} section{totalSections !== 1 && "s"}
         </Badge>
+        <Badge variant="secondary" className="gap-1.5 rounded-md">
+          <TrendingUp className="size-3.5" />
+          {course.gpa
+            ? `${course.gpa.toFixed(2)} GPA`
+            : course.passRate != null
+              ? `${Math.round(course.passRate * 100)}% pass`
+              : "N/A"}
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <span className="inline-flex cursor-help">
+                <CircleHelp className="size-3.5 text-muted-foreground" />
+              </span>
+            </TooltipTrigger>
+            <TooltipContent>
+              {course.gpa
+                ? "Average GPA for this course"
+                : course.passRate != null
+                  ? "Historical pass rate for this S/U graded course"
+                  : "No historical grade data available"}
+            </TooltipContent>
+          </Tooltip>
+        </Badge>
       </div>
 
       {/* Virtualized section list */}
@@ -290,6 +317,8 @@ export function CourseInfoDialog({
       courseNumber: fetchedCourse.course.courseNumber,
       title: fetchedCourse.course.title,
       credits: fetchedCourse.course.credits,
+      gpa: fetchedCourse.course.gpa,
+      passRate: fetchedCourse.course.passRate,
     }
 
     // Meeting times not available from this endpoint — fetched per-CRN on expand
@@ -308,6 +337,9 @@ export function CourseInfoDialog({
         seatsAvailable: s.seatsAvailable,
         waitCount: s.waitCount,
         isOpen: s.isOpen,
+        gpa: s.gpa,
+        gpaSource: s.gpaSource,
+        passRate: s.passRate,
       })
     )
 

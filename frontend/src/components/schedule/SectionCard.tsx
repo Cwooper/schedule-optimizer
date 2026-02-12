@@ -1,11 +1,17 @@
 import { memo, useState } from "react"
-import { ChevronDown, ChevronRight, Check, Copy, Plus } from "lucide-react"
+import { ChevronDown, ChevronRight, Check, Copy, Plus, Users, User, BookOpen, TrendingUp, CircleCheck, CircleHelp } from "lucide-react"
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
+import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import type { HydratedSection, MeetingTime } from "@/lib/api"
 import { cn, decodeHtmlEntities } from "@/lib/utils"
 
@@ -178,9 +184,9 @@ export const SectionCard = memo(function SectionCard({
                 )}
               </div>
               {section.instructor && (
-                <span className="hidden items-baseline gap-1.5 sm:flex">
+                <span className="hidden min-w-0 items-baseline gap-1.5 sm:flex">
                   <span className="text-muted-foreground">·</span>
-                  <span className="truncate text-sm text-muted-foreground">
+                  <span className="max-w-[20ch] truncate text-sm text-muted-foreground" title={decodeHtmlEntities(section.instructor)}>
                     {decodeHtmlEntities(section.instructor)}
                   </span>
                 </span>
@@ -264,16 +270,48 @@ export const SectionCard = memo(function SectionCard({
               </div>
             )}
 
-            {/* Enrollment */}
-            <div
-              className={cn(
-                "text-sm",
-                section.seatsAvailable <= 0
-                  ? "text-amber-600 dark:text-amber-400"
-                  : "text-muted-foreground"
-              )}
-            >
-              {formatEnrollment(section)}
+            {/* Enrollment + GPA badges */}
+            <div className="flex flex-wrap items-center gap-1.5">
+              <Badge
+                variant="secondary"
+                className={cn(
+                  "gap-1 rounded-md text-xs",
+                  section.seatsAvailable <= 0 && "text-amber-600 dark:text-amber-400"
+                )}
+              >
+                <Users className="size-3" />
+                {formatEnrollment(section)}
+              </Badge>
+              <Badge variant="secondary" className="gap-1 rounded-md text-xs">
+                {section.gpa
+                  ? section.gpaSource === "course_professor"
+                    ? <User className="size-3" />
+                    : <BookOpen className="size-3" />
+                  : section.passRate != null
+                    ? <CircleCheck className="size-3" />
+                    : <TrendingUp className="size-3" />}
+                {section.gpa
+                  ? `${section.gpa.toFixed(2)} GPA`
+                  : section.passRate != null
+                    ? `${Math.round(section.passRate * 100)}% pass`
+                    : "N/A"}
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <span className="inline-flex cursor-help">
+                      <CircleHelp className="size-3 text-muted-foreground" />
+                    </span>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    {section.gpa
+                      ? section.gpaSource === "course_professor"
+                        ? "GPA for this professor teaching this course"
+                        : "Average GPA for this course"
+                      : section.passRate != null
+                        ? "Historical pass rate for this S/U graded course"
+                        : "No historical grade data available"}
+                  </TooltipContent>
+                </Tooltip>
+              </Badge>
             </div>
           </div>
         </CollapsibleContent>

@@ -342,6 +342,9 @@ export function hydrateSection(
     seatsAvailable: section.seatsAvailable,
     waitCount: section.waitCount,
     isOpen: section.isOpen,
+    gpa: section.gpa,
+    gpaSource: section.gpaSource,
+    passRate: section.passRate,
   }
 }
 

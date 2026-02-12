@@ -24,8 +24,9 @@ type CourseInfo struct {
 	CourseNumber string  `json:"courseNumber"`
 	Title        string  `json:"title"`
 	Credits      int     `json:"credits"`
-	CreditsHigh  int     `json:"creditsHigh,omitempty"`
-	GPA          float64 `json:"gpa,omitempty"`
+	CreditsHigh  int      `json:"creditsHigh,omitempty"`
+	GPA          float64  `json:"gpa,omitempty"`
+	PassRate     *float64 `json:"passRate,omitempty"`
 }
 
 // MeetingTimeInfo represents a single meeting time for a section.
@@ -54,6 +55,7 @@ type SectionInfo struct {
 	MeetingTimes    []MeetingTimeInfo `json:"meetingTimes"`
 	GPA             float64           `json:"gpa,omitempty"`
 	GPASource       string            `json:"gpaSource,omitempty"`
+	PassRate        *float64          `json:"passRate,omitempty"`
 }
 
 // CourseRef groups sections of a course with relevance score.

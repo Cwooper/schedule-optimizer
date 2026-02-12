@@ -39,6 +39,7 @@ type Course struct {
 	MeetingTimes        []MeetingTime `json:"meetingTimes"`
 	GPA                 float64       `json:"gpa,omitempty"`
 	GPASource           string        `json:"gpaSource,omitempty"` // "course_professor", "course", ""
+	PassRate            *float64      `json:"passRate,omitempty"`
 }
 
 // MeetingTime represents when and where a course meets.
@@ -147,9 +148,9 @@ func (c *ScheduleCache) LoadTerm(ctx context.Context, term string) error {
 			course.MeetingTimes = append(course.MeetingTimes, mt)
 		}
 
-		// Look up GPA from grade data
+		// Look up GPA and pass rate from grade data
 		if c.gradeService != nil && c.gradeService.IsLoaded() {
-			course.GPA, course.GPASource = c.gradeService.LookupSectionGPA(
+			course.GPA, course.PassRate, course.GPASource = c.gradeService.LookupSectionGPA(
 				course.Subject, course.CourseNumber, course.Instructor,
 			)
 		}

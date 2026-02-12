@@ -4,11 +4,12 @@ import "schedule-optimizer/internal/cache"
 
 // CourseInfo contains course-level data sent once per unique course code.
 type CourseInfo struct {
-	Subject      string  `json:"subject"`
-	CourseNumber string  `json:"courseNumber"`
-	Title        string  `json:"title"`
-	Credits      int     `json:"credits"`
-	GPA          float64 `json:"gpa,omitempty"`
+	Subject      string   `json:"subject"`
+	CourseNumber string   `json:"courseNumber"`
+	Title        string   `json:"title"`
+	Credits      int      `json:"credits"`
+	GPA          float64  `json:"gpa,omitempty"`
+	PassRate     *float64 `json:"passRate,omitempty"`
 }
 
 // SectionInfo contains section-level data sent once per unique CRN.
@@ -25,6 +26,7 @@ type SectionInfo struct {
 	MeetingTimes   []cache.MeetingTime `json:"meetingTimes"`
 	GPA            float64             `json:"gpa,omitempty"`
 	GPASource      string              `json:"gpaSource,omitempty"`
+	PassRate       *float64            `json:"passRate,omitempty"`
 }
 
 // ScheduleRef contains CRN references for a single schedule.
@@ -83,6 +85,7 @@ func (r *GenerateResponse) ToResponse() *Response {
 					MeetingTimes:   course.MeetingTimes,
 					GPA:            course.GPA,
 					GPASource:      course.GPASource,
+					PassRate:       course.PassRate,
 				}
 			}
 
@@ -125,33 +128,51 @@ func (r *GenerateResponse) ToResponse() *Response {
 				MeetingTimes:   course.MeetingTimes,
 				GPA:            course.GPA,
 				GPASource:      course.GPASource,
+				PassRate:       course.PassRate,
 			}
 		}
 
 		asyncs = append(asyncs, course.CRN)
 	}
 
-	// Compute course-level GPA as average of all section GPAs for each course
-	type gpaAcc struct {
+	// Compute course-level GPA and pass rate as averages of section values
+	type acc struct {
 		total float64
 		count int
 	}
-	courseGPAs := make(map[string]*gpaAcc)
+	courseGPAs := make(map[string]*acc)
+	coursePassRates := make(map[string]*acc)
 	for _, sec := range sections {
 		if sec.GPA > 0 {
-			acc, ok := courseGPAs[sec.CourseKey]
+			a, ok := courseGPAs[sec.CourseKey]
 			if !ok {
-				acc = &gpaAcc{}
-				courseGPAs[sec.CourseKey] = acc
+				a = &acc{}
+				courseGPAs[sec.CourseKey] = a
 			}
-			acc.total += sec.GPA
-			acc.count++
+			a.total += sec.GPA
+			a.count++
+		} else if sec.PassRate != nil {
+			a, ok := coursePassRates[sec.CourseKey]
+			if !ok {
+				a = &acc{}
+				coursePassRates[sec.CourseKey] = a
+			}
+			a.total += *sec.PassRate
+			a.count++
 		}
 	}
-	for key, acc := range courseGPAs {
+	for key, a := range courseGPAs {
 		ci := courses[key]
-		ci.GPA = acc.total / float64(acc.count)
+		ci.GPA = a.total / float64(a.count)
 		courses[key] = ci
+	}
+	for key, a := range coursePassRates {
+		if _, hasGPA := courseGPAs[key]; !hasGPA {
+			ci := courses[key]
+			pr := a.total / float64(a.count)
+			ci.PassRate = &pr
+			courses[key] = ci
+		}
 	}
 
 	return &Response{
