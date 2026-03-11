@@ -50,6 +50,33 @@ func (q *Queries) DeleteAllGradeAggregates(ctx context.Context) error {
 	return err
 }
 
+const deleteFinalMappingsByTerm = `-- name: DeleteFinalMappingsByTerm :exec
+DELETE FROM finals_mappings WHERE term_code = ?
+`
+
+func (q *Queries) DeleteFinalMappingsByTerm(ctx context.Context, termCode string) error {
+	_, err := q.db.ExecContext(ctx, deleteFinalMappingsByTerm, termCode)
+	return err
+}
+
+const deleteHolidaysByTerm = `-- name: DeleteHolidaysByTerm :exec
+DELETE FROM holidays WHERE term_code = ?
+`
+
+func (q *Queries) DeleteHolidaysByTerm(ctx context.Context, termCode string) error {
+	_, err := q.db.ExecContext(ctx, deleteHolidaysByTerm, termCode)
+	return err
+}
+
+const deleteImportantDatesByTerm = `-- name: DeleteImportantDatesByTerm :exec
+DELETE FROM important_dates WHERE term_code = ?
+`
+
+func (q *Queries) DeleteImportantDatesByTerm(ctx context.Context, termCode string) error {
+	_, err := q.db.ExecContext(ctx, deleteImportantDatesByTerm, termCode)
+	return err
+}
+
 const deleteInstructorsBySection = `-- name: DeleteInstructorsBySection :exec
 DELETE FROM instructors WHERE section_id = ?
 `
@@ -218,6 +245,40 @@ func (q *Queries) GetAllGradeRows(ctx context.Context) ([]*GradeRow, error) {
 	return items, nil
 }
 
+const getAllTermDates = `-- name: GetAllTermDates :many
+SELECT term_code, start_date, end_date, finals_start, finals_end, scraped_at FROM term_dates ORDER BY term_code DESC
+`
+
+func (q *Queries) GetAllTermDates(ctx context.Context) ([]*TermDate, error) {
+	rows, err := q.db.QueryContext(ctx, getAllTermDates)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []*TermDate{}
+	for rows.Next() {
+		var i TermDate
+		if err := rows.Scan(
+			&i.TermCode,
+			&i.StartDate,
+			&i.EndDate,
+			&i.FinalsStart,
+			&i.FinalsEnd,
+			&i.ScrapedAt,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, &i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
 const getDistinctSubjects = `-- name: GetDistinctSubjects :many
 SELECT DISTINCT subject FROM sections ORDER BY subject
 `
@@ -299,6 +360,42 @@ func (q *Queries) GetDistinctTerms(ctx context.Context) ([]string, error) {
 	return items, nil
 }
 
+const getFinalMappingsByTerm = `-- name: GetFinalMappingsByTerm :many
+SELECT id, term_code, time_range_start, time_range_end, has_tuth, exam_date, exam_start_time, exam_end_time FROM finals_mappings WHERE term_code = ? ORDER BY time_range_start, has_tuth
+`
+
+func (q *Queries) GetFinalMappingsByTerm(ctx context.Context, termCode string) ([]*FinalsMapping, error) {
+	rows, err := q.db.QueryContext(ctx, getFinalMappingsByTerm, termCode)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []*FinalsMapping{}
+	for rows.Next() {
+		var i FinalsMapping
+		if err := rows.Scan(
+			&i.ID,
+			&i.TermCode,
+			&i.TimeRangeStart,
+			&i.TimeRangeEnd,
+			&i.HasTuth,
+			&i.ExamDate,
+			&i.ExamStartTime,
+			&i.ExamEndTime,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, &i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
 const getGradeAggregateCount = `-- name: GetGradeAggregateCount :one
 SELECT COUNT(*) FROM grade_aggregates
 `
@@ -368,6 +465,71 @@ func (q *Queries) GetGradeRowCount(ctx context.Context) (int64, error) {
 	var count int64
 	err := row.Scan(&count)
 	return count, err
+}
+
+const getHolidaysByTerm = `-- name: GetHolidaysByTerm :many
+SELECT id, term_code, date, description FROM holidays WHERE term_code = ? ORDER BY date
+`
+
+func (q *Queries) GetHolidaysByTerm(ctx context.Context, termCode string) ([]*Holiday, error) {
+	rows, err := q.db.QueryContext(ctx, getHolidaysByTerm, termCode)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []*Holiday{}
+	for rows.Next() {
+		var i Holiday
+		if err := rows.Scan(
+			&i.ID,
+			&i.TermCode,
+			&i.Date,
+			&i.Description,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, &i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const getImportantDatesByTerm = `-- name: GetImportantDatesByTerm :many
+SELECT id, term_code, date, description, category FROM important_dates WHERE term_code = ? ORDER BY date
+`
+
+func (q *Queries) GetImportantDatesByTerm(ctx context.Context, termCode string) ([]*ImportantDate, error) {
+	rows, err := q.db.QueryContext(ctx, getImportantDatesByTerm, termCode)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []*ImportantDate{}
+	for rows.Next() {
+		var i ImportantDate
+		if err := rows.Scan(
+			&i.ID,
+			&i.TermCode,
+			&i.Date,
+			&i.Description,
+			&i.Category,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, &i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
 }
 
 const getInstructorMappings = `-- name: GetInstructorMappings :many
@@ -1106,6 +1268,24 @@ func (q *Queries) GetTermByCode(ctx context.Context, code string) (*Term, error)
 	return &i, err
 }
 
+const getTermDates = `-- name: GetTermDates :one
+SELECT term_code, start_date, end_date, finals_start, finals_end, scraped_at FROM term_dates WHERE term_code = ?
+`
+
+func (q *Queries) GetTermDates(ctx context.Context, termCode string) (*TermDate, error) {
+	row := q.db.QueryRowContext(ctx, getTermDates, termCode)
+	var i TermDate
+	err := row.Scan(
+		&i.TermCode,
+		&i.StartDate,
+		&i.EndDate,
+		&i.FinalsStart,
+		&i.FinalsEnd,
+		&i.ScrapedAt,
+	)
+	return &i, err
+}
+
 const getTerms = `-- name: GetTerms :many
 SELECT code, description, last_scraped_at FROM terms ORDER BY code DESC
 `
@@ -1642,6 +1822,81 @@ func (q *Queries) UpdateTermScrapedAt(ctx context.Context, code string) error {
 	return err
 }
 
+const upsertFinalMapping = `-- name: UpsertFinalMapping :exec
+INSERT INTO finals_mappings (term_code, time_range_start, time_range_end, has_tuth, exam_date, exam_start_time, exam_end_time)
+VALUES (?, ?, ?, ?, ?, ?, ?)
+ON CONFLICT(term_code, time_range_start, has_tuth) DO UPDATE SET
+    time_range_end = excluded.time_range_end,
+    exam_date = excluded.exam_date,
+    exam_start_time = excluded.exam_start_time,
+    exam_end_time = excluded.exam_end_time
+`
+
+type UpsertFinalMappingParams struct {
+	TermCode       string `json:"term_code"`
+	TimeRangeStart string `json:"time_range_start"`
+	TimeRangeEnd   string `json:"time_range_end"`
+	HasTuth        int64  `json:"has_tuth"`
+	ExamDate       string `json:"exam_date"`
+	ExamStartTime  string `json:"exam_start_time"`
+	ExamEndTime    string `json:"exam_end_time"`
+}
+
+func (q *Queries) UpsertFinalMapping(ctx context.Context, arg UpsertFinalMappingParams) error {
+	_, err := q.db.ExecContext(ctx, upsertFinalMapping,
+		arg.TermCode,
+		arg.TimeRangeStart,
+		arg.TimeRangeEnd,
+		arg.HasTuth,
+		arg.ExamDate,
+		arg.ExamStartTime,
+		arg.ExamEndTime,
+	)
+	return err
+}
+
+const upsertHoliday = `-- name: UpsertHoliday :exec
+INSERT INTO holidays (term_code, date, description)
+VALUES (?, ?, ?)
+ON CONFLICT(term_code, date) DO UPDATE SET
+    description = excluded.description
+`
+
+type UpsertHolidayParams struct {
+	TermCode    string `json:"term_code"`
+	Date        string `json:"date"`
+	Description string `json:"description"`
+}
+
+func (q *Queries) UpsertHoliday(ctx context.Context, arg UpsertHolidayParams) error {
+	_, err := q.db.ExecContext(ctx, upsertHoliday, arg.TermCode, arg.Date, arg.Description)
+	return err
+}
+
+const upsertImportantDate = `-- name: UpsertImportantDate :exec
+INSERT INTO important_dates (term_code, date, description, category)
+VALUES (?, ?, ?, ?)
+ON CONFLICT(term_code, date, description) DO UPDATE SET
+    category = excluded.category
+`
+
+type UpsertImportantDateParams struct {
+	TermCode    string `json:"term_code"`
+	Date        string `json:"date"`
+	Description string `json:"description"`
+	Category    string `json:"category"`
+}
+
+func (q *Queries) UpsertImportantDate(ctx context.Context, arg UpsertImportantDateParams) error {
+	_, err := q.db.ExecContext(ctx, upsertImportantDate,
+		arg.TermCode,
+		arg.Date,
+		arg.Description,
+		arg.Category,
+	)
+	return err
+}
+
 const upsertInstructorMapping = `-- name: UpsertInstructorMapping :exec
 INSERT INTO instructor_mappings (banner_name, grade_name, match_count)
 VALUES (?, ?, ?)
@@ -1771,6 +2026,36 @@ type UpsertTermParams struct {
 
 func (q *Queries) UpsertTerm(ctx context.Context, arg UpsertTermParams) error {
 	_, err := q.db.ExecContext(ctx, upsertTerm, arg.Code, arg.Description)
+	return err
+}
+
+const upsertTermDates = `-- name: UpsertTermDates :exec
+INSERT INTO term_dates (term_code, start_date, end_date, finals_start, finals_end)
+VALUES (?, ?, ?, ?, ?)
+ON CONFLICT(term_code) DO UPDATE SET
+    start_date = excluded.start_date,
+    end_date = excluded.end_date,
+    finals_start = excluded.finals_start,
+    finals_end = excluded.finals_end,
+    scraped_at = CURRENT_TIMESTAMP
+`
+
+type UpsertTermDatesParams struct {
+	TermCode    string         `json:"term_code"`
+	StartDate   string         `json:"start_date"`
+	EndDate     string         `json:"end_date"`
+	FinalsStart sql.NullString `json:"finals_start"`
+	FinalsEnd   sql.NullString `json:"finals_end"`
+}
+
+func (q *Queries) UpsertTermDates(ctx context.Context, arg UpsertTermDatesParams) error {
+	_, err := q.db.ExecContext(ctx, upsertTermDates,
+		arg.TermCode,
+		arg.StartDate,
+		arg.EndDate,
+		arg.FinalsStart,
+		arg.FinalsEnd,
+	)
 	return err
 }
 

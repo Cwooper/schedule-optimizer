@@ -298,3 +298,58 @@ SELECT g.subject as grade_subject, g.course_number as grade_course_number,
 FROM grade_rows g
 JOIN sections s ON g.term = s.term AND g.crn = s.crn
 LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1;
+
+-- name: UpsertTermDates :exec
+INSERT INTO term_dates (term_code, start_date, end_date, finals_start, finals_end)
+VALUES (?, ?, ?, ?, ?)
+ON CONFLICT(term_code) DO UPDATE SET
+    start_date = excluded.start_date,
+    end_date = excluded.end_date,
+    finals_start = excluded.finals_start,
+    finals_end = excluded.finals_end,
+    scraped_at = CURRENT_TIMESTAMP;
+
+-- name: GetTermDates :one
+SELECT * FROM term_dates WHERE term_code = ?;
+
+-- name: GetAllTermDates :many
+SELECT * FROM term_dates ORDER BY term_code DESC;
+
+-- name: UpsertFinalMapping :exec
+INSERT INTO finals_mappings (term_code, time_range_start, time_range_end, has_tuth, exam_date, exam_start_time, exam_end_time)
+VALUES (?, ?, ?, ?, ?, ?, ?)
+ON CONFLICT(term_code, time_range_start, has_tuth) DO UPDATE SET
+    time_range_end = excluded.time_range_end,
+    exam_date = excluded.exam_date,
+    exam_start_time = excluded.exam_start_time,
+    exam_end_time = excluded.exam_end_time;
+
+-- name: GetFinalMappingsByTerm :many
+SELECT * FROM finals_mappings WHERE term_code = ? ORDER BY time_range_start, has_tuth;
+
+-- name: DeleteFinalMappingsByTerm :exec
+DELETE FROM finals_mappings WHERE term_code = ?;
+
+-- name: UpsertHoliday :exec
+INSERT INTO holidays (term_code, date, description)
+VALUES (?, ?, ?)
+ON CONFLICT(term_code, date) DO UPDATE SET
+    description = excluded.description;
+
+-- name: GetHolidaysByTerm :many
+SELECT * FROM holidays WHERE term_code = ? ORDER BY date;
+
+-- name: DeleteHolidaysByTerm :exec
+DELETE FROM holidays WHERE term_code = ?;
+
+-- name: UpsertImportantDate :exec
+INSERT INTO important_dates (term_code, date, description, category)
+VALUES (?, ?, ?, ?)
+ON CONFLICT(term_code, date, description) DO UPDATE SET
+    category = excluded.category;
+
+-- name: GetImportantDatesByTerm :many
+SELECT * FROM important_dates WHERE term_code = ? ORDER BY date;
+
+-- name: DeleteImportantDatesByTerm :exec
+DELETE FROM important_dates WHERE term_code = ?;

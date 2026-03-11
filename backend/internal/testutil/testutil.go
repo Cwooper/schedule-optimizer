@@ -6,6 +6,7 @@ import (
 	"os"
 	"path/filepath"
 	"runtime"
+	"strings"
 	"testing"
 
 	_ "github.com/mattn/go-sqlite3"
@@ -29,7 +30,7 @@ func getProjectRoot() string {
 	}
 }
 
-// SetupTestDB creates an in-memory SQLite database with the schema applied.
+// SetupTestDB creates an in-memory SQLite database with all migrations applied.
 // Returns the database connection and a store.Queries instance.
 func SetupTestDB(t testing.TB) (*sql.DB, *store.Queries) {
 	t.Helper()
@@ -39,15 +40,25 @@ func SetupTestDB(t testing.TB) (*sql.DB, *store.Queries) {
 		t.Fatalf("failed to open test database: %v", err)
 	}
 
-	// Read and apply the migration
-	migrationPath := filepath.Join(getProjectRoot(), "migrations", "000001_initial_schema.up.sql")
-	schema, err := os.ReadFile(migrationPath)
+	migrationsDir := filepath.Join(getProjectRoot(), "migrations")
+	entries, err := os.ReadDir(migrationsDir)
 	if err != nil {
-		t.Fatalf("failed to read migration file: %v", err)
+		t.Fatalf("failed to read migrations directory: %v", err)
 	}
 
-	if _, err := db.Exec(string(schema)); err != nil {
-		t.Fatalf("failed to apply schema: %v", err)
+	for _, entry := range entries {
+		if entry.IsDir() || !strings.HasSuffix(entry.Name(), ".up.sql") {
+			continue
+		}
+
+		schema, err := os.ReadFile(filepath.Join(migrationsDir, entry.Name()))
+		if err != nil {
+			t.Fatalf("failed to read migration %s: %v", entry.Name(), err)
+		}
+
+		if _, err := db.Exec(string(schema)); err != nil {
+			t.Fatalf("failed to apply migration %s: %v", entry.Name(), err)
+		}
 	}
 
 	return db, store.New(db)

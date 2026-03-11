@@ -4,6 +4,7 @@ import (
 	"context"
 	"time"
 
+	"schedule-optimizer/internal/calendar"
 	"schedule-optimizer/internal/config"
 	"schedule-optimizer/internal/scraper"
 	"schedule-optimizer/internal/stats/grades"
@@ -25,10 +26,13 @@ func Setup(ctx context.Context, cfg *config.Config, queries *store.Queries, grad
 
 	gradeImportJob := NewGradeImportJob(gradeService)
 
+	calendarService := calendar.NewService(queries)
+	calendarJob := NewCalendarScrapeJob(calendarService)
+
 	pastTermJob := NewPastTermBackfillJob(queries, sc, cfg.PastTermYears)
 	activeJob := NewActiveScrapeJob(queries, sc, cfg.PastTermYears, cfg.ActiveScrapeHours)
 	dailyJob := NewDailyScrapeJob(queries, sc, cfg.PastTermYears, cfg.DailyScrapeHour)
-	bootstrapJob := NewBootstrapJob(sc, []Job{pastTermJob, activeJob, dailyJob})
+	bootstrapJob := NewBootstrapJob(sc, []Job{pastTermJob, activeJob, dailyJob, calendarJob})
 
 	service := NewService(time.Minute)
 	service.Register(gradeImportJob)
@@ -36,6 +40,7 @@ func Setup(ctx context.Context, cfg *config.Config, queries *store.Queries, grad
 	service.Register(pastTermJob)
 	service.Register(activeJob)
 	service.Register(dailyJob)
+	service.Register(calendarJob)
 
 	go service.Start(ctx)
 

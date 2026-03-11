@@ -24,6 +24,17 @@ type Feedback struct {
 	CreatedAt sql.NullTime   `json:"created_at"`
 }
 
+type FinalsMapping struct {
+	ID             int64  `json:"id"`
+	TermCode       string `json:"term_code"`
+	TimeRangeStart string `json:"time_range_start"`
+	TimeRangeEnd   string `json:"time_range_end"`
+	HasTuth        int64  `json:"has_tuth"`
+	ExamDate       string `json:"exam_date"`
+	ExamStartTime  string `json:"exam_start_time"`
+	ExamEndTime    string `json:"exam_end_time"`
+}
+
 type GenerationLog struct {
 	ID                 int64           `json:"id"`
 	SessionID          sql.NullString  `json:"session_id"`
@@ -101,6 +112,21 @@ type GradeRow struct {
 	CntNp            int64  `json:"cnt_np"`
 	CntS             int64  `json:"cnt_s"`
 	CntU             int64  `json:"cnt_u"`
+}
+
+type Holiday struct {
+	ID          int64  `json:"id"`
+	TermCode    string `json:"term_code"`
+	Date        string `json:"date"`
+	Description string `json:"description"`
+}
+
+type ImportantDate struct {
+	ID          int64  `json:"id"`
+	TermCode    string `json:"term_code"`
+	Date        string `json:"date"`
+	Description string `json:"description"`
+	Category    string `json:"category"`
 }
 
 type Instructor struct {
@@ -199,4 +225,13 @@ type Term struct {
 	Code          string       `json:"code"`
 	Description   string       `json:"description"`
 	LastScrapedAt sql.NullTime `json:"last_scraped_at"`
+}
+
+type TermDate struct {
+	TermCode    string         `json:"term_code"`
+	StartDate   string         `json:"start_date"`
+	EndDate     string         `json:"end_date"`
+	FinalsStart sql.NullString `json:"finals_start"`
+	FinalsEnd   sql.NullString `json:"finals_end"`
+	ScrapedAt   sql.NullTime   `json:"scraped_at"`
 }
