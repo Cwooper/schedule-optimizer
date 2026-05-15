@@ -293,17 +293,13 @@ func determineCurrentTerm(terms []*store.Term) string {
 
 	now := time.Now()
 
+	var soonestPreReg string
 	for _, t := range terms {
-		if jobs.GetTermPhase(t.Code, now) == jobs.PhaseActiveRegistration {
+		switch jobs.GetTermPhase(t.Code, now) {
+		case jobs.PhaseActiveRegistration:
 			return t.Code
-		}
-	}
-
-	// Soonest pre-reg term = last one in DESC-sorted slice that's pre-reg.
-	soonestPreReg := ""
-	for _, t := range terms {
-		if jobs.GetTermPhase(t.Code, now) == jobs.PhasePreRegistration {
-			soonestPreReg = t.Code
+		case jobs.PhasePreRegistration:
+			soonestPreReg = t.Code // keep overwriting; DESC-sorted, so last wins
 		}
 	}
 	if soonestPreReg != "" {
