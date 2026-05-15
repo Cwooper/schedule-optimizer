@@ -13,7 +13,6 @@ const (
 	PhasePast               TermPhase = iota // Term has ended
 	PhasePreRegistration                     // Registration not yet open (scrape daily)
 	PhaseActiveRegistration                  // Registration open or term in progress (scrape frequently)
-	PhaseFuture                              // Too far in the future to scrape
 )
 
 func (p TermPhase) String() string {
@@ -24,8 +23,6 @@ func (p TermPhase) String() string {
 		return "pre-registration"
 	case PhaseActiveRegistration:
 		return "active-registration"
-	case PhaseFuture:
-		return "future"
 	default:
 		return "unknown"
 	}
@@ -78,6 +75,9 @@ func MakeTermCode(year, quarter int) string {
 //   - Fall: Sep 24 - Dec 12
 //
 // Registration is estimated to open 40 days before term start.
+// Any term not yet in active registration is treated as pre-registration so
+// the daily job scrapes every future term Banner exposes — Banner controls
+// how far ahead terms are surfaced.
 // TODO(#37): Scrape actual registration dates from Banner for precise detection.
 func GetTermPhase(termCode string, now time.Time) TermPhase {
 	year, quarter, err := ParseTermCode(termCode)
@@ -94,12 +94,7 @@ func GetTermPhase(termCode string, now time.Time) TermPhase {
 	if now.After(regStart) {
 		return PhaseActiveRegistration
 	}
-	// Pre-registration: within 60 days before registration opens
-	preRegStart := regStart.AddDate(0, 0, -60)
-	if now.After(preRegStart) {
-		return PhasePreRegistration
-	}
-	return PhaseFuture
+	return PhasePreRegistration
 }
 
 // getTermDates returns approximate start and end dates for a term.

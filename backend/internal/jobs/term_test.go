@@ -93,10 +93,16 @@ func TestGetTermPhase(t *testing.T) {
 			wantPhase: PhasePreRegistration,
 		},
 		{
-			name:      "Winter future",
+			name:      "Winter far before registration still pre-registration",
 			termCode:  "202510",
 			now:       time.Date(2024, 9, 1, 0, 0, 0, 0, time.Local),
-			wantPhase: PhaseFuture,
+			wantPhase: PhasePreRegistration,
+		},
+		{
+			name:      "Fall many months before registration still pre-registration",
+			termCode:  "202640",
+			now:       time.Date(2026, 5, 15, 0, 0, 0, 0, time.Local),
+			wantPhase: PhasePreRegistration,
 		},
 
 		// Spring 2025: Apr 1 - Jun 12, reg opens Feb 20 (40 days before)
@@ -248,7 +254,6 @@ func TestTermPhaseString(t *testing.T) {
 		{PhasePast, "past"},
 		{PhasePreRegistration, "pre-registration"},
 		{PhaseActiveRegistration, "active-registration"},
-		{PhaseFuture, "future"},
 		{TermPhase(99), "unknown"},
 	}
 
