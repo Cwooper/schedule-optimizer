@@ -282,7 +282,10 @@ func (h *Handlers) GetTerms(c *gin.Context) {
 }
 
 // determineCurrentTerm selects the best default term for the frontend.
-// Prefers pre-registration (upcoming term), then active registration, then most recent.
+// Prefers the most recent term in active registration; otherwise the soonest
+// upcoming pre-registration term; otherwise the most recent term overall.
+//
+// `terms` is sorted by code DESC (newest first).
 func determineCurrentTerm(terms []*store.Term) string {
 	if len(terms) == 0 {
 		return ""
@@ -290,23 +293,19 @@ func determineCurrentTerm(terms []*store.Term) string {
 
 	now := time.Now()
 
-	// Find the first term in pre-registration (registration opening soon)
+	var soonestPreReg string
 	for _, t := range terms {
-		phase := jobs.GetTermPhase(t.Code, now)
-		if phase == jobs.PhasePreRegistration {
+		switch jobs.GetTermPhase(t.Code, now) {
+		case jobs.PhaseActiveRegistration:
 			return t.Code
+		case jobs.PhasePreRegistration:
+			soonestPreReg = t.Code // keep overwriting; DESC-sorted, so last wins
 		}
 	}
-
-	// Fall back to active registration (current term still registering)
-	for _, t := range terms {
-		phase := jobs.GetTermPhase(t.Code, now)
-		if phase == jobs.PhaseActiveRegistration {
-			return t.Code
-		}
+	if soonestPreReg != "" {
+		return soonestPreReg
 	}
 
-	// If nothing matches, return the most recent term
 	return terms[0].Code
 }
 
