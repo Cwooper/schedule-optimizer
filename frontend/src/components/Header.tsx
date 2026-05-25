@@ -26,7 +26,7 @@ export function Header() {
         {/* Logo + Title */}
         <button
           onClick={() => setTab("schedule")}
-          className="flex items-center gap-1.5 sm:gap-2"
+          className="flex cursor-pointer items-center gap-1.5 sm:gap-2"
         >
           <img src={logoSrc} alt="" className="size-6" />
           <span className="text-lg font-semibold whitespace-nowrap sm:text-xl">
