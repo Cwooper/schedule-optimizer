@@ -6,6 +6,10 @@ import (
 	"time"
 )
 
+// TermDateLookup returns the start and end dates for a term code.
+// Returns ok=false if the term is not found.
+type TermDateLookup func(termCode string) (start, end time.Time, ok bool)
+
 // TermPhase represents the lifecycle phase of a term for scraping purposes.
 type TermPhase int
 
@@ -70,22 +74,20 @@ func MakeTermCode(year, quarter int) string {
 }
 
 // GetTermPhase determines the current lifecycle phase of a term.
-//
-// Phase detection uses approximate term dates:
-//   - Winter: Jan 5 - Mar 20
-//   - Spring: Apr 1 - Jun 12
-//   - Summer: Jun 23 - Aug 21
-//   - Fall: Sep 24 - Dec 12
+// Uses lookup to get real term dates from the database.
+// Returns PhasePast if the term code is invalid or not found in the DB.
 //
 // Registration is estimated to open 40 days before term start.
-// TODO(#37): Scrape actual registration dates from Banner for precise detection.
-func GetTermPhase(termCode string, now time.Time) TermPhase {
-	year, quarter, err := ParseTermCode(termCode)
-	if err != nil {
-		return PhasePast // Invalid codes treated as past
+func GetTermPhase(termCode string, now time.Time, lookup TermDateLookup) TermPhase {
+	if _, _, err := ParseTermCode(termCode); err != nil {
+		return PhasePast
 	}
 
-	termStart, termEnd := getTermDates(year, quarter)
+	termStart, termEnd, ok := lookup(termCode)
+	if !ok {
+		return PhasePast
+	}
+
 	regStart := termStart.AddDate(0, 0, -40)
 
 	if now.After(termEnd) {
@@ -100,27 +102,6 @@ func GetTermPhase(termCode string, now time.Time) TermPhase {
 		return PhasePreRegistration
 	}
 	return PhaseFuture
-}
-
-// getTermDates returns approximate start and end dates for a term.
-func getTermDates(year, quarter int) (start, end time.Time) {
-	loc := time.Local
-	switch quarter {
-	case QuarterWinter:
-		return time.Date(year, 1, 5, 0, 0, 0, 0, loc),
-			time.Date(year, 3, 20, 23, 59, 59, 0, loc)
-	case QuarterSpring:
-		return time.Date(year, 4, 1, 0, 0, 0, 0, loc),
-			time.Date(year, 6, 12, 23, 59, 59, 0, loc)
-	case QuarterSummer:
-		return time.Date(year, 6, 23, 0, 0, 0, 0, loc),
-			time.Date(year, 8, 21, 23, 59, 59, 0, loc)
-	case QuarterFall:
-		return time.Date(year, 9, 24, 0, 0, 0, 0, loc),
-			time.Date(year, 12, 12, 23, 59, 59, 0, loc)
-	default:
-		return time.Time{}, time.Time{}
-	}
 }
 
 // GetPastTermCutoff returns the oldest term code worth scraping.

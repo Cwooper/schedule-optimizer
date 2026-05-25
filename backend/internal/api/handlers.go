@@ -273,7 +273,7 @@ func (h *Handlers) GetTerms(c *gin.Context) {
 		})
 	}
 
-	current := determineCurrentTerm(terms)
+	current := h.determineCurrentTerm(c.Request.Context(), terms)
 
 	c.JSON(http.StatusOK, gin.H{
 		"terms":   result,
@@ -283,16 +283,17 @@ func (h *Handlers) GetTerms(c *gin.Context) {
 
 // determineCurrentTerm selects the best default term for the frontend.
 // Prefers pre-registration (upcoming term), then active registration, then most recent.
-func determineCurrentTerm(terms []*store.Term) string {
+func (h *Handlers) determineCurrentTerm(ctx context.Context, terms []*store.Term) string {
 	if len(terms) == 0 {
 		return ""
 	}
 
 	now := time.Now()
+	lookup := jobs.NewTermDateLookup(ctx, h.queries)
 
 	// Find the first term in pre-registration (registration opening soon)
 	for _, t := range terms {
-		phase := jobs.GetTermPhase(t.Code, now)
+		phase := jobs.GetTermPhase(t.Code, now, lookup)
 		if phase == jobs.PhasePreRegistration {
 			return t.Code
 		}
@@ -300,7 +301,7 @@ func determineCurrentTerm(terms []*store.Term) string {
 
 	// Fall back to active registration (current term still registering)
 	for _, t := range terms {
-		phase := jobs.GetTermPhase(t.Code, now)
+		phase := jobs.GetTermPhase(t.Code, now, lookup)
 		if phase == jobs.PhaseActiveRegistration {
 			return t.Code
 		}

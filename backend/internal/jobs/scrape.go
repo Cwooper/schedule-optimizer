@@ -14,6 +14,27 @@ import (
 // check to fail by N minutes, potentially skipping every other cycle.
 const scrapeTolerance = 30 * time.Minute
 
+// NewTermDateLookup creates a TermDateLookup that queries the term_dates table.
+func NewTermDateLookup(ctx context.Context, queries *store.Queries) TermDateLookup {
+	return func(termCode string) (start, end time.Time, ok bool) {
+		td, err := queries.GetTermDates(ctx, termCode)
+		if err != nil {
+			return time.Time{}, time.Time{}, false
+		}
+		start, err = time.Parse("2006-01-02", td.StartDate)
+		if err != nil {
+			return time.Time{}, time.Time{}, false
+		}
+		end, err = time.Parse("2006-01-02", td.EndDate)
+		if err != nil {
+			return time.Time{}, time.Time{}, false
+		}
+		// Set end to end-of-day
+		end = end.Add(23*time.Hour + 59*time.Minute + 59*time.Second)
+		return start, end, true
+	}
+}
+
 // BootstrapJob initializes term data and runs any other jobs that need to catch up.
 // Runs once on startup to ensure the system has current data immediately.
 type BootstrapJob struct {
@@ -80,6 +101,7 @@ func (j *PastTermBackfillJob) ShouldRun(now time.Time) bool {
 func (j *PastTermBackfillJob) Run(ctx context.Context, now time.Time) error {
 	j.hasRun = true
 	cutoff := GetPastTermCutoff(now, j.pastTermYears)
+	lookup := NewTermDateLookup(ctx, j.queries)
 
 	terms, err := j.queries.GetTermsNeverScraped(ctx)
 	if err != nil {
@@ -91,7 +113,7 @@ func (j *PastTermBackfillJob) Run(ctx context.Context, now time.Time) error {
 			continue
 		}
 
-		phase := GetTermPhase(term.Code, now)
+		phase := GetTermPhase(term.Code, now, lookup)
 		if phase != PhasePast {
 			continue
 		}
@@ -139,6 +161,7 @@ func (j *ActiveScrapeJob) ShouldRun(now time.Time) bool {
 func (j *ActiveScrapeJob) Run(ctx context.Context, now time.Time) error {
 	j.lastRun = now
 	cutoff := GetPastTermCutoff(now, j.pastTermYears)
+	lookup := NewTermDateLookup(ctx, j.queries)
 
 	terms, err := j.queries.GetTerms(ctx)
 	if err != nil {
@@ -150,7 +173,7 @@ func (j *ActiveScrapeJob) Run(ctx context.Context, now time.Time) error {
 			continue
 		}
 
-		phase := GetTermPhase(term.Code, now)
+		phase := GetTermPhase(term.Code, now, lookup)
 		if phase != PhaseActiveRegistration {
 			continue
 		}
@@ -214,6 +237,7 @@ func (j *DailyScrapeJob) ShouldRun(now time.Time) bool {
 func (j *DailyScrapeJob) Run(ctx context.Context, now time.Time) error {
 	j.lastRunDate = time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, now.Location())
 	cutoff := GetPastTermCutoff(now, j.pastTermYears)
+	lookup := NewTermDateLookup(ctx, j.queries)
 
 	terms, err := j.queries.GetTerms(ctx)
 	if err != nil {
@@ -225,7 +249,7 @@ func (j *DailyScrapeJob) Run(ctx context.Context, now time.Time) error {
 			continue
 		}
 
-		phase := GetTermPhase(term.Code, now)
+		phase := GetTermPhase(term.Code, now, lookup)
 		if phase != PhasePreRegistration {
 			continue
 		}

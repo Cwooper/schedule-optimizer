@@ -2,6 +2,7 @@ package calendar
 
 import (
 	"context"
+	"fmt"
 	"log/slog"
 	"time"
 
@@ -25,20 +26,28 @@ func newServiceWithClient(queries *store.Queries, client *Client) *Service {
 
 // ScrapeAll fetches and stores all calendar data.
 // Partial success is acceptable — each data source is independent.
+// Only stores data for terms that already exist in the terms table
+// (populated by the Banner scraper), skipping future terms the registrar
+// knows about but Banner hasn't published yet.
 func (s *Service) ScrapeAll(ctx context.Context) error {
+	known, err := s.loadKnownTerms(ctx)
+	if err != nil {
+		return fmt.Errorf("loading known terms: %w", err)
+	}
+
 	var errs []error
 
-	if err := s.scrapeTermDates(ctx); err != nil {
+	if err := s.scrapeTermDates(ctx, known); err != nil {
 		slog.Error("Failed to scrape term dates", "error", err)
 		errs = append(errs, err)
 	}
 
-	if err := s.scrapeFinals(ctx); err != nil {
+	if err := s.scrapeFinals(ctx, known); err != nil {
 		slog.Error("Failed to scrape finals schedule", "error", err)
 		errs = append(errs, err)
 	}
 
-	if err := s.scrapeImportantDates(ctx); err != nil {
+	if err := s.scrapeImportantDates(ctx, known); err != nil {
 		slog.Error("Failed to scrape important dates", "error", err)
 		errs = append(errs, err)
 	}
@@ -49,8 +58,21 @@ func (s *Service) ScrapeAll(ctx context.Context) error {
 	return nil
 }
 
+// loadKnownTerms returns the set of term codes that exist in the terms table.
+func (s *Service) loadKnownTerms(ctx context.Context) (map[string]bool, error) {
+	terms, err := s.queries.GetTerms(ctx)
+	if err != nil {
+		return nil, err
+	}
+	known := make(map[string]bool, len(terms))
+	for _, t := range terms {
+		known[t.Code] = true
+	}
+	return known, nil
+}
+
 // scrapeTermDates fetches and stores term start/end dates.
-func (s *Service) scrapeTermDates(ctx context.Context) error {
+func (s *Service) scrapeTermDates(ctx context.Context, known map[string]bool) error {
 	body, err := s.client.fetch("/term-dates")
 	if err != nil {
 		return err
@@ -61,12 +83,13 @@ func (s *Service) scrapeTermDates(ctx context.Context) error {
 		return err
 	}
 
-	slog.Info("Parsed term dates", "count", len(dates))
-	return s.storeTermDates(ctx, dates)
+	filtered := filterSlice(dates, known, func(d TermDates) string { return d.TermCode })
+	slog.Info("Parsed term dates", "total", len(dates), "known", len(filtered))
+	return s.storeTermDates(ctx, filtered)
 }
 
 // scrapeFinals fetches and stores finals schedule mappings.
-func (s *Service) scrapeFinals(ctx context.Context) error {
+func (s *Service) scrapeFinals(ctx context.Context, known map[string]bool) error {
 	body, err := s.client.fetch("/calendars/finals")
 	if err != nil {
 		return err
@@ -77,12 +100,13 @@ func (s *Service) scrapeFinals(ctx context.Context) error {
 		return err
 	}
 
-	slog.Info("Parsed finals mappings", "count", len(mappings))
-	return s.storeFinals(ctx, mappings)
+	filtered := filterSlice(mappings, known, func(m FinalMapping) string { return m.TermCode })
+	slog.Info("Parsed finals mappings", "total", len(mappings), "known", len(filtered))
+	return s.storeFinals(ctx, filtered)
 }
 
 // scrapeImportantDates fetches the term selector, then scrapes each term's important dates.
-func (s *Service) scrapeImportantDates(ctx context.Context) error {
+func (s *Service) scrapeImportantDates(ctx context.Context, known map[string]bool) error {
 	body, err := s.client.fetch("/important-dates-deadlines")
 	if err != nil {
 		return err
@@ -96,6 +120,11 @@ func (s *Service) scrapeImportantDates(ctx context.Context) error {
 	slog.Info("Found term options for important dates", "count", len(options))
 
 	for _, opt := range options {
+		if !known[opt.TermCode] {
+			slog.Debug("Skipping unknown term for important dates", "term", opt.TermCode)
+			continue
+		}
+
 		ajaxBody, err := s.client.fetchDrupalAjax(opt.NodeID)
 		if err != nil {
 			slog.Warn("Failed to fetch important dates", "term", opt.TermCode, "error", err)
@@ -162,4 +191,15 @@ func (s *Service) GetFinalForSection(ctx context.Context, termCode string, start
 func parseDate(s string) (t time.Time) {
 	t, _ = time.Parse("2006-01-02", s)
 	return
+}
+
+// filterSlice returns only elements whose term code exists in known.
+func filterSlice[T any](items []T, known map[string]bool, termCode func(T) string) []T {
+	result := make([]T, 0, len(items))
+	for _, item := range items {
+		if known[termCode(item)] {
+			result = append(result, item)
+		}
+	}
+	return result
 }

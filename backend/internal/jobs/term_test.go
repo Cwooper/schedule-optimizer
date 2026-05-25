@@ -61,13 +61,36 @@ func TestMakeTermCode(t *testing.T) {
 }
 
 func TestGetTermPhase(t *testing.T) {
+	// Mock lookup that returns dates for known terms
+	lookup := func(termCode string) (start, end time.Time, ok bool) {
+		dates := map[string][2]time.Time{
+			"202510": {
+				time.Date(2025, 1, 6, 0, 0, 0, 0, time.Local),
+				time.Date(2025, 3, 21, 23, 59, 59, 0, time.Local),
+			},
+			"202520": {
+				time.Date(2025, 3, 31, 0, 0, 0, 0, time.Local),
+				time.Date(2025, 6, 13, 23, 59, 59, 0, time.Local),
+			},
+			"202540": {
+				time.Date(2025, 9, 24, 0, 0, 0, 0, time.Local),
+				time.Date(2025, 12, 12, 23, 59, 59, 0, time.Local),
+			},
+		}
+		d, found := dates[termCode]
+		if !found {
+			return time.Time{}, time.Time{}, false
+		}
+		return d[0], d[1], true
+	}
+
 	tests := []struct {
 		name      string
 		termCode  string
 		now       time.Time
 		wantPhase TermPhase
 	}{
-		// Winter 2025: Jan 5 - Mar 20, reg opens Dec 26 2024 (40 days before)
+		// Winter 2025: Jan 6 - Mar 21, reg opens Nov 27 2024 (40 days before)
 		{
 			name:      "Winter active during term",
 			termCode:  "202510",
@@ -77,7 +100,7 @@ func TestGetTermPhase(t *testing.T) {
 		{
 			name:      "Winter active during registration before term",
 			termCode:  "202510",
-			now:       time.Date(2024, 12, 28, 0, 0, 0, 0, time.Local),
+			now:       time.Date(2024, 12, 1, 0, 0, 0, 0, time.Local),
 			wantPhase: PhaseActiveRegistration,
 		},
 		{
@@ -89,7 +112,7 @@ func TestGetTermPhase(t *testing.T) {
 		{
 			name:      "Winter pre-registration",
 			termCode:  "202510",
-			now:       time.Date(2024, 11, 15, 0, 0, 0, 0, time.Local),
+			now:       time.Date(2024, 10, 25, 0, 0, 0, 0, time.Local),
 			wantPhase: PhasePreRegistration,
 		},
 		{
@@ -99,7 +122,7 @@ func TestGetTermPhase(t *testing.T) {
 			wantPhase: PhaseFuture,
 		},
 
-		// Spring 2025: Apr 1 - Jun 12, reg opens Feb 20 (40 days before)
+		// Spring 2025: Mar 31 - Jun 13, reg opens Feb 19 (40 days before)
 		{
 			name:      "Spring active during registration",
 			termCode:  "202520",
@@ -140,11 +163,19 @@ func TestGetTermPhase(t *testing.T) {
 			now:       time.Date(2025, 1, 1, 0, 0, 0, 0, time.Local),
 			wantPhase: PhasePast,
 		},
+
+		// Term not in lookup returns PhasePast
+		{
+			name:      "Unknown term treated as past",
+			termCode:  "203010",
+			now:       time.Date(2025, 1, 1, 0, 0, 0, 0, time.Local),
+			wantPhase: PhasePast,
+		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := GetTermPhase(tt.termCode, tt.now)
+			got := GetTermPhase(tt.termCode, tt.now, lookup)
 			if got != tt.wantPhase {
 				t.Errorf("GetTermPhase(%q, %v) = %v, want %v", tt.termCode, tt.now, got, tt.wantPhase)
 			}
