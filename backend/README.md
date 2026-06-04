@@ -7,9 +7,9 @@ Go backend for WWU Schedule Optimizer using Gin, SQLite, and sqlc.
 ### Required Software
 
 ```bash
-# Go 1.24+
+# Go 1.25+
 # See https://go.dev/doc/install
-go version  # should show go1.24 or later
+go version  # should show go1.25 or later
 
 # SQLite3
 sudo apt install sqlite3  # Debian/Ubuntu

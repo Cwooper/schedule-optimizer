@@ -18,18 +18,13 @@ func TestHandler(t *testing.T) {
 		wantTypePrefix string
 		wantGzip       bool
 	}{
-		// With /schedule-optimizer prefix (production path)
-		{"root with prefix", "/schedule-optimizer/", false, http.StatusOK, "text/html", false},
-		{"root with prefix gzip", "/schedule-optimizer/", true, http.StatusOK, "text/html", true},
-		{"index explicit redirects", "/schedule-optimizer/index.html", false, http.StatusMovedPermanently, "", false},
-		{"svg logo", "/schedule-optimizer/schopt-logo-dark.svg", false, http.StatusOK, "image/svg+xml", false},
-
-		// Without prefix (direct local access)
-		{"root no prefix", "/", false, http.StatusOK, "text/html", false},
-		{"root no prefix gzip", "/", true, http.StatusOK, "text/html", true},
+		{"root", "/", false, http.StatusOK, "text/html", false},
+		{"root gzip", "/", true, http.StatusOK, "text/html", true},
+		{"index explicit redirects", "/index.html", false, http.StatusMovedPermanently, "", false},
+		{"svg logo", "/schopt-logo-dark.svg", false, http.StatusOK, "image/svg+xml", false},
 
 		// Unknown paths should 404
-		{"unknown path", "/schedule-optimizer/nonexistent.txt", false, http.StatusNotFound, "", false},
+		{"unknown path", "/nonexistent.txt", false, http.StatusNotFound, "", false},
 	}
 
 	for _, tt := range tests {
@@ -64,7 +59,7 @@ func TestHandlerVaryHeader(t *testing.T) {
 	handler := Handler()
 
 	// Gzip responses should include Vary header for caching
-	req := httptest.NewRequest("GET", "/schedule-optimizer/", nil)
+	req := httptest.NewRequest("GET", "/", nil)
 	req.Header.Set("Accept-Encoding", "gzip")
 	w := httptest.NewRecorder()
 	handler.ServeHTTP(w, req)
@@ -92,7 +87,7 @@ func TestAcceptsGzipEdgeCases(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			req := httptest.NewRequest("GET", "/schedule-optimizer/", nil)
+			req := httptest.NewRequest("GET", "/", nil)
 			if tt.acceptEncoding != "" {
 				req.Header.Set("Accept-Encoding", tt.acceptEncoding)
 			}
