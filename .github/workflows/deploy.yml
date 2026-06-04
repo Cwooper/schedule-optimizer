@@ -19,7 +19,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             set -e
-            export PATH="/usr/local/go/bin:$HOME/go/bin:$HOME/.local/share/pnpm:$PATH"
+            export PATH="$HOME/.local/bin:$HOME/.local/share/pnpm/bin:$HOME/go/bin:$PATH"
             cd ~/schedule-optimizer
 
             # Pull latest changes
@@ -44,11 +44,11 @@ jobs:
             # Build backend (frontend already compiled to backend/internal/static/dist)
             echo "Building Go binary..."
             cd backend
-            go build -o bin/server ./cmd/server
+            CGO_ENABLED=1 go build -o bin/server ./cmd/server
 
             # Run tests
             echo "Running tests..."
-            go test ./...
+            CGO_ENABLED=1 go test ./...
             cd ..
 
             # Restart service

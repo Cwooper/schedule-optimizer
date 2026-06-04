@@ -31,7 +31,7 @@ Schedule Optimizer is a course scheduling tool for WWU students. The main branch
 Install these on a fresh server:
 
 ```bash
-# Go 1.24+
+# Go 1.25+
 # https://go.dev/doc/install
 
 # SQLite3
