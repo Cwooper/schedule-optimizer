@@ -2,7 +2,7 @@
 
 A course scheduling tool for Western Washington University students. Add your courses, set preferences, and generate optimized, conflict-free schedules instantly.
 
-**[Try it live](https://cwooper.me/schedule-optimizer)**
+**[Try it live](https://schedule-optimizer.cwooper.me)**
 
 > **Disclaimer:** This project is not affiliated with Western Washington University. It is an independent initiative developed for educational and personal use. All data is for informational purposes only and should not be considered official or binding.
 
@@ -45,7 +45,7 @@ Under the hood, schedule generation uses a **bitmask-based conflict detection** 
 
 | Layer | Technology |
 |-------|-----------|
-| Backend | Go 1.24, Gin, SQLite (WAL mode) |
+| Backend | Go 1.25, Gin, SQLite (WAL mode) |
 | SQL | sqlc (type-safe codegen), golang-migrate |
 | Frontend | React 19, TypeScript, Vite |
 | Styling | Tailwind CSS v4, shadcn/ui |
@@ -115,7 +115,7 @@ frontend/src/
 
 ### Prerequisites
 
-- Go 1.24+
+- Go 1.25+
 - Node.js 20+ and pnpm
 - SQLite 3
 - [sqlc](https://sqlc.dev/) — `go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest`

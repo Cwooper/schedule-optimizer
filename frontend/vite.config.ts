@@ -6,9 +6,9 @@ import compression from 'vite-plugin-compression'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/schedule-optimizer/',
+  base: '/',
   define: {
-    __APP_BASE_URL__: JSON.stringify('/schedule-optimizer/'),
+    __APP_BASE_URL__: JSON.stringify('/'),
   },
   plugins: [
     react(),
@@ -26,10 +26,9 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      "/schedule-optimizer/api": {
+      "/api": {
         target: "http://localhost:48920",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/schedule-optimizer/, ""),
       },
     },
   },
