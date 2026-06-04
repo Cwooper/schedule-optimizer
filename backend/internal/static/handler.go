@@ -9,9 +9,6 @@ import (
 	"strings"
 )
 
-// basePath is stripped from incoming requests to match nginx rewrite behavior.
-const basePath = "/schedule-optimizer"
-
 // Handler returns an http.Handler that serves static files from the embedded filesystem.
 // It serves pre-compressed .gz files when the client accepts gzip encoding.
 func Handler() http.Handler {
@@ -35,14 +32,8 @@ func Handler() http.Handler {
 	})
 
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		// Strip base path prefix (matches nginx rewrite behavior)
-		urlPath := strings.TrimPrefix(r.URL.Path, basePath)
-		if urlPath == "" {
-			urlPath = "/"
-		}
-
 		// Determine the logical file path (for gzip lookup)
-		filePath := strings.TrimPrefix(urlPath, "/")
+		filePath := strings.TrimPrefix(r.URL.Path, "/")
 		if filePath == "" {
 			filePath = "index.html"
 		}
@@ -61,7 +52,6 @@ func Handler() http.Handler {
 		}
 
 		// Fall back to http.FileServer for non-gzip requests
-		r.URL.Path = urlPath
 		fileServer.ServeHTTP(w, r)
 	})
 }

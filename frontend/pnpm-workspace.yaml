@@ -1,0 +1,26 @@
+# esbuild runs a postinstall script to fetch its platform binary. pnpm 10+
+# gates build scripts by default; approve esbuild so `pnpm install` exits 0 in
+# CI/deploy instead of erroring on an ignored build. `allowBuilds` is the pnpm
+# 11 field; `onlyBuiltDependencies` is the pnpm 10.16+ name — both are listed so
+# the approval survives whichever pnpm the deploy box runs.
+allowBuilds:
+  esbuild: true
+onlyBuiltDependencies:
+  - esbuild
+
+# Overrides force patched versions of transitive dev-tooling deps that carry
+# security advisories (ReDoS / prototype pollution / DoS). These packages are
+# only pulled in by eslint/vitest/build tooling and never ship to production.
+# Mirrored in package.json "pnpm.overrides" so both old (<10.16) and new pnpm
+# read them.
+overrides:
+  minimatch@3: ^3.1.5
+  minimatch@9: ^9.0.9
+  minimatch@10: ^10.2.5
+  picomatch@4: ^4.0.4
+  flatted@3: ^3.4.2
+  rollup@4: ^4.61.1
+  ajv@6: ^6.15.0
+  brace-expansion@1: ^1.1.15
+  brace-expansion@2: ^2.1.1
+  postcss@8: ^8.5.15
