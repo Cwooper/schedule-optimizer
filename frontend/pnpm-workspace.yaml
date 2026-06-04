@@ -19,7 +19,9 @@ overrides:
   minimatch@10: ^10.2.5
   picomatch@4: ^4.0.4
   flatted@3: ^3.4.2
-  rollup@4: ^4.61.1
+  # Pinned to an aged 4.60.x (>= 4.59.0 advisory fix) rather than latest 4.x:
+  # newer rollup releases trip the deploy box's pnpm minimumReleaseAge policy.
+  rollup@4: 4.60.4
   ajv@6: ^6.15.0
   brace-expansion@1: ^1.1.15
   brace-expansion@2: ^2.1.1
