@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Schedule Optimizer is a course scheduling tool for WWU students. The main branch contains the v1 implementation. The v2 branch is a full rewrite:
+Schedule Optimizer is a course scheduling tool for WWU students. `main` holds the v2 rewrite, now deployed. The legacy v1 lives in git history (and the retained `v2` branch). Stack:
 
 - **Backend:** Go (Gin + SQLite + sqlc)
 - **Frontend:** React 19 + TypeScript + Vite + Tailwind v4
@@ -15,16 +15,11 @@ Schedule Optimizer is a course scheduling tool for WWU students. The main branch
 
 ## Development Philosophy
 
-- **Brainstorm before fixing.** Unless explicitly told to fix something, discuss options first. Even small UI tweaks deserve a "what's the norm, what's good, what are the tradeoffs" conversation.
-- **Plan before implementing.** Discuss architecture and design decisions before writing code. Use plan mode for non-trivial features.
+- **Act on the small, discuss the big.** Just implement small, well-scoped, or clearly-specified tasks — skip the brainstorm-first ritual. For architectural changes or non-trivial features, talk through approach and tradeoffs first (use plan mode) before writing code.
 - **Test-heavy development.** Write tests alongside implementation. Benchmark tests are critical for schedule generation and scraping performance.
-- **Code review on completion.** After implementing a task, spin off an agent to perform an unbiased code review of the changes. Code reviews must check:
-  - Architecture alignment (does this belong here?)
-  - File and function lengths (keep functions focused, split large files)
-  - Scope creep (only implement what was requested)
-  - Are the test cases indicative of the actual code, or are they mocking unrealistic scenarios
+- **Self-review non-trivial work.** After a non-trivial change, spin off an agent for an unbiased code review that checks: architecture alignment (does this belong here?), file/function lengths (keep functions focused, split large files), scope creep (only what was requested), and whether tests exercise real code paths rather than mocking unrealistic scenarios.
 - **Course-centric, not term-centric.** Data structures should support cross-term search. Organize by unique course ID, not term→CRN hierarchy.
-- **No autonomous commits.** Do not create commits or sign commits. The user will decide when and what to commit.
+- **Git workflow.** Work on feature branches and commit freely as you go. Open PRs against `main` only after checking in first — the user squash-merges them. Don't add AI attribution or co-author trailers to commits.
 
 ## Prerequisites
 
@@ -222,43 +217,26 @@ JOBS_LOG_RETENTION_DAYS=90      # days to keep logs before pruning (default 90, 
 JOBS_PAST_TERM_YEARS=5          # years of past terms to scrape (default 5)
 ```
 
-## v2 Roadmap (GitHub Issues)
+## Open Work (GitHub Issues)
 
-### Completed
-- [x] #9 - Frontend Mockup/Wireframes
-- [x] #10 - Design Schedule Optimizer Icon/Logo
-- [x] #11 - Frontend SEO
-- [x] #12 - Define API Contract
-- [x] #13 - Set up new Go Backend with Gin
-- [x] #14 - Implement SQLite Database Layer
-- [x] #15 - Implement Structured Logging with slog *(tint for colored dev logs)*
-- [x] #17 - Migrate Data Pipeline to SQLite
-- [x] #18 - Implement Jobs Service (scheduled scraping)
-- [x] #19 - Schedule Generation Logic *(bitmask-based conflict detection, 4-9x faster than v1)*
-- [x] #20 - Implement Course Search Service
-- [x] #21 - Backend Tests
-- [x] #22 - Frontend Initialization (Vite + TypeScript + Tailwind v4)
-- [x] #23 - Component Library (shadcn/ui)
-- [x] #24 - Build API Client (TanStack Query hooks)
-- [x] #25 - Schedule Builder
-- [x] #26 - Course Search Mode
-- [x] #28 - Add Mobile Responsive Layout
-- [x] #32 - Custom Courses in Schedule (blocked times)
+v2 core is built and deployed (backend, scraper, jobs, generator, search, GPA data; React frontend with schedule builder, course search, custom courses, mobile layout). `gh issue list` is the source of truth — current open issues:
 
-### v2 Milestone (remaining for launch)
-- [ ] #16 - Implement Analytics/Statistics Collection
-- [ ] #27 - Implement Stats Dashboard
-- [ ] #30 - v2 Documentation
-- [ ] #31 - Deploy v2
-- [ ] #37 - Extra Dates and Times *(jobs use 40-day registration estimate, TODO: scrape actual dates)*
-- [ ] #39 - Scrape Detailed Data
-- [ ] #40 - CI/CD
+### Polish & smaller features
+- #27 - Implement Stats Dashboard (frontend)
+- #37 - Extra Dates and Times *(jobs use a 40-day registration estimate; scrape the actual dates)*
+- #39 - Scrape Detailed Data (backend)
+- #42 - Updated Weights (scoring weights; frontend + backend)
+- #43 - Remove Protobufs from git
+- #49 - Update og:image (frontend)
+- #50 - Use more framer-motion (frontend)
+- #52 - Tooltips/tutorials (frontend)
+- #53 - Swap Seat Count (frontend)
 
-### v2 Enhancements (post-launch)
-- [ ] #33 - Campus Map Feature (frontend)
-- [ ] #34 - Explore ML Features
-- [ ] #35 - Share Schedule Feature
-- [ ] #36 - Campus Map (backend/data)
+### Larger enhancements
+- #33 - Campus Map Feature (frontend)
+- #34 - Explore ML Features (backend)
+- #35 - Share Schedule Feature
+- #36 - Campus Map (backend/data)
 
 ## Testing Strategy
 
