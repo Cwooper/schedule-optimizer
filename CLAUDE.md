@@ -20,6 +20,7 @@ Schedule Optimizer is a course scheduling tool for WWU students. `main` holds th
 - **Self-review non-trivial work.** After a non-trivial change, spin off an agent for an unbiased code review that checks: architecture alignment (does this belong here?), file/function lengths (keep functions focused, split large files), scope creep (only what was requested), and whether tests exercise real code paths rather than mocking unrealistic scenarios.
 - **Course-centric, not term-centric.** Data structures should support cross-term search. Organize by unique course ID, not term→CRN hierarchy.
 - **Git workflow.** Work on feature branches and commit freely as you go. Open PRs against `main` only after checking in first — the user squash-merges them. Don't add AI attribution or co-author trailers to commits.
+- **Bump the version.** Don't forget to bump `frontend/package.json` `version` (rendered in the footer) with each piece of work — patch for fixes/small changes, minor for features. Fold the bump into the feature branch so shipped work never goes out with a stale version.
 
 ## Prerequisites
 
