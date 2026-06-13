@@ -5,6 +5,13 @@ on:
     branches:
       - main
 
+# Never let deploys run concurrently — they share ~/schedule-optimizer on a
+# single small box, so parallel builds OOM it and clobber each other's tree.
+# Queue instead: a running deploy finishes; only the latest pending push runs next.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -22,10 +29,13 @@ jobs:
             export PATH="$HOME/.local/bin:$HOME/.local/share/pnpm/bin:$HOME/go/bin:$PATH"
             cd ~/schedule-optimizer
 
-            # Pull latest changes
+            # Pull latest changes. Reset to FETCH_HEAD (not origin/main): a bare
+            # `git fetch origin main` only updates FETCH_HEAD, so origin/main can be
+            # stale — and after a history rewrite/force-push it would reset to the
+            # wrong commit. FETCH_HEAD is always exactly what we just fetched.
             echo "Pulling latest changes..."
             git fetch origin main
-            git reset --hard origin/main
+            git reset --hard FETCH_HEAD
 
             # Run database migrations
             echo "Running migrations..."
