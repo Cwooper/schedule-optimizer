@@ -89,11 +89,13 @@ function formatLocation(meeting: MeetingTime): string | null {
 }
 
 function formatEnrollment(section: HydratedSection): string {
-  const { enrollment, maxEnrollment, waitCount } = section
+  // Banner reports seatsAvailable as open (remaining) seats; show open/capacity
+  // to match what students see in Banner (issue #53).
+  const { seatsAvailable, maxEnrollment, waitCount } = section
   if (waitCount > 0) {
-    return `${enrollment}/${maxEnrollment} seats (${waitCount} waitlist)`
+    return `${seatsAvailable}/${maxEnrollment} seats open (${waitCount} waitlist)`
   }
-  return `${enrollment}/${maxEnrollment} seats`
+  return `${seatsAvailable}/${maxEnrollment} seats open`
 }
 
 export const SectionCard = memo(function SectionCard({
