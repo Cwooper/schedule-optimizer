@@ -18,5 +18,5 @@
   <text x="600" y="408" text-anchor="middle" font-family="Liberation Sans, Arial, sans-serif" font-size="74" font-weight="700" fill="#fafafa">WWU Schedule Optimizer</text>
   <rect x="540" y="432" width="120" height="5" rx="2.5" fill="#22c55e"/>
   <text x="600" y="500" text-anchor="middle" font-family="Liberation Sans, Arial, sans-serif" font-size="34" fill="#a1a1aa">Build conflict-free class schedules</text>
-  <text x="600" y="574" text-anchor="middle" font-family="Liberation Sans, Arial, sans-serif" font-size="24" letter-spacing="1" fill="#52525b">schedule-optimizer.cwooper.me</text>
+  <text x="600" y="574" text-anchor="middle" font-family="Liberation Sans, Arial, sans-serif" font-size="24" letter-spacing="1" fill="#52525b">schedule-optimizer.cwooper.dev</text>
 </svg>

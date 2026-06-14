@@ -55,7 +55,7 @@ export function AboutDialog() {
               <h3 className="text-muted-foreground mb-1.5 text-xs font-medium uppercase tracking-wide">
                 Author &amp; Maintainer
               </h3>
-              <ContributorCard name="Cooper Morgan" href="https://cwooper.me" />
+              <ContributorCard name="Cooper Morgan" href="https://cwooper.dev" />
             </div>
             <div>
               <h3 className="text-muted-foreground mb-1.5 text-xs font-medium uppercase tracking-wide">
