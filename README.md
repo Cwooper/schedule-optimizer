@@ -2,7 +2,7 @@
 
 A course scheduling tool for Western Washington University students. Add your courses, set preferences, and generate optimized, conflict-free schedules instantly.
 
-**[Try it live](https://schedule-optimizer.cwooper.me)**
+**[Try it live](https://schedule-optimizer.cwooper.dev)**
 
 > **Disclaimer:** This project is not affiliated with Western Washington University. It is an independent initiative developed for educational and personal use. All data is for informational purposes only and should not be considered official or binding.
 
@@ -195,7 +195,7 @@ Frontend tests cover the Zustand store, schedule utilities, and warning generati
 ## Authors
 
 **Cooper Morgan** — Author & Maintainer
-[cwooper.me](https://cwooper.me) · [@Cwooper](https://github.com/Cwooper)
+[cwooper.dev](https://cwooper.dev) · [@Cwooper](https://github.com/Cwooper)
 
 **Konnor Kooi** — Previous Contributor
 [konnorkooi.com](https://konnorkooi.com) · [@konnorkooi](https://github.com/konnorkooi)
