@@ -5,11 +5,14 @@ on:
     branches:
       - main
 
-# Never let deploys run concurrently — they share ~/schedule-optimizer on a
+# Never let deploys run concurrently -- they share ~/schedule-optimizer on a
 # single small box, so parallel builds OOM it and clobber each other's tree.
 # Queue instead: a running deploy finishes; only the latest pending push runs next.
+# Serialization against the OTHER repos on this box (reroll, brokenalidade,
+# website) is the flock in the script below: concurrency groups are
+# per-repository, so this group cannot see their builds.
 concurrency:
-  group: deploy-production
+  group: deploy-server
   cancel-in-progress: false
 
 jobs:
@@ -24,14 +27,27 @@ jobs:
           port: 922
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # Defaults to 10m, which a queued deploy (up to 20m waiting on the
+          # cross-repo lock, plus its own build) blows through -- the action
+          # would kill the SSH session mid-build.
+          command_timeout: 30m
           script: |
             set -e
             export PATH="$HOME/.local/bin:$HOME/.local/share/pnpm/bin:$HOME/go/bin:$PATH"
+
+            # Cross-repo build lock. Every repo deploying to this box takes it;
+            # two concurrent Go/Vite builds thrash the 2-vCPU host into swap.
+            # The kernel drops the lock when the fd closes, so a killed deploy
+            # never strands it; -w fails the job loudly instead of pinning a
+            # runner forever, and stays under command_timeout above.
+            exec 9>"$HOME/.deploy-server.lock"
+            flock -w 1200 9
+
             cd ~/schedule-optimizer
 
             # Pull latest changes. Reset to FETCH_HEAD (not origin/main): a bare
             # `git fetch origin main` only updates FETCH_HEAD, so origin/main can be
-            # stale — and after a history rewrite/force-push it would reset to the
+            # stale -- and after a history rewrite/force-push it would reset to the
             # wrong commit. FETCH_HEAD is always exactly what we just fetched.
             echo "Pulling latest changes..."
             git fetch origin main
