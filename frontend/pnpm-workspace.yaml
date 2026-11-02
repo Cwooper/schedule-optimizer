@@ -15,14 +15,15 @@ onlyBuiltDependencies:
 # read them.
 overrides:
   minimatch@3: ^3.1.5
-  minimatch@9: ^9.0.9
   minimatch@10: ^10.2.5
   picomatch@4: ^4.0.4
   flatted@3: ^3.4.2
-  # Pinned to an aged 4.60.x (>= 4.59.0 advisory fix) rather than latest 4.x:
-  # newer rollup releases trip the deploy box's pnpm minimumReleaseAge policy.
-  rollup@4: 4.60.4
   ajv@6: ^6.15.0
   brace-expansion@1: ^1.1.15
-  brace-expansion@2: ^2.1.1
   postcss@8: ^8.5.15
+
+# jsx-a11y's peer range stops at ESLint 9 because it has not been republished
+# since 2024; it runs fine on ESLint 10.
+peerDependencyRules:
+  allowedVersions:
+    eslint-plugin-jsx-a11y>eslint: "10"

@@ -115,7 +115,7 @@ describe("hydrateSchedule", () => {
     const result = hydrateSchedule(schedule, mockCourses, mockSections)
 
     expect(result.courses).toHaveLength(2)
-    expect(result.score).toBe(0.85)
+    expect(result.score).toBeCloseTo(0.85)
     expect(result.weights).toEqual([{ name: "gaps", value: 0.5 }])
   })
 

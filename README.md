@@ -45,7 +45,7 @@ Under the hood, schedule generation uses a **bitmask-based conflict detection** 
 
 | Layer | Technology |
 |-------|-----------|
-| Backend | Go 1.25, Gin, SQLite (WAL mode) |
+| Backend | Go 1.26, Gin, SQLite (WAL mode) |
 | SQL | sqlc (type-safe codegen), golang-migrate |
 | Frontend | React 19, TypeScript, Vite |
 | Styling | Tailwind CSS v4, shadcn/ui |
@@ -115,8 +115,8 @@ frontend/src/
 
 ### Prerequisites
 
-- Go 1.25+
-- Node.js 20+ and pnpm
+- Go 1.26+
+- Node.js 22.13+ and pnpm
 - SQLite 3
 - [sqlc](https://sqlc.dev/) — `go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest`
 - [golang-migrate](https://github.com/golang-migrate/migrate) — `go install -tags 'sqlite3' github.com/golang-migrate/migrate/v4/cmd/migrate@latest`
