@@ -23,7 +23,7 @@ import type {
   CRNResponse,
 } from "@/lib/api"
 import { hydrateSection, sortSectionsByAvailability, type SectionInfoLike } from "@/lib/schedule-utils"
-import { decodeHtmlEntities, formatTermCode } from "@/lib/utils"
+import { formatTermCode } from "@/lib/utils"
 
 interface CourseInfoDialogProps {
   open: boolean
@@ -169,7 +169,7 @@ function DialogContentInner({
     <>
       <DialogHeader>
         <DialogTitle>
-          {course.subject} {course.courseNumber} - {decodeHtmlEntities(course.title)}
+          {course.subject} {course.courseNumber} - {course.title}
         </DialogTitle>
       </DialogHeader>
 

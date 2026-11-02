@@ -40,7 +40,7 @@ go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
 # With sqlite3 support - see https://github.com/golang-migrate/migrate
 go install -tags 'sqlite3' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
 
-# Frontend (when implemented)
+# Frontend
 # Node.js 20+ and pnpm
 ```
 
@@ -116,7 +116,7 @@ backend/
 │   ├── scraper/              # Banner API scraper
 │   │   ├── scraper.go        # Main ScrapeTerm logic (see package doc for design)
 │   │   ├── client.go         # HTTP client with cookie jar
-│   │   ├── response.go       # Banner API response types (TODO: validate against real API)
+│   │   ├── response.go       # Banner API response types
 │   │   └── store.go          # Persistence helpers
 │   ├── jobs/                 # Background job scheduler
 │   │   ├── service.go        # Job interface + Service (runs jobs on interval)
@@ -199,8 +199,6 @@ Additional endpoints:
 
 See `internal/scraper/scraper.go` package doc for detailed design decisions (timeouts, concurrency, partial failure handling). See `WWU-Scraping-URLs.md` for endpoint documentation.
 
-**TODO:** Validate `internal/scraper/response.go` types against real Banner API responses before production use.
-
 ## Environment Variables
 
 ```bash
@@ -218,26 +216,9 @@ JOBS_LOG_RETENTION_DAYS=90      # days to keep logs before pruning (default 90, 
 JOBS_PAST_TERM_YEARS=5          # years of past terms to scrape (default 5)
 ```
 
-## Open Work (GitHub Issues)
+## Open Work
 
-v2 core is built and deployed (backend, scraper, jobs, generator, search, GPA data; React frontend with schedule builder, course search, custom courses, mobile layout). `gh issue list` is the source of truth — current open issues:
-
-### Polish & smaller features
-- #27 - Implement Stats Dashboard (frontend)
-- #37 - Extra Dates and Times *(jobs use a 40-day registration estimate; scrape the actual dates)*
-- #39 - Scrape Detailed Data (backend)
-- #42 - Updated Weights (scoring weights; frontend + backend)
-- #43 - Remove Protobufs from git
-- #49 - Update og:image (frontend)
-- #50 - Use more framer-motion (frontend)
-- #52 - Tooltips/tutorials (frontend)
-- #53 - Swap Seat Count (frontend)
-
-### Larger enhancements
-- #33 - Campus Map Feature (frontend)
-- #34 - Explore ML Features (backend)
-- #35 - Share Schedule Feature
-- #36 - Campus Map (backend/data)
+Tracked in GitHub issues: run `gh issue list`. Issue numbers are not copied here because the list goes stale as issues close.
 
 ## Testing Strategy
 

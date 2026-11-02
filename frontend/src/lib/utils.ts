@@ -13,17 +13,19 @@ export function genId(): string {
 }
 
 /**
- * Decodes HTML entities in a string (e.g., "&amp;" -> "&", "&nbsp;" -> " ")
- * Uses a textarea element to leverage the browser's built-in decoding.
- * Lazily initialized and reused for performance.
+ * Decodes HTML entities via the browser's parser. Mirrors the backend's
+ * cleanText: repeats for double-escaped text and turns &nbsp; into a space.
  */
 let _htmlDecoder: HTMLTextAreaElement | null = null
 export function decodeHtmlEntities(html: string): string {
-  if (!_htmlDecoder) {
-    _htmlDecoder = document.createElement("textarea")
+  _htmlDecoder ??= document.createElement("textarea")
+  for (let i = 0; i < 3; i++) {
+    _htmlDecoder.innerHTML = html
+    const decoded = _htmlDecoder.value
+    if (decoded === html) break
+    html = decoded
   }
-  _htmlDecoder.innerHTML = html
-  return _htmlDecoder.value
+  return html.replaceAll("\u00a0", " ")
 }
 
 /** Format a 6-digit term code to a readable name (e.g., "202620" → "Spring 2026") */

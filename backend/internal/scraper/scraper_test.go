@@ -268,3 +268,25 @@ func makeMockCourse(crn, subject, number, title string) CourseData {
 		},
 	}
 }
+
+func TestCleanText(t *testing.T) {
+	tests := []struct {
+		name, in, want string
+	}{
+		{"plain", "Data Structures", "Data Structures"},
+		{"bare ampersand untouched", "B&W Photography", "B&W Photography"},
+		{"named entity", "B&amp;W Photography", "B&W Photography"},
+		{"numeric entity", "O&#39;Neil, Gregory", "O'Neil, Gregory"},
+		{"accented letters", "Autoras Espa&ntilde;olas", "Autoras Españolas"},
+		{"double-escaped named", "Chemistry &amp;amp; Biochemistry", "Chemistry & Biochemistry"},
+		{"double-escaped numeric", "Children&amp;#39;s Literature", "Children's Literature"},
+		{"nbsp becomes space", "Theories&nbsp;and Techniques", "Theories and Techniques"},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := cleanText(tt.in); got != tt.want {
+				t.Errorf("cleanText(%q) = %q, want %q", tt.in, got, tt.want)
+			}
+		})
+	}
+}

@@ -87,7 +87,7 @@ func (s *Scraper) ScrapeTerm(ctx context.Context, term string) (int, error) {
 	for _, t := range terms {
 		if err := s.queries.UpsertTerm(ctx, store.UpsertTermParams{
 			Code:        t.Code,
-			Description: t.Description,
+			Description: cleanText(t.Description),
 		}); err != nil {
 			slog.Warn("Failed to upsert term", "code", t.Code, "error", err)
 		}
@@ -221,7 +221,7 @@ func (s *Scraper) ScrapeTerms(ctx context.Context) ([]TermResponse, error) {
 	for _, t := range terms {
 		if err := s.queries.UpsertTerm(ctx, store.UpsertTermParams{
 			Code:        t.Code,
-			Description: t.Description,
+			Description: cleanText(t.Description),
 		}); err != nil {
 			slog.Warn("Failed to upsert term", "code", t.Code, "error", err)
 		}

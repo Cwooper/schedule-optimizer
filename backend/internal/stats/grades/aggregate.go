@@ -19,12 +19,12 @@ type aggregateKey struct {
 
 // accumulator collects grade counts for one aggregate bucket.
 type accumulator struct {
-	sections int
-	students int
+	sections         int
+	students         int
 	a, am, bp, b, bm int
-	cp, c, cm         int
-	dp, d, dm, f       int
-	w, p, np, s, u     int
+	cp, c, cm        int
+	dp, d, dm, f     int
+	w, p, np, s, u   int
 }
 
 func (acc *accumulator) addRow(row *store.GradeRow) {

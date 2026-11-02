@@ -1,5 +1,5 @@
 import { Plus, Check } from "lucide-react"
-import { cn, decodeHtmlEntities, formatTermCode } from "@/lib/utils"
+import { cn, formatTermCode } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 
 // Flexible section info - works with both search and generate responses
@@ -114,7 +114,7 @@ export function CourseListItem({
           </span>
           <span className="text-muted-foreground">—</span>
           <span className="truncate text-muted-foreground">
-            {decodeHtmlEntities(course.title)}
+            {course.title}
           </span>
         </div>
 
@@ -146,7 +146,7 @@ export function CourseListItem({
             {instructors && (
               <>
                 <span className="text-muted-foreground/50">•</span>
-                <span>{decodeHtmlEntities(instructors)}</span>
+                <span>{instructors}</span>
               </>
             )}
           </div>

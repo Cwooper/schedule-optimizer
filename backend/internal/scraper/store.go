@@ -4,6 +4,8 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"html"
+	"strings"
 
 	"schedule-optimizer/internal/store"
 )
@@ -25,14 +27,14 @@ func saveCourse(ctx context.Context, queries *store.Queries, course CourseData) 
 		Term:                    course.Term,
 		Crn:                     course.CourseReferenceNumber,
 		Subject:                 course.Subject,
-		SubjectDescription:      toNullString(course.SubjectDescription),
+		SubjectDescription:      toNullString(cleanText(course.SubjectDescription)),
 		CourseNumber:            course.CourseNumber,
 		SequenceNumber:          toNullString(course.SequenceNumber),
-		Title:                   course.CourseTitle,
-		Campus:                  toNullString(course.CampusDescription),
-		ScheduleType:            toNullString(course.ScheduleTypeDescription),
+		Title:                   cleanText(course.CourseTitle),
+		Campus:                  toNullString(cleanText(course.CampusDescription)),
+		ScheduleType:            toNullString(cleanText(course.ScheduleTypeDescription)),
 		InstructionalMethod:     toNullString(course.InstructionalMethod),
-		InstructionalMethodDesc: toNullString(course.InstructionalMethodDescr),
+		InstructionalMethodDesc: toNullString(cleanText(course.InstructionalMethodDescr)),
 		CreditHoursLow:          creditLow,
 		CreditHoursHigh:         creditHigh,
 		Enrollment:              toNullInt64(int64(course.Enrollment)),
@@ -62,8 +64,8 @@ func saveCourse(ctx context.Context, queries *store.Queries, course CourseData) 
 		if err := queries.InsertInstructor(ctx, store.InsertInstructorParams{
 			SectionID: sectionID,
 			BannerID:  toNullString(faculty.BannerID),
-			Name:      faculty.DisplayName,
-			Email:     toNullString(faculty.EmailAddress),
+			Name:      cleanText(faculty.DisplayName),
+			Email:     toNullString(cleanText(faculty.EmailAddress)),
 			IsPrimary: sql.NullInt64{Int64: boolToInt64(faculty.PrimaryIndicator), Valid: true},
 		}); err != nil {
 			return fmt.Errorf("insert instructor for section %d: %w", sectionID, err)
@@ -80,7 +82,7 @@ func saveCourse(ctx context.Context, queries *store.Queries, course CourseData) 
 			StartDate:           toNullString(mt.StartDate),
 			EndDate:             toNullString(mt.EndDate),
 			Building:            toNullString(mt.Building),
-			BuildingDescription: toNullString(mt.BuildingDescription),
+			BuildingDescription: toNullString(cleanText(mt.BuildingDescription)),
 			Room:                toNullString(mt.Room),
 			Monday:              toNullInt64(boolToInt64(mt.Monday)),
 			Tuesday:             toNullInt64(boolToInt64(mt.Tuesday)),
@@ -103,13 +105,28 @@ func saveCourse(ctx context.Context, queries *store.Queries, course CourseData) 
 		if err := queries.InsertSectionAttribute(ctx, store.InsertSectionAttributeParams{
 			SectionID:   sectionID,
 			Code:        attr.Code,
-			Description: toNullString(attr.Description),
+			Description: toNullString(cleanText(attr.Description)),
 		}); err != nil {
 			return fmt.Errorf("insert attribute for section %d: %w", sectionID, err)
 		}
 	}
 
 	return nil
+}
+
+// cleanText decodes Banner's HTML-escaped text so the database, search, and
+// API all see plain text. It decodes until stable because Banner has sent
+// double-escaped strings (&amp;amp;). Non-breaking spaces become plain spaces:
+// they come from &nbsp; in titles and would break whitespace tokenizing.
+func cleanText(s string) string {
+	for range 3 {
+		decoded := html.UnescapeString(s)
+		if decoded == s {
+			break
+		}
+		s = decoded
+	}
+	return strings.ReplaceAll(s, "\u00a0", " ")
 }
 
 func toNullString(s string) sql.NullString {

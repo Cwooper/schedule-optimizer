@@ -13,7 +13,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import type { HydratedSection, MeetingTime } from "@/lib/api"
-import { cn, decodeHtmlEntities } from "@/lib/utils"
+import { cn } from "@/lib/utils"
 
 interface SectionCardProps {
   section: HydratedSection
@@ -188,8 +188,8 @@ export const SectionCard = memo(function SectionCard({
               {section.instructor && (
                 <span className="hidden min-w-0 items-baseline gap-1.5 sm:flex">
                   <span className="text-muted-foreground">·</span>
-                  <span className="max-w-[20ch] truncate text-sm text-muted-foreground" title={decodeHtmlEntities(section.instructor)}>
-                    {decodeHtmlEntities(section.instructor)}
+                  <span className="max-w-[20ch] truncate text-sm text-muted-foreground" title={section.instructor}>
+                    {section.instructor}
                   </span>
                 </span>
               )}

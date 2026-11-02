@@ -4,7 +4,6 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
-	"html"
 	"log/slog"
 	"strings"
 
@@ -20,7 +19,7 @@ func computeMappings(ctx context.Context, db *sql.DB, queries *store.Queries) er
 	}
 
 	subjectCounts := make(map[string]map[string]int)    // banner_subject -> grade_subject -> count
-	instructorCounts := make(map[string]map[string]int)  // banner_name -> grade_name -> count
+	instructorCounts := make(map[string]map[string]int) // banner_name -> grade_name -> count
 
 	for _, row := range joinRows {
 		bannerSubject := row.BannerSubject
@@ -40,7 +39,7 @@ func computeMappings(ctx context.Context, db *sql.DB, queries *store.Queries) er
 		if !row.BannerInstructor.Valid || row.BannerInstructor.String == "" {
 			continue
 		}
-		bannerName := html.UnescapeString(row.BannerInstructor.String)
+		bannerName := row.BannerInstructor.String
 
 		if instructorCounts[bannerName] == nil {
 			instructorCounts[bannerName] = make(map[string]int)
