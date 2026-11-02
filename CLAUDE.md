@@ -118,10 +118,15 @@ backend/
 │   │   ├── client.go         # HTTP client with cookie jar
 │   │   ├── response.go       # Banner API response types
 │   │   └── store.go          # Persistence helpers
+│   ├── calendar/             # Registrar calendar scraper (see package doc for design)
+│   │   ├── calendar.go       # ScrapeAll: term dates, finals schedule, important dates
+│   │   ├── schedule.go       # Term phases from scraped dates, estimates as fallback
+│   │   └── store.go          # Per-term transactional replacement
+│   ├── termcode/             # Term code (YYYYQQ) parsing and helpers
 │   ├── jobs/                 # Background job scheduler
-│   │   ├── service.go        # Job interface + Service (runs jobs on interval)
-│   │   ├── scrape.go         # BootstrapJob, PastTermBackfillJob, ActiveScrapeJob, DailyScrapeJob
-│   │   └── term.go           # Term phase detection (40-day registration estimate)
+│   │   ├── service.go        # Job interface + Service (runs due jobs in registration order)
+│   │   ├── calendar.go       # CalendarJob: Banner term list + registrar calendar, daily
+│   │   └── scrape.go         # PastTermBackfillJob, ActiveScrapeJob, DailyScrapeJob (one per term phase)
 │   ├── cache/                # In-memory schedule cache
 │   └── generator/            # Schedule generation (bitmask + backtracking)
 │       ├── service.go        # Generate() entry point, course group building
@@ -197,7 +202,9 @@ Additional endpoints:
   [{"code": "CSCI", "description": "Computer Science"}, ...]
   ```
 
-See `internal/scraper/scraper.go` package doc for detailed design decisions (timeouts, concurrency, partial failure handling). See `WWU-Scraping-URLs.md` for endpoint documentation.
+See `internal/scraper/scraper.go` package doc for detailed design decisions (timeouts, concurrency, partial failure handling).
+
+Term dates, registration phases, deadlines, holidays, and the finals schedule come from registrar.wwu.edu, since Banner exposes none of them. See the `internal/calendar` package doc for the pages and how they are parsed.
 
 ## Environment Variables
 
@@ -211,7 +218,7 @@ SCRAPER_CONCURRENCY=4           # concurrent page fetches (default 4)
 # Jobs Service
 JOBS_ENABLED=true               # enable background job scheduler (default true)
 JOBS_ACTIVE_SCRAPE_HOURS=8      # hours between active registration scrapes (default 8)
-JOBS_DAILY_SCRAPE_HOUR=3        # hour (0-23) for daily pre-registration scrapes (default 3)
+JOBS_DAILY_SCRAPE_HOUR=3        # Pacific hour (0-23) for daily pre-registration and in-session scrapes (default 3)
 JOBS_LOG_RETENTION_DAYS=90      # days to keep logs before pruning (default 90, TODO: not implemented)
 JOBS_PAST_TERM_YEARS=5          # years of past terms to scrape (default 5)
 ```

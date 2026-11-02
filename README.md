@@ -29,7 +29,7 @@ Under the hood, schedule generation uses a **bitmask-based conflict detection** 
 ### Data Pipeline
 
 - Automated scraping from WWU's Banner API with concurrent page fetches
-- Background job scheduler with four job types: bootstrap, historical backfill, active registration polling, and daily pre-registration scrapes
+- Background job scheduler that scrapes each term on a cadence set by its phase (every 8 hours during registration, daily before registration and in session, once when past), with phases taken from the registrar's published registration and term dates
 - Course-centric data model supporting cross-term search — organized by unique course identity, not term hierarchy
 - SQLite with WAL mode for concurrent reads during scraping
 
@@ -70,6 +70,7 @@ backend/
 ├── internal/
 │   ├── api/             # HTTP handlers
 │   ├── cache/           # In-memory schedule cache (active terms)
+│   ├── calendar/        # Registrar calendar scraper + term phases
 │   ├── config/          # Environment configuration
 │   ├── db/              # SQLite connection setup
 │   ├── generator/       # Bitmask conflict detection + backtracking
@@ -78,7 +79,8 @@ backend/
 │   ├── search/          # Course search with scoring
 │   ├── server/          # Router, middleware, graceful shutdown
 │   ├── static/          # Embedded frontend serving
-│   └── store/           # sqlc-generated query code
+│   ├── store/           # sqlc-generated query code
+│   └── termcode/        # Term code (YYYYQQ) helpers
 ├── Makefile
 └── sqlc.yaml
 ```

@@ -28,7 +28,7 @@
 //
 // # Usage
 //
-// The Job Service (future) will call ScrapeTerm for each active term on a schedule.
+// The jobs package calls ScrapeTerm on a cadence set by each term's phase.
 // This package only handles the fetch-and-store logic, not scheduling.
 package scraper
 

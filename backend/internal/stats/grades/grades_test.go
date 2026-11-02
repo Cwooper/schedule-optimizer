@@ -421,7 +421,7 @@ func TestImportAndComputeIdempotency(t *testing.T) {
 
 	svc := NewService(db, queries, "nonexistent.xlsx")
 
-	// Should not fail even though xlsx doesn't exist — import is skipped (count > 0)
+	// Should not fail even though xlsx doesn't exist -- import is skipped (count > 0)
 	if err := svc.ImportAndCompute(ctx); err != nil {
 		t.Fatalf("ImportAndCompute failed: %v", err)
 	}
