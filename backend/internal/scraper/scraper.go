@@ -134,9 +134,7 @@ func (s *Scraper) ScrapeTerm(ctx context.Context, term string) (int, error) {
 	offsetChan := make(chan int, len(offsets))
 
 	for range s.concurrency {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
+		wg.Go(func() {
 			for offset := range offsetChan {
 				select {
 				case <-ctx.Done():
@@ -147,7 +145,7 @@ func (s *Scraper) ScrapeTerm(ctx context.Context, term string) (int, error) {
 					results <- result
 				}
 			}
-		}()
+		})
 	}
 
 	// Send offsets to workers

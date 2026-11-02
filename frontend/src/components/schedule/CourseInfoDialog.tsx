@@ -24,6 +24,7 @@ import type {
 } from "@/lib/api"
 import { hydrateSection, sortSectionsByAvailability, type SectionInfoLike } from "@/lib/schedule-utils"
 import { formatTermCode } from "@/lib/utils"
+import { describeGrades } from "@/lib/grades"
 
 interface CourseInfoDialogProps {
   open: boolean
@@ -130,6 +131,7 @@ function DialogContentInner({
   })
 
   const totalSections = courseSections.length
+  const grades = describeGrades(course.gpa, course.passRate)
   const useVirtual = totalSections > 50
 
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -185,24 +187,14 @@ function DialogContentInner({
         </Badge>
         <Badge variant="secondary" className="gap-1.5 rounded-md">
           <TrendingUp className="size-3.5" />
-          {course.gpa
-            ? `${course.gpa.toFixed(2)} GPA`
-            : course.passRate != null
-              ? `${Math.round(course.passRate * 100)}% pass`
-              : "N/A"}
+          {grades.label}
           <Tooltip>
             <TooltipTrigger asChild>
               <span className="inline-flex cursor-help">
                 <CircleHelp className="size-3.5 text-muted-foreground" />
               </span>
             </TooltipTrigger>
-            <TooltipContent>
-              {course.gpa
-                ? "Average GPA for this course"
-                : course.passRate != null
-                  ? "Historical pass rate for this S/U graded course"
-                  : "No historical grade data available"}
-            </TooltipContent>
+            <TooltipContent>{grades.tooltip}</TooltipContent>
           </Tooltip>
         </Badge>
       </div>

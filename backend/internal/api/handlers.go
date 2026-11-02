@@ -66,22 +66,22 @@ type CRNResponse struct {
 }
 
 type CourseInfo struct {
-	Subject      string  `json:"subject"`
-	CourseNumber string  `json:"courseNumber"`
-	Title        string  `json:"title"`
+	Subject      string   `json:"subject"`
+	CourseNumber string   `json:"courseNumber"`
+	Title        string   `json:"title"`
 	Credits      int      `json:"credits"`
 	GPA          float64  `json:"gpa,omitempty"`
 	PassRate     *float64 `json:"passRate,omitempty"`
 }
 
 type CourseSectionInfo struct {
-	CRN            string  `json:"crn"`
-	Instructor     string  `json:"instructor"`
-	Enrollment     int64   `json:"enrollment"`
-	MaxEnrollment  int64   `json:"maxEnrollment"`
-	SeatsAvailable int64   `json:"seatsAvailable"`
-	WaitCount      int64   `json:"waitCount"`
-	IsOpen         bool    `json:"isOpen"`
+	CRN            string   `json:"crn"`
+	Instructor     string   `json:"instructor"`
+	Enrollment     int64    `json:"enrollment"`
+	MaxEnrollment  int64    `json:"maxEnrollment"`
+	SeatsAvailable int64    `json:"seatsAvailable"`
+	WaitCount      int64    `json:"waitCount"`
+	IsOpen         bool     `json:"isOpen"`
 	GPA            float64  `json:"gpa,omitempty"`
 	GPASource      string   `json:"gpaSource,omitempty"`
 	PassRate       *float64 `json:"passRate,omitempty"`
@@ -236,7 +236,7 @@ func (h *Handlers) Generate(c *gin.Context) {
 			if err := h.queries.LogGenerationCourse(context.Background(), store.LogGenerationCourseParams{
 				GenerationLogID: logID,
 				Subject:         spec.Subject,
-				CourseNumber:     spec.CourseNumber,
+				CourseNumber:    spec.CourseNumber,
 				Required:        boolToInt64(spec.Required),
 			}); err != nil {
 				slog.Warn("Failed to log generation course", "error", err)

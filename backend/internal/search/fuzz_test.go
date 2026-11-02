@@ -24,7 +24,7 @@ func FuzzSearch(f *testing.F) {
 	f.Add("MATH", "2*", "", "", false, 4, 4)
 	f.Add("CS", "1", "intro", "Dr", true, 0, 10)
 	f.Add("*", "***", "a b c d", "___", false, -1, 100)
-	f.Add("CSCI", "247", "データ", "日本語", false, 0, 0) // Unicode
+	f.Add("CSCI", "247", "データ", "日本語", false, 0, 0)                 // Unicode
 	f.Add("'; DROP TABLE sections; --", "247", "", "", false, 0, 0) // SQL injection attempt
 
 	f.Fuzz(func(t *testing.T, subject, courseNum, title, instructor string, openSeats bool, minCredits, maxCredits int) {
@@ -222,7 +222,7 @@ func TestSearch_InvariantsWithUnicode(t *testing.T) {
 		"中文课程",
 		"Привет",
 		"مرحبا",
-		"\x00\x01\x02", // Control characters
+		"\x00\x01\x02",            // Control characters
 		strings.Repeat("a", 1000), // Very long input
 	}
 

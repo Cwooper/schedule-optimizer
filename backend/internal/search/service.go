@@ -163,7 +163,7 @@ func (s *Service) buildResponse(ctx context.Context, rows []*sectionRow, section
 
 	// Track course refs with their max scores for ordering
 	type courseRefData struct {
-		courseKey    string
+		courseKey   string
 		sectionKeys []string
 		maxScore    float64
 	}
@@ -187,7 +187,7 @@ func (s *Service) buildResponse(ctx context.Context, rows []*sectionRow, section
 			}
 			courses[courseKey] = ci
 			courseRefMap[courseKey] = &courseRefData{
-				courseKey:    courseKey,
+				courseKey:   courseKey,
 				sectionKeys: []string{},
 				maxScore:    0,
 			}

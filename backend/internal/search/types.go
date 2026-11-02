@@ -20,10 +20,10 @@ type SearchRequest struct {
 
 // CourseInfo contains course-level data sent once per unique course code.
 type CourseInfo struct {
-	Subject      string  `json:"subject"`
-	CourseNumber string  `json:"courseNumber"`
-	Title        string  `json:"title"`
-	Credits      int     `json:"credits"`
+	Subject      string   `json:"subject"`
+	CourseNumber string   `json:"courseNumber"`
+	Title        string   `json:"title"`
+	Credits      int      `json:"credits"`
 	CreditsHigh  int      `json:"creditsHigh,omitempty"`
 	GPA          float64  `json:"gpa,omitempty"`
 	PassRate     *float64 `json:"passRate,omitempty"`
