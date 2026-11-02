@@ -21,40 +21,45 @@ var (
 	classRangeRegex = regexp.MustCompile(`(\d{1,2}:\d{2})\s+and\s+(\d{1,2}:\d{2})\s*(AM|PM)`)
 
 	// Cell: "Monday 10:30 - 12:30 PM".
-	examSlotRegex = regexp.MustCompile(`(?i)(Monday|Tuesday|Wednesday|Thursday|Friday)\s*(\d{1,2}:\d{2})\s*-\s*(\d{1,2}:\d{2})\s*(AM|PM)`)
+	examSlotRegex = regexp.MustCompile(`(?i)(Monday|Tuesday|Wednesday|Thursday|Friday)\s*(\d{1,2}:\d{2})\s*[-\x{2013}]\s*(\d{1,2}:\d{2})\s*(AM|PM)`)
 )
 
 // parseFinals reads the finals page: one <wwu-switcher-item label="Fall 2026">
 // per term, each holding an <h2> naming finals week and a table whose rows are
 // class start-time ranges and whose columns split classes by whether they meet
-// Tuesday or Thursday.
-func parseFinals(html []byte) ([]finalMapping, error) {
+// Tuesday or Thursday. It returns the mappings of every term that parsed in
+// full, and the failures confined to one term.
+func parseFinals(html []byte) ([]finalMapping, []termError, error) {
 	doc, err := goquery.NewDocumentFromReader(bytes.NewReader(html))
 	if err != nil {
-		return nil, fmt.Errorf("parse finals HTML: %w", err)
+		return nil, nil, fmt.Errorf("parse finals HTML: %w", err)
 	}
 
 	var results []finalMapping
-	var errs []error
+	var failed []termError
+	terms := 0
 	doc.Find("wwu-switcher-item").Each(func(_ int, item *goquery.Selection) {
 		label, _ := item.Attr("label")
 		code := termcode.FromDescription(label)
 		if code == "" {
 			return
 		}
+		terms++
 		mappings, err := parseFinalsTerm(item, code)
 		if err != nil {
-			errs = append(errs, fmt.Errorf("finals for %s: %w", code, err))
+			failed = append(failed, termError{code: code, err: err})
 			return
 		}
 		results = append(results, mappings...)
 	})
-	if len(results) == 0 {
-		errs = append(errs, errors.New("no finals mappings found in HTML"))
+	if terms == 0 {
+		return nil, nil, errors.New("no finals terms found in HTML")
 	}
-	return results, errors.Join(errs...)
+	return results, failed, nil
 }
 
+// parseFinalsTerm fails on any row or cell it cannot read, since storing the
+// rest would delete that slot's stored mapping.
 func parseFinalsTerm(item *goquery.Selection, code string) ([]finalMapping, error) {
 	year, _, _ := termcode.Parse(code)
 	week := finalsWeekRegex.FindStringSubmatch(cleanText(item.Find("h2").First().Text()))
@@ -81,15 +86,25 @@ func parseFinalsTerm(item *goquery.Selection, code string) ([]finalMapping, erro
 	})
 
 	var results []finalMapping
+	var errs []error
 	table.Find("tbody tr").Each(func(_ int, tr *goquery.Selection) {
-		r := classRangeRegex.FindStringSubmatch(cleanText(tr.Find("th").First().Text()))
+		header := cleanText(tr.Find("th").First().Text())
+		r := classRangeRegex.FindStringSubmatch(header)
 		if r == nil {
+			errs = append(errs, fmt.Errorf("unreadable class time %q", header))
+			return
+		}
+		cells := tr.Find("td")
+		if cells.Length() != len(hasTuTh) {
+			errs = append(errs, fmt.Errorf("row %q has %d exam cells, header has %d", header, cells.Length(), len(hasTuTh)))
 			return
 		}
 		rangeStart, rangeEnd := timeRange(r[1], r[2], r[3])
-		tr.Find("td").Each(func(col int, td *goquery.Selection) {
-			slot := examSlotRegex.FindStringSubmatch(cleanText(td.Text()))
-			if slot == nil || col >= len(hasTuTh) {
+		cells.Each(func(col int, td *goquery.Selection) {
+			text := cleanText(td.Text())
+			slot := examSlotRegex.FindStringSubmatch(text)
+			if slot == nil {
+				errs = append(errs, fmt.Errorf("unreadable exam slot %q", text))
 				return
 			}
 			examStart, examEnd := timeRange(slot[2], slot[3], slot[4])
@@ -104,6 +119,9 @@ func parseFinalsTerm(item *goquery.Selection, code string) ([]finalMapping, erro
 			})
 		})
 	})
+	if err := errors.Join(errs...); err != nil {
+		return nil, err
+	}
 	if len(results) == 0 {
 		return nil, errors.New("no exam slots in table")
 	}

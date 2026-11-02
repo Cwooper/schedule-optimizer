@@ -7,7 +7,7 @@ import (
 )
 
 func TestParseTermSelect(t *testing.T) {
-	options, err := parseTermSelect(readFixture(t, "important_dates_select.html"))
+	options, err := parseTermSelect(readFixture(t, "important_dates_202640.html"))
 	if err != nil {
 		t.Fatalf("parseTermSelect: %v", err)
 	}
@@ -42,7 +42,7 @@ func TestParseImportantDates(t *testing.T) {
 	}{
 		{
 			name:    "winter rolls autumn dates back a year",
-			fixture: "important_dates_202710.json",
+			fixture: "important_dates_202710.html",
 			code:    "202710",
 			want: []row{
 				{"2026-11-03", "2026-11-16", categoryRegistration, true, "Phase I - registration"},
@@ -55,7 +55,7 @@ func TestParseImportantDates(t *testing.T) {
 		},
 		{
 			name:    "fall range runs into the next year",
-			fixture: "important_dates_202640.json",
+			fixture: "important_dates_202640.html",
 			code:    "202640",
 			want: []row{
 				{"2026-05-12", "2026-07-13", categoryRegistration, true, "Phase I - registration"},
@@ -111,20 +111,79 @@ func findDate(dates []importantDate, prefix string) (importantDate, bool) {
 	return importantDate{}, false
 }
 
-func TestParseImportantDatesWithoutPhaseOne(t *testing.T) {
-	body := []byte(`[{"command":"insert","method":"replaceWith","data":` +
-		`"<table><caption>Registration</caption><tbody>` +
-		`<tr><td>Tue, Nov 17</td><td>Phase II - registration</td></tr>` +
-		`<tr><td>Tue, Jan 5</td><td>Phase III - open registration</td></tr>` +
-		`</tbody></table>"}]`)
-	dates, err := parseImportantDates(body, "202710")
-	if err != nil {
-		t.Fatalf("parseImportantDates: %v", err)
+// importantPage is the important dates page filtered to Winter 2027, with
+// one table of the given caption and rows (date cell, description).
+func importantPage(caption string, rows ...[2]string) []byte {
+	var b strings.Builder
+	b.WriteString(`<select name="field_quarter_target_id"><option value="292">Fall 2026</option>` +
+		`<option value="293" selected="selected">Winter 2027</option></select>` +
+		`<table><caption>` + caption + `</caption><tbody>`)
+	for _, r := range rows {
+		b.WriteString(`<tr><td>` + r[0] + `</td><td>` + r[1] + `</td></tr>`)
 	}
-	for _, d := range dates {
-		if d.opensRegistration {
-			t.Errorf("%q flagged as opening registration", d.description)
-		}
+	b.WriteString(`</tbody></table>`)
+	return []byte(b.String())
+}
+
+func TestParseImportantDatesFlagsEarliestPhaseOne(t *testing.T) {
+	tests := []struct {
+		name string
+		rows [][2]string
+		want string // description of the flagged row, "" for none
+	}{
+		{"no phase I", [][2]string{
+			{"Tue, Nov 17", "Phase II - registration"},
+			{"Tue, Jan 5", "Phase III - open registration"},
+		}, ""},
+		{"earlier phase I listed second", [][2]string{
+			{"Tue, Nov 17", "Phase I - registration for new students"},
+			{"Tue, Nov 3", "Phase I - registration for continuing students"},
+			{"Tue, Nov 10", "Phase I - registration for transfers"},
+		}, "Phase I - registration for continuing students"},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			dates, err := parseImportantDates(importantPage("Registration", tt.rows...), "202710")
+			if err != nil {
+				t.Fatalf("parseImportantDates: %v", err)
+			}
+			var flagged []string
+			for _, d := range dates {
+				if d.opensRegistration {
+					flagged = append(flagged, d.description)
+				}
+			}
+			if strings.Join(flagged, "|") != tt.want {
+				t.Errorf("flagged %q, want %q", flagged, tt.want)
+			}
+		})
+	}
+}
+
+func TestParseImportantDatesRejectsPartialTerm(t *testing.T) {
+	phaseOne := [2]string{"Tue, Nov 3 \u2013 Mon, Nov 16", "Phase I - registration"}
+	tests := []struct {
+		name    string
+		page    []byte
+		code    string
+		wantErr bool
+	}{
+		{"en-dashed range parses", importantPage("Registration", phaseOne), "202710", false},
+		{"blank row ignored", importantPage("Registration", phaseOne, [2]string{" ", ""}), "202710", false},
+		{"unreadable date", importantPage("Registration", phaseOne, [2]string{"Nov 17 to Jan 4", "Phase II"}), "202710", true},
+		{"date without description", importantPage("Registration", phaseOne, [2]string{"Tue, Nov 17", ""}), "202710", true},
+		{"page shows another term", importantPage("Registration", phaseOne), "202640", true},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			dates, err := parseImportantDates(tt.page, tt.code)
+			if (err != nil) != tt.wantErr {
+				t.Fatalf("err = %v, want error %v", err, tt.wantErr)
+			}
+			if err == nil && dates[0].end.Format(dateLayout) != "2026-11-16" {
+				t.Errorf("phase I ends %s, want 2026-11-16", dates[0].end.Format(dateLayout))
+			}
+		})
 	}
 }
 

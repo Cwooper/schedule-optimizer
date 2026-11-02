@@ -6,13 +6,16 @@
 // finals schedule. Three pages feed it:
 //   - /term-dates: start and end dates, published years ahead
 //   - /calendars/finals: the exam slot for each class start time
-//   - /important-dates-deadlines: a Drupal view, fetched per term over its
-//     AJAX endpoint, listing registration phases, deadlines, and holidays
+//   - /important-dates-deadlines: registration phases, deadlines, and
+//     holidays, one term per page through its term filter
 //
-// The sources are independent: one failing does not block the others, and
-// each term's rows are replaced in one transaction so a reader never sees a
-// half-written term. Phase detection (schedule.go) falls back to estimated
-// dates for any term the registrar has not published.
+// Sources and terms are independent: one failing does not block the others.
+// A term that does not parse in full is skipped, keeping its stored rows,
+// rather than replaced by a partial set. Finals and important dates are
+// replaced per term in one transaction so a reader never sees a half-written
+// term; term dates are upserted, so past terms keep theirs. Phase detection
+// (schedule.go) falls back to estimated dates for any term the registrar has
+// not published.
 package calendar
 
 import (
@@ -21,6 +24,8 @@ import (
 	"errors"
 	"fmt"
 	"log/slog"
+	"net/url"
+	"slices"
 
 	"schedule-optimizer/internal/store"
 )
@@ -68,13 +73,16 @@ func (s *Service) scrapeTermDates(ctx context.Context, known map[string]bool) er
 	if err != nil {
 		return err
 	}
-	dates, err := parseTermDates(body)
+	dates, failed, err := parseTermDates(body)
 	if err != nil {
 		return err
 	}
-	dates = onlyKnown(dates, known, func(d termDates) string { return d.termCode })
+	dates = slices.DeleteFunc(dates, func(d termDates) bool { return !known[d.termCode] })
+	if err := s.storeTermDates(ctx, dates); err != nil {
+		return err
+	}
 	slog.Info("Scraped term dates", "terms", len(dates))
-	return s.storeTermDates(ctx, dates)
+	return knownFailures("term dates", failed, known)
 }
 
 func (s *Service) scrapeFinals(ctx context.Context, known map[string]bool) error {
@@ -82,11 +90,11 @@ func (s *Service) scrapeFinals(ctx context.Context, known map[string]bool) error
 	if err != nil {
 		return err
 	}
-	mappings, err := parseFinals(body)
+	mappings, failed, err := parseFinals(body)
 	if err != nil {
 		return err
 	}
-	var errs []error
+	errs := []error{knownFailures("finals", failed, known)}
 	for term, rows := range groupByTerm(mappings, func(m finalMapping) string { return m.termCode }) {
 		if !known[term] {
 			continue
@@ -100,6 +108,8 @@ func (s *Service) scrapeFinals(ctx context.Context, known map[string]bool) error
 	return errors.Join(errs...)
 }
 
+// scrapeImportantDates reads the term dropdown from the unfiltered page,
+// then fetches the page filtered to each known term.
 func (s *Service) scrapeImportantDates(ctx context.Context, known map[string]bool) error {
 	body, err := s.client.get(ctx, importantDatesPath, nil)
 	if err != nil {
@@ -129,21 +139,24 @@ func (s *Service) scrapeImportantDates(ctx context.Context, known map[string]boo
 }
 
 func (s *Service) fetchImportantDates(ctx context.Context, opt termOption) ([]importantDate, error) {
-	body, err := s.client.get(ctx, drupalAjaxPath, importantDatesQuery(opt.nodeID))
+	body, err := s.client.get(ctx, importantDatesPath, url.Values{"field_quarter_target_id": {opt.nodeID}})
 	if err != nil {
 		return nil, err
 	}
 	return parseImportantDates(body, opt.termCode)
 }
 
-func onlyKnown[T any](items []T, known map[string]bool, termCode func(T) string) []T {
-	var kept []T
-	for _, item := range items {
-		if known[termCode(item)] {
-			kept = append(kept, item)
+// knownFailures reports the parse failures of terms Banner lists, and those
+// tied to no term. A malformed row for a term years out would otherwise fail
+// every daily run until the registrar fixes it.
+func knownFailures(source string, failed []termError, known map[string]bool) error {
+	var errs []error
+	for _, f := range failed {
+		if f.code == "" || known[f.code] {
+			errs = append(errs, fmt.Errorf("%s for term %q: %w", source, f.code, f.err))
 		}
 	}
-	return kept
+	return errors.Join(errs...)
 }
 
 func groupByTerm[T any](items []T, termCode func(T) string) map[string][]T {

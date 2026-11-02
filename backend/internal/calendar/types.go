@@ -41,6 +41,14 @@ type importantDate struct {
 
 // termOption is one entry of the important dates page's term dropdown.
 type termOption struct {
-	nodeID   string // Drupal node the AJAX view filters on
+	nodeID   string // value of the page's field_quarter_target_id filter
 	termCode string
+}
+
+// termError is a parse failure confined to one term. The term is skipped
+// rather than stored from a partial parse, so its previous rows stand. code
+// is "" when the failure cannot be tied to a term.
+type termError struct {
+	code string
+	err  error
 }

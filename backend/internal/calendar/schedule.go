@@ -59,8 +59,9 @@ func (p Phase) String() string {
 }
 
 // registrationGraceDays keeps a term in registration through its first
-// week: Phase III open registration and the add/drop deadlines run that long,
-// so seats still churn.
+// week, while Phase III open registration and adding without an override
+// run, so seats still churn. Drops without a W run about five days longer
+// and get the daily cadence.
 const registrationGraceDays = 7
 
 // TermDates are a term's phase boundaries, each at midnight Pacific.
@@ -93,7 +94,7 @@ type estimate struct {
 
 // estimates stand in for dates the registrar has not published, or that a
 // fresh database has not scraped yet. Leads are the 2026-27 Phase I leads
-// (63, 35, 49, 134 days) rounded up a week: opening early only costs extra
+// (63, 35, 49, 134 days) plus a week: opening early only costs extra
 // scrapes, while opening late serves stale seat counts mid-registration.
 var estimates = map[int]estimate{
 	termcode.Winter: {time.January, 5, time.March, 20, 70},

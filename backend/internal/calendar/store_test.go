@@ -3,6 +3,7 @@ package calendar
 import (
 	"context"
 	"database/sql"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"os"
@@ -155,15 +156,19 @@ func TestLoadSchedule(t *testing.T) {
 func registrar(t *testing.T) *httptest.Server {
 	t.Helper()
 	pages := map[string]string{
-		termDatesPath:      "term_dates.html",
-		finalsPath:         "finals.html",
-		importantDatesPath: "important_dates_select.html",
+		termDatesPath: "term_dates.html",
+		finalsPath:    "finals.html",
 	}
-	ajax := map[string]string{"292": "important_dates_202640.json", "293": "important_dates_202710.json"}
+	// The unfiltered page shows the first term, as the live one does.
+	importantDates := map[string]string{
+		"":    "important_dates_202640.html",
+		"292": "important_dates_202640.html",
+		"293": "important_dates_202710.html",
+	}
 	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		name, ok := pages[r.URL.Path]
-		if r.URL.Path == drupalAjaxPath {
-			name, ok = ajax[r.URL.Query().Get("field_quarter_target_id")]
+		if r.URL.Path == importantDatesPath {
+			name, ok = importantDates[r.URL.Query().Get("field_quarter_target_id")]
 		}
 		if !ok {
 			http.Error(w, "not found", http.StatusNotFound)
@@ -175,6 +180,77 @@ func registrar(t *testing.T) *httptest.Server {
 		}
 		w.Write(body)
 	}))
+}
+
+func serve(t *testing.T, body string) *httptest.Server {
+	t.Helper()
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		io.WriteString(w, body)
+	}))
+	t.Cleanup(srv.Close)
+	return srv
+}
+
+func TestStoreTermDatesKeepsTermsDroppedFromPage(t *testing.T) {
+	ctx := context.Background()
+	svc, queries := newTestService(t, "202540", "202640")
+
+	if err := svc.storeTermDates(ctx, []termDates{
+		{termCode: "202540", start: date(2025, 9, 24), end: date(2025, 12, 12)},
+		{termCode: "202640", start: date(2026, 9, 23), end: date(2026, 12, 10)},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	if err := svc.storeTermDates(ctx, []termDates{
+		{termCode: "202640", start: date(2026, 9, 23), end: date(2026, 12, 11)},
+	}); err != nil {
+		t.Fatal(err)
+	}
+
+	schedule, err := LoadSchedule(ctx, queries)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for code, want := range map[string]string{"202540": "2025-12-12", "202640": "2026-12-11"} {
+		if got := schedule.scraped[code].lastDay.Format(dateLayout); got != want {
+			t.Errorf("term %s last day = %s, want %s", code, got, want)
+		}
+	}
+}
+
+func TestScrapeFinalsKeepsMalformedTermsRows(t *testing.T) {
+	ctx := context.Background()
+	svc, queries := newTestService(t, "202640", "202710")
+	stored := finalMapping{rangeStart: "0800", rangeEnd: "0829", hasTuTh: true, examDate: date(2027, 3, 19), examStart: "0800", examEnd: "1000"}
+	if err := svc.replaceFinals(ctx, "202710", []finalMapping{stored, {rangeStart: "0830", rangeEnd: "0929", examDate: date(2027, 3, 18), examStart: "1030", examEnd: "1230"}}); err != nil {
+		t.Fatal(err)
+	}
+
+	good := [3]string{"Between 8:00 and 8:29 AM", "Monday 1:00 - 3:00 PM", "Monday 3:30 - 5:30 PM"}
+	svc.client = newClient(serve(t, finalsItem("Fall 2026", "December 7-11", good)+
+		finalsItem("Winter 2027", "March 15-19", good, [3]string{"Between 8:30 and 9:29 AM", "TBA", "TBA"})+
+		finalsItem("Summer 2027", "Coming soon")).URL)
+
+	err := svc.scrapeFinals(ctx, map[string]bool{"202640": true, "202710": true})
+	if err == nil || !strings.Contains(err.Error(), "202710") || strings.Contains(err.Error(), "202730") {
+		t.Errorf("scrapeFinals error = %v, want Winter 2027's failure only (Summer 2027 is not in Banner)", err)
+	}
+	for code, want := range map[string]int{"202640": 2, "202710": 2} {
+		rows, err := queries.GetFinalMappingsByTerm(ctx, code)
+		if err != nil {
+			t.Fatal(err)
+		}
+		if len(rows) != want {
+			t.Errorf("term %s: %d finals rows, want %d", code, len(rows), want)
+		}
+	}
+}
+
+func TestClientRejectsOversizedBody(t *testing.T) {
+	c := newClient(serve(t, strings.Repeat("x", maxBodyBytes+1)).URL)
+	if _, err := c.get(context.Background(), "/", nil); err == nil {
+		t.Error("want error for a body over the cap, not a truncated page")
+	}
 }
 
 func TestScrapeAll(t *testing.T) {

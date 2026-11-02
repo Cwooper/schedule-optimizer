@@ -14,7 +14,6 @@ const (
 	termDatesPath      = "/term-dates"
 	finalsPath         = "/calendars/finals"
 	importantDatesPath = "/important-dates-deadlines"
-	drupalAjaxPath     = "/views/ajax"
 
 	httpTimeout = 30 * time.Second
 	// Pages run 25-50 KB; the cap only guards against a runaway response.
@@ -47,20 +46,14 @@ func (c *client) get(ctx context.Context, path string, query url.Values) ([]byte
 	if resp.StatusCode != http.StatusOK {
 		return nil, fmt.Errorf("fetch %s: status %d", path, resp.StatusCode)
 	}
-	return io.ReadAll(io.LimitReader(resp.Body, maxBodyBytes))
-}
-
-// importantDatesQuery asks Drupal's views AJAX endpoint to render one term
-// of the important dates view, as the page's term dropdown does. The view
-// name and display come from the page's drupalSettings and change only if
-// the registrar rebuilds the view. Drupal answers 500 unless
-// ajax_page_state[libraries] is present, even empty.
-func importantDatesQuery(nodeID string) url.Values {
-	return url.Values{
-		"_wrapper_format":            {"drupal_ajax"},
-		"view_name":                  {"important_dates_and_deadlines"},
-		"view_display_id":            {"block_3"},
-		"field_quarter_target_id":    {nodeID},
-		"ajax_page_state[libraries]": {""},
+	// Read one byte past the cap: a truncated page can still parse, and
+	// would replace complete stored rows with a partial set.
+	body, err := io.ReadAll(io.LimitReader(resp.Body, maxBodyBytes+1))
+	if err != nil {
+		return nil, fmt.Errorf("fetch %s: %w", path, err)
 	}
+	if len(body) > maxBodyBytes {
+		return nil, fmt.Errorf("fetch %s: body over %d bytes", path, maxBodyBytes)
+	}
+	return body, nil
 }

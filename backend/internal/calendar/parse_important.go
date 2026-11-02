@@ -2,7 +2,6 @@ package calendar
 
 import (
 	"bytes"
-	"encoding/json"
 	"errors"
 	"fmt"
 	"regexp"
@@ -14,15 +13,17 @@ import (
 	"schedule-optimizer/internal/termcode"
 )
 
+const termSelect = "select[name='field_quarter_target_id']"
+
 // parseTermSelect reads the term dropdown on the important dates page, which
-// maps each term to the Drupal node its AJAX view filters on.
+// maps each term to the node ID the page filters on.
 func parseTermSelect(html []byte) ([]termOption, error) {
 	doc, err := goquery.NewDocumentFromReader(bytes.NewReader(html))
 	if err != nil {
 		return nil, fmt.Errorf("parse term select HTML: %w", err)
 	}
 	var options []termOption
-	doc.Find("select[name='field_quarter_target_id'] option").Each(func(_ int, s *goquery.Selection) {
+	doc.Find(termSelect + " option").Each(func(_ int, s *goquery.Selection) {
 		nodeID, _ := s.Attr("value")
 		code := termcode.FromDescription(s.Text())
 		if nodeID != "" && code != "" {
@@ -35,20 +36,19 @@ func parseTermSelect(html []byte) ([]termOption, error) {
 	return options, nil
 }
 
-type drupalAjaxCommand struct {
-	Command string          `json:"command"`
-	Method  string          `json:"method"`
-	Data    json.RawMessage `json:"data"`
-}
-
 // phaseOneRegex matches the row that opens registration ("Phase I - ..."),
 // not Phase II or III.
 var phaseOneRegex = regexp.MustCompile(`(?i)^phase\s+(?:i|1)\b`)
 
-// parseImportantDates reads one term's Drupal AJAX response: a list of
-// commands, one of which replaces the view with HTML holding a table per
-// category. The earliest Phase I row is flagged as the registration opening.
-func parseImportantDates(body []byte, code string) ([]importantDate, error) {
+// parseImportantDates reads the important dates page filtered to one term:
+// a table per category, each row a date or range and a description. The
+// earliest Phase I row is flagged as the registration opening.
+//
+// It fails on any row it cannot read, since storing the rest would delete
+// that row (Phase I, say) from the term. It also fails unless the page's
+// selected term is code, so a page that ignored the filter cannot file one
+// term's dates under another.
+func parseImportantDates(html []byte, code string) ([]importantDate, error) {
 	year, quarter, err := termcode.Parse(code)
 	if err != nil {
 		return nil, err
@@ -56,34 +56,29 @@ func parseImportantDates(body []byte, code string) ([]importantDate, error) {
 	e := estimates[quarter]
 	anchor := date(year, e.startMonth, e.startDay)
 
-	var commands []drupalAjaxCommand
-	if err := json.Unmarshal(body, &commands); err != nil {
-		return nil, fmt.Errorf("parse drupal ajax JSON: %w", err)
-	}
-	var html string
-	for _, cmd := range commands {
-		if cmd.Command == "insert" && cmd.Method == "replaceWith" &&
-			json.Unmarshal(cmd.Data, &html) == nil && html != "" {
-			break
-		}
-	}
-	if html == "" {
-		return nil, errors.New("no view HTML in AJAX response")
-	}
-	doc, err := goquery.NewDocumentFromReader(strings.NewReader(html))
+	doc, err := goquery.NewDocumentFromReader(bytes.NewReader(html))
 	if err != nil {
-		return nil, fmt.Errorf("parse AJAX HTML: %w", err)
+		return nil, fmt.Errorf("parse important dates HTML: %w", err)
+	}
+	selected := cleanText(doc.Find(termSelect + " option[selected]").First().Text())
+	if termcode.FromDescription(selected) != code {
+		return nil, fmt.Errorf("page shows term %q", selected)
 	}
 
 	var dates []importantDate
+	var errs []error
 	opening := -1
 	doc.Find("table").Each(func(_ int, table *goquery.Selection) {
 		cat := categorizeCaption(table.Find("caption").Text())
 		table.Find("tbody tr").Each(func(_ int, tr *goquery.Selection) {
 			cells := tr.Find("td")
-			description := cleanText(cells.Last().Text())
-			start, end, ok := parseDateRange(cleanText(cells.First().Text()), anchor)
+			when, description := cleanText(cells.First().Text()), cleanText(cells.Last().Text())
+			if when == "" && description == "" {
+				return
+			}
+			start, end, ok := parseDateRange(when, anchor)
 			if !ok || description == "" {
+				errs = append(errs, fmt.Errorf("unreadable row %q %q", when, description))
 				return
 			}
 			if cat == categoryRegistration && phaseOneRegex.MatchString(description) &&
@@ -93,8 +88,11 @@ func parseImportantDates(body []byte, code string) ([]importantDate, error) {
 			dates = append(dates, importantDate{date: start, end: end, description: description, category: cat})
 		})
 	})
+	if err := errors.Join(errs...); err != nil {
+		return nil, err
+	}
 	if len(dates) == 0 {
-		return nil, errors.New("no dated rows in AJAX HTML")
+		return nil, errors.New("no dated rows in HTML")
 	}
 	if opening >= 0 {
 		dates[opening].opensRegistration = true
@@ -122,10 +120,11 @@ func categorizeCaption(caption string) category {
 // Matches "Tue, Nov 3"; the weekday is optional.
 var drupalDateRegex = regexp.MustCompile(`^(?:[A-Za-z]{3},?\s+)?([A-Za-z]+)\s+(\d{1,2})$`)
 
-// parseDateRange parses "Tue, Mar 31" or "Tue, Feb 24 - Mon, Mar 9". end is
-// zero for a single date.
+// parseDateRange parses "Tue, Mar 31" or "Tue, Feb 24 - Mon, Mar 9", with a
+// hyphen or en dash. end is zero for a single date.
 func parseDateRange(text string, anchor time.Time) (start, end time.Time, ok bool) {
-	first, second, isRange := strings.Cut(text, " - ")
+	first, second, isRange := strings.Cut(strings.ReplaceAll(text, "\u2013", "-"), "-")
+	first, second = strings.TrimSpace(first), strings.TrimSpace(second)
 	if start, ok = parseMonthDay(first, anchor); !ok {
 		return time.Time{}, time.Time{}, false
 	}
