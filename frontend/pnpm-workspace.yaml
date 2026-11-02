@@ -15,13 +15,11 @@ onlyBuiltDependencies:
 # read them.
 overrides:
   minimatch@3: ^3.1.5
-  minimatch@9: ^9.0.9
   minimatch@10: ^10.2.5
   picomatch@4: ^4.0.4
   flatted@3: ^3.4.2
   ajv@6: ^6.15.0
   brace-expansion@1: ^1.1.15
-  brace-expansion@2: ^2.1.1
   postcss@8: ^8.5.15
 
 # jsx-a11y's peer range stops at ESLint 9 because it has not been republished

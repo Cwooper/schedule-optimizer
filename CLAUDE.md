@@ -41,7 +41,7 @@ go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
 go install -tags 'sqlite3' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
 
 # Frontend
-# Node.js 20+ and pnpm
+# Node.js 22.13+ and pnpm (the floor for Vitest 5 and ESLint 10)
 ```
 
 ## Build & Run Commands

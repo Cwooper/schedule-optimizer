@@ -2,6 +2,9 @@ module schedule-optimizer
 
 go 1.26.0
 
+// gin-contrib cors/gzip/sse are held below their latest releases, which
+// declare go 1.26.10: the deploy server runs Go 1.26.4 with GOTOOLCHAIN=auto
+// and would download a newer toolchain mid-deploy.
 require (
 	github.com/gin-contrib/cors v1.7.9
 	github.com/gin-contrib/gzip v1.2.8
