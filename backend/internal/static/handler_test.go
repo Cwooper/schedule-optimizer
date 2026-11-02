@@ -1,6 +1,7 @@
 package static
 
 import (
+	"io/fs"
 	"net/http"
 	"net/http/httptest"
 	"strings"
@@ -97,6 +98,43 @@ func TestAcceptsGzipEdgeCases(t *testing.T) {
 			gotGzip := w.Header().Get("Content-Encoding") == "gzip"
 			if gotGzip != tt.wantGzip {
 				t.Errorf("gzip = %v, want %v", gotGzip, tt.wantGzip)
+			}
+		})
+	}
+}
+
+func TestHandlerCacheControl(t *testing.T) {
+	handler := Handler()
+
+	assets, err := fs.Glob(Dist, "dist/assets/*.js")
+	if err != nil || len(assets) == 0 {
+		t.Fatalf("no built JS asset in dist (run pnpm build): %v", err)
+	}
+	asset := "/" + strings.TrimPrefix(assets[0], "dist/")
+
+	const immutable = "public, max-age=31536000, immutable"
+	tests := []struct {
+		name       string
+		path       string
+		acceptGzip bool
+		want       string
+	}{
+		{"html", "/", false, "no-cache"},
+		{"html gzip", "/", true, "no-cache"},
+		{"unhashed file", "/schopt-logo-dark.svg", false, "no-cache"},
+		{"hashed asset", asset, false, immutable},
+		{"hashed asset gzip", asset, true, immutable},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			req := httptest.NewRequest("GET", tt.path, nil)
+			if tt.acceptGzip {
+				req.Header.Set("Accept-Encoding", "gzip")
+			}
+			w := httptest.NewRecorder()
+			handler.ServeHTTP(w, req)
+			if got := w.Header().Get("Cache-Control"); got != tt.want {
+				t.Errorf("Cache-Control = %q, want %q", got, tt.want)
 			}
 		})
 	}

@@ -38,6 +38,8 @@ func Handler() http.Handler {
 			filePath = "index.html"
 		}
 
+		w.Header().Set("Cache-Control", cacheControl(filePath))
+
 		// Serve gzipped version if available and accepted
 		// Safe: filePath only matches keys from our pre-built gzipped map
 		if acceptsGzip(r) && gzipped[filePath] {
@@ -46,14 +48,19 @@ func Handler() http.Handler {
 			}
 		}
 
-		// Add cache headers for hashed assets (non-gzip path)
-		if strings.HasPrefix(filePath, "assets/") {
-			w.Header().Set("Cache-Control", "public, max-age=31536000, immutable")
-		}
-
 		// Fall back to http.FileServer for non-gzip requests
 		fileServer.ServeHTTP(w, r)
 	})
+}
+
+// cacheControl lets hashed assets cache forever but makes everything else,
+// index.html above all, revalidate: Cloudflare caches HTML at the edge, and a
+// stale index.html points at assets the next deploy deleted (a blank page).
+func cacheControl(filePath string) string {
+	if strings.HasPrefix(filePath, "assets/") {
+		return "public, max-age=31536000, immutable"
+	}
+	return "no-cache"
 }
 
 // acceptsGzip checks if the client accepts gzip encoding.
@@ -88,11 +95,6 @@ func serveGzipped(w http.ResponseWriter, r *http.Request, fsys fs.FS, filePath s
 	}
 	w.Header().Set("Content-Encoding", "gzip")
 	w.Header().Set("Vary", "Accept-Encoding")
-
-	// Immutable cache for hashed assets
-	if strings.HasPrefix(filePath, "assets/") {
-		w.Header().Set("Cache-Control", "public, max-age=31536000, immutable")
-	}
 
 	// embed.FS files always implement io.ReadSeeker, but check defensively
 	rs, ok := f.(io.ReadSeeker)
