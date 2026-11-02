@@ -53,7 +53,7 @@ func Run() {
 	gradeService := grades.NewService(database, queries, cfg.GradeDataPath)
 	_ = stats.NewService(gradeService) // TODO: pass to handlers when stats endpoints are added
 
-	jobsService := jobs.Setup(ctx, cfg, queries, gradeService)
+	jobsService := jobs.Setup(ctx, cfg, database, gradeService)
 
 	if cfg.Environment == "production" {
 		gin.SetMode(gin.ReleaseMode)

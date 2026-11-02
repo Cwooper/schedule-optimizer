@@ -1265,34 +1265,6 @@ func (q *Queries) GetTerms(ctx context.Context) ([]*Term, error) {
 	return items, nil
 }
 
-const getTermsNeverScraped = `-- name: GetTermsNeverScraped :many
-SELECT code, description, last_scraped_at FROM terms
-WHERE last_scraped_at IS NULL ORDER BY code DESC
-`
-
-func (q *Queries) GetTermsNeverScraped(ctx context.Context) ([]*Term, error) {
-	rows, err := q.db.QueryContext(ctx, getTermsNeverScraped)
-	if err != nil {
-		return nil, err
-	}
-	defer rows.Close()
-	items := []*Term{}
-	for rows.Next() {
-		var i Term
-		if err := rows.Scan(&i.Code, &i.Description, &i.LastScrapedAt); err != nil {
-			return nil, err
-		}
-		items = append(items, &i)
-	}
-	if err := rows.Close(); err != nil {
-		return nil, err
-	}
-	if err := rows.Err(); err != nil {
-		return nil, err
-	}
-	return items, nil
-}
-
 const insertFeedback = `-- name: InsertFeedback :exec
 INSERT INTO feedback (session_id, message) VALUES (?, ?)
 `

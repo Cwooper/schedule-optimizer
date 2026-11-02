@@ -149,10 +149,6 @@ JOIN sections s ON m.section_id = s.id
 WHERE s.term = ?
 ORDER BY m.section_id;
 
--- name: GetTermsNeverScraped :many
-SELECT code, description, last_scraped_at FROM terms
-WHERE last_scraped_at IS NULL ORDER BY code DESC;
-
 -- name: CourseExistsAnyTerm :one
 SELECT EXISTS(
     SELECT 1 FROM sections

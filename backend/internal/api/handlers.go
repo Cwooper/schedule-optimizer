@@ -11,8 +11,8 @@ import (
 	"time"
 
 	"schedule-optimizer/internal/cache"
+	"schedule-optimizer/internal/calendar"
 	"schedule-optimizer/internal/generator"
-	"schedule-optimizer/internal/jobs"
 	"schedule-optimizer/internal/search"
 	"schedule-optimizer/internal/stats/grades"
 	"schedule-optimizer/internal/store"
@@ -273,40 +273,21 @@ func (h *Handlers) GetTerms(c *gin.Context) {
 		})
 	}
 
-	current := determineCurrentTerm(terms)
+	schedule, err := calendar.LoadSchedule(c.Request.Context(), h.queries)
+	if err != nil {
+		// Estimated dates still give a sensible default term.
+		slog.Error("Failed to load term schedule", "error", err)
+	}
+	codes := make([]string, len(terms))
+	for i, t := range terms {
+		codes[i] = t.Code
+	}
+	current := schedule.DefaultTerm(codes, time.Now())
 
 	c.JSON(http.StatusOK, gin.H{
 		"terms":   result,
 		"current": current,
 	})
-}
-
-// determineCurrentTerm selects the best default term for the frontend.
-// Prefers the most recent term in active registration; otherwise the soonest
-// upcoming pre-registration term; otherwise the most recent term overall.
-//
-// `terms` is sorted by code DESC (newest first).
-func determineCurrentTerm(terms []*store.Term) string {
-	if len(terms) == 0 {
-		return ""
-	}
-
-	now := time.Now()
-
-	var soonestPreReg string
-	for _, t := range terms {
-		switch jobs.GetTermPhase(t.Code, now) {
-		case jobs.PhaseActiveRegistration:
-			return t.Code
-		case jobs.PhasePreRegistration:
-			soonestPreReg = t.Code // keep overwriting; DESC-sorted, so last wins
-		}
-	}
-	if soonestPreReg != "" {
-		return soonestPreReg
-	}
-
-	return terms[0].Code
 }
 
 // SubjectResponse represents a subject in the API response.
