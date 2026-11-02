@@ -20,8 +20,8 @@ type Config struct {
 
 	// Jobs scheduler config
 	JobsEnabled       bool
-	ActiveScrapeHours int // Hours between active registration term scrapes
-	DailyScrapeHour   int // Hour of day (0-23, Pacific) for daily scrapes
+	ActiveScrapeHours int // Hours between scrapes of terms in registration
+	DailyScrapeHour   int // Hour of day (0-23, Pacific) for daily scrapes and the calendar refresh
 	LogRetentionDays  int // Days to keep logs before pruning
 	PastTermYears     int // Years of past terms to scrape
 

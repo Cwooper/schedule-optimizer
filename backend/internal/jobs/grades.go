@@ -21,7 +21,7 @@ func NewGradeImportJob(gradeService *grades.Service) *GradeImportJob {
 
 func (j *GradeImportJob) Name() string { return "grade-import" }
 
-func (j *GradeImportJob) ShouldRun(_ time.Time) bool {
+func (j *GradeImportJob) ShouldRun(context.Context, time.Time) bool {
 	return !j.hasRun
 }
 

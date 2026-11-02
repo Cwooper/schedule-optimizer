@@ -28,15 +28,13 @@ func Setup(ctx context.Context, cfg *config.Config, db *sql.DB, gradeService *gr
 		return nil
 	}
 
-	// The service runs due jobs in registration order, and every job is due
-	// on its first check, so startup refreshes the term list and calendar
-	// before any scrape job reads them.
+	// The service runs due jobs in registration order, and the calendar job
+	// is due on startup and at the daily hour, so the term list and calendar
+	// are fresh before the scrape job reads them at those checks.
 	service := NewService(time.Minute)
 	service.Register(NewGradeImportJob(gradeService))
-	service.Register(NewCalendarJob(sc, calendar.NewService(db)))
-	service.Register(NewPastTermBackfillJob(queries, sc, cfg.PastTermYears))
-	service.Register(NewActiveScrapeJob(queries, sc, cfg.PastTermYears, cfg.ActiveScrapeHours))
-	service.Register(NewDailyScrapeJob(queries, sc, cfg.PastTermYears, cfg.DailyScrapeHour))
+	service.Register(NewCalendarJob(sc, calendar.NewService(db), cfg.DailyScrapeHour))
+	service.Register(NewScrapeJob(queries, sc, cfg.PastTermYears, cfg.ActiveScrapeHours, cfg.DailyScrapeHour))
 
 	go service.Start(ctx)
 

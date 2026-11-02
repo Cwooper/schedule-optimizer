@@ -14,8 +14,8 @@ type mockJob struct {
 	runErr    error
 }
 
-func (m *mockJob) Name() string                 { return m.name }
-func (m *mockJob) ShouldRun(now time.Time) bool { return m.shouldRun }
+func (m *mockJob) Name() string                              { return m.name }
+func (m *mockJob) ShouldRun(context.Context, time.Time) bool { return m.shouldRun }
 func (m *mockJob) Run(ctx context.Context, now time.Time) error {
 	m.runCount.Add(1)
 	return m.runErr

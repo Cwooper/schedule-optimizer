@@ -121,12 +121,12 @@ backend/
 │   ├── calendar/             # Registrar calendar scraper (see package doc for design)
 │   │   ├── calendar.go       # ScrapeAll: term dates, finals schedule, important dates
 │   │   ├── schedule.go       # Term phases from scraped dates, estimates as fallback
-│   │   └── store.go          # Per-term transactional replacement
+│   │   └── store.go          # Transactional writes: term dates upserted, finals and important dates replaced per term
 │   ├── termcode/             # Term code (YYYYQQ) parsing and helpers
 │   ├── jobs/                 # Background job scheduler
 │   │   ├── service.go        # Job interface + Service (runs due jobs in registration order)
-│   │   ├── calendar.go       # CalendarJob: Banner term list + registrar calendar, daily
-│   │   └── scrape.go         # PastTermBackfillJob, ActiveScrapeJob, DailyScrapeJob (one per term phase)
+│   │   ├── calendar.go       # CalendarJob: Banner term list + registrar calendar, on startup and daily
+│   │   └── scrape.go         # ScrapeJob: each term due by its phase and last_scraped_at
 │   ├── cache/                # In-memory schedule cache
 │   └── generator/            # Schedule generation (bitmask + backtracking)
 │       ├── service.go        # Generate() entry point, course group building
@@ -175,9 +175,10 @@ frontend/
 ### Data Flow
 
 ```
-Banner API → Scraper → SQLite → Cache (in-memory) → API → Frontend
-     ↑
-Jobs Service (scheduled scraping)
+Banner API        → Scraper  ─┐
+registrar.wwu.edu → Calendar ─┴→ SQLite → Cache (in-memory) → API → Frontend
+                       ↑
+          Jobs Service (scheduled scraping)
 ```
 
 ### Key Design Decisions
@@ -217,8 +218,8 @@ SCRAPER_CONCURRENCY=4           # concurrent page fetches (default 4)
 
 # Jobs Service
 JOBS_ENABLED=true               # enable background job scheduler (default true)
-JOBS_ACTIVE_SCRAPE_HOURS=8      # hours between active registration scrapes (default 8)
-JOBS_DAILY_SCRAPE_HOUR=3        # Pacific hour (0-23) for daily pre-registration and in-session scrapes (default 3)
+JOBS_ACTIVE_SCRAPE_HOURS=8      # hours between scrapes of terms in registration (default 8)
+JOBS_DAILY_SCRAPE_HOUR=3        # Pacific hour (0-23) for daily pre-registration and in-session scrapes and the calendar refresh (default 3)
 JOBS_LOG_RETENTION_DAYS=90      # days to keep logs before pruning (default 90, TODO: not implemented)
 JOBS_PAST_TERM_YEARS=5          # years of past terms to scrape (default 5)
 ```

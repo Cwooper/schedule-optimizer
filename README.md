@@ -56,9 +56,10 @@ Under the hood, schedule generation uses a **bitmask-based conflict detection** 
 ## Architecture
 
 ```
-Banner API → Scraper → SQLite → Cache (in-memory) → REST API → React Frontend
-     ↑
-Jobs Service (scheduled scraping)
+Banner API        → Scraper  ─┐
+registrar.wwu.edu → Calendar ─┴→ SQLite → Cache (in-memory) → REST API → React Frontend
+                       ↑
+          Jobs Service (scheduled scraping)
 ```
 
 ### Backend
@@ -171,8 +172,8 @@ DATABASE_PATH=data/schedule.db      # SQLite database location
 CORS_ALLOWED_ORIGINS=http://localhost:5173
 SCRAPER_CONCURRENCY=4               # parallel page fetches
 JOBS_ENABLED=true                   # background scraping
-JOBS_ACTIVE_SCRAPE_HOURS=8          # hours between active term scrapes
-JOBS_DAILY_SCRAPE_HOUR=3            # hour (0-23) for daily scrapes
+JOBS_ACTIVE_SCRAPE_HOURS=8          # hours between scrapes of terms in registration
+JOBS_DAILY_SCRAPE_HOUR=3            # Pacific hour (0-23) for daily scrapes
 JOBS_PAST_TERM_YEARS=5              # years of historical data to backfill
 ```
 
@@ -183,7 +184,8 @@ The project uses table-driven tests throughout. Backend test coverage spans all 
 ```
 internal/generator   — unit + benchmark (bitmask, backtracking, scoring)
 internal/search      — unit + fuzz + benchmark
-internal/jobs        — unit (scheduler, scrape jobs, term detection)
+internal/jobs        — unit (scheduler, simulated scrape cadence)
+internal/calendar    — unit + integration (parsers on captured pages, phases, storage)
 internal/api         — integration (handler endpoints)
 internal/cache       — unit
 internal/scraper     — unit
