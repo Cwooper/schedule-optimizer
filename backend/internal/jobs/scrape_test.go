@@ -1,9 +1,14 @@
 package jobs
 
 import (
+	"bytes"
 	"context"
 	"database/sql"
+	"errors"
+	"log"
+	"log/slog"
 	"slices"
+	"strings"
 	"testing"
 	"time"
 
@@ -18,19 +23,25 @@ import (
 const scrapeDuration = 3 * time.Minute
 
 // fakeScraper stands in for Banner: each scrape advances the simulated clock
-// by scrapeDuration and writes last_scraped_at at that time.
+// by scrapeDuration and, unless it fails, writes last_scraped_at at that
+// time. Every success finds no sections.
 type fakeScraper struct {
-	t       *testing.T
-	db      *sql.DB
-	clock   time.Time
-	scrapes map[string][]time.Time // scrape start times per term
-	order   []string
+	t        *testing.T
+	db       *sql.DB
+	clock    time.Time
+	scrapes  map[string][]time.Time // scrape start times per term
+	order    []string
+	failures map[string]int // scrapes left to fail per term
 }
 
 func (f *fakeScraper) ScrapeTerm(ctx context.Context, term string) (int, error) {
 	f.scrapes[term] = append(f.scrapes[term], f.clock)
 	f.order = append(f.order, term)
 	f.clock = f.clock.Add(scrapeDuration)
+	if f.failures[term] > 0 {
+		f.failures[term]--
+		return 0, errors.New("banner unavailable")
+	}
 	if _, err := f.db.ExecContext(ctx, "UPDATE terms SET last_scraped_at = ? WHERE code = ?", f.clock.UTC(), term); err != nil {
 		f.t.Fatal(err)
 	}
@@ -41,7 +52,7 @@ func (f *fakeScraper) ScrapeTerm(ctx context.Context, term string) (int, error) 
 // start for the given span, with calendar tables empty so phases come from
 // estimates. Ticks are UTC, as on the server. Like a time.Ticker, the loop
 // skips ticks that fall inside a run.
-func simulate(t *testing.T, codes []string, start time.Time, span time.Duration, seed func(*sql.DB)) *fakeScraper {
+func simulate(t *testing.T, codes []string, start time.Time, span time.Duration, seed func(*sql.DB, *fakeScraper)) *fakeScraper {
 	t.Helper()
 	db, queries := testutil.SetupTestDB(t)
 	ctx := context.Background()
@@ -50,11 +61,10 @@ func simulate(t *testing.T, codes []string, start time.Time, span time.Duration,
 			t.Fatal(err)
 		}
 	}
+	fake := &fakeScraper{t: t, db: db, scrapes: make(map[string][]time.Time), failures: make(map[string]int)}
 	if seed != nil {
-		seed(db)
+		seed(db, fake)
 	}
-
-	fake := &fakeScraper{t: t, db: db, scrapes: make(map[string][]time.Time)}
 	svc := NewService(time.Minute)
 	svc.Register(NewScrapeJob(queries, fake, 5, 8, 3))
 	start = start.UTC()
@@ -146,8 +156,25 @@ func TestDailyScrapeAcrossDST(t *testing.T) {
 	}
 }
 
+// TestFailedScrapeBacksOff has Banner down for a registration term's first
+// three attempts: retries come an hour apart, not every check, and the
+// success resumes the 8h cadence.
+func TestFailedScrapeBacksOff(t *testing.T) {
+	scraped := simulate(t, []string{"202710"}, pacific(2026, 11, 10, 10, 0), 12*time.Hour, func(_ *sql.DB, fake *fakeScraper) {
+		fake.failures["202710"] = 3
+	})
+	var got []string
+	for _, s := range scraped.scrapes["202710"] {
+		got = append(got, s.In(calendar.Pacific).Format("15:04"))
+	}
+	if want := []string{"10:00", "11:00", "12:00", "13:00", "21:03"}; !slices.Equal(got, want) {
+		t.Errorf("scraped at %v, want %v", got, want)
+	}
+}
+
 func TestScrapeContinuesWhenScheduleFailsToLoad(t *testing.T) {
-	scraped := simulate(t, []string{"202710"}, pacific(2026, 11, 10, 10, 0), time.Minute, func(db *sql.DB) {
+	logs := captureLogs(t)
+	scraped := simulate(t, []string{"202710"}, pacific(2026, 11, 10, 10, 0), 3*time.Hour, func(db *sql.DB, _ *fakeScraper) {
 		if _, err := db.Exec("INSERT INTO term_dates VALUES ('202710', 'not a date', '2027-03-19')"); err != nil {
 			t.Fatal(err)
 		}
@@ -155,6 +182,23 @@ func TestScrapeContinuesWhenScheduleFailsToLoad(t *testing.T) {
 	if n := len(scraped.scrapes["202710"]); n != 1 {
 		t.Errorf("term scraped %d times, want once on estimated dates", n)
 	}
+	if n := strings.Count(logs.String(), "Failed to load term schedule"); n != 1 {
+		t.Errorf("schedule failure logged %d times over 180 checks, want once", n)
+	}
+}
+
+// captureLogs sends slog output to the returned buffer for the rest of the
+// test. SetDefault also redirects the log package, so that is restored too.
+func captureLogs(t *testing.T) *bytes.Buffer {
+	var buf bytes.Buffer
+	prev, writer, flags := slog.Default(), log.Writer(), log.Flags()
+	t.Cleanup(func() {
+		slog.SetDefault(prev)
+		log.SetOutput(writer)
+		log.SetFlags(flags)
+	})
+	slog.SetDefault(slog.New(slog.NewTextHandler(&buf, nil)))
+	return &buf
 }
 
 func TestDailyBoundary(t *testing.T) {

@@ -29,7 +29,7 @@ Under the hood, schedule generation uses a **bitmask-based conflict detection** 
 ### Data Pipeline
 
 - Automated scraping from WWU's Banner API with concurrent page fetches
-- Background job scheduler that scrapes each term on a cadence set by its phase (every 8 hours during registration, daily before registration and in session, once when past), with phases taken from the registrar's published registration and term dates
+- Background job scheduler that scrapes each term on a cadence set by its phase (every 8 hours during registration, daily before registration and in session, once when past; a failed scrape retries hourly), with phases taken from the registrar's published registration and term dates
 - Course-centric data model supporting cross-term search — organized by unique course identity, not term hierarchy
 - SQLite with WAL mode for concurrent reads during scraping
 

@@ -126,7 +126,7 @@ backend/
 │   ├── jobs/                 # Background job scheduler
 │   │   ├── service.go        # Job interface + Service (runs due jobs in registration order)
 │   │   ├── calendar.go       # CalendarJob: Banner term list + registrar calendar, on startup and daily
-│   │   └── scrape.go         # ScrapeJob: each term due by its phase and last_scraped_at
+│   │   └── scrape.go         # ScrapeJob: each term due by its phase and last_scraped_at; failures retry hourly
 │   ├── cache/                # In-memory schedule cache
 │   └── generator/            # Schedule generation (bitmask + backtracking)
 │       ├── service.go        # Generate() entry point, course group building
