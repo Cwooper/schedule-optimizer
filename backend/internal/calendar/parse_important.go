@@ -44,10 +44,11 @@ var phaseOneRegex = regexp.MustCompile(`(?i)^phase\s+(?:i|1)\b`)
 // a table per category, each row a date or range and a description. The
 // earliest Phase I row is flagged as the registration opening.
 //
-// It fails on any row it cannot read, since storing the rest would delete
-// that row (Phase I, say) from the term. It also fails unless the page's
-// selected term is code, so a page that ignored the filter cannot file one
-// term's dates under another.
+// A row with an empty date cell is a note (summer's "There is no final
+// examination week ...") and is skipped. Any other row it cannot read fails
+// the term, since storing the rest would delete that row (Phase I, say) from
+// the term. It also fails unless the page's selected term is code, so a page
+// that ignored the filter cannot file one term's dates under another.
 func parseImportantDates(html []byte, code string) ([]importantDate, error) {
 	year, quarter, err := termcode.Parse(code)
 	if err != nil {
@@ -73,7 +74,7 @@ func parseImportantDates(html []byte, code string) ([]importantDate, error) {
 		table.Find("tbody tr").Each(func(_ int, tr *goquery.Selection) {
 			cells := tr.Find("td")
 			when, description := cleanText(cells.First().Text()), cleanText(cells.Last().Text())
-			if when == "" && description == "" {
+			if when == "" {
 				return
 			}
 			start, end, ok := parseDateRange(when, anchor)

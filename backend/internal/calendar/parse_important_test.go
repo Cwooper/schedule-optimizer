@@ -64,6 +64,17 @@ func TestParseImportantDates(t *testing.T) {
 				{"2026-07-21", "2026-07-27", categoryRegistration, false, "Advising & Registration - Transfer"},
 			},
 		},
+		{
+			name:    "summer skips undated note rows",
+			fixture: "important_dates_202730.html",
+			code:    "202730",
+			want: []row{
+				{"2027-05-04", "2027-05-09", categoryRegistration, true, "Phase I - registration"},
+				{"2027-06-22", "2027-07-30", categoryAcademic, false, "Six-week Session"},
+				{"2027-07-02", "", categoryDeadline, false, "Last day to change to-or-from Pass/No Pass (Six-week"},
+				{"2027-07-05", "", categoryHoliday, false, "Independence Day"},
+			},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -170,6 +181,7 @@ func TestParseImportantDatesRejectsPartialTerm(t *testing.T) {
 	}{
 		{"en-dashed range parses", importantPage("Registration", phaseOne), "202710", false},
 		{"blank row ignored", importantPage("Registration", phaseOne, [2]string{" ", ""}), "202710", false},
+		{"undated note ignored", importantPage("Registration", phaseOne, [2]string{"<strong> </strong>", "No final exam week"}), "202710", false},
 		{"unreadable date", importantPage("Registration", phaseOne, [2]string{"Nov 17 to Jan 4", "Phase II"}), "202710", true},
 		{"date without description", importantPage("Registration", phaseOne, [2]string{"Tue, Nov 17", ""}), "202710", true},
 		{"page shows another term", importantPage("Registration", phaseOne), "202640", true},
