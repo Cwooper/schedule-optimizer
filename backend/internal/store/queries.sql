@@ -298,3 +298,38 @@ SELECT g.subject as grade_subject, g.course_number as grade_course_number,
 FROM grade_rows g
 JOIN sections s ON g.term = s.term AND g.crn = s.crn
 LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1;
+
+-- name: UpsertTermDates :exec
+INSERT INTO term_dates (term_code, start_date, end_date)
+VALUES (?, ?, ?)
+ON CONFLICT(term_code) DO UPDATE SET
+    start_date = excluded.start_date,
+    end_date = excluded.end_date;
+
+-- name: GetTermSchedules :many
+SELECT t.code AS term_code, td.start_date, td.end_date, d.date AS registration_opens
+FROM terms t
+LEFT JOIN term_dates td ON td.term_code = t.code
+LEFT JOIN important_dates d ON d.term_code = t.code AND d.opens_registration
+WHERE td.term_code IS NOT NULL OR d.term_code IS NOT NULL;
+
+-- name: InsertFinalMapping :exec
+INSERT INTO finals_mappings (term_code, time_range_start, time_range_end, has_tuth, exam_date, exam_start_time, exam_end_time)
+VALUES (?, ?, ?, ?, ?, ?, ?);
+
+-- name: GetFinalMappingsByTerm :many
+SELECT * FROM finals_mappings WHERE term_code = ? ORDER BY time_range_start, has_tuth;
+
+-- name: DeleteFinalMappingsByTerm :exec
+DELETE FROM finals_mappings WHERE term_code = ?;
+
+-- name: InsertImportantDate :exec
+INSERT INTO important_dates (term_code, date, end_date, description, category, opens_registration)
+VALUES (?, ?, ?, ?, ?, ?)
+ON CONFLICT DO NOTHING;
+
+-- name: GetImportantDatesByTerm :many
+SELECT * FROM important_dates WHERE term_code = ? ORDER BY date, id;
+
+-- name: DeleteImportantDatesByTerm :exec
+DELETE FROM important_dates WHERE term_code = ?;

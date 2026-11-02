@@ -6,6 +6,7 @@ go 1.26.0
 // declare go 1.26.10: the deploy server runs Go 1.26.4 with GOTOOLCHAIN=auto
 // and would download a newer toolchain mid-deploy.
 require (
+	github.com/PuerkitoBio/goquery v1.13.0
 	github.com/gin-contrib/cors v1.7.9
 	github.com/gin-contrib/gzip v1.2.8
 	github.com/gin-gonic/gin v1.12.0
@@ -17,6 +18,7 @@ require (
 )
 
 require (
+	github.com/andybalholm/cascadia v1.3.4 // indirect
 	github.com/bytedance/gopkg v0.1.4 // indirect
 	github.com/bytedance/sonic v1.15.5 // indirect
 	github.com/bytedance/sonic/loader v0.5.3 // indirect
