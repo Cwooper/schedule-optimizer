@@ -12,7 +12,6 @@ import (
 // Run with: go test -fuzz=FuzzSearch -fuzztime=30s ./internal/search/...
 func FuzzSearch(f *testing.F) {
 	db, queries := testutil.SetupTestDB(f)
-	defer db.Close()
 	testutil.SeedTestData(f, db)
 
 	svc := NewService(db, queries, nil)
@@ -151,7 +150,6 @@ func verifyResponseInvariants(t *testing.T, resp *SearchResponse) {
 // TestSearch_ResponseInvariants runs the invariant checks against various search scenarios.
 func TestSearch_ResponseInvariants(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -209,7 +207,6 @@ func TestSearch_ResponseInvariants(t *testing.T) {
 // TestSearch_InvariantsWithUnicode tests that unicode input doesn't break invariants.
 func TestSearch_InvariantsWithUnicode(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)

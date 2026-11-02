@@ -3,58 +3,10 @@ package grades
 import (
 	"context"
 	"math"
-	"os"
-	"path/filepath"
-	"runtime"
 	"testing"
 
-	"database/sql"
-
-	_ "github.com/mattn/go-sqlite3"
-	"schedule-optimizer/internal/store"
+	"schedule-optimizer/internal/testutil"
 )
-
-// setupTestDB creates an in-memory SQLite database with both migrations applied.
-func setupTestDB(t testing.TB) (*sql.DB, *store.Queries) {
-	t.Helper()
-
-	db, err := sql.Open("sqlite3", ":memory:")
-	if err != nil {
-		t.Fatalf("failed to open test database: %v", err)
-	}
-	t.Cleanup(func() { db.Close() })
-
-	root := getProjectRoot()
-	for _, migration := range []string{
-		"migrations/000001_initial_schema.up.sql",
-		"migrations/000002_add_grade_tables.up.sql",
-	} {
-		schema, err := os.ReadFile(filepath.Join(root, migration))
-		if err != nil {
-			t.Fatalf("failed to read %s: %v", migration, err)
-		}
-		if _, err := db.Exec(string(schema)); err != nil {
-			t.Fatalf("failed to apply %s: %v", migration, err)
-		}
-	}
-
-	return db, store.New(db)
-}
-
-func getProjectRoot() string {
-	_, filename, _, _ := runtime.Caller(0)
-	dir := filepath.Dir(filename)
-	for {
-		if _, err := os.Stat(filepath.Join(dir, "go.mod")); err == nil {
-			return dir
-		}
-		parent := filepath.Dir(dir)
-		if parent == dir {
-			panic("could not find project root")
-		}
-		dir = parent
-	}
-}
 
 // almostEqual compares floats within a tolerance.
 func almostEqual(a, b, tol float64) bool {
@@ -201,7 +153,7 @@ func TestPickBest(t *testing.T) {
 }
 
 func TestLookupSectionGPA(t *testing.T) {
-	db, queries := setupTestDB(t)
+	db, queries := testutil.SetupTestDB(t)
 
 	svc := NewService(db, queries, "")
 
@@ -332,7 +284,7 @@ func TestLookupSectionGPA(t *testing.T) {
 }
 
 func TestLookupCourseGPA(t *testing.T) {
-	db, queries := setupTestDB(t)
+	db, queries := testutil.SetupTestDB(t)
 
 	svc := NewService(db, queries, "")
 
@@ -401,7 +353,7 @@ func TestLookupCourseGPA(t *testing.T) {
 }
 
 func TestMapSubjectAndInstructor(t *testing.T) {
-	db, queries := setupTestDB(t)
+	db, queries := testutil.SetupTestDB(t)
 	svc := NewService(db, queries, "")
 
 	svc.mu.Lock()
@@ -437,7 +389,7 @@ func TestMapSubjectAndInstructor(t *testing.T) {
 }
 
 func TestIsLoaded(t *testing.T) {
-	db, queries := setupTestDB(t)
+	db, queries := testutil.SetupTestDB(t)
 	svc := NewService(db, queries, "")
 
 	if svc.IsLoaded() {
@@ -454,7 +406,7 @@ func TestIsLoaded(t *testing.T) {
 }
 
 func TestImportAndComputeIdempotency(t *testing.T) {
-	db, queries := setupTestDB(t)
+	db, queries := testutil.SetupTestDB(t)
 	ctx := context.Background()
 
 	// Seed grade_rows so import is skipped
@@ -486,7 +438,7 @@ func TestImportAndComputeIdempotency(t *testing.T) {
 }
 
 func TestLoadFromDB(t *testing.T) {
-	db, queries := setupTestDB(t)
+	db, queries := testutil.SetupTestDB(t)
 	ctx := context.Background()
 
 	// Seed mappings and aggregates directly

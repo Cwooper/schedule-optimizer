@@ -9,7 +9,6 @@ import (
 
 func BenchmarkSearch_SubjectFilter(b *testing.B) {
 	db, queries := testutil.SetupTestDB(b)
-	defer db.Close()
 	testutil.SeedTestData(b, db)
 
 	svc := NewService(db, queries, nil)
@@ -30,7 +29,6 @@ func BenchmarkSearch_SubjectFilter(b *testing.B) {
 
 func BenchmarkSearch_TitleToken(b *testing.B) {
 	db, queries := testutil.SetupTestDB(b)
-	defer db.Close()
 	testutil.SeedTestData(b, db)
 
 	svc := NewService(db, queries, nil)
@@ -51,7 +49,6 @@ func BenchmarkSearch_TitleToken(b *testing.B) {
 
 func BenchmarkSearch_AllTimeScope(b *testing.B) {
 	db, queries := testutil.SetupTestDB(b)
-	defer db.Close()
 	testutil.SeedTestData(b, db)
 
 	svc := NewService(db, queries, nil)
@@ -72,7 +69,6 @@ func BenchmarkSearch_AllTimeScope(b *testing.B) {
 
 func BenchmarkSearch_CombinedFilters(b *testing.B) {
 	db, queries := testutil.SetupTestDB(b)
-	defer db.Close()
 	testutil.SeedTestData(b, db)
 
 	svc := NewService(db, queries, nil)

@@ -12,25 +12,15 @@ import (
 	"schedule-optimizer/internal/store"
 )
 
-// getProjectRoot finds the project root by looking for go.mod
-func getProjectRoot() string {
-	_, filename, _, _ := runtime.Caller(0)
-	dir := filepath.Dir(filename)
-	// Walk up from internal/testutil to find project root
-	for {
-		if _, err := os.Stat(filepath.Join(dir, "go.mod")); err == nil {
-			return dir
-		}
-		parent := filepath.Dir(dir)
-		if parent == dir {
-			panic("could not find project root")
-		}
-		dir = parent
-	}
+// migrationsDir resolves from this file's path so tests in any package
+// directory find it.
+func migrationsDir() string {
+	_, file, _, _ := runtime.Caller(0)
+	return filepath.Join(filepath.Dir(file), "..", "..", "migrations")
 }
 
-// SetupTestDB creates an in-memory SQLite database with the schema applied.
-// Returns the database connection and a store.Queries instance.
+// SetupTestDB returns an in-memory SQLite database with every migration
+// applied, closed when the test ends.
 func SetupTestDB(t testing.TB) (*sql.DB, *store.Queries) {
 	t.Helper()
 
@@ -38,16 +28,23 @@ func SetupTestDB(t testing.TB) (*sql.DB, *store.Queries) {
 	if err != nil {
 		t.Fatalf("failed to open test database: %v", err)
 	}
+	// Each connection to :memory: is a separate, empty database, so a second
+	// pooled connection (a transaction, say) would not see the schema.
+	db.SetMaxOpenConns(1)
+	t.Cleanup(func() { db.Close() })
 
-	// Read and apply the migration
-	migrationPath := filepath.Join(getProjectRoot(), "migrations", "000001_initial_schema.up.sql")
-	schema, err := os.ReadFile(migrationPath)
-	if err != nil {
-		t.Fatalf("failed to read migration file: %v", err)
+	migrations, err := filepath.Glob(filepath.Join(migrationsDir(), "*.up.sql"))
+	if err != nil || len(migrations) == 0 {
+		t.Fatalf("no migrations found: %v", err)
 	}
-
-	if _, err := db.Exec(string(schema)); err != nil {
-		t.Fatalf("failed to apply schema: %v", err)
+	for _, path := range migrations { // Glob sorts, so this is version order
+		schema, err := os.ReadFile(path)
+		if err != nil {
+			t.Fatalf("failed to read migration: %v", err)
+		}
+		if _, err := db.Exec(string(schema)); err != nil {
+			t.Fatalf("failed to apply %s: %v", filepath.Base(path), err)
+		}
 	}
 
 	return db, store.New(db)

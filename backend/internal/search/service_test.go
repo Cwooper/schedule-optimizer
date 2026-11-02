@@ -10,7 +10,6 @@ import (
 
 func TestSearch_NoFilters(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -26,7 +25,6 @@ func TestSearch_NoFilters(t *testing.T) {
 
 func TestSearch_WildcardOnlyFilter(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -64,7 +62,6 @@ func TestSearch_WildcardOnlyFilter(t *testing.T) {
 
 func TestSearch_FilterMinimumLength(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -102,7 +99,6 @@ func TestSearch_FilterMinimumLength(t *testing.T) {
 
 func TestSearch_TooManyTokens(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -128,7 +124,6 @@ func TestSearch_TooManyTokens(t *testing.T) {
 
 func TestSearch_InvalidTerm(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -145,7 +140,6 @@ func TestSearch_InvalidTerm(t *testing.T) {
 
 func TestSearch_SubjectFilter(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -186,7 +180,6 @@ func TestSearch_SubjectFilter(t *testing.T) {
 
 func TestSearch_CourseNumberExact(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -217,7 +210,6 @@ func TestSearch_CourseNumberExact(t *testing.T) {
 
 func TestSearch_CourseNumberWildcard(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -247,7 +239,6 @@ func TestSearch_CourseNumberWildcard(t *testing.T) {
 
 func TestSearch_CourseNumberAutoWildcard(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -269,7 +260,6 @@ func TestSearch_CourseNumberAutoWildcard(t *testing.T) {
 
 func TestSearch_TitleToken(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -297,7 +287,6 @@ func TestSearch_TitleToken(t *testing.T) {
 
 func TestSearch_InstructorToken(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -324,7 +313,6 @@ func TestSearch_InstructorToken(t *testing.T) {
 
 func TestSearch_InstructorMultipleTokens(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -346,7 +334,6 @@ func TestSearch_InstructorMultipleTokens(t *testing.T) {
 
 func TestSearch_OpenSeatsFilter(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -388,7 +375,6 @@ func TestSearch_OpenSeatsFilter(t *testing.T) {
 
 func TestSearch_CreditRange(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -413,7 +399,6 @@ func TestSearch_CreditRange(t *testing.T) {
 
 func TestSearch_CombinedFilters(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -436,7 +421,6 @@ func TestSearch_CombinedFilters(t *testing.T) {
 
 func TestSearch_NoResults(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -469,7 +453,6 @@ func TestSearch_NoResults(t *testing.T) {
 
 func TestSearch_NoMeetingTimes(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -504,7 +487,6 @@ func TestSearch_NoMeetingTimes(t *testing.T) {
 
 func TestSearch_AllTimeScope(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -544,7 +526,6 @@ func TestSearch_AllTimeScope(t *testing.T) {
 
 func TestSearch_SingleTermScoring(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -569,7 +550,6 @@ func TestSearch_SingleTermScoring(t *testing.T) {
 
 func TestSearch_CourseGrouping(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -620,7 +600,6 @@ func TestSearch_CourseGrouping(t *testing.T) {
 
 func TestSearch_ResponseStructure(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -721,7 +700,6 @@ func TestMatchQualityScorer(t *testing.T) {
 
 func TestSearch_YearScope(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -746,7 +724,6 @@ func TestSearch_YearScope(t *testing.T) {
 
 func TestSearch_SectionKeyUniqueness(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -787,7 +764,6 @@ func TestSearch_SectionKeyUniqueness(t *testing.T) {
 
 func TestSearch_StatsPopulated(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)

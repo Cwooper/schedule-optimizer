@@ -47,8 +47,7 @@ func TestScrapeTerm(t *testing.T) {
 	server := httptest.NewServer(mux)
 	defer server.Close()
 
-	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
+	_, queries := testutil.SetupTestDB(t)
 
 	scraper, err := newScraperWithBaseURL(queries, 2, server.URL)
 	if err != nil {
@@ -120,8 +119,7 @@ func TestScrapeTerm_Pagination(t *testing.T) {
 	server := httptest.NewServer(mux)
 	defer server.Close()
 
-	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
+	_, queries := testutil.SetupTestDB(t)
 
 	scraper, err := newScraperWithBaseURL(queries, 2, server.URL)
 	if err != nil {
@@ -175,8 +173,7 @@ func TestScrapeTerm_PartialFailure(t *testing.T) {
 	server := httptest.NewServer(mux)
 	defer server.Close()
 
-	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
+	_, queries := testutil.SetupTestDB(t)
 
 	scraper, err := newScraperWithBaseURL(queries, 1, server.URL)
 	if err != nil {
@@ -209,8 +206,7 @@ func TestScrapeTerms(t *testing.T) {
 	server := httptest.NewServer(mux)
 	defer server.Close()
 
-	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
+	_, queries := testutil.SetupTestDB(t)
 
 	scraper, err := newScraperWithBaseURL(queries, 1, server.URL)
 	if err != nil {
