@@ -233,7 +233,7 @@ Tracked in GitHub issues: run `gh issue list`. Issue numbers are not copied here
 
 ## Go Style (Modern Patterns)
 
-Use modern Go idioms. Run `go run golang.org/x/tools/gopls/internal/analysis/modernize/cmd/modernize@latest -test ./...` to check.
+Use modern Go idioms. Run `go fix ./...` to apply the modernizers (`go fix -diff ./...` to preview).
 
 **Avoid redundant comments:**
 
