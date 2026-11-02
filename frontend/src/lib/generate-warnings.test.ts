@@ -26,57 +26,20 @@ describe("getGenerateWarnings", () => {
     expect(getGenerateWarnings(data)).toEqual([])
   })
 
-  it("returns warning for not_exists course", () => {
+  it.each([
+    ["not_exists", "CSCI 247 doesn't exist"],
+    ["not_offered", "CSCI 247 is not offered this term"],
+    ["blocked", "All CSCI 247 sections conflict with your blocked times"],
+    ["crn_filtered", "No CSCI 247 sections match your CRN filters"],
+    ["async_only", "CSCI 247 only has async sections (shown separately)"],
+  ] as const)("returns a warning for a %s course", (status, message) => {
     const data = makeResponse({
       schedules: [{ crns: ["123"], score: 1, weights: [] }],
-      courseResults: [{ name: "CSCI 999", status: "not_exists" }],
+      courseResults: [{ name: "CSCI 247", status }],
     })
-    const warnings = getGenerateWarnings(data)
-    expect(warnings).toHaveLength(1)
-    expect(warnings[0].type).toBe("warning")
-    expect(warnings[0].message).toBe("CSCI 999 doesn't exist")
-  })
-
-  it("returns warning for not_offered course", () => {
-    const data = makeResponse({
-      schedules: [{ crns: ["123"], score: 1, weights: [] }],
-      courseResults: [{ name: "CSCI 247", status: "not_offered" }],
-    })
-    const warnings = getGenerateWarnings(data)
-    expect(warnings[0].message).toBe("CSCI 247 is not offered this term")
-  })
-
-  it("returns warning for blocked course", () => {
-    const data = makeResponse({
-      schedules: [{ crns: ["123"], score: 1, weights: [] }],
-      courseResults: [{ name: "CSCI 247", status: "blocked" }],
-    })
-    const warnings = getGenerateWarnings(data)
-    expect(warnings[0].message).toBe(
-      "All CSCI 247 sections conflict with your blocked times"
-    )
-  })
-
-  it("returns warning for crn_filtered course", () => {
-    const data = makeResponse({
-      schedules: [{ crns: ["123"], score: 1, weights: [] }],
-      courseResults: [{ name: "CSCI 247", status: "crn_filtered" }],
-    })
-    const warnings = getGenerateWarnings(data)
-    expect(warnings[0].message).toBe(
-      "No CSCI 247 sections match your CRN filters"
-    )
-  })
-
-  it("returns warning for async_only course", () => {
-    const data = makeResponse({
-      schedules: [{ crns: ["123"], score: 1, weights: [] }],
-      courseResults: [{ name: "CSCI 247", status: "async_only" }],
-    })
-    const warnings = getGenerateWarnings(data)
-    expect(warnings[0].message).toBe(
-      "CSCI 247 only has async sections (shown separately)"
-    )
+    expect(getGenerateWarnings(data)).toEqual([
+      expect.objectContaining({ type: "warning", message }),
+    ])
   })
 
   it("summarizes multiple courses with same status", () => {
