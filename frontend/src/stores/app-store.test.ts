@@ -2,6 +2,7 @@ import {
   useAppStore,
   computeSlotsFingerprint,
   computeBlockedTimesFingerprint,
+  migratePersistedState,
   type CourseSlot,
   type GenerationParams,
 } from "./app-store"
@@ -620,6 +621,51 @@ describe("app-store", () => {
       expect(computeSlotsFingerprint([slot1])).toBe(
         computeSlotsFingerprint([slot2])
       )
+    })
+  })
+
+  describe("migratePersistedState", () => {
+    // The browser decoder needs a DOM; this stand-in covers the entities used below.
+    const decode = (s: string) => s.replaceAll("&#39;", "'").replaceAll("&amp;", "&")
+
+    const v0 = {
+      term: "202710",
+      slots: [
+        {
+          id: "s1",
+          subject: "ART",
+          courseNumber: "232",
+          title: "B&amp;W Photography",
+          sections: [{ crn: "40001", instructor: "O&#39;Neil, Gregory", required: false }],
+        },
+      ],
+      generateResult: {
+        schedules: [{ courses: [{ crn: "40001", title: "B&amp;W Photography", seats: 3 }] }],
+        stats: null,
+      },
+      searchFilters: { title: "R&amp;D" },
+    }
+
+    it("decodes course text nested in slots and generateResult", () => {
+      const out = migratePersistedState(v0, 0, decode) as typeof v0
+      expect(out.slots[0].title).toBe("B&W Photography")
+      expect(out.slots[0].sections[0].instructor).toBe("O'Neil, Gregory")
+      expect(out.generateResult.schedules[0].courses[0]).toEqual({
+        crn: "40001",
+        title: "B&W Photography",
+        seats: 3,
+      })
+      expect(out.generateResult.stats).toBeNull()
+    })
+
+    it("leaves user-typed fields alone", () => {
+      const out = migratePersistedState(v0, 0, decode) as typeof v0
+      expect(out.searchFilters).toBe(v0.searchFilters)
+      expect(out.term).toBe("202710")
+    })
+
+    it("skips state already at v1", () => {
+      expect(migratePersistedState(v0, 1, decode)).toBe(v0)
     })
   })
 })

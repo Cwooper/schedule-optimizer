@@ -20,7 +20,7 @@
 Remaining gaps are expected: S/U-only courses (internships, practica), MUS individual lessons, new course numbers post-2025, new hires.
 
 ### Bug Fixed This Session
-`mapInstructor` wasn't unescaping HTML entities before map lookup. Banner stores names like `O&#39;Neil` and `Monta&ntilde;o`, but the mapping table stores clean names (`O'Neil`, `Montaño`). Fix: apply `html.UnescapeString` in `mapInstructor` before lookup. Affected 21 instructors / 935 sections.
+`mapInstructor` missed names Banner sends HTML-escaped (`O&#39;Neil`, `Monta&ntilde;o`), because the mapping table holds clean names (`O'Neil`, `Montaño`). Affected 21 instructors / 935 sections. The scraper now decodes Banner text before storing it (`cleanText`), so lookups match directly.
 
 ---
 
@@ -101,4 +101,4 @@ All from the initial code review of the grade data feature:
 3. **Transaction wrapping** - `importExcel`, `computeMappings`, `computeAggregates` all wrapped in SQLite transactions (atomicity + major perf improvement)
 4. **SQL WHERE clause fix** - `GetGradeBannerJoinData` no longer excludes empty-professor rows from subject mapping evidence
 5. **Tests added** - 24 test cases for grades package (computeGPA, computePassRate, pickBest, lookups, mappings, idempotency, LoadFromDB)
-6. **HTML entity bug fix** - `mapInstructor` now unescapes HTML entities before map lookup
+6. **HTML entity bug fix** - escaped instructor names now match grade mappings (since moved to scrape-time decoding)

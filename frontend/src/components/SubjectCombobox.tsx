@@ -14,7 +14,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import { cn, decodeHtmlEntities } from "@/lib/utils"
+import { cn } from "@/lib/utils"
 import type { Subject } from "@/lib/api"
 
 interface SubjectComboboxProps {
@@ -85,7 +85,7 @@ export const SubjectCombobox = memo(function SubjectCombobox({
                     {subject.code}
                   </span>
                   <span className="text-muted-foreground truncate">
-                    {decodeHtmlEntities(subject.name)}
+                    {subject.name}
                   </span>
                 </CommandItem>
               ))}

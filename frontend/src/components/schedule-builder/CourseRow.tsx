@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/tooltip"
 import type { CourseSlot } from "@/stores/app-store"
 import type { Term, CourseValidationResult } from "@/lib/api"
-import { cn, decodeHtmlEntities } from "@/lib/utils"
+import { cn } from "@/lib/utils"
 
 interface CourseRowProps {
   slot: CourseSlot
@@ -114,7 +114,7 @@ export function CourseRow({
           <button
             type="button"
             className="flex-1 cursor-pointer truncate text-left text-sm font-medium hover:underline"
-            title={slot.title ? decodeHtmlEntities(slot.title) : undefined}
+            title={slot.title || undefined}
             onClick={() => onCourseClick(`${slot.subject}:${slot.courseNumber}`)}
           >
             {slot.displayName}
@@ -122,7 +122,7 @@ export function CourseRow({
         ) : (
           <span
             className="flex-1 truncate text-sm font-medium"
-            title={slot.title ? decodeHtmlEntities(slot.title) : undefined}
+            title={slot.title || undefined}
           >
             {slot.displayName}
           </span>
@@ -199,7 +199,7 @@ export function CourseRow({
                       {section.instructor && (
                         <span className="text-muted-foreground font-normal">
                           {" "}
-                          ({decodeHtmlEntities(section.instructor)})
+                          ({section.instructor})
                         </span>
                       )}
                     </button>
@@ -209,7 +209,7 @@ export function CourseRow({
                       {section.instructor && (
                         <span className="text-muted-foreground font-normal">
                           {" "}
-                          ({decodeHtmlEntities(section.instructor)})
+                          ({section.instructor})
                         </span>
                       )}
                     </span>

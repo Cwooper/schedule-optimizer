@@ -1,6 +1,6 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
-import { genId } from "@/lib/utils"
+import { decodeHtmlEntities, genId } from "@/lib/utils"
 import { mergeAdjacentBlocks } from "@/lib/schedule-utils"
 
 // --- Types ---
@@ -263,6 +263,36 @@ function removeBlockFromGroup(
     if (g.id !== groupId) return g
     return { ...g, blocks: g.blocks.filter((b) => b.id !== blockId) }
   })
+}
+
+function decodeDeep(value: unknown, decode: (s: string) => string): unknown {
+  if (typeof value === "string") return value.includes("&") ? decode(value) : value
+  if (Array.isArray(value)) return value.map((v) => decodeDeep(v, decode))
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, decodeDeep(v, decode)]))
+  }
+  return value
+}
+
+/**
+ * Before persist version 1 the API returned Banner text HTML-escaped and
+ * components decoded it at render time; now the backend stores plain text.
+ * Decode the course data older clients persisted so it does not render as
+ * "B&amp;W".
+ */
+export function migratePersistedState(
+  state: unknown,
+  version: number,
+  decode: (s: string) => string = decodeHtmlEntities
+): unknown {
+  if (version < 1 && state && typeof state === "object") {
+    const out: Record<string, unknown> = { ...state }
+    for (const key of ["slots", "generateResult"]) {
+      if (key in out) out[key] = decodeDeep(out[key], decode)
+    }
+    return out
+  }
+  return state
 }
 
 // --- Store ---
@@ -578,6 +608,8 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: "schedule-optimizer",
+      version: 1,
+      migrate: (state, version) => migratePersistedState(state, version) as AppState,
       partialize: (state) => ({
         // Only persist these fields
         sessionId: state.sessionId,

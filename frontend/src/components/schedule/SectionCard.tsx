@@ -1,5 +1,5 @@
 import { memo, useState } from "react"
-import { ChevronDown, ChevronRight, Check, Copy, Plus, Users, User, BookOpen, TrendingUp, CircleCheck, CircleHelp } from "lucide-react"
+import { ChevronDown, ChevronRight, Check, Copy, Plus, Users, User, BookOpen, TrendingUp, CircleCheck, CircleHelp, type LucideIcon } from "lucide-react"
 import {
   Collapsible,
   CollapsibleContent,
@@ -13,7 +13,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import type { HydratedSection, MeetingTime } from "@/lib/api"
-import { cn, decodeHtmlEntities } from "@/lib/utils"
+import { cn } from "@/lib/utils"
+import { describeGrades, type GradeKind } from "@/lib/grades"
 
 interface SectionCardProps {
   section: HydratedSection
@@ -98,6 +99,13 @@ function formatEnrollment(section: HydratedSection): string {
   return `${seatsAvailable}/${maxEnrollment} seats open`
 }
 
+const GRADE_ICONS: Record<GradeKind, LucideIcon> = {
+  professor: User,
+  course: BookOpen,
+  pass: CircleCheck,
+  none: TrendingUp,
+}
+
 export const SectionCard = memo(function SectionCard({
   section,
   expanded = false,
@@ -112,6 +120,8 @@ export const SectionCard = memo(function SectionCard({
   const [copied, setCopied] = useState(false)
   const hasMeetings = section.meetingTimes.length > 0
   const isClickable = !!onToggleExpand
+  const grades = describeGrades(section.gpa, section.passRate, section.gpaSource)
+  const GradeIcon = GRADE_ICONS[grades.kind]
 
   const handleAdd = (e: React.MouseEvent) => {
     e.stopPropagation()
@@ -188,8 +198,8 @@ export const SectionCard = memo(function SectionCard({
               {section.instructor && (
                 <span className="hidden min-w-0 items-baseline gap-1.5 sm:flex">
                   <span className="text-muted-foreground">·</span>
-                  <span className="max-w-[20ch] truncate text-sm text-muted-foreground" title={decodeHtmlEntities(section.instructor)}>
-                    {decodeHtmlEntities(section.instructor)}
+                  <span className="max-w-[20ch] truncate text-sm text-muted-foreground" title={section.instructor}>
+                    {section.instructor}
                   </span>
                 </span>
               )}
@@ -285,33 +295,15 @@ export const SectionCard = memo(function SectionCard({
                 {formatEnrollment(section)}
               </Badge>
               <Badge variant="secondary" className="gap-1 rounded-md text-xs">
-                {section.gpa
-                  ? section.gpaSource === "course_professor"
-                    ? <User className="size-3" />
-                    : <BookOpen className="size-3" />
-                  : section.passRate != null
-                    ? <CircleCheck className="size-3" />
-                    : <TrendingUp className="size-3" />}
-                {section.gpa
-                  ? `${section.gpa.toFixed(2)} GPA`
-                  : section.passRate != null
-                    ? `${Math.round(section.passRate * 100)}% pass`
-                    : "N/A"}
+                <GradeIcon className="size-3" />
+                {grades.label}
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <span className="inline-flex cursor-help">
                       <CircleHelp className="size-3 text-muted-foreground" />
                     </span>
                   </TooltipTrigger>
-                  <TooltipContent>
-                    {section.gpa
-                      ? section.gpaSource === "course_professor"
-                        ? "GPA for this professor teaching this course"
-                        : "Average GPA for this course"
-                      : section.passRate != null
-                        ? "Historical pass rate for this S/U graded course"
-                        : "No historical grade data available"}
-                  </TooltipContent>
+                  <TooltipContent>{grades.tooltip}</TooltipContent>
                 </Tooltip>
               </Badge>
             </div>

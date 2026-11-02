@@ -61,16 +61,17 @@ export function SearchView() {
   const closeCourseDialog = useAppStore((s) => s.closeCourseDialog)
 
   const { data: termsData } = useTerms()
+  const currentTerm = termsData?.current
 
   // Sync current term into store on first load so the displayed value matches
   // what gets sent to the backend (fixes empty term on initial search)
   useEffect(() => {
-    if (termsData?.current && !searchFilters.term) {
-      setSearchFilters({ term: termsData.current })
+    if (currentTerm && !searchFilters.term) {
+      setSearchFilters({ term: currentTerm })
     }
-  }, [termsData?.current, searchFilters.term, setSearchFilters])
+  }, [currentTerm, searchFilters.term, setSearchFilters])
 
-  const termForSubjects = searchFilters.term || termsData?.current || ""
+  const termForSubjects = searchFilters.term || currentTerm || ""
   const { data: subjectsData } = useSubjects(termForSubjects)
 
   const academicYears = useMemo(() => {
@@ -171,7 +172,6 @@ export function SearchView() {
   )
 
   const terms = termsData?.terms ?? []
-  const currentTerm = termsData?.current
   const subjects = subjectsData?.subjects ?? EMPTY_SUBJECTS
 
   const isCourseAdded = useCallback(
@@ -226,7 +226,7 @@ export function SearchView() {
               {/* Term/Year/All */}
               <ScopeSelector
                 scope={searchFilters.scope}
-                term={searchFilters.term || currentTerm || ""}
+                term={termForSubjects}
                 year={searchFilters.year}
                 terms={terms}
                 academicYears={academicYears}

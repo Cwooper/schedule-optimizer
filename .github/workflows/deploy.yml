@@ -53,12 +53,6 @@ jobs:
             git fetch origin main
             git reset --hard FETCH_HEAD
 
-            # Run database migrations
-            echo "Running migrations..."
-            cd backend
-            make migrate-up
-            cd ..
-
             # Build frontend
             echo "Installing frontend dependencies..."
             cd frontend
@@ -75,6 +69,14 @@ jobs:
             # Run tests
             echo "Running tests..."
             CGO_ENABLED=1 go test ./...
+            cd ..
+
+            # Migrate right before the restart: a failed build leaves the DB
+            # untouched, and the old binary gets no time to write rows in the
+            # pre-migration format.
+            echo "Running migrations..."
+            cd backend
+            make migrate-up
             cd ..
 
             # Restart service

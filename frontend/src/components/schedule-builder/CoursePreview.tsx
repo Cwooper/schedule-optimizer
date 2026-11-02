@@ -1,6 +1,5 @@
 import { Loader2 } from "lucide-react"
 import type { CourseResponse } from "@/lib/api"
-import { decodeHtmlEntities } from "@/lib/utils"
 
 interface CoursePreviewProps {
   courseData: CourseResponse | undefined
@@ -42,7 +41,7 @@ export function CoursePreview({
       onClick={() => onAdd?.()}
     >
       <div className="font-medium">
-        {course.subject} {course.courseNumber} – {decodeHtmlEntities(course.title)}
+        {course.subject} {course.courseNumber} – {course.title}
       </div>
       <div className="text-muted-foreground mt-1 flex items-center justify-between text-xs">
         <span>

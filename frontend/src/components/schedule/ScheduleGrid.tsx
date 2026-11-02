@@ -1,6 +1,6 @@
 import { useMemo } from "react"
 import type { HydratedSection, MeetingTime } from "@/lib/api"
-import { cn, decodeHtmlEntities } from "@/lib/utils"
+import { cn } from "@/lib/utils"
 import type { BlockedTimeBlock, BlockedTimeGroup } from "@/stores/app-store"
 import {
   DAYS,
@@ -312,12 +312,12 @@ export function ScheduleGrid({
                 </div>
                 {durationMin >= 70 && (
                   <div className="truncate text-[10px] leading-tight opacity-80">
-                    {decodeHtmlEntities(block.course.title)}
+                    {block.course.title}
                   </div>
                 )}
                 {(isDesktop || durationMin >= 80) && (
                   <div className="truncate text-[10px] leading-tight opacity-70">
-                    {decodeHtmlEntities(block.course.instructor)}
+                    {block.course.instructor}
                   </div>
                 )}
                 {(isDesktop || durationMin >= 50) && (

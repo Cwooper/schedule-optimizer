@@ -87,7 +87,7 @@ func (s *Scraper) ScrapeTerm(ctx context.Context, term string) (int, error) {
 	for _, t := range terms {
 		if err := s.queries.UpsertTerm(ctx, store.UpsertTermParams{
 			Code:        t.Code,
-			Description: t.Description,
+			Description: cleanText(t.Description),
 		}); err != nil {
 			slog.Warn("Failed to upsert term", "code", t.Code, "error", err)
 		}
@@ -134,9 +134,7 @@ func (s *Scraper) ScrapeTerm(ctx context.Context, term string) (int, error) {
 	offsetChan := make(chan int, len(offsets))
 
 	for range s.concurrency {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
+		wg.Go(func() {
 			for offset := range offsetChan {
 				select {
 				case <-ctx.Done():
@@ -147,7 +145,7 @@ func (s *Scraper) ScrapeTerm(ctx context.Context, term string) (int, error) {
 					results <- result
 				}
 			}
-		}()
+		})
 	}
 
 	// Send offsets to workers
@@ -221,7 +219,7 @@ func (s *Scraper) ScrapeTerms(ctx context.Context) ([]TermResponse, error) {
 	for _, t := range terms {
 		if err := s.queries.UpsertTerm(ctx, store.UpsertTermParams{
 			Code:        t.Code,
-			Description: t.Description,
+			Description: cleanText(t.Description),
 		}); err != nil {
 			slog.Warn("Failed to upsert term", "code", t.Code, "error", err)
 		}
