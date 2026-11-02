@@ -1,3 +1,4 @@
+import type { ReactNode } from "react"
 import { Label } from "@/components/ui/label"
 import {
   Select,
@@ -14,6 +15,8 @@ interface TermSelectorProps {
   terms: Term[]
   isLoading?: boolean
   label?: string
+  /** Right-aligned on the label row. */
+  status?: ReactNode
   className?: string
 }
 
@@ -23,14 +26,16 @@ export function TermSelector({
   terms,
   isLoading = false,
   label = "Term",
+  status,
   className,
 }: TermSelectorProps) {
   return (
     <div className={className}>
       {label && (
-        <Label htmlFor="term" className="mb-2 block">
-          {label}
-        </Label>
+        <div className="mb-2 flex items-baseline justify-between gap-3">
+          <Label htmlFor="term">{label}</Label>
+          {status}
+        </div>
       )}
       <Select value={value} onValueChange={onChange} disabled={isLoading}>
         <SelectTrigger id="term" className="w-full">

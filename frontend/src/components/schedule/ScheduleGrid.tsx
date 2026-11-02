@@ -26,6 +26,10 @@ export interface ScheduleGridProps {
   onUpdateBlock?: (blockId: string, block: BlockedTimeBlock) => void
   onRemoveBlock?: (blockId: string) => void
   captureRef?: React.Ref<HTMLDivElement>
+  /** Shown after each weekday name, e.g. "12/7" in finals week. */
+  dayDates?: string[]
+  /** Sections whose blocks are guesses, marked "?". */
+  guessedCrns?: ReadonlySet<string>
 }
 
 interface CourseBlock {
@@ -71,6 +75,8 @@ export function ScheduleGrid({
   onUpdateBlock,
   onRemoveBlock,
   captureRef,
+  dayDates,
+  guessedCrns,
 }: ScheduleGridProps) {
   const isDesktop = useIsDesktop()
   const remPerHour = isDesktop ? GRID.REM_PER_HOUR_DESKTOP : GRID.REM_PER_HOUR_MOBILE
@@ -147,6 +153,11 @@ export function ScheduleGrid({
               )}
             >
               {day}
+              {dayDates && (
+                <span className="text-muted-foreground ml-1 hidden font-normal sm:inline">
+                  {dayDates[idx]}
+                </span>
+              )}
             </div>
           ))}
         </div>
@@ -308,6 +319,7 @@ export function ScheduleGrid({
                 tabIndex={isEditing ? -1 : 0}
               >
                 <div className="font-semibold leading-tight text-[10px] sm:text-xs overflow-hidden whitespace-nowrap">
+                  {guessedCrns?.has(block.course.crn) && "? "}
                   {block.course.subject} {block.course.courseNumber}
                 </div>
                 {durationMin >= 70 && (

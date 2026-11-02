@@ -1,6 +1,7 @@
 import { useQuery, useMutation, keepPreviousData } from "@tanstack/react-query"
 import {
   getTerms,
+  getCalendar,
   getSubjects,
   getCourse,
   getCRN,
@@ -24,6 +25,16 @@ export function useTerms() {
   return useQuery({
     queryKey: ["terms"],
     queryFn: getTerms,
+  })
+}
+
+export function useCalendar(term: string) {
+  return useQuery({
+    queryKey: ["calendar", term],
+    queryFn: () => getCalendar(term),
+    enabled: Boolean(term),
+    // The registrar calendar is scraped daily.
+    staleTime: 60 * 60 * 1000,
   })
 }
 

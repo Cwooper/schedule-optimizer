@@ -49,3 +49,14 @@ export function formatTermCode(code: string): string {
   const name = quarterNames[quarter]
   return name ? `${name} '${year.slice(2)}` : code
 }
+
+/**
+ * Drops a trailing parenthetical from registrar text, e.g. "Thanksgiving
+ * Break (Wed, Nov 25 - University open, no classes)".
+ */
+export function stripTrailingNote(text: string): string {
+  const trimmed = text.trimEnd()
+  const open = trimmed.lastIndexOf("(")
+  if (!trimmed.endsWith(")") || open < 0) return text
+  return trimmed.slice(0, open).trimEnd()
+}

@@ -118,16 +118,20 @@ backend/
 │   │   ├── client.go         # HTTP client with cookie jar
 │   │   ├── response.go       # Banner API response types
 │   │   └── store.go          # Persistence helpers
+│   ├── api/                  # HTTP handlers, one file per area (terms, sections, calendar, generate, feedback)
 │   ├── calendar/             # Registrar calendar scraper (see package doc for design)
 │   │   ├── calendar.go       # ScrapeAll: term dates, finals schedule, important dates
 │   │   ├── schedule.go       # Term phases from scraped dates, estimates as fallback
-│   │   └── store.go          # Transactional writes: term dates upserted, finals and important dates replaced per term
+│   │   ├── store.go          # Transactional writes: term dates upserted, finals and important dates replaced per term
+│   │   ├── term.go           # LoadTerm: a term's registration phases, holidays, deadlines, finals week (GET /api/calendar/:term)
+│   │   └── finals.go         # FinalFor: section meetings -> exam slot, certain or a guess with a reason
+│   ├── meeting/              # meeting.Time, the meeting payload every section response shares
 │   ├── termcode/             # Term code (YYYYQQ) parsing and helpers
 │   ├── jobs/                 # Background job scheduler
 │   │   ├── service.go        # Job interface + Service (runs due jobs in registration order)
 │   │   ├── calendar.go       # CalendarJob: Banner term list + registrar calendar, on startup and daily
 │   │   └── scrape.go         # ScrapeJob: each term due by its phase and last_scraped_at; failures retry hourly
-│   ├── cache/                # In-memory schedule cache
+│   ├── cache/                # In-memory schedule cache (sections carry their computed final)
 │   └── generator/            # Schedule generation (bitmask + backtracking)
 │       ├── service.go        # Generate() entry point, course group building
 │       ├── bitmask.go        # O(1) conflict detection via [8]uint64
@@ -150,6 +154,10 @@ frontend/
 │   │   └── use-api.ts       # TanStack Query hooks for API calls
 │   ├── lib/
 │   │   ├── api.ts           # Typed fetch functions for backend API
+│   │   ├── dates.ts         # YYYY-MM-DD helpers (API dates are Pacific calendar dates)
+│   │   ├── term-status.ts   # Sidebar term status line and key dates rows
+│   │   ├── finals.ts        # Finals week grid data, guess reason labels
+│   │   ├── ics.ts           # Hand-written RFC 5545 export (TZID times, EXDATE holidays)
 │   │   └── utils.ts         # cn() helper for Tailwind class merging
 │   ├── stores/
 │   │   └── app-store.ts     # Zustand store (persisted to localStorage)
@@ -206,6 +214,8 @@ Additional endpoints:
 See `internal/scraper/scraper.go` package doc for detailed design decisions (timeouts, concurrency, partial failure handling).
 
 Term dates, registration phases, deadlines, holidays, and the finals schedule come from registrar.wwu.edu, since Banner exposes none of them. See the `internal/calendar` package doc for the pages and how they are parsed.
+
+The API serves calendar data as JSON only: `GET /api/terms` adds each term's phase and dates, `GET /api/calendar/:term` returns its registration phases, holidays, deadlines, and finals week, and section payloads (generate, search, CRN lookup) carry an optional `final`. Calendar export is an `.ics` file built in the browser (`lib/ics.ts`); there are no hosted feeds, so nothing on the server has to track subscribers or stay in sync with a schedule the server never stores.
 
 ## Environment Variables
 

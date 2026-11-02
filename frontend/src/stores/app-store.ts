@@ -2,6 +2,7 @@ import { create } from "zustand"
 import { persist } from "zustand/middleware"
 import { decodeHtmlEntities, genId } from "@/lib/utils"
 import { mergeAdjacentBlocks } from "@/lib/schedule-utils"
+import { DEFAULT_CALENDAR_EXPORT, type CalendarExportOptions } from "@/lib/ics"
 
 // --- Types ---
 
@@ -179,6 +180,7 @@ interface AppState {
   // UI state
   theme: Theme
   sidebarCollapsed: boolean
+  calendarExport: CalendarExportOptions
 
   // Generated schedules (not persisted)
   generateResult: GenerateResponse | null
@@ -220,6 +222,7 @@ interface AppState {
   setEditingBlockedTimeGroupId: (id: string | null) => void
   setTheme: (theme: Theme) => void
   setSidebarCollapsed: (collapsed: boolean) => void
+  setCalendarExport: (options: Partial<CalendarExportOptions>) => void
   setGenerateResult: (
     result: GenerateResponse | null,
     params?: GenerationParams
@@ -312,6 +315,7 @@ export const useAppStore = create<AppState>()(
       editingBlockedTimeGroupId: null,
       theme: "system",
       sidebarCollapsed: false,
+      calendarExport: DEFAULT_CALENDAR_EXPORT,
       generateResult: null,
       generatedWithParams: null,
       currentScheduleIndex: 0,
@@ -516,6 +520,9 @@ export const useAppStore = create<AppState>()(
 
       setSidebarCollapsed: (collapsed) => set({ sidebarCollapsed: collapsed }),
 
+      setCalendarExport: (options) =>
+        set((state) => ({ calendarExport: { ...state.calendarExport, ...options } })),
+
       setGenerateResult: (result, params) =>
         set({
           generateResult: result,
@@ -622,6 +629,7 @@ export const useAppStore = create<AppState>()(
         blockedTimeGroups: state.blockedTimeGroups,
         theme: state.theme,
         sidebarCollapsed: state.sidebarCollapsed,
+        calendarExport: state.calendarExport,
         generateResult: state.generateResult,
         generatedWithParams: state.generatedWithParams,
         currentScheduleIndex: state.currentScheduleIndex,

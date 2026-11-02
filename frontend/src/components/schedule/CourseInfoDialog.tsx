@@ -125,7 +125,7 @@ function DialogContentInner({
       section.term,
     ])
     if (cached?.section?.meetingTimes) {
-      return { ...section, meetingTimes: cached.section.meetingTimes }
+      return { ...section, meetingTimes: cached.section.meetingTimes, final: cached.section.final }
     }
     return section
   })

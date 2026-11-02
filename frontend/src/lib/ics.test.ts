@@ -1,0 +1,272 @@
+import { describe, it, expect } from "vitest"
+import type { HydratedSection, MeetingTime, TermCalendar } from "./api"
+import {
+  buildIcs,
+  DEFAULT_CALENDAR_EXPORT,
+  escapeText,
+  foldLine,
+  hasIcsEvents,
+  icsFilename,
+  isPacificDaylightEvening,
+  type CalendarExportOptions,
+} from "./ics"
+
+const fall: TermCalendar = {
+  term: "202640",
+  start: "2026-09-23",
+  end: "2026-12-11",
+  registrationOpens: "2026-05-12",
+  estimated: false,
+  registration: [
+    { phase: "I", start: "2026-05-12", end: "2026-07-13" },
+    { phase: "II", start: "2026-08-25", end: "2026-09-22" },
+    { phase: "III", start: "2026-09-23", end: "2026-09-29" },
+  ],
+  holidays: [
+    { name: "Veterans Day", start: "2026-11-11", end: "2026-11-11" },
+    { name: "Thanksgiving Break (Wed, Nov 25 - University open, no classes)", start: "2026-11-25", end: "2026-11-29" },
+    { name: "Native American Heritage Day", start: "2026-11-27", end: "2026-11-27" },
+  ],
+  deadlines: [
+    { name: "Last day to add a class without an override", date: "2026-09-29", kind: "add" },
+    { name: "Last day to withdraw from a class. Online registration via Web4U ends at 11:59 p.m.", date: "2026-11-08", kind: "withdraw" },
+    { name: "Last day to change to-or-from Audit", date: "2026-09-29", kind: "other" },
+  ],
+  finals: { start: "2026-12-07", end: "2026-12-11" },
+}
+
+function meeting(days: string, startTime: string, endTime: string, extra: Partial<MeetingTime> = {}): MeetingTime {
+  return {
+    days: ["U", "M", "T", "W", "R", "F", "S"].map((d) => days.includes(d)),
+    startTime,
+    endTime,
+    building: "CF",
+    room: "105",
+    startDate: "2026-09-23",
+    endDate: "2026-12-11",
+    ...extra,
+  }
+}
+
+function section(overrides: Partial<HydratedSection>): HydratedSection {
+  return {
+    crn: "41216",
+    term: "202640",
+    subject: "CSCI",
+    courseNumber: "247",
+    title: "Computer Systems I",
+    credits: 5,
+    instructor: "Ada Lovelace",
+    meetingTimes: [],
+    enrollment: 0,
+    maxEnrollment: 0,
+    seatsAvailable: 0,
+    waitCount: 0,
+    isOpen: true,
+    ...overrides,
+  }
+}
+
+const csci247 = section({
+  meetingTimes: [meeting("MTWF", "0900", "0950"), meeting("M", "1200", "1350", { room: "164" })],
+  final: { date: "2026-12-07", start: "0800", end: "1000", certain: false, reason: "lab" },
+})
+
+const allOff: CalendarExportOptions = {
+  classes: false,
+  finals: false,
+  holidays: false,
+  registration: { I: false, II: false, III: false },
+  deadlines: false,
+}
+
+function build(sections: HydratedSection[], options: Partial<CalendarExportOptions>, calendar = fall): string {
+  return buildIcs({
+    termName: "Fall 2026",
+    calendar,
+    sections,
+    options: { ...allOff, ...options },
+    now: new Date(Date.UTC(2026, 10, 2, 12, 0, 0)),
+  })
+}
+
+/** Unfolds and splits into VEVENT property lists. */
+function events(ics: string): string[][] {
+  const lines = ics.replace(/\r\n /g, "").split("\r\n")
+  const out: string[][] = []
+  let current: string[] | null = null
+  for (const line of lines) {
+    if (line === "BEGIN:VEVENT") current = []
+    else if (line === "END:VEVENT" && current) {
+      out.push(current)
+      current = null
+    } else current?.push(line)
+  }
+  return out
+}
+
+function prop(event: string[], name: string): string[] {
+  return event.filter((l) => l.startsWith(name + ":") || l.startsWith(name + ";"))
+}
+
+describe("buildIcs classes", () => {
+  const [lecture, lab] = events(build([csci247], { classes: true }))
+
+  it("starts each pattern on its first meeting day in Pacific time", () => {
+    // Sep 23, 2026 is a Wednesday; the Monday lab first meets Sep 28.
+    expect(prop(lecture, "DTSTART")).toEqual(["DTSTART;TZID=America/Los_Angeles:20260923T090000"])
+    expect(prop(lecture, "DTEND")).toEqual(["DTEND;TZID=America/Los_Angeles:20260923T095000"])
+    expect(prop(lab, "DTSTART")).toEqual(["DTSTART;TZID=America/Los_Angeles:20260928T120000"])
+  })
+
+  it("repeats weekly until the end of the Sunday before finals, in UTC", () => {
+    // Dec 6 23:59:59 PST is Dec 7 07:59:59 UTC; the November DST change
+    // does not move the 9:00 class because DTSTART is TZID-local.
+    expect(prop(lecture, "RRULE")).toEqual(["RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,FR;UNTIL=20261207T075959Z"])
+  })
+
+  it("excludes each class day inside a holiday once", () => {
+    // Thanksgiving Break covers Wed and Fri; Native American Heritage Day
+    // repeats that Friday.
+    expect(prop(lecture, "EXDATE")).toEqual([
+      "EXDATE;TZID=America/Los_Angeles:20261111T090000",
+      "EXDATE;TZID=America/Los_Angeles:20261125T090000",
+      "EXDATE;TZID=America/Los_Angeles:20261127T090000",
+    ])
+    expect(prop(lab, "EXDATE")).toEqual([])
+  })
+
+  it("gives stable UIDs and readable text", () => {
+    expect(prop(lecture, "UID")).toEqual(["UID:202640-41216-MTWF-0900@schedule.cwooper.dev"])
+    expect(prop(lecture, "SUMMARY")).toEqual(["SUMMARY:CSCI 247 - Computer Systems I"])
+    expect(prop(lecture, "LOCATION")).toEqual(["LOCATION:CF 105"])
+    expect(prop(lecture, "DESCRIPTION")).toEqual(["DESCRIPTION:CRN 41216\\nAda Lovelace"])
+  })
+
+  it("ends a short session at its own last day", () => {
+    const short = section({ meetingTimes: [meeting("MW", "1000", "1050", { endDate: "2026-10-02" })] })
+    // Oct 2 23:59:59 PDT is Oct 3 06:59:59 UTC.
+    expect(prop(events(build([short], { classes: true }))[0], "RRULE")).toEqual([
+      "RRULE:FREQ=WEEKLY;BYDAY=MO,WE;UNTIL=20261003T065959Z",
+    ])
+  })
+
+  it("ends at the term's last day without finals", () => {
+    const summer = { ...fall, finals: null }
+    const rrule = prop(events(build([csci247], { classes: true }, summer))[0], "RRULE")
+    expect(rrule).toEqual(["RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,FR;UNTIL=20261212T075959Z"])
+  })
+
+  it("falls back to term dates for meetings without dates", () => {
+    const undated = section({ meetingTimes: [meeting("TR", "1400", "1550", { startDate: undefined, endDate: undefined })] })
+    const [e] = events(build([undated], { classes: true }))
+    expect(prop(e, "DTSTART")).toEqual(["DTSTART;TZID=America/Los_Angeles:20260924T140000"])
+    expect(prop(e, "RRULE")[0]).toContain("UNTIL=20261207T075959Z")
+  })
+
+  it("skips unscheduled meetings", () => {
+    const async = section({ meetingTimes: [meeting("", "", "", { room: "ASNC" })] })
+    expect(events(build([async], { classes: true }))).toEqual([])
+  })
+})
+
+describe("buildIcs finals and WWU dates", () => {
+  it("marks a guessed final and says why", () => {
+    const [e] = events(build([csci247], { finals: true }))
+    expect(prop(e, "SUMMARY")).toEqual(["SUMMARY:? CSCI 247 - Final Exam"])
+    expect(prop(e, "DTSTART")).toEqual(["DTSTART;TZID=America/Los_Angeles:20261207T080000"])
+    expect(prop(e, "DESCRIPTION")).toEqual(["DESCRIPTION:Has a lab"])
+  })
+
+  it("titles a certain final without the mark", () => {
+    const certain = section({ final: { date: "2026-12-08", start: "1030", end: "1230", certain: true } })
+    const [e] = events(build([certain], { finals: true }))
+    expect(prop(e, "SUMMARY")).toEqual(["SUMMARY:CSCI 247 - Final Exam"])
+    expect(prop(e, "DESCRIPTION")).toEqual([])
+  })
+
+  it("adds holidays as all-day events with an exclusive end", () => {
+    const ics = build([], { holidays: true })
+    const thanksgiving = events(ics)[1]
+    expect(prop(thanksgiving, "DTSTART")).toEqual(["DTSTART;VALUE=DATE:20261125"])
+    expect(prop(thanksgiving, "DTEND")).toEqual(["DTEND;VALUE=DATE:20261130"])
+    expect(prop(thanksgiving, "SUMMARY")).toEqual(["SUMMARY:Thanksgiving Break"])
+    // All-day events need no time zone.
+    expect(ics).not.toContain("VTIMEZONE")
+  })
+
+  it("adds only the chosen registration phases, on their opening day", () => {
+    const evs = events(build([], { registration: { I: false, II: true, III: false } }))
+    expect(evs.map((e) => [prop(e, "SUMMARY")[0], prop(e, "DTSTART")[0]])).toEqual([
+      ["SUMMARY:Fall 2026 Phase II registration opens", "DTSTART;VALUE=DATE:20260825"],
+    ])
+  })
+
+  it("adds add, drop, and withdraw deadlines only", () => {
+    const summaries = events(build([], { deadlines: true })).map((e) => prop(e, "SUMMARY")[0])
+    expect(summaries).toEqual([
+      "SUMMARY:Last day to add a class without an override",
+      "SUMMARY:Last day to withdraw from a class. Online registration via Web4U ends at 11:59 p.m.",
+    ])
+  })
+
+  it("emits the time zone once when any event is timed", () => {
+    const ics = build([csci247], { ...DEFAULT_CALENDAR_EXPORT })
+    expect(ics.match(/BEGIN:VTIMEZONE/g)).toHaveLength(1)
+    expect(events(ics)).toHaveLength(2 + 1 + 3)
+  })
+
+  it("reports whether there is anything to export", () => {
+    const input = { termName: "Fall 2026", calendar: fall, sections: [] }
+    expect(hasIcsEvents({ ...input, options: { ...allOff, classes: true, finals: true } })).toBe(false)
+    expect(hasIcsEvents({ ...input, options: { ...allOff, holidays: true } })).toBe(true)
+  })
+})
+
+describe("ics encoding", () => {
+  it("uses CRLF line endings throughout", () => {
+    const ics = build([csci247], DEFAULT_CALENDAR_EXPORT)
+    expect(ics.endsWith("END:VCALENDAR\r\n")).toBe(true)
+    expect(ics.replace(/\r\n/g, "")).not.toMatch(/[\r\n]/)
+  })
+
+  it("escapes TEXT values", () => {
+    expect(escapeText("Ethics, Law; and \\ Society\nRoom 2")).toBe("Ethics\\, Law\\; and \\\\ Society\\nRoom 2")
+  })
+
+  it("folds at 75 octets without splitting a character", () => {
+    const line = `SUMMARY:${"Þórður Guðjónsson ".repeat(8)}`
+    const folded = foldLine(line)
+    const encoder = new TextEncoder()
+    for (const part of folded.split("\r\n")) {
+      expect(encoder.encode(part).length).toBeLessThanOrEqual(75)
+    }
+    expect(folded.split("\r\n").length).toBeGreaterThan(2)
+    expect(folded.replace(/\r\n /g, "")).toBe(line)
+  })
+
+  it("moves a two-octet character that would straddle octet 75", () => {
+    const x = "X".repeat(73)
+    expect(foldLine(`${x}ð`)).toBe(`${x}ð`)
+    expect(foldLine(`${x}Xð`)).toBe(`${x}X\r\n ð`)
+  })
+})
+
+describe("isPacificDaylightEvening", () => {
+  it.each([
+    ["2026-10-31", true],
+    ["2026-11-01", false], // DST ends at 2:00 that morning
+    ["2027-03-13", false],
+    ["2027-03-14", true], // DST starts at 2:00 that morning
+    ["2027-06-06", true],
+    ["2027-01-15", false],
+  ])("%s is %s", (date, want) => {
+    expect(isPacificDaylightEvening(date)).toBe(want)
+  })
+})
+
+describe("icsFilename", () => {
+  it("slugs the term name", () => {
+    expect(icsFilename("Winter 2027")).toBe("winter-2027.ics")
+  })
+})
