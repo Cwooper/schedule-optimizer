@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"schedule-optimizer/internal/jobs"
+	"schedule-optimizer/internal/termcode"
 )
 
 // Scorer calculates relevance scores for search results.
@@ -39,7 +39,7 @@ func (s *RecencyScorer) Score(section *sectionRow, req *SearchRequest) float64 {
 	if req.Term != "" {
 		return 0
 	}
-	currentTerm := jobs.CurrentTermCode(time.Now())
+	currentTerm := termcode.Current(time.Now())
 	distance := termDistance(section.Term, currentTerm)
 	return s.maxScore * math.Exp(-float64(distance)*s.decayRate)
 }
@@ -108,36 +108,15 @@ func (s *MatchQualityScorer) Name() string {
 	return "match_quality"
 }
 
-// termDistance calculates the number of terms between two term codes.
+// termDistance counts the terms between two codes.
 func termDistance(term1, term2 string) int {
-	y1, q1, err1 := jobs.ParseTermCode(term1)
-	y2, q2, err2 := jobs.ParseTermCode(term2)
-
+	a, err1 := termcode.Ordinal(term1)
+	b, err2 := termcode.Ordinal(term2)
 	if err1 != nil || err2 != nil {
 		return 100 // Large distance for invalid terms
 	}
-
-	// Convert quarter to index (Winter=0, Spring=1, Summer=2, Fall=3)
-	quarterIndex := func(q int) int {
-		switch q {
-		case jobs.QuarterWinter:
-			return 0
-		case jobs.QuarterSpring:
-			return 1
-		case jobs.QuarterSummer:
-			return 2
-		case jobs.QuarterFall:
-			return 3
-		}
-		return 0
+	if b < a {
+		return a - b
 	}
-
-	idx1 := y1*4 + quarterIndex(q1)
-	idx2 := y2*4 + quarterIndex(q2)
-
-	diff := idx2 - idx1
-	if diff < 0 {
-		diff = -diff
-	}
-	return diff
+	return b - a
 }

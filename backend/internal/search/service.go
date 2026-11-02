@@ -10,9 +10,9 @@ import (
 	"strings"
 	"time"
 
-	"schedule-optimizer/internal/jobs"
 	"schedule-optimizer/internal/stats/grades"
 	"schedule-optimizer/internal/store"
+	"schedule-optimizer/internal/termcode"
 )
 
 var (
@@ -359,7 +359,7 @@ func (s *Service) resolveTerms(ctx context.Context, req SearchRequest) ([]string
 		if req.Year < 2000 || req.Year > 2100 {
 			return nil, ErrInvalidYear
 		}
-		return jobs.GetAcademicYearTerms(req.Year), nil
+		return termcode.AcademicYear(req.Year), nil
 	}
 
 	// All-time: no term filter
