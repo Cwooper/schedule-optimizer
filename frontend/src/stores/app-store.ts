@@ -275,9 +275,10 @@ function decodeDeep(value: unknown, decode: (s: string) => string): unknown {
 }
 
 /**
- * Before v1 the API returned Banner text HTML-escaped and components decoded it
- * at render time; now the backend stores plain text. Decode the course data
- * older clients persisted so it does not render as "B&amp;W".
+ * Before persist version 1 the API returned Banner text HTML-escaped and
+ * components decoded it at render time; now the backend stores plain text.
+ * Decode the course data older clients persisted so it does not render as
+ * "B&amp;W".
  */
 export function migratePersistedState(
   state: unknown,
@@ -285,8 +286,11 @@ export function migratePersistedState(
   decode: (s: string) => string = decodeHtmlEntities
 ): unknown {
   if (version < 1 && state && typeof state === "object") {
-    const s = state as Record<string, unknown>
-    return { ...s, slots: decodeDeep(s.slots, decode), generateResult: decodeDeep(s.generateResult, decode) }
+    const out: Record<string, unknown> = { ...state }
+    for (const key of ["slots", "generateResult"]) {
+      if (key in out) out[key] = decodeDeep(out[key], decode)
+    }
+    return out
   }
   return state
 }

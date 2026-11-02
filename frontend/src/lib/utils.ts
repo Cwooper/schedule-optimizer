@@ -13,19 +13,26 @@ export function genId(): string {
 }
 
 /**
- * Decodes HTML entities via the browser's parser. Mirrors the backend's
- * cleanText: repeats for double-escaped text and turns &nbsp; into a space.
+ * Applies a single-pass entity decoder until the text is stable, mirroring the
+ * backend's cleanText: Banner has sent double-escaped text, and &nbsp; becomes
+ * a plain space.
  */
+export function decodeRepeated(text: string, decodeOnce: (s: string) => string): string {
+  for (let i = 0; i < 3; i++) {
+    const decoded = decodeOnce(text)
+    if (decoded === text) break
+    text = decoded
+  }
+  return text.replaceAll("\u00a0", " ")
+}
+
 let _htmlDecoder: HTMLTextAreaElement | null = null
 export function decodeHtmlEntities(html: string): string {
-  _htmlDecoder ??= document.createElement("textarea")
-  for (let i = 0; i < 3; i++) {
-    _htmlDecoder.innerHTML = html
-    const decoded = _htmlDecoder.value
-    if (decoded === html) break
-    html = decoded
-  }
-  return html.replaceAll("\u00a0", " ")
+  return decodeRepeated(html, (s) => {
+    _htmlDecoder ??= document.createElement("textarea")
+    _htmlDecoder.innerHTML = s
+    return _htmlDecoder.value
+  })
 }
 
 /** Format a 6-digit term code to a readable name (e.g., "202620" → "Spring 2026") */

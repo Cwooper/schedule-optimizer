@@ -1,10 +1,12 @@
 -- Banner sends text HTML-escaped; the scraper now decodes it before storing.
--- This decodes rows stored earlier. &amp; goes first so double-escaped text
--- (&amp;#39;) is decoded by the later replacements. The list covers every
--- entity present in production when this was written; char() keeps non-ASCII
--- characters out of this file.
+-- This decodes rows stored earlier. &amp; goes first, three times like
+-- cleanText, so double-escaped text (&amp;amp;, &amp;#39;) fully decodes.
+-- The list covers every entity present in production when this was written;
+-- char() keeps non-ASCII characters out of this file.
 
-UPDATE sections SET title = replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(title,
+UPDATE sections SET title = replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(title,
+    '&amp;', '&'),
+    '&amp;', '&'),
     '&amp;', '&'),
     '&nbsp;', ' '),
     '&#39;', ''''),
@@ -24,7 +26,9 @@ UPDATE sections SET title = replace(replace(replace(replace(replace(replace(repl
     '&uuml;', char(252))
 WHERE title LIKE '%&%;%';
 
-UPDATE sections SET subject_description = replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(subject_description,
+UPDATE sections SET subject_description = replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(subject_description,
+    '&amp;', '&'),
+    '&amp;', '&'),
     '&amp;', '&'),
     '&nbsp;', ' '),
     '&#39;', ''''),
@@ -44,7 +48,9 @@ UPDATE sections SET subject_description = replace(replace(replace(replace(replac
     '&uuml;', char(252))
 WHERE subject_description LIKE '%&%;%';
 
-UPDATE instructors SET name = replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(name,
+UPDATE instructors SET name = replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(name,
+    '&amp;', '&'),
+    '&amp;', '&'),
     '&amp;', '&'),
     '&nbsp;', ' '),
     '&#39;', ''''),
@@ -64,7 +70,9 @@ UPDATE instructors SET name = replace(replace(replace(replace(replace(replace(re
     '&uuml;', char(252))
 WHERE name LIKE '%&%;%';
 
-UPDATE instructors SET email = replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(email,
+UPDATE instructors SET email = replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(email,
+    '&amp;', '&'),
+    '&amp;', '&'),
     '&amp;', '&'),
     '&nbsp;', ' '),
     '&#39;', ''''),
@@ -84,7 +92,9 @@ UPDATE instructors SET email = replace(replace(replace(replace(replace(replace(r
     '&uuml;', char(252))
 WHERE email LIKE '%&%;%';
 
-UPDATE section_attributes SET description = replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(description,
+UPDATE section_attributes SET description = replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(description,
+    '&amp;', '&'),
+    '&amp;', '&'),
     '&amp;', '&'),
     '&nbsp;', ' '),
     '&#39;', ''''),
