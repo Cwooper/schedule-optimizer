@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"schedule-optimizer/internal/cache"
+	"schedule-optimizer/internal/meeting"
 )
 
 func TestToResponse_BasicTransformation(t *testing.T) {
@@ -22,7 +23,7 @@ func TestToResponse_BasicTransformation(t *testing.T) {
 						Enrollment:     25,
 						MaxEnrollment:  30,
 						SeatsAvailable: 5,
-						MeetingTimes: []cache.MeetingTime{
+						MeetingTimes: []meeting.Time{
 							{Days: [7]bool{false, true, false, true, false, false, false}, StartTime: "0900", EndTime: "0950"},
 						},
 					},
@@ -239,7 +240,7 @@ func BenchmarkToResponse_2000Schedules(b *testing.B) {
 			Enrollment:     25,
 			MaxEnrollment:  30,
 			SeatsAvailable: 5,
-			MeetingTimes: []cache.MeetingTime{
+			MeetingTimes: []meeting.Time{
 				{Days: [7]bool{false, true, false, true, false, false, false}, StartTime: "0900", EndTime: "0950"},
 			},
 		}

@@ -13,6 +13,8 @@ import (
 
 	"golang.org/x/sync/singleflight"
 
+	"schedule-optimizer/internal/calendar"
+	"schedule-optimizer/internal/meeting"
 	"schedule-optimizer/internal/stats/grades"
 	"schedule-optimizer/internal/store"
 )
@@ -20,35 +22,27 @@ import (
 // Course represents a fully hydrated course section for schedule generation.
 // Includes all meeting times needed for conflict detection.
 type Course struct {
-	ID                  int64         `json:"id"`
-	Term                string        `json:"term"`
-	CRN                 string        `json:"crn"`
-	Subject             string        `json:"subject"`
-	SubjectDescription  string        `json:"subjectDescription,omitempty"`
-	CourseNumber        string        `json:"courseNumber"`
-	Title               string        `json:"title"`
-	Credits             int           `json:"credits"`
-	Instructor          string        `json:"instructor,omitempty"`
-	InstructorEmail     string        `json:"instructorEmail,omitempty"`
-	Enrollment          int           `json:"enrollment"`
-	MaxEnrollment       int           `json:"maxEnrollment"`
-	SeatsAvailable      int           `json:"seatsAvailable"`
-	WaitCount           int           `json:"waitCount"`
-	IsOpen              bool          `json:"isOpen"`
-	InstructionalMethod string        `json:"instructionalMethod,omitempty"`
-	MeetingTimes        []MeetingTime `json:"meetingTimes"`
-	GPA                 float64       `json:"gpa,omitempty"`
-	GPASource           string        `json:"gpaSource,omitempty"` // "course_professor", "course", ""
-	PassRate            *float64      `json:"passRate,omitempty"`
-}
-
-// MeetingTime represents when and where a course meets.
-type MeetingTime struct {
-	Days      [7]bool `json:"days"` // [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
-	StartTime string  `json:"startTime,omitempty"`
-	EndTime   string  `json:"endTime,omitempty"`
-	Building  string  `json:"building,omitempty"`
-	Room      string  `json:"room,omitempty"`
+	ID                  int64           `json:"id"`
+	Term                string          `json:"term"`
+	CRN                 string          `json:"crn"`
+	Subject             string          `json:"subject"`
+	SubjectDescription  string          `json:"subjectDescription,omitempty"`
+	CourseNumber        string          `json:"courseNumber"`
+	Title               string          `json:"title"`
+	Credits             int             `json:"credits"`
+	Instructor          string          `json:"instructor,omitempty"`
+	InstructorEmail     string          `json:"instructorEmail,omitempty"`
+	Enrollment          int             `json:"enrollment"`
+	MaxEnrollment       int             `json:"maxEnrollment"`
+	SeatsAvailable      int             `json:"seatsAvailable"`
+	WaitCount           int             `json:"waitCount"`
+	IsOpen              bool            `json:"isOpen"`
+	InstructionalMethod string          `json:"instructionalMethod,omitempty"`
+	MeetingTimes        []meeting.Time  `json:"meetingTimes"`
+	Final               *calendar.Final `json:"final,omitempty"`
+	GPA                 float64         `json:"gpa,omitempty"`
+	GPASource           string          `json:"gpaSource,omitempty"` // "course_professor", "course", ""
+	PassRate            *float64        `json:"passRate,omitempty"`
 }
 
 // TermData holds all courses for a single term, indexed for fast access.
@@ -93,8 +87,13 @@ func (c *ScheduleCache) LoadTerm(ctx context.Context, term string) error {
 		return err
 	}
 
+	finals, err := calendar.LoadFinals(ctx, c.queries, []string{term})
+	if err != nil {
+		return err
+	}
+
 	// Index by section ID to avoid N+1 queries when building courses
-	meetingsBySection := make(map[int64][]*store.GetMeetingTimesByTermRow)
+	meetingsBySection := make(map[int64][]*store.MeetingTime)
 	for _, m := range meetingTimes {
 		meetingsBySection[m.SectionID] = append(meetingsBySection[m.SectionID], m)
 	}
@@ -125,28 +124,9 @@ func (c *ScheduleCache) LoadTerm(ctx context.Context, term string) error {
 			WaitCount:           int(nullInt(s.WaitCount)),
 			IsOpen:              nullInt(s.IsOpen) == 1,
 			InstructionalMethod: nullString(s.InstructionalMethod),
-			MeetingTimes:        []MeetingTime{},
+			MeetingTimes:        meeting.FromStoreAll(meetingsBySection[s.ID]),
 		}
-
-		// Add meeting times from pre-fetched data
-		for _, m := range meetingsBySection[s.ID] {
-			mt := MeetingTime{
-				Days: [7]bool{
-					nullInt(m.Sunday) == 1,
-					nullInt(m.Monday) == 1,
-					nullInt(m.Tuesday) == 1,
-					nullInt(m.Wednesday) == 1,
-					nullInt(m.Thursday) == 1,
-					nullInt(m.Friday) == 1,
-					nullInt(m.Saturday) == 1,
-				},
-				StartTime: nullString(m.StartTime),
-				EndTime:   nullString(m.EndTime),
-				Building:  nullString(m.Building),
-				Room:      nullString(m.Room),
-			}
-			course.MeetingTimes = append(course.MeetingTimes, mt)
-		}
+		course.Final = finals[term].FinalFor(s.ScheduleType.String, course.MeetingTimes)
 
 		// Look up GPA and pass rate from grade data
 		if c.gradeService != nil && c.gradeService.IsLoaded() {

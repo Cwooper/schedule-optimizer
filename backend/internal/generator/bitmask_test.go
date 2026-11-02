@@ -1,9 +1,8 @@
 package generator
 
 import (
+	"schedule-optimizer/internal/meeting"
 	"testing"
-
-	"schedule-optimizer/internal/cache"
 )
 
 func TestParseTimeToMins(t *testing.T) {
@@ -115,7 +114,7 @@ func TestTimeMask_Merge(t *testing.T) {
 }
 
 func TestFromMeetingTimes(t *testing.T) {
-	meetings := []cache.MeetingTime{
+	meetings := []meeting.Time{
 		{
 			Days:      [7]bool{false, true, false, true, false, true, false}, // Mon, Wed, Fri
 			StartTime: "0900",
@@ -174,7 +173,7 @@ func TestFromMeetingTimes_EmptyOrTBD(t *testing.T) {
 	}
 
 	// TBD times (empty strings)
-	meetings := []cache.MeetingTime{
+	meetings := []meeting.Time{
 		{
 			Days:      [7]bool{false, true, false, false, false, false, false},
 			StartTime: "",

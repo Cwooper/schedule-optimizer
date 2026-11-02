@@ -6,10 +6,13 @@ import (
 	"errors"
 	"fmt"
 	"log/slog"
+	"maps"
 	"slices"
 	"strings"
 	"time"
 
+	"schedule-optimizer/internal/calendar"
+	"schedule-optimizer/internal/meeting"
 	"schedule-optimizer/internal/stats/grades"
 	"schedule-optimizer/internal/store"
 	"schedule-optimizer/internal/termcode"
@@ -129,33 +132,27 @@ func (s *Service) buildResponse(ctx context.Context, rows []*sectionRow, section
 	// Batch-fetch meeting times for all sections in one query
 	sectionIDs := make([]int64, len(rows))
 	idToKey := make(map[int64]string, len(rows))
+	termSet := make(map[string]bool)
 	for i, row := range rows {
 		sectionIDs[i] = row.ID
 		idToKey[row.ID] = row.Term + ":" + row.CRN
+		termSet[row.Term] = true
 	}
 
-	meetingsByKey := make(map[string][]MeetingTimeInfo, len(rows))
+	meetingsByKey := make(map[string][]meeting.Time, len(rows))
 	meetingRows, err := s.queries.GetMeetingTimesBySectionIDs(ctx, sectionIDs)
 	if err != nil {
 		slog.Error("Failed to fetch meeting times for search results", "error", err, "sectionCount", len(sectionIDs))
 	}
 	for _, m := range meetingRows {
 		key := idToKey[m.SectionID]
-		meetingsByKey[key] = append(meetingsByKey[key], MeetingTimeInfo{
-			Days: []bool{
-				m.Sunday.Valid && m.Sunday.Int64 != 0,
-				m.Monday.Valid && m.Monday.Int64 != 0,
-				m.Tuesday.Valid && m.Tuesday.Int64 != 0,
-				m.Wednesday.Valid && m.Wednesday.Int64 != 0,
-				m.Thursday.Valid && m.Thursday.Int64 != 0,
-				m.Friday.Valid && m.Friday.Int64 != 0,
-				m.Saturday.Valid && m.Saturday.Int64 != 0,
-			},
-			StartTime: nullString(m.StartTime),
-			EndTime:   nullString(m.EndTime),
-			Building:  nullString(m.Building),
-			Room:      nullString(m.Room),
-		})
+		meetingsByKey[key] = append(meetingsByKey[key], meeting.FromStore(m))
+	}
+
+	finals, err := calendar.LoadFinals(ctx, s.queries, slices.Collect(maps.Keys(termSet)))
+	if err != nil {
+		// Results without finals beat no results.
+		slog.Error("Failed to load finals for search results", "error", err)
 	}
 
 	courses := make(map[string]CourseInfo)
@@ -196,7 +193,7 @@ func (s *Service) buildResponse(ctx context.Context, rows []*sectionRow, section
 		// Add section (keyed by term:crn for cross-term uniqueness)
 		meetings := meetingsByKey[sectionKey]
 		if meetings == nil {
-			meetings = []MeetingTimeInfo{}
+			meetings = []meeting.Time{}
 		}
 		si := SectionInfo{
 			CRN:             row.CRN,
@@ -212,6 +209,7 @@ func (s *Service) buildResponse(ctx context.Context, rows []*sectionRow, section
 			Campus:          row.Campus,
 			ScheduleType:    row.ScheduleType,
 			MeetingTimes:    meetings,
+			Final:           finals[row.Term].FinalFor(row.ScheduleType, meetings),
 		}
 		if s.gradeService != nil && s.gradeService.IsLoaded() {
 			si.GPA, si.PassRate, si.GPASource = s.gradeService.LookupSectionGPA(

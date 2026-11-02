@@ -5,11 +5,12 @@ import (
 	"testing"
 
 	"schedule-optimizer/internal/cache"
+	"schedule-optimizer/internal/meeting"
 )
 
 // BenchmarkFromMeetingTimes measures bitmask creation performance.
 func BenchmarkFromMeetingTimes(b *testing.B) {
-	meetings := []cache.MeetingTime{
+	meetings := []meeting.Time{
 		{Days: [7]bool{false, true, false, true, false, true, false}, StartTime: "0900", EndTime: "0950"},
 		{Days: [7]bool{false, false, true, false, true, false, false}, StartTime: "1000", EndTime: "1150"},
 	}
@@ -21,10 +22,10 @@ func BenchmarkFromMeetingTimes(b *testing.B) {
 
 // BenchmarkTimeMaskConflicts measures conflict detection performance.
 func BenchmarkTimeMaskConflicts(b *testing.B) {
-	m1 := FromMeetingTimes([]cache.MeetingTime{
+	m1 := FromMeetingTimes([]meeting.Time{
 		{Days: [7]bool{false, true, false, true, false, true, false}, StartTime: "0900", EndTime: "0950"},
 	})
-	m2 := FromMeetingTimes([]cache.MeetingTime{
+	m2 := FromMeetingTimes([]meeting.Time{
 		{Days: [7]bool{false, true, false, true, false, true, false}, StartTime: "1000", EndTime: "1050"},
 	})
 
@@ -35,10 +36,10 @@ func BenchmarkTimeMaskConflicts(b *testing.B) {
 
 // BenchmarkTimeMaskMerge measures mask merging performance.
 func BenchmarkTimeMaskMerge(b *testing.B) {
-	m1 := FromMeetingTimes([]cache.MeetingTime{
+	m1 := FromMeetingTimes([]meeting.Time{
 		{Days: [7]bool{false, true, false, true, false, true, false}, StartTime: "0900", EndTime: "0950"},
 	})
-	m2 := FromMeetingTimes([]cache.MeetingTime{
+	m2 := FromMeetingTimes([]meeting.Time{
 		{Days: [7]bool{false, true, false, true, false, true, false}, StartTime: "1000", EndTime: "1050"},
 	})
 
@@ -99,13 +100,13 @@ func BenchmarkBacktrack_WithConflicts(b *testing.B) {
 func BenchmarkScoreSchedule(b *testing.B) {
 	schedule := &Schedule{
 		Courses: []*cache.Course{
-			{MeetingTimes: []cache.MeetingTime{
+			{MeetingTimes: []meeting.Time{
 				{Days: [7]bool{false, true, false, true, false, true, false}, StartTime: "0900", EndTime: "0950"},
 			}},
-			{MeetingTimes: []cache.MeetingTime{
+			{MeetingTimes: []meeting.Time{
 				{Days: [7]bool{false, true, false, true, false, true, false}, StartTime: "1000", EndTime: "1050"},
 			}},
-			{MeetingTimes: []cache.MeetingTime{
+			{MeetingTimes: []meeting.Time{
 				{Days: [7]bool{false, false, true, false, true, false, false}, StartTime: "1100", EndTime: "1150"},
 			}},
 		},
@@ -144,7 +145,7 @@ func makeTestGroups(numCourses, sectionsPerCourse int, withConflicts bool) []cou
 			course := &cache.Course{
 				ID:  int64(i*100 + j),
 				CRN: string(rune('0'+i)) + string(rune('0'+j)),
-				MeetingTimes: []cache.MeetingTime{
+				MeetingTimes: []meeting.Time{
 					{
 						Days:      [7]bool{false, true, false, true, false, true, false}, // MWF
 						StartTime: startTime,
@@ -194,7 +195,7 @@ func makeSyntheticGroups(numCourses, sectionsPerCourse int) []courseGroup {
 				ID:      int64(i*1000 + j),
 				CRN:     string(rune('0'+i)) + string(rune('0'+j)),
 				Subject: "TEST",
-				MeetingTimes: []cache.MeetingTime{
+				MeetingTimes: []meeting.Time{
 					{
 						Days:      [7]bool{false, true, false, true, false, true, false}, // MWF
 						StartTime: startTime,

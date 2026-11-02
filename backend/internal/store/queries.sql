@@ -69,12 +69,9 @@ DELETE FROM instructors WHERE section_id = ?;
 SELECT * FROM meeting_times WHERE section_id = ?;
 
 -- name: GetMeetingTimesBySectionIDs :many
-SELECT
-    section_id, start_time, end_time, building, room,
-    sunday, monday, tuesday, wednesday, thursday, friday, saturday
-FROM meeting_times
+SELECT * FROM meeting_times
 WHERE section_id IN (sqlc.slice('section_ids'))
-ORDER BY section_id;
+ORDER BY section_id, id;
 
 -- name: InsertMeetingTime :exec
 INSERT INTO meeting_times (
@@ -133,7 +130,7 @@ SELECT
     s.id, s.term, s.crn, s.subject, s.subject_description,
     s.course_number, s.title, s.credit_hours_low,
     s.enrollment, s.max_enrollment, s.seats_available, s.wait_count, s.is_open,
-    s.instructional_method,
+    s.instructional_method, s.schedule_type,
     i.name AS instructor_name, i.email AS instructor_email
 FROM sections s
 LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1
@@ -141,13 +138,10 @@ WHERE s.term = ?
 ORDER BY s.id;
 
 -- name: GetMeetingTimesByTerm :many
-SELECT
-    m.section_id, m.start_time, m.end_time, m.building, m.room,
-    m.sunday, m.monday, m.tuesday, m.wednesday, m.thursday, m.friday, m.saturday
-FROM meeting_times m
+SELECT m.* FROM meeting_times m
 JOIN sections s ON m.section_id = s.id
 WHERE s.term = ?
-ORDER BY m.section_id;
+ORDER BY m.section_id, m.id;
 
 -- name: CourseExistsAnyTerm :one
 SELECT EXISTS(
@@ -166,7 +160,7 @@ SELECT
     s.id, s.term, s.crn, s.subject, s.subject_description,
     s.course_number, s.title, s.credit_hours_low,
     s.enrollment, s.max_enrollment, s.seats_available, s.wait_count, s.is_open,
-    s.instructional_method,
+    s.instructional_method, s.schedule_type,
     i.name AS instructor_name, i.email AS instructor_email
 FROM sections s
 LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1
@@ -177,7 +171,7 @@ SELECT
     s.id, s.term, s.crn, s.subject, s.subject_description,
     s.course_number, s.title, s.credit_hours_low,
     s.enrollment, s.max_enrollment, s.seats_available, s.wait_count, s.is_open,
-    s.instructional_method,
+    s.instructional_method, s.schedule_type,
     i.name AS instructor_name, i.email AS instructor_email
 FROM sections s
 LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1
@@ -313,8 +307,10 @@ WHERE td.term_code IS NOT NULL OR d.term_code IS NOT NULL;
 INSERT INTO finals_mappings (term_code, time_range_start, time_range_end, has_tuth, exam_date, exam_start_time, exam_end_time)
 VALUES (?, ?, ?, ?, ?, ?, ?);
 
--- name: GetFinalMappingsByTerm :many
-SELECT * FROM finals_mappings WHERE term_code = ? ORDER BY time_range_start, has_tuth;
+-- name: GetFinalMappingsByTerms :many
+SELECT * FROM finals_mappings
+WHERE term_code IN (sqlc.slice('term_codes'))
+ORDER BY term_code, time_range_start, has_tuth;
 
 -- name: DeleteFinalMappingsByTerm :exec
 DELETE FROM finals_mappings WHERE term_code = ?;

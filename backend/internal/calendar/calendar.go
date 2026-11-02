@@ -1,5 +1,6 @@
 // Package calendar scrapes WWU's academic calendar from registrar.wwu.edu
-// and answers when each term's registration, classes, and end fall.
+// and answers when each term's registration, classes, and end fall, and
+// which final exam slot a section takes (finals.go).
 //
 // Banner exposes sections but no dates, so the registrar site is the only
 // source for term dates, registration phases, deadlines, holidays, and the

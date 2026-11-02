@@ -317,12 +317,24 @@ func (q *Queries) GetDistinctTerms(ctx context.Context) ([]string, error) {
 	return items, nil
 }
 
-const getFinalMappingsByTerm = `-- name: GetFinalMappingsByTerm :many
-SELECT id, term_code, time_range_start, time_range_end, has_tuth, exam_date, exam_start_time, exam_end_time FROM finals_mappings WHERE term_code = ? ORDER BY time_range_start, has_tuth
+const getFinalMappingsByTerms = `-- name: GetFinalMappingsByTerms :many
+SELECT id, term_code, time_range_start, time_range_end, has_tuth, exam_date, exam_start_time, exam_end_time FROM finals_mappings
+WHERE term_code IN (/*SLICE:term_codes*/?)
+ORDER BY term_code, time_range_start, has_tuth
 `
 
-func (q *Queries) GetFinalMappingsByTerm(ctx context.Context, termCode string) ([]*FinalsMapping, error) {
-	rows, err := q.db.QueryContext(ctx, getFinalMappingsByTerm, termCode)
+func (q *Queries) GetFinalMappingsByTerms(ctx context.Context, termCodes []string) ([]*FinalsMapping, error) {
+	query := getFinalMappingsByTerms
+	var queryParams []interface{}
+	if len(termCodes) > 0 {
+		for _, v := range termCodes {
+			queryParams = append(queryParams, v)
+		}
+		query = strings.Replace(query, "/*SLICE:term_codes*/?", strings.Repeat(",?", len(termCodes))[1:], 1)
+	} else {
+		query = strings.Replace(query, "/*SLICE:term_codes*/?", "NULL", 1)
+	}
+	rows, err := q.db.QueryContext(ctx, query, queryParams...)
 	if err != nil {
 		return nil, err
 	}
@@ -569,30 +581,12 @@ func (q *Queries) GetMeetingTimesBySection(ctx context.Context, sectionID int64)
 }
 
 const getMeetingTimesBySectionIDs = `-- name: GetMeetingTimesBySectionIDs :many
-SELECT
-    section_id, start_time, end_time, building, room,
-    sunday, monday, tuesday, wednesday, thursday, friday, saturday
-FROM meeting_times
+SELECT id, section_id, start_time, end_time, start_date, end_date, building, building_description, room, monday, tuesday, wednesday, thursday, friday, saturday, sunday, schedule_type, meeting_type, credit_hours, hours_per_week FROM meeting_times
 WHERE section_id IN (/*SLICE:section_ids*/?)
-ORDER BY section_id
+ORDER BY section_id, id
 `
 
-type GetMeetingTimesBySectionIDsRow struct {
-	SectionID int64          `json:"section_id"`
-	StartTime sql.NullString `json:"start_time"`
-	EndTime   sql.NullString `json:"end_time"`
-	Building  sql.NullString `json:"building"`
-	Room      sql.NullString `json:"room"`
-	Sunday    sql.NullInt64  `json:"sunday"`
-	Monday    sql.NullInt64  `json:"monday"`
-	Tuesday   sql.NullInt64  `json:"tuesday"`
-	Wednesday sql.NullInt64  `json:"wednesday"`
-	Thursday  sql.NullInt64  `json:"thursday"`
-	Friday    sql.NullInt64  `json:"friday"`
-	Saturday  sql.NullInt64  `json:"saturday"`
-}
-
-func (q *Queries) GetMeetingTimesBySectionIDs(ctx context.Context, sectionIds []int64) ([]*GetMeetingTimesBySectionIDsRow, error) {
+func (q *Queries) GetMeetingTimesBySectionIDs(ctx context.Context, sectionIds []int64) ([]*MeetingTime, error) {
 	query := getMeetingTimesBySectionIDs
 	var queryParams []interface{}
 	if len(sectionIds) > 0 {
@@ -608,22 +602,30 @@ func (q *Queries) GetMeetingTimesBySectionIDs(ctx context.Context, sectionIds []
 		return nil, err
 	}
 	defer rows.Close()
-	items := []*GetMeetingTimesBySectionIDsRow{}
+	items := []*MeetingTime{}
 	for rows.Next() {
-		var i GetMeetingTimesBySectionIDsRow
+		var i MeetingTime
 		if err := rows.Scan(
+			&i.ID,
 			&i.SectionID,
 			&i.StartTime,
 			&i.EndTime,
+			&i.StartDate,
+			&i.EndDate,
 			&i.Building,
+			&i.BuildingDescription,
 			&i.Room,
-			&i.Sunday,
 			&i.Monday,
 			&i.Tuesday,
 			&i.Wednesday,
 			&i.Thursday,
 			&i.Friday,
 			&i.Saturday,
+			&i.Sunday,
+			&i.ScheduleType,
+			&i.MeetingType,
+			&i.CreditHours,
+			&i.HoursPerWeek,
 		); err != nil {
 			return nil, err
 		}
@@ -639,52 +641,42 @@ func (q *Queries) GetMeetingTimesBySectionIDs(ctx context.Context, sectionIds []
 }
 
 const getMeetingTimesByTerm = `-- name: GetMeetingTimesByTerm :many
-SELECT
-    m.section_id, m.start_time, m.end_time, m.building, m.room,
-    m.sunday, m.monday, m.tuesday, m.wednesday, m.thursday, m.friday, m.saturday
-FROM meeting_times m
+SELECT m.id, m.section_id, m.start_time, m.end_time, m.start_date, m.end_date, m.building, m.building_description, m.room, m.monday, m.tuesday, m.wednesday, m.thursday, m.friday, m.saturday, m.sunday, m.schedule_type, m.meeting_type, m.credit_hours, m.hours_per_week FROM meeting_times m
 JOIN sections s ON m.section_id = s.id
 WHERE s.term = ?
-ORDER BY m.section_id
+ORDER BY m.section_id, m.id
 `
 
-type GetMeetingTimesByTermRow struct {
-	SectionID int64          `json:"section_id"`
-	StartTime sql.NullString `json:"start_time"`
-	EndTime   sql.NullString `json:"end_time"`
-	Building  sql.NullString `json:"building"`
-	Room      sql.NullString `json:"room"`
-	Sunday    sql.NullInt64  `json:"sunday"`
-	Monday    sql.NullInt64  `json:"monday"`
-	Tuesday   sql.NullInt64  `json:"tuesday"`
-	Wednesday sql.NullInt64  `json:"wednesday"`
-	Thursday  sql.NullInt64  `json:"thursday"`
-	Friday    sql.NullInt64  `json:"friday"`
-	Saturday  sql.NullInt64  `json:"saturday"`
-}
-
-func (q *Queries) GetMeetingTimesByTerm(ctx context.Context, term string) ([]*GetMeetingTimesByTermRow, error) {
+func (q *Queries) GetMeetingTimesByTerm(ctx context.Context, term string) ([]*MeetingTime, error) {
 	rows, err := q.db.QueryContext(ctx, getMeetingTimesByTerm, term)
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
-	items := []*GetMeetingTimesByTermRow{}
+	items := []*MeetingTime{}
 	for rows.Next() {
-		var i GetMeetingTimesByTermRow
+		var i MeetingTime
 		if err := rows.Scan(
+			&i.ID,
 			&i.SectionID,
 			&i.StartTime,
 			&i.EndTime,
+			&i.StartDate,
+			&i.EndDate,
 			&i.Building,
+			&i.BuildingDescription,
 			&i.Room,
-			&i.Sunday,
 			&i.Monday,
 			&i.Tuesday,
 			&i.Wednesday,
 			&i.Thursday,
 			&i.Friday,
 			&i.Saturday,
+			&i.Sunday,
+			&i.ScheduleType,
+			&i.MeetingType,
+			&i.CreditHours,
+			&i.HoursPerWeek,
 		); err != nil {
 			return nil, err
 		}
@@ -803,7 +795,7 @@ SELECT
     s.id, s.term, s.crn, s.subject, s.subject_description,
     s.course_number, s.title, s.credit_hours_low,
     s.enrollment, s.max_enrollment, s.seats_available, s.wait_count, s.is_open,
-    s.instructional_method,
+    s.instructional_method, s.schedule_type,
     i.name AS instructor_name, i.email AS instructor_email
 FROM sections s
 LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1
@@ -830,6 +822,7 @@ type GetSectionWithInstructorByTermAndCRNRow struct {
 	WaitCount           sql.NullInt64  `json:"wait_count"`
 	IsOpen              sql.NullInt64  `json:"is_open"`
 	InstructionalMethod sql.NullString `json:"instructional_method"`
+	ScheduleType        sql.NullString `json:"schedule_type"`
 	InstructorName      sql.NullString `json:"instructor_name"`
 	InstructorEmail     sql.NullString `json:"instructor_email"`
 }
@@ -852,6 +845,7 @@ func (q *Queries) GetSectionWithInstructorByTermAndCRN(ctx context.Context, arg 
 		&i.WaitCount,
 		&i.IsOpen,
 		&i.InstructionalMethod,
+		&i.ScheduleType,
 		&i.InstructorName,
 		&i.InstructorEmail,
 	)
@@ -966,7 +960,7 @@ SELECT
     s.id, s.term, s.crn, s.subject, s.subject_description,
     s.course_number, s.title, s.credit_hours_low,
     s.enrollment, s.max_enrollment, s.seats_available, s.wait_count, s.is_open,
-    s.instructional_method,
+    s.instructional_method, s.schedule_type,
     i.name AS instructor_name, i.email AS instructor_email
 FROM sections s
 LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1
@@ -995,6 +989,7 @@ type GetSectionsWithInstructorByCourseRow struct {
 	WaitCount           sql.NullInt64  `json:"wait_count"`
 	IsOpen              sql.NullInt64  `json:"is_open"`
 	InstructionalMethod sql.NullString `json:"instructional_method"`
+	ScheduleType        sql.NullString `json:"schedule_type"`
 	InstructorName      sql.NullString `json:"instructor_name"`
 	InstructorEmail     sql.NullString `json:"instructor_email"`
 }
@@ -1023,6 +1018,7 @@ func (q *Queries) GetSectionsWithInstructorByCourse(ctx context.Context, arg Get
 			&i.WaitCount,
 			&i.IsOpen,
 			&i.InstructionalMethod,
+			&i.ScheduleType,
 			&i.InstructorName,
 			&i.InstructorEmail,
 		); err != nil {
@@ -1044,7 +1040,7 @@ SELECT
     s.id, s.term, s.crn, s.subject, s.subject_description,
     s.course_number, s.title, s.credit_hours_low,
     s.enrollment, s.max_enrollment, s.seats_available, s.wait_count, s.is_open,
-    s.instructional_method,
+    s.instructional_method, s.schedule_type,
     i.name AS instructor_name, i.email AS instructor_email
 FROM sections s
 LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1
@@ -1067,6 +1063,7 @@ type GetSectionsWithInstructorByTermRow struct {
 	WaitCount           sql.NullInt64  `json:"wait_count"`
 	IsOpen              sql.NullInt64  `json:"is_open"`
 	InstructionalMethod sql.NullString `json:"instructional_method"`
+	ScheduleType        sql.NullString `json:"schedule_type"`
 	InstructorName      sql.NullString `json:"instructor_name"`
 	InstructorEmail     sql.NullString `json:"instructor_email"`
 }
@@ -1095,6 +1092,7 @@ func (q *Queries) GetSectionsWithInstructorByTerm(ctx context.Context, term stri
 			&i.WaitCount,
 			&i.IsOpen,
 			&i.InstructionalMethod,
+			&i.ScheduleType,
 			&i.InstructorName,
 			&i.InstructorEmail,
 		); err != nil {

@@ -91,7 +91,7 @@ func TestReplaceFinalsRollsBackOnFailure(t *testing.T) {
 		t.Fatal("want error for duplicate slot")
 	}
 
-	rows, err := queries.GetFinalMappingsByTerm(ctx, "202640")
+	rows, err := queries.GetFinalMappingsByTerms(ctx, []string{"202640"})
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -236,7 +236,7 @@ func TestScrapeFinalsKeepsMalformedTermsRows(t *testing.T) {
 		t.Errorf("scrapeFinals error = %v, want Winter 2027's failure only (Summer 2027 is not in Banner)", err)
 	}
 	for code, want := range map[string]int{"202640": 2, "202710": 2} {
-		rows, err := queries.GetFinalMappingsByTerm(ctx, code)
+		rows, err := queries.GetFinalMappingsByTerms(ctx, []string{code})
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -280,7 +280,7 @@ func TestScrapeAll(t *testing.T) {
 	}
 
 	for code, want := range map[string]int{"202640": 20, "202710": 20, "202720": 20, "202630": 0} {
-		rows, err := queries.GetFinalMappingsByTerm(ctx, code)
+		rows, err := queries.GetFinalMappingsByTerms(ctx, []string{code})
 		if err != nil {
 			t.Fatal(err)
 		}

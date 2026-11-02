@@ -69,6 +69,7 @@ type TermDates struct {
 	RegistrationOpens time.Time
 	Start             time.Time
 	End               time.Time // midnight after the last day, exclusive
+	Estimated         bool      // some boundary fell back to an estimate
 }
 
 func (d TermDates) Phase(now time.Time) Phase {
@@ -157,12 +158,14 @@ func (s Schedule) Dates(code string) (d TermDates, ok bool) {
 		d.Start, d.End = known.start, known.lastDay.AddDate(0, 0, 1)
 	} else {
 		d.Start, d.End = date(year, e.startMonth, e.startDay), date(year, e.endMonth, e.endDay+1)
+		d.Estimated = true
 	}
 
 	if !known.registrationOpens.IsZero() && known.registrationOpens.Before(d.Start) {
 		d.RegistrationOpens = known.registrationOpens
 	} else {
 		d.RegistrationOpens = d.Start.AddDate(0, 0, -e.leadDays)
+		d.Estimated = true
 	}
 	return d, true
 }
