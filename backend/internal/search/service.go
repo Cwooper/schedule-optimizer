@@ -149,11 +149,7 @@ func (s *Service) buildResponse(ctx context.Context, rows []*sectionRow, section
 		meetingsByKey[key] = append(meetingsByKey[key], meeting.FromStore(m))
 	}
 
-	finals, err := calendar.LoadFinals(ctx, s.queries, slices.Collect(maps.Keys(termSet)))
-	if err != nil {
-		// Results without finals beat no results.
-		slog.Error("Failed to load finals for search results", "error", err)
-	}
+	finals := calendar.SectionFinals(ctx, s.queries, slices.Collect(maps.Keys(termSet)))
 
 	courses := make(map[string]CourseInfo)
 	sections := make(map[string]SectionInfo)

@@ -12,26 +12,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// seedSpring2025Calendar gives the seeded Spring 2025 term published dates,
-// a Phase I row, a holiday, a deadline, and one finals slot matching CRN
-// 20001 (MWF 10:00).
-func seedSpring2025Calendar(t *testing.T, h *Handlers) {
-	t.Helper()
-	_, err := h.db.Exec(`
-		INSERT INTO term_dates (term_code, start_date, end_date) VALUES ('202520', '2025-03-31', '2025-06-13');
-		INSERT INTO important_dates (term_code, date, end_date, description, category, opens_registration) VALUES
-			('202520', '2025-02-25', '2025-03-10', 'Phase I - registration', 'registration', 1),
-			('202520', '2025-05-26', NULL, 'Memorial Day', 'holiday', 0),
-			('202520', '2025-05-11', NULL, 'Last day to withdraw from a class', 'deadline', 0),
-			('202520', '2025-06-09', '2025-06-13', 'Final Exams', 'academic', 0);
-		INSERT INTO finals_mappings (term_code, time_range_start, time_range_end, has_tuth, exam_date, exam_start_time, exam_end_time)
-			VALUES ('202520', '0930', '1029', 0, '2025-06-10', '1030', '1230');
-	`)
-	if err != nil {
-		t.Fatal(err)
-	}
-}
-
 func getJSON(t *testing.T, h gin.HandlerFunc, route, url string) (int, map[string]any) {
 	t.Helper()
 	r := gin.New()
@@ -49,7 +29,7 @@ func TestGetCalendar(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
 	h := NewHandlers(db, nil, nil, queries, nil, nil)
-	seedSpring2025Calendar(t, h)
+	testutil.SeedSpring2025Calendar(t, db)
 
 	code, body := getJSON(t, h.GetCalendar, "/calendar/:term", "/calendar/202520")
 	if code != http.StatusOK {
@@ -79,7 +59,7 @@ func TestGetCRNIncludesFinal(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
 	h := NewHandlers(db, nil, nil, queries, nil, nil)
-	seedSpring2025Calendar(t, h)
+	testutil.SeedSpring2025Calendar(t, db)
 
 	_, body := getJSON(t, h.GetCRN, "/crn/:crn", "/crn/20001?term=202520")
 	section, _ := body["section"].(map[string]any)
@@ -96,11 +76,28 @@ func TestGetCRNIncludesFinal(t *testing.T) {
 	}
 }
 
+// A finals table that fails to load costs the final, not the lookup.
+func TestGetCRNWithoutLoadableFinals(t *testing.T) {
+	db, queries := testutil.SetupTestDB(t)
+	testutil.SeedTestData(t, db)
+	h := NewHandlers(db, nil, nil, queries, nil, nil)
+	if _, err := db.Exec(`INSERT INTO finals_mappings (term_code, time_range_start, time_range_end, has_tuth, exam_date, exam_start_time, exam_end_time)
+		VALUES ('202520', '0930', '1029', 0, 'June 10', '1030', '1230')`); err != nil {
+		t.Fatal(err)
+	}
+
+	code, body := getJSON(t, h.GetCRN, "/crn/:crn", "/crn/20001?term=202520")
+	section, _ := body["section"].(map[string]any)
+	if _, has := section["final"]; code != http.StatusOK || section == nil || has {
+		t.Errorf("status %d, section %v; want the section without a final", code, section)
+	}
+}
+
 func TestGetTermsIncludesDates(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
 	h := NewHandlers(db, nil, nil, queries, nil, nil)
-	seedSpring2025Calendar(t, h)
+	testutil.SeedSpring2025Calendar(t, db)
 
 	_, body := getJSON(t, h.GetTerms, "/terms", "/terms")
 	terms, _ := body["terms"].([]any)

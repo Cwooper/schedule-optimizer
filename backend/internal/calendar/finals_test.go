@@ -35,8 +35,10 @@ func mt(dayLetters, start, end string) meeting.Time {
 	return meeting.Time{Days: days(dayLetters), StartTime: start, EndTime: end, StartDate: "2026-09-23", EndDate: "2026-12-11", ScheduleType: "L"}
 }
 
-func lab(m meeting.Time) meeting.Time {
-	m.ScheduleType = "B"
+func lab(m meeting.Time) meeting.Time { return typed(m, "B") }
+
+func typed(m meeting.Time, scheduleType string) meeting.Time {
+	m.ScheduleType = scheduleType
 	return m
 }
 
@@ -80,6 +82,13 @@ func TestFinalFor(t *testing.T) {
 			guess("2026-12-07", "1530", "1730", ReasonLab)},
 		{"only lab-coded patterns", "Lecture", []meeting.Time{lab(mt("MW", "1000", "1150"))},
 			guess("2026-12-08", "1030", "1230", ReasonLab)},
+		// MIS 320 CRN 10105: an L row for MW and two C rows (two rooms) for R.
+		{"lecture rows set the pattern beside other types at the same time", "Lecture/Lab",
+			[]meeting.Time{mt("MW", "1000", "1120"), typed(mt("R", "1000", "1120"), "C"), typed(mt("R", "1000", "1120"), "C")},
+			guess("2026-12-08", "1030", "1230", ReasonLab)},
+		{"lecture rows win over longer rows of another type", "Lecture",
+			[]meeting.Time{mt("MW", "1000", "1050"), typed(mt("MTWRF", "1300", "1350"), "C")},
+			guess("2026-12-08", "1030", "1230", ReasonMultiple)},
 		{"one pattern under a lecture/lab type is certain", "Lecture/Lab", []meeting.Time{mt("MWF", "0900", "0950")},
 			certain("2026-12-07", "1030", "1230")},
 		{"multiple times take the most weekly minutes", "Lecture", []meeting.Time{mt("W", "0800", "0950"), mt("MTWF", "1200", "1250")},
@@ -108,6 +117,7 @@ func TestFinalFor(t *testing.T) {
 		{"asynchronous", "Lecture", []meeting.Time{{}}, nil},
 		{"no meetings", "Lecture", nil, nil},
 		{"one-off meeting", "Lecture", []meeting.Time{dated(mt("S", "0900", "1600"), "2026-10-10", "2026-10-10")}, nil},
+		{"starts after the last week of classes", "Lecture", []meeting.Time{dated(mt("MW", "0900", "0950"), "2026-12-14", "2026-12-18")}, nil},
 		{"short session ends before finals week", "Lecture", []meeting.Time{dated(mt("MTWRF", "0900", "0950"), "2026-09-23", "2026-10-30")}, nil},
 		{"weekend only", "Seminar", []meeting.Time{mt("S", "0900", "1150")}, nil},
 		{"before the table's first row", "Lecture", []meeting.Time{mt("MWF", "0730", "0820")}, nil},

@@ -18,6 +18,13 @@ type termScraper interface {
 	ScrapeTerm(ctx context.Context, term string) (int, error)
 }
 
+// CacheInvalidator is the schedule cache, which holds sections, finals, and
+// grades in memory and must drop what a job rewrites.
+type CacheInvalidator interface {
+	Invalidate(term string)
+	InvalidateAll()
+}
+
 // ScrapeJob scrapes each term's sections on a cadence set by its phase:
 //
 //	registration      interval after the last scrape, while seats move fastest
@@ -33,6 +40,7 @@ type termScraper interface {
 type ScrapeJob struct {
 	queries       *store.Queries
 	scraper       termScraper
+	cache         CacheInvalidator
 	pastTermYears int
 	interval      time.Duration
 	dailyHour     int
@@ -50,10 +58,11 @@ type ScrapeJob struct {
 // outage would cost a full session on every one-minute check.
 const retryBackoff = time.Hour
 
-func NewScrapeJob(queries *store.Queries, scraper termScraper, pastTermYears, intervalHours, dailyHour int) *ScrapeJob {
+func NewScrapeJob(queries *store.Queries, scraper termScraper, cache CacheInvalidator, pastTermYears, intervalHours, dailyHour int) *ScrapeJob {
 	return &ScrapeJob{
 		queries:       queries,
 		scraper:       scraper,
+		cache:         cache,
 		pastTermYears: pastTermYears,
 		interval:      time.Duration(intervalHours) * time.Hour,
 		dailyHour:     dailyHour,
@@ -87,6 +96,7 @@ func (j *ScrapeJob) Run(ctx context.Context, now time.Time) error {
 			slog.Error("Failed to scrape term", "term", term.Code, "error", err, "retry_after", retryBackoff)
 			continue
 		}
+		j.cache.Invalidate(term.Code)
 		slog.Info("Term scrape complete", "term", term.Code, "sections", stored)
 	}
 	return nil

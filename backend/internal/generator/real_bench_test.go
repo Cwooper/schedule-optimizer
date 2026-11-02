@@ -13,7 +13,7 @@ import (
 )
 
 // setupRealData loads actual course data from the database for benchmarking.
-func setupRealData(b *testing.B) (*Service, string) {
+func setupRealData(b *testing.B) (*Service, *cache.TermData) {
 	b.Helper()
 
 	dbPath := os.Getenv("TEST_DB_PATH")
@@ -29,22 +29,20 @@ func setupRealData(b *testing.B) (*Service, string) {
 	queries := store.New(db)
 	scheduleCache := cache.NewScheduleCache(queries, nil)
 
-	term := "202540"
-	if err := scheduleCache.LoadTerm(context.Background(), term); err != nil {
-		b.Skipf("Could not load term %s: %v", term, err)
+	td, err := scheduleCache.Term(context.Background(), "202540")
+	if err != nil {
+		b.Skipf("Could not load term 202540: %v", err)
 	}
-
-	service := NewService(scheduleCache, queries)
-	return service, term
+	return NewService(queries), td
 }
 
 // BenchmarkGenerate_RealData_5Courses benchmarks with 5 high-section courses.
 func BenchmarkGenerate_RealData_5Courses(b *testing.B) {
-	service, term := setupRealData(b)
+	service, td := setupRealData(b)
 	ctx := context.Background()
 
 	req := GenerateRequest{
-		Term: term,
+		Term: td.Term,
 		CourseSpecs: []CourseSpec{
 			{Subject: "ENG", CourseNumber: "101"},
 			{Subject: "CHEM", CourseNumber: "161"},
@@ -58,7 +56,7 @@ func BenchmarkGenerate_RealData_5Courses(b *testing.B) {
 
 	b.ResetTimer()
 	for b.Loop() {
-		resp, err := service.Generate(ctx, req)
+		resp, err := service.Generate(ctx, td, req)
 		if err != nil {
 			b.Fatal(err)
 		}
@@ -68,11 +66,11 @@ func BenchmarkGenerate_RealData_5Courses(b *testing.B) {
 
 // BenchmarkGenerate_RealData_8Courses benchmarks with 8 courses.
 func BenchmarkGenerate_RealData_8Courses(b *testing.B) {
-	service, term := setupRealData(b)
+	service, td := setupRealData(b)
 	ctx := context.Background()
 
 	req := GenerateRequest{
-		Term: term,
+		Term: td.Term,
 		CourseSpecs: []CourseSpec{
 			{Subject: "ENG", CourseNumber: "101"},
 			{Subject: "CHEM", CourseNumber: "161"},
@@ -89,7 +87,7 @@ func BenchmarkGenerate_RealData_8Courses(b *testing.B) {
 
 	b.ResetTimer()
 	for b.Loop() {
-		resp, err := service.Generate(ctx, req)
+		resp, err := service.Generate(ctx, td, req)
 		if err != nil {
 			b.Fatal(err)
 		}
@@ -99,11 +97,11 @@ func BenchmarkGenerate_RealData_8Courses(b *testing.B) {
 
 // BenchmarkGenerate_RealData_10Courses benchmarks with 10 courses (realistic student load).
 func BenchmarkGenerate_RealData_10Courses(b *testing.B) {
-	service, term := setupRealData(b)
+	service, td := setupRealData(b)
 	ctx := context.Background()
 
 	req := GenerateRequest{
-		Term: term,
+		Term: td.Term,
 		CourseSpecs: []CourseSpec{
 			{Subject: "ENG", CourseNumber: "101"},
 			{Subject: "CHEM", CourseNumber: "161"},
@@ -122,7 +120,7 @@ func BenchmarkGenerate_RealData_10Courses(b *testing.B) {
 
 	b.ResetTimer()
 	for b.Loop() {
-		resp, err := service.Generate(ctx, req)
+		resp, err := service.Generate(ctx, td, req)
 		if err != nil {
 			b.Fatal(err)
 		}
@@ -132,11 +130,11 @@ func BenchmarkGenerate_RealData_10Courses(b *testing.B) {
 
 // BenchmarkGenerate_RealData_13Courses benchmarks with max input courses.
 func BenchmarkGenerate_RealData_13Courses(b *testing.B) {
-	service, term := setupRealData(b)
+	service, td := setupRealData(b)
 	ctx := context.Background()
 
 	req := GenerateRequest{
-		Term: term,
+		Term: td.Term,
 		CourseSpecs: []CourseSpec{
 			{Subject: "ENG", CourseNumber: "101"},
 			{Subject: "CHEM", CourseNumber: "161"},
@@ -158,7 +156,7 @@ func BenchmarkGenerate_RealData_13Courses(b *testing.B) {
 
 	b.ResetTimer()
 	for b.Loop() {
-		resp, err := service.Generate(ctx, req)
+		resp, err := service.Generate(ctx, td, req)
 		if err != nil {
 			b.Fatal(err)
 		}
@@ -168,11 +166,11 @@ func BenchmarkGenerate_RealData_13Courses(b *testing.B) {
 
 // BenchmarkGenerate_RealData_WithRequired benchmarks with required courses.
 func BenchmarkGenerate_RealData_WithRequired(b *testing.B) {
-	service, term := setupRealData(b)
+	service, td := setupRealData(b)
 	ctx := context.Background()
 
 	req := GenerateRequest{
-		Term: term,
+		Term: td.Term,
 		CourseSpecs: []CourseSpec{
 			{Subject: "MATH", CourseNumber: "112", Required: true, AllowedCRNs: []string{"40346"}}, // Force a specific section
 			{Subject: "CHEM", CourseNumber: "161"},
@@ -186,7 +184,7 @@ func BenchmarkGenerate_RealData_WithRequired(b *testing.B) {
 
 	b.ResetTimer()
 	for b.Loop() {
-		resp, err := service.Generate(ctx, req)
+		resp, err := service.Generate(ctx, td, req)
 		if err != nil {
 			b.Fatal(err)
 		}
@@ -209,12 +207,11 @@ func TestGenerate_RealData_Stats(t *testing.T) {
 	queries := store.New(db)
 	scheduleCache := cache.NewScheduleCache(queries, nil)
 
-	term := "202540"
-	if err := scheduleCache.LoadTerm(context.Background(), term); err != nil {
-		t.Skipf("Could not load term %s: %v", term, err)
+	td, err := scheduleCache.Term(context.Background(), "202540")
+	if err != nil {
+		t.Skipf("Could not load term 202540: %v", err)
 	}
-
-	service := NewService(scheduleCache, queries)
+	service := NewService(queries)
 	ctx := context.Background()
 
 	testCases := []struct {
@@ -272,13 +269,13 @@ func TestGenerate_RealData_Stats(t *testing.T) {
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			req := GenerateRequest{
-				Term:        term,
+				Term:        td.Term,
 				CourseSpecs: tc.specs,
 				MinCourses:  tc.min,
 				MaxCourses:  tc.max,
 			}
 
-			resp, err := service.Generate(ctx, req)
+			resp, err := service.Generate(ctx, td, req)
 			if err != nil {
 				t.Fatal(err)
 			}

@@ -15,7 +15,7 @@ import (
 
 // Setup creates and starts the jobs service if enabled in config.
 // Returns nil if jobs are disabled. The context controls job lifecycle.
-func Setup(ctx context.Context, cfg *config.Config, db *sql.DB, gradeService *grades.Service) *Service {
+func Setup(ctx context.Context, cfg *config.Config, db *sql.DB, gradeService *grades.Service, cache CacheInvalidator) *Service {
 	if !cfg.JobsEnabled {
 		return nil
 	}
@@ -32,9 +32,9 @@ func Setup(ctx context.Context, cfg *config.Config, db *sql.DB, gradeService *gr
 	// is due on startup and at the daily hour, so the term list and calendar
 	// are fresh before the scrape job reads them at those checks.
 	service := NewService(time.Minute)
-	service.Register(NewGradeImportJob(gradeService))
-	service.Register(NewCalendarJob(sc, calendar.NewService(db), cfg.DailyScrapeHour))
-	service.Register(NewScrapeJob(queries, sc, cfg.PastTermYears, cfg.ActiveScrapeHours, cfg.DailyScrapeHour))
+	service.Register(NewGradeImportJob(gradeService, cache))
+	service.Register(NewCalendarJob(sc, calendar.NewService(db), cache, cfg.DailyScrapeHour))
+	service.Register(NewScrapeJob(queries, sc, cache, cfg.PastTermYears, cfg.ActiveScrapeHours, cfg.DailyScrapeHour))
 
 	go service.Start(ctx)
 

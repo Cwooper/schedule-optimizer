@@ -1,5 +1,5 @@
 // Package meeting holds the meeting-time shape every section payload shares,
-// so the schedule cache, search, and CRN lookup cannot drift apart.
+// so the payloads cannot drift apart.
 package meeting
 
 import (
@@ -22,6 +22,9 @@ type Time struct {
 	// It only feeds final exam matching.
 	ScheduleType string `json:"-"`
 }
+
+// LectureType is Banner's meeting type for a lecture.
+const LectureType = "L"
 
 // IsLab reports whether Banner marks the meeting as a lab.
 func (t Time) IsLab() bool { return t.ScheduleType == "B" }

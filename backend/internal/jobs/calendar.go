@@ -15,12 +15,13 @@ import (
 type CalendarJob struct {
 	scraper   *scraper.Scraper
 	calendar  *calendar.Service
+	cache     CacheInvalidator
 	dailyHour int
 	lastRun   time.Time
 }
 
-func NewCalendarJob(scraper *scraper.Scraper, cal *calendar.Service, dailyHour int) *CalendarJob {
-	return &CalendarJob{scraper: scraper, calendar: cal, dailyHour: dailyHour}
+func NewCalendarJob(scraper *scraper.Scraper, cal *calendar.Service, cache CacheInvalidator, dailyHour int) *CalendarJob {
+	return &CalendarJob{scraper: scraper, calendar: cal, cache: cache, dailyHour: dailyHour}
 }
 
 func (j *CalendarJob) Name() string { return "calendar" }
@@ -32,5 +33,9 @@ func (j *CalendarJob) ShouldRun(_ context.Context, now time.Time) bool {
 func (j *CalendarJob) Run(ctx context.Context, now time.Time) error {
 	j.lastRun = now
 	_, err := j.scraper.ScrapeTerms(ctx)
-	return errors.Join(err, j.calendar.ScrapeAll(ctx))
+	err = errors.Join(err, j.calendar.ScrapeAll(ctx))
+	// ScrapeAll rewrites every published term's finals, even when one source
+	// fails, so every cached term may hold old ones.
+	j.cache.InvalidateAll()
+	return err
 }

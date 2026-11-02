@@ -3,6 +3,7 @@ package calendar
 import (
 	"context"
 	"fmt"
+	"log/slog"
 	"slices"
 	"strconv"
 	"time"
@@ -15,7 +16,7 @@ import (
 type GuessReason string
 
 const (
-	ReasonLab      GuessReason = "lab"      // lecture and lab meet at different times
+	ReasonLab      GuessReason = "lab"      // a lab-coded meeting, or a lecture/lab section with several times
 	ReasonMultiple GuessReason = "multiple" // more than one meeting time
 	ReasonWeekly   GuessReason = "weekly"   // meets once a week; many such classes have no final
 )
@@ -66,6 +67,17 @@ func LoadFinals(ctx context.Context, q *store.Queries, terms []string) (map[stri
 	return tables, nil
 }
 
+// SectionFinals is LoadFinals for section payloads. A final is one detail of
+// a section, so a load error is logged and the sections go out without
+// finals rather than failing search, CRN lookup, or generate.
+func SectionFinals(ctx context.Context, q *store.Queries, terms []string) map[string]*FinalsTable {
+	tables, err := LoadFinals(ctx, q, terms)
+	if err != nil {
+		slog.Error("Failed to load finals; sections go without", "terms", terms, "error", err)
+	}
+	return tables
+}
+
 func (t *FinalsTable) add(m finalMapping) {
 	t.slots = append(t.slots, m)
 	monday := m.examDate.AddDate(0, 0, -int(m.examDate.Weekday()-time.Monday))
@@ -94,11 +106,11 @@ const (
 // The registrar holds a lab-only class's exam at its lab time, but most labs
 // have none, so a guess there would mostly be wrong.
 //
-// Only one weekly meeting time, on two or more days, without a lab is certain.
-// The registrar bases a lecture-and-lab class on the lecture, but Banner's
-// per-meeting lab codes are unreliable (some PHYS 161 sections mark the
-// lecture as the lab), so those, and other multi-time sections, are guesses
-// from the pattern with the most weekly minutes.
+// Only one weekly meeting time, on two or more days, and not lab-coded, is
+// certain, whatever the section type. The registrar bases a lecture-and-lab
+// class on the lecture, but Banner's per-meeting codes are unreliable (some
+// PHYS 161 sections mark the lecture as the lab), so a section with several
+// times is a guess from its likeliest lecture (see choosePattern).
 func (t *FinalsTable) FinalFor(scheduleType string, meetings []meeting.Time) *Final {
 	if t == nil || scheduleType == "Lab" {
 		return nil
@@ -129,10 +141,13 @@ func (t *FinalsTable) FinalFor(scheduleType string, meetings []meeting.Time) *Fi
 
 // pattern is one weekly meeting time. Banner splits a pattern across rows
 // (TR as a T row and an R row) and repeats rows, so rows sharing a time and
-// lab flag merge.
+// meeting type merge. Rows of different types stay apart even at one time:
+// MIS 320 has an L row for MW and C rows for its R lab, and merging them
+// would put its final in the Tuesday/Thursday column.
 type pattern struct {
 	start, end int // minutes after midnight
 	days       [7]bool
+	typ        string // Banner's meeting type
 	lab        bool
 }
 
@@ -150,10 +165,25 @@ func (p pattern) weeklyMinutes() int { return (p.end - p.start) * p.dayCount() }
 
 func (p pattern) meetsWeekday() bool { return slices.Contains(p.days[1:6], true) }
 
-// patterns keeps the timed, repeating meetings still running in the last
-// week of classes; a short session that ended earlier has no final.
+// rank orders patterns as lecture candidates: Banner's lecture type, then
+// other non-lab types, then labs.
+func (p pattern) rank() int {
+	switch {
+	case p.typ == meeting.LectureType:
+		return 0
+	case p.lab:
+		return 2
+	default:
+		return 1
+	}
+}
+
+// patterns keeps the timed, repeating meetings that run in the last week of
+// classes; a short session that ended earlier, or one that starts later, has
+// no final.
 func (t *FinalsTable) patterns(meetings []meeting.Time) []pattern {
 	lastWeek := t.monday.AddDate(0, 0, -7).Format(time.DateOnly)
+	finalsWeek := t.monday.Format(time.DateOnly)
 	var out []pattern
 	for _, m := range meetings {
 		start, okStart := clockMinutes(m.StartTime)
@@ -164,14 +194,14 @@ func (t *FinalsTable) patterns(meetings []meeting.Time) []pattern {
 		if m.StartDate != "" && m.StartDate == m.EndDate {
 			continue // a one-off meeting
 		}
-		if m.EndDate != "" && m.EndDate < lastWeek {
+		if (m.EndDate != "" && m.EndDate < lastWeek) || (m.StartDate != "" && m.StartDate >= finalsWeek) {
 			continue
 		}
 		i := slices.IndexFunc(out, func(p pattern) bool {
-			return p.start == start && p.end == end && p.lab == m.IsLab()
+			return p.start == start && p.end == end && p.typ == m.ScheduleType
 		})
 		if i < 0 {
-			out = append(out, pattern{start: start, end: end, lab: m.IsLab()})
+			out = append(out, pattern{start: start, end: end, typ: m.ScheduleType, lab: m.IsLab()})
 			i = len(out) - 1
 		}
 		for d, on := range m.Days {
@@ -181,9 +211,9 @@ func (t *FinalsTable) patterns(meetings []meeting.Time) []pattern {
 	return out
 }
 
-// choosePattern picks the weekday pattern with the most weekly minutes,
-// preferring non-lab patterns. Ties go to the earlier start so the pick does
-// not depend on row order.
+// choosePattern picks the weekday pattern with the best rank, then the most
+// weekly minutes. Ties go to the earlier start so the pick does not depend on
+// row order.
 func choosePattern(patterns []pattern) (pattern, bool) {
 	var best pattern
 	found := false
@@ -191,8 +221,8 @@ func choosePattern(patterns []pattern) (pattern, bool) {
 		switch {
 		case !found:
 			return true
-		case p.lab != best.lab:
-			return !p.lab
+		case p.rank() != best.rank():
+			return p.rank() < best.rank()
 		case p.weeklyMinutes() != best.weeklyMinutes():
 			return p.weeklyMinutes() > best.weeklyMinutes()
 		default:

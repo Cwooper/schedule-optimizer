@@ -24,12 +24,13 @@ func (h *Handlers) Generate(c *gin.Context) {
 		return
 	}
 
-	if err := h.cache.LoadTermIfNeeded(c.Request.Context(), req.Term); err != nil {
+	term, err := h.cache.Term(c.Request.Context(), req.Term)
+	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to load term: " + err.Error()})
 		return
 	}
 
-	resp, err := h.generator.Generate(c.Request.Context(), req)
+	resp, err := h.generator.Generate(c.Request.Context(), term, req)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return

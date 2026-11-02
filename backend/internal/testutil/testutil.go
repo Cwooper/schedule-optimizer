@@ -87,3 +87,23 @@ func SeedTestData(t testing.TB, db *sql.DB) {
 		t.Fatalf("failed to seed test data: %v", err)
 	}
 }
+
+// SeedSpring2025Calendar gives SeedTestData's Spring 2025 term published
+// dates, a Phase I row, a holiday, a deadline, and one finals slot matching
+// CRN 20001 (MWF 10:00).
+func SeedSpring2025Calendar(t testing.TB, db *sql.DB) {
+	t.Helper()
+	_, err := db.Exec(`
+		INSERT INTO term_dates (term_code, start_date, end_date) VALUES ('202520', '2025-03-31', '2025-06-13');
+		INSERT INTO important_dates (term_code, date, end_date, description, category, opens_registration) VALUES
+			('202520', '2025-02-25', '2025-03-10', 'Phase I - registration', 'registration', 1),
+			('202520', '2025-05-26', NULL, 'Memorial Day', 'holiday', 0),
+			('202520', '2025-05-11', NULL, 'Last day to withdraw from a class', 'deadline', 0),
+			('202520', '2025-06-09', '2025-06-13', 'Final Exams', 'academic', 0);
+		INSERT INTO finals_mappings (term_code, time_range_start, time_range_end, has_tuth, exam_date, exam_start_time, exam_end_time)
+			VALUES ('202520', '0930', '1029', 0, '2025-06-10', '1030', '1230');
+	`)
+	if err != nil {
+		t.Fatal(err)
+	}
+}

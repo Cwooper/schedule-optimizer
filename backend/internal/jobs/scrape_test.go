@@ -32,7 +32,12 @@ type fakeScraper struct {
 	scrapes  map[string][]time.Time // scrape start times per term
 	order    []string
 	failures map[string]int // scrapes left to fail per term
+	// invalidated is every term the job dropped from the schedule cache.
+	invalidated []string
 }
+
+func (f *fakeScraper) Invalidate(term string) { f.invalidated = append(f.invalidated, term) }
+func (f *fakeScraper) InvalidateAll()         { f.t.Error("scrape job invalidated the whole cache") }
 
 func (f *fakeScraper) ScrapeTerm(ctx context.Context, term string) (int, error) {
 	f.scrapes[term] = append(f.scrapes[term], f.clock)
@@ -66,7 +71,7 @@ func simulate(t *testing.T, codes []string, start time.Time, span time.Duration,
 		seed(db, fake)
 	}
 	svc := NewService(time.Minute)
-	svc.Register(NewScrapeJob(queries, fake, 5, 8, 3))
+	svc.Register(NewScrapeJob(queries, fake, fake, 5, 8, 3))
 	start = start.UTC()
 	for now := start; now.Before(start.Add(span)); {
 		fake.clock = now
@@ -169,6 +174,10 @@ func TestFailedScrapeBacksOff(t *testing.T) {
 	}
 	if want := []string{"10:00", "11:00", "12:00", "13:00", "21:03"}; !slices.Equal(got, want) {
 		t.Errorf("scraped at %v, want %v", got, want)
+	}
+	// Only the two successes rewrote the term's sections.
+	if want := []string{"202710", "202710"}; !slices.Equal(scraped.invalidated, want) {
+		t.Errorf("invalidated %v, want %v", scraped.invalidated, want)
 	}
 }
 

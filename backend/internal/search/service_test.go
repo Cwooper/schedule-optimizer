@@ -5,6 +5,7 @@ import (
 	"strings"
 	"testing"
 
+	"schedule-optimizer/internal/calendar"
 	"schedule-optimizer/internal/testutil"
 )
 
@@ -867,5 +868,33 @@ func TestBuildCourseNumberPattern(t *testing.T) {
 				t.Errorf("buildCourseNumberPattern(%q) = %v, expected %v", tt.input, *result, *tt.expected)
 			}
 		}
+	}
+}
+
+func TestSearchIncludesFinal(t *testing.T) {
+	db, queries := testutil.SetupTestDB(t)
+	testutil.SeedTestData(t, db)
+	testutil.SeedSpring2025Calendar(t, db)
+	svc := NewService(db, queries, nil)
+
+	resp, err := svc.Search(context.Background(), SearchRequest{Term: "202520", Subject: "CSCI"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	want := calendar.Final{Date: "2025-06-10", Start: "1030", End: "1230", Certain: true}
+	if got := resp.Sections["202520:20001"].Final; got == nil || *got != want {
+		t.Errorf("CRN 20001 final = %+v, want %+v", got, want)
+	}
+
+	// The section's own type decides: a lab-only section has no final.
+	if _, err := db.Exec("UPDATE sections SET schedule_type = 'Lab' WHERE crn = '20001'"); err != nil {
+		t.Fatal(err)
+	}
+	resp, err = svc.Search(context.Background(), SearchRequest{Term: "202520", Subject: "CSCI"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got := resp.Sections["202520:20001"].Final; got != nil {
+		t.Errorf("lab CRN 20001 final = %+v, want none", got)
 	}
 }

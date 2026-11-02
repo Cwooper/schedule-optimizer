@@ -83,6 +83,28 @@ func TestLoadTerm(t *testing.T) {
 	}
 }
 
+func TestLoadTermFinalsWeekPrefersThePage(t *testing.T) {
+	svc, queries := newTestService(t, "202710")
+	seedWinter2027(t, svc)
+	// The table's exams fall Mar 15-19; a page row that disagrees wins.
+	res, err := svc.db.Exec(`UPDATE important_dates SET date = '2027-03-16', end_date = '2027-03-20'
+		WHERE term_code = '202710' AND description LIKE 'Final Exam%'`)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if n, _ := res.RowsAffected(); n != 1 {
+		t.Fatalf("updated %d final exams rows, want 1", n)
+	}
+
+	cal, _, err := LoadTerm(context.Background(), queries, "202710")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if cal.Finals == nil || *cal.Finals != (DateRange{"2027-03-16", "2027-03-20"}) {
+		t.Errorf("finals = %+v, want the page's Mar 16-20", cal.Finals)
+	}
+}
+
 func TestLoadTermEstimated(t *testing.T) {
 	_, queries := newTestService(t, "202730")
 

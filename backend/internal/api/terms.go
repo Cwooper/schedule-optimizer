@@ -22,7 +22,8 @@ type TermResponse struct {
 	Estimated         bool   `json:"estimated"`
 }
 
-// GetTerms returns available terms for dropdowns.
+// GetTerms returns the newest terms with their phase and dates, and the term
+// to open to.
 func (h *Handlers) GetTerms(c *gin.Context) {
 	terms, err := h.queries.GetTerms(c.Request.Context())
 	if err != nil {

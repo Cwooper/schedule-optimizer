@@ -16,7 +16,7 @@ A course scheduling tool for Western Washington University students. Add your co
 - **Blocked times** — paint time slots as unavailable with named groups, custom colors, opacity, and hatching patterns
 - Browse generated schedules with scoring based on gaps, start time, and end time preferences
 - View async/TBD courses separately
-- **Final exams** on every section, matched to the registrar's finals schedule; times the meeting pattern leaves ambiguous (labs, several meeting times, once-a-week classes) are marked as guesses
+- **Final exams** on each section with a scheduled final, matched to the registrar's finals schedule; times the meeting pattern leaves ambiguous (labs, several meeting times, once-a-week classes) are marked as guesses
 - **Finals week** view of the current schedule's exams
 - **Add to Calendar**: download an `.ics` file with classes (holidays skipped), final exams, holidays, registration phases, and add/drop/withdraw deadlines
 
