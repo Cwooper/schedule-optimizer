@@ -80,7 +80,7 @@ func Load() *Config {
 // SetupLogging configures the global slog logger based on environment.
 func SetupLogging(cfg *Config) {
 	if cfg.Environment != "production" {
-		slog.SetDefault(slog.New(tint.NewHandler(os.Stderr, &tint.Options{
+		slog.SetDefault(slog.New(tint.NewTextHandler(os.Stderr, &tint.Options{
 			Level:      slog.LevelDebug,
 			TimeFormat: time.Kitchen,
 		})))

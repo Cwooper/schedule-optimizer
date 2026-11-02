@@ -832,26 +832,26 @@ func TestBuildCourseNumberPattern(t *testing.T) {
 		// Empty
 		{"", nil},
 		// Exact match (3+ chars, no wildcard)
-		{"247", strPtr("247")},
-		{"301", strPtr("301")},
+		{"247", new("247")},
+		{"301", new("301")},
 		// Auto-wildcard for 1-2 chars
-		{"2", strPtr("2%")},
-		{"20", strPtr("20%")},
+		{"2", new("2%")},
+		{"20", new("20%")},
 		// Explicit suffix wildcard
-		{"2*", strPtr("2%")},
-		{"2%", strPtr("2%")},
-		{"30*", strPtr("30%")},
+		{"2*", new("2%")},
+		{"2%", new("2%")},
+		{"30*", new("30%")},
 		// Prefix wildcard
-		{"*97", strPtr("%97")},
-		{"*01", strPtr("%01")},
+		{"*97", new("%97")},
+		{"*01", new("%01")},
 		// Internal wildcard
-		{"2*7", strPtr("2%7")},
-		{"4*7X", strPtr("4%7X")},
+		{"2*7", new("2%7")},
+		{"4*7X", new("4%7X")},
 		// Multiple wildcards
-		{"*97*", strPtr("%97%")},
-		{"*9*X", strPtr("%9%X")},
+		{"*97*", new("%97%")},
+		{"*9*X", new("%9%X")},
 		// Mixed * and %
-		{"2*7%", strPtr("2%7%")},
+		{"2*7%", new("2%7%")},
 	}
 
 	for _, tt := range tests {
@@ -868,8 +868,4 @@ func TestBuildCourseNumberPattern(t *testing.T) {
 			}
 		}
 	}
-}
-
-func strPtr(s string) *string {
-	return &s
 }
