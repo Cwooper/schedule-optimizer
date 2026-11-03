@@ -44,9 +44,14 @@ export function termStatus(
   return { text: `Classes end ${formatMonthDay(calendar.end)}` }
 }
 
+/** "Nov 3", or "~Nov 3" for an estimate. */
+function openingDate(iso: string, estimated: boolean): string {
+  return `${estimated ? "~" : ""}${formatMonthDay(iso)}`
+}
+
 function registrationOpensText(term: Term): string {
   if (term.phase === "registration") return `${term.name} registration open`
-  return `${term.name} registration opens ${formatMonthDay(term.registrationOpens)}`
+  return `${term.name} registration opens ${openingDate(term.registrationOpens, term.estimated)}`
 }
 
 // TODO(issue 75): count down to the student's own
@@ -54,9 +59,14 @@ function registrationOpensText(term: Term): string {
 function countdownText(calendar: TermCalendar, today: string): string {
   const phaseOne = calendar.registration.find((r) => r.phase === "I")
   const opens = phaseOne?.start ?? calendar.registrationOpens
+  // The phase comes from /api/terms and can be stale after midnight until it
+  // refetches, so the opening day can arrive, or pass, in pre-registration.
   const days = daysBetween(today, opens)
-  const when = days === 1 ? "tomorrow" : `in ${days} days`
-  return `${phaseOne ? "Phase I" : "Registration"} opens ${formatMonthDay(opens)} - ${when}`
+  let when = `in ${days} days`
+  if (days <= 0) when = "today"
+  else if (days === 1) when = "tomorrow"
+  const date = openingDate(opens, !phaseOne && calendar.estimated)
+  return `${phaseOne ? "Phase I" : "Registration"} opens ${date} - ${when}`
 }
 
 function registrationText(calendar: TermCalendar, today: string): string | null {

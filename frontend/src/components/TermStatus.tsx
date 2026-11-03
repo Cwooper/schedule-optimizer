@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/popover"
 import { useCalendar } from "@/hooks/use-api"
 import type { Term, TermCalendar } from "@/lib/api"
-import { toISODate } from "@/lib/dates"
+import { pacificToday } from "@/lib/dates"
 import { keyDateRows, termStatus, type KeyDateState } from "@/lib/term-status"
 import { cn } from "@/lib/utils"
 
@@ -25,15 +25,17 @@ const triggerClass =
 export function TermStatus({ term, terms, onSelectTerm }: TermStatusProps) {
   const { data: calendar } = useCalendar(term?.code ?? "")
   if (!term) return null
-  const status = termStatus(term, calendar, terms, toISODate(new Date()))
+  const status = termStatus(term, calendar, terms, pacificToday())
   if (!status) return null
 
   const content = (
     <>
-      {/* Centered beside the text, so the text alone sets the baseline the
-          Term label aligns to. */}
-      <Calendar className="size-3.5 shrink-0 self-center" />
-      <span className="truncate">{status.text}</span>
+      {/* The line is no taller than the Term label's, so the label row keeps
+          its height when the status comes and goes: the icon overhangs it by
+          a pixel each way, and the text clips only sideways, leaving room
+          for descenders. */}
+      <Calendar className="-my-px size-3.5 shrink-0 self-center" />
+      <span className="min-w-0 overflow-x-clip text-ellipsis whitespace-nowrap">{status.text}</span>
     </>
   )
 
@@ -66,7 +68,7 @@ const ROW_STATE_CLASS: Record<KeyDateState, string> = {
 }
 
 function KeyDates({ termName, calendar }: { termName: string; calendar: TermCalendar }) {
-  const rows = keyDateRows(calendar, toISODate(new Date()))
+  const rows = keyDateRows(calendar, pacificToday())
   return (
     <>
       <div className="mb-2 flex h-5 items-center justify-between gap-2">

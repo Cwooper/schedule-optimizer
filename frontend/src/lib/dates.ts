@@ -15,6 +15,19 @@ export function toISODate(date: Date): string {
   return `${date.getFullYear()}-${m}-${d}`
 }
 
+const pacificDateFormat = new Intl.DateTimeFormat("en-US", {
+  timeZone: "America/Los_Angeles",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+})
+
+/** Today's date at WWU, which the server's phases also follow, in any browser zone. */
+export function pacificToday(now = new Date()): string {
+  const parts = Object.fromEntries(pacificDateFormat.formatToParts(now).map((p) => [p.type, p.value]))
+  return `${parts.year}-${parts.month}-${parts.day}`
+}
+
 export function addDays(iso: string, days: number): string {
   const date = parseISODate(iso)
   date.setDate(date.getDate() + days)

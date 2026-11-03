@@ -59,20 +59,14 @@ function formatTime(time: string): string {
   return `${displayHour}:${mins}${suffix}`
 }
 
-function hasScheduledTime(meeting: MeetingTime): boolean {
-  const hasWeekday = meeting.days.slice(1, 6).some(Boolean)
-  return hasWeekday && !!meeting.startTime && !!meeting.endTime
-}
-
 function isAsync(meeting: MeetingTime): boolean {
   return meeting.room === "ASNC"
 }
 
 function formatMeetingTime(meeting: MeetingTime): string {
-  if (hasScheduledTime(meeting)) {
-    const days = formatDays(meeting.days)
-    const time = `${formatTime(meeting.startTime)}-${formatTime(meeting.endTime)}`
-    return `${days} ${time}`
+  const { startTime, endTime } = meeting
+  if (meeting.days.slice(1, 6).some(Boolean) && startTime && endTime) {
+    return `${formatDays(meeting.days)} ${formatTime(startTime)}-${formatTime(endTime)}`
   }
   if (isAsync(meeting)) return "Asynchronous, no set times"
   return "Times arranged with instructor"

@@ -3,7 +3,7 @@
 // times so they stay at 9:00 across the November DST change.
 
 import type { HydratedSection, MeetingTime, RegistrationPhaseName, TermCalendar } from "@/lib/api"
-import { addDays, parseISODate, weekday } from "@/lib/dates"
+import { addDays, weekday } from "@/lib/dates"
 import { FINAL_GUESS_REASONS } from "@/lib/finals"
 import { hashString } from "@/lib/schedule-utils"
 import { stripTrailingNote } from "@/lib/utils"
@@ -103,13 +103,34 @@ function buildEvents({ termName, calendar, sections, options, now }: IcsInput): 
   ]
 }
 
+/**
+ * One event per meeting time. Rows that differ only by room (a lecture split
+ * across PH 210 and PH 210B) are one event in both rooms, since duplicate
+ * UIDs make calendar apps keep only one of them.
+ */
 function classEvents(event: MakeEvent, section: HydratedSection, calendar: TermCalendar): Event[] {
-  return section.meetingTimes.flatMap((meeting) => {
-    const lines = classEventLines(section, meeting, calendar)
-    if (!lines) return []
-    const days = meeting.days.map((on, i) => (on ? DAY_LETTERS[i] : "")).join("")
-    return [event(`${section.crn}-${days}-${meeting.startTime}`, lines)]
+  const groups = new Map<string, MeetingTime[]>()
+  for (const m of section.meetingTimes) {
+    const days = m.days.map((on, i) => (on ? DAY_LETTERS[i] : "")).join("")
+    // Every part comes from Banner, so the UID survives re-exports, and the
+    // dates keep a split term's sessions apart.
+    const key = [section.crn, days, m.startTime, m.endTime, m.startDate, m.endDate]
+      .filter((part): part is string => !!part)
+      .map((part) => part.replaceAll("-", ""))
+      .join("-")
+    groups.set(key, [...(groups.get(key) ?? []), m])
+  }
+  return [...groups].flatMap(([uid, rows]) => {
+    const locations = [...new Set(rows.map(location).filter(Boolean))]
+    const lines = classEventLines(section, rows[0], locations.join(", "), calendar)
+    return lines ? [event(uid, lines)] : []
   })
+}
+
+function location(meeting: MeetingTime): string {
+  return [meeting.building, meeting.room]
+    .filter((part) => part && part !== "ASNC" && part !== "SYNC")
+    .join(" ")
 }
 
 function finalEvents(event: MakeEvent, section: HydratedSection): Event[] {
@@ -175,10 +196,12 @@ function allDay(
 function classEventLines(
   section: HydratedSection,
   meeting: MeetingTime,
+  location: string,
   calendar: TermCalendar
 ): string[] | null {
+  const { startTime, endTime } = meeting
   const days = meeting.days.flatMap((on, i) => (on ? [i] : []))
-  if (!meeting.startTime || !meeting.endTime || days.length === 0) return null
+  if (!startTime || !endTime || days.length === 0) return null
 
   const from = maxDate(meeting.startDate ?? calendar.start, calendar.start)
   const lastClassDay = calendar.finals ? addDays(calendar.finals.start, -1) : calendar.end
@@ -190,18 +213,15 @@ function classEventLines(
   const excluded = new Set<string>()
   for (const h of calendar.holidays) {
     for (let day = maxDate(h.start, first); day <= minDate(h.end, until); day = addDays(day, 1)) {
-      if (days.includes(weekday(day))) excluded.add(localStamp(day, meeting.startTime))
+      if (days.includes(weekday(day))) excluded.add(localStamp(day, startTime))
     }
   }
 
-  const location = [meeting.building, meeting.room]
-    .filter((part) => part && part !== "ASNC" && part !== "SYNC")
-    .join(" ")
   const description = [`CRN ${section.crn}`, section.instructor].filter(Boolean).join("\n")
   const summary = `${section.subject} ${section.courseNumber} - ${section.title}`
   return [
-    `DTSTART;TZID=${TZID}:${localStamp(first, meeting.startTime)}`,
-    `DTEND;TZID=${TZID}:${localStamp(first, meeting.endTime)}`,
+    `DTSTART;TZID=${TZID}:${localStamp(first, startTime)}`,
+    `DTEND;TZID=${TZID}:${localStamp(first, endTime)}`,
     `RRULE:FREQ=WEEKLY;BYDAY=${days.map((d) => BYDAY[d]).join(",")};UNTIL=${pacificEndOfDayUTC(until)}`,
     ...[...excluded].sort().map((stamp) => `EXDATE;TZID=${TZID}:${stamp}`),
     `SUMMARY:${escapeText(summary)}`,
@@ -231,18 +251,15 @@ function utcStamp(date: Date): string {
   return date.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "")
 }
 
-function nthSunday(year: number, month: number, n: number): number {
-  const firstDay = new Date(year, month, 1).getDay()
-  return 1 + ((7 - firstDay) % 7) + (n - 1) * 7
-}
+const offsetFormat = new Intl.DateTimeFormat("en-US", { timeZone: TZID, timeZoneName: "longOffset" })
 
-/** Whether 23:59 on a Pacific date is in daylight time (US rule since 2007). */
-export function isPacificDaylightEvening(iso: string): boolean {
-  const date = parseISODate(iso)
-  const y = date.getFullYear()
-  const start = new Date(y, 2, nthSunday(y, 2, 2))
-  const end = new Date(y, 10, nthSunday(y, 10, 1))
-  return date >= start && date < end
+/** Minutes Pacific clocks are ahead of UTC at an instant ("GMT-07:00" is -420). */
+function pacificOffsetMinutes(ms: number): number {
+  const name = offsetFormat.formatToParts(ms).find((p) => p.type === "timeZoneName")?.value ?? ""
+  const match = /^GMT([+-])(\d{2}):(\d{2})$/.exec(name)
+  if (!match) throw new Error(`unexpected Pacific offset "${name}"`)
+  const [, sign, hours, minutes] = match
+  return (sign === "-" ? -1 : 1) * (Number(hours) * 60 + Number(minutes))
 }
 
 /**
@@ -251,8 +268,11 @@ export function isPacificDaylightEvening(iso: string): boolean {
  */
 function pacificEndOfDayUTC(iso: string): string {
   const [y, m, d] = iso.split("-").map(Number)
-  const offsetHours = isPacificDaylightEvening(iso) ? 7 : 8
-  return utcStamp(new Date(Date.UTC(y, m - 1, d, 23 + offsetHours, 59, 59)))
+  const wall = Date.UTC(y, m - 1, d, 23, 59, 59)
+  // The offset at 23:59:59 standard time is the one in effect at that wall
+  // time too: DST changes at 2:00, never between the two.
+  const offset = pacificOffsetMinutes(wall + 8 * 3_600_000)
+  return utcStamp(new Date(wall - offset * 60_000))
 }
 
 export function escapeText(text: string): string {
@@ -260,7 +280,7 @@ export function escapeText(text: string): string {
     .replace(/\\/g, "\\\\")
     .replace(/;/g, "\\;")
     .replace(/,/g, "\\,")
-    .replace(/\r?\n/g, "\\n")
+    .replace(/\r\n|\r|\n/g, "\\n")
 }
 
 const encoder = new TextEncoder()

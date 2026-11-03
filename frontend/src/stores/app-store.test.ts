@@ -3,6 +3,7 @@ import {
   computeSlotsFingerprint,
   computeBlockedTimesFingerprint,
   migratePersistedState,
+  selectScheduleTerm,
   type CourseSlot,
   type GenerationParams,
 } from "./app-store"
@@ -333,6 +334,14 @@ describe("app-store", () => {
       expect(useAppStore.getState().term).toBe("202520")
     })
 
+    it("keeps the shown schedule's term after the sidebar switches", () => {
+      useAppStore.getState().setTerm("202520")
+      expect(selectScheduleTerm(useAppStore.getState())).toBe("202410")
+
+      useAppStore.getState().setGenerateResult(null)
+      expect(selectScheduleTerm(useAppStore.getState())).toBe("202520")
+    })
+
     it("marks stale when changing minCourses", () => {
       useAppStore.getState().setCourseBounds(2, null)
 
@@ -646,16 +655,20 @@ describe("app-store", () => {
       searchFilters: { title: "R&amp;D" },
     }
 
-    it("decodes course text nested in slots and generateResult", () => {
+    it("decodes course text nested in slots", () => {
       const out = migratePersistedState(v0, 0, decode) as typeof v0
       expect(out.slots[0].title).toBe("B&W Photography")
       expect(out.slots[0].sections[0].instructor).toBe("O'Neil, Gregory")
-      expect(out.generateResult.schedules[0].courses[0]).toEqual({
-        crn: "40001",
-        title: "B&W Photography",
-        seats: 3,
+    })
+
+    it("drops a result generated before sections carried finals", () => {
+      const v1 = { ...v0, generatedWithParams: { term: "202710" }, currentScheduleIndex: 4 }
+      expect(migratePersistedState(v1, 1, decode)).toEqual({
+        ...v0,
+        generateResult: null,
+        generatedWithParams: null,
+        currentScheduleIndex: 0,
       })
-      expect(out.generateResult.stats).toBeNull()
     })
 
     it("leaves user-typed fields alone", () => {
@@ -664,8 +677,8 @@ describe("app-store", () => {
       expect(out.term).toBe("202710")
     })
 
-    it("skips state already at v1", () => {
-      expect(migratePersistedState(v0, 1, decode)).toBe(v0)
+    it("leaves current state alone", () => {
+      expect(migratePersistedState(v0, 2, decode)).toEqual(v0)
     })
   })
 })

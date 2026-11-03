@@ -182,7 +182,7 @@ interface AppState {
   sidebarCollapsed: boolean
   calendarExport: CalendarExportOptions
 
-  // Generated schedules (not persisted)
+  // Generated schedules
   generateResult: GenerateResponse | null
   generatedWithParams: GenerationParams | null
   currentScheduleIndex: number
@@ -282,20 +282,33 @@ function decodeDeep(value: unknown, decode: (s: string) => string): unknown {
  * components decoded it at render time; now the backend stores plain text.
  * Decode the course data older clients persisted so it does not render as
  * "B&amp;W".
+ *
+ * Before version 2 generated sections had no finals or meeting dates, so an
+ * old result would show no finals and export classes without their own date
+ * bounds. It is dropped; the slots it came from stay, ready to regenerate.
  */
 export function migratePersistedState(
   state: unknown,
   version: number,
   decode: (s: string) => string = decodeHtmlEntities
 ): unknown {
-  if (version < 1 && state && typeof state === "object") {
-    const out: Record<string, unknown> = { ...state }
-    for (const key of ["slots", "generateResult"]) {
-      if (key in out) out[key] = decodeDeep(out[key], decode)
-    }
-    return out
+  if (!state || typeof state !== "object") return state
+  const out: Record<string, unknown> = { ...state }
+  if (version < 1 && "slots" in out) out.slots = decodeDeep(out.slots, decode)
+  if (version < 2) {
+    out.generateResult = null
+    out.generatedWithParams = null
+    out.currentScheduleIndex = 0
   }
-  return state
+  return out
+}
+
+/**
+ * The term of the schedule on screen: the one it was generated for, which
+ * stays shown (marked stale) after the sidebar switches terms.
+ */
+export function selectScheduleTerm(state: AppState): string {
+  return (state.generateResult && state.generatedWithParams?.term) || state.term
 }
 
 // --- Store ---
@@ -615,7 +628,7 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: "schedule-optimizer",
-      version: 1,
+      version: 2,
       migrate: (state, version) => migratePersistedState(state, version) as AppState,
       partialize: (state) => ({
         // Only persist these fields

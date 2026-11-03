@@ -81,13 +81,14 @@ export interface CRNResponse {
   section: SectionInfo | null
 }
 
+/** The API omits each field but days when Banner has no value. */
 export interface MeetingTime {
   days: boolean[] // [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
-  startTime: string
-  endTime: string
-  building: string
-  room: string
-  startDate?: string
+  startTime?: string // HHMM
+  endTime?: string
+  building?: string
+  room?: string
+  startDate?: string // YYYY-MM-DD
   endDate?: string
 }
 

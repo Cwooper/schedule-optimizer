@@ -7,7 +7,6 @@ import {
   foldLine,
   hasIcsEvents,
   icsFilename,
-  isPacificDaylightEvening,
   type CalendarExportOptions,
 } from "./ics"
 
@@ -137,7 +136,7 @@ describe("buildIcs classes", () => {
   })
 
   it("gives stable UIDs and readable text", () => {
-    expect(prop(lecture, "UID")).toEqual(["UID:202640-41216-MTWF-0900@schedule.cwooper.dev"])
+    expect(prop(lecture, "UID")).toEqual(["UID:202640-41216-MTWF-0900-0950-20260923-20261211@schedule.cwooper.dev"])
     expect(prop(lecture, "SUMMARY")).toEqual(["SUMMARY:CSCI 247 - Computer Systems I"])
     expect(prop(lecture, "LOCATION")).toEqual(["LOCATION:CF 105"])
     expect(prop(lecture, "DESCRIPTION")).toEqual(["DESCRIPTION:CRN 41216\\nAda Lovelace"])
@@ -149,6 +148,48 @@ describe("buildIcs classes", () => {
     expect(prop(events(build([short], { classes: true }))[0], "RRULE")).toEqual([
       "RRULE:FREQ=WEEKLY;BYDAY=MO,WE;UNTIL=20261003T065959Z",
     ])
+  })
+
+  it("ends an evening class on either side of the November DST change", () => {
+    // DST ends at 2:00 on Sun Nov 1, 2026: 23:59:59 is PDT on Oct 31 and PST
+    // on Nov 1, so the 19:00 class on the last day falls inside UNTIL both times.
+    const until = (endDate: string) => {
+      const evening = section({ meetingTimes: [meeting("SU", "1900", "2150", { endDate })] })
+      return prop(events(build([evening], { classes: true }))[0], "RRULE")[0]
+    }
+    expect(until("2026-10-31")).toContain("UNTIL=20261101T065959Z")
+    expect(until("2026-11-01")).toContain("UNTIL=20261102T075959Z")
+  })
+
+  it("merges rows that differ only by room into one event", () => {
+    // ACCT 321 CRN 41526 meets in PH 210 and PH 210B at once.
+    const split = section({
+      meetingTimes: [
+        meeting("MW", "1000", "1150", { building: "PH", room: "210" }),
+        meeting("MW", "1000", "1150", { building: "PH", room: "210B" }),
+      ],
+    })
+    const evs = events(build([split], { classes: true }))
+    expect(evs).toHaveLength(1)
+    expect(prop(evs[0], "LOCATION")).toEqual(["LOCATION:PH 210\\, PH 210B"])
+  })
+
+  it("keeps the sessions of a split term apart with distinct, stable UIDs", () => {
+    // ECON 470 CRN 13702 (Winter 2026) meets W 10:00 twice with different dates.
+    const winter2026 = { ...fall, term: "202610", start: "2026-01-06", end: "2026-03-20", holidays: [], finals: { start: "2026-03-16", end: "2026-03-20" } }
+    const econ = section({
+      crn: "13702",
+      meetingTimes: [
+        meeting("W", "1000", "1150", { startDate: "2026-01-06", endDate: "2026-01-20" }),
+        meeting("W", "1000", "1150", { startDate: "2026-01-21", endDate: "2026-03-20" }),
+      ],
+    })
+    const uids = () => events(build([econ], { classes: true }, winter2026)).map((e) => prop(e, "UID")[0])
+    expect(uids()).toEqual([
+      "UID:202610-13702-W-1000-1150-20260106-20260120@schedule.cwooper.dev",
+      "UID:202610-13702-W-1000-1150-20260121-20260320@schedule.cwooper.dev",
+    ])
+    expect(uids()).toEqual(uids())
   })
 
   it("ends at the term's last day without finals", () => {
@@ -234,6 +275,10 @@ describe("ics encoding", () => {
     expect(escapeText("Ethics, Law; and \\ Society\nRoom 2")).toBe("Ethics\\, Law\\; and \\\\ Society\\nRoom 2")
   })
 
+  it("escapes every line break style, including a bare CR", () => {
+    expect(escapeText("a\r\nb\rc\nd")).toBe("a\\nb\\nc\\nd")
+  })
+
   it("folds at 75 octets without splitting a character", () => {
     const line = `SUMMARY:${"Þórður Guðjónsson ".repeat(8)}`
     const folded = foldLine(line)
@@ -249,19 +294,6 @@ describe("ics encoding", () => {
     const x = "X".repeat(73)
     expect(foldLine(`${x}ð`)).toBe(`${x}ð`)
     expect(foldLine(`${x}Xð`)).toBe(`${x}X\r\n ð`)
-  })
-})
-
-describe("isPacificDaylightEvening", () => {
-  it.each([
-    ["2026-10-31", true],
-    ["2026-11-01", false], // DST ends at 2:00 that morning
-    ["2027-03-13", false],
-    ["2027-03-14", true], // DST starts at 2:00 that morning
-    ["2027-06-06", true],
-    ["2027-01-15", false],
-  ])("%s is %s", (date, want) => {
-    expect(isPacificDaylightEvening(date)).toBe(want)
   })
 })
 

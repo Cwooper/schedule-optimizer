@@ -17,7 +17,7 @@ export function examSections(sections: HydratedSection[]): HydratedSection[] {
     if (!final) return []
     const days = Array<boolean>(7).fill(false)
     days[weekday(final.date)] = true
-    const exam: MeetingTime = { days, startTime: final.start, endTime: final.end, building: "", room: "" }
+    const exam: MeetingTime = { days, startTime: final.start, endTime: final.end }
     return [{ ...section, meetingTimes: [exam] }]
   })
 }

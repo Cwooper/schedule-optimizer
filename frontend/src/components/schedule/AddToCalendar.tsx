@@ -15,7 +15,7 @@ import {
 import { useCalendar, useTerms } from "@/hooks/use-api"
 import type { HydratedSection, RegistrationPhaseName } from "@/lib/api"
 import { buildIcs, hasIcsEvents, icsFilename, type CalendarExportOptions } from "@/lib/ics"
-import { useAppStore } from "@/stores/app-store"
+import { selectScheduleTerm, useAppStore } from "@/stores/app-store"
 
 const PHASES: RegistrationPhaseName[] = ["I", "II", "III"]
 
@@ -63,7 +63,7 @@ function OptionRow({
 
 /** Exports the current schedule and the term's WWU dates as an .ics file. */
 export function AddToCalendar({ sections }: { sections: HydratedSection[] }) {
-  const term = useAppStore((s) => s.term)
+  const term = useAppStore(selectScheduleTerm)
   const options = useAppStore((s) => s.calendarExport)
   const setOptions = useAppStore((s) => s.setCalendarExport)
   const { data: termsData } = useTerms()

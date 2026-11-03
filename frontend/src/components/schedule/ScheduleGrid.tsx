@@ -46,6 +46,7 @@ function meetingToBlocks(
   meeting: MeetingTime,
   colorClass: string
 ): CourseBlock[] {
+  if (!meeting.startTime || !meeting.endTime) return []
   const startMin = parseTime(meeting.startTime)
   const endMin = parseTime(meeting.endTime)
   const blocks: CourseBlock[] = []

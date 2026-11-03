@@ -56,9 +56,17 @@ describe("termStatus", () => {
     expect(termStatus(winterTerm, winter, [], "2026-11-02")?.text).toBe("Phase I opens Nov 3 - tomorrow")
   })
 
-  it("counts down to the estimated opening without a Phase I row", () => {
+  it("says today, never a negative count, once the opening day arrives", () => {
+    // The cached phase still says pre-registration until /api/terms refetches.
+    expect(termStatus(winterTerm, winter, [], "2026-11-03")?.text).toBe("Phase I opens Nov 3 - today")
+    expect(termStatus(winterTerm, winter, [], "2026-11-04")?.text).toBe("Phase I opens Nov 3 - today")
+  })
+
+  it("marks an estimated opening without a Phase I row", () => {
     const estimated = { ...winter, registration: [], registrationOpens: "2026-10-27", estimated: true }
-    expect(termStatus(winterTerm, estimated, [], "2026-10-20")?.text).toBe("Registration opens Oct 27 - in 7 days")
+    expect(termStatus(winterTerm, estimated, [], "2026-10-20")?.text).toBe("Registration opens ~Oct 27 - in 7 days")
+    const published = { ...estimated, estimated: false }
+    expect(termStatus(winterTerm, published, [], "2026-10-20")?.text).toBe("Registration opens Oct 27 - in 7 days")
   })
 
   it("names the next phase during registration, then the last phase's end", () => {
@@ -91,6 +99,13 @@ describe("termStatus", () => {
     expect(termStatus(fallTerm, fall, terms, "2026-10-19")?.text).toBe("Finals Dec 7-11")
   })
 
+  it("marks a newer term's estimated opening", () => {
+    const estimated = { ...winterTerm, registrationOpens: "2026-10-27", estimated: true }
+    expect(termStatus(fallTerm, fall, [estimated, fallTerm], "2026-10-20")?.text).toBe(
+      "Winter 2027 registration opens ~Oct 27"
+    )
+  })
+
   it("points to a newer term registering now", () => {
     const terms = [{ ...winterTerm, phase: "registration" as const }, fallTerm]
     expect(termStatus(fallTerm, fall, terms, "2026-11-05")).toEqual({
@@ -116,6 +131,17 @@ describe("keyDateRows", () => {
       { label: "", dates: "Mon, Feb 15", note: "Presidents' Day", state: "upcoming" },
       { label: "Finals", dates: "Mon, Mar 15 - Fri, Mar 19", state: "upcoming" },
     ])
+  })
+
+  it("lists one of two holidays with the same dates", () => {
+    const twice = {
+      ...winter,
+      holidays: [
+        { name: "Presidents' Day", start: "2027-02-15", end: "2027-02-15" },
+        { name: "Washington's Birthday", start: "2027-02-15", end: "2027-02-15" },
+      ],
+    }
+    expect(keyDateRows(twice, "2026-11-20").filter((r) => r.note).map((r) => r.note)).toEqual(["Presidents' Day"])
   })
 
   it("drops a holiday inside another and the trailing note", () => {

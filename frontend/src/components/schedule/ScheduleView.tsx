@@ -4,12 +4,15 @@ import { ScheduleGrid } from "./ScheduleGrid"
 import { AsyncCoursesList } from "./AsyncCoursesList"
 import { BlockedTimesDialog } from "./BlockedTimesDialog"
 import { ScheduleBanner, ScheduleNavHeader } from "./ScheduleNavHeader"
-import { useAppStore, type BlockedTimeBlock } from "@/stores/app-store"
+import { selectScheduleTerm, useAppStore, type BlockedTimeBlock, type BlockedTimeGroup } from "@/stores/app-store"
 import { useCalendar, useTerms } from "@/hooks/use-api"
 import { useExportPng } from "@/hooks/use-export-png"
 import { hydrateSchedule } from "@/lib/schedule-utils"
 import { examSections, finalsWeekDays } from "@/lib/finals"
 import { formatDayRange, formatNumericDate } from "@/lib/dates"
+
+// Blocked times are weekly class preferences; finals week has its own times.
+const NO_BLOCKED_TIMES: BlockedTimeGroup[] = []
 
 export function ScheduleView() {
   const {
@@ -27,7 +30,7 @@ export function ScheduleView() {
     updateBlockInGroupById,
     removeBlockFromGroupById,
   } = useAppStore()
-  const term = useAppStore((s) => s.term)
+  const term = useAppStore(selectScheduleTerm)
   const { data: termsData } = useTerms()
   const { data: calendar } = useCalendar(term)
   const isGenerateResultStale = useAppStore((s) => s.isGenerateResultStale())
@@ -173,7 +176,7 @@ export function ScheduleView() {
           guessedCrns={showFinals ? guessedCrns : undefined}
           onCourseClick={handleCourseClick}
           onBlockedTimeClick={handleBlockedTimeClick}
-          blockedTimeGroups={blockedTimeGroups}
+          blockedTimeGroups={showFinals ? NO_BLOCKED_TIMES : blockedTimeGroups}
           editingGroupId={editingBlockedTimeGroupId}
           onAddBlock={handleAddBlock}
           onUpdateBlock={handleUpdateBlock}
