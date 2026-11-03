@@ -6,7 +6,6 @@ import type { HydratedSection, MeetingTime, RegistrationPhaseName, TermCalendar 
 import { addDays, weekday } from "@/lib/dates"
 import { FINAL_GUESS_REASONS } from "@/lib/finals"
 import { hashString } from "@/lib/schedule-utils"
-import { SITE_URL } from "@/lib/site"
 import { stripTrailingNote, termAbbreviation } from "@/lib/utils"
 
 export interface CalendarExportOptions {
@@ -33,7 +32,7 @@ export interface IcsInput {
 }
 
 const TZID = "America/Los_Angeles"
-const UID_DOMAIN = new URL(SITE_URL).host
+const UID_DOMAIN = new URL(import.meta.env.VITE_SITE_URL).host
 const BYDAY = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"]
 const DAY_LETTERS = ["U", "M", "T", "W", "R", "F", "S"]
 const EXPORTED_DEADLINES = new Set(["add", "drop", "withdraw"])

@@ -234,6 +234,12 @@ JOBS_LOG_RETENTION_DAYS=90      # days to keep logs before pruning (default 90, 
 JOBS_PAST_TERM_YEARS=5          # years of past terms to scrape (default 5)
 ```
 
+Frontend (`frontend/.env`, committed; override in `frontend/.env.local` or the build environment):
+
+```bash
+VITE_SITE_URL=https://schedule-optimizer.cwooper.dev  # production origin: index.html canonical/social tags, calendar UID host; build fails if unset
+```
+
 ## Open Work
 
 Tracked in GitHub issues: run `gh issue list`. Issue numbers are not copied here because the list goes stale as issues close.
