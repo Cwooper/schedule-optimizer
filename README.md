@@ -17,8 +17,8 @@ A course scheduling tool for Western Washington University students. Add your co
 - Browse generated schedules with scoring based on gaps, start time, and end time preferences
 - View async/TBD courses separately
 - **Final exams** on each section with a scheduled final, matched to the registrar's finals schedule; times the meeting pattern leaves ambiguous (labs, several meeting times, once-a-week classes) are marked as guesses
-- **Finals week** view of the current schedule's exams
-- **Add to Calendar**: download an `.ics` file with classes (holidays skipped), final exams, holidays, registration phases, and add/drop/withdraw deadlines
+- **Finals week** view of the current schedule's exams, toggled from the schedule header
+- **Add to Calendar**: download an `.ics` file with classes (holidays skipped), final exams in their class's room, holidays, registration phases, and add/drop/withdraw deadlines, the term's dates titled short (`W27 - Drop deadline (no W)`) with the registrar's full wording in the description
 
 ### Term Dates
 
@@ -124,7 +124,7 @@ frontend/src/
 | `GET` | `/api/announcement` | Active announcement |
 | `POST` | `/api/feedback` | Submit feedback |
 
-Section payloads from generate, search, and CRN lookup carry `final` (`{date, start, end, certain, reason?}`) when the section has a final exam slot.
+Section payloads from generate, search, and CRN lookup carry `final` (`{date, start, end, certain, reason?, location?}`, the location being the room of the meeting time the exam is based on) when the section has a final exam slot, and mark lab meetings with `lab: true`. Calendar deadlines carry the registrar's wording as `name` and a short `title` for calendar events.
 
 ## Getting Started
 

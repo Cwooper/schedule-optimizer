@@ -77,7 +77,7 @@ export function AddToCalendar({ sections }: { sections: HydratedSection[] }) {
     finals: options.finals && hasSchedule,
   }
   const canDownload =
-    calendar != null && hasIcsEvents({ termName, calendar, sections, options: effective })
+    calendar != null && hasIcsEvents({ calendar, sections, options: effective })
 
   const phasesOn = PHASES.filter((p) => options.registration[p]).length
   let registrationChecked: boolean | "indeterminate" = phasesOn > 0
@@ -89,7 +89,7 @@ export function AddToCalendar({ sections }: { sections: HydratedSection[] }) {
     if (!calendar) return
     downloadFile(
       icsFilename(termName),
-      buildIcs({ termName, calendar, sections, options: effective, now: new Date() })
+      buildIcs({ calendar, sections, options: effective, now: new Date() })
     )
   }
 

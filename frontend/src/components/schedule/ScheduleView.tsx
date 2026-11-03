@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useRef, useState } from "react"
-import { Check, X } from "lucide-react"
+import { Check } from "lucide-react"
 import { ScheduleGrid } from "./ScheduleGrid"
 import { AsyncCoursesList } from "./AsyncCoursesList"
 import { BlockedTimesDialog } from "./BlockedTimesDialog"
@@ -9,7 +9,7 @@ import { useCalendar, useTerms } from "@/hooks/use-api"
 import { useExportPng } from "@/hooks/use-export-png"
 import { hydrateSchedule } from "@/lib/schedule-utils"
 import { examSections, finalsWeekDays } from "@/lib/finals"
-import { formatDayRange, formatNumericDate } from "@/lib/dates"
+import { formatNumericDate } from "@/lib/dates"
 
 // Blocked times are weekly class preferences; finals week has its own times.
 const NO_BLOCKED_TIMES: BlockedTimeGroup[] = []
@@ -144,12 +144,7 @@ export function ScheduleView() {
           Painting: {editingGroup?.title || "Blocked Time"}
         </ScheduleBanner>
       )}
-      {showFinals && (
-        <ScheduleBanner onClose={() => setFinalsView(false)} closeLabel="Close finals week" closeIcon={X}>
-          Finals week: {formatDayRange(finalsDays[0], finalsDays[4])}
-        </ScheduleBanner>
-      )}
-      {!isEditing && !showFinals && (
+      {!isEditing && (
         <ScheduleNavHeader
           canRegenerate={canRegenerate}
           showStale={showStale}
@@ -162,8 +157,9 @@ export function ScheduleView() {
           onBlockedTimes={() => setDialogOpen(true)}
           onDownloadPng={handleDownloadPng}
           isExporting={isExporting}
-          onFinalsWeek={() => setFinalsView(true)}
+          finalsWeek={showFinals}
           hasFinals={exams.length > 0}
+          onFinalsWeekChange={setFinalsView}
         />
       )}
 

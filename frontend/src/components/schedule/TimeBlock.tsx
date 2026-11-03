@@ -30,6 +30,7 @@ export interface TimeBlockProps {
   variant: "course" | "blocked"
   hatched?: boolean
   opacity?: number
+  dashed?: boolean
 
   interactive: boolean
   dimmed: boolean
@@ -52,6 +53,7 @@ export function TimeBlock({
   variant,
   hatched,
   opacity,
+  dashed,
   interactive,
   dimmed,
   editing,
@@ -75,6 +77,7 @@ export function TimeBlock({
     "absolute z-20 rounded overflow-hidden text-left flex flex-col justify-start transition-all px-1 sm:px-1.5 pt-0.5",
     (isCourse || isBlockedWithColor) && "border-l-3",
     isCourse && color,
+    dashed && "border-dashed",
     dimmed && "opacity-40 pointer-events-none",
     interactive && "cursor-pointer hover:ring-2 hover:ring-primary/50 hover:brightness-95",
     editing && "border border-red-500/50 cursor-pointer hover:brightness-125",

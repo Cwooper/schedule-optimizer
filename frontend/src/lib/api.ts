@@ -90,6 +90,7 @@ export interface MeetingTime {
   room?: string
   startDate?: string // YYYY-MM-DD
   endDate?: string
+  lab?: boolean // Banner's lab meeting type
 }
 
 export type FinalGuessReason = "lab" | "multiple" | "weekly"
@@ -100,6 +101,8 @@ export interface Final {
   end: string
   certain: boolean
   reason?: FinalGuessReason
+  /** Rooms of the meeting time the exam is based on, e.g. "PH 210, PH 210B". */
+  location?: string
 }
 
 export interface DateRange {
@@ -115,9 +118,10 @@ export interface TermCalendar {
   end: string
   registrationOpens: string
   estimated: boolean
-  registration: ({ phase: RegistrationPhaseName } & DateRange)[]
+  /** name is the registrar's wording throughout; title is a short form. */
+  registration: ({ phase: RegistrationPhaseName; name: string } & DateRange)[]
   holidays: ({ name: string } & DateRange)[]
-  deadlines: { name: string; date: string; kind: "add" | "drop" | "withdraw" | "other" }[]
+  deadlines: { name: string; title: string; date: string; kind: "add" | "drop" | "withdraw" | "other" }[]
   finals: DateRange | null
 }
 

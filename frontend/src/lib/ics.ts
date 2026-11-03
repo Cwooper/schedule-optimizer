@@ -6,7 +6,7 @@ import type { HydratedSection, MeetingTime, RegistrationPhaseName, TermCalendar 
 import { addDays, weekday } from "@/lib/dates"
 import { FINAL_GUESS_REASONS } from "@/lib/finals"
 import { hashString } from "@/lib/schedule-utils"
-import { stripTrailingNote } from "@/lib/utils"
+import { stripTrailingNote, termAbbreviation } from "@/lib/utils"
 
 export interface CalendarExportOptions {
   classes: boolean
@@ -25,7 +25,6 @@ export const DEFAULT_CALENDAR_EXPORT: CalendarExportOptions = {
 }
 
 export interface IcsInput {
-  termName: string
   calendar: TermCalendar
   sections: HydratedSection[]
   options: CalendarExportOptions
@@ -87,7 +86,7 @@ export function buildIcs(input: IcsInput): string {
 type Event = string[]
 type MakeEvent = (uid: string, lines: string[]) => Event
 
-function buildEvents({ termName, calendar, sections, options, now }: IcsInput): Event[] {
+function buildEvents({ calendar, sections, options, now }: IcsInput): Event[] {
   const stamp = utcStamp(now)
   const event: MakeEvent = (uid, lines) => [
     "BEGIN:VEVENT",
@@ -99,7 +98,7 @@ function buildEvents({ termName, calendar, sections, options, now }: IcsInput): 
   return [
     ...(options.classes ? sections.flatMap((s) => classEvents(event, s, calendar)) : []),
     ...(options.finals ? sections.flatMap((s) => finalEvents(event, s)) : []),
-    ...dateEvents(event, termName, calendar, options),
+    ...dateEvents(event, calendar, options),
   ]
 }
 
@@ -122,7 +121,8 @@ function classEvents(event: MakeEvent, section: HydratedSection, calendar: TermC
   }
   return [...groups].flatMap(([uid, rows]) => {
     const locations = [...new Set(rows.map(location).filter(Boolean))]
-    const lines = classEventLines(section, rows[0], locations.join(", "), calendar)
+    const lab = rows.some((r) => r.lab)
+    const lines = classEventLines(section, rows[0], locations.join(", "), lab, calendar)
     return lines ? [event(uid, lines)] : []
   })
 }
@@ -143,18 +143,27 @@ function finalEvents(event: MakeEvent, section: HydratedSection): Event[] {
       `DTSTART;TZID=${TZID}:${localStamp(final.date, final.start)}`,
       `DTEND;TZID=${TZID}:${localStamp(final.date, final.end)}`,
       `SUMMARY:${escapeText(summary)}`,
+      ...(final.location ? [`LOCATION:${escapeText(final.location)}`] : []),
       ...(final.reason ? [`DESCRIPTION:${escapeText(FINAL_GUESS_REASONS[final.reason])}`] : []),
     ]),
   ]
 }
 
-/** WWU's own dates: holidays, registration openings, and deadlines. */
-function dateEvents(
-  event: MakeEvent,
-  termName: string,
-  calendar: TermCalendar,
-  options: CalendarExportOptions
-): Event[] {
+/**
+ * WWU's own dates: holidays, registration openings, and deadlines. Titles
+ * are short and name the term, since these events sit among other terms'
+ * in a calendar; the registrar's full wording goes in the description.
+ */
+function dateEvents(event: MakeEvent, calendar: TermCalendar, options: CalendarExportOptions): Event[] {
+  const term = termAbbreviation(calendar.term)
+  const allDay = (uid: string, start: string, end: string, title: string, description: string) =>
+    event(uid, [
+      `DTSTART;VALUE=DATE:${compactDate(start)}`,
+      `DTEND;VALUE=DATE:${compactDate(addDays(end, 1))}`,
+      `SUMMARY:${escapeText(term + " - " + title)}`,
+      `DESCRIPTION:${escapeText(description)}`,
+      "TRANSP:TRANSPARENT",
+    ])
   const holidays = options.holidays ? calendar.holidays : []
   const phases = calendar.registration.filter((r) => options.registration[r.phase])
   const deadlines = options.deadlines
@@ -162,30 +171,15 @@ function dateEvents(
     : []
   return [
     ...holidays.map((h) =>
-      allDay(event, `holiday-${h.start}-${hashString(h.name)}`, h.start, h.end, stripTrailingNote(h.name))
+      allDay(`holiday-${h.start}-${hashString(h.name)}`, h.start, h.end, stripTrailingNote(h.name), h.name)
     ),
     ...phases.map((r) =>
-      allDay(event, `registration-${r.phase}`, r.start, r.start, `${termName} Phase ${r.phase} registration opens`)
+      allDay(`registration-${r.phase}`, r.start, r.start, `Phase ${r.phase} registration`, r.name)
     ),
     ...deadlines.map((d) =>
-      allDay(event, `deadline-${d.date}-${hashString(d.name)}`, d.date, d.date, stripTrailingNote(d.name))
+      allDay(`deadline-${d.date}-${hashString(d.name)}`, d.date, d.date, d.title, d.name)
     ),
   ]
-}
-
-function allDay(
-  event: MakeEvent,
-  uid: string,
-  start: string,
-  end: string,
-  summary: string
-): Event {
-  return event(uid, [
-    `DTSTART;VALUE=DATE:${compactDate(start)}`,
-    `DTEND;VALUE=DATE:${compactDate(addDays(end, 1))}`,
-    `SUMMARY:${escapeText(summary)}`,
-    "TRANSP:TRANSPARENT",
-  ])
 }
 
 /**
@@ -197,6 +191,7 @@ function classEventLines(
   section: HydratedSection,
   meeting: MeetingTime,
   location: string,
+  lab: boolean,
   calendar: TermCalendar
 ): string[] | null {
   const { startTime, endTime } = meeting
@@ -217,7 +212,7 @@ function classEventLines(
     }
   }
 
-  const description = [`CRN ${section.crn}`, section.instructor].filter(Boolean).join("\n")
+  const description = [lab && "Lab", `CRN ${section.crn}`, section.instructor].filter(Boolean).join("\n")
   const summary = `${section.subject} ${section.courseNumber} - ${section.title}`
   return [
     `DTSTART;TZID=${TZID}:${localStamp(first, startTime)}`,

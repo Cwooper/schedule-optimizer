@@ -10,9 +10,9 @@ const fall: TermCalendar = {
   registrationOpens: "2026-05-12",
   estimated: false,
   registration: [
-    { phase: "I", start: "2026-05-12", end: "2026-07-13" },
-    { phase: "II", start: "2026-08-25", end: "2026-09-22" },
-    { phase: "III", start: "2026-09-23", end: "2026-09-29" },
+    { phase: "I", name: "Phase I", start: "2026-05-12", end: "2026-07-13" },
+    { phase: "II", name: "Phase II", start: "2026-08-25", end: "2026-09-22" },
+    { phase: "III", name: "Phase III", start: "2026-09-23", end: "2026-09-29" },
   ],
   holidays: [
     { name: "Veterans Day", start: "2026-11-11", end: "2026-11-11" },
@@ -30,9 +30,9 @@ const winter: TermCalendar = {
   registrationOpens: "2026-11-03",
   estimated: false,
   registration: [
-    { phase: "I", start: "2026-11-03", end: "2026-11-16" },
-    { phase: "II", start: "2026-11-17", end: "2027-01-04" },
-    { phase: "III", start: "2027-01-05", end: "2027-01-11" },
+    { phase: "I", name: "Phase I", start: "2026-11-03", end: "2026-11-16" },
+    { phase: "II", name: "Phase II", start: "2026-11-17", end: "2027-01-04" },
+    { phase: "III", name: "Phase III", start: "2027-01-05", end: "2027-01-11" },
   ],
   holidays: [
     { name: "Martin Luther King Jr. Day", start: "2027-01-18", end: "2027-01-18" },

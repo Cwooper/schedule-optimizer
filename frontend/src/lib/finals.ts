@@ -17,7 +17,8 @@ export function examSections(sections: HydratedSection[]): HydratedSection[] {
     if (!final) return []
     const days = Array<boolean>(7).fill(false)
     days[weekday(final.date)] = true
-    const exam: MeetingTime = { days, startTime: final.start, endTime: final.end }
+    // The block's room line reads building and room; location is both.
+    const exam: MeetingTime = { days, startTime: final.start, endTime: final.end, building: final.location }
     return [{ ...section, meetingTimes: [exam] }]
   })
 }

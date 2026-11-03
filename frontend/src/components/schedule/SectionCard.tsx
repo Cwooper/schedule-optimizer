@@ -97,21 +97,24 @@ function formatEnrollment(section: HydratedSection): string {
 
 function FinalRow({ final }: { final: Final }) {
   return (
-    <div className="flex items-center gap-1.5 font-mono text-sm">
-      <span>
-        <span className="text-muted-foreground">Final</span> {formatWeekday(final.date)}{" "}
-        {formatNumericDate(final.date)} {formatTime(final.start)}-{formatTime(final.end)}
+    <div className="flex items-baseline justify-between gap-4 font-mono text-sm">
+      <span className="flex items-center gap-1.5">
+        <span>
+          <span className="text-muted-foreground">Final</span> {formatWeekday(final.date)}{" "}
+          {formatNumericDate(final.date)} {formatTime(final.start)}-{formatTime(final.end)}
+        </span>
+        {!final.certain && final.reason && (
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <span className="inline-flex cursor-help" aria-label="Estimated final">
+                <CircleHelp className="size-3 text-muted-foreground" />
+              </span>
+            </TooltipTrigger>
+            <TooltipContent>{FINAL_GUESS_REASONS[final.reason]}</TooltipContent>
+          </Tooltip>
+        )}
       </span>
-      {!final.certain && final.reason && (
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <span className="inline-flex cursor-help" aria-label="Estimated final">
-              <CircleHelp className="size-3 text-muted-foreground" />
-            </span>
-          </TooltipTrigger>
-          <TooltipContent>{FINAL_GUESS_REASONS[final.reason]}</TooltipContent>
-        </Tooltip>
-      )}
+      {final.location && <span className="text-muted-foreground">{final.location}</span>}
     </div>
   )
 }

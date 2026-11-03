@@ -27,7 +27,7 @@ import type { HydratedSection } from "@/lib/api"
 import { cn } from "@/lib/utils"
 import { AddToCalendar } from "./AddToCalendar"
 
-/** Replaces the nav header while a mode (painting, finals week) is active. */
+/** Replaces the nav header while painting blocked times. */
 export function ScheduleBanner({
   children,
   onClose,
@@ -64,8 +64,9 @@ interface ScheduleNavHeaderProps {
   onBlockedTimes: () => void
   onDownloadPng: () => void
   isExporting: boolean
-  onFinalsWeek: () => void
+  finalsWeek: boolean
   hasFinals: boolean
+  onFinalsWeekChange: (on: boolean) => void
 }
 
 export function ScheduleNavHeader({
@@ -80,8 +81,9 @@ export function ScheduleNavHeader({
   onBlockedTimes,
   onDownloadPng,
   isExporting,
-  onFinalsWeek,
+  finalsWeek,
   hasFinals,
+  onFinalsWeekChange,
 }: ScheduleNavHeaderProps) {
   const [spinCount, setSpinCount] = useState(0)
 
@@ -147,6 +149,22 @@ export function ScheduleNavHeader({
       )}
 
       <div className="absolute right-2 flex items-center">
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-pressed={finalsWeek}
+              className="aria-pressed:bg-accent aria-pressed:text-accent-foreground"
+              disabled={!hasFinals}
+              onClick={() => onFinalsWeekChange(!finalsWeek)}
+            >
+              <GraduationCap className="size-4" />
+              <span className="sr-only">Finals week</span>
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="bottom">Finals week</TooltipContent>
+        </Tooltip>
         <AddToCalendar sections={sections} />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -159,10 +177,6 @@ export function ScheduleNavHeader({
             <DropdownMenuItem onClick={onBlockedTimes}>
               <Clock className="size-4" />
               Blocked Times
-            </DropdownMenuItem>
-            <DropdownMenuItem disabled={!hasFinals} onClick={onFinalsWeek}>
-              <GraduationCap className="size-4" />
-              Finals Week
             </DropdownMenuItem>
             <DropdownMenuItem disabled={count === 0 || isExporting} onClick={onDownloadPng}>
               {isExporting ? (

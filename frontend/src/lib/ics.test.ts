@@ -17,9 +17,9 @@ const fall: TermCalendar = {
   registrationOpens: "2026-05-12",
   estimated: false,
   registration: [
-    { phase: "I", start: "2026-05-12", end: "2026-07-13" },
-    { phase: "II", start: "2026-08-25", end: "2026-09-22" },
-    { phase: "III", start: "2026-09-23", end: "2026-09-29" },
+    { phase: "I", name: "Phase I - registration for continuing students", start: "2026-05-12", end: "2026-07-13" },
+    { phase: "II", name: "Phase II - registration for continuing, new transfer, and post-baccalaureate students", start: "2026-08-25", end: "2026-09-22" },
+    { phase: "III", name: "Phase III - open registration", start: "2026-09-23", end: "2026-09-29" },
   ],
   holidays: [
     { name: "Veterans Day", start: "2026-11-11", end: "2026-11-11" },
@@ -27,9 +27,14 @@ const fall: TermCalendar = {
     { name: "Native American Heritage Day", start: "2026-11-27", end: "2026-11-27" },
   ],
   deadlines: [
-    { name: "Last day to add a class without an override", date: "2026-09-29", kind: "add" },
-    { name: "Last day to withdraw from a class. Online registration via Web4U ends at 11:59 p.m.", date: "2026-11-08", kind: "withdraw" },
-    { name: "Last day to change to-or-from Audit", date: "2026-09-29", kind: "other" },
+    { name: "Last day to add a class without an override", title: "Add deadline", date: "2026-09-29", kind: "add" },
+    {
+      name: "Last day to withdraw from a class. Online registration via Web4U ends at 11:59 p.m.",
+      title: "Withdraw deadline",
+      date: "2026-11-08",
+      kind: "withdraw",
+    },
+    { name: "Last day to change to-or-from Audit", title: "Last day to change to-or-from Audit", date: "2026-09-29", kind: "other" },
   ],
   finals: { start: "2026-12-07", end: "2026-12-11" },
 }
@@ -81,7 +86,6 @@ const allOff: CalendarExportOptions = {
 
 function build(sections: HydratedSection[], options: Partial<CalendarExportOptions>, calendar = fall): string {
   return buildIcs({
-    termName: "Fall 2026",
     calendar,
     sections,
     options: { ...allOff, ...options },
@@ -140,6 +144,16 @@ describe("buildIcs classes", () => {
     expect(prop(lecture, "SUMMARY")).toEqual(["SUMMARY:CSCI 247 - Computer Systems I"])
     expect(prop(lecture, "LOCATION")).toEqual(["LOCATION:CF 105"])
     expect(prop(lecture, "DESCRIPTION")).toEqual(["DESCRIPTION:CRN 41216\\nAda Lovelace"])
+  })
+
+  it("labels a lab meeting in its description, not its title", () => {
+    const withLab = section({
+      meetingTimes: [meeting("MWF", "0900", "0950"), meeting("R", "1400", "1550", { lab: true })],
+    })
+    const [lec, labEvent] = events(build([withLab], { classes: true }))
+    expect(prop(lec, "DESCRIPTION")).toEqual(["DESCRIPTION:CRN 41216\\nAda Lovelace"])
+    expect(prop(labEvent, "DESCRIPTION")).toEqual(["DESCRIPTION:Lab\\nCRN 41216\\nAda Lovelace"])
+    expect(prop(labEvent, "SUMMARY")).toEqual(["SUMMARY:CSCI 247 - Computer Systems I"])
   })
 
   it("ends a short session at its own last day", () => {
@@ -229,6 +243,14 @@ describe("buildIcs finals and WWU dates", () => {
     expect(prop(e, "SUMMARY")).toEqual(["SUMMARY:? CSCI 247 - Final Exam"])
     expect(prop(e, "DTSTART")).toEqual(["DTSTART;TZID=America/Los_Angeles:20261207T080000"])
     expect(prop(e, "DESCRIPTION")).toEqual(["DESCRIPTION:Has a lab"])
+    expect(prop(e, "LOCATION")).toEqual([])
+  })
+
+  it("places a final in the rooms of the meeting it is based on", () => {
+    const split = section({
+      final: { date: "2026-12-08", start: "1030", end: "1230", certain: true, location: "PH 210, PH 210B" },
+    })
+    expect(prop(events(build([split], { finals: true }))[0], "LOCATION")).toEqual(["LOCATION:PH 210\\, PH 210B"])
   })
 
   it("titles a certain final without the mark", () => {
@@ -243,24 +265,41 @@ describe("buildIcs finals and WWU dates", () => {
     const thanksgiving = events(ics)[1]
     expect(prop(thanksgiving, "DTSTART")).toEqual(["DTSTART;VALUE=DATE:20261125"])
     expect(prop(thanksgiving, "DTEND")).toEqual(["DTEND;VALUE=DATE:20261130"])
-    expect(prop(thanksgiving, "SUMMARY")).toEqual(["SUMMARY:Thanksgiving Break"])
+    expect(prop(thanksgiving, "SUMMARY")).toEqual(["SUMMARY:F26 - Thanksgiving Break"])
+    expect(prop(thanksgiving, "DESCRIPTION")).toEqual([
+      "DESCRIPTION:Thanksgiving Break (Wed\\, Nov 25 - University open\\, no classes)",
+    ])
     // All-day events need no time zone.
     expect(ics).not.toContain("VTIMEZONE")
   })
 
   it("adds only the chosen registration phases, on their opening day", () => {
     const evs = events(build([], { registration: { I: false, II: true, III: false } }))
-    expect(evs.map((e) => [prop(e, "SUMMARY")[0], prop(e, "DTSTART")[0]])).toEqual([
-      ["SUMMARY:Fall 2026 Phase II registration opens", "DTSTART;VALUE=DATE:20260825"],
+    expect(evs.map((e) => [prop(e, "SUMMARY")[0], prop(e, "DTSTART")[0], prop(e, "DESCRIPTION")[0]])).toEqual([
+      [
+        "SUMMARY:F26 - Phase II registration",
+        "DTSTART;VALUE=DATE:20260825",
+        "DESCRIPTION:Phase II - registration for continuing\\, new transfer\\, and post-baccalaureate students",
+      ],
     ])
   })
 
-  it("adds add, drop, and withdraw deadlines only", () => {
-    const summaries = events(build([], { deadlines: true })).map((e) => prop(e, "SUMMARY")[0])
-    expect(summaries).toEqual([
-      "SUMMARY:Last day to add a class without an override",
-      "SUMMARY:Last day to withdraw from a class. Online registration via Web4U ends at 11:59 p.m.",
+  it("adds add, drop, and withdraw deadlines only, titled short", () => {
+    const evs = events(build([], { deadlines: true }))
+    expect(evs.map((e) => [prop(e, "SUMMARY")[0], prop(e, "DESCRIPTION")[0]])).toEqual([
+      ["SUMMARY:F26 - Add deadline", "DESCRIPTION:Last day to add a class without an override"],
+      [
+        "SUMMARY:F26 - Withdraw deadline",
+        "DESCRIPTION:Last day to withdraw from a class. Online registration via Web4U ends at 11:59 p.m.",
+      ],
     ])
+  })
+
+  it("prefixes each term's titles with its abbreviation", () => {
+    const prefix = (term: string) => prop(events(build([], { holidays: true }, { ...fall, term }))[0], "SUMMARY")[0]
+    expect(prefix("202710")).toBe("SUMMARY:W27 - Veterans Day")
+    expect(prefix("202720")).toBe("SUMMARY:Sp27 - Veterans Day")
+    expect(prefix("202730")).toBe("SUMMARY:Su27 - Veterans Day")
   })
 
   it("emits the time zone once when any event is timed", () => {
@@ -270,7 +309,7 @@ describe("buildIcs finals and WWU dates", () => {
   })
 
   it("reports whether there is anything to export", () => {
-    const input = { termName: "Fall 2026", calendar: fall, sections: [] }
+    const input = { calendar: fall, sections: [] }
     expect(hasIcsEvents({ ...input, options: { ...allOff, classes: true, finals: true } })).toBe(false)
     expect(hasIcsEvents({ ...input, options: { ...allOff, holidays: true } })).toBe(true)
   })

@@ -28,7 +28,7 @@ export interface ScheduleGridProps {
   captureRef?: React.Ref<HTMLDivElement>
   /** Shown after each weekday name, e.g. "12/7" in finals week. */
   dayDates?: string[]
-  /** Sections whose blocks are guesses, marked "?". */
+  /** Sections whose blocks are guesses, marked "?" and dashed. */
   guessedCrns?: ReadonlySet<string>
 }
 
@@ -314,6 +314,7 @@ export function ScheduleGrid({
                 gridStartMin={gridStartMin}
                 gridHeight={gridHeight}
                 color={block.colorClass}
+                dashed={guessedCrns?.has(block.course.crn)}
                 interactive={!isEditing && !!onCourseClick}
                 dimmed={isEditing}
                 onClick={() => !isEditing && onCourseClick?.(block.course.crn)}
