@@ -118,9 +118,9 @@ export interface TermCalendar {
   end: string
   registrationOpens: string
   estimated: boolean
-  /** name is the registrar's wording throughout; title is a short form. */
   registration: ({ phase: RegistrationPhaseName; name: string } & DateRange)[]
   holidays: ({ name: string } & DateRange)[]
+  /** name is the registrar's wording; title is its short form for calendar events. */
   deadlines: { name: string; title: string; date: string; kind: "add" | "drop" | "withdraw" | "other" }[]
   finals: DateRange | null
 }

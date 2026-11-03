@@ -180,8 +180,8 @@ func (s Schedule) Phase(code string, now time.Time) Phase {
 }
 
 // upcomingRegistrationDays is how close a term's registration opening must
-// be for it to take the default from the term in session: by then students
-// are planning it, and the frontend points to it from an in-session term.
+// be for it to take the default from the term in session, since students are
+// planning it by then.
 const upcomingRegistrationDays = 14
 
 // DefaultTerm picks the term the frontend should open to: the newest term in

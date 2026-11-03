@@ -83,6 +83,7 @@ func TestDefaultTerm(t *testing.T) {
 		{"spring registration", all, pacific(2027, 3, 1, 12, 0), "202720"},
 		// Summer opens May 4 and Fall 2027 (estimated) May 6.
 		{"soonest of two opening", all, pacific(2027, 4, 25, 12, 0), "202730"},
+		{"registering beats a term opening soon", all, pacific(2027, 5, 5, 12, 0), "202730"},
 		{"newest of two registering terms", all, pacific(2027, 5, 20, 12, 0), "202740"},
 		{"soonest upcoming", []string{"202720", "202710"}, pacific(2026, 6, 1, 12, 0), "202710"},
 		{"all past", []string{"202520", "202530"}, pacific(2026, 10, 15, 12, 0), "202530"},

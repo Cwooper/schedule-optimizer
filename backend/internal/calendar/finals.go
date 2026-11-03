@@ -130,7 +130,7 @@ func (t *FinalsTable) FinalFor(scheduleType string, meetings []meeting.Time) *Fi
 	if final == nil {
 		return nil
 	}
-	if merged, ok := mergeTypes(patterns); ok && len(patterns) > 1 {
+	if merged, ok := mergeTypes(chosen, patterns); ok && len(patterns) > 1 {
 		if alt := t.slotFor(merged); alt != nil && *alt == *final {
 			patterns, chosen = []pattern{merged}, merged
 		}
@@ -234,11 +234,12 @@ func (t *FinalsTable) patterns(meetings []meeting.Time) []pattern {
 	return out
 }
 
-// mergeTypes merges patterns into one as if they had one type. ok is false
-// when their times differ or one is a lab.
-func mergeTypes(patterns []pattern) (pattern, bool) {
-	merged := patterns[0]
-	merged.rooms = slices.Clone(merged.rooms)
+// mergeTypes merges patterns' days into base as if they had one type. It
+// keeps base's rooms: the exam is in the lecture's room, not the C rows' labs
+// (MIS 320 CRN 10114 meets in PH 146 with C rows in PH 210 and PH 210B). ok
+// is false when their times differ or one is a lab.
+func mergeTypes(base pattern, patterns []pattern) (pattern, bool) {
+	merged := base
 	for _, p := range patterns {
 		if p.lab || p.start != merged.start || p.end != merged.end {
 			return pattern{}, false
@@ -246,7 +247,6 @@ func mergeTypes(patterns []pattern) (pattern, bool) {
 		for d, on := range p.days {
 			merged.days[d] = merged.days[d] || on
 		}
-		merged.addRooms(p.rooms...)
 	}
 	return merged, true
 }

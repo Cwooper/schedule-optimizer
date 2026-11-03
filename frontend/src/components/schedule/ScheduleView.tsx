@@ -41,7 +41,6 @@ export function ScheduleView() {
   const [focusedGroupId, setFocusedGroupId] = useState<string | null>(null)
   const gridRef = useRef<HTMLDivElement>(null)
   const termName = termsData?.terms.find((t) => t.code === term)?.name
-  const { isExporting, handleDownloadPng } = useExportPng(gridRef, termName)
 
   const isEditing = editingBlockedTimeGroupId != null
   const editingGroup = blockedTimeGroups.find(
@@ -67,7 +66,11 @@ export function ScheduleView() {
 
   const scheduleSections = useMemo(() => currentSchedule?.courses ?? [], [currentSchedule])
   const exams = useMemo(() => examSections(scheduleSections), [scheduleSections])
-  const showFinals = finalsView && exams.length > 0 && !isEditing
+  // A schedule without exams ends finals week, so paging past one does not
+  // bring it back.
+  if (finalsView && exams.length === 0) setFinalsView(false)
+  const showFinals = finalsView && !isEditing
+  const { isExporting, handleDownloadPng } = useExportPng(gridRef, termName, showFinals ? "Finals" : "Schedule")
   const finalsDays = useMemo(() => finalsWeekDays(exams, calendar?.finals ?? null), [exams, calendar])
   const guessedCrns = useMemo(
     () => new Set(exams.filter((e) => !e.final?.certain).map((e) => e.crn)),

@@ -93,11 +93,14 @@ export function ScheduleNavHeader({
     return "Regenerate schedules"
   }
 
+  // A grid rather than absolute side groups, so on a narrow screen the pager
+  // gives way to them instead of sliding underneath; below sm it also drops
+  // "Schedule" from its label to fit at 320px.
   return (
-    <div className="relative flex items-center justify-center border-b px-4 py-2">
+    <div className="grid grid-cols-[1fr_auto_1fr] items-center border-b p-2">
       <Tooltip>
         <TooltipTrigger asChild>
-          <div className="absolute left-2">
+          <div className="justify-self-start">
             <Button
               variant="ghost"
               size="icon"
@@ -123,7 +126,7 @@ export function ScheduleNavHeader({
       </Tooltip>
 
       {count > 0 ? (
-        <>
+        <div className="flex items-center">
           <Button
             variant="ghost"
             size="icon"
@@ -132,8 +135,9 @@ export function ScheduleNavHeader({
           >
             <ChevronLeft className="size-4" />
           </Button>
-          <span className="min-w-32 text-center text-sm">
-            Schedule {index + 1} of {count}
+          <span className="min-w-20 text-center text-sm sm:min-w-32">
+            <span className="max-sm:hidden">Schedule </span>
+            {index + 1} of {count}
           </span>
           <Button
             variant="ghost"
@@ -143,25 +147,27 @@ export function ScheduleNavHeader({
           >
             <ChevronRight className="size-4" />
           </Button>
-        </>
+        </div>
       ) : (
-        <span className="text-muted-foreground flex h-9 items-center text-sm">{emptyText}</span>
+        <span className="text-muted-foreground min-w-0 text-sm leading-9 max-sm:truncate">{emptyText}</span>
       )}
 
-      <div className="absolute right-2 flex items-center">
+      <div className="flex items-center justify-self-end">
         <Tooltip>
           <TooltipTrigger asChild>
-            <Button
-              variant="ghost"
-              size="icon"
-              aria-pressed={finalsWeek}
-              className="aria-pressed:bg-accent aria-pressed:text-accent-foreground"
-              disabled={!hasFinals}
-              onClick={() => onFinalsWeekChange(!finalsWeek)}
-            >
-              <GraduationCap className="size-4" />
-              <span className="sr-only">Finals week</span>
-            </Button>
+            <div>
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-pressed={finalsWeek}
+                className="aria-pressed:bg-accent aria-pressed:text-accent-foreground"
+                disabled={!hasFinals}
+                onClick={() => onFinalsWeekChange(!finalsWeek)}
+              >
+                <GraduationCap className="size-4" />
+                <span className="sr-only">Finals week</span>
+              </Button>
+            </div>
           </TooltipTrigger>
           <TooltipContent side="bottom">Finals week</TooltipContent>
         </Tooltip>

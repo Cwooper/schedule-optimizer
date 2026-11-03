@@ -60,7 +60,7 @@ type TermData struct {
 
 // ScheduleCache holds course data for the terms schedules are generated for.
 // A term loads on its first request and stays until a job rewrites its data
-// and invalidates it.
+// and invalidates it, unless its finals failed to load (see load).
 type ScheduleCache struct {
 	mu    sync.RWMutex
 	terms map[string]*TermData
@@ -104,7 +104,7 @@ func (c *ScheduleCache) Term(ctx context.Context, term string) (*TermData, error
 	return v.(*TermData), nil
 }
 
-// LoadTerm loads a term into the cache, replacing any cached copy.
+// LoadTerm loads a term and caches it as load does, replacing any cached copy.
 func (c *ScheduleCache) LoadTerm(ctx context.Context, term string) error {
 	c.mu.RLock()
 	generation := c.generation
@@ -199,16 +199,19 @@ func (c *ScheduleCache) load(ctx context.Context, term string, generation uint64
 
 	// Without its finals the term is served but not kept, so the next
 	// request retries rather than going without finals until an invalidation.
+	cached := false
 	if finalsOK {
 		c.mu.Lock()
 		if c.generation == generation {
 			c.terms[term] = termData
+			cached = true
 		}
 		c.mu.Unlock()
 	}
 
-	slog.Info("Loaded term into schedule cache",
+	slog.Info("Loaded term for schedule cache",
 		"term", term,
+		"cached", cached,
 		"courses", len(termData.Courses),
 		"subjects", len(termData.BySubject),
 		"duration", time.Since(start),

@@ -186,9 +186,9 @@ func TestFinalForLocation(t *testing.T) {
 			room(mt("MW", "1000", "1150"), "PH", "210"), room(mt("MW", "1000", "1150"), "PH", "210B"),
 			room(mt("MW", "1000", "1150"), "PH", "210"),
 		}, "PH 210, PH 210B"},
-		{"types merged into one time keep every room", []meeting.Time{
-			room(mt("MW", "1000", "1120"), "PH", "210"), room(typed(mt("F", "1000", "1120"), "C"), "MH", "102"),
-		}, "PH 210, MH 102"},
+		{"types merged into one time keep the lecture's room", []meeting.Time{
+			room(typed(mt("F", "1000", "1120"), "C"), "MH", "102"), room(mt("MW", "1000", "1120"), "PH", "210"),
+		}, "PH 210"},
 		{"types kept apart keep the lecture's room", []meeting.Time{
 			room(mt("MW", "1000", "1120"), "PH", "210"), room(typed(mt("R", "1000", "1120"), "C"), "MH", "102"),
 		}, "PH 210"},

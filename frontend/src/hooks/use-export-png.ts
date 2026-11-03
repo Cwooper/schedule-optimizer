@@ -2,7 +2,9 @@ import { useCallback, useState, type RefObject } from "react"
 
 export function useExportPng(
   gridRef: RefObject<HTMLDivElement | null>,
-  termName: string | undefined
+  termName: string | undefined,
+  /** What the image shows, e.g. "Schedule", for its file name. */
+  label: string
 ) {
   const [isExporting, setIsExporting] = useState(false)
 
@@ -35,8 +37,8 @@ export function useExportPng(
 
       const blob = await (await fetch(dataUrl)).blob()
       const fileName = termName
-        ? `${termName.replace(/\s+/g, "")}-Schedule.png`
-        : "Schedule.png"
+        ? `${termName.replace(/\s+/g, "")}-${label}.png`
+        : `${label}.png`
 
       // Try Web Share API first (requires secure context / HTTPS)
       if (navigator.share) {
@@ -63,7 +65,7 @@ export function useExportPng(
     } finally {
       setIsExporting(false)
     }
-  }, [gridRef, termName])
+  }, [gridRef, termName, label])
 
   return { isExporting, handleDownloadPng }
 }
