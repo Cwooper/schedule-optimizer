@@ -32,7 +32,7 @@ export interface IcsInput {
 }
 
 const TZID = "America/Los_Angeles"
-const UID_DOMAIN = "schedule.cwooper.dev"
+const UID_DOMAIN = new URL(import.meta.env.VITE_SITE_URL).host
 const BYDAY = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"]
 const DAY_LETTERS = ["U", "M", "T", "W", "R", "F", "S"]
 const EXPORTED_DEADLINES = new Set(["add", "drop", "withdraw"])

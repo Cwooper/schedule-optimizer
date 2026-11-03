@@ -10,6 +10,8 @@ import {
   type CalendarExportOptions,
 } from "./ics"
 
+const HOST = new URL(import.meta.env.VITE_SITE_URL).host
+
 const fall: TermCalendar = {
   term: "202640",
   start: "2026-09-23",
@@ -140,7 +142,7 @@ describe("buildIcs classes", () => {
   })
 
   it("gives stable UIDs and readable text", () => {
-    expect(prop(lecture, "UID")).toEqual(["UID:202640-41216-MTWF-0900-0950-20260923-20261211@schedule.cwooper.dev"])
+    expect(prop(lecture, "UID")).toEqual([`UID:202640-41216-MTWF-0900-0950-20260923-20261211@${HOST}`])
     expect(prop(lecture, "SUMMARY")).toEqual(["SUMMARY:CSCI 247 - Computer Systems I"])
     expect(prop(lecture, "LOCATION")).toEqual(["LOCATION:CF 105"])
     expect(prop(lecture, "DESCRIPTION")).toEqual(["DESCRIPTION:CRN 41216\\nAda Lovelace"])
@@ -212,8 +214,8 @@ describe("buildIcs classes", () => {
     })
     const uids = () => events(build([econ], { classes: true }, winter2026)).map((e) => prop(e, "UID")[0])
     expect(uids()).toEqual([
-      "UID:202610-13702-W-1000-1150-20260106-20260120@schedule.cwooper.dev",
-      "UID:202610-13702-W-1000-1150-20260121-20260320@schedule.cwooper.dev",
+      `UID:202610-13702-W-1000-1150-20260106-20260120@${HOST}`,
+      `UID:202610-13702-W-1000-1150-20260121-20260320@${HOST}`,
     ])
     expect(uids()).toEqual(uids())
   })

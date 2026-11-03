@@ -19,6 +19,8 @@ logs/
 .env
 .env.*.local
 .env.local
+# Public build settings (Vite exposes VITE_ vars to the browser, so no secrets)
+!frontend/.env
 
 # Editor / OS files
 .vscode/

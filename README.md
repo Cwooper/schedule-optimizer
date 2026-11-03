@@ -189,6 +189,8 @@ JOBS_DAILY_SCRAPE_HOUR=3            # Pacific hour (0-23) for daily scrapes
 JOBS_PAST_TERM_YEARS=5              # years of historical data to backfill
 ```
 
+The frontend build reads `VITE_SITE_URL` (the production origin, used by `index.html`'s canonical and social tags and as the host in calendar event UIDs) from `frontend/.env`. Override it in `frontend/.env.local` or the build environment; the build fails if it is unset.
+
 ## Testing
 
 The project uses table-driven tests throughout. Backend test coverage spans all major packages:
