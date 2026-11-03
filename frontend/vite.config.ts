@@ -6,9 +6,10 @@ import compression from 'vite-plugin-compression'
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
-  // index.html would otherwise ship a literal %VITE_SITE_URL% in its tags.
-  if (!loadEnv(mode, import.meta.dirname).VITE_SITE_URL) {
-    throw new Error('VITE_SITE_URL is not set; see frontend/.env')
+  // A bad value ships broken meta tags and makes ics.ts throw at page load.
+  const siteUrl = loadEnv(mode, import.meta.dirname).VITE_SITE_URL
+  if (!URL.canParse(siteUrl) || new URL(siteUrl).origin !== siteUrl) {
+    throw new Error(`VITE_SITE_URL must be an origin like https://example.org, got "${siteUrl ?? ""}"`)
   }
   return {
     base: '/',
