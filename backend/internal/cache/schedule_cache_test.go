@@ -445,7 +445,7 @@ func TestTerm(t *testing.T) {
 		t.Error("a cached term was loaded again")
 	}
 	// CRN 20001 meets MWF 10:00, the seeded slot's range.
-	want := calendar.Final{Date: "2025-06-10", Start: "1030", End: "1230", Certain: true}
+	want := calendar.Final{Date: "2025-06-10", Start: "1030", End: "1230", Certain: true, Location: "CF 105"}
 	if got := first.Courses["20001"].Final; got == nil || *got != want {
 		t.Errorf("CRN 20001 final = %+v, want %+v", got, want)
 	}

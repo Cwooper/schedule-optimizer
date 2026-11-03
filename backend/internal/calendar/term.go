@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"regexp"
+	"slices"
 	"strings"
 	"time"
 
@@ -31,6 +32,7 @@ type DateRange struct {
 
 type RegistrationPhase struct {
 	Phase string `json:"phase"` // "I", "II", or "III"
+	Name  string `json:"name"`
 	DateRange
 }
 
@@ -49,9 +51,10 @@ const (
 )
 
 type Deadline struct {
-	Name string       `json:"name"`
-	Date string       `json:"date"`
-	Kind DeadlineKind `json:"kind"`
+	Name  string       `json:"name"`
+	Title string       `json:"title"` // short form of Name, for calendar events
+	Date  string       `json:"date"`
+	Kind  DeadlineKind `json:"kind"`
 }
 
 // LoadTerm assembles a term's calendar from the scraped rows, falling back
@@ -103,14 +106,15 @@ func LoadTerm(ctx context.Context, q *store.Queries, code string) (cal *TermCale
 			// Rows are ordered by date, so the first row per phase is its opening.
 			if phase := registrationPhase(r.Description); phase != "" && !seenPhase[phase] {
 				seenPhase[phase] = true
-				cal.Registration = append(cal.Registration, RegistrationPhase{Phase: phase, DateRange: span})
+				cal.Registration = append(cal.Registration, RegistrationPhase{Phase: phase, Name: r.Description, DateRange: span})
 			}
 		case categoryHoliday:
 			if span.End >= cal.Start && span.Start <= cal.End {
 				cal.Holidays = append(cal.Holidays, Holiday{Name: r.Description, DateRange: span})
 			}
 		case categoryDeadline:
-			cal.Deadlines = append(cal.Deadlines, Deadline{Name: r.Description, Date: r.Date, Kind: deadlineKind(r.Description)})
+			kind, title := classifyDeadline(r.Description)
+			cal.Deadlines = append(cal.Deadlines, Deadline{Name: r.Description, Title: title, Date: r.Date, Kind: kind})
 		case categoryAcademic:
 			// The page's own finals week wins over the one inferred from the table.
 			if finalExamsRegex.MatchString(r.Description) {
@@ -138,19 +142,81 @@ func registrationPhase(description string) string {
 	return strings.ToUpper(m[1])
 }
 
-// deadlineKind sorts the page's free-text deadlines. Drop is checked first:
-// "withdraw from WWU or drop a class with full refund" is the refund-drop
-// deadline, and "add or drop ... late fee" is the last day for either.
-func deadlineKind(description string) DeadlineKind {
+// deadlineRules name the registrar's deadlines by their wording; the first
+// rule whose phrases all appear wins. Order matters: "withdraw from WWU or
+// drop a class with full refund" is the refund deadline, not the withdrawal
+// one, and "add or drop ... late fee" is neither the add nor the drop one.
+// Summer words its fee "late add/drop service fee".
+var deadlineRules = []struct {
+	phrases []string // lowercase
+	kind    DeadlineKind
+	title   string
+}{
+	{[]string{"full refund"}, DeadlineDrop, "Full refund deadline"},
+	{[]string{"half", "refund"}, DeadlineDrop, "Half refund deadline"},
+	{[]string{"add or drop", "fee"}, DeadlineDrop, "Late fee starts after"},
+	{[]string{"drop", "grade"}, DeadlineDrop, "Drop deadline (no W)"},
+	{[]string{"withdraw from wwu"}, DeadlineWithdraw, "WWU withdrawal deadline"},
+	{[]string{"withdraw from a class"}, DeadlineWithdraw, "Withdraw deadline"},
+	{[]string{"to add a class"}, DeadlineAdd, "Add deadline"},
+}
+
+// maxTitleLen caps a fallback title; the full text goes in the description.
+const maxTitleLen = 60
+
+// sessionRegex finds the session of a summer deadline, which the page
+// repeats once per session: "Last day to withdraw from a class (Six-week
+// Session)".
+var sessionRegex = regexp.MustCompile(`(?i)(\([^()]*\bsession\))\s*$`)
+
+// classifyDeadline sorts the page's free-text deadlines and names each
+// briefly, keeping a summer session so its deadlines stay apart.
+func classifyDeadline(description string) (DeadlineKind, string) {
+	kind, title := matchDeadline(description)
+	if m := sessionRegex.FindStringSubmatch(description); m != nil {
+		title += " " + m[1]
+	}
+	return kind, title
+}
+
+// matchDeadline applies deadlineRules. Wording no rule knows still sorts by
+// its verb, so a reworded deadline keeps its kind, and is titled by its own
+// text, shortened.
+func matchDeadline(description string) (DeadlineKind, string) {
 	lower := strings.ToLower(description)
+	for _, r := range deadlineRules {
+		if !slices.ContainsFunc(r.phrases, func(p string) bool { return !strings.Contains(lower, p) }) {
+			return r.kind, r.title
+		}
+	}
+	kind := DeadlineOther
 	switch {
 	case strings.Contains(lower, "drop"):
-		return DeadlineDrop
+		kind = DeadlineDrop
 	case strings.Contains(lower, "withdraw"):
-		return DeadlineWithdraw
+		kind = DeadlineWithdraw
 	case strings.Contains(lower, "to add"):
-		return DeadlineAdd
-	default:
-		return DeadlineOther
+		kind = DeadlineAdd
 	}
+	return kind, shortTitle(description)
+}
+
+var trailingNoteRegex = regexp.MustCompile(`\s*\([^()]*\)$`)
+
+// shortTitle keeps the first sentence of text without a trailing
+// parenthetical, cut at a word boundary past maxTitleLen.
+func shortTitle(text string) string {
+	title := strings.TrimSpace(text)
+	if i := strings.Index(title, ". "); i >= 0 {
+		title = title[:i]
+	}
+	title = trailingNoteRegex.ReplaceAllString(title, "")
+	if len(title) <= maxTitleLen {
+		return title
+	}
+	cut := strings.LastIndex(title[:maxTitleLen+1], " ")
+	if cut <= 0 {
+		return title
+	}
+	return strings.TrimRight(title[:cut], " ,;:-") + "..."
 }

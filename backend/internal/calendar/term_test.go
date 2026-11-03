@@ -3,6 +3,7 @@ package calendar
 import (
 	"context"
 	"reflect"
+	"strings"
 	"testing"
 )
 
@@ -51,13 +52,16 @@ func TestLoadTerm(t *testing.T) {
 	if cal.Start != "2027-01-05" || cal.End != "2027-03-19" || cal.RegistrationOpens != "2026-11-03" || cal.Estimated {
 		t.Errorf("dates = %s to %s, registration %s, estimated %v", cal.Start, cal.End, cal.RegistrationOpens, cal.Estimated)
 	}
-	wantPhases := []RegistrationPhase{
-		{Phase: "I", DateRange: DateRange{"2026-11-03", "2026-11-16"}},
-		{Phase: "II", DateRange: DateRange{"2026-11-17", "2027-01-04"}},
-		{Phase: "III", DateRange: DateRange{"2027-01-05", "2027-01-11"}},
+	var phases []string
+	for _, r := range cal.Registration {
+		phases = append(phases, r.Phase+" "+r.Start+" "+r.End)
 	}
-	if !reflect.DeepEqual(cal.Registration, wantPhases) {
-		t.Errorf("registration = %+v, want %+v", cal.Registration, wantPhases)
+	wantPhases := []string{"I 2026-11-03 2026-11-16", "II 2026-11-17 2027-01-04", "III 2027-01-05 2027-01-11"}
+	if !reflect.DeepEqual(phases, wantPhases) {
+		t.Errorf("registration = %q, want %q", phases, wantPhases)
+	}
+	if name := cal.Registration[0].Name; !strings.HasPrefix(name, "Phase I - registration for continuing") {
+		t.Errorf("Phase I name = %q, want the registrar's wording", name)
 	}
 	// Spring Break starts the day after the term ends, so it is not listed.
 	var holidays []string
@@ -126,18 +130,41 @@ func TestLoadTermEstimated(t *testing.T) {
 	}
 }
 
-func TestDeadlineKind(t *testing.T) {
-	tests := map[string]DeadlineKind{
-		"Last day to add a class without an override":                                         DeadlineAdd,
-		"Last day to add or drop a class without incurring a $10 per credit late fee":         DeadlineDrop,
-		"Last day to withdraw from WWU or drop a class with full refund (ends at 11:59 p.m.)": DeadlineDrop,
-		"Last day to withdraw from a class. Online registration via Web4U ends at 11:59 p.m.": DeadlineWithdraw,
-		"Last day to change to-or-from Audit":                                                 DeadlineOther,
-		"Tuition and fees, housing and meal plan charges due":                                 DeadlineOther,
+func TestClassifyDeadline(t *testing.T) {
+	tests := []struct {
+		description string
+		kind        DeadlineKind
+		title       string
+	}{
+		{"Last day to add a class without an override", DeadlineAdd, "Add deadline"},
+		{"Last day to add or drop a class without incurring a $10 per credit late fee", DeadlineDrop, "Late fee starts after"},
+		{`Last day to drop a class without incurring a "W" grade on official transcript ("XM" code appears on unofficial academic history only)`,
+			DeadlineDrop, "Drop deadline (no W)"},
+		{"Last day to withdraw from WWU or drop a class with full refund (ends at 11:59 p.m.)", DeadlineDrop, "Full refund deadline"},
+		{"Last day for half-tuition refund when dropping a class (fees are not refunded)", DeadlineDrop, "Half refund deadline"},
+		{"Last day to withdraw from a class. Online registration via Web4U ends at 11:59 p.m.", DeadlineWithdraw, "Withdraw deadline"},
+		{"Last day to withdraw from WWU - for fall quarter only", DeadlineWithdraw, "WWU withdrawal deadline"},
+		// Summer's wording.
+		{"Last day to withdraw for the quarter or drop a class with full refund (ends at 11:59 p.m.)", DeadlineDrop, "Full refund deadline"},
+		{"Last day to add or drop a class on an existing schedule without incurring a $10 per credit late add/drop service fee.",
+			DeadlineDrop, "Late fee starts after"},
+		{"Last day to drop a class without incurring a \u201cW\u201d grade on official transcript", DeadlineDrop, "Drop deadline (no W)"},
+		{"Last day to withdraw from a class (Six-week Session)", DeadlineWithdraw, "Withdraw deadline (Six-week Session)"},
+		{"Last day to withdraw from WWU (Nine-week Session)", DeadlineWithdraw, "WWU withdrawal deadline (Nine-week Session)"},
+		{"Last day to change to-or-from Pass/No Pass (Nine-week Session)", DeadlineOther, "Last day to change to-or-from Pass/No Pass (Nine-week Session)"},
+
+		// Unknown wording sorts by its verb and keeps its own text, shortened.
+		{"Last day to drop a lab section. Fees apply after", DeadlineDrop, "Last day to drop a lab section"},
+		{"Last day to withdraw from housing (ends at 5 p.m.)", DeadlineWithdraw, "Last day to withdraw from housing"},
+		{"Last day to change to-or-from Audit", DeadlineOther, "Last day to change to-or-from Audit"},
+		{"Waitlisting ends at 11:59 p.m.", DeadlineOther, "Waitlisting ends at 11:59 p.m."},
+		{"Priority date for readmission after being away one quarter or longer other than summer quarter",
+			DeadlineOther, "Priority date for readmission after being away one quarter..."},
 	}
-	for description, want := range tests {
-		if got := deadlineKind(description); got != want {
-			t.Errorf("deadlineKind(%q) = %s, want %s", description, got, want)
+	for _, tt := range tests {
+		kind, title := classifyDeadline(tt.description)
+		if kind != tt.kind || title != tt.title {
+			t.Errorf("classifyDeadline(%q) = %s, %q; want %s, %q", tt.description, kind, title, tt.kind, tt.title)
 		}
 	}
 }

@@ -881,7 +881,7 @@ func TestSearchIncludesFinal(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	want := calendar.Final{Date: "2025-06-10", Start: "1030", End: "1230", Certain: true}
+	want := calendar.Final{Date: "2025-06-10", Start: "1030", End: "1230", Certain: true, Location: "CF 105"}
 	if got := resp.Sections["202520:20001"].Final; got == nil || *got != want {
 		t.Errorf("CRN 20001 final = %+v, want %+v", got, want)
 	}

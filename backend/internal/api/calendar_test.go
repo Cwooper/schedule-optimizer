@@ -41,10 +41,12 @@ func TestGetCalendar(t *testing.T) {
 		"end":               "2025-06-13",
 		"registrationOpens": "2025-02-25",
 		"estimated":         false,
-		"registration":      []any{map[string]any{"phase": "I", "start": "2025-02-25", "end": "2025-03-10"}},
+		"registration":      []any{map[string]any{"phase": "I", "name": "Phase I - registration", "start": "2025-02-25", "end": "2025-03-10"}},
 		"holidays":          []any{map[string]any{"name": "Memorial Day", "start": "2025-05-26", "end": "2025-05-26"}},
-		"deadlines":         []any{map[string]any{"name": "Last day to withdraw from a class", "date": "2025-05-11", "kind": "withdraw"}},
-		"finals":            map[string]any{"start": "2025-06-09", "end": "2025-06-13"},
+		"deadlines": []any{map[string]any{
+			"name": "Last day to withdraw from a class", "title": "Withdraw deadline", "date": "2025-05-11", "kind": "withdraw",
+		}},
+		"finals": map[string]any{"start": "2025-06-09", "end": "2025-06-13"},
 	}
 	if !reflect.DeepEqual(body, want) {
 		t.Errorf("GET /calendar/202520 =\n%v\nwant\n%v", body, want)
@@ -63,7 +65,7 @@ func TestGetCRNIncludesFinal(t *testing.T) {
 
 	_, body := getJSON(t, h.GetCRN, "/crn/:crn", "/crn/20001?term=202520")
 	section, _ := body["section"].(map[string]any)
-	want := map[string]any{"date": "2025-06-10", "start": "1030", "end": "1230", "certain": true}
+	want := map[string]any{"date": "2025-06-10", "start": "1030", "end": "1230", "certain": true, "location": "CF 105"}
 	if !reflect.DeepEqual(section["final"], want) {
 		t.Errorf("final = %v, want %v", section["final"], want)
 	}

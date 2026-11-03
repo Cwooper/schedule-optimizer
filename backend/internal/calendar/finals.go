@@ -6,6 +6,7 @@ import (
 	"log/slog"
 	"slices"
 	"strconv"
+	"strings"
 	"time"
 
 	"schedule-optimizer/internal/meeting"
@@ -28,6 +29,8 @@ type Final struct {
 	End     string      `json:"end"`   // HHMM
 	Certain bool        `json:"certain"`
 	Reason  GuessReason `json:"reason,omitempty"`
+	// Location is the rooms of the meeting time the exam is based on.
+	Location string `json:"location,omitempty"`
 }
 
 // FinalsTable is one term's finals schedule.
@@ -143,6 +146,7 @@ func (t *FinalsTable) FinalFor(scheduleType string, meetings []meeting.Time) *Fi
 	default:
 		final.Certain = true
 	}
+	final.Location = strings.Join(chosen.rooms, ", ")
 	return final
 }
 
@@ -158,6 +162,7 @@ type pattern struct {
 	days       [7]bool
 	typ        string // Banner's meeting type
 	lab        bool
+	rooms      []string // the rows' distinct locations, in row order
 }
 
 func (p pattern) dayCount() int {
@@ -168,6 +173,14 @@ func (p pattern) dayCount() int {
 		}
 	}
 	return n
+}
+
+func (p *pattern) addRooms(rooms ...string) {
+	for _, r := range rooms {
+		if r != "" && !slices.Contains(p.rooms, r) {
+			p.rooms = append(p.rooms, r)
+		}
+	}
 }
 
 func (p pattern) weeklyMinutes() int { return (p.end - p.start) * p.dayCount() }
@@ -210,12 +223,13 @@ func (t *FinalsTable) patterns(meetings []meeting.Time) []pattern {
 			return p.start == start && p.end == end && p.typ == m.ScheduleType
 		})
 		if i < 0 {
-			out = append(out, pattern{start: start, end: end, typ: m.ScheduleType, lab: m.IsLab()})
+			out = append(out, pattern{start: start, end: end, typ: m.ScheduleType, lab: m.Lab})
 			i = len(out) - 1
 		}
 		for d, on := range m.Days {
 			out[i].days[d] = out[i].days[d] || on
 		}
+		out[i].addRooms(m.Location())
 	}
 	return out
 }
@@ -224,6 +238,7 @@ func (t *FinalsTable) patterns(meetings []meeting.Time) []pattern {
 // when their times differ or one is a lab.
 func mergeTypes(patterns []pattern) (pattern, bool) {
 	merged := patterns[0]
+	merged.rooms = slices.Clone(merged.rooms)
 	for _, p := range patterns {
 		if p.lab || p.start != merged.start || p.end != merged.end {
 			return pattern{}, false
@@ -231,6 +246,7 @@ func mergeTypes(patterns []pattern) (pattern, bool) {
 		for d, on := range p.days {
 			merged.days[d] = merged.days[d] || on
 		}
+		merged.addRooms(p.rooms...)
 	}
 	return merged, true
 }

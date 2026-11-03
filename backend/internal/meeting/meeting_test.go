@@ -19,9 +19,24 @@ func TestFromStore(t *testing.T) {
 		Days:      [7]bool{false, false, true, false, false, false, false},
 		StartTime: "0900", EndTime: "0950",
 		StartDate: "2026-09-23", EndDate: "",
-		ScheduleType: "B",
+		Lab: true, ScheduleType: "B",
 	}
 	if got != want {
 		t.Errorf("FromStore = %+v, want %+v", got, want)
+	}
+}
+
+func TestLocation(t *testing.T) {
+	tests := []struct{ building, room, want string }{
+		{"CF", "105", "CF 105"},
+		{"REMOTE", "SYNC", "REMOTE"},
+		{"ONLINE", "ASNC", "ONLINE"},
+		{"", "TBA", "TBA"},
+		{"", "", ""},
+	}
+	for _, tt := range tests {
+		if got := (Time{Building: tt.building, Room: tt.room}).Location(); got != tt.want {
+			t.Errorf("Location(%q, %q) = %q, want %q", tt.building, tt.room, got, tt.want)
+		}
 	}
 }

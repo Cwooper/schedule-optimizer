@@ -215,7 +215,7 @@ See `internal/scraper/scraper.go` package doc for detailed design decisions (tim
 
 Term dates, registration phases, deadlines, holidays, and the finals schedule come from registrar.wwu.edu, since Banner exposes none of them. See the `internal/calendar` package doc for the pages and how they are parsed.
 
-The API serves calendar data as JSON only: `GET /api/terms` adds each term's phase and dates, `GET /api/calendar/:term` returns its registration phases, holidays, deadlines, and finals week, and section payloads (generate, search, CRN lookup) carry an optional `final`. Calendar export is an `.ics` file built in the browser (`lib/ics.ts`); there are no hosted feeds, so nothing on the server has to track subscribers or stay in sync with a schedule the server never stores.
+The API serves calendar data as JSON only: `GET /api/terms` adds each term's phase and dates, `GET /api/calendar/:term` returns its registration phases, holidays, deadlines, and finals week, and section payloads (generate, search, CRN lookup) carry an optional `final`. Deadline titles for calendar events come from the same wording rules that sort deadlines into kinds (`classifyDeadline` in `calendar/term.go`), so the rules live in one place. Calendar export is an `.ics` file built in the browser (`lib/ics.ts`); there are no hosted feeds, so nothing on the server has to track subscribers or stay in sync with a schedule the server never stores.
 
 ## Environment Variables
 

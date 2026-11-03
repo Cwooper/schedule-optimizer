@@ -4,6 +4,7 @@ package meeting
 
 import (
 	"database/sql"
+	"strings"
 	"time"
 
 	"schedule-optimizer/internal/store"
@@ -18,16 +19,29 @@ type Time struct {
 	Room      string  `json:"room,omitempty"`
 	StartDate string  `json:"startDate,omitempty"` // YYYY-MM-DD
 	EndDate   string  `json:"endDate,omitempty"`   // YYYY-MM-DD, inclusive
+	Lab       bool    `json:"lab,omitempty"`       // ScheduleType "B"
 	// ScheduleType is Banner's code for the meeting ("L", "B" for lab, ...).
 	// It only feeds final exam matching.
 	ScheduleType string `json:"-"`
 }
 
-// LectureType is Banner's meeting type for a lecture.
-const LectureType = "L"
+const (
+	// LectureType is Banner's meeting type for a lecture.
+	LectureType = "L"
+	labType     = "B"
+)
 
-// IsLab reports whether Banner marks the meeting as a lab.
-func (t Time) IsLab() bool { return t.ScheduleType == "B" }
+// Location is the building and room, without Banner's ASNC and SYNC
+// placeholders, which mark online meetings rather than rooms.
+func (t Time) Location() string {
+	parts := make([]string, 0, 2)
+	for _, p := range []string{t.Building, t.Room} {
+		if p != "" && p != "ASNC" && p != "SYNC" {
+			parts = append(parts, p)
+		}
+	}
+	return strings.Join(parts, " ")
+}
 
 // FromStore converts a stored meeting row.
 func FromStore(m *store.MeetingTime) Time {
@@ -42,6 +56,7 @@ func FromStore(m *store.MeetingTime) Time {
 		Room:         m.Room.String,
 		StartDate:    isoDate(m.StartDate),
 		EndDate:      isoDate(m.EndDate),
+		Lab:          m.ScheduleType.String == labType,
 		ScheduleType: m.ScheduleType.String,
 	}
 }

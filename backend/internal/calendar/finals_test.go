@@ -35,7 +35,15 @@ func mt(dayLetters, start, end string) meeting.Time {
 	return meeting.Time{Days: days(dayLetters), StartTime: start, EndTime: end, StartDate: "2026-09-23", EndDate: "2026-12-11", ScheduleType: "L"}
 }
 
-func lab(m meeting.Time) meeting.Time { return typed(m, "B") }
+func lab(m meeting.Time) meeting.Time {
+	m.Lab = true
+	return typed(m, "B")
+}
+
+func room(m meeting.Time, building, room string) meeting.Time {
+	m.Building, m.Room = building, room
+	return m
+}
 
 func typed(m meeting.Time, scheduleType string) meeting.Time {
 	m.ScheduleType = scheduleType
@@ -160,5 +168,42 @@ func TestFinalForWithoutTable(t *testing.T) {
 	var summer *FinalsTable
 	if got := summer.FinalFor("Lecture", []meeting.Time{mt("MWF", "0900", "0950")}); got != nil {
 		t.Errorf("FinalFor without a finals table = %+v, want nil", got)
+	}
+}
+
+func TestFinalForLocation(t *testing.T) {
+	table := fallFinals(t)
+	tests := []struct {
+		name     string
+		meetings []meeting.Time
+		want     string
+	}{
+		{"the lecture's room, not the lab's", []meeting.Time{
+			room(lab(mt("R", "0800", "0950")), "SL", "220"), room(mt("MWF", "1300", "1350"), "CF", "105"),
+		}, "CF 105"},
+		// ACCT 321 CRN 41526 meets in PH 210 and PH 210B at once.
+		{"a pattern split across rooms lists each once", []meeting.Time{
+			room(mt("MW", "1000", "1150"), "PH", "210"), room(mt("MW", "1000", "1150"), "PH", "210B"),
+			room(mt("MW", "1000", "1150"), "PH", "210"),
+		}, "PH 210, PH 210B"},
+		{"types merged into one time keep every room", []meeting.Time{
+			room(mt("MW", "1000", "1120"), "PH", "210"), room(typed(mt("F", "1000", "1120"), "C"), "MH", "102"),
+		}, "PH 210, MH 102"},
+		{"types kept apart keep the lecture's room", []meeting.Time{
+			room(mt("MW", "1000", "1120"), "PH", "210"), room(typed(mt("R", "1000", "1120"), "C"), "MH", "102"),
+		}, "PH 210"},
+		{"an online placeholder is not a room", []meeting.Time{room(mt("TR", "1000", "1150"), "REMOTE", "SYNC")}, "REMOTE"},
+		{"no room", []meeting.Time{mt("TR", "1000", "1150")}, ""},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := table.FinalFor("Lecture", tt.meetings)
+			if got == nil {
+				t.Fatal("FinalFor = nil")
+			}
+			if got.Location != tt.want {
+				t.Errorf("Location = %q, want %q", got.Location, tt.want)
+			}
+		})
 	}
 }
