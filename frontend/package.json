@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "private": true,
-  "version": "2.2.2",
+  "version": "2.2.3",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -62,24 +62,5 @@
     "vite": "^8.3.5",
     "vite-plugin-compression": "^0.5.1",
     "vitest": "^5.0.5"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ],
-    "overrides": {
-      "minimatch@3": "^3.1.5",
-      "minimatch@10": "11.0.3",
-      "picomatch@4": "^4.0.4",
-      "flatted@3": "^3.4.2",
-      "ajv@6": "^6.15.0",
-      "brace-expansion@1": "^1.1.15",
-      "postcss@8": "^8.5.15"
-    },
-    "peerDependencyRules": {
-      "allowedVersions": {
-        "eslint-plugin-jsx-a11y>eslint": "10"
-      }
-    }
   }
 }
