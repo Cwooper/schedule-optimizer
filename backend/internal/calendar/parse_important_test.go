@@ -1,6 +1,7 @@
 package calendar
 
 import (
+	"fmt"
 	"strings"
 	"testing"
 	"time"
@@ -126,11 +127,11 @@ func findDate(dates []importantDate, prefix string) (importantDate, bool) {
 // one table of the given caption and rows (date cell, description).
 func importantPage(caption string, rows ...[2]string) []byte {
 	var b strings.Builder
-	b.WriteString(`<select name="field_quarter_target_id"><option value="292">Fall 2026</option>` +
-		`<option value="293" selected="selected">Winter 2027</option></select>` +
-		`<table><caption>` + caption + `</caption><tbody>`)
+	fmt.Fprintf(&b, `<select name="field_quarter_target_id"><option value="292">Fall 2026</option>`+
+		`<option value="293" selected="selected">Winter 2027</option></select>`+
+		`<table><caption>%s</caption><tbody>`, caption)
 	for _, r := range rows {
-		b.WriteString(`<tr><td>` + r[0] + `</td><td>` + r[1] + `</td></tr>`)
+		fmt.Fprintf(&b, `<tr><td>%s</td><td>%s</td></tr>`, r[0], r[1])
 	}
 	b.WriteString(`</tbody></table>`)
 	return []byte(b.String())

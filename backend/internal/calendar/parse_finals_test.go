@@ -1,6 +1,7 @@
 package calendar
 
 import (
+	"fmt"
 	"strings"
 	"testing"
 )
@@ -99,10 +100,11 @@ func TestParseFinalsExamDates(t *testing.T) {
 // then a neither column.
 func finalsItem(label, heading string, rows ...[3]string) string {
 	var b strings.Builder
-	b.WriteString(`<wwu-switcher-item label="` + label + `"><h2>` + heading + `</h2><table><thead><tr>` +
-		`<th>Class start time</th><th>Tuesday or Thursday</th><th>neither Tuesday nor Thursday</th></tr></thead><tbody>`)
+	fmt.Fprintf(&b, `<wwu-switcher-item label="%s"><h2>%s</h2><table><thead><tr>`+
+		`<th>Class start time</th><th>Tuesday or Thursday</th><th>neither Tuesday nor Thursday</th></tr></thead><tbody>`,
+		label, heading)
 	for _, r := range rows {
-		b.WriteString(`<tr><th>` + r[0] + `</th><td>` + r[1] + `</td><td>` + r[2] + `</td></tr>`)
+		fmt.Fprintf(&b, `<tr><th>%s</th><td>%s</td><td>%s</td></tr>`, r[0], r[1], r[2])
 	}
 	b.WriteString(`</tbody></table></wwu-switcher-item>`)
 	return b.String()
