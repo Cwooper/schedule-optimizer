@@ -15,24 +15,26 @@ export interface TermStatus {
   switchTo?: string
 }
 
-/** A newer term's registration this close is worth pointing out mid-term. */
-const UPCOMING_REGISTRATION_DAYS = 14
-
 /**
  * One line for the sidebar: the next registration date while registering,
- * finals week in session, or a newer term's registration about to open.
+ * finals week in session, or, from an in-session or past term, the
+ * registration of a newer term the server defaults to (calendar.DefaultTerm).
  * Returns null when there is nothing worth saying, or the calendar it needs
  * has not loaded.
  */
 export function termStatus(
   term: Term,
   calendar: TermCalendar | undefined,
-  terms: Term[],
+  defaultTerm: Term | undefined,
   today: string
 ): TermStatus | null {
-  if (term.phase === "in-session" || term.phase === "past") {
-    const next = upcomingRegistration(term, terms, today)
-    if (next) return { text: registrationOpensText(next), switchTo: next.code }
+  if (
+    (term.phase === "in-session" || term.phase === "past") &&
+    defaultTerm &&
+    defaultTerm.code > term.code &&
+    (defaultTerm.phase === "registration" || defaultTerm.phase === "pre-registration")
+  ) {
+    return { text: registrationOpensText(defaultTerm), switchTo: defaultTerm.code }
   }
   if (term.phase === "past" || !calendar) return null
   if (term.phase === "pre-registration") return { text: countdownText(calendar, today) }
@@ -82,22 +84,6 @@ function registrationText(calendar: TermCalendar, today: string): string | null 
   }
   if (next) return `Phase ${next.phase} opens ${formatMonthDay(next.start)}`
   return null
-}
-
-/** The newest newer term registering now, else the soonest opening soon. */
-function upcomingRegistration(term: Term, terms: Term[], today: string): Term | null {
-  const newer = terms.filter((t) => t.code > term.code)
-  const registering = newer.filter((t) => t.phase === "registration")
-  if (registering.length > 0) {
-    return registering.reduce((a, b) => (b.code > a.code ? b : a))
-  }
-  const soon = newer.filter(
-    (t) =>
-      t.phase === "pre-registration" &&
-      daysBetween(today, t.registrationOpens) <= UPCOMING_REGISTRATION_DAYS
-  )
-  if (soon.length === 0) return null
-  return soon.reduce((a, b) => (b.registrationOpens < a.registrationOpens ? b : a))
 }
 
 export type KeyDateState = "past" | "current" | "upcoming"

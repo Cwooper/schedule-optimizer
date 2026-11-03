@@ -248,7 +248,7 @@ export function ScheduleBuilder() {
           status={
             <TermStatus
               term={termsData?.terms.find((t) => t.code === term)}
-              terms={termsData?.terms ?? []}
+              defaultTerm={termsData?.terms.find((t) => t.code === termsData.current)}
               onSelectTerm={setTerm}
             />
           }

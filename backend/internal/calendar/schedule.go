@@ -179,15 +179,29 @@ func (s Schedule) Phase(code string, now time.Time) Phase {
 	return d.Phase(now)
 }
 
+// upcomingRegistrationDays is how close a term's registration opening must
+// be for it to take the default from the term in session: by then students
+// are planning it, and the frontend points to it from an in-session term.
+const upcomingRegistrationDays = 14
+
 // DefaultTerm picks the term the frontend should open to: the newest term in
 // registration, since students are choosing its classes (in May that is Fall
-// over Summer); else the term in session; else the soonest upcoming term;
-// else the newest term. Returns "" for no codes.
+// over Summer); else the term whose registration opens soonest within
+// upcomingRegistrationDays, counted in Pacific dates; else the term in
+// session; else the soonest upcoming term; else the newest term. Returns ""
+// for no codes.
 func (s Schedule) DefaultTerm(codes []string, now time.Time) string {
-	var registering, inSession, upcoming, newest string
+	local := now.In(Pacific)
+	soon := date(local.Year(), local.Month(), local.Day()+upcomingRegistrationDays)
+	var registering, opening, inSession, upcoming, newest string
+	var opens time.Time
 	for _, code := range codes {
 		newest = max(newest, code)
-		switch s.Phase(code, now) {
+		d, ok := s.Dates(code)
+		if !ok {
+			continue
+		}
+		switch d.Phase(now) {
 		case PhaseRegistration:
 			registering = max(registering, code)
 		case PhaseInSession:
@@ -196,9 +210,15 @@ func (s Schedule) DefaultTerm(codes []string, now time.Time) string {
 			if upcoming == "" || code < upcoming {
 				upcoming = code
 			}
+			// A same-day tie goes to the newer term, which the
+			// registration rule picks once both open.
+			if !d.RegistrationOpens.After(soon) && (opening == "" || d.RegistrationOpens.Before(opens) ||
+				(d.RegistrationOpens.Equal(opens) && code > opening)) {
+				opening, opens = code, d.RegistrationOpens
+			}
 		}
 	}
-	for _, pick := range []string{registering, inSession, upcoming} {
+	for _, pick := range []string{registering, opening, inSession, upcoming} {
 		if pick != "" {
 			return pick
 		}

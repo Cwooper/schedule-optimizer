@@ -52,71 +52,83 @@ const springTerm = term("202720", "Spring 2027", "pre-registration", "2027-02-23
 
 describe("termStatus", () => {
   it("counts down to Phase I", () => {
-    expect(termStatus(winterTerm, winter, [], "2026-10-20")?.text).toBe("Phase I opens Nov 3 - in 14 days")
-    expect(termStatus(winterTerm, winter, [], "2026-11-02")?.text).toBe("Phase I opens Nov 3 - tomorrow")
+    expect(termStatus(winterTerm, winter, undefined, "2026-10-20")?.text).toBe("Phase I opens Nov 3 - in 14 days")
+    expect(termStatus(winterTerm, winter, undefined, "2026-11-02")?.text).toBe("Phase I opens Nov 3 - tomorrow")
   })
 
   it("says today, never a negative count, once the opening day arrives", () => {
     // The cached phase still says pre-registration until /api/terms refetches.
-    expect(termStatus(winterTerm, winter, [], "2026-11-03")?.text).toBe("Phase I opens Nov 3 - today")
-    expect(termStatus(winterTerm, winter, [], "2026-11-04")?.text).toBe("Phase I opens Nov 3 - today")
+    expect(termStatus(winterTerm, winter, undefined, "2026-11-03")?.text).toBe("Phase I opens Nov 3 - today")
+    expect(termStatus(winterTerm, winter, undefined, "2026-11-04")?.text).toBe("Phase I opens Nov 3 - today")
   })
 
   it("marks an estimated opening without a Phase I row", () => {
     const estimated = { ...winter, registration: [], registrationOpens: "2026-10-27", estimated: true }
-    expect(termStatus(winterTerm, estimated, [], "2026-10-20")?.text).toBe("Registration opens ~Oct 27 - in 7 days")
+    expect(termStatus(winterTerm, estimated, undefined, "2026-10-20")?.text).toBe("Registration opens ~Oct 27 - in 7 days")
     const published = { ...estimated, estimated: false }
-    expect(termStatus(winterTerm, published, [], "2026-10-20")?.text).toBe("Registration opens Oct 27 - in 7 days")
+    expect(termStatus(winterTerm, published, undefined, "2026-10-20")?.text).toBe("Registration opens Oct 27 - in 7 days")
   })
 
   it("names the next phase during registration, then the last phase's end", () => {
     const registering = { ...winterTerm, phase: "registration" as const }
-    expect(termStatus(registering, winter, [], "2026-11-03")?.text).toBe("Phase II opens Nov 17")
-    expect(termStatus(registering, winter, [], "2026-12-01")?.text).toBe("Phase III opens Jan 5")
-    expect(termStatus(registering, winter, [], "2027-01-06")?.text).toBe("Phase III open until Jan 11")
+    expect(termStatus(registering, winter, undefined, "2026-11-03")?.text).toBe("Phase II opens Nov 17")
+    expect(termStatus(registering, winter, undefined, "2026-12-01")?.text).toBe("Phase III opens Jan 5")
+    expect(termStatus(registering, winter, undefined, "2027-01-06")?.text).toBe("Phase III open until Jan 11")
   })
 
   it("names the coming phase in a gap between phases", () => {
     const registering = { ...fallTerm, phase: "registration" as const }
-    expect(termStatus(registering, fall, [], "2026-08-01")?.text).toBe("Phase II opens Aug 25")
+    expect(termStatus(registering, fall, undefined, "2026-08-01")?.text).toBe("Phase II opens Aug 25")
   })
 
   it("shows finals week in session", () => {
-    expect(termStatus(fallTerm, fall, [fallTerm], "2026-10-15")?.text).toBe("Finals Dec 7-11")
+    expect(termStatus(fallTerm, fall, fallTerm, "2026-10-15")?.text).toBe("Finals Dec 7-11")
   })
 
   it("shows the last day for a term without finals", () => {
     const summer = { ...fall, finals: null }
-    expect(termStatus(fallTerm, summer, [], "2026-10-15")?.text).toBe("Classes end Dec 11")
+    expect(termStatus(fallTerm, summer, undefined, "2026-10-15")?.text).toBe("Classes end Dec 11")
   })
 
-  it("points to a newer term whose registration opens within two weeks", () => {
-    const terms = [springTerm, winterTerm, fallTerm]
-    expect(termStatus(fallTerm, fall, terms, "2026-10-20")).toEqual({
+  it("points to a newer default term before its registration opens", () => {
+    expect(termStatus(fallTerm, fall, winterTerm, "2026-11-02")).toEqual({
       text: "Winter 2027 registration opens Nov 3",
       switchTo: "202710",
     })
-    expect(termStatus(fallTerm, fall, terms, "2026-10-19")?.text).toBe("Finals Dec 7-11")
   })
 
-  it("marks a newer term's estimated opening", () => {
+  it("marks a newer default term's estimated opening", () => {
     const estimated = { ...winterTerm, registrationOpens: "2026-10-27", estimated: true }
-    expect(termStatus(fallTerm, fall, [estimated, fallTerm], "2026-10-20")?.text).toBe(
+    expect(termStatus(fallTerm, fall, estimated, "2026-10-20")?.text).toBe(
       "Winter 2027 registration opens ~Oct 27"
     )
   })
 
-  it("points to a newer term registering now", () => {
-    const terms = [{ ...winterTerm, phase: "registration" as const }, fallTerm]
-    expect(termStatus(fallTerm, fall, terms, "2026-11-05")).toEqual({
+  it("points to a newer default term registering now", () => {
+    const registering = { ...winterTerm, phase: "registration" as const }
+    expect(termStatus(fallTerm, fall, registering, "2026-11-05")).toEqual({
       text: "Winter 2027 registration open",
       switchTo: "202710",
     })
+    expect(termStatus({ ...fallTerm, phase: "past" }, fall, registering, "2026-12-20")?.switchTo).toBe("202710")
+  })
+
+  it("does not point to the default term when it is not a newer term to register for", () => {
+    // Fall 2026 is the default while Winter's registration is over two weeks off.
+    expect(termStatus(fallTerm, fall, fallTerm, "2026-10-19")?.text).toBe("Finals Dec 7-11")
+    const olderRegistering = term("202630", "Summer 2026", "registration", "2026-05-04")
+    expect(termStatus(fallTerm, fall, olderRegistering, "2026-10-19")?.switchTo).toBeUndefined()
+    const winterInSession = { ...winterTerm, phase: "in-session" as const }
+    expect(termStatus(fallTerm, fall, winterInSession, "2027-01-20")?.switchTo).toBeUndefined()
+    // Registering for Winter does not pull its own status line away.
+    expect(termStatus({ ...winterTerm, phase: "registration" }, winter, springTerm, "2026-11-05")?.text).toBe(
+      "Phase II opens Nov 17"
+    )
   })
 
   it("says nothing for a past term or before its calendar loads", () => {
-    expect(termStatus({ ...fallTerm, phase: "past" }, fall, [], "2027-02-01")).toBeNull()
-    expect(termStatus(fallTerm, undefined, [], "2026-10-15")).toBeNull()
+    expect(termStatus({ ...fallTerm, phase: "past" }, fall, undefined, "2027-02-01")).toBeNull()
+    expect(termStatus(fallTerm, undefined, undefined, "2026-10-15")).toBeNull()
   })
 })
 

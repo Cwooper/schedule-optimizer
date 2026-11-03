@@ -14,7 +14,8 @@ import { cn } from "@/lib/utils"
 
 interface TermStatusProps {
   term: Term | undefined
-  terms: Term[]
+  /** The server's default term, which the status may offer to switch to. */
+  defaultTerm: Term | undefined
   onSelectTerm: (code: string) => void
 }
 
@@ -22,10 +23,10 @@ const triggerClass =
   "text-muted-foreground hover:text-foreground inline-flex min-w-0 items-baseline gap-1 text-xs leading-none transition-colors"
 
 /** The sidebar's one-line term status, opening the term's key dates. */
-export function TermStatus({ term, terms, onSelectTerm }: TermStatusProps) {
+export function TermStatus({ term, defaultTerm, onSelectTerm }: TermStatusProps) {
   const { data: calendar } = useCalendar(term?.code ?? "")
   if (!term) return null
-  const status = termStatus(term, calendar, terms, pacificToday())
+  const status = termStatus(term, calendar, defaultTerm, pacificToday())
   if (!status) return null
 
   const content = (

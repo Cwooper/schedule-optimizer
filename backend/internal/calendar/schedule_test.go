@@ -17,12 +17,9 @@ var testSchedule = Schedule{scraped: map[string]scrapedDates{
 	"202730": {start: date(2027, 6, 22), lastDay: date(2027, 8, 20), registrationOpens: date(2027, 5, 4)},
 }}
 
-func TestSchedulePhase(t *testing.T) {
-	berlin, err := time.LoadLocation("Europe/Berlin")
-	if err != nil {
-		t.Fatal(err)
-	}
+var berlin = mustLoadLocation("Europe/Berlin")
 
+func TestSchedulePhase(t *testing.T) {
 	tests := []struct {
 		name     string
 		schedule Schedule
@@ -74,12 +71,18 @@ func TestDefaultTerm(t *testing.T) {
 		want  string
 	}{
 		{"in session, next registration not open", all, pacific(2026, 10, 15, 12, 0), "202640"},
+		// Winter 2027 Phase I opens Nov 3.
+		{"next registration opens in 15 days", all, pacific(2026, 10, 19, 23, 59), "202640"},
+		{"next registration opens in 14 days", all, pacific(2026, 10, 20, 0, 0), "202710"},
+		{"next registration opens tomorrow", all, pacific(2026, 11, 2, 12, 0), "202710"},
+		{"Berlin morning counts the Pacific date", all, time.Date(2026, 10, 20, 8, 0, 0, 0, berlin), "202640"},
 		{"registering for next term mid-term", all, pacific(2026, 11, 3, 1, 0), "202710"},
 		{"between terms", all, pacific(2026, 12, 20, 12, 0), "202710"},
 		{"first week of the term", all, pacific(2027, 1, 8, 12, 0), "202710"},
 		{"term in session", all, pacific(2027, 1, 20, 12, 0), "202710"},
 		{"spring registration", all, pacific(2027, 3, 1, 12, 0), "202720"},
-		// Summer opened May 4 and Fall 2027 (estimated) May 6.
+		// Summer opens May 4 and Fall 2027 (estimated) May 6.
+		{"soonest of two opening", all, pacific(2027, 4, 25, 12, 0), "202730"},
 		{"newest of two registering terms", all, pacific(2027, 5, 20, 12, 0), "202740"},
 		{"soonest upcoming", []string{"202720", "202710"}, pacific(2026, 6, 1, 12, 0), "202710"},
 		{"all past", []string{"202520", "202530"}, pacific(2026, 10, 15, 12, 0), "202530"},
@@ -91,5 +94,13 @@ func TestDefaultTerm(t *testing.T) {
 				t.Errorf("DefaultTerm = %q, want %q", got, tt.want)
 			}
 		})
+	}
+
+	sameDay := Schedule{scraped: map[string]scrapedDates{
+		"202730": {registrationOpens: date(2027, 5, 4)},
+		"202740": {registrationOpens: date(2027, 5, 4)},
+	}}
+	if got := sameDay.DefaultTerm(all, pacific(2027, 4, 25, 12, 0)); got != "202740" {
+		t.Errorf("two opening the same day: DefaultTerm = %q, want the newer, 202740", got)
 	}
 }
