@@ -149,7 +149,7 @@ func (s *Service) buildResponse(ctx context.Context, rows []*sectionRow, section
 		meetingsByKey[key] = append(meetingsByKey[key], meeting.FromStore(m))
 	}
 
-	finals := calendar.SectionFinals(ctx, s.queries, slices.Collect(maps.Keys(termSet)))
+	finals, _ := calendar.SectionFinals(ctx, s.queries, slices.Collect(maps.Keys(termSet)))
 
 	courses := make(map[string]CourseInfo)
 	sections := make(map[string]SectionInfo)

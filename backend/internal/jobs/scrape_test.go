@@ -175,8 +175,8 @@ func TestFailedScrapeBacksOff(t *testing.T) {
 	if want := []string{"10:00", "11:00", "12:00", "13:00", "21:03"}; !slices.Equal(got, want) {
 		t.Errorf("scraped at %v, want %v", got, want)
 	}
-	// Only the two successes rewrote the term's sections.
-	if want := []string{"202710", "202710"}; !slices.Equal(scraped.invalidated, want) {
+	// A failed scrape can still write sections, so every attempt invalidates.
+	if want := slices.Repeat([]string{"202710"}, 5); !slices.Equal(scraped.invalidated, want) {
 		t.Errorf("invalidated %v, want %v", scraped.invalidated, want)
 	}
 }

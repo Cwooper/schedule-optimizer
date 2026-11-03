@@ -69,13 +69,14 @@ func LoadFinals(ctx context.Context, q *store.Queries, terms []string) (map[stri
 
 // SectionFinals is LoadFinals for section payloads. A final is one detail of
 // a section, so a load error is logged and the sections go out without
-// finals rather than failing search, CRN lookup, or generate.
-func SectionFinals(ctx context.Context, q *store.Queries, terms []string) map[string]*FinalsTable {
+// finals rather than failing search, CRN lookup, or generate. ok is false
+// after an error, so a caller that keeps the sections can retry later.
+func SectionFinals(ctx context.Context, q *store.Queries, terms []string) (tables map[string]*FinalsTable, ok bool) {
 	tables, err := LoadFinals(ctx, q, terms)
 	if err != nil {
 		slog.Error("Failed to load finals; sections go without", "terms", terms, "error", err)
 	}
-	return tables
+	return tables, err == nil
 }
 
 func (t *FinalsTable) add(m finalMapping) {
@@ -110,7 +111,8 @@ const (
 // certain, whatever the section type. The registrar bases a lecture-and-lab
 // class on the lecture, but Banner's per-meeting codes are unreliable (some
 // PHYS 161 sections mark the lecture as the lab), so a section with several
-// times is a guess from its likeliest lecture (see choosePattern).
+// times is a guess from its likeliest lecture (see choosePattern), unless
+// they are one time under several types that agree on the exam (see pattern).
 func (t *FinalsTable) FinalFor(scheduleType string, meetings []meeting.Time) *Final {
 	if t == nil || scheduleType == "Lab" {
 		return nil
@@ -124,6 +126,11 @@ func (t *FinalsTable) FinalFor(scheduleType string, meetings []meeting.Time) *Fi
 	final := t.slotFor(chosen)
 	if final == nil {
 		return nil
+	}
+	if merged, ok := mergeTypes(patterns); ok && len(patterns) > 1 {
+		if alt := t.slotFor(merged); alt != nil && *alt == *final {
+			patterns, chosen = []pattern{merged}, merged
+		}
 	}
 	hasLab := slices.ContainsFunc(patterns, func(p pattern) bool { return p.lab }) || scheduleType == "Lecture/Lab"
 	switch {
@@ -142,8 +149,10 @@ func (t *FinalsTable) FinalFor(scheduleType string, meetings []meeting.Time) *Fi
 // pattern is one weekly meeting time. Banner splits a pattern across rows
 // (TR as a T row and an R row) and repeats rows, so rows sharing a time and
 // meeting type merge. Rows of different types stay apart even at one time:
-// MIS 320 has an L row for MW and C rows for its R lab, and merging them
-// would put its final in the Tuesday/Thursday column.
+// MIS 320 CRN 10105 has an L row for MW and C rows for its R lab, and
+// merging them would put its final in the Tuesday/Thursday column. When the
+// merge would not move the exam (MIS 320 CRN 10114, L MW and C F at 10:00),
+// FinalFor treats the rows as one time (see mergeTypes).
 type pattern struct {
 	start, end int // minutes after midnight
 	days       [7]bool
@@ -209,6 +218,21 @@ func (t *FinalsTable) patterns(meetings []meeting.Time) []pattern {
 		}
 	}
 	return out
+}
+
+// mergeTypes merges patterns into one as if they had one type. ok is false
+// when their times differ or one is a lab.
+func mergeTypes(patterns []pattern) (pattern, bool) {
+	merged := patterns[0]
+	for _, p := range patterns {
+		if p.lab || p.start != merged.start || p.end != merged.end {
+			return pattern{}, false
+		}
+		for d, on := range p.days {
+			merged.days[d] = merged.days[d] || on
+		}
+	}
+	return merged, true
 }
 
 // choosePattern picks the weekday pattern with the best rank, then the most

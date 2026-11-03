@@ -130,8 +130,8 @@ func (c *ScheduleCache) InvalidateAll() {
 }
 
 // load reads a term from the database and caches it if no invalidation
-// happened since generation. It returns the data either way: it is a whole
-// term, only possibly older than the next load's.
+// happened since generation and its finals loaded. It returns the data either
+// way: it is a whole term, only possibly older or missing finals.
 func (c *ScheduleCache) load(ctx context.Context, term string, generation uint64) (*TermData, error) {
 	start := time.Now()
 
@@ -145,7 +145,7 @@ func (c *ScheduleCache) load(ctx context.Context, term string, generation uint64
 		return nil, err
 	}
 
-	finals := calendar.SectionFinals(ctx, c.queries, []string{term})
+	finals, finalsOK := calendar.SectionFinals(ctx, c.queries, []string{term})
 
 	// Index by section ID to avoid N+1 queries when building courses
 	meetingsBySection := make(map[int64][]*store.MeetingTime)
@@ -197,11 +197,15 @@ func (c *ScheduleCache) load(ctx context.Context, term string, generation uint64
 		termData.ByCourseCode[courseCode] = append(termData.ByCourseCode[courseCode], course)
 	}
 
-	c.mu.Lock()
-	if c.generation == generation {
-		c.terms[term] = termData
+	// Without its finals the term is served but not kept, so the next
+	// request retries rather than going without finals until an invalidation.
+	if finalsOK {
+		c.mu.Lock()
+		if c.generation == generation {
+			c.terms[term] = termData
+		}
+		c.mu.Unlock()
 	}
-	c.mu.Unlock()
 
 	slog.Info("Loaded term into schedule cache",
 		"term", term,

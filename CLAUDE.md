@@ -196,7 +196,7 @@ registrar.wwu.edu → Calendar ─┴→ SQLite → Cache (in-memory) → API �
 - **sqlc** for type-safe queries (regenerate after changing queries.sql)
 - **Separate concerns:**
   - `store/` - sqlc queries and models
-  - `cache/` - in-memory cache for schedule generation (active terms only)
+  - `cache/` - in-memory cache for schedule generation: a term loads on its first request as an immutable snapshot and is dropped after a scrape, the calendar job, or the grade import rewrites its data, so the next request reloads it
 
 ## External Data Sources
 

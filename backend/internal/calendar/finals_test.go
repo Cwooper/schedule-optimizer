@@ -86,6 +86,28 @@ func TestFinalFor(t *testing.T) {
 		{"lecture rows set the pattern beside other types at the same time", "Lecture/Lab",
 			[]meeting.Time{mt("MW", "1000", "1120"), typed(mt("R", "1000", "1120"), "C"), typed(mt("R", "1000", "1120"), "C")},
 			guess("2026-12-08", "1030", "1230", ReasonLab)},
+		// MIS 320 CRN 41981: as above but the C rows are on F, which does not
+		// move the exam.
+		{"other types at the lecture's time are one time when the exam is the same", "Lecture/Lab",
+			[]meeting.Time{mt("MW", "1000", "1120"), typed(mt("F", "1000", "1120"), "C"), typed(mt("F", "1000", "1120"), "C")},
+			certain("2026-12-08", "1030", "1230")},
+		// KIN 416 CRN 40471 and MFGE 454 CRN 42743: the lecture has a Tuesday
+		// or Thursday either way.
+		{"another type adding a day keeps the lecture's column", "Lecture/Lab",
+			[]meeting.Time{mt("MWR", "0800", "0850"), typed(mt("F", "0800", "0850"), "C")},
+			certain("2026-12-07", "1300", "1500")},
+		{"another type adding a Tuesday to a Thursday lecture", "Lecture/Lab",
+			[]meeting.Time{typed(mt("T", "1500", "1650"), "C"), mt("WR", "1500", "1650")},
+			certain("2026-12-09", "1300", "1500")},
+		{"another type moving an evening exam's day stays a guess", "Lecture",
+			[]meeting.Time{mt("WR", "1900", "2150"), typed(mt("M", "1900", "2150"), "C")},
+			guess("2026-12-09", "1900", "2100", ReasonMultiple)},
+		{"another type on the lecture's one day is still weekly", "Lecture",
+			[]meeting.Time{mt("W", "1400", "1650"), typed(mt("W", "1400", "1650"), "C")},
+			guess("2026-12-10", "1030", "1230", ReasonWeekly)},
+		{"a lab-coded row at the lecture's time stays apart", "Lecture",
+			[]meeting.Time{mt("MW", "1000", "1120"), lab(mt("F", "1000", "1120"))},
+			guess("2026-12-08", "1030", "1230", ReasonLab)},
 		{"lecture rows win over longer rows of another type", "Lecture",
 			[]meeting.Time{mt("MW", "1000", "1050"), typed(mt("MTWRF", "1300", "1350"), "C")},
 			guess("2026-12-08", "1030", "1230", ReasonMultiple)},

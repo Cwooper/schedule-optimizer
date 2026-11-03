@@ -78,7 +78,7 @@ backend/
 ├── migrations/          # SQL migration files (golang-migrate)
 ├── internal/
 │   ├── api/             # HTTP handlers
-│   ├── cache/           # In-memory schedule cache (active terms)
+│   ├── cache/           # In-memory term snapshots, loaded on request, dropped after jobs rewrite them
 │   ├── calendar/        # Registrar calendar scraper, term phases, finals matching
 │   ├── config/          # Environment configuration
 │   ├── db/              # SQLite connection setup

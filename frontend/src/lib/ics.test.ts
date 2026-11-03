@@ -161,6 +161,18 @@ describe("buildIcs classes", () => {
     expect(until("2026-11-01")).toContain("UNTIL=20261102T075959Z")
   })
 
+  it("ends an evening class on either side of the March DST change", () => {
+    // DST starts at 2:00 on Sun Mar 14, 2027: 23:59:59 is PST on Mar 13 and
+    // PDT on Mar 14, the last class day before Winter 2027 finals.
+    const winter2027 = { ...fall, term: "202710", start: "2027-01-05", end: "2027-03-19", holidays: [], finals: { start: "2027-03-15", end: "2027-03-19" } }
+    const until = (endDate: string) => {
+      const evening = section({ meetingTimes: [meeting("SU", "1900", "2150", { startDate: "2027-01-05", endDate })] })
+      return prop(events(build([evening], { classes: true }, winter2027))[0], "RRULE")[0]
+    }
+    expect(until("2027-03-13")).toContain("UNTIL=20270314T075959Z")
+    expect(until("2027-03-14")).toContain("UNTIL=20270315T065959Z")
+  })
+
   it("merges rows that differ only by room into one event", () => {
     // ACCT 321 CRN 41526 meets in PH 210 and PH 210B at once.
     const split = section({

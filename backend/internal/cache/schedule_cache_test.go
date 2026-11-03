@@ -271,6 +271,36 @@ func TestLoadBeforeInvalidationIsNotCached(t *testing.T) {
 	}
 }
 
+func TestTermWithoutFinalsIsNotCached(t *testing.T) {
+	db, queries := testutil.SetupTestDB(t)
+	testutil.SeedTestData(t, db)
+	testutil.SeedSpring2025Calendar(t, db)
+	if _, err := db.Exec("UPDATE finals_mappings SET exam_date = 'not a date'"); err != nil {
+		t.Fatal(err)
+	}
+	cache := NewScheduleCache(queries, nil)
+	ctx := context.Background()
+
+	td, err := cache.Term(ctx, "202520")
+	if err != nil || len(td.Courses) != 3 || td.Courses["20001"].Final != nil {
+		t.Fatalf("Term = %v, %v; want the term served without finals", td, err)
+	}
+	if cache.IsTermLoaded("202520") {
+		t.Error("a term loaded without its finals was cached")
+	}
+
+	if _, err := db.Exec("UPDATE finals_mappings SET exam_date = '2025-06-10'"); err != nil {
+		t.Fatal(err)
+	}
+	td, err = cache.Term(ctx, "202520")
+	if err != nil || td.Courses["20001"].Final == nil {
+		t.Fatalf("Term after the finals recover = %v, %v; want CRN 20001's final", td, err)
+	}
+	if !cache.IsTermLoaded("202520") {
+		t.Error("the term was not cached once its finals loaded")
+	}
+}
+
 func TestNullHelpers(t *testing.T) {
 	t.Run("nullString", func(t *testing.T) {
 		valid := sql.NullString{String: "test", Valid: true}

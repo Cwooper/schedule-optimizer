@@ -184,7 +184,7 @@ func (h *Handlers) lookupSection(ctx context.Context, term, crn string) (*Sectio
 	if err != nil {
 		return nil, err
 	}
-	finals := calendar.SectionFinals(ctx, h.queries, []string{term})
+	finals, _ := calendar.SectionFinals(ctx, h.queries, []string{term})
 
 	meetings := meeting.FromStoreAll(rows)
 	resp := &SectionResponse{

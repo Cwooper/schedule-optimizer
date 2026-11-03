@@ -91,12 +91,13 @@ func (j *ScrapeJob) Run(ctx context.Context, now time.Time) error {
 		}
 		slog.Info("Scraping term", "term", term.Code, "description", term.Description)
 		stored, err := j.scraper.ScrapeTerm(ctx, term.Code)
+		// ScrapeTerm can fail after storing sections.
+		j.cache.Invalidate(term.Code)
 		if err != nil {
 			j.failedAt[term.Code] = now
 			slog.Error("Failed to scrape term", "term", term.Code, "error", err, "retry_after", retryBackoff)
 			continue
 		}
-		j.cache.Invalidate(term.Code)
 		slog.Info("Term scrape complete", "term", term.Code, "sections", stored)
 	}
 	return nil
