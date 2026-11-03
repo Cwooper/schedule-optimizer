@@ -15,6 +15,7 @@ func RegisterRoutes(r *gin.Engine, h *api.Handlers) {
 	{
 		apiGroup.GET("/health", h.Health)
 		apiGroup.GET("/terms", h.GetTerms)
+		apiGroup.GET("/calendar/:term", h.GetCalendar)
 		apiGroup.GET("/subjects", h.GetSubjects)
 		apiGroup.GET("/course/:subject/:courseNumber", h.GetCourse)
 		apiGroup.GET("/search", h.Search)

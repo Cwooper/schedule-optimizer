@@ -1,5 +1,5 @@
 // Package cache provides in-memory caching for schedule generation.
-// Only "active" terms (current + upcoming) are loaded for fast schedule building.
+// Only terms schedules are generated for are loaded.
 // Historical/search queries go directly to SQLite via the search service.
 package cache
 
@@ -7,12 +7,16 @@ import (
 	"context"
 	"database/sql"
 	"log/slog"
+	"maps"
 	"slices"
+	"strconv"
 	"sync"
 	"time"
 
 	"golang.org/x/sync/singleflight"
 
+	"schedule-optimizer/internal/calendar"
+	"schedule-optimizer/internal/meeting"
 	"schedule-optimizer/internal/stats/grades"
 	"schedule-optimizer/internal/store"
 )
@@ -20,38 +24,32 @@ import (
 // Course represents a fully hydrated course section for schedule generation.
 // Includes all meeting times needed for conflict detection.
 type Course struct {
-	ID                  int64         `json:"id"`
-	Term                string        `json:"term"`
-	CRN                 string        `json:"crn"`
-	Subject             string        `json:"subject"`
-	SubjectDescription  string        `json:"subjectDescription,omitempty"`
-	CourseNumber        string        `json:"courseNumber"`
-	Title               string        `json:"title"`
-	Credits             int           `json:"credits"`
-	Instructor          string        `json:"instructor,omitempty"`
-	InstructorEmail     string        `json:"instructorEmail,omitempty"`
-	Enrollment          int           `json:"enrollment"`
-	MaxEnrollment       int           `json:"maxEnrollment"`
-	SeatsAvailable      int           `json:"seatsAvailable"`
-	WaitCount           int           `json:"waitCount"`
-	IsOpen              bool          `json:"isOpen"`
-	InstructionalMethod string        `json:"instructionalMethod,omitempty"`
-	MeetingTimes        []MeetingTime `json:"meetingTimes"`
-	GPA                 float64       `json:"gpa,omitempty"`
-	GPASource           string        `json:"gpaSource,omitempty"` // "course_professor", "course", ""
-	PassRate            *float64      `json:"passRate,omitempty"`
+	ID                  int64           `json:"id"`
+	Term                string          `json:"term"`
+	CRN                 string          `json:"crn"`
+	Subject             string          `json:"subject"`
+	SubjectDescription  string          `json:"subjectDescription,omitempty"`
+	CourseNumber        string          `json:"courseNumber"`
+	Title               string          `json:"title"`
+	Credits             int             `json:"credits"`
+	Instructor          string          `json:"instructor,omitempty"`
+	InstructorEmail     string          `json:"instructorEmail,omitempty"`
+	Enrollment          int             `json:"enrollment"`
+	MaxEnrollment       int             `json:"maxEnrollment"`
+	SeatsAvailable      int             `json:"seatsAvailable"`
+	WaitCount           int             `json:"waitCount"`
+	IsOpen              bool            `json:"isOpen"`
+	InstructionalMethod string          `json:"instructionalMethod,omitempty"`
+	MeetingTimes        []meeting.Time  `json:"meetingTimes"`
+	Final               *calendar.Final `json:"final,omitempty"`
+	GPA                 float64         `json:"gpa,omitempty"`
+	GPASource           string          `json:"gpaSource,omitempty"` // "course_professor", "course", ""
+	PassRate            *float64        `json:"passRate,omitempty"`
 }
 
-// MeetingTime represents when and where a course meets.
-type MeetingTime struct {
-	Days      [7]bool `json:"days"` // [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
-	StartTime string  `json:"startTime,omitempty"`
-	EndTime   string  `json:"endTime,omitempty"`
-	Building  string  `json:"building,omitempty"`
-	Room      string  `json:"room,omitempty"`
-}
-
-// TermData holds all courses for a single term, indexed for fast access.
+// TermData holds all courses for a single term, indexed for fast access. It
+// is never modified once loaded: a reload builds a new one, so a request that
+// holds one reads a whole term throughout.
 type TermData struct {
 	Term         string
 	LoadedAt     time.Time
@@ -60,14 +58,19 @@ type TermData struct {
 	ByCourseCode map[string][]*Course // "CSCI:247" -> Courses (all sections)
 }
 
-// ScheduleCache holds course data for active terms used in schedule generation.
+// ScheduleCache holds course data for the terms schedules are generated for.
+// A term loads on its first request and stays until a job rewrites its data
+// and invalidates it, unless its finals failed to load (see load).
 type ScheduleCache struct {
-	mu           sync.RWMutex
-	terms        map[string]*TermData
-	activeTerms  []string
+	mu    sync.RWMutex
+	terms map[string]*TermData
+	// generation counts invalidations. A load installs its result only if
+	// none happened since it started, since it may have read the rows the
+	// invalidation replaced.
+	generation   uint64
 	queries      *store.Queries
 	gradeService *grades.Service
-	loadGroup    singleflight.Group // Deduplicates concurrent LoadTerm calls
+	loadGroup    singleflight.Group // Deduplicates concurrent loads
 }
 
 // NewScheduleCache creates a new schedule cache.
@@ -79,22 +82,73 @@ func NewScheduleCache(queries *store.Queries, gradeService *grades.Service) *Sch
 	}
 }
 
-// LoadTerm loads all course data for a term into memory using sqlc queries.
+// Term returns a term's data, loading it if it is not cached. Concurrent
+// requests for a term share one load.
+func (c *ScheduleCache) Term(ctx context.Context, term string) (*TermData, error) {
+	c.mu.RLock()
+	td, generation := c.terms[term], c.generation
+	c.mu.RUnlock()
+	if td != nil {
+		return td, nil
+	}
+	// Keyed by generation so a request after an invalidation does not join a
+	// load that started before it. The load outlives a canceled request
+	// because other requests may be waiting on it.
+	key := term + "@" + strconv.FormatUint(generation, 10)
+	v, err, _ := c.loadGroup.Do(key, func() (any, error) {
+		return c.load(context.WithoutCancel(ctx), term, generation)
+	})
+	if err != nil {
+		return nil, err
+	}
+	return v.(*TermData), nil
+}
+
+// LoadTerm loads a term and caches it as load does, replacing any cached copy.
 func (c *ScheduleCache) LoadTerm(ctx context.Context, term string) error {
+	c.mu.RLock()
+	generation := c.generation
+	c.mu.RUnlock()
+	_, err := c.load(ctx, term, generation)
+	return err
+}
+
+// Invalidate drops a term so its next request reloads it from the database.
+func (c *ScheduleCache) Invalidate(term string) {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	c.generation++
+	delete(c.terms, term)
+}
+
+// InvalidateAll drops every cached term.
+func (c *ScheduleCache) InvalidateAll() {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	c.generation++
+	clear(c.terms)
+}
+
+// load reads a term from the database and caches it if no invalidation
+// happened since generation and its finals loaded. It returns the data either
+// way: it is a whole term, only possibly older or missing finals.
+func (c *ScheduleCache) load(ctx context.Context, term string, generation uint64) (*TermData, error) {
 	start := time.Now()
 
 	sections, err := c.queries.GetSectionsWithInstructorByTerm(ctx, term)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	meetingTimes, err := c.queries.GetMeetingTimesByTerm(ctx, term)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
+	finals, finalsOK := calendar.SectionFinals(ctx, c.queries, []string{term})
+
 	// Index by section ID to avoid N+1 queries when building courses
-	meetingsBySection := make(map[int64][]*store.GetMeetingTimesByTermRow)
+	meetingsBySection := make(map[int64][]*store.MeetingTime)
 	for _, m := range meetingTimes {
 		meetingsBySection[m.SectionID] = append(meetingsBySection[m.SectionID], m)
 	}
@@ -125,28 +179,9 @@ func (c *ScheduleCache) LoadTerm(ctx context.Context, term string) error {
 			WaitCount:           int(nullInt(s.WaitCount)),
 			IsOpen:              nullInt(s.IsOpen) == 1,
 			InstructionalMethod: nullString(s.InstructionalMethod),
-			MeetingTimes:        []MeetingTime{},
+			MeetingTimes:        meeting.FromStoreAll(meetingsBySection[s.ID]),
 		}
-
-		// Add meeting times from pre-fetched data
-		for _, m := range meetingsBySection[s.ID] {
-			mt := MeetingTime{
-				Days: [7]bool{
-					nullInt(m.Sunday) == 1,
-					nullInt(m.Monday) == 1,
-					nullInt(m.Tuesday) == 1,
-					nullInt(m.Wednesday) == 1,
-					nullInt(m.Thursday) == 1,
-					nullInt(m.Friday) == 1,
-					nullInt(m.Saturday) == 1,
-				},
-				StartTime: nullString(m.StartTime),
-				EndTime:   nullString(m.EndTime),
-				Building:  nullString(m.Building),
-				Room:      nullString(m.Room),
-			}
-			course.MeetingTimes = append(course.MeetingTimes, mt)
-		}
+		course.Final = finals[term].FinalFor(s.ScheduleType.String, course.MeetingTimes)
 
 		// Look up GPA and pass rate from grade data
 		if c.gradeService != nil && c.gradeService.IsLoaded() {
@@ -162,35 +197,27 @@ func (c *ScheduleCache) LoadTerm(ctx context.Context, term string) error {
 		termData.ByCourseCode[courseCode] = append(termData.ByCourseCode[courseCode], course)
 	}
 
-	c.mu.Lock()
-	c.terms[term] = termData
-	// Track active terms
-	found := slices.Contains(c.activeTerms, term)
-	if !found {
-		c.activeTerms = append(c.activeTerms, term)
+	// Without its finals the term is served but not kept, so the next
+	// request retries rather than going without finals until an invalidation.
+	cached := false
+	if finalsOK {
+		c.mu.Lock()
+		if c.generation == generation {
+			c.terms[term] = termData
+			cached = true
+		}
+		c.mu.Unlock()
 	}
-	c.mu.Unlock()
 
-	slog.Info("Loaded term into schedule cache",
+	slog.Info("Loaded term for schedule cache",
 		"term", term,
+		"cached", cached,
 		"courses", len(termData.Courses),
 		"subjects", len(termData.BySubject),
 		"duration", time.Since(start),
 	)
 
-	return nil
-}
-
-// LoadTermIfNeeded loads a term if not already cached, deduplicating concurrent requests.
-// Multiple goroutines requesting the same term will share a single load operation.
-func (c *ScheduleCache) LoadTermIfNeeded(ctx context.Context, term string) error {
-	_, err, _ := c.loadGroup.Do(term, func() (any, error) {
-		if c.IsTermLoaded(term) {
-			return nil, nil
-		}
-		return nil, c.LoadTerm(ctx, term)
-	})
-	return err
+	return termData, nil
 }
 
 // GetCourse returns a course by CRN for a specific term.
@@ -274,28 +301,11 @@ func (c *ScheduleCache) IsTermLoaded(term string) bool {
 	return ok
 }
 
-// GetActiveTerms returns the list of currently loaded terms.
+// GetActiveTerms returns the cached terms, sorted.
 func (c *ScheduleCache) GetActiveTerms() []string {
 	c.mu.RLock()
 	defer c.mu.RUnlock()
-	result := make([]string, len(c.activeTerms))
-	copy(result, c.activeTerms)
-	return result
-}
-
-// UnloadTerm removes a term from the cache to free memory.
-func (c *ScheduleCache) UnloadTerm(term string) {
-	c.mu.Lock()
-	defer c.mu.Unlock()
-
-	delete(c.terms, term)
-	for i, t := range c.activeTerms {
-		if t == term {
-			c.activeTerms = append(c.activeTerms[:i], c.activeTerms[i+1:]...)
-			break
-		}
-	}
-	slog.Info("Unloaded term from schedule cache", "term", term)
+	return slices.Sorted(maps.Keys(c.terms))
 }
 
 // helpers for sql.Null types

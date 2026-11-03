@@ -1,39 +1,19 @@
 import { useCallback, useMemo, useRef, useState } from "react"
-import {
-  ChevronLeft,
-  ChevronRight,
-  RefreshCw,
-  MoreVertical,
-  Clock,
-  Download,
-  Calendar,
-  Share2,
-  Map,
-  Check,
-  Loader2,
-} from "lucide-react"
-import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
+import { Check } from "lucide-react"
 import { ScheduleGrid } from "./ScheduleGrid"
 import { AsyncCoursesList } from "./AsyncCoursesList"
 import { BlockedTimesDialog } from "./BlockedTimesDialog"
-import { useAppStore, type BlockedTimeBlock } from "@/stores/app-store"
-import { useTerms } from "@/hooks/use-api"
+import { ScheduleBanner, ScheduleNavHeader } from "./ScheduleNavHeader"
+import { selectScheduleTerm, useAppStore, type BlockedTimeBlock, type BlockedTimeGroup } from "@/stores/app-store"
+import { useCalendar, useTerms } from "@/hooks/use-api"
 import { useExportPng } from "@/hooks/use-export-png"
 import { hydrateSchedule } from "@/lib/schedule-utils"
-import { cn } from "@/lib/utils"
+import { examSections, finalsWeekDays } from "@/lib/finals"
+import { formatNumericDate } from "@/lib/dates"
 
-// eslint-disable-next-line sonarjs/cognitive-complexity
+// Blocked times are weekly class preferences; finals week has its own times.
+const NO_BLOCKED_TIMES: BlockedTimeGroup[] = []
+
 export function ScheduleView() {
   const {
     generateResult,
@@ -50,28 +30,22 @@ export function ScheduleView() {
     updateBlockInGroupById,
     removeBlockFromGroupById,
   } = useAppStore()
-  const term = useAppStore((s) => s.term)
+  const term = useAppStore(selectScheduleTerm)
   const { data: termsData } = useTerms()
+  const { data: calendar } = useCalendar(term)
   const isGenerateResultStale = useAppStore((s) => s.isGenerateResultStale())
   const canRegenerate = slots.length > 0
   const showStale = isGenerateResultStale && canRegenerate
-  const [spinCount, setSpinCount] = useState(0)
   const [dialogOpen, setDialogOpen] = useState(false)
+  const [finalsView, setFinalsView] = useState(false)
   const [focusedGroupId, setFocusedGroupId] = useState<string | null>(null)
   const gridRef = useRef<HTMLDivElement>(null)
   const termName = termsData?.terms.find((t) => t.code === term)?.name
-  const { isExporting, handleDownloadPng } = useExportPng(gridRef, termName)
 
   const isEditing = editingBlockedTimeGroupId != null
   const editingGroup = blockedTimeGroups.find(
     (g) => g.id === editingBlockedTimeGroupId
   )
-
-  const regenerateTooltip = () => {
-    if (!canRegenerate) return "Add courses to regenerate"
-    if (showStale) return "Course list changed. Click to regenerate."
-    return "Regenerate schedules"
-  }
 
   const hasSchedules =
     generateResult != null && generateResult.schedules.length > 0
@@ -90,8 +64,22 @@ export function ScheduleView() {
     ? Math.min(currentScheduleIndex, totalSchedules - 1)
     : 0
 
+  const scheduleSections = useMemo(() => currentSchedule?.courses ?? [], [currentSchedule])
+  const exams = useMemo(() => examSections(scheduleSections), [scheduleSections])
+  // A schedule without exams ends finals week, so paging past one does not
+  // bring it back.
+  if (finalsView && exams.length === 0) setFinalsView(false)
+  const showFinals = finalsView && !isEditing
+  const { isExporting, handleDownloadPng } = useExportPng(gridRef, termName, showFinals ? "Finals" : "Schedule")
+  const finalsDays = useMemo(() => finalsWeekDays(exams, calendar?.finals ?? null), [exams, calendar])
+  const guessedCrns = useMemo(
+    () => new Set(exams.filter((e) => !e.final?.certain).map((e) => e.crn)),
+    [exams]
+  )
+
   const handleStartPainting = useCallback(
     (groupId: string) => {
+      setFinalsView(false)
       setEditingBlockedTimeGroupId(groupId)
     },
     [setEditingBlockedTimeGroupId]
@@ -115,18 +103,6 @@ export function ScheduleView() {
     removeBlockedTimeGroup,
     setEditingBlockedTimeGroupId,
   ])
-
-  const handlePrev = () => {
-    if (safeIndex > 0) {
-      setCurrentScheduleIndex(safeIndex - 1)
-    }
-  }
-
-  const handleNext = () => {
-    if (safeIndex < totalSchedules - 1) {
-      setCurrentScheduleIndex(safeIndex + 1)
-    }
-  }
 
   const handleCourseClick = (crn: string) => {
     openCourseDialog({ crn, source: "schedule" })
@@ -166,137 +142,46 @@ export function ScheduleView() {
 
   return (
     <div className="flex h-full flex-col">
-      {/* Paint mode banner — replaces navigation header */}
-      {isEditing ? (
-        <div className="flex items-center justify-between border-b bg-muted/40 px-4 py-2">
-          <span className="text-sm font-medium">
-            Painting: {editingGroup?.title || "Blocked Time"}
-          </span>
-          <Button size="icon" variant="ghost" onClick={handleDonePainting}>
-            <Check className="size-4" />
-            <span className="sr-only">Done painting</span>
-          </Button>
-        </div>
-      ) : (
-        /* Navigation header */
-        <div className="relative flex items-center justify-center border-b px-4 py-2">
-          {/* Regenerate button */}
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <div className="absolute left-2">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className={cn(
-                    showStale &&
-                      "text-amber-600 hover:text-amber-700 dark:text-amber-400 dark:hover:text-amber-300"
-                  )}
-                  onClick={() => {
-                    setSpinCount((c) => c + 1)
-                    requestRegenerate()
-                  }}
-                  disabled={!canRegenerate}
-                >
-                  <RefreshCw
-                    key={spinCount}
-                    className={cn("size-4", spinCount > 0 && "animate-spin-once")}
-                  />
-                  <span className="sr-only">Regenerate schedules</span>
-                </Button>
-              </div>
-            </TooltipTrigger>
-            <TooltipContent side="bottom">
-              {regenerateTooltip()}
-            </TooltipContent>
-          </Tooltip>
-
-          {hasSchedules ? (
-            <>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={handlePrev}
-                disabled={safeIndex === 0}
-              >
-                <ChevronLeft className="size-4" />
-              </Button>
-              <span className="min-w-32 text-center text-sm">
-                Schedule {safeIndex + 1} of {totalSchedules}
-              </span>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={handleNext}
-                disabled={safeIndex === totalSchedules - 1}
-              >
-                <ChevronRight className="size-4" />
-              </Button>
-            </>
-          ) : (
-            <span className="text-muted-foreground flex h-9 items-center text-sm">
-              {generateResult ? "No valid schedules found" : "No schedules yet"}
-            </span>
-          )}
-
-          {/* Schedule actions dropdown */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="absolute right-2"
-              >
-                <MoreVertical className="size-4" />
-                <span className="sr-only">Schedule options</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={() => setDialogOpen(true)}>
-                <Clock className="size-4" />
-                Blocked Times
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                disabled={!hasSchedules || isExporting}
-                onClick={handleDownloadPng}
-              >
-                {isExporting ? (
-                  <Loader2 className="size-4 animate-spin" />
-                ) : (
-                  <Download className="size-4" />
-                )}
-                {isExporting ? "Exporting..." : "Download PNG"}
-              </DropdownMenuItem>
-              <DropdownMenuItem disabled>
-                <Calendar className="size-4" />
-                Export ICS
-              </DropdownMenuItem>
-              <DropdownMenuItem disabled>
-                <Share2 className="size-4" />
-                Share Link
-              </DropdownMenuItem>
-              <DropdownMenuItem disabled>
-                <Map className="size-4" />
-                Campus Map
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
+      {isEditing && (
+        <ScheduleBanner onClose={handleDonePainting} closeLabel="Done painting" closeIcon={Check}>
+          Painting: {editingGroup?.title || "Blocked Time"}
+        </ScheduleBanner>
+      )}
+      {!isEditing && (
+        <ScheduleNavHeader
+          canRegenerate={canRegenerate}
+          showStale={showStale}
+          onRegenerate={requestRegenerate}
+          index={safeIndex}
+          count={totalSchedules}
+          onIndexChange={setCurrentScheduleIndex}
+          emptyText={generateResult ? "No valid schedules found" : "No schedules yet"}
+          sections={scheduleSections}
+          onBlockedTimes={() => setDialogOpen(true)}
+          onDownloadPng={handleDownloadPng}
+          isExporting={isExporting}
+          finalsWeek={showFinals}
+          hasFinals={exams.length > 0}
+          onFinalsWeekChange={setFinalsView}
+        />
       )}
 
       {/* Schedule grid — always visible, empty when no schedules */}
       <div className="scrollbar-styled min-h-96 flex-1 overflow-auto">
         <ScheduleGrid
           captureRef={gridRef}
-          courses={currentSchedule?.courses ?? []}
+          courses={showFinals ? exams : scheduleSections}
+          dayDates={showFinals ? finalsDays.map(formatNumericDate) : undefined}
+          guessedCrns={showFinals ? guessedCrns : undefined}
           onCourseClick={handleCourseClick}
           onBlockedTimeClick={handleBlockedTimeClick}
-          blockedTimeGroups={blockedTimeGroups}
+          blockedTimeGroups={showFinals ? NO_BLOCKED_TIMES : blockedTimeGroups}
           editingGroupId={editingBlockedTimeGroupId}
           onAddBlock={handleAddBlock}
           onUpdateBlock={handleUpdateBlock}
           onRemoveBlock={handleRemoveBlock}
         />
-        {generateResult && (
+        {generateResult && !showFinals && (
           <AsyncCoursesList
             generateResult={generateResult}
             onCourseClick={handleCourseClick}

@@ -5,9 +5,10 @@ import (
 	"testing"
 
 	"schedule-optimizer/internal/cache"
+	"schedule-optimizer/internal/meeting"
 )
 
-func makeTestSection(id int64, crn string, meetings []cache.MeetingTime) *cache.Course {
+func makeTestSection(id int64, crn string, meetings []meeting.Time) *cache.Course {
 	return &cache.Course{
 		ID:           id,
 		CRN:          crn,
@@ -30,7 +31,7 @@ func TestBacktrack_NoGroups(t *testing.T) {
 
 func TestBacktrack_SingleGroupSingleSection(t *testing.T) {
 	ctx := context.Background()
-	section := makeTestSection(1, "12345", []cache.MeetingTime{
+	section := makeTestSection(1, "12345", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "0950"},
 	})
 	mask := FromMeetingTimes(section.MeetingTimes)
@@ -57,11 +58,11 @@ func TestBacktrack_TwoGroupsNoConflict(t *testing.T) {
 	ctx := context.Background()
 
 	// CSCI 241 on Monday 9-10am
-	section1 := makeTestSection(1, "12345", []cache.MeetingTime{
+	section1 := makeTestSection(1, "12345", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 	})
 	// MATH 204 on Monday 10-11am (no conflict)
-	section2 := makeTestSection(2, "12346", []cache.MeetingTime{
+	section2 := makeTestSection(2, "12346", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "1000", EndTime: "1100"},
 	})
 
@@ -86,11 +87,11 @@ func TestBacktrack_TwoGroupsWithConflict(t *testing.T) {
 	ctx := context.Background()
 
 	// CSCI 241 on Monday 9-10am
-	section1 := makeTestSection(1, "12345", []cache.MeetingTime{
+	section1 := makeTestSection(1, "12345", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 	})
 	// MATH 204 on Monday 9:30-10:30am (conflicts!)
-	section2 := makeTestSection(2, "12346", []cache.MeetingTime{
+	section2 := makeTestSection(2, "12346", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0930", EndTime: "1030"},
 	})
 
@@ -120,10 +121,10 @@ func TestBacktrack_TwoGroupsWithConflict(t *testing.T) {
 func TestBacktrack_MinCoursesFiltering(t *testing.T) {
 	ctx := context.Background()
 
-	section1 := makeTestSection(1, "12345", []cache.MeetingTime{
+	section1 := makeTestSection(1, "12345", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 	})
-	section2 := makeTestSection(2, "12346", []cache.MeetingTime{
+	section2 := makeTestSection(2, "12346", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "1000", EndTime: "1100"},
 	})
 
@@ -153,7 +154,7 @@ func TestBacktrack_Limit(t *testing.T) {
 	// Create 3 sections per course = 3^2 = 9 possible combinations (plus partial schedules)
 	var sections1 []*sectionData
 	for i := range 3 {
-		s := makeTestSection(int64(i), "", []cache.MeetingTime{
+		s := makeTestSection(int64(i), "", []meeting.Time{
 			{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "0950"},
 		})
 		sections1 = append(sections1, &sectionData{course: s, mask: FromMeetingTimes(s.MeetingTimes)})
@@ -161,7 +162,7 @@ func TestBacktrack_Limit(t *testing.T) {
 
 	var sections2 []*sectionData
 	for i := range 3 {
-		s := makeTestSection(int64(10+i), "", []cache.MeetingTime{
+		s := makeTestSection(int64(10+i), "", []meeting.Time{
 			{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "1000", EndTime: "1050"},
 		})
 		sections2 = append(sections2, &sectionData{course: s, mask: FromMeetingTimes(s.MeetingTimes)})
@@ -188,7 +189,7 @@ func TestBacktrack_ContextCancellation(t *testing.T) {
 	ctx, cancel := context.WithCancel(context.Background())
 	cancel() // Cancel immediately
 
-	section := makeTestSection(1, "12345", []cache.MeetingTime{
+	section := makeTestSection(1, "12345", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "0950"},
 	})
 
@@ -211,10 +212,10 @@ func TestBacktrack_MultipleSectionsPerCourse(t *testing.T) {
 	ctx := context.Background()
 
 	// Course with two sections at different times
-	section1a := makeTestSection(1, "12345", []cache.MeetingTime{
+	section1a := makeTestSection(1, "12345", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "0950"},
 	})
-	section1b := makeTestSection(2, "12346", []cache.MeetingTime{
+	section1b := makeTestSection(2, "12346", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "1000", EndTime: "1050"},
 	})
 
@@ -241,12 +242,12 @@ func TestBacktrack_WithRequiredCourse(t *testing.T) {
 	ctx := context.Background()
 
 	// Required section on Monday 8-9am
-	required := makeTestSection(1, "11111", []cache.MeetingTime{
+	required := makeTestSection(1, "11111", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0800", EndTime: "0900"},
 	})
 
 	// Optional section on Monday 9-10am (no conflict with required)
-	optional := makeTestSection(2, "22222", []cache.MeetingTime{
+	optional := makeTestSection(2, "22222", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 	})
 
@@ -287,10 +288,10 @@ func TestBacktrack_RequiredCourseConflict(t *testing.T) {
 	ctx := context.Background()
 
 	// Two required sections that conflict
-	required1 := makeTestSection(1, "11111", []cache.MeetingTime{
+	required1 := makeTestSection(1, "11111", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 	})
-	required2 := makeTestSection(2, "22222", []cache.MeetingTime{
+	required2 := makeTestSection(2, "22222", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0930", EndTime: "1030"},
 	})
 
@@ -317,15 +318,15 @@ func TestBacktrack_MultipleRequiredCourses(t *testing.T) {
 	ctx := context.Background()
 
 	// Two required sections that don't conflict
-	required1 := makeTestSection(1, "11111", []cache.MeetingTime{
+	required1 := makeTestSection(1, "11111", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "0950"},
 	})
-	required2 := makeTestSection(2, "22222", []cache.MeetingTime{
+	required2 := makeTestSection(2, "22222", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "1000", EndTime: "1050"},
 	})
 
 	// Optional section
-	optional := makeTestSection(3, "33333", []cache.MeetingTime{
+	optional := makeTestSection(3, "33333", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "1100", EndTime: "1150"},
 	})
 

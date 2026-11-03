@@ -20,8 +20,8 @@ type Config struct {
 
 	// Jobs scheduler config
 	JobsEnabled       bool
-	ActiveScrapeHours int // Hours between active registration term scrapes
-	DailyScrapeHour   int // Hour of day (0-23) for daily scrapes
+	ActiveScrapeHours int // Hours between scrapes of terms in registration
+	DailyScrapeHour   int // Hour of day (0-23, Pacific) for daily scrapes and the calendar refresh
 	LogRetentionDays  int // Days to keep logs before pruning
 	PastTermYears     int // Years of past terms to scrape
 
@@ -80,7 +80,7 @@ func Load() *Config {
 // SetupLogging configures the global slog logger based on environment.
 func SetupLogging(cfg *Config) {
 	if cfg.Environment != "production" {
-		slog.SetDefault(slog.New(tint.NewHandler(os.Stderr, &tint.Options{
+		slog.SetDefault(slog.New(tint.NewTextHandler(os.Stderr, &tint.Options{
 			Level:      slog.LevelDebug,
 			TimeFormat: time.Kitchen,
 		})))

@@ -7,10 +7,12 @@ import (
 	"time"
 )
 
-// Job represents a schedulable task with its own timing logic.
+// Job represents a schedulable task with its own timing logic. ShouldRun may
+// read the database, so a job polled every check can stay quiet until it has
+// work.
 type Job interface {
 	Name() string
-	ShouldRun(now time.Time) bool
+	ShouldRun(ctx context.Context, now time.Time) bool
 	Run(ctx context.Context, now time.Time) error
 }
 
@@ -84,7 +86,7 @@ func (s *Service) Stop() {
 
 func (s *Service) checkJobs(ctx context.Context, now time.Time) {
 	for _, job := range s.jobs {
-		if job.ShouldRun(now) {
+		if job.ShouldRun(ctx, now) {
 			slog.Info("Running job", "job", job.Name())
 			start := time.Now()
 			if err := job.Run(ctx, now); err != nil {

@@ -1,254 +1,191 @@
 package jobs
 
 import (
+	"cmp"
 	"context"
 	"log/slog"
+	"slices"
 	"time"
 
-	"schedule-optimizer/internal/scraper"
+	"schedule-optimizer/internal/calendar"
 	"schedule-optimizer/internal/store"
+	"schedule-optimizer/internal/termcode"
 )
 
-// scrapeTolerance accounts for job execution time when checking scrape intervals.
-// Without this buffer, a job that takes N minutes would cause the next interval
-// check to fail by N minutes, potentially skipping every other cycle.
-const scrapeTolerance = 30 * time.Minute
-
-// BootstrapJob initializes term data and runs any other jobs that need to catch up.
-// Runs once on startup to ensure the system has current data immediately.
-type BootstrapJob struct {
-	scraper   *scraper.Scraper
-	otherJobs []Job
-	hasRun    bool
+// termScraper is the part of *scraper.Scraper the job uses. ScrapeTerm sets
+// the term's last_scraped_at when it succeeds, even on an empty term.
+type termScraper interface {
+	ScrapeTerm(ctx context.Context, term string) (int, error)
 }
 
-func NewBootstrapJob(scraper *scraper.Scraper, otherJobs []Job) *BootstrapJob {
-	return &BootstrapJob{
-		scraper:   scraper,
-		otherJobs: otherJobs,
-	}
+// CacheInvalidator is the schedule cache, which holds sections, finals, and
+// grades in memory and must drop what a job rewrites.
+type CacheInvalidator interface {
+	Invalidate(term string)
+	InvalidateAll()
 }
 
-func (j *BootstrapJob) Name() string { return "bootstrap" }
-
-func (j *BootstrapJob) ShouldRun(now time.Time) bool {
-	return !j.hasRun
-}
-
-func (j *BootstrapJob) Run(ctx context.Context, now time.Time) error {
-	j.hasRun = true
-
-	if _, err := j.scraper.ScrapeTerms(ctx); err != nil {
-		slog.Error("Failed to fetch available terms", "error", err)
-	}
-
-	for _, job := range j.otherJobs {
-		if job.ShouldRun(now) {
-			slog.Info("Bootstrap triggering job", "job", job.Name())
-			if err := job.Run(ctx, now); err != nil {
-				slog.Error("Bootstrap job failed", "job", job.Name(), "error", err)
-			}
-		}
-	}
-
-	return nil
-}
-
-// PastTermBackfillJob scrapes past terms that have never been scraped.
-// Runs once on startup to backfill historical data.
-type PastTermBackfillJob struct {
+// ScrapeJob scrapes each term's sections on a cadence set by its phase:
+//
+//	registration      interval after the last scrape, while seats move fastest
+//	pre-registration  daily, after dailyHour Pacific
+//	in session        daily, after dailyHour Pacific
+//	past              once
+//
+// A term never scraped is due in any phase. Pre-registration covers every
+// future term Banner lists, since Banner decides how far ahead to publish.
+// The cadence comes from the phase and last_scraped_at, so a restart resumes
+// it from the database. A term whose scrape failed waits retryBackoff before
+// its next attempt.
+type ScrapeJob struct {
 	queries       *store.Queries
-	scraper       *scraper.Scraper
-	pastTermYears int
-	hasRun        bool
-}
-
-func NewPastTermBackfillJob(queries *store.Queries, scraper *scraper.Scraper, pastTermYears int) *PastTermBackfillJob {
-	return &PastTermBackfillJob{
-		queries:       queries,
-		scraper:       scraper,
-		pastTermYears: pastTermYears,
-	}
-}
-
-func (j *PastTermBackfillJob) Name() string { return "past-term-backfill" }
-
-func (j *PastTermBackfillJob) ShouldRun(now time.Time) bool {
-	return !j.hasRun
-}
-
-func (j *PastTermBackfillJob) Run(ctx context.Context, now time.Time) error {
-	j.hasRun = true
-	cutoff := GetPastTermCutoff(now, j.pastTermYears)
-
-	terms, err := j.queries.GetTermsNeverScraped(ctx)
-	if err != nil {
-		return err
-	}
-
-	for _, term := range terms {
-		if !IsTermInRange(term.Code, cutoff) {
-			continue
-		}
-
-		phase := GetTermPhase(term.Code, now)
-		if phase != PhasePast {
-			continue
-		}
-
-		slog.Info("Scraping past term", "term", term.Code, "description", term.Description)
-		stored, err := j.scraper.ScrapeTerm(ctx, term.Code)
-		if err != nil {
-			slog.Error("Failed to scrape past term", "term", term.Code, "error", err)
-			continue
-		}
-		slog.Info("Past term scrape complete", "term", term.Code, "sections", stored)
-	}
-
-	return nil
-}
-
-// ActiveScrapeJob scrapes terms in active registration phase.
-// Runs at a configurable interval (default 8 hours).
-type ActiveScrapeJob struct {
-	queries       *store.Queries
-	scraper       *scraper.Scraper
+	scraper       termScraper
+	cache         CacheInvalidator
 	pastTermYears int
 	interval      time.Duration
-	lastRun       time.Time
+	dailyHour     int
+
+	// failedAt is when each term's last scrape failed. It lives in memory: a
+	// restart costs at most one early retry per term.
+	failedAt map[string]time.Time
+	// scheduleErr is the last LoadSchedule error logged, so a persistent
+	// failure logs once rather than on every check.
+	scheduleErr string
 }
 
-func NewActiveScrapeJob(queries *store.Queries, scraper *scraper.Scraper, pastTermYears int, intervalHours int) *ActiveScrapeJob {
-	return &ActiveScrapeJob{
+// retryBackoff spaces attempts at a failing term. Without it a term stays
+// due, since only a successful scrape moves last_scraped_at, and a Banner
+// outage would cost a full session on every one-minute check.
+const retryBackoff = time.Hour
+
+func NewScrapeJob(queries *store.Queries, scraper termScraper, cache CacheInvalidator, pastTermYears, intervalHours, dailyHour int) *ScrapeJob {
+	return &ScrapeJob{
 		queries:       queries,
 		scraper:       scraper,
+		cache:         cache,
 		pastTermYears: pastTermYears,
 		interval:      time.Duration(intervalHours) * time.Hour,
+		dailyHour:     dailyHour,
+		failedAt:      make(map[string]time.Time),
 	}
 }
 
-func (j *ActiveScrapeJob) Name() string { return "active-scrape" }
+func (j *ScrapeJob) Name() string { return "scrape" }
 
-func (j *ActiveScrapeJob) ShouldRun(now time.Time) bool {
-	if j.lastRun.IsZero() {
-		return true
+func (j *ScrapeJob) ShouldRun(ctx context.Context, now time.Time) bool {
+	terms, err := j.dueTerms(ctx, now)
+	if err != nil {
+		slog.Error("Failed to select terms to scrape", "error", err)
 	}
-	return now.Sub(j.lastRun) >= j.interval-scrapeTolerance
+	return len(terms) > 0
 }
 
-func (j *ActiveScrapeJob) Run(ctx context.Context, now time.Time) error {
-	j.lastRun = now
-	cutoff := GetPastTermCutoff(now, j.pastTermYears)
-
-	terms, err := j.queries.GetTerms(ctx)
+func (j *ScrapeJob) Run(ctx context.Context, now time.Time) error {
+	terms, err := j.dueTerms(ctx, now)
 	if err != nil {
 		return err
 	}
-
 	for _, term := range terms {
-		if !IsTermInRange(term.Code, cutoff) {
-			continue
+		if err := ctx.Err(); err != nil {
+			return err
 		}
-
-		phase := GetTermPhase(term.Code, now)
-		if phase != PhaseActiveRegistration {
-			continue
-		}
-
-		if !j.shouldScrapeTerm(term, now) {
-			continue
-		}
-
-		slog.Info("Scraping active term", "term", term.Code, "description", term.Description)
+		slog.Info("Scraping term", "term", term.Code, "description", term.Description)
 		stored, err := j.scraper.ScrapeTerm(ctx, term.Code)
+		// ScrapeTerm can fail after storing sections.
+		j.cache.Invalidate(term.Code)
 		if err != nil {
-			slog.Error("Failed to scrape term", "term", term.Code, "error", err)
+			j.failedAt[term.Code] = now
+			slog.Error("Failed to scrape term", "term", term.Code, "error", err, "retry_after", retryBackoff)
 			continue
 		}
-		slog.Info("Active term scrape complete", "term", term.Code, "sections", stored)
+		slog.Info("Term scrape complete", "term", term.Code, "sections", stored)
 	}
-
 	return nil
 }
 
-func (j *ActiveScrapeJob) shouldScrapeTerm(term *store.Term, now time.Time) bool {
-	if !term.LastScrapedAt.Valid {
+// scrapeOrder puts terms in registration first, so a backfill of past terms
+// on a fresh database does not hold up the seat counts students are waiting on.
+var scrapeOrder = map[calendar.Phase]int{
+	calendar.PhaseRegistration:    0,
+	calendar.PhaseInSession:       1,
+	calendar.PhasePreRegistration: 2,
+	calendar.PhasePast:            3,
+}
+
+func (j *ScrapeJob) dueTerms(ctx context.Context, now time.Time) ([]*store.Term, error) {
+	schedule, err := calendar.LoadSchedule(ctx, j.queries)
+	// The zero Schedule falls back to estimated dates, which still place
+	// every term in a phase.
+	j.logScheduleErr(err)
+	terms, err := j.queries.GetTerms(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	oldest := oldestScrapedTerm(now, j.pastTermYears)
+	var due []*store.Term
+	phases := make(map[string]calendar.Phase)
+	for _, term := range terms {
+		if term.Code < oldest || now.Sub(j.failedAt[term.Code]) < retryBackoff {
+			continue
+		}
+		phase := schedule.Phase(term.Code, now)
+		if j.due(phase, term.LastScrapedAt.Time, now) {
+			due = append(due, term)
+			phases[term.Code] = phase
+		}
+	}
+	slices.SortStableFunc(due, func(a, b *store.Term) int {
+		return cmp.Compare(scrapeOrder[phases[a.Code]], scrapeOrder[phases[b.Code]])
+	})
+	return due, nil
+}
+
+func (j *ScrapeJob) logScheduleErr(err error) {
+	msg := ""
+	if err != nil {
+		msg = err.Error()
+	}
+	if msg == j.scheduleErr {
+		return
+	}
+	if err != nil {
+		slog.Error("Failed to load term schedule; using estimates", "error", err)
+	} else {
+		slog.Info("Term schedule loaded after earlier failure")
+	}
+	j.scheduleErr = msg
+}
+
+// due reports whether a term in phase, last scraped at last (zero if never),
+// needs scraping at now.
+func (j *ScrapeJob) due(phase calendar.Phase, last, now time.Time) bool {
+	switch {
+	case last.IsZero():
 		return true
-	}
-	return now.Sub(term.LastScrapedAt.Time) >= j.interval-scrapeTolerance
-}
-
-// DailyScrapeJob scrapes terms in pre-registration phase.
-// Runs once daily at a configurable hour.
-type DailyScrapeJob struct {
-	queries       *store.Queries
-	scraper       *scraper.Scraper
-	pastTermYears int
-	targetHour    int
-	lastRunDate   time.Time
-}
-
-func NewDailyScrapeJob(queries *store.Queries, scraper *scraper.Scraper, pastTermYears int, targetHour int) *DailyScrapeJob {
-	return &DailyScrapeJob{
-		queries:       queries,
-		scraper:       scraper,
-		pastTermYears: pastTermYears,
-		targetHour:    targetHour,
-	}
-}
-
-func (j *DailyScrapeJob) Name() string { return "daily-scrape" }
-
-func (j *DailyScrapeJob) ShouldRun(now time.Time) bool {
-	// Always run on first check to ensure pre-registration terms are scraped on startup
-	if j.lastRunDate.IsZero() {
-		return true
-	}
-	if now.Hour() != j.targetHour {
+	case phase == calendar.PhaseRegistration:
+		return now.Sub(last) >= j.interval
+	case phase == calendar.PhasePast:
 		return false
+	default:
+		return last.Before(dailyBoundary(now, j.dailyHour))
 	}
-	today := time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, now.Location())
-	return !j.lastRunDate.Equal(today)
 }
 
-func (j *DailyScrapeJob) Run(ctx context.Context, now time.Time) error {
-	j.lastRunDate = time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, now.Location())
-	cutoff := GetPastTermCutoff(now, j.pastTermYears)
-
-	terms, err := j.queries.GetTerms(ctx)
-	if err != nil {
-		return err
+// dailyBoundary is the latest instant at or before now when Pacific clocks
+// read hour:00. Anchoring daily work to it rather than to 24 hours elapsed
+// keeps the cadence through DST changes and after a restart mid-day.
+func dailyBoundary(now time.Time, hour int) time.Time {
+	local := now.In(calendar.Pacific)
+	boundary := time.Date(local.Year(), local.Month(), local.Day(), hour, 0, 0, 0, calendar.Pacific)
+	if boundary.After(now) {
+		boundary = time.Date(local.Year(), local.Month(), local.Day()-1, hour, 0, 0, 0, calendar.Pacific)
 	}
-
-	for _, term := range terms {
-		if !IsTermInRange(term.Code, cutoff) {
-			continue
-		}
-
-		phase := GetTermPhase(term.Code, now)
-		if phase != PhasePreRegistration {
-			continue
-		}
-
-		if !j.shouldScrapeTerm(term, now) {
-			continue
-		}
-
-		slog.Info("Scraping pre-registration term", "term", term.Code, "description", term.Description)
-		stored, err := j.scraper.ScrapeTerm(ctx, term.Code)
-		if err != nil {
-			slog.Error("Failed to scrape term", "term", term.Code, "error", err)
-			continue
-		}
-		slog.Info("Pre-registration term scrape complete", "term", term.Code, "sections", stored)
-	}
-
-	return nil
+	return boundary
 }
 
-func (j *DailyScrapeJob) shouldScrapeTerm(term *store.Term, now time.Time) bool {
-	if !term.LastScrapedAt.Valid {
-		return true
-	}
-	return now.Sub(term.LastScrapedAt.Time) >= 24*time.Hour-scrapeTolerance
+// oldestScrapedTerm is Winter of the year pastTermYears back; older terms
+// are never scraped.
+func oldestScrapedTerm(now time.Time, pastTermYears int) string {
+	return termcode.Make(now.In(calendar.Pacific).Year()-pastTermYears, termcode.Winter)
 }

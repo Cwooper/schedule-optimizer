@@ -49,3 +49,25 @@ export function formatTermCode(code: string): string {
   const name = quarterNames[quarter]
   return name ? `${name} '${year.slice(2)}` : code
 }
+
+const TERM_ABBREVIATIONS: Record<string, string> = { "10": "W", "20": "Sp", "30": "Su", "40": "F" }
+
+/**
+ * Short term prefix for calendar titles: "202710" -> "W27". Spring and
+ * Summer take two letters since both start with S.
+ */
+export function termAbbreviation(code: string): string {
+  const quarter = TERM_ABBREVIATIONS[code.slice(4)]
+  return code.length === 6 && quarter ? `${quarter}${code.slice(2, 4)}` : code
+}
+
+/**
+ * Drops a trailing parenthetical from registrar text, e.g. "Thanksgiving
+ * Break (Wed, Nov 25 - University open, no classes)".
+ */
+export function stripTrailingNote(text: string): string {
+  const trimmed = text.trimEnd()
+  const open = trimmed.lastIndexOf("(")
+  if (!trimmed.endsWith(")") || open < 0) return text
+  return trimmed.slice(0, open).trimEnd()
+}

@@ -11,6 +11,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { TermSelector } from "@/components/TermSelector"
+import { TermStatus } from "@/components/TermStatus"
 import { CourseInput, CourseRow } from "@/components/schedule-builder"
 import {
   useAppStore,
@@ -244,6 +245,13 @@ export function ScheduleBuilder() {
           onChange={setTerm}
           terms={termsData?.terms ?? []}
           isLoading={termsLoading}
+          status={
+            <TermStatus
+              term={termsData?.terms.find((t) => t.code === term)}
+              defaultTerm={termsData?.terms.find((t) => t.code === termsData.current)}
+              onSelectTerm={setTerm}
+            />
+          }
         />
 
         {/* Course Bounds */}

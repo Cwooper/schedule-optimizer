@@ -50,6 +50,24 @@ func (q *Queries) DeleteAllGradeAggregates(ctx context.Context) error {
 	return err
 }
 
+const deleteFinalMappingsByTerm = `-- name: DeleteFinalMappingsByTerm :exec
+DELETE FROM finals_mappings WHERE term_code = ?
+`
+
+func (q *Queries) DeleteFinalMappingsByTerm(ctx context.Context, termCode string) error {
+	_, err := q.db.ExecContext(ctx, deleteFinalMappingsByTerm, termCode)
+	return err
+}
+
+const deleteImportantDatesByTerm = `-- name: DeleteImportantDatesByTerm :exec
+DELETE FROM important_dates WHERE term_code = ?
+`
+
+func (q *Queries) DeleteImportantDatesByTerm(ctx context.Context, termCode string) error {
+	_, err := q.db.ExecContext(ctx, deleteImportantDatesByTerm, termCode)
+	return err
+}
+
 const deleteInstructorsBySection = `-- name: DeleteInstructorsBySection :exec
 DELETE FROM instructors WHERE section_id = ?
 `
@@ -299,6 +317,54 @@ func (q *Queries) GetDistinctTerms(ctx context.Context) ([]string, error) {
 	return items, nil
 }
 
+const getFinalMappingsByTerms = `-- name: GetFinalMappingsByTerms :many
+SELECT id, term_code, time_range_start, time_range_end, has_tuth, exam_date, exam_start_time, exam_end_time FROM finals_mappings
+WHERE term_code IN (/*SLICE:term_codes*/?)
+ORDER BY term_code, time_range_start, has_tuth
+`
+
+func (q *Queries) GetFinalMappingsByTerms(ctx context.Context, termCodes []string) ([]*FinalsMapping, error) {
+	query := getFinalMappingsByTerms
+	var queryParams []interface{}
+	if len(termCodes) > 0 {
+		for _, v := range termCodes {
+			queryParams = append(queryParams, v)
+		}
+		query = strings.Replace(query, "/*SLICE:term_codes*/?", strings.Repeat(",?", len(termCodes))[1:], 1)
+	} else {
+		query = strings.Replace(query, "/*SLICE:term_codes*/?", "NULL", 1)
+	}
+	rows, err := q.db.QueryContext(ctx, query, queryParams...)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []*FinalsMapping{}
+	for rows.Next() {
+		var i FinalsMapping
+		if err := rows.Scan(
+			&i.ID,
+			&i.TermCode,
+			&i.TimeRangeStart,
+			&i.TimeRangeEnd,
+			&i.HasTuth,
+			&i.ExamDate,
+			&i.ExamStartTime,
+			&i.ExamEndTime,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, &i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
 const getGradeAggregateCount = `-- name: GetGradeAggregateCount :one
 SELECT COUNT(*) FROM grade_aggregates
 `
@@ -368,6 +434,41 @@ func (q *Queries) GetGradeRowCount(ctx context.Context) (int64, error) {
 	var count int64
 	err := row.Scan(&count)
 	return count, err
+}
+
+const getImportantDatesByTerm = `-- name: GetImportantDatesByTerm :many
+SELECT id, term_code, date, end_date, description, category, opens_registration FROM important_dates WHERE term_code = ? ORDER BY date, id
+`
+
+func (q *Queries) GetImportantDatesByTerm(ctx context.Context, termCode string) ([]*ImportantDate, error) {
+	rows, err := q.db.QueryContext(ctx, getImportantDatesByTerm, termCode)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []*ImportantDate{}
+	for rows.Next() {
+		var i ImportantDate
+		if err := rows.Scan(
+			&i.ID,
+			&i.TermCode,
+			&i.Date,
+			&i.EndDate,
+			&i.Description,
+			&i.Category,
+			&i.OpensRegistration,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, &i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
 }
 
 const getInstructorMappings = `-- name: GetInstructorMappings :many
@@ -480,30 +581,12 @@ func (q *Queries) GetMeetingTimesBySection(ctx context.Context, sectionID int64)
 }
 
 const getMeetingTimesBySectionIDs = `-- name: GetMeetingTimesBySectionIDs :many
-SELECT
-    section_id, start_time, end_time, building, room,
-    sunday, monday, tuesday, wednesday, thursday, friday, saturday
-FROM meeting_times
+SELECT id, section_id, start_time, end_time, start_date, end_date, building, building_description, room, monday, tuesday, wednesday, thursday, friday, saturday, sunday, schedule_type, meeting_type, credit_hours, hours_per_week FROM meeting_times
 WHERE section_id IN (/*SLICE:section_ids*/?)
-ORDER BY section_id
+ORDER BY section_id, id
 `
 
-type GetMeetingTimesBySectionIDsRow struct {
-	SectionID int64          `json:"section_id"`
-	StartTime sql.NullString `json:"start_time"`
-	EndTime   sql.NullString `json:"end_time"`
-	Building  sql.NullString `json:"building"`
-	Room      sql.NullString `json:"room"`
-	Sunday    sql.NullInt64  `json:"sunday"`
-	Monday    sql.NullInt64  `json:"monday"`
-	Tuesday   sql.NullInt64  `json:"tuesday"`
-	Wednesday sql.NullInt64  `json:"wednesday"`
-	Thursday  sql.NullInt64  `json:"thursday"`
-	Friday    sql.NullInt64  `json:"friday"`
-	Saturday  sql.NullInt64  `json:"saturday"`
-}
-
-func (q *Queries) GetMeetingTimesBySectionIDs(ctx context.Context, sectionIds []int64) ([]*GetMeetingTimesBySectionIDsRow, error) {
+func (q *Queries) GetMeetingTimesBySectionIDs(ctx context.Context, sectionIds []int64) ([]*MeetingTime, error) {
 	query := getMeetingTimesBySectionIDs
 	var queryParams []interface{}
 	if len(sectionIds) > 0 {
@@ -519,22 +602,30 @@ func (q *Queries) GetMeetingTimesBySectionIDs(ctx context.Context, sectionIds []
 		return nil, err
 	}
 	defer rows.Close()
-	items := []*GetMeetingTimesBySectionIDsRow{}
+	items := []*MeetingTime{}
 	for rows.Next() {
-		var i GetMeetingTimesBySectionIDsRow
+		var i MeetingTime
 		if err := rows.Scan(
+			&i.ID,
 			&i.SectionID,
 			&i.StartTime,
 			&i.EndTime,
+			&i.StartDate,
+			&i.EndDate,
 			&i.Building,
+			&i.BuildingDescription,
 			&i.Room,
-			&i.Sunday,
 			&i.Monday,
 			&i.Tuesday,
 			&i.Wednesday,
 			&i.Thursday,
 			&i.Friday,
 			&i.Saturday,
+			&i.Sunday,
+			&i.ScheduleType,
+			&i.MeetingType,
+			&i.CreditHours,
+			&i.HoursPerWeek,
 		); err != nil {
 			return nil, err
 		}
@@ -550,52 +641,42 @@ func (q *Queries) GetMeetingTimesBySectionIDs(ctx context.Context, sectionIds []
 }
 
 const getMeetingTimesByTerm = `-- name: GetMeetingTimesByTerm :many
-SELECT
-    m.section_id, m.start_time, m.end_time, m.building, m.room,
-    m.sunday, m.monday, m.tuesday, m.wednesday, m.thursday, m.friday, m.saturday
-FROM meeting_times m
+SELECT m.id, m.section_id, m.start_time, m.end_time, m.start_date, m.end_date, m.building, m.building_description, m.room, m.monday, m.tuesday, m.wednesday, m.thursday, m.friday, m.saturday, m.sunday, m.schedule_type, m.meeting_type, m.credit_hours, m.hours_per_week FROM meeting_times m
 JOIN sections s ON m.section_id = s.id
 WHERE s.term = ?
-ORDER BY m.section_id
+ORDER BY m.section_id, m.id
 `
 
-type GetMeetingTimesByTermRow struct {
-	SectionID int64          `json:"section_id"`
-	StartTime sql.NullString `json:"start_time"`
-	EndTime   sql.NullString `json:"end_time"`
-	Building  sql.NullString `json:"building"`
-	Room      sql.NullString `json:"room"`
-	Sunday    sql.NullInt64  `json:"sunday"`
-	Monday    sql.NullInt64  `json:"monday"`
-	Tuesday   sql.NullInt64  `json:"tuesday"`
-	Wednesday sql.NullInt64  `json:"wednesday"`
-	Thursday  sql.NullInt64  `json:"thursday"`
-	Friday    sql.NullInt64  `json:"friday"`
-	Saturday  sql.NullInt64  `json:"saturday"`
-}
-
-func (q *Queries) GetMeetingTimesByTerm(ctx context.Context, term string) ([]*GetMeetingTimesByTermRow, error) {
+func (q *Queries) GetMeetingTimesByTerm(ctx context.Context, term string) ([]*MeetingTime, error) {
 	rows, err := q.db.QueryContext(ctx, getMeetingTimesByTerm, term)
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
-	items := []*GetMeetingTimesByTermRow{}
+	items := []*MeetingTime{}
 	for rows.Next() {
-		var i GetMeetingTimesByTermRow
+		var i MeetingTime
 		if err := rows.Scan(
+			&i.ID,
 			&i.SectionID,
 			&i.StartTime,
 			&i.EndTime,
+			&i.StartDate,
+			&i.EndDate,
 			&i.Building,
+			&i.BuildingDescription,
 			&i.Room,
-			&i.Sunday,
 			&i.Monday,
 			&i.Tuesday,
 			&i.Wednesday,
 			&i.Thursday,
 			&i.Friday,
 			&i.Saturday,
+			&i.Sunday,
+			&i.ScheduleType,
+			&i.MeetingType,
+			&i.CreditHours,
+			&i.HoursPerWeek,
 		); err != nil {
 			return nil, err
 		}
@@ -714,7 +795,7 @@ SELECT
     s.id, s.term, s.crn, s.subject, s.subject_description,
     s.course_number, s.title, s.credit_hours_low,
     s.enrollment, s.max_enrollment, s.seats_available, s.wait_count, s.is_open,
-    s.instructional_method,
+    s.instructional_method, s.schedule_type,
     i.name AS instructor_name, i.email AS instructor_email
 FROM sections s
 LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1
@@ -741,6 +822,7 @@ type GetSectionWithInstructorByTermAndCRNRow struct {
 	WaitCount           sql.NullInt64  `json:"wait_count"`
 	IsOpen              sql.NullInt64  `json:"is_open"`
 	InstructionalMethod sql.NullString `json:"instructional_method"`
+	ScheduleType        sql.NullString `json:"schedule_type"`
 	InstructorName      sql.NullString `json:"instructor_name"`
 	InstructorEmail     sql.NullString `json:"instructor_email"`
 }
@@ -763,6 +845,7 @@ func (q *Queries) GetSectionWithInstructorByTermAndCRN(ctx context.Context, arg 
 		&i.WaitCount,
 		&i.IsOpen,
 		&i.InstructionalMethod,
+		&i.ScheduleType,
 		&i.InstructorName,
 		&i.InstructorEmail,
 	)
@@ -877,7 +960,7 @@ SELECT
     s.id, s.term, s.crn, s.subject, s.subject_description,
     s.course_number, s.title, s.credit_hours_low,
     s.enrollment, s.max_enrollment, s.seats_available, s.wait_count, s.is_open,
-    s.instructional_method,
+    s.instructional_method, s.schedule_type,
     i.name AS instructor_name, i.email AS instructor_email
 FROM sections s
 LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1
@@ -906,6 +989,7 @@ type GetSectionsWithInstructorByCourseRow struct {
 	WaitCount           sql.NullInt64  `json:"wait_count"`
 	IsOpen              sql.NullInt64  `json:"is_open"`
 	InstructionalMethod sql.NullString `json:"instructional_method"`
+	ScheduleType        sql.NullString `json:"schedule_type"`
 	InstructorName      sql.NullString `json:"instructor_name"`
 	InstructorEmail     sql.NullString `json:"instructor_email"`
 }
@@ -934,6 +1018,7 @@ func (q *Queries) GetSectionsWithInstructorByCourse(ctx context.Context, arg Get
 			&i.WaitCount,
 			&i.IsOpen,
 			&i.InstructionalMethod,
+			&i.ScheduleType,
 			&i.InstructorName,
 			&i.InstructorEmail,
 		); err != nil {
@@ -955,7 +1040,7 @@ SELECT
     s.id, s.term, s.crn, s.subject, s.subject_description,
     s.course_number, s.title, s.credit_hours_low,
     s.enrollment, s.max_enrollment, s.seats_available, s.wait_count, s.is_open,
-    s.instructional_method,
+    s.instructional_method, s.schedule_type,
     i.name AS instructor_name, i.email AS instructor_email
 FROM sections s
 LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1
@@ -978,6 +1063,7 @@ type GetSectionsWithInstructorByTermRow struct {
 	WaitCount           sql.NullInt64  `json:"wait_count"`
 	IsOpen              sql.NullInt64  `json:"is_open"`
 	InstructionalMethod sql.NullString `json:"instructional_method"`
+	ScheduleType        sql.NullString `json:"schedule_type"`
 	InstructorName      sql.NullString `json:"instructor_name"`
 	InstructorEmail     sql.NullString `json:"instructor_email"`
 }
@@ -1006,6 +1092,7 @@ func (q *Queries) GetSectionsWithInstructorByTerm(ctx context.Context, term stri
 			&i.WaitCount,
 			&i.IsOpen,
 			&i.InstructionalMethod,
+			&i.ScheduleType,
 			&i.InstructorName,
 			&i.InstructorEmail,
 		); err != nil {
@@ -1106,20 +1193,36 @@ func (q *Queries) GetTermByCode(ctx context.Context, code string) (*Term, error)
 	return &i, err
 }
 
-const getTerms = `-- name: GetTerms :many
-SELECT code, description, last_scraped_at FROM terms ORDER BY code DESC
+const getTermSchedules = `-- name: GetTermSchedules :many
+SELECT t.code AS term_code, td.start_date, td.end_date, d.date AS registration_opens
+FROM terms t
+LEFT JOIN term_dates td ON td.term_code = t.code
+LEFT JOIN important_dates d ON d.term_code = t.code AND d.opens_registration
+WHERE td.term_code IS NOT NULL OR d.term_code IS NOT NULL
 `
 
-func (q *Queries) GetTerms(ctx context.Context) ([]*Term, error) {
-	rows, err := q.db.QueryContext(ctx, getTerms)
+type GetTermSchedulesRow struct {
+	TermCode          string         `json:"term_code"`
+	StartDate         sql.NullString `json:"start_date"`
+	EndDate           sql.NullString `json:"end_date"`
+	RegistrationOpens sql.NullString `json:"registration_opens"`
+}
+
+func (q *Queries) GetTermSchedules(ctx context.Context) ([]*GetTermSchedulesRow, error) {
+	rows, err := q.db.QueryContext(ctx, getTermSchedules)
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
-	items := []*Term{}
+	items := []*GetTermSchedulesRow{}
 	for rows.Next() {
-		var i Term
-		if err := rows.Scan(&i.Code, &i.Description, &i.LastScrapedAt); err != nil {
+		var i GetTermSchedulesRow
+		if err := rows.Scan(
+			&i.TermCode,
+			&i.StartDate,
+			&i.EndDate,
+			&i.RegistrationOpens,
+		); err != nil {
 			return nil, err
 		}
 		items = append(items, &i)
@@ -1133,13 +1236,12 @@ func (q *Queries) GetTerms(ctx context.Context) ([]*Term, error) {
 	return items, nil
 }
 
-const getTermsNeverScraped = `-- name: GetTermsNeverScraped :many
-SELECT code, description, last_scraped_at FROM terms
-WHERE last_scraped_at IS NULL ORDER BY code DESC
+const getTerms = `-- name: GetTerms :many
+SELECT code, description, last_scraped_at FROM terms ORDER BY code DESC
 `
 
-func (q *Queries) GetTermsNeverScraped(ctx context.Context) ([]*Term, error) {
-	rows, err := q.db.QueryContext(ctx, getTermsNeverScraped)
+func (q *Queries) GetTerms(ctx context.Context) ([]*Term, error) {
+	rows, err := q.db.QueryContext(ctx, getTerms)
 	if err != nil {
 		return nil, err
 	}
@@ -1172,6 +1274,34 @@ type InsertFeedbackParams struct {
 
 func (q *Queries) InsertFeedback(ctx context.Context, arg InsertFeedbackParams) error {
 	_, err := q.db.ExecContext(ctx, insertFeedback, arg.SessionID, arg.Message)
+	return err
+}
+
+const insertFinalMapping = `-- name: InsertFinalMapping :exec
+INSERT INTO finals_mappings (term_code, time_range_start, time_range_end, has_tuth, exam_date, exam_start_time, exam_end_time)
+VALUES (?, ?, ?, ?, ?, ?, ?)
+`
+
+type InsertFinalMappingParams struct {
+	TermCode       string `json:"term_code"`
+	TimeRangeStart string `json:"time_range_start"`
+	TimeRangeEnd   string `json:"time_range_end"`
+	HasTuth        bool   `json:"has_tuth"`
+	ExamDate       string `json:"exam_date"`
+	ExamStartTime  string `json:"exam_start_time"`
+	ExamEndTime    string `json:"exam_end_time"`
+}
+
+func (q *Queries) InsertFinalMapping(ctx context.Context, arg InsertFinalMappingParams) error {
+	_, err := q.db.ExecContext(ctx, insertFinalMapping,
+		arg.TermCode,
+		arg.TimeRangeStart,
+		arg.TimeRangeEnd,
+		arg.HasTuth,
+		arg.ExamDate,
+		arg.ExamStartTime,
+		arg.ExamEndTime,
+	)
 	return err
 }
 
@@ -1306,6 +1436,33 @@ func (q *Queries) InsertGradeRow(ctx context.Context, arg InsertGradeRowParams) 
 		arg.CntNp,
 		arg.CntS,
 		arg.CntU,
+	)
+	return err
+}
+
+const insertImportantDate = `-- name: InsertImportantDate :exec
+INSERT INTO important_dates (term_code, date, end_date, description, category, opens_registration)
+VALUES (?, ?, ?, ?, ?, ?)
+ON CONFLICT DO NOTHING
+`
+
+type InsertImportantDateParams struct {
+	TermCode          string         `json:"term_code"`
+	Date              string         `json:"date"`
+	EndDate           sql.NullString `json:"end_date"`
+	Description       string         `json:"description"`
+	Category          string         `json:"category"`
+	OpensRegistration bool           `json:"opens_registration"`
+}
+
+func (q *Queries) InsertImportantDate(ctx context.Context, arg InsertImportantDateParams) error {
+	_, err := q.db.ExecContext(ctx, insertImportantDate,
+		arg.TermCode,
+		arg.Date,
+		arg.EndDate,
+		arg.Description,
+		arg.Category,
+		arg.OpensRegistration,
 	)
 	return err
 }
@@ -1771,6 +1928,25 @@ type UpsertTermParams struct {
 
 func (q *Queries) UpsertTerm(ctx context.Context, arg UpsertTermParams) error {
 	_, err := q.db.ExecContext(ctx, upsertTerm, arg.Code, arg.Description)
+	return err
+}
+
+const upsertTermDates = `-- name: UpsertTermDates :exec
+INSERT INTO term_dates (term_code, start_date, end_date)
+VALUES (?, ?, ?)
+ON CONFLICT(term_code) DO UPDATE SET
+    start_date = excluded.start_date,
+    end_date = excluded.end_date
+`
+
+type UpsertTermDatesParams struct {
+	TermCode  string `json:"term_code"`
+	StartDate string `json:"start_date"`
+	EndDate   string `json:"end_date"`
+}
+
+func (q *Queries) UpsertTermDates(ctx context.Context, arg UpsertTermDatesParams) error {
+	_, err := q.db.ExecContext(ctx, upsertTermDates, arg.TermCode, arg.StartDate, arg.EndDate)
 	return err
 }
 

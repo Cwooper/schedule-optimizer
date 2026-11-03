@@ -4,9 +4,17 @@ const API_BASE = `${__APP_BASE_URL__}api`
 
 // --- Types ---
 
+export type TermPhase = "pre-registration" | "registration" | "in-session" | "past"
+
+/** Dates are YYYY-MM-DD and ends inclusive, here and in TermCalendar. */
 export interface Term {
   code: string
   name: string
+  phase: TermPhase
+  start: string
+  end: string
+  registrationOpens: string
+  estimated: boolean
 }
 
 export interface TermsResponse {
@@ -63,6 +71,7 @@ export interface SectionInfo {
   waitCount: number
   isOpen: boolean
   meetingTimes: MeetingTime[]
+  final?: Final
   gpa?: number
   gpaSource?: string
   passRate?: number
@@ -72,12 +81,48 @@ export interface CRNResponse {
   section: SectionInfo | null
 }
 
+/** The API omits each field but days when Banner has no value. */
 export interface MeetingTime {
   days: boolean[] // [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
-  startTime: string
-  endTime: string
-  building: string
-  room: string
+  startTime?: string // HHMM
+  endTime?: string
+  building?: string
+  room?: string
+  startDate?: string // YYYY-MM-DD
+  endDate?: string
+  lab?: boolean // Banner's lab meeting type
+}
+
+export type FinalGuessReason = "lab" | "multiple" | "weekly"
+
+export interface Final {
+  date: string
+  start: string // HHMM
+  end: string
+  certain: boolean
+  reason?: FinalGuessReason
+  /** Rooms of the meeting time the exam is based on, e.g. "PH 210, PH 210B". */
+  location?: string
+}
+
+export interface DateRange {
+  start: string
+  end: string
+}
+
+export type RegistrationPhaseName = "I" | "II" | "III"
+
+export interface TermCalendar {
+  term: string
+  start: string
+  end: string
+  registrationOpens: string
+  estimated: boolean
+  registration: ({ phase: RegistrationPhaseName; name: string } & DateRange)[]
+  holidays: ({ name: string } & DateRange)[]
+  /** name is the registrar's wording; title is its short form for calendar events. */
+  deadlines: { name: string; title: string; date: string; kind: "add" | "drop" | "withdraw" | "other" }[]
+  finals: DateRange | null
 }
 
 // Wire format types - sent once per unique course/section
@@ -102,6 +147,7 @@ export interface GenerateSectionInfo {
   waitCount: number
   isOpen: boolean
   meetingTimes: MeetingTime[]
+  final?: Final
   gpa?: number
   gpaSource?: string
   passRate?: number
@@ -142,6 +188,7 @@ export interface HydratedSection {
   credits: number
   instructor: string
   meetingTimes: MeetingTime[]
+  final?: Final
   enrollment: number
   maxEnrollment: number
   seatsAvailable: number
@@ -210,6 +257,7 @@ export interface SearchSectionInfo {
   campus?: string
   scheduleType?: string
   meetingTimes: MeetingTime[]
+  final?: Final
   gpa?: number
   gpaSource?: string
   passRate?: number
@@ -302,6 +350,10 @@ async function fetchAPI<T>(
 
 export async function getTerms(): Promise<TermsResponse> {
   return fetchAPI<TermsResponse>("/terms")
+}
+
+export async function getCalendar(term: string): Promise<TermCalendar> {
+  return fetchAPI<TermCalendar>(`/calendar/${encodeURIComponent(term)}`)
 }
 
 export async function getSubjects(term?: string): Promise<SubjectsResponse> {

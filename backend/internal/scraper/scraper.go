@@ -28,7 +28,7 @@
 //
 // # Usage
 //
-// The Job Service (future) will call ScrapeTerm for each active term on a schedule.
+// The jobs package calls ScrapeTerm on a cadence set by each term's phase.
 // This package only handles the fetch-and-store logic, not scheduling.
 package scraper
 
@@ -113,10 +113,6 @@ func (s *Scraper) ScrapeTerm(ctx context.Context, term string) (int, error) {
 	totalCount := firstPage.TotalCount
 	slog.Info("Term has courses", "term", term, "total", totalCount)
 
-	if totalCount == 0 {
-		return 0, nil
-	}
-
 	// Calculate offsets for remaining pages
 	var offsets []int
 	for offset := PageSize(); offset < totalCount; offset += PageSize() {
@@ -192,9 +188,10 @@ func (s *Scraper) ScrapeTerm(ctx context.Context, term string) (int, error) {
 		return 0, errors.New("all pages failed, no data stored")
 	}
 
-	// Update last_scraped_at timestamp
+	// Every successful scrape records its time, an empty term's included: the
+	// jobs package schedules by last_scraped_at.
 	if err := s.queries.UpdateTermScrapedAt(ctx, term); err != nil {
-		slog.Warn("Failed to update term scraped timestamp", "term", term, "error", err)
+		return stored, fmt.Errorf("record scrape time: %w", err)
 	}
 
 	slog.Info("Term scrape complete",

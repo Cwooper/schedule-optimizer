@@ -337,6 +337,7 @@ export function hydrateSection(
     credits: course.credits,
     instructor: section.instructor ?? "",
     meetingTimes: section.meetingTimes,
+    final: section.final,
     enrollment: section.enrollment,
     maxEnrollment: section.maxEnrollment,
     seatsAvailable: section.seatsAvailable,

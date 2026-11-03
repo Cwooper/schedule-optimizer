@@ -1,172 +1,231 @@
 package jobs
 
 import (
+	"bytes"
+	"context"
+	"database/sql"
+	"errors"
+	"log"
+	"log/slog"
+	"slices"
+	"strings"
 	"testing"
 	"time"
+
+	"schedule-optimizer/internal/calendar"
+	"schedule-optimizer/internal/store"
+	"schedule-optimizer/internal/testutil"
 )
 
-func TestBootstrapJob_ShouldRun(t *testing.T) {
-	job := &BootstrapJob{}
-	now := time.Now()
+// scrapeDuration is how long each fake scrape takes. last_scraped_at lands
+// this long after the scrape starts, as it does when Banner pages take
+// minutes to fetch.
+const scrapeDuration = 3 * time.Minute
 
-	if !job.ShouldRun(now) {
-		t.Error("BootstrapJob should run when hasRun is false")
+// fakeScraper stands in for Banner: each scrape advances the simulated clock
+// by scrapeDuration and, unless it fails, writes last_scraped_at at that
+// time. Every success finds no sections.
+type fakeScraper struct {
+	t        *testing.T
+	db       *sql.DB
+	clock    time.Time
+	scrapes  map[string][]time.Time // scrape start times per term
+	order    []string
+	failures map[string]int // scrapes left to fail per term
+	// invalidated is every term the job dropped from the schedule cache.
+	invalidated []string
+}
+
+func (f *fakeScraper) Invalidate(term string) { f.invalidated = append(f.invalidated, term) }
+func (f *fakeScraper) InvalidateAll()         { f.t.Error("scrape job invalidated the whole cache") }
+
+func (f *fakeScraper) ScrapeTerm(ctx context.Context, term string) (int, error) {
+	f.scrapes[term] = append(f.scrapes[term], f.clock)
+	f.order = append(f.order, term)
+	f.clock = f.clock.Add(scrapeDuration)
+	if f.failures[term] > 0 {
+		f.failures[term]--
+		return 0, errors.New("banner unavailable")
+	}
+	if _, err := f.db.ExecContext(ctx, "UPDATE terms SET last_scraped_at = ? WHERE code = ?", f.clock.UTC(), term); err != nil {
+		f.t.Fatal(err)
+	}
+	return 0, nil
+}
+
+// simulate runs the job through the service's check loop once a minute from
+// start for the given span, with calendar tables empty so phases come from
+// estimates. Ticks are UTC, as on the server. Like a time.Ticker, the loop
+// skips ticks that fall inside a run.
+func simulate(t *testing.T, codes []string, start time.Time, span time.Duration, seed func(*sql.DB, *fakeScraper)) *fakeScraper {
+	t.Helper()
+	db, queries := testutil.SetupTestDB(t)
+	ctx := context.Background()
+	for _, code := range codes {
+		if err := queries.UpsertTerm(ctx, store.UpsertTermParams{Code: code, Description: code}); err != nil {
+			t.Fatal(err)
+		}
+	}
+	fake := &fakeScraper{t: t, db: db, scrapes: make(map[string][]time.Time), failures: make(map[string]int)}
+	if seed != nil {
+		seed(db, fake)
+	}
+	svc := NewService(time.Minute)
+	svc.Register(NewScrapeJob(queries, fake, fake, 5, 8, 3))
+	start = start.UTC()
+	for now := start; now.Before(start.Add(span)); {
+		fake.clock = now
+		svc.checkJobs(ctx, now)
+		now = now.Add(time.Minute)
+		for now.Before(fake.clock) {
+			now = now.Add(time.Minute)
+		}
+	}
+	return fake
+}
+
+func pacific(year int, month time.Month, day, hour, minute int) time.Time {
+	return time.Date(year, month, day, hour, minute, 0, 0, calendar.Pacific)
+}
+
+// TestScrapeCadence deploys at 10:00 Pacific on 2026-11-10, a week into
+// Winter 2027 registration by the estimates, and runs three days.
+func TestScrapeCadence(t *testing.T) {
+	codes := []string{
+		"202720", // pre-registration
+		"202710", // registration
+		"202640", // in session
+		"202630", // past
+		"202010", // past, outside the 5-year window
+	}
+	scraped := simulate(t, codes, pacific(2026, 11, 10, 10, 0), 72*time.Hour, nil)
+
+	if got := scraped.order[:4]; !slices.Equal(got, []string{"202710", "202640", "202720", "202630"}) {
+		t.Errorf("startup scraped %v, want registration first and past last", got)
 	}
 
-	job.hasRun = true
-	if job.ShouldRun(now) {
-		t.Error("BootstrapJob should not run when hasRun is true")
+	registration := scraped.scrapes["202710"]
+	for i := 1; i < len(registration); i++ {
+		if gap := registration[i].Sub(registration[i-1]); gap < 8*time.Hour || gap > 8*time.Hour+scrapeDuration+time.Minute {
+			t.Errorf("registration scrapes %d and %d are %v apart, want 8h plus the scrape time", i-1, i, gap)
+		}
+	}
+	if len(registration) < 9 {
+		t.Errorf("registration term scraped %d times in 72h, want 9", len(registration))
+	}
+
+	// The startup scrape, then each day at 3am: a mid-day restart must not
+	// push the next daily scrape out a day.
+	for _, code := range []string{"202640", "202720"} {
+		var got []string
+		for _, s := range scraped.scrapes[code] {
+			got = append(got, s.In(calendar.Pacific).Format("Jan 2 15h"))
+		}
+		want := []string{"Nov 10 10h", "Nov 11 03h", "Nov 12 03h", "Nov 13 03h"}
+		if !slices.Equal(got, want) {
+			t.Errorf("term %s scraped at %v, want %v", code, got, want)
+		}
+	}
+
+	if n := len(scraped.scrapes["202630"]); n != 1 {
+		t.Errorf("past term scraped %d times, want once", n)
+	}
+	if n := len(scraped.scrapes["202010"]); n != 0 {
+		t.Errorf("term outside the window scraped %d times, want never", n)
 	}
 }
 
-func TestPastTermBackfillJob_ShouldRun(t *testing.T) {
-	job := &PastTermBackfillJob{}
-	now := time.Now()
-
-	if !job.ShouldRun(now) {
-		t.Error("PastTermBackfillJob should run when hasRun is false")
-	}
-
-	job.hasRun = true
-	if job.ShouldRun(now) {
-		t.Error("PastTermBackfillJob should not run when hasRun is true")
-	}
-}
-
-func TestActiveScrapeJob_ShouldRun(t *testing.T) {
+func TestDailyScrapeAcrossDST(t *testing.T) {
 	tests := []struct {
-		name     string
-		interval time.Duration
-		lastRun  time.Time
-		now      time.Time
-		want     bool
+		name  string
+		code  string // in session through the span
+		start time.Time
+		want  []string
 	}{
-		{
-			name:     "first run (zero lastRun)",
-			interval: 8 * time.Hour,
-			lastRun:  time.Time{},
-			now:      time.Date(2025, 1, 15, 10, 0, 0, 0, time.Local),
-			want:     true,
-		},
-		{
-			name:     "interval not elapsed",
-			interval: 8 * time.Hour,
-			lastRun:  time.Date(2025, 1, 15, 10, 0, 0, 0, time.Local),
-			now:      time.Date(2025, 1, 15, 14, 0, 0, 0, time.Local), // 4 hours later
-			want:     false,
-		},
-		{
-			name:     "interval elapsed exactly",
-			interval: 8 * time.Hour,
-			lastRun:  time.Date(2025, 1, 15, 10, 0, 0, 0, time.Local),
-			now:      time.Date(2025, 1, 15, 18, 0, 0, 0, time.Local), // 8 hours later
-			want:     true,
-		},
-		{
-			name:     "within tolerance window",
-			interval: 8 * time.Hour,
-			lastRun:  time.Date(2025, 1, 15, 10, 0, 0, 0, time.Local),
-			now:      time.Date(2025, 1, 15, 17, 35, 0, 0, time.Local), // 7h35m later (within 30m tolerance)
-			want:     true,
-		},
-		{
-			name:     "just outside tolerance window",
-			interval: 8 * time.Hour,
-			lastRun:  time.Date(2025, 1, 15, 10, 0, 0, 0, time.Local),
-			now:      time.Date(2025, 1, 15, 17, 25, 0, 0, time.Local), // 7h25m later (outside 30m tolerance)
-			want:     false,
-		},
+		{"spring forward", "202710", pacific(2027, 3, 12, 12, 0),
+			[]string{"Mar 12 12h", "Mar 13 03h", "Mar 14 03h", "Mar 15 03h"}},
+		{"fall back", "202740", pacific(2027, 11, 5, 12, 0),
+			[]string{"Nov 5 12h", "Nov 6 03h", "Nov 7 03h", "Nov 8 03h"}},
 	}
-
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			job := &ActiveScrapeJob{
-				interval: tt.interval,
-				lastRun:  tt.lastRun,
+			scraped := simulate(t, []string{tt.code}, tt.start, 72*time.Hour, nil)
+			var got []string
+			for _, s := range scraped.scrapes[tt.code] {
+				got = append(got, s.In(calendar.Pacific).Format("Jan 2 15h"))
 			}
-			got := job.ShouldRun(tt.now)
-			if got != tt.want {
-				t.Errorf("ShouldRun() = %v, want %v", got, tt.want)
+			if !slices.Equal(got, tt.want) {
+				t.Errorf("scraped at %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestDailyScrapeJob_ShouldRun(t *testing.T) {
-	tests := []struct {
-		name        string
-		targetHour  int
-		lastRunDate time.Time
-		now         time.Time
-		want        bool
-	}{
-		{
-			name:        "first run (zero lastRunDate)",
-			targetHour:  3,
-			lastRunDate: time.Time{},
-			now:         time.Date(2025, 1, 15, 10, 0, 0, 0, time.Local),
-			want:        true,
-		},
-		{
-			name:        "wrong hour after first run",
-			targetHour:  3,
-			lastRunDate: time.Date(2025, 1, 14, 0, 0, 0, 0, time.Local),
-			now:         time.Date(2025, 1, 15, 10, 0, 0, 0, time.Local),
-			want:        false,
-		},
-		{
-			name:        "correct hour, never run",
-			targetHour:  3,
-			lastRunDate: time.Time{},
-			now:         time.Date(2025, 1, 15, 3, 30, 0, 0, time.Local),
-			want:        true,
-		},
-		{
-			name:        "correct hour, already run today",
-			targetHour:  3,
-			lastRunDate: time.Date(2025, 1, 15, 0, 0, 0, 0, time.Local),
-			now:         time.Date(2025, 1, 15, 3, 45, 0, 0, time.Local),
-			want:        false,
-		},
-		{
-			name:        "correct hour, ran yesterday",
-			targetHour:  3,
-			lastRunDate: time.Date(2025, 1, 14, 0, 0, 0, 0, time.Local),
-			now:         time.Date(2025, 1, 15, 3, 15, 0, 0, time.Local),
-			want:        true,
-		},
-		{
-			name:        "minute 0 of target hour",
-			targetHour:  3,
-			lastRunDate: time.Time{},
-			now:         time.Date(2025, 1, 15, 3, 0, 0, 0, time.Local),
-			want:        true,
-		},
-		{
-			name:        "minute 59 of target hour",
-			targetHour:  3,
-			lastRunDate: time.Time{},
-			now:         time.Date(2025, 1, 15, 3, 59, 0, 0, time.Local),
-			want:        true,
-		},
+// TestFailedScrapeBacksOff has Banner down for a registration term's first
+// three attempts: retries come an hour apart, not every check, and the
+// success resumes the 8h cadence.
+func TestFailedScrapeBacksOff(t *testing.T) {
+	scraped := simulate(t, []string{"202710"}, pacific(2026, 11, 10, 10, 0), 12*time.Hour, func(_ *sql.DB, fake *fakeScraper) {
+		fake.failures["202710"] = 3
+	})
+	var got []string
+	for _, s := range scraped.scrapes["202710"] {
+		got = append(got, s.In(calendar.Pacific).Format("15:04"))
 	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			job := &DailyScrapeJob{
-				targetHour:  tt.targetHour,
-				lastRunDate: tt.lastRunDate,
-			}
-			got := job.ShouldRun(tt.now)
-			if got != tt.want {
-				t.Errorf("ShouldRun() = %v, want %v", got, tt.want)
-			}
-		})
+	if want := []string{"10:00", "11:00", "12:00", "13:00", "21:03"}; !slices.Equal(got, want) {
+		t.Errorf("scraped at %v, want %v", got, want)
+	}
+	// A failed scrape can still write sections, so every attempt invalidates.
+	if want := slices.Repeat([]string{"202710"}, 5); !slices.Equal(scraped.invalidated, want) {
+		t.Errorf("invalidated %v, want %v", scraped.invalidated, want)
 	}
 }
 
-func TestScrapeTolerance(t *testing.T) {
-	if scrapeTolerance != 30*time.Minute {
-		t.Errorf("scrapeTolerance = %v, want 30m", scrapeTolerance)
+func TestScrapeContinuesWhenScheduleFailsToLoad(t *testing.T) {
+	logs := captureLogs(t)
+	scraped := simulate(t, []string{"202710"}, pacific(2026, 11, 10, 10, 0), 3*time.Hour, func(db *sql.DB, _ *fakeScraper) {
+		if _, err := db.Exec("INSERT INTO term_dates VALUES ('202710', 'not a date', '2027-03-19')"); err != nil {
+			t.Fatal(err)
+		}
+	})
+	if n := len(scraped.scrapes["202710"]); n != 1 {
+		t.Errorf("term scraped %d times, want once on estimated dates", n)
+	}
+	if n := strings.Count(logs.String(), "Failed to load term schedule"); n != 1 {
+		t.Errorf("schedule failure logged %d times over 180 checks, want once", n)
+	}
+}
+
+// captureLogs sends slog output to the returned buffer for the rest of the
+// test. SetDefault also redirects the log package, so that is restored too.
+func captureLogs(t *testing.T) *bytes.Buffer {
+	var buf bytes.Buffer
+	prev, writer, flags := slog.Default(), log.Writer(), log.Flags()
+	t.Cleanup(func() {
+		slog.SetDefault(prev)
+		log.SetOutput(writer)
+		log.SetFlags(flags)
+	})
+	slog.SetDefault(slog.New(slog.NewTextHandler(&buf, nil)))
+	return &buf
+}
+
+func TestDailyBoundary(t *testing.T) {
+	tests := []struct {
+		name string
+		now  time.Time
+		want time.Time
+	}{
+		{"before the hour", pacific(2026, 11, 10, 2, 59), pacific(2026, 11, 9, 3, 0)},
+		{"on the hour", pacific(2026, 11, 10, 3, 0), pacific(2026, 11, 10, 3, 0)},
+		{"after the hour", pacific(2026, 11, 10, 23, 0), pacific(2026, 11, 10, 3, 0)},
+		{"Berlin noon is Pacific 3am", time.Date(2026, 1, 15, 12, 0, 0, 0, time.FixedZone("CET", 3600)), pacific(2026, 1, 15, 3, 0)},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := dailyBoundary(tt.now, 3); !got.Equal(tt.want) {
+				t.Errorf("dailyBoundary(%v) = %v, want %v", tt.now, got, tt.want)
+			}
+		})
 	}
 }

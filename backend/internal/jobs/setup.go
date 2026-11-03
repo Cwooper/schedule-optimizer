@@ -2,8 +2,11 @@ package jobs
 
 import (
 	"context"
+	"database/sql"
+	"log/slog"
 	"time"
 
+	"schedule-optimizer/internal/calendar"
 	"schedule-optimizer/internal/config"
 	"schedule-optimizer/internal/scraper"
 	"schedule-optimizer/internal/stats/grades"
@@ -12,30 +15,26 @@ import (
 
 // Setup creates and starts the jobs service if enabled in config.
 // Returns nil if jobs are disabled. The context controls job lifecycle.
-func Setup(ctx context.Context, cfg *config.Config, queries *store.Queries, gradeService *grades.Service) *Service {
+func Setup(ctx context.Context, cfg *config.Config, db *sql.DB, gradeService *grades.Service, cache CacheInvalidator) *Service {
 	if !cfg.JobsEnabled {
 		return nil
 	}
 
+	queries := store.New(db)
 	sc, err := scraper.NewScraper(queries, cfg.ScraperConcurrency)
 	if err != nil {
-		// Log and continue without jobs rather than crashing
+		// Serve without background scraping rather than crash.
+		slog.Error("Failed to create scraper; jobs disabled", "error", err)
 		return nil
 	}
 
-	gradeImportJob := NewGradeImportJob(gradeService)
-
-	pastTermJob := NewPastTermBackfillJob(queries, sc, cfg.PastTermYears)
-	activeJob := NewActiveScrapeJob(queries, sc, cfg.PastTermYears, cfg.ActiveScrapeHours)
-	dailyJob := NewDailyScrapeJob(queries, sc, cfg.PastTermYears, cfg.DailyScrapeHour)
-	bootstrapJob := NewBootstrapJob(sc, []Job{pastTermJob, activeJob, dailyJob})
-
+	// The service runs due jobs in registration order, and the calendar job
+	// is due on startup and at the daily hour, so the term list and calendar
+	// are fresh before the scrape job reads them at those checks.
 	service := NewService(time.Minute)
-	service.Register(gradeImportJob)
-	service.Register(bootstrapJob)
-	service.Register(pastTermJob)
-	service.Register(activeJob)
-	service.Register(dailyJob)
+	service.Register(NewGradeImportJob(gradeService, cache))
+	service.Register(NewCalendarJob(sc, calendar.NewService(db), cache, cfg.DailyScrapeHour))
+	service.Register(NewScrapeJob(queries, sc, cache, cfg.PastTermYears, cfg.ActiveScrapeHours, cfg.DailyScrapeHour))
 
 	go service.Start(ctx)
 

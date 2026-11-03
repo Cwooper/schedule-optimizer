@@ -47,8 +47,7 @@ func TestScrapeTerm(t *testing.T) {
 	server := httptest.NewServer(mux)
 	defer server.Close()
 
-	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
+	_, queries := testutil.SetupTestDB(t)
 
 	scraper, err := newScraperWithBaseURL(queries, 2, server.URL)
 	if err != nil {
@@ -82,6 +81,39 @@ func TestScrapeTerm(t *testing.T) {
 	}
 	if !term.LastScrapedAt.Valid {
 		t.Error("expected last_scraped_at to be set")
+	}
+}
+
+func TestScrapeTerm_EmptyTermRecordsScrape(t *testing.T) {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/classSearch/getTerms", func(w http.ResponseWriter, r *http.Request) {
+		json.NewEncoder(w).Encode([]TermResponse{{Code: "202730", Description: "Summer 2027"}})
+	})
+	mux.HandleFunc("/term/search", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+	})
+	mux.HandleFunc("/searchResults/searchResults", func(w http.ResponseWriter, r *http.Request) {
+		json.NewEncoder(w).Encode(APIResponse{Success: true, TotalCount: 0})
+	})
+	server := httptest.NewServer(mux)
+	defer server.Close()
+
+	_, queries := testutil.SetupTestDB(t)
+	scraper, err := newScraperWithBaseURL(queries, 2, server.URL)
+	if err != nil {
+		t.Fatalf("failed to create scraper: %v", err)
+	}
+
+	ctx := context.Background()
+	if stored, err := scraper.ScrapeTerm(ctx, "202730"); err != nil || stored != 0 {
+		t.Fatalf("ScrapeTerm = %d, %v; want 0, nil", stored, err)
+	}
+	term, err := queries.GetTermByCode(ctx, "202730")
+	if err != nil {
+		t.Fatalf("failed to get term: %v", err)
+	}
+	if !term.LastScrapedAt.Valid {
+		t.Error("empty term's last_scraped_at not set, so the job would rescrape it every check")
 	}
 }
 
@@ -120,8 +152,7 @@ func TestScrapeTerm_Pagination(t *testing.T) {
 	server := httptest.NewServer(mux)
 	defer server.Close()
 
-	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
+	_, queries := testutil.SetupTestDB(t)
 
 	scraper, err := newScraperWithBaseURL(queries, 2, server.URL)
 	if err != nil {
@@ -175,8 +206,7 @@ func TestScrapeTerm_PartialFailure(t *testing.T) {
 	server := httptest.NewServer(mux)
 	defer server.Close()
 
-	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
+	_, queries := testutil.SetupTestDB(t)
 
 	scraper, err := newScraperWithBaseURL(queries, 1, server.URL)
 	if err != nil {
@@ -209,8 +239,7 @@ func TestScrapeTerms(t *testing.T) {
 	server := httptest.NewServer(mux)
 	defer server.Close()
 
-	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
+	_, queries := testutil.SetupTestDB(t)
 
 	scraper, err := newScraperWithBaseURL(queries, 1, server.URL)
 	if err != nil {

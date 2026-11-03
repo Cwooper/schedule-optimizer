@@ -2,6 +2,7 @@ import { create } from "zustand"
 import { persist } from "zustand/middleware"
 import { decodeHtmlEntities, genId } from "@/lib/utils"
 import { mergeAdjacentBlocks } from "@/lib/schedule-utils"
+import { DEFAULT_CALENDAR_EXPORT, type CalendarExportOptions } from "@/lib/ics"
 
 // --- Types ---
 
@@ -179,8 +180,9 @@ interface AppState {
   // UI state
   theme: Theme
   sidebarCollapsed: boolean
+  calendarExport: CalendarExportOptions
 
-  // Generated schedules (not persisted)
+  // Generated schedules
   generateResult: GenerateResponse | null
   generatedWithParams: GenerationParams | null
   currentScheduleIndex: number
@@ -220,6 +222,7 @@ interface AppState {
   setEditingBlockedTimeGroupId: (id: string | null) => void
   setTheme: (theme: Theme) => void
   setSidebarCollapsed: (collapsed: boolean) => void
+  setCalendarExport: (options: Partial<CalendarExportOptions>) => void
   setGenerateResult: (
     result: GenerateResponse | null,
     params?: GenerationParams
@@ -279,20 +282,33 @@ function decodeDeep(value: unknown, decode: (s: string) => string): unknown {
  * components decoded it at render time; now the backend stores plain text.
  * Decode the course data older clients persisted so it does not render as
  * "B&amp;W".
+ *
+ * Before version 2 generated sections had no finals or meeting dates, so an
+ * old result would show no finals and export classes without their own date
+ * bounds. It is dropped; the slots it came from stay, ready to regenerate.
  */
 export function migratePersistedState(
   state: unknown,
   version: number,
   decode: (s: string) => string = decodeHtmlEntities
 ): unknown {
-  if (version < 1 && state && typeof state === "object") {
-    const out: Record<string, unknown> = { ...state }
-    for (const key of ["slots", "generateResult"]) {
-      if (key in out) out[key] = decodeDeep(out[key], decode)
-    }
-    return out
+  if (!state || typeof state !== "object") return state
+  const out: Record<string, unknown> = { ...state }
+  if (version < 1 && "slots" in out) out.slots = decodeDeep(out.slots, decode)
+  if (version < 2) {
+    out.generateResult = null
+    out.generatedWithParams = null
+    out.currentScheduleIndex = 0
   }
-  return state
+  return out
+}
+
+/**
+ * The term of the schedule on screen: the one it was generated for, which
+ * stays shown (marked stale) after the sidebar switches terms.
+ */
+export function selectScheduleTerm(state: AppState): string {
+  return (state.generateResult && state.generatedWithParams?.term) || state.term
 }
 
 // --- Store ---
@@ -312,6 +328,7 @@ export const useAppStore = create<AppState>()(
       editingBlockedTimeGroupId: null,
       theme: "system",
       sidebarCollapsed: false,
+      calendarExport: DEFAULT_CALENDAR_EXPORT,
       generateResult: null,
       generatedWithParams: null,
       currentScheduleIndex: 0,
@@ -516,6 +533,9 @@ export const useAppStore = create<AppState>()(
 
       setSidebarCollapsed: (collapsed) => set({ sidebarCollapsed: collapsed }),
 
+      setCalendarExport: (options) =>
+        set((state) => ({ calendarExport: { ...state.calendarExport, ...options } })),
+
       setGenerateResult: (result, params) =>
         set({
           generateResult: result,
@@ -608,7 +628,7 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: "schedule-optimizer",
-      version: 1,
+      version: 2,
       migrate: (state, version) => migratePersistedState(state, version) as AppState,
       partialize: (state) => ({
         // Only persist these fields
@@ -622,6 +642,7 @@ export const useAppStore = create<AppState>()(
         blockedTimeGroups: state.blockedTimeGroups,
         theme: state.theme,
         sidebarCollapsed: state.sidebarCollapsed,
+        calendarExport: state.calendarExport,
         generateResult: state.generateResult,
         generatedWithParams: state.generatedWithParams,
         currentScheduleIndex: state.currentScheduleIndex,

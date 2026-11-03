@@ -1,10 +1,9 @@
 package generator
 
 import (
+	"schedule-optimizer/internal/meeting"
 	"strconv"
 	"strings"
-
-	"schedule-optimizer/internal/cache"
 )
 
 // Time slot constants for bitmask representation.
@@ -97,7 +96,7 @@ func parseTimeToMins(t string) int {
 }
 
 // FromMeetingTimes builds a TimeMask from a slice of meeting times.
-func FromMeetingTimes(meetings []cache.MeetingTime) TimeMask {
+func FromMeetingTimes(meetings []meeting.Time) TimeMask {
 	var mask TimeMask
 	for _, mt := range meetings {
 		startSlot := timeToSlot(mt.StartTime)

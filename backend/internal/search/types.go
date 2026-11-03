@@ -1,5 +1,10 @@
 package search
 
+import (
+	"schedule-optimizer/internal/calendar"
+	"schedule-optimizer/internal/meeting"
+)
+
 // SearchRequest contains all search parameters from the API request.
 type SearchRequest struct {
 	// Scope parameters (at most one should be set; if neither, searches all terms)
@@ -29,33 +34,25 @@ type CourseInfo struct {
 	PassRate     *float64 `json:"passRate,omitempty"`
 }
 
-// MeetingTimeInfo represents a single meeting time for a section.
-type MeetingTimeInfo struct {
-	Days      []bool `json:"days"` // [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
-	StartTime string `json:"startTime"`
-	EndTime   string `json:"endTime"`
-	Building  string `json:"building"`
-	Room      string `json:"room"`
-}
-
 // SectionInfo contains section-level data sent once per unique term:CRN combination.
 type SectionInfo struct {
-	CRN             string            `json:"crn"`
-	Term            string            `json:"term"`
-	CourseKey       string            `json:"courseKey"`
-	Instructor      string            `json:"instructor,omitempty"`
-	InstructorEmail string            `json:"instructorEmail,omitempty"`
-	Enrollment      int               `json:"enrollment"`
-	MaxEnrollment   int               `json:"maxEnrollment"`
-	SeatsAvailable  int               `json:"seatsAvailable"`
-	WaitCount       int               `json:"waitCount"`
-	IsOpen          bool              `json:"isOpen"`
-	Campus          string            `json:"campus,omitempty"`
-	ScheduleType    string            `json:"scheduleType,omitempty"`
-	MeetingTimes    []MeetingTimeInfo `json:"meetingTimes"`
-	GPA             float64           `json:"gpa,omitempty"`
-	GPASource       string            `json:"gpaSource,omitempty"`
-	PassRate        *float64          `json:"passRate,omitempty"`
+	CRN             string          `json:"crn"`
+	Term            string          `json:"term"`
+	CourseKey       string          `json:"courseKey"`
+	Instructor      string          `json:"instructor,omitempty"`
+	InstructorEmail string          `json:"instructorEmail,omitempty"`
+	Enrollment      int             `json:"enrollment"`
+	MaxEnrollment   int             `json:"maxEnrollment"`
+	SeatsAvailable  int             `json:"seatsAvailable"`
+	WaitCount       int             `json:"waitCount"`
+	IsOpen          bool            `json:"isOpen"`
+	Campus          string          `json:"campus,omitempty"`
+	ScheduleType    string          `json:"scheduleType,omitempty"`
+	MeetingTimes    []meeting.Time  `json:"meetingTimes"`
+	Final           *calendar.Final `json:"final,omitempty"`
+	GPA             float64         `json:"gpa,omitempty"`
+	GPASource       string          `json:"gpaSource,omitempty"`
+	PassRate        *float64        `json:"passRate,omitempty"`
 }
 
 // CourseRef groups sections of a course with relevance score.

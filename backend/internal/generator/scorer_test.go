@@ -5,9 +5,10 @@ import (
 	"testing"
 
 	"schedule-optimizer/internal/cache"
+	"schedule-optimizer/internal/meeting"
 )
 
-func makeScheduleWithMeetings(meetings []cache.MeetingTime) *Schedule {
+func makeScheduleWithMeetings(meetings []meeting.Time) *Schedule {
 	return &Schedule{
 		Courses: []*cache.Course{
 			{MeetingTimes: meetings},
@@ -17,7 +18,7 @@ func makeScheduleWithMeetings(meetings []cache.MeetingTime) *Schedule {
 
 func TestWeighGap_SingleClass(t *testing.T) {
 	// Single class - no gaps possible, should be 1.0
-	s := makeScheduleWithMeetings([]cache.MeetingTime{
+	s := makeScheduleWithMeetings([]meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 	})
 
@@ -31,10 +32,10 @@ func TestWeighGap_NoGap(t *testing.T) {
 	// Back-to-back classes on same day - no gap
 	s := &Schedule{
 		Courses: []*cache.Course{
-			{MeetingTimes: []cache.MeetingTime{
+			{MeetingTimes: []meeting.Time{
 				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 			}},
-			{MeetingTimes: []cache.MeetingTime{
+			{MeetingTimes: []meeting.Time{
 				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "1000", EndTime: "1100"},
 			}},
 		},
@@ -52,10 +53,10 @@ func TestWeighGap_WithGap(t *testing.T) {
 	// Gap ratio = 1/3 = 0.33, score = 1 - 0.33 = 0.67
 	s := &Schedule{
 		Courses: []*cache.Course{
-			{MeetingTimes: []cache.MeetingTime{
+			{MeetingTimes: []meeting.Time{
 				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 			}},
-			{MeetingTimes: []cache.MeetingTime{
+			{MeetingTimes: []meeting.Time{
 				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "1100", EndTime: "1200"},
 			}},
 		},
@@ -74,13 +75,13 @@ func TestWeighGap_MultipleDays(t *testing.T) {
 	// Average: (1.0 + 0.67) / 2 = 0.835
 	s := &Schedule{
 		Courses: []*cache.Course{
-			{MeetingTimes: []cache.MeetingTime{
+			{MeetingTimes: []meeting.Time{
 				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 			}},
-			{MeetingTimes: []cache.MeetingTime{
+			{MeetingTimes: []meeting.Time{
 				{Days: [7]bool{false, false, true, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 			}},
-			{MeetingTimes: []cache.MeetingTime{
+			{MeetingTimes: []meeting.Time{
 				{Days: [7]bool{false, false, true, false, false, false, false}, StartTime: "1100", EndTime: "1200"},
 			}},
 		},
@@ -109,7 +110,7 @@ func TestWeighStart(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			s := makeScheduleWithMeetings([]cache.MeetingTime{
+			s := makeScheduleWithMeetings([]meeting.Time{
 				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: tt.startTime, EndTime: "1800"},
 			})
 			score := weighStart(s)
@@ -136,7 +137,7 @@ func TestWeighEnd(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			s := makeScheduleWithMeetings([]cache.MeetingTime{
+			s := makeScheduleWithMeetings([]meeting.Time{
 				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0700", EndTime: tt.endTime},
 			})
 			score := weighEnd(s)
@@ -150,7 +151,7 @@ func TestWeighEnd(t *testing.T) {
 func TestScoreSchedule(t *testing.T) {
 	s := &Schedule{
 		Courses: []*cache.Course{
-			{MeetingTimes: []cache.MeetingTime{
+			{MeetingTimes: []meeting.Time{
 				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 			}},
 		},
@@ -179,10 +180,10 @@ func TestScoreSchedule(t *testing.T) {
 func TestFindEarliestStart(t *testing.T) {
 	s := &Schedule{
 		Courses: []*cache.Course{
-			{MeetingTimes: []cache.MeetingTime{
+			{MeetingTimes: []meeting.Time{
 				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "1000", EndTime: "1100"},
 			}},
-			{MeetingTimes: []cache.MeetingTime{
+			{MeetingTimes: []meeting.Time{
 				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "0950"},
 			}},
 		},
@@ -198,10 +199,10 @@ func TestFindEarliestStart(t *testing.T) {
 func TestFindLatestEnd(t *testing.T) {
 	s := &Schedule{
 		Courses: []*cache.Course{
-			{MeetingTimes: []cache.MeetingTime{
+			{MeetingTimes: []meeting.Time{
 				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 			}},
-			{MeetingTimes: []cache.MeetingTime{
+			{MeetingTimes: []meeting.Time{
 				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "1000", EndTime: "1100"},
 			}},
 		},

@@ -16,6 +16,14 @@ A course scheduling tool for Western Washington University students. Add your co
 - **Blocked times** — paint time slots as unavailable with named groups, custom colors, opacity, and hatching patterns
 - Browse generated schedules with scoring based on gaps, start time, and end time preferences
 - View async/TBD courses separately
+- **Final exams** on each section with a scheduled final, matched to the registrar's finals schedule; times the meeting pattern leaves ambiguous (labs, several meeting times, once-a-week classes) are marked as guesses
+- **Finals week** view of the current schedule's exams, toggled from the schedule header
+- **Add to Calendar**: download an `.ics` file with classes (holidays skipped), final exams in their class's room, holidays, registration phases, and add/drop/withdraw deadlines, the term's dates titled short (`W27 - Drop deadline (no W)`) with the registrar's full wording in the description
+
+### Term Dates
+
+- Sidebar status line for the selected term: countdown to registration, the next registration phase, or finals week, and a pointer to the next term when its registration is about to open
+- Key dates popover: registration phases, classes, holidays, and finals week, marked when the dates are still estimates
 
 Under the hood, schedule generation uses a **bitmask-based conflict detection** algorithm with backtracking and pruning. Each section is encoded as a 450-bit time mask (5 days x 90 ten-minute slots from 7am-10pm), enabling O(1) conflict checks. On a modern CPU, conflict detection runs in ~3ns and a full 10-course generation completes in under 2ms.
 
@@ -29,7 +37,7 @@ Under the hood, schedule generation uses a **bitmask-based conflict detection** 
 ### Data Pipeline
 
 - Automated scraping from WWU's Banner API with concurrent page fetches
-- Background job scheduler with four job types: bootstrap, historical backfill, active registration polling, and daily pre-registration scrapes
+- Background job scheduler that scrapes each term on a cadence set by its phase (every 8 hours during registration, daily before registration and in session, once when past; a failed scrape retries hourly), with phases taken from the registrar's published registration and term dates
 - Course-centric data model supporting cross-term search — organized by unique course identity, not term hierarchy
 - SQLite with WAL mode for concurrent reads during scraping
 
@@ -56,9 +64,10 @@ Under the hood, schedule generation uses a **bitmask-based conflict detection** 
 ## Architecture
 
 ```
-Banner API → Scraper → SQLite → Cache (in-memory) → REST API → React Frontend
-     ↑
-Jobs Service (scheduled scraping)
+Banner API        → Scraper  ─┐
+registrar.wwu.edu → Calendar ─┴→ SQLite → Cache (in-memory) → REST API → React Frontend
+                       ↑
+          Jobs Service (scheduled scraping)
 ```
 
 ### Backend
@@ -69,16 +78,19 @@ backend/
 ├── migrations/          # SQL migration files (golang-migrate)
 ├── internal/
 │   ├── api/             # HTTP handlers
-│   ├── cache/           # In-memory schedule cache (active terms)
+│   ├── cache/           # In-memory term snapshots, loaded on request, dropped after jobs rewrite them
+│   ├── calendar/        # Registrar calendar scraper, term phases, finals matching
 │   ├── config/          # Environment configuration
 │   ├── db/              # SQLite connection setup
 │   ├── generator/       # Bitmask conflict detection + backtracking
 │   ├── jobs/            # Background job scheduler (scrape scheduling)
+│   ├── meeting/         # Meeting-time payload shared by every section response
 │   ├── scraper/         # Banner API client + data extraction
 │   ├── search/          # Course search with scoring
 │   ├── server/          # Router, middleware, graceful shutdown
 │   ├── static/          # Embedded frontend serving
-│   └── store/           # sqlc-generated query code
+│   ├── store/           # sqlc-generated query code
+│   └── termcode/        # Term code (YYYYQQ) helpers
 ├── Makefile
 └── sqlc.yaml
 ```
@@ -93,7 +105,7 @@ frontend/src/
 │   └── schedule-builder/    # Course input, rows, previews
 ├── hooks/                   # API hooks, theme, export, drag-to-paint
 ├── stores/                  # Zustand store (persisted to localStorage)
-└── lib/                     # API client, schedule utils, warnings
+└── lib/                     # API client, schedule utils, term status, finals, .ics export
 ```
 
 ### API
@@ -101,7 +113,8 @@ frontend/src/
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | `GET` | `/api/health` | Health check |
-| `GET` | `/api/terms` | Available academic terms |
+| `GET` | `/api/terms` | Available terms with phase, start and end, and registration opening |
+| `GET` | `/api/calendar/:term` | Registration phases, holidays, deadlines, and finals week |
 | `GET` | `/api/subjects` | Subject codes (optionally by term) |
 | `GET` | `/api/course/:subject/:courseNumber` | Course details + sections |
 | `GET` | `/api/search` | Filtered course search |
@@ -110,6 +123,8 @@ frontend/src/
 | `POST` | `/api/generate` | Generate schedule combinations |
 | `GET` | `/api/announcement` | Active announcement |
 | `POST` | `/api/feedback` | Submit feedback |
+
+Section payloads from generate, search, and CRN lookup carry `final` (`{date, start, end, certain, reason?, location?}`, the location being the room of the meeting time the exam is based on) when the section has a final exam slot, and mark lab meetings with `lab: true`. Calendar deadlines carry the registrar's wording as `name` and a short `title` for calendar events.
 
 ## Getting Started
 
@@ -169,8 +184,8 @@ DATABASE_PATH=data/schedule.db      # SQLite database location
 CORS_ALLOWED_ORIGINS=http://localhost:5173
 SCRAPER_CONCURRENCY=4               # parallel page fetches
 JOBS_ENABLED=true                   # background scraping
-JOBS_ACTIVE_SCRAPE_HOURS=8          # hours between active term scrapes
-JOBS_DAILY_SCRAPE_HOUR=3            # hour (0-23) for daily scrapes
+JOBS_ACTIVE_SCRAPE_HOURS=8          # hours between scrapes of terms in registration
+JOBS_DAILY_SCRAPE_HOUR=3            # Pacific hour (0-23) for daily scrapes
 JOBS_PAST_TERM_YEARS=5              # years of historical data to backfill
 ```
 
@@ -181,7 +196,8 @@ The project uses table-driven tests throughout. Backend test coverage spans all 
 ```
 internal/generator   — unit + benchmark (bitmask, backtracking, scoring)
 internal/search      — unit + fuzz + benchmark
-internal/jobs        — unit (scheduler, scrape jobs, term detection)
+internal/jobs        — unit (scheduler, simulated scrape cadence)
+internal/calendar    — unit + integration (parsers on captured pages, phases, storage, finals matching, term calendar)
 internal/api         — integration (handler endpoints)
 internal/cache       — unit
 internal/scraper     — unit

@@ -12,17 +12,18 @@ import (
 
 // Service handles schedule generation using bitmask-based conflict detection.
 type Service struct {
-	cache   *cache.ScheduleCache
 	queries *store.Queries
 }
 
 // NewService creates a new schedule generator service.
-func NewService(c *cache.ScheduleCache, q *store.Queries) *Service {
-	return &Service{cache: c, queries: q}
+func NewService(q *store.Queries) *Service {
+	return &Service{queries: q}
 }
 
-// Generate produces all valid schedule combinations for the requested courses.
-func (s *Service) Generate(ctx context.Context, req GenerateRequest) (*GenerateResponse, error) {
+// Generate produces all valid schedule combinations for the requested courses
+// from one snapshot of the term, so a cache reload mid-request cannot mix
+// two loads.
+func (s *Service) Generate(ctx context.Context, term *cache.TermData, req GenerateRequest) (*GenerateResponse, error) {
 	start := time.Now()
 
 	blockedMask := FromBlockedTimes(req.BlockedTimes)
@@ -38,8 +39,8 @@ func (s *Service) Generate(ctx context.Context, req GenerateRequest) (*GenerateR
 	}
 
 	// Build course groups for all specs
-	requiredGroups, reqAsyncs, reqResults := s.buildCourseGroups(ctx, req.Term, requiredSpecs, blockedMask)
-	optionalGroups, optAsyncs, optResults := s.buildCourseGroups(ctx, req.Term, optionalSpecs, blockedMask)
+	requiredGroups, reqAsyncs, reqResults := s.buildCourseGroups(ctx, term, requiredSpecs, blockedMask)
+	optionalGroups, optAsyncs, optResults := s.buildCourseGroups(ctx, term, optionalSpecs, blockedMask)
 
 	// Check if any required course has no valid sections
 	if len(requiredGroups) < len(requiredSpecs) {
@@ -133,8 +134,8 @@ func (s *Service) Generate(ctx context.Context, req GenerateRequest) (*GenerateR
 	}, nil
 }
 
-// buildCourseGroups fetches sections from cache, filters by blocked times and allowed CRNs, and groups by course.
-func (s *Service) buildCourseGroups(ctx context.Context, term string, specs []CourseSpec, blockedMask TimeMask) ([]courseGroup, []*cache.Course, []CourseResult) {
+// buildCourseGroups fetches sections from the term, filters by blocked times and allowed CRNs, and groups by course.
+func (s *Service) buildCourseGroups(ctx context.Context, term *cache.TermData, specs []CourseSpec, blockedMask TimeMask) ([]courseGroup, []*cache.Course, []CourseResult) {
 	var groups []courseGroup
 	var asyncs []*cache.Course
 	var results []CourseResult
@@ -142,7 +143,7 @@ func (s *Service) buildCourseGroups(ctx context.Context, term string, specs []Co
 	for _, spec := range specs {
 		courseKey := spec.Subject + ":" + spec.CourseNumber
 		displayName := spec.Subject + " " + spec.CourseNumber
-		sections := s.cache.GetCoursesByCourseCode(term, courseKey)
+		sections := term.ByCourseCode[courseKey]
 
 		if len(sections) == 0 {
 			exists, _ := s.queries.CourseExistsAnyTerm(ctx, store.CourseExistsAnyTermParams{

@@ -5,12 +5,12 @@ import (
 	"strings"
 	"testing"
 
+	"schedule-optimizer/internal/calendar"
 	"schedule-optimizer/internal/testutil"
 )
 
 func TestSearch_NoFilters(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -26,7 +26,6 @@ func TestSearch_NoFilters(t *testing.T) {
 
 func TestSearch_WildcardOnlyFilter(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -64,7 +63,6 @@ func TestSearch_WildcardOnlyFilter(t *testing.T) {
 
 func TestSearch_FilterMinimumLength(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -102,7 +100,6 @@ func TestSearch_FilterMinimumLength(t *testing.T) {
 
 func TestSearch_TooManyTokens(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -128,7 +125,6 @@ func TestSearch_TooManyTokens(t *testing.T) {
 
 func TestSearch_InvalidTerm(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -145,7 +141,6 @@ func TestSearch_InvalidTerm(t *testing.T) {
 
 func TestSearch_SubjectFilter(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -186,7 +181,6 @@ func TestSearch_SubjectFilter(t *testing.T) {
 
 func TestSearch_CourseNumberExact(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -217,7 +211,6 @@ func TestSearch_CourseNumberExact(t *testing.T) {
 
 func TestSearch_CourseNumberWildcard(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -247,7 +240,6 @@ func TestSearch_CourseNumberWildcard(t *testing.T) {
 
 func TestSearch_CourseNumberAutoWildcard(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -269,7 +261,6 @@ func TestSearch_CourseNumberAutoWildcard(t *testing.T) {
 
 func TestSearch_TitleToken(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -297,7 +288,6 @@ func TestSearch_TitleToken(t *testing.T) {
 
 func TestSearch_InstructorToken(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -324,7 +314,6 @@ func TestSearch_InstructorToken(t *testing.T) {
 
 func TestSearch_InstructorMultipleTokens(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -346,7 +335,6 @@ func TestSearch_InstructorMultipleTokens(t *testing.T) {
 
 func TestSearch_OpenSeatsFilter(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -388,7 +376,6 @@ func TestSearch_OpenSeatsFilter(t *testing.T) {
 
 func TestSearch_CreditRange(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -413,7 +400,6 @@ func TestSearch_CreditRange(t *testing.T) {
 
 func TestSearch_CombinedFilters(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -436,7 +422,6 @@ func TestSearch_CombinedFilters(t *testing.T) {
 
 func TestSearch_NoResults(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -469,7 +454,6 @@ func TestSearch_NoResults(t *testing.T) {
 
 func TestSearch_NoMeetingTimes(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -504,7 +488,6 @@ func TestSearch_NoMeetingTimes(t *testing.T) {
 
 func TestSearch_AllTimeScope(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -544,7 +527,6 @@ func TestSearch_AllTimeScope(t *testing.T) {
 
 func TestSearch_SingleTermScoring(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -569,7 +551,6 @@ func TestSearch_SingleTermScoring(t *testing.T) {
 
 func TestSearch_CourseGrouping(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -620,7 +601,6 @@ func TestSearch_CourseGrouping(t *testing.T) {
 
 func TestSearch_ResponseStructure(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -721,7 +701,6 @@ func TestMatchQualityScorer(t *testing.T) {
 
 func TestSearch_YearScope(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -746,7 +725,6 @@ func TestSearch_YearScope(t *testing.T) {
 
 func TestSearch_SectionKeyUniqueness(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -787,7 +765,6 @@ func TestSearch_SectionKeyUniqueness(t *testing.T) {
 
 func TestSearch_StatsPopulated(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	defer db.Close()
 	testutil.SeedTestData(t, db)
 
 	svc := NewService(db, queries, nil)
@@ -856,26 +833,26 @@ func TestBuildCourseNumberPattern(t *testing.T) {
 		// Empty
 		{"", nil},
 		// Exact match (3+ chars, no wildcard)
-		{"247", strPtr("247")},
-		{"301", strPtr("301")},
+		{"247", new("247")},
+		{"301", new("301")},
 		// Auto-wildcard for 1-2 chars
-		{"2", strPtr("2%")},
-		{"20", strPtr("20%")},
+		{"2", new("2%")},
+		{"20", new("20%")},
 		// Explicit suffix wildcard
-		{"2*", strPtr("2%")},
-		{"2%", strPtr("2%")},
-		{"30*", strPtr("30%")},
+		{"2*", new("2%")},
+		{"2%", new("2%")},
+		{"30*", new("30%")},
 		// Prefix wildcard
-		{"*97", strPtr("%97")},
-		{"*01", strPtr("%01")},
+		{"*97", new("%97")},
+		{"*01", new("%01")},
 		// Internal wildcard
-		{"2*7", strPtr("2%7")},
-		{"4*7X", strPtr("4%7X")},
+		{"2*7", new("2%7")},
+		{"4*7X", new("4%7X")},
 		// Multiple wildcards
-		{"*97*", strPtr("%97%")},
-		{"*9*X", strPtr("%9%X")},
+		{"*97*", new("%97%")},
+		{"*9*X", new("%9%X")},
 		// Mixed * and %
-		{"2*7%", strPtr("2%7%")},
+		{"2*7%", new("2%7%")},
 	}
 
 	for _, tt := range tests {
@@ -894,6 +871,30 @@ func TestBuildCourseNumberPattern(t *testing.T) {
 	}
 }
 
-func strPtr(s string) *string {
-	return &s
+func TestSearchIncludesFinal(t *testing.T) {
+	db, queries := testutil.SetupTestDB(t)
+	testutil.SeedTestData(t, db)
+	testutil.SeedSpring2025Calendar(t, db)
+	svc := NewService(db, queries, nil)
+
+	resp, err := svc.Search(context.Background(), SearchRequest{Term: "202520", Subject: "CSCI"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	want := calendar.Final{Date: "2025-06-10", Start: "1030", End: "1230", Certain: true, Location: "CF 105"}
+	if got := resp.Sections["202520:20001"].Final; got == nil || *got != want {
+		t.Errorf("CRN 20001 final = %+v, want %+v", got, want)
+	}
+
+	// The section's own type decides: a lab-only section has no final.
+	if _, err := db.Exec("UPDATE sections SET schedule_type = 'Lab' WHERE crn = '20001'"); err != nil {
+		t.Fatal(err)
+	}
+	resp, err = svc.Search(context.Background(), SearchRequest{Term: "202520", Subject: "CSCI"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got := resp.Sections["202520:20001"].Final; got != nil {
+		t.Errorf("lab CRN 20001 final = %+v, want none", got)
+	}
 }

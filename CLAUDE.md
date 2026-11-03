@@ -118,11 +118,20 @@ backend/
 │   │   ├── client.go         # HTTP client with cookie jar
 │   │   ├── response.go       # Banner API response types
 │   │   └── store.go          # Persistence helpers
+│   ├── api/                  # HTTP handlers, one file per area (terms, sections, calendar, generate, feedback)
+│   ├── calendar/             # Registrar calendar scraper (see package doc for design)
+│   │   ├── calendar.go       # ScrapeAll: term dates, finals schedule, important dates
+│   │   ├── schedule.go       # Term phases from scraped dates, estimates as fallback
+│   │   ├── store.go          # Transactional writes: term dates upserted, finals and important dates replaced per term
+│   │   ├── term.go           # LoadTerm: a term's registration phases, holidays, deadlines, finals week (GET /api/calendar/:term)
+│   │   └── finals.go         # FinalFor: section meetings -> exam slot, certain or a guess with a reason
+│   ├── meeting/              # meeting.Time, the meeting payload every section response shares
+│   ├── termcode/             # Term code (YYYYQQ) parsing and helpers
 │   ├── jobs/                 # Background job scheduler
-│   │   ├── service.go        # Job interface + Service (runs jobs on interval)
-│   │   ├── scrape.go         # BootstrapJob, PastTermBackfillJob, ActiveScrapeJob, DailyScrapeJob
-│   │   └── term.go           # Term phase detection (40-day registration estimate)
-│   ├── cache/                # In-memory schedule cache
+│   │   ├── service.go        # Job interface + Service (runs due jobs in registration order)
+│   │   ├── calendar.go       # CalendarJob: Banner term list + registrar calendar, on startup and daily
+│   │   └── scrape.go         # ScrapeJob: each term due by its phase and last_scraped_at; failures retry hourly
+│   ├── cache/                # In-memory schedule cache (sections carry their computed final)
 │   └── generator/            # Schedule generation (bitmask + backtracking)
 │       ├── service.go        # Generate() entry point, course group building
 │       ├── bitmask.go        # O(1) conflict detection via [8]uint64
@@ -145,6 +154,10 @@ frontend/
 │   │   └── use-api.ts       # TanStack Query hooks for API calls
 │   ├── lib/
 │   │   ├── api.ts           # Typed fetch functions for backend API
+│   │   ├── dates.ts         # YYYY-MM-DD helpers (API dates are Pacific calendar dates)
+│   │   ├── term-status.ts   # Sidebar term status line and key dates rows
+│   │   ├── finals.ts        # Finals week grid data, guess reason labels
+│   │   ├── ics.ts           # Hand-written RFC 5545 export (TZID times, EXDATE holidays)
 │   │   └── utils.ts         # cn() helper for Tailwind class merging
 │   ├── stores/
 │   │   └── app-store.ts     # Zustand store (persisted to localStorage)
@@ -170,9 +183,10 @@ frontend/
 ### Data Flow
 
 ```
-Banner API → Scraper → SQLite → Cache (in-memory) → API → Frontend
-     ↑
-Jobs Service (scheduled scraping)
+Banner API        → Scraper  ─┐
+registrar.wwu.edu → Calendar ─┴→ SQLite → Cache (in-memory) → API → Frontend
+                       ↑
+          Jobs Service (scheduled scraping)
 ```
 
 ### Key Design Decisions
@@ -182,7 +196,7 @@ Jobs Service (scheduled scraping)
 - **sqlc** for type-safe queries (regenerate after changing queries.sql)
 - **Separate concerns:**
   - `store/` - sqlc queries and models
-  - `cache/` - in-memory cache for schedule generation (active terms only)
+  - `cache/` - in-memory cache for schedule generation: a term loads on its first request as an immutable snapshot and is dropped after a scrape, the calendar job, or the grade import rewrites its data, so the next request reloads it
 
 ## External Data Sources
 
@@ -197,7 +211,11 @@ Additional endpoints:
   [{"code": "CSCI", "description": "Computer Science"}, ...]
   ```
 
-See `internal/scraper/scraper.go` package doc for detailed design decisions (timeouts, concurrency, partial failure handling). See `WWU-Scraping-URLs.md` for endpoint documentation.
+See `internal/scraper/scraper.go` package doc for detailed design decisions (timeouts, concurrency, partial failure handling).
+
+Term dates, registration phases, deadlines, holidays, and the finals schedule come from registrar.wwu.edu, since Banner exposes none of them. See the `internal/calendar` package doc for the pages and how they are parsed.
+
+The API serves calendar data as JSON only: `GET /api/terms` adds each term's phase and dates, `GET /api/calendar/:term` returns its registration phases, holidays, deadlines, and finals week, and section payloads (generate, search, CRN lookup) carry an optional `final`. Deadline titles for calendar events come from the same wording rules that sort deadlines into kinds (`classifyDeadline` in `calendar/term.go`), so the rules live in one place. Calendar export is an `.ics` file built in the browser (`lib/ics.ts`); there are no hosted feeds, so nothing on the server has to track subscribers or stay in sync with a schedule the server never stores.
 
 ## Environment Variables
 
@@ -210,8 +228,8 @@ SCRAPER_CONCURRENCY=4           # concurrent page fetches (default 4)
 
 # Jobs Service
 JOBS_ENABLED=true               # enable background job scheduler (default true)
-JOBS_ACTIVE_SCRAPE_HOURS=8      # hours between active registration scrapes (default 8)
-JOBS_DAILY_SCRAPE_HOUR=3        # hour (0-23) for daily pre-registration scrapes (default 3)
+JOBS_ACTIVE_SCRAPE_HOURS=8      # hours between scrapes of terms in registration (default 8)
+JOBS_DAILY_SCRAPE_HOUR=3        # Pacific hour (0-23) for daily pre-registration and in-session scrapes and the calendar refresh (default 3)
 JOBS_LOG_RETENTION_DAYS=90      # days to keep logs before pruning (default 90, TODO: not implemented)
 JOBS_PAST_TERM_YEARS=5          # years of past terms to scrape (default 5)
 ```

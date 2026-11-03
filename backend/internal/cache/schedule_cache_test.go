@@ -6,6 +6,7 @@ import (
 	"sync"
 	"testing"
 
+	"schedule-optimizer/internal/calendar"
 	"schedule-optimizer/internal/testutil"
 )
 
@@ -210,27 +211,93 @@ func TestGetActiveTerms(t *testing.T) {
 	}
 }
 
-func TestUnloadTerm(t *testing.T) {
+func TestInvalidateReloads(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
-
 	cache := NewScheduleCache(queries, nil)
 	ctx := context.Background()
-	cache.LoadTerm(ctx, "202520")
 
-	if !cache.IsTermLoaded("202520") {
-		t.Fatal("term should be loaded")
+	before, err := cache.Term(ctx, "202520")
+	if err != nil {
+		t.Fatal(err)
 	}
+	// A scrape updates seats and the calendar job publishes finals.
+	if _, err := db.Exec("UPDATE sections SET seats_available = 1 WHERE crn = '20001'"); err != nil {
+		t.Fatal(err)
+	}
+	testutil.SeedSpring2025Calendar(t, db)
 
-	cache.UnloadTerm("202520")
+	if cached, _ := cache.Term(ctx, "202520"); cached != before {
+		t.Fatal("Term reloaded without an invalidation")
+	}
+	cache.Invalidate("202520")
+	after, err := cache.Term(ctx, "202520")
+	if err != nil {
+		t.Fatal(err)
+	}
+	course := after.Courses["20001"]
+	if course.SeatsAvailable != 1 || course.Final == nil || course.Final.Date != "2025-06-10" {
+		t.Errorf("after invalidation: seats %d, final %+v; want 1 seat and the Jun 10 final", course.SeatsAvailable, course.Final)
+	}
+	// A request holding the old snapshot still reads a whole term.
+	if old := before.Courses["20001"]; old.SeatsAvailable != 5 || old.Final != nil || len(before.Courses) != 3 {
+		t.Errorf("old snapshot changed: seats %d, final %+v, %d courses", old.SeatsAvailable, old.Final, len(before.Courses))
+	}
+}
 
+func TestLoadBeforeInvalidationIsNotCached(t *testing.T) {
+	db, queries := testutil.SetupTestDB(t)
+	testutil.SeedTestData(t, db)
+	cache := NewScheduleCache(queries, nil)
+	ctx := context.Background()
+
+	// A load reads the database, a scrape rewrites it and invalidates, and
+	// then the load finishes.
+	started := cache.generation
+	cache.Invalidate("202520")
+	td, err := cache.load(ctx, "202520", started)
+	if err != nil || len(td.Courses) != 3 {
+		t.Fatalf("load = %d courses, %v; want the whole term returned", len(td.Courses), err)
+	}
 	if cache.IsTermLoaded("202520") {
-		t.Error("term should be unloaded")
+		t.Error("a load that started before an invalidation was cached")
 	}
 
-	terms := cache.GetActiveTerms()
-	if len(terms) != 0 {
-		t.Errorf("expected 0 active terms, got %d", len(terms))
+	cache.LoadTerm(ctx, "202520")
+	cache.LoadTerm(ctx, "202510")
+	cache.InvalidateAll()
+	if terms := cache.GetActiveTerms(); len(terms) != 0 {
+		t.Errorf("after InvalidateAll, cached terms = %v", terms)
+	}
+}
+
+func TestTermWithoutFinalsIsNotCached(t *testing.T) {
+	db, queries := testutil.SetupTestDB(t)
+	testutil.SeedTestData(t, db)
+	testutil.SeedSpring2025Calendar(t, db)
+	if _, err := db.Exec("UPDATE finals_mappings SET exam_date = 'not a date'"); err != nil {
+		t.Fatal(err)
+	}
+	cache := NewScheduleCache(queries, nil)
+	ctx := context.Background()
+
+	td, err := cache.Term(ctx, "202520")
+	if err != nil || len(td.Courses) != 3 || td.Courses["20001"].Final != nil {
+		t.Fatalf("Term = %v, %v; want the term served without finals", td, err)
+	}
+	if cache.IsTermLoaded("202520") {
+		t.Error("a term loaded without its finals was cached")
+	}
+
+	if _, err := db.Exec("UPDATE finals_mappings SET exam_date = '2025-06-10'"); err != nil {
+		t.Fatal(err)
+	}
+	td, err = cache.Term(ctx, "202520")
+	if err != nil || td.Courses["20001"].Final == nil {
+		t.Fatalf("Term after the finals recover = %v, %v; want CRN 20001's final", td, err)
+	}
+	if !cache.IsTermLoaded("202520") {
+		t.Error("the term was not cached once its finals loaded")
 	}
 }
 
@@ -323,7 +390,7 @@ func TestConcurrentReadWrite(t *testing.T) {
 			}
 			for range 10 {
 				cache.LoadTerm(ctx, term)
-				cache.UnloadTerm(term)
+				cache.Invalidate(term)
 			}
 		}(i)
 	}
@@ -363,72 +430,64 @@ func TestConcurrentLoadSameTerm(t *testing.T) {
 	}
 }
 
-func TestLoadTermIfNeeded(t *testing.T) {
+func TestTerm(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
-
+	testutil.SeedSpring2025Calendar(t, db)
 	cache := NewScheduleCache(queries, nil)
 	ctx := context.Background()
 
-	t.Run("loads term when not cached", func(t *testing.T) {
-		err := cache.LoadTermIfNeeded(ctx, "202520")
-		if err != nil {
-			t.Fatalf("LoadTermIfNeeded failed: %v", err)
-		}
+	first, err := cache.Term(ctx, "202520")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if second, _ := cache.Term(ctx, "202520"); second != first {
+		t.Error("a cached term was loaded again")
+	}
+	// CRN 20001 meets MWF 10:00, the seeded slot's range.
+	want := calendar.Final{Date: "2025-06-10", Start: "1030", End: "1230", Certain: true, Location: "CF 105"}
+	if got := first.Courses["20001"].Final; got == nil || *got != want {
+		t.Errorf("CRN 20001 final = %+v, want %+v", got, want)
+	}
 
-		if !cache.IsTermLoaded("202520") {
-			t.Error("term should be loaded")
-		}
-	})
-
-	t.Run("skips load when already cached", func(t *testing.T) {
-		// Term already loaded from previous subtest
-		err := cache.LoadTermIfNeeded(ctx, "202520")
-		if err != nil {
-			t.Fatalf("LoadTermIfNeeded failed: %v", err)
-		}
-
-		// Verify still has correct data
-		courses := cache.GetAllCourses("202520")
-		if len(courses) != 3 {
-			t.Errorf("expected 3 courses, got %d", len(courses))
-		}
-	})
+	// The section's own type decides: a lab-only section has no final.
+	if _, err := db.Exec("UPDATE sections SET schedule_type = 'Lab' WHERE crn = '20001'"); err != nil {
+		t.Fatal(err)
+	}
+	cache.Invalidate("202520")
+	lab, err := cache.Term(ctx, "202520")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got := lab.Courses["20001"].Final; got != nil {
+		t.Errorf("lab CRN 20001 final = %+v, want none", got)
+	}
 }
 
-func TestLoadTermIfNeeded_Concurrent(t *testing.T) {
+// Requests racing invalidations each get a whole term, never a partial one
+// or none.
+func TestTermConcurrentWithInvalidation(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
-
 	cache := NewScheduleCache(queries, nil)
 	ctx := context.Background()
 
-	const numGoroutines = 50
+	const requests = 50
 	var wg sync.WaitGroup
-	wg.Add(numGoroutines)
-
-	// All goroutines try to load the same term via LoadTermIfNeeded
-	// Singleflight should deduplicate these into one actual load
-	for range numGoroutines {
-		go func() {
-			defer wg.Done()
-			if err := cache.LoadTermIfNeeded(ctx, "202520"); err != nil {
-				t.Errorf("LoadTermIfNeeded failed: %v", err)
+	for range requests {
+		wg.Go(func() {
+			td, err := cache.Term(ctx, "202520")
+			if err != nil || len(td.Courses) != 3 {
+				t.Errorf("Term = %v, %v; want 3 courses", td, err)
 			}
-		}()
+		})
 	}
-
+	wg.Go(func() {
+		for range requests {
+			cache.Invalidate("202520")
+		}
+	})
 	wg.Wait()
-
-	// Verify term is loaded correctly
-	if !cache.IsTermLoaded("202520") {
-		t.Error("term should be loaded")
-	}
-
-	courses := cache.GetAllCourses("202520")
-	if len(courses) != 3 {
-		t.Errorf("expected 3 courses, got %d", len(courses))
-	}
 }
 
 // Benchmarks

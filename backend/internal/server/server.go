@@ -53,7 +53,8 @@ func Run() {
 	gradeService := grades.NewService(database, queries, cfg.GradeDataPath)
 	_ = stats.NewService(gradeService) // TODO: pass to handlers when stats endpoints are added
 
-	jobsService := jobs.Setup(ctx, cfg, queries, gradeService)
+	scheduleCache := cache.NewScheduleCache(queries, gradeService)
+	jobsService := jobs.Setup(ctx, cfg, database, gradeService, scheduleCache)
 
 	if cfg.Environment == "production" {
 		gin.SetMode(gin.ReleaseMode)
@@ -62,8 +63,7 @@ func Run() {
 	r := gin.Default()
 	SetupMiddleware(r, cfg)
 
-	scheduleCache := cache.NewScheduleCache(queries, gradeService)
-	generatorService := generator.NewService(scheduleCache, queries)
+	generatorService := generator.NewService(queries)
 	searchService := search.NewService(database, queries, gradeService)
 	handlers := api.NewHandlers(database, scheduleCache, generatorService, queries, searchService, gradeService)
 

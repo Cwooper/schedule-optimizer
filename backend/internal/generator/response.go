@@ -1,6 +1,10 @@
 package generator
 
-import "schedule-optimizer/internal/cache"
+import (
+	"schedule-optimizer/internal/cache"
+	"schedule-optimizer/internal/calendar"
+	"schedule-optimizer/internal/meeting"
+)
 
 // CourseInfo contains course-level data sent once per unique course code.
 type CourseInfo struct {
@@ -14,19 +18,20 @@ type CourseInfo struct {
 
 // SectionInfo contains section-level data sent once per unique CRN.
 type SectionInfo struct {
-	CRN            string              `json:"crn"`
-	Term           string              `json:"term"`
-	CourseKey      string              `json:"courseKey"`
-	Instructor     string              `json:"instructor,omitempty"`
-	Enrollment     int                 `json:"enrollment"`
-	MaxEnrollment  int                 `json:"maxEnrollment"`
-	SeatsAvailable int                 `json:"seatsAvailable"`
-	WaitCount      int                 `json:"waitCount"`
-	IsOpen         bool                `json:"isOpen"`
-	MeetingTimes   []cache.MeetingTime `json:"meetingTimes"`
-	GPA            float64             `json:"gpa,omitempty"`
-	GPASource      string              `json:"gpaSource,omitempty"`
-	PassRate       *float64            `json:"passRate,omitempty"`
+	CRN            string          `json:"crn"`
+	Term           string          `json:"term"`
+	CourseKey      string          `json:"courseKey"`
+	Instructor     string          `json:"instructor,omitempty"`
+	Enrollment     int             `json:"enrollment"`
+	MaxEnrollment  int             `json:"maxEnrollment"`
+	SeatsAvailable int             `json:"seatsAvailable"`
+	WaitCount      int             `json:"waitCount"`
+	IsOpen         bool            `json:"isOpen"`
+	MeetingTimes   []meeting.Time  `json:"meetingTimes"`
+	Final          *calendar.Final `json:"final,omitempty"`
+	GPA            float64         `json:"gpa,omitempty"`
+	GPASource      string          `json:"gpaSource,omitempty"`
+	PassRate       *float64        `json:"passRate,omitempty"`
 }
 
 // ScheduleRef contains CRN references for a single schedule.
@@ -53,57 +58,8 @@ func (r *GenerateResponse) ToResponse() *Response {
 	schedules := make([]ScheduleRef, 0, len(r.Schedules))
 	asyncs := make([]string, 0, len(r.Asyncs))
 
-	// Process all schedules, collecting unique courses and sections
-	for _, sched := range r.Schedules {
-		crns := make([]string, 0, len(sched.Courses))
-
-		for _, course := range sched.Courses {
-			courseKey := course.Subject + ":" + course.CourseNumber
-
-			// Add course if not seen
-			if _, exists := courses[courseKey]; !exists {
-				courses[courseKey] = CourseInfo{
-					Subject:      course.Subject,
-					CourseNumber: course.CourseNumber,
-					Title:        course.Title,
-					Credits:      course.Credits,
-				}
-			}
-
-			// Add section if not seen
-			if _, exists := sections[course.CRN]; !exists {
-				sections[course.CRN] = SectionInfo{
-					CRN:            course.CRN,
-					Term:           course.Term,
-					CourseKey:      courseKey,
-					Instructor:     course.Instructor,
-					Enrollment:     course.Enrollment,
-					MaxEnrollment:  course.MaxEnrollment,
-					SeatsAvailable: course.SeatsAvailable,
-					WaitCount:      course.WaitCount,
-					IsOpen:         course.IsOpen,
-					MeetingTimes:   course.MeetingTimes,
-					GPA:            course.GPA,
-					GPASource:      course.GPASource,
-					PassRate:       course.PassRate,
-				}
-			}
-
-			crns = append(crns, course.CRN)
-		}
-
-		schedules = append(schedules, ScheduleRef{
-			CRNs:    crns,
-			Score:   sched.Score,
-			Weights: sched.Weights,
-		})
-	}
-
-	// Process async sections
-	for _, course := range r.Asyncs {
+	add := func(course *cache.Course) {
 		courseKey := course.Subject + ":" + course.CourseNumber
-
-		// Add course if not seen
 		if _, exists := courses[courseKey]; !exists {
 			courses[courseKey] = CourseInfo{
 				Subject:      course.Subject,
@@ -112,8 +68,6 @@ func (r *GenerateResponse) ToResponse() *Response {
 				Credits:      course.Credits,
 			}
 		}
-
-		// Add section if not seen
 		if _, exists := sections[course.CRN]; !exists {
 			sections[course.CRN] = SectionInfo{
 				CRN:            course.CRN,
@@ -126,12 +80,28 @@ func (r *GenerateResponse) ToResponse() *Response {
 				WaitCount:      course.WaitCount,
 				IsOpen:         course.IsOpen,
 				MeetingTimes:   course.MeetingTimes,
+				Final:          course.Final,
 				GPA:            course.GPA,
 				GPASource:      course.GPASource,
 				PassRate:       course.PassRate,
 			}
 		}
+	}
 
+	for _, sched := range r.Schedules {
+		crns := make([]string, 0, len(sched.Courses))
+		for _, course := range sched.Courses {
+			add(course)
+			crns = append(crns, course.CRN)
+		}
+		schedules = append(schedules, ScheduleRef{
+			CRNs:    crns,
+			Score:   sched.Score,
+			Weights: sched.Weights,
+		})
+	}
+	for _, course := range r.Asyncs {
+		add(course)
 		asyncs = append(asyncs, course.CRN)
 	}
 

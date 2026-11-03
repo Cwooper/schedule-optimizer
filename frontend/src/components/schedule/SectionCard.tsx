@@ -12,9 +12,11 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import type { HydratedSection, MeetingTime } from "@/lib/api"
+import type { Final, HydratedSection, MeetingTime } from "@/lib/api"
 import { cn } from "@/lib/utils"
 import { describeGrades, type GradeKind } from "@/lib/grades"
+import { formatNumericDate, formatWeekday } from "@/lib/dates"
+import { FINAL_GUESS_REASONS } from "@/lib/finals"
 
 interface SectionCardProps {
   section: HydratedSection
@@ -57,20 +59,14 @@ function formatTime(time: string): string {
   return `${displayHour}:${mins}${suffix}`
 }
 
-function hasScheduledTime(meeting: MeetingTime): boolean {
-  const hasWeekday = meeting.days.slice(1, 6).some(Boolean)
-  return hasWeekday && !!meeting.startTime && !!meeting.endTime
-}
-
 function isAsync(meeting: MeetingTime): boolean {
   return meeting.room === "ASNC"
 }
 
 function formatMeetingTime(meeting: MeetingTime): string {
-  if (hasScheduledTime(meeting)) {
-    const days = formatDays(meeting.days)
-    const time = `${formatTime(meeting.startTime)}-${formatTime(meeting.endTime)}`
-    return `${days} ${time}`
+  const { startTime, endTime } = meeting
+  if (meeting.days.slice(1, 6).some(Boolean) && startTime && endTime) {
+    return `${formatDays(meeting.days)} ${formatTime(startTime)}-${formatTime(endTime)}`
   }
   if (isAsync(meeting)) return "Asynchronous, no set times"
   return "Times arranged with instructor"
@@ -97,6 +93,30 @@ function formatEnrollment(section: HydratedSection): string {
     return `${seatsAvailable}/${maxEnrollment} seats open (${waitCount} waitlist)`
   }
   return `${seatsAvailable}/${maxEnrollment} seats open`
+}
+
+function FinalRow({ final }: { final: Final }) {
+  return (
+    <div className="flex items-baseline justify-between gap-4 font-mono text-sm">
+      <span className="flex items-center gap-1.5">
+        <span>
+          <span className="text-muted-foreground">Final</span> {formatWeekday(final.date)}{" "}
+          {formatNumericDate(final.date)} {formatTime(final.start)}-{formatTime(final.end)}
+        </span>
+        {!final.certain && final.reason && (
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <span className="inline-flex cursor-help" aria-label="Estimated final">
+                <CircleHelp className="size-3 text-muted-foreground" />
+              </span>
+            </TooltipTrigger>
+            <TooltipContent>{FINAL_GUESS_REASONS[final.reason]}</TooltipContent>
+          </Tooltip>
+        )}
+      </span>
+      {final.location && <span className="text-muted-foreground">{final.location}</span>}
+    </div>
+  )
 }
 
 const GRADE_ICONS: Record<GradeKind, LucideIcon> = {
@@ -272,6 +292,7 @@ export const SectionCard = memo(function SectionCard({
                     </div>
                   )
                 })}
+                {section.final && <FinalRow final={section.final} />}
               </div>
             )}
 

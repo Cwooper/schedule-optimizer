@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"schedule-optimizer/internal/cache"
+	"schedule-optimizer/internal/meeting"
 )
 
 // normalizeCourseKey converts various formats to "SUBJECT:NUMBER".
@@ -264,21 +265,21 @@ func TestFallback_NoFullSchedules_KeepsFallback(t *testing.T) {
 	// but each pair has one non-conflicting combo available via alternate sections.
 
 	// Course A: Mon 9-10
-	sectionA := makeTestSection(1, "A1", []cache.MeetingTime{
+	sectionA := makeTestSection(1, "A1", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 	})
 	// Course B: Mon 9-10 (conflicts with A) + alternate Tue 9-10
-	sectionB1 := makeTestSection(2, "B1", []cache.MeetingTime{
+	sectionB1 := makeTestSection(2, "B1", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 	})
-	sectionB2 := makeTestSection(3, "B2", []cache.MeetingTime{
+	sectionB2 := makeTestSection(3, "B2", []meeting.Time{
 		{Days: [7]bool{false, false, true, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 	})
 	// Course C: Mon 9-10 (conflicts with A) + Tue 9-10 (conflicts with B2)
-	sectionC1 := makeTestSection(4, "C1", []cache.MeetingTime{
+	sectionC1 := makeTestSection(4, "C1", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 	})
-	sectionC2 := makeTestSection(5, "C2", []cache.MeetingTime{
+	sectionC2 := makeTestSection(5, "C2", []meeting.Time{
 		{Days: [7]bool{false, false, true, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 	})
 
@@ -321,13 +322,13 @@ func TestFallback_FullSchedulesExist_FiltersFallback(t *testing.T) {
 	// Fallback allows 2-course schedules, but they should be filtered out
 	// because full-count schedules are available.
 
-	sectionA := makeTestSection(1, "A1", []cache.MeetingTime{
+	sectionA := makeTestSection(1, "A1", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0800", EndTime: "0900"},
 	})
-	sectionB := makeTestSection(2, "B1", []cache.MeetingTime{
+	sectionB := makeTestSection(2, "B1", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 	})
-	sectionC := makeTestSection(3, "C1", []cache.MeetingTime{
+	sectionC := makeTestSection(3, "C1", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "1000", EndTime: "1100"},
 	})
 
@@ -353,13 +354,13 @@ func TestFallback_FullSchedulesExist_FiltersFallback(t *testing.T) {
 func TestFallback_UserSetMin_NoFallback(t *testing.T) {
 	// Same 3 non-conflicting courses but user explicitly sets min=2.
 	// Should include 2-course and 3-course schedules (no fallback filtering).
-	sectionA := makeTestSection(1, "A1", []cache.MeetingTime{
+	sectionA := makeTestSection(1, "A1", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0800", EndTime: "0900"},
 	})
-	sectionB := makeTestSection(2, "B1", []cache.MeetingTime{
+	sectionB := makeTestSection(2, "B1", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 	})
-	sectionC := makeTestSection(3, "C1", []cache.MeetingTime{
+	sectionC := makeTestSection(3, "C1", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "1000", EndTime: "1100"},
 	})
 
@@ -394,13 +395,13 @@ func TestFallback_RequiredCourses_FloorRespected(t *testing.T) {
 	// (effectiveMin > numRequired) allows it: 3 > 2 → fallbackMin = 2.
 	// If all 3 fit, fallback schedules should be filtered out.
 
-	sectionA := makeTestSection(1, "A1", []cache.MeetingTime{
+	sectionA := makeTestSection(1, "A1", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0800", EndTime: "0900"},
 	})
-	sectionB := makeTestSection(2, "B1", []cache.MeetingTime{
+	sectionB := makeTestSection(2, "B1", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 	})
-	sectionC := makeTestSection(3, "C1", []cache.MeetingTime{
+	sectionC := makeTestSection(3, "C1", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "1000", EndTime: "1100"},
 	})
 
@@ -435,7 +436,7 @@ func TestFallback_RequiredCourses_FloorRespected(t *testing.T) {
 func TestFallback_SingleCourse_NoFallback(t *testing.T) {
 	// With only 1 course, effectiveMin=1. Guard (effectiveMin > 1) prevents
 	// fallback to 0, which would be nonsensical.
-	section := makeTestSection(1, "A1", []cache.MeetingTime{
+	section := makeTestSection(1, "A1", []meeting.Time{
 		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
 	})
 
@@ -506,7 +507,7 @@ func TestIsAsyncOrTBD(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			var course cache.Course
 			for _, m := range tt.meetings {
-				course.MeetingTimes = append(course.MeetingTimes, cache.MeetingTime{
+				course.MeetingTimes = append(course.MeetingTimes, meeting.Time{
 					Days:      m.days,
 					StartTime: m.start,
 					EndTime:   m.end,
