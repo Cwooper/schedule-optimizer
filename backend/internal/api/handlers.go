@@ -60,8 +60,11 @@ func fromNullInt64ToBool(ni sql.NullInt64) bool {
 var uuidPattern = regexp.MustCompile(`^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$`)
 
 func getSessionID(c *gin.Context) sql.NullString {
-	id := c.GetHeader("X-Session-ID")
-	if id == "" || !uuidPattern.MatchString(strings.ToLower(id)) {
+	return parseSessionID(c.GetHeader("X-Session-ID"))
+}
+
+func parseSessionID(id string) sql.NullString {
+	if !uuidPattern.MatchString(strings.ToLower(id)) {
 		return sql.NullString{}
 	}
 	return sql.NullString{String: id, Valid: true}

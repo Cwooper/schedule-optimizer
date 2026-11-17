@@ -17,17 +17,12 @@ const (
 )
 
 func Parse(code string) (year, quarter int, err error) {
-	if len(code) != 6 {
-		return 0, 0, fmt.Errorf("invalid term code length: %q", code)
+	// Digits only: Atoi alone would take a sign, so "-12310" would parse.
+	if len(code) != 6 || strings.ContainsFunc(code, func(r rune) bool { return r < '0' || r > '9' }) {
+		return 0, 0, fmt.Errorf("invalid term code: %q", code)
 	}
-	year, err = strconv.Atoi(code[:4])
-	if err != nil {
-		return 0, 0, fmt.Errorf("invalid year in term code: %q", code)
-	}
-	quarter, err = strconv.Atoi(code[4:])
-	if err != nil {
-		return 0, 0, fmt.Errorf("invalid quarter in term code: %q", code)
-	}
+	year, _ = strconv.Atoi(code[:4])
+	quarter, _ = strconv.Atoi(code[4:])
 	switch quarter {
 	case Winter, Spring, Summer, Fall:
 		return year, quarter, nil

@@ -212,6 +212,10 @@ sqlite3 data/schedule.db "SELECT id, session_id, message, created_at FROM feedba
 sqlite3 data/schedule.db "SELECT COUNT(*) FROM feedback;"
 ```
 
+### Usage Events
+
+The frontend records visits, tab changes, exports, finals week views, and feedback form opens in the `events` table; `internal/api/events.go` holds the vocabulary. `reports/events.sql` holds the read queries, with how to run them over SSH at its top.
+
 ## Development
 
 ### Adding a New Query

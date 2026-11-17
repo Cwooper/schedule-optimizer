@@ -15,6 +15,7 @@ import {
 import { useCalendar, useTerms } from "@/hooks/use-api"
 import type { HydratedSection, RegistrationPhaseName } from "@/lib/api"
 import { buildIcs, hasIcsEvents, icsFilename, type CalendarExportOptions } from "@/lib/ics"
+import { icsExportTarget, track } from "@/lib/track"
 import { selectScheduleTerm, useAppStore } from "@/stores/app-store"
 
 const PHASES: RegistrationPhaseName[] = ["I", "II", "III"]
@@ -91,6 +92,7 @@ export function AddToCalendar({ sections }: { sections: HydratedSection[] }) {
       icsFilename(termName),
       buildIcs({ calendar, sections, options: effective, now: new Date() })
     )
+    track("ics_export", icsExportTarget(effective))
   }
 
   return (

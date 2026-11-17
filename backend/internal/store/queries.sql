@@ -227,6 +227,9 @@ WHERE active = 1 ORDER BY id DESC LIMIT 1;
 -- name: InsertFeedback :exec
 INSERT INTO feedback (session_id, message) VALUES (?, ?);
 
+-- name: InsertEvent :exec
+INSERT INTO events (session_id, name, target, term) VALUES (?, ?, ?, ?);
+
 -- name: InsertGradeRow :exec
 INSERT INTO grade_rows (term, crn, subject, course_number, title, professor,
     students_enrolled, grade_count,

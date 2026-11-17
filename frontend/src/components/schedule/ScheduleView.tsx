@@ -10,6 +10,7 @@ import { useExportPng } from "@/hooks/use-export-png"
 import { hydrateSchedule } from "@/lib/schedule-utils"
 import { examSections, finalsWeekDays } from "@/lib/finals"
 import { formatNumericDate } from "@/lib/dates"
+import { track } from "@/lib/track"
 
 // Blocked times are weekly class preferences; finals week has its own times.
 const NO_BLOCKED_TIMES: BlockedTimeGroup[] = []
@@ -158,11 +159,17 @@ export function ScheduleView() {
           emptyText={generateResult ? "No valid schedules found" : "No schedules yet"}
           sections={scheduleSections}
           onBlockedTimes={() => setDialogOpen(true)}
-          onDownloadPng={handleDownloadPng}
+          onDownloadPng={() => {
+            track("png_export", showFinals ? "finals" : "schedule")
+            void handleDownloadPng()
+          }}
           isExporting={isExporting}
           finalsWeek={showFinals}
           hasFinals={exams.length > 0}
-          onFinalsWeekChange={setFinalsView}
+          onFinalsWeekChange={(on) => {
+            if (on) track("finals_view")
+            setFinalsView(on)
+          }}
         />
       )}
 
