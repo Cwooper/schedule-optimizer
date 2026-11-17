@@ -13,6 +13,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { submitFeedback } from "@/lib/api"
+import { track } from "@/lib/track"
 
 const GITHUB_ISSUES_URL =
   "https://github.com/Cwooper/schedule-optimizer/issues/new?title=Bug%3A+&labels=bug&body=Be+descriptive+and+provide+images+or+screenshots+if+possible."
@@ -75,7 +76,10 @@ export function HelpDialog() {
                   variant="outline"
                   size="sm"
                   className="flex-1"
-                  onClick={() => setView("feedback")}
+                  onClick={() => {
+                    track("feedback_open")
+                    setView("feedback")
+                  }}
                 >
                   <Bug className="size-4" />
                   Send Feedback

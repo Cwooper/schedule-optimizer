@@ -13,7 +13,7 @@ function subscribeToDesktop(callback: () => void) {
   return () => desktopQuery?.removeEventListener("change", callback)
 }
 
-function getDesktopSnapshot(): boolean {
+export function isDesktopViewport(): boolean {
   return desktopQuery?.matches ?? false
 }
 
@@ -28,7 +28,7 @@ function getServerSnapshot(): boolean {
 export function useIsDesktop(): boolean {
   return useSyncExternalStore(
     subscribeToDesktop,
-    getDesktopSnapshot,
+    isDesktopViewport,
     getServerSnapshot
   )
 }

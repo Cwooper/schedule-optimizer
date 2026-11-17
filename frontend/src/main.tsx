@@ -9,8 +9,18 @@ import {
 import { toast } from "sonner"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { Toaster } from "@/components/ui/sonner"
+import { isDesktopViewport } from "@/hooks/use-media-query"
+import { track } from "@/lib/track"
+import { useAppStore } from "@/stores/app-store"
 import "./index.css"
 import App from "./App.tsx"
+
+track("visit", isDesktopViewport() ? "desktop" : "mobile")
+// On the store rather than TabNav, so the logo and Generate switching to the
+// schedule tab count too.
+useAppStore.subscribe((state, prev) => {
+  if (state.tab !== prev.tab) track("tab", state.tab)
+})
 
 const queryClient = new QueryClient({
   queryCache: new QueryCache({
