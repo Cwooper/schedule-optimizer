@@ -17,6 +17,15 @@ type Announcement struct {
 	CreatedAt sql.NullTime `json:"created_at"`
 }
 
+type Event struct {
+	ID        int64          `json:"id"`
+	SessionID string         `json:"session_id"`
+	Name      string         `json:"name"`
+	Target    sql.NullString `json:"target"`
+	Term      sql.NullString `json:"term"`
+	CreatedAt sql.NullTime   `json:"created_at"`
+}
+
 type Feedback struct {
 	ID        int64          `json:"id"`
 	SessionID sql.NullString `json:"session_id"`

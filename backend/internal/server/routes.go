@@ -24,6 +24,7 @@ func RegisterRoutes(r *gin.Engine, h *api.Handlers) {
 		apiGroup.POST("/generate", h.Generate)
 		apiGroup.GET("/announcement", h.GetAnnouncement)
 		apiGroup.POST("/feedback", h.SubmitFeedback)
+		apiGroup.POST("/events", h.RecordEvent)
 	}
 
 	// Serve static files (compiled frontend)

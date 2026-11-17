@@ -1263,6 +1263,27 @@ func (q *Queries) GetTerms(ctx context.Context) ([]*Term, error) {
 	return items, nil
 }
 
+const insertEvent = `-- name: InsertEvent :exec
+INSERT INTO events (session_id, name, target, term) VALUES (?, ?, ?, ?)
+`
+
+type InsertEventParams struct {
+	SessionID string         `json:"session_id"`
+	Name      string         `json:"name"`
+	Target    sql.NullString `json:"target"`
+	Term      sql.NullString `json:"term"`
+}
+
+func (q *Queries) InsertEvent(ctx context.Context, arg InsertEventParams) error {
+	_, err := q.db.ExecContext(ctx, insertEvent,
+		arg.SessionID,
+		arg.Name,
+		arg.Target,
+		arg.Term,
+	)
+	return err
+}
+
 const insertFeedback = `-- name: InsertFeedback :exec
 INSERT INTO feedback (session_id, message) VALUES (?, ?)
 `
