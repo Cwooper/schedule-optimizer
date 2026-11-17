@@ -22,7 +22,7 @@ type Config struct {
 	JobsEnabled       bool
 	ActiveScrapeHours int // Hours between scrapes of terms in registration
 	DailyScrapeHour   int // Hour of day (0-23, Pacific) for daily scrapes and the calendar refresh
-	LogRetentionDays  int // Days to keep logs before pruning
+	LogRetentionDays  int // Days to keep logs before pruning. TODO: no job prunes yet; it should cover generation_logs, search_logs, and events.
 	PastTermYears     int // Years of past terms to scrape
 
 	GradeDataPath string // Path to PRR Excel file for grade data
