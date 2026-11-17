@@ -38,6 +38,8 @@ export function icsExportTarget(options: CalendarExportOptions): string {
 
 /** Records a usage event. Never throws: a lost event is not the user's problem. */
 export function track<N extends EventName>(name: N, ...[target]: TargetArgs<N>): void {
+  // Automated browsers (headless crawlers, Playwright) aren't visitors.
+  if (navigator.webdriver) return
   try {
     const url = `${__APP_BASE_URL__}api/events`
     const state = useAppStore.getState()

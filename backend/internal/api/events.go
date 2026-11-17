@@ -2,7 +2,9 @@ package api
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
+	"io"
 	"log/slog"
 	"net/http"
 	"slices"
@@ -23,8 +25,8 @@ const maxEventBodyBytes = 1024
 var icsOptions = []string{"classes", "finals", "holidays", "reg1", "reg2", "reg3", "deadlines"}
 
 // eventTargets is the event vocabulary, mirrored in frontend/src/lib/track.ts.
-// Each name maps to its target check, so a forged beacon can't add arbitrary
-// rows to the table.
+// Each name maps to its target check, so a forged beacon can't store
+// arbitrary strings.
 var eventTargets = map[string]func(string) bool{
 	"visit":         oneOf("mobile", "desktop"),
 	"tab":           oneOf("schedule", "search", "statistics"),
@@ -84,9 +86,14 @@ func (r EventRequest) validate() error {
 
 // RecordEvent stores a client-side event.
 func (h *Handlers) RecordEvent(c *gin.Context) {
-	c.Request.Body = http.MaxBytesReader(c.Writer, c.Request.Body, maxEventBodyBytes)
+	// ReadAll and Unmarshal rather than ShouldBindJSON, which decodes only the
+	// first JSON value and ignores whatever follows it, past the cap included.
+	body, err := io.ReadAll(http.MaxBytesReader(c.Writer, c.Request.Body, maxEventBodyBytes))
 	var req EventRequest
-	if err := c.ShouldBindJSON(&req); err != nil {
+	if err == nil {
+		err = json.Unmarshal(body, &req)
+	}
+	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "invalid event body"})
 		return
 	}

@@ -22,6 +22,8 @@ func TestParse(t *testing.T) {
 		{"2025100", 0, 0, true},
 		{"abcd10", 0, 0, true},
 		{"2025ab", 0, 0, true},
+		{"-12310", 0, 0, true},
+		{"+20210", 0, 0, true},
 		{"", 0, 0, true},
 	}
 	for _, tt := range tests {

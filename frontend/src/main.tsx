@@ -16,8 +16,7 @@ import "./index.css"
 import App from "./App.tsx"
 
 track("visit", isDesktopViewport() ? "desktop" : "mobile")
-// On the store rather than TabNav, so the logo and Generate switching to the
-// schedule tab count too.
+// On the store rather than TabNav, so programmatic tab switches count too.
 useAppStore.subscribe((state, prev) => {
   if (state.tab !== prev.tab) track("tab", state.tab)
 })

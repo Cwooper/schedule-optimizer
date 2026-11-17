@@ -2,6 +2,7 @@ package api
 
 import (
 	"database/sql"
+	"encoding/json"
 	"net/http"
 	"net/http/httptest"
 	"strings"
@@ -76,6 +77,8 @@ func TestRecordEvent(t *testing.T) {
 		},
 		{name: "missing session id", body: `{"name":"visit","target":"mobile"}`, wantStatus: http.StatusBadRequest},
 		{name: "malformed json", body: `{"name":`, wantStatus: http.StatusBadRequest},
+		{name: "trailing data after json", body: event("visit", "mobile", "") + `x`, wantStatus: http.StatusBadRequest},
+		{name: "signed term", body: event("visit", "mobile", "-12310"), wantStatus: http.StatusBadRequest},
 		{
 			name:       "oversize body",
 			body:       `{"session_id":"` + testSession + `","name":"visit","target":"mobile","pad":"` + strings.Repeat("x", maxEventBodyBytes) + `"}`,
@@ -97,12 +100,19 @@ func TestRecordEvent(t *testing.T) {
 
 			stored++
 			waitForEventCount(t, db, stored)
+			var session, name string
 			var target, term sql.NullString
-			if err := db.QueryRow(`SELECT target, term FROM events ORDER BY id DESC LIMIT 1`).Scan(&target, &term); err != nil {
+			if err := db.QueryRow(`SELECT session_id, name, target, term FROM events ORDER BY id DESC LIMIT 1`).
+				Scan(&session, &name, &target, &term); err != nil {
 				t.Fatal(err)
 			}
-			if target != tt.wantTarget || term != tt.wantTerm {
-				t.Errorf("stored target %v, term %v; want %v, %v", target, term, tt.wantTarget, tt.wantTerm)
+			var sent EventRequest
+			if err := json.Unmarshal([]byte(tt.body), &sent); err != nil {
+				t.Fatal(err)
+			}
+			if session != sent.SessionID || name != sent.Name || target != tt.wantTarget || term != tt.wantTerm {
+				t.Errorf("stored (%s, %s, %v, %v); want (%s, %s, %v, %v)",
+					session, name, target, term, sent.SessionID, sent.Name, tt.wantTarget, tt.wantTerm)
 			}
 		})
 	}

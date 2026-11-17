@@ -124,7 +124,7 @@ frontend/src/
 | `POST` | `/api/generate` | Generate schedule combinations |
 | `GET` | `/api/announcement` | Active announcement |
 | `POST` | `/api/feedback` | Submit feedback |
-| `POST` | `/api/events` | Record a client-side usage event (visits, tabs, exports, finals view) |
+| `POST` | `/api/events` | Record a client-side usage event (vocabulary in `internal/api/events.go`) |
 
 Section payloads from generate, search, and CRN lookup carry `final` (`{date, start, end, certain, reason?, location?}`, the location being the room of the meeting time the exam is based on) when the section has a final exam slot, and mark lab meetings with `lab: true`. Calendar deadlines carry the registrar's wording as `name` and a short `title` for calendar events.
 

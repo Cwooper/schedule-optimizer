@@ -2,12 +2,12 @@
 --
 --   ssh hetz "sqlite3 -readonly -box ~/schedule-optimizer/backend/data/schedule.db" < backend/reports/events.sql
 --
--- Each query covers the last 30 days; add -cmd '.parameter set @days 90' to
--- the sqlite3 command for another window. Days are Pacific standard time
--- (SQLite has no time zones), so during daylight time events between
--- midnight and 1 a.m. land on the previous day. A session is one browser's
+-- Each query covers today and the 30 whole days before it; add
+-- -cmd '.parameter set @days 90' to the sqlite3 command for another window.
+-- Days are Pacific standard time (SQLite has no time zones), so during
+-- daylight time events between midnight and 1 a.m. land on the previous day. A session is one browser's
 -- localStorage, not a person: clearing storage or switching browsers starts
--- a new one.
+-- a new one, and so does every render by a crawler that runs JavaScript.
 
 .print 'Visits per day (distinct sessions)'
 SELECT date(created_at, '-8 hours') AS day,
@@ -16,7 +16,7 @@ SELECT date(created_at, '-8 hours') AS day,
        COUNT(DISTINCT CASE WHEN target = 'mobile' THEN session_id END) AS mobile
 FROM events
 WHERE name = 'visit'
-  AND created_at >= datetime('now', '-' || coalesce(@days, 30) || ' days')
+  AND created_at >= datetime(date('now', '-8 hours', '-' || coalesce(@days, 30) || ' days'), '+8 hours')
 GROUP BY day
 ORDER BY day;
 
@@ -36,7 +36,7 @@ SELECT date(e.created_at, '-8 hours') AS day,
 FROM events e
 JOIN first_visit f USING (session_id)
 WHERE e.name = 'visit'
-  AND e.created_at >= datetime('now', '-' || coalesce(@days, 30) || ' days')
+  AND e.created_at >= datetime(date('now', '-8 hours', '-' || coalesce(@days, 30) || ' days'), '+8 hours')
 GROUP BY day
 ORDER BY day;
 
@@ -47,7 +47,7 @@ SELECT name,
        COUNT(*) AS events,
        COUNT(DISTINCT session_id) AS sessions
 FROM events
-WHERE created_at >= datetime('now', '-' || coalesce(@days, 30) || ' days')
+WHERE created_at >= datetime(date('now', '-8 hours', '-' || coalesce(@days, 30) || ' days'), '+8 hours')
 GROUP BY name, target
 ORDER BY name, events DESC;
 
@@ -57,7 +57,7 @@ WITH exports AS (
     SELECT ',' || target || ',' AS options
     FROM events
     WHERE name = 'ics_export'
-      AND created_at >= datetime('now', '-' || coalesce(@days, 30) || ' days')
+      AND created_at >= datetime(date('now', '-8 hours', '-' || coalesce(@days, 30) || ' days'), '+8 hours')
 ),
 ics_options(ord, option) AS (
     VALUES (1, 'classes'), (2, 'finals'), (3, 'holidays'),
