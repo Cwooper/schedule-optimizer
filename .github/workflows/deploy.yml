@@ -61,14 +61,15 @@ jobs:
             pnpm build
             cd ..
 
-            # Build backend (frontend already compiled to backend/internal/static/dist)
-            echo "Building Go binary..."
+            # Backend, embedding the frontend just compiled to
+            # backend/internal/static/dist. Tests run before bin/server is
+            # replaced, so a failing test leaves the running build in place.
             cd backend
-            CGO_ENABLED=1 go build -o bin/server ./cmd/server
-
-            # Run tests
             echo "Running tests..."
             CGO_ENABLED=1 go test ./...
+
+            echo "Building Go binary..."
+            CGO_ENABLED=1 go build -o bin/server ./cmd/server
             cd ..
 
             # Migrate right before the restart: a failed build leaves the DB
