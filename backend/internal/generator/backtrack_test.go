@@ -18,7 +18,7 @@ func makeTestSection(id int64, crn string, meetings []meeting.Time) *cache.Cours
 
 func TestBacktrack_NoGroups(t *testing.T) {
 	ctx := context.Background()
-	schedules := backtrack(ctx, backtrackParams{
+	schedules := collectAll(ctx, backtrackParams{
 		groups:     nil,
 		minCourses: 1,
 		maxCourses: 3,
@@ -40,7 +40,7 @@ func TestBacktrack_SingleGroupSingleSection(t *testing.T) {
 		{courseKey: "CSCI:241", sections: []*sectionData{{course: section, mask: mask}}},
 	}
 
-	schedules := backtrack(ctx, backtrackParams{
+	schedules := collectAll(ctx, backtrackParams{
 		groups:     groups,
 		minCourses: 1,
 		maxCourses: 1,
@@ -71,7 +71,7 @@ func TestBacktrack_TwoGroupsNoConflict(t *testing.T) {
 		{courseKey: "MATH:204", sections: []*sectionData{{course: section2, mask: FromMeetingTimes(section2.MeetingTimes)}}},
 	}
 
-	schedules := backtrack(ctx, backtrackParams{
+	schedules := collectAll(ctx, backtrackParams{
 		groups:     groups,
 		minCourses: 1,
 		maxCourses: 2,
@@ -100,7 +100,7 @@ func TestBacktrack_TwoGroupsWithConflict(t *testing.T) {
 		{courseKey: "MATH:204", sections: []*sectionData{{course: section2, mask: FromMeetingTimes(section2.MeetingTimes)}}},
 	}
 
-	schedules := backtrack(ctx, backtrackParams{
+	schedules := collectAll(ctx, backtrackParams{
 		groups:     groups,
 		minCourses: 1,
 		maxCourses: 2,
@@ -134,7 +134,7 @@ func TestBacktrack_MinCoursesFiltering(t *testing.T) {
 	}
 
 	// Require minimum 2 courses
-	schedules := backtrack(ctx, backtrackParams{
+	schedules := collectAll(ctx, backtrackParams{
 		groups:     groups,
 		minCourses: 2,
 		maxCourses: 2,
@@ -174,7 +174,7 @@ func TestBacktrack_Limit(t *testing.T) {
 	}
 
 	// Limit to 5 schedules
-	schedules := backtrack(ctx, backtrackParams{
+	schedules := collectAll(ctx, backtrackParams{
 		groups:     groups,
 		minCourses: 1,
 		maxCourses: 2,
@@ -197,7 +197,7 @@ func TestBacktrack_ContextCancellation(t *testing.T) {
 		{courseKey: "CSCI:241", sections: []*sectionData{{course: section, mask: FromMeetingTimes(section.MeetingTimes)}}},
 	}
 
-	schedules := backtrack(ctx, backtrackParams{
+	schedules := collectAll(ctx, backtrackParams{
 		groups:     groups,
 		minCourses: 1,
 		maxCourses: 1,
@@ -226,7 +226,7 @@ func TestBacktrack_MultipleSectionsPerCourse(t *testing.T) {
 		}},
 	}
 
-	schedules := backtrack(ctx, backtrackParams{
+	schedules := collectAll(ctx, backtrackParams{
 		groups:     groups,
 		minCourses: 1,
 		maxCourses: 1,
@@ -256,7 +256,7 @@ func TestBacktrack_WithRequiredCourse(t *testing.T) {
 		{courseKey: "CSCI:241", sections: []*sectionData{{course: optional, mask: FromMeetingTimes(optional.MeetingTimes)}}},
 	}
 
-	schedules := backtrack(ctx, backtrackParams{
+	schedules := collectAll(ctx, backtrackParams{
 		groups:      groups,
 		numRequired: 1, // First group is required
 		minCourses:  1,
@@ -300,7 +300,7 @@ func TestBacktrack_RequiredCourseConflict(t *testing.T) {
 		{courseKey: "CSCI:241", sections: []*sectionData{{course: required2, mask: FromMeetingTimes(required2.MeetingTimes)}}},
 	}
 
-	schedules := backtrack(ctx, backtrackParams{
+	schedules := collectAll(ctx, backtrackParams{
 		groups:      groups,
 		numRequired: 2, // Both groups are required
 		minCourses:  2,
@@ -336,7 +336,7 @@ func TestBacktrack_MultipleRequiredCourses(t *testing.T) {
 		{courseKey: "ENG:101", sections: []*sectionData{{course: optional, mask: FromMeetingTimes(optional.MeetingTimes)}}},
 	}
 
-	schedules := backtrack(ctx, backtrackParams{
+	schedules := collectAll(ctx, backtrackParams{
 		groups:      groups,
 		numRequired: 2, // First two groups are required
 		minCourses:  2,

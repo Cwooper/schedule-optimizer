@@ -85,45 +85,29 @@ func (s *Service) Generate(ctx context.Context, term *cache.TermData, req Genera
 
 	minCourses, maxCourses := clampBounds(fallbackMin, req.MaxCourses, totalCourses)
 
-	schedules := backtrack(ctx, backtrackParams{
+	prefs := DefaultPreferences()
+	if req.Preferences != nil {
+		prefs = *req.Preferences
+	}
+	r := newRanker(newScorer(prefs), MaxSchedulesToReturn, effectiveMin)
+	backtrack(ctx, backtrackParams{
 		groups:      allGroups,
 		numRequired: numRequired,
 		minCourses:  minCourses,
 		maxCourses:  maxCourses,
 		limit:       MaxSchedulesToGenerate,
-	})
+	}, r.visit)
+	schedules := r.results()
+	totalGenerated := r.total
 
-	prefs := DefaultPreferences()
-	if req.Preferences != nil {
-		prefs = *req.Preferences
-	}
-	sc := newScorer(prefs)
-	for i := range schedules {
-		schedules[i].Score = sc.score(&schedules[i])
-	}
-	slices.SortFunc(schedules, compareSchedules)
-
-	// If we used a fallback min and there are full-count schedules,
-	// filter out the shorter ones (prefer full course load)
-	if !userSetMin && fallbackMin < effectiveMin && len(schedules) > 0 {
-		fullCount := 0
-		for _, s := range schedules {
-			if len(s.Courses) >= effectiveMin {
-				fullCount++
-			}
-		}
-		if fullCount > 0 {
-			schedules = slices.DeleteFunc(schedules, func(s Schedule) bool {
-				return len(s.Courses) < effectiveMin
-			})
-		}
-	}
-
-	totalGenerated := len(schedules)
-
-	// Only return top N schedules to client
-	if len(schedules) > MaxSchedulesToReturn {
-		schedules = schedules[:MaxSchedulesToReturn]
+	// If we used a fallback min and there are full-count schedules, drop the
+	// shorter ones (prefer a full course load). Course count ranks first, so the
+	// kept schedules hold every full one that made the cut.
+	if !userSetMin && fallbackMin < effectiveMin && r.full > 0 {
+		schedules = slices.DeleteFunc(schedules, func(s Schedule) bool {
+			return len(s.Courses) < effectiveMin
+		})
+		totalGenerated = r.full
 	}
 
 	return &GenerateResponse{

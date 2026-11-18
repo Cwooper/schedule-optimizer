@@ -56,7 +56,7 @@ func BenchmarkBacktrack_SmallNoConflict(b *testing.B) {
 
 	b.ResetTimer()
 	for b.Loop() {
-		backtrack(ctx, params)
+		collectAll(ctx, params)
 	}
 }
 
@@ -68,7 +68,7 @@ func BenchmarkBacktrack_MediumNoConflict(b *testing.B) {
 
 	b.ResetTimer()
 	for b.Loop() {
-		backtrack(ctx, params)
+		collectAll(ctx, params)
 	}
 }
 
@@ -80,7 +80,7 @@ func BenchmarkBacktrack_LargeNoConflict(b *testing.B) {
 
 	b.ResetTimer()
 	for b.Loop() {
-		backtrack(ctx, params)
+		collectAll(ctx, params)
 	}
 }
 
@@ -92,7 +92,7 @@ func BenchmarkBacktrack_WithConflicts(b *testing.B) {
 
 	b.ResetTimer()
 	for b.Loop() {
-		backtrack(ctx, params)
+		collectAll(ctx, params)
 	}
 }
 
@@ -223,7 +223,7 @@ func BenchmarkNew_5Courses(b *testing.B) {
 
 	b.ResetTimer()
 	for b.Loop() {
-		backtrack(ctx, params)
+		collectAll(ctx, params)
 	}
 }
 
@@ -235,7 +235,7 @@ func BenchmarkNew_8Courses(b *testing.B) {
 
 	b.ResetTimer()
 	for b.Loop() {
-		backtrack(ctx, params)
+		collectAll(ctx, params)
 	}
 }
 
@@ -247,7 +247,7 @@ func BenchmarkNew_10Courses(b *testing.B) {
 
 	b.ResetTimer()
 	for b.Loop() {
-		backtrack(ctx, params)
+		collectAll(ctx, params)
 	}
 }
 
@@ -259,7 +259,7 @@ func BenchmarkNew_13Courses(b *testing.B) {
 
 	b.ResetTimer()
 	for b.Loop() {
-		backtrack(ctx, params)
+		collectAll(ctx, params)
 	}
 }
 
@@ -290,7 +290,7 @@ func TestNew_SyntheticStats(t *testing.T) {
 				limit:      syntheticLimit,
 			}
 
-			schedules := backtrack(ctx, params)
+			schedules := collectAll(ctx, params)
 			t.Logf("Courses: %d, Sections: %d, Generated: %d (limit: %d)",
 				tc.numCourses, tc.numCourses*tc.sections, len(schedules), syntheticLimit)
 		})

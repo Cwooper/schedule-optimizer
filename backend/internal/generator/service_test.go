@@ -235,7 +235,7 @@ func simulateFallback(
 	minCourses, maxCourses := clampBounds(fallbackMin, reqMaxCourses, totalCourses)
 
 	ctx := context.Background()
-	schedules := backtrack(ctx, backtrackParams{
+	schedules := collectAll(ctx, backtrackParams{
 		groups:      groups,
 		numRequired: numRequired,
 		minCourses:  minCourses,

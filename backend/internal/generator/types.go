@@ -5,9 +5,10 @@ import "schedule-optimizer/internal/cache"
 
 // Constants for schedule generation limits.
 const (
-	// TODO: when backtracking hits this cap, preferences only rank the subset
-	// enumerated first, not the best schedules overall.
-	MaxSchedulesToGenerate = 20000 // Safety limit to prevent runaway generation
+	// Bounds generation time, not memory: only the best MaxSchedulesToReturn are
+	// kept. When a request hits it, the ranking covers the combinations
+	// enumerated first rather than all of them.
+	MaxSchedulesToGenerate = 250_000
 	MaxSchedulesToReturn   = 2000  // Limit on schedules returned to client
 	MaxInputCourses        = 13
 	DefaultMaxCourses      = 8
