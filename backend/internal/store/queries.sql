@@ -97,8 +97,8 @@ DELETE FROM section_attributes WHERE section_id = ?;
 -- name: LogGeneration :one
 INSERT INTO generation_logs (
     session_id, term, courses_count, schedules_generated,
-    min_courses, max_courses, blocked_times_count, duration_ms
-) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    min_courses, max_courses, blocked_times_count, duration_ms, preferences
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
 RETURNING id;
 
 -- name: LogGenerationCourse :exec
