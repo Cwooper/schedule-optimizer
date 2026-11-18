@@ -360,7 +360,6 @@ export function hydrateSchedule(
 ): {
   courses: HydratedSection[]
   score: number
-  weights: { name: string; value: number }[]
 } {
   const hydratedCourses: HydratedSection[] = []
 
@@ -374,7 +373,6 @@ export function hydrateSchedule(
   return {
     courses: hydratedCourses,
     score: schedule.score,
-    weights: schedule.weights,
   }
 }
 

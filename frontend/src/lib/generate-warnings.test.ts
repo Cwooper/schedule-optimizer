@@ -19,7 +19,7 @@ function makeResponse(
 describe("getGenerateWarnings", () => {
   it("returns empty array when all courses found and schedules exist", () => {
     const data = makeResponse({
-      schedules: [{ crns: ["123"], score: 1, weights: [] }],
+      schedules: [{ crns: ["123"], score: 1 }],
       courseResults: [{ name: "CSCI 241", status: "found", count: 3 }],
       stats: { totalGenerated: 1, timeMs: 1 },
     })
@@ -34,7 +34,7 @@ describe("getGenerateWarnings", () => {
     ["async_only", "CSCI 247 only has async sections (shown separately)"],
   ] as const)("returns a warning for a %s course", (status, message) => {
     const data = makeResponse({
-      schedules: [{ crns: ["123"], score: 1, weights: [] }],
+      schedules: [{ crns: ["123"], score: 1 }],
       courseResults: [{ name: "CSCI 247", status }],
     })
     expect(getGenerateWarnings(data)).toEqual([
@@ -44,7 +44,7 @@ describe("getGenerateWarnings", () => {
 
   it("summarizes multiple courses with same status", () => {
     const data = makeResponse({
-      schedules: [{ crns: ["123"], score: 1, weights: [] }],
+      schedules: [{ crns: ["123"], score: 1 }],
       courseResults: [
         { name: "CSCI 999", status: "not_exists" },
         { name: "MATH 888", status: "not_exists" },
@@ -57,7 +57,7 @@ describe("getGenerateWarnings", () => {
 
   it("produces separate warnings for different status types", () => {
     const data = makeResponse({
-      schedules: [{ crns: ["123"], score: 1, weights: [] }],
+      schedules: [{ crns: ["123"], score: 1 }],
       courseResults: [
         { name: "CSCI 999", status: "not_exists" },
         { name: "MATH 101", status: "not_offered" },
@@ -71,7 +71,7 @@ describe("getGenerateWarnings", () => {
 
   it("mixes summary and individual for different statuses", () => {
     const data = makeResponse({
-      schedules: [{ crns: ["123"], score: 1, weights: [] }],
+      schedules: [{ crns: ["123"], score: 1 }],
       courseResults: [
         { name: "CSCI 999", status: "not_exists" },
         { name: "MATH 888", status: "not_exists" },
@@ -88,7 +88,7 @@ describe("getGenerateWarnings", () => {
 
   it("ignores found courses in issue list", () => {
     const data = makeResponse({
-      schedules: [{ crns: ["123"], score: 1, weights: [] }],
+      schedules: [{ crns: ["123"], score: 1 }],
       courseResults: [
         { name: "CSCI 241", status: "found", count: 3 },
         { name: "CSCI 999", status: "not_exists" },
@@ -112,7 +112,7 @@ describe("getGenerateWarnings", () => {
 
   it("returns truncated info when totalGenerated > schedules returned", () => {
     const data = makeResponse({
-      schedules: [{ crns: ["123"], score: 1, weights: [] }],
+      schedules: [{ crns: ["123"], score: 1 }],
       courseResults: [{ name: "CSCI 241", status: "found", count: 3 }],
       stats: { totalGenerated: 5000, timeMs: 1 },
     })
@@ -124,7 +124,7 @@ describe("getGenerateWarnings", () => {
 
   it("does not show truncated when totalGenerated equals schedules length", () => {
     const data = makeResponse({
-      schedules: [{ crns: ["123"], score: 1, weights: [] }],
+      schedules: [{ crns: ["123"], score: 1 }],
       courseResults: [{ name: "CSCI 241", status: "found", count: 3 }],
       stats: { totalGenerated: 1, timeMs: 1 },
     })

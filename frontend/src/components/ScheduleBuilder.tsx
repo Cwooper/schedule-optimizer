@@ -12,11 +12,18 @@ import {
 } from "@/components/ui/tooltip"
 import { TermSelector } from "@/components/TermSelector"
 import { TermStatus } from "@/components/TermStatus"
-import { CourseInput, CourseRow } from "@/components/schedule-builder"
+import { Popover, PopoverAnchor } from "@/components/ui/popover"
+import {
+  CourseInput,
+  CourseRow,
+  WeightsPanel,
+  WeightsTrigger,
+} from "@/components/schedule-builder"
 import {
   useAppStore,
-  computeSlotsFingerprint,
-  computeBlockedTimesFingerprint,
+  buildGenerateRequest,
+  changedGenerationParams,
+  computeGenerationParams,
   type GenerationParams,
 } from "@/stores/app-store"
 import {
@@ -24,7 +31,7 @@ import {
   useGenerateSchedules,
   useValidateCourses,
 } from "@/hooks/use-api"
-import type { CourseValidationResult, CourseSpec, GenerateResponse } from "@/lib/api"
+import type { CourseValidationResult, GenerateRequest, GenerateResponse } from "@/lib/api"
 import { getGenerateWarnings } from "@/lib/generate-warnings"
 import { cn } from "@/lib/utils"
 
@@ -46,7 +53,6 @@ export function ScheduleBuilder() {
   const setGenerateResult = useAppStore((s) => s.setGenerateResult)
   const getSlotsVersion = useAppStore((s) => s.getSlotsVersion)
   const openCourseDialog = useAppStore((s) => s.openCourseDialog)
-  const blockedTimeGroups = useAppStore((s) => s.blockedTimeGroups)
   const regenerateRequested = useAppStore((s) => s.regenerateRequested)
   const clearRegenerateRequest = useAppStore((s) => s.clearRegenerateRequest)
 
@@ -69,8 +75,9 @@ export function ScheduleBuilder() {
 
   // Store result when generation succeeds, but only if slots haven't changed
   const handleGenerateMutate = (
-    req: Parameters<typeof generateMutation.mutate>[0],
-    params: GenerationParams
+    req: GenerateRequest,
+    params: GenerationParams,
+    showWarnings: boolean
   ) => {
     const versionAtStart = getSlotsVersion()
     generateMutation.mutate(req, {
@@ -79,7 +86,7 @@ export function ScheduleBuilder() {
         if (getSlotsVersion() === versionAtStart) {
           setGenerateResult(data, params)
         }
-        showGenerateWarnings(data)
+        if (showWarnings) showGenerateWarnings(data)
       },
       onError: (error) => {
         toast.error(
@@ -156,50 +163,36 @@ export function ScheduleBuilder() {
     [slots, validationMap]
   )
 
-  const handleGenerate = () => {
+  const generate = (opts: { switchTab: boolean; showWarnings: boolean }) => {
     if (!term || validSlots.length === 0) return
 
-    if (tab !== "schedule") {
+    if (opts.switchTab && tab !== "schedule") {
       setTab("schedule")
     }
 
-    const courseSpecs: CourseSpec[] = validSlots.map((slot) => ({
-      subject: slot.subject,
-      courseNumber: slot.courseNumber,
-      required: slot.required,
-      allowedCrns: slot.sections?.map((s) => s.crn),
-    }))
-
-    const effectiveMin = minCourses ?? 0
-    const effectiveMax = maxCourses ?? 0
-
-    // Capture params at time of generation for stale detection.
-    // Uses `slots` (not `validSlots`) so fingerprint tracks user intent -
-    // if a course becomes valid later, stale detection still works correctly.
-    const params: GenerationParams = {
-      term,
-      minCourses: effectiveMin,
-      maxCourses: effectiveMax,
-      slotsFingerprint: computeSlotsFingerprint(slots),
-      blockedTimesFingerprint: computeBlockedTimesFingerprint(
-        blockedTimeGroups
-      ),
-    }
-
-    const blockedTimes = blockedTimeGroups
-      .filter((g) => g.enabled)
-      .flatMap((g) => g.blocks)
-
+    const state = useAppStore.getState()
     handleGenerateMutate(
-      {
-        term,
-        courseSpecs,
-        blockedTimes: blockedTimes.length > 0 ? blockedTimes : undefined,
-        minCourses: effectiveMin,
-        maxCourses: effectiveMax,
-      },
-      params
+      buildGenerateRequest(state, validSlots),
+      computeGenerationParams(state),
+      opts.showWarnings
     )
+  }
+
+  const handleGenerate = () => generate({ switchTab: true, showWarnings: true })
+
+  // Weights apply when the panel closes, re-ranking a shown result in place.
+  const handleWeightsOpenChange = (open: boolean) => {
+    if (open) return
+    const state = useAppStore.getState()
+    if (!state.generateResult || !state.generatedWithParams) return
+    const changed = changedGenerationParams(
+      computeGenerationParams(state),
+      state.generatedWithParams
+    )
+    if (!changed.includes("preferencesFingerprint")) return
+    // A weights-only change reorders the same schedules, whose warnings the
+    // user has already seen.
+    generate({ switchTab: false, showWarnings: changed.length > 1 })
   }
 
   // Handle regenerate requests from other components (e.g., stale warning click)
@@ -390,42 +383,50 @@ export function ScheduleBuilder() {
       </div>
 
       {/* Generate Button - Sticky Bottom */}
-      <div className="bg-background sticky bottom-0 border-t p-4">
-        <TooltipProvider delayDuration={0}>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <div className="w-full">
-                <Button
-                  className="w-full"
-                  onClick={handleGenerate}
-                  disabled={
-                    !term ||
-                    slots.length === 0 ||
-                    hasNoValidCourses ||
-                    hasInvalidBounds ||
-                    generateMutation.isPending
-                  }
-                >
-                  {generateMutation.isPending ? (
-                    <>
-                      <Loader2 className="size-4 animate-spin" />
-                      Generating...
-                    </>
-                  ) : (
-                    "Generate"
-                  )}
-                </Button>
-              </div>
-            </TooltipTrigger>
-            {(!term ||
-              slots.length === 0 ||
-              hasNoValidCourses ||
-              hasInvalidBounds) && (
-              <TooltipContent>{getGenerateTooltip()}</TooltipContent>
-            )}
-          </Tooltip>
-        </TooltipProvider>
-      </div>
+      <Popover onOpenChange={handleWeightsOpenChange}>
+        <PopoverAnchor asChild>
+          <div className="bg-background sticky bottom-0 flex gap-2 border-t p-4">
+            <TooltipProvider delayDuration={0}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <div className="w-full">
+                    <Button
+                      className="w-full"
+                      onClick={handleGenerate}
+                      disabled={
+                        !term ||
+                        slots.length === 0 ||
+                        hasNoValidCourses ||
+                        hasInvalidBounds ||
+                        generateMutation.isPending
+                      }
+                    >
+                      {generateMutation.isPending ? (
+                        <>
+                          <Loader2 className="size-4 animate-spin" />
+                          Generating...
+                        </>
+                      ) : (
+                        "Generate"
+                      )}
+                    </Button>
+                  </div>
+                </TooltipTrigger>
+                {(!term ||
+                  slots.length === 0 ||
+                  hasNoValidCourses ||
+                  hasInvalidBounds) && (
+                  <TooltipContent>{getGenerateTooltip()}</TooltipContent>
+                )}
+              </Tooltip>
+            </TooltipProvider>
+            <TooltipProvider delayDuration={300}>
+              <WeightsTrigger />
+            </TooltipProvider>
+          </div>
+        </PopoverAnchor>
+        <WeightsPanel />
+      </Popover>
     </div>
   )
 }

@@ -109,21 +109,18 @@ describe("hydrateSchedule", () => {
     const schedule: ScheduleRef = {
       crns: ["12345", "67890"],
       score: 0.85,
-      weights: [{ name: "gaps", value: 0.5 }],
     }
 
     const result = hydrateSchedule(schedule, mockCourses, mockSections)
 
     expect(result.courses).toHaveLength(2)
     expect(result.score).toBeCloseTo(0.85)
-    expect(result.weights).toEqual([{ name: "gaps", value: 0.5 }])
   })
 
   it("filters out invalid CRNs", () => {
     const schedule: ScheduleRef = {
       crns: ["12345", "INVALID", "67890"],
       score: 0.75,
-      weights: [],
     }
 
     const result = hydrateSchedule(schedule, mockCourses, mockSections)
@@ -136,7 +133,6 @@ describe("hydrateSchedule", () => {
     const schedule: ScheduleRef = {
       crns: [],
       score: 0,
-      weights: [],
     }
 
     const result = hydrateSchedule(schedule, mockCourses, mockSections)

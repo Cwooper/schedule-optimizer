@@ -99,6 +99,17 @@ export interface CourseSlot {
   sections: SectionFilter[] | null // null = all sections allowed
 }
 
+/** Mirrors the backend's DefaultPreferences. */
+export const DEFAULT_PREFERENCES: Preferences = {
+  start: 2,
+  end: 2,
+  gap: 2,
+  gpa: 3,
+  seats: 0,
+  idealStart: "1000",
+  idealEnd: "1400",
+}
+
 /** Parameters that affect schedule generation - used for stale detection */
 export interface GenerationParams {
   term: string
@@ -106,6 +117,7 @@ export interface GenerationParams {
   maxCourses: number
   slotsFingerprint: string
   blockedTimesFingerprint: string
+  preferencesFingerprint: string
 }
 
 /**
@@ -138,6 +150,64 @@ export function computeBlockedTimesFingerprint(
   return JSON.stringify(enabled)
 }
 
+export function computePreferencesFingerprint(p: Preferences): string {
+  return [p.start, p.end, p.gap, p.gpa, p.seats, p.idealStart, p.idealEnd].join("-")
+}
+
+type GenerationInputs = Pick<
+  AppState,
+  "term" | "minCourses" | "maxCourses" | "slots" | "blockedTimeGroups" | "preferences"
+>
+
+/**
+ * Fingerprints all slots, not just the ones valid this term, so the
+ * fingerprint tracks user intent: a course that becomes valid later still
+ * marks the result stale.
+ */
+export function computeGenerationParams(state: GenerationInputs): GenerationParams {
+  return {
+    term: state.term,
+    minCourses: state.minCourses ?? 0,
+    maxCourses: state.maxCourses ?? 0,
+    slotsFingerprint: computeSlotsFingerprint(state.slots),
+    blockedTimesFingerprint: computeBlockedTimesFingerprint(state.blockedTimeGroups),
+    preferencesFingerprint: computePreferencesFingerprint(state.preferences),
+  }
+}
+
+/** The params that differ from the ones a result was generated with. */
+export function changedGenerationParams(
+  current: GenerationParams,
+  generated: GenerationParams
+): (keyof GenerationParams)[] {
+  return (Object.keys(current) as (keyof GenerationParams)[]).filter(
+    (key) => current[key] !== generated[key]
+  )
+}
+
+export function buildGenerateRequest(
+  state: GenerationInputs,
+  validSlots: CourseSlot[]
+): GenerateRequest {
+  const blockedTimes = state.blockedTimeGroups
+    .filter((g) => g.enabled)
+    .flatMap((g) => g.blocks)
+    .map(({ day, startTime, endTime }) => ({ day, startTime, endTime }))
+  return {
+    term: state.term,
+    courseSpecs: validSlots.map((slot) => ({
+      subject: slot.subject,
+      courseNumber: slot.courseNumber,
+      required: slot.required,
+      allowedCrns: slot.sections?.map((s) => s.crn),
+    })),
+    blockedTimes: blockedTimes.length > 0 ? blockedTimes : undefined,
+    minCourses: state.minCourses ?? 0,
+    maxCourses: state.maxCourses ?? 0,
+    preferences: state.preferences,
+  }
+}
+
 // Re-export from api.ts for convenience
 export type {
   HydratedSection,
@@ -146,7 +216,12 @@ export type {
   SearchResponse,
   SearchRequest,
 } from "@/lib/api"
-import type { GenerateResponse, SearchResponse } from "@/lib/api"
+import type {
+  GenerateRequest,
+  GenerateResponse,
+  Preferences,
+  SearchResponse,
+} from "@/lib/api"
 
 // --- Store State ---
 
@@ -181,6 +256,7 @@ interface AppState {
   theme: Theme
   sidebarCollapsed: boolean
   calendarExport: CalendarExportOptions
+  preferences: Preferences
 
   // Generated schedules
   generateResult: GenerateResponse | null
@@ -223,6 +299,8 @@ interface AppState {
   setTheme: (theme: Theme) => void
   setSidebarCollapsed: (collapsed: boolean) => void
   setCalendarExport: (options: Partial<CalendarExportOptions>) => void
+  setPreferences: (updates: Partial<Preferences>) => void
+  resetPreferences: () => void
   setGenerateResult: (
     result: GenerateResponse | null,
     params?: GenerationParams
@@ -304,6 +382,19 @@ export function migratePersistedState(
 }
 
 /**
+ * Persist's default merge is shallow, so preferences stored before a factor
+ * existed would leave that factor undefined; fill gaps from the defaults.
+ */
+export function mergePersistedState(persisted: unknown, current: AppState): AppState {
+  const stored = (persisted ?? {}) as Partial<AppState>
+  return {
+    ...current,
+    ...stored,
+    preferences: { ...DEFAULT_PREFERENCES, ...stored.preferences },
+  }
+}
+
+/**
  * The term of the schedule on screen: the one it was generated for, which
  * stays shown (marked stale) after the sidebar switches terms.
  */
@@ -329,6 +420,7 @@ export const useAppStore = create<AppState>()(
       theme: "system",
       sidebarCollapsed: false,
       calendarExport: DEFAULT_CALENDAR_EXPORT,
+      preferences: DEFAULT_PREFERENCES,
       generateResult: null,
       generatedWithParams: null,
       currentScheduleIndex: 0,
@@ -536,6 +628,11 @@ export const useAppStore = create<AppState>()(
       setCalendarExport: (options) =>
         set((state) => ({ calendarExport: { ...state.calendarExport, ...options } })),
 
+      setPreferences: (updates) =>
+        set((state) => ({ preferences: { ...state.preferences, ...updates } })),
+
+      resetPreferences: () => set({ preferences: DEFAULT_PREFERENCES }),
+
       setGenerateResult: (result, params) =>
         set({
           generateResult: result,
@@ -558,23 +655,9 @@ export const useAppStore = create<AppState>()(
         if (!state.generateResult || !state.generatedWithParams) {
           return false
         }
-        const current: GenerationParams = {
-          term: state.term,
-          minCourses: state.minCourses ?? 0,
-          maxCourses: state.maxCourses ?? 0,
-          slotsFingerprint: computeSlotsFingerprint(state.slots),
-          blockedTimesFingerprint: computeBlockedTimesFingerprint(
-            state.blockedTimeGroups
-          ),
-        }
         return (
-          current.term !== state.generatedWithParams.term ||
-          current.minCourses !== state.generatedWithParams.minCourses ||
-          current.maxCourses !== state.generatedWithParams.maxCourses ||
-          current.slotsFingerprint !==
-            state.generatedWithParams.slotsFingerprint ||
-          current.blockedTimesFingerprint !==
-            state.generatedWithParams.blockedTimesFingerprint
+          changedGenerationParams(computeGenerationParams(state), state.generatedWithParams)
+            .length > 0
         )
       },
 
@@ -630,6 +713,7 @@ export const useAppStore = create<AppState>()(
       name: "schedule-optimizer",
       version: 2,
       migrate: (state, version) => migratePersistedState(state, version) as AppState,
+      merge: mergePersistedState,
       partialize: (state) => ({
         // Only persist these fields
         sessionId: state.sessionId,
@@ -643,6 +727,7 @@ export const useAppStore = create<AppState>()(
         theme: state.theme,
         sidebarCollapsed: state.sidebarCollapsed,
         calendarExport: state.calendarExport,
+        preferences: state.preferences,
         generateResult: state.generateResult,
         generatedWithParams: state.generatedWithParams,
         currentScheduleIndex: state.currentScheduleIndex,

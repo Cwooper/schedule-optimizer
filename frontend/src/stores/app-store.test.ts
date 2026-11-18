@@ -1,9 +1,14 @@
 import {
   useAppStore,
+  buildGenerateRequest,
+  changedGenerationParams,
+  computeGenerationParams,
   computeSlotsFingerprint,
-  computeBlockedTimesFingerprint,
+  DEFAULT_PREFERENCES,
+  mergePersistedState,
   migratePersistedState,
   selectScheduleTerm,
+  type BlockedTimeGroup,
   type CourseSlot,
   type GenerationParams,
 } from "./app-store"
@@ -25,7 +30,6 @@ const mockGenerateResult: GenerateResponse = {
     {
       crns: [],
       score: 0.85,
-      weights: [],
     },
   ],
   asyncs: [],
@@ -43,13 +47,14 @@ function createParams(
   minCourses?: number,
   maxCourses?: number
 ): GenerationParams {
-  return {
+  return computeGenerationParams({
     term,
-    minCourses: minCourses ?? 0,
-    maxCourses: maxCourses ?? 0,
-    slotsFingerprint: computeSlotsFingerprint(slots),
-    blockedTimesFingerprint: computeBlockedTimesFingerprint([]),
-  }
+    slots,
+    minCourses: minCourses ?? null,
+    maxCourses: maxCourses ?? null,
+    blockedTimeGroups: [],
+    preferences: DEFAULT_PREFERENCES,
+  })
 }
 
 describe("app-store", () => {
@@ -64,6 +69,7 @@ describe("app-store", () => {
       slots: [],
       theme: "system",
       sidebarCollapsed: false,
+      preferences: DEFAULT_PREFERENCES,
       generateResult: null,
       generatedWithParams: null,
       currentScheduleIndex: 0,
@@ -398,6 +404,32 @@ describe("app-store", () => {
       expect(useAppStore.getState().isGenerateResultStale()).toBe(false)
     })
 
+    it("marks stale when changing a preference, and clears when changed back", () => {
+      useAppStore.getState().setPreferences({ seats: 2 })
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(true)
+
+      useAppStore.getState().setPreferences({ seats: 0 })
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(false)
+    })
+
+    it("marks stale when changing an ideal time", () => {
+      useAppStore.getState().setPreferences({ idealEnd: "1530" })
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(true)
+    })
+
+    it("clears stale when preferences reset to the defaults generated with", () => {
+      useAppStore.getState().setPreferences({ start: 3, gpa: 0, idealStart: "0900" })
+      useAppStore.getState().resetPreferences()
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(false)
+    })
+
+    it("marks a result generated before preferences existed stale", () => {
+      const legacy: Partial<GenerationParams> = { ...useAppStore.getState().generatedWithParams }
+      delete legacy.preferencesFingerprint
+      useAppStore.setState({ generatedWithParams: legacy as GenerationParams })
+      expect(useAppStore.getState().isGenerateResultStale()).toBe(true)
+    })
+
     it("does NOT mark stale when changing tab", () => {
       useAppStore.getState().setTab("search")
 
@@ -679,6 +711,86 @@ describe("app-store", () => {
 
     it("leaves current state alone", () => {
       expect(migratePersistedState(v0, 2, decode)).toEqual(v0)
+    })
+  })
+
+  describe("changedGenerationParams", () => {
+    it("lists only the params that differ", () => {
+      const base = createParams("202410", [mockSlot])
+      const changed = computeGenerationParams({
+        term: "202410",
+        slots: [mockSlot],
+        minCourses: 3,
+        maxCourses: null,
+        blockedTimeGroups: [],
+        preferences: { ...DEFAULT_PREFERENCES, gap: 0 },
+      })
+      expect(changedGenerationParams(changed, base)).toEqual([
+        "minCourses",
+        "preferencesFingerprint",
+      ])
+      expect(changedGenerationParams(base, base)).toEqual([])
+    })
+  })
+
+  describe("mergePersistedState", () => {
+    const current = () => useAppStore.getState()
+
+    it("fills preferences a stored object lacks from the defaults", () => {
+      const merged = mergePersistedState(
+        { term: "202520", preferences: { start: 3, end: 0, gap: 1 } },
+        current()
+      )
+      expect(merged.term).toBe("202520")
+      expect(merged.preferences).toEqual({ ...DEFAULT_PREFERENCES, start: 3, end: 0, gap: 1 })
+    })
+
+    it("uses the defaults when nothing was stored", () => {
+      expect(mergePersistedState({ term: "202520" }, current()).preferences).toEqual(
+        DEFAULT_PREFERENCES
+      )
+      expect(mergePersistedState(undefined, current()).preferences).toEqual(DEFAULT_PREFERENCES)
+    })
+  })
+
+  describe("buildGenerateRequest", () => {
+    const group = (enabled: boolean, day: number): BlockedTimeGroup => ({
+      id: `g${day}`,
+      title: "",
+      description: "",
+      color: null,
+      hatched: true,
+      opacity: 20,
+      enabled,
+      blocks: [{ id: `b${day}`, day, startTime: "0800", endTime: "0900" }],
+    })
+    const inputs = {
+      term: "202520",
+      slots: [mockSlot],
+      minCourses: null,
+      maxCourses: 4,
+      blockedTimeGroups: [group(true, 0), group(false, 1)],
+      preferences: { ...DEFAULT_PREFERENCES, seats: 3 as const },
+    }
+
+    it("sends preferences, bounds, and only enabled blocked times", () => {
+      const pinned: CourseSlot = {
+        ...mockSlot,
+        sections: [{ crn: "12345", term: "202520", instructor: null, required: true }],
+      }
+      expect(buildGenerateRequest(inputs, [pinned])).toEqual({
+        term: "202520",
+        courseSpecs: [{ subject: "CSCI", courseNumber: "247", required: true, allowedCrns: ["12345"] }],
+        blockedTimes: [{ day: 0, startTime: "0800", endTime: "0900" }],
+        minCourses: 0,
+        maxCourses: 4,
+        preferences: { ...DEFAULT_PREFERENCES, seats: 3 },
+      })
+    })
+
+    it("omits blocked times when no group is enabled", () => {
+      const req = buildGenerateRequest({ ...inputs, blockedTimeGroups: [group(false, 0)] }, [mockSlot])
+      expect(req.blockedTimes).toBeUndefined()
     })
   })
 })
