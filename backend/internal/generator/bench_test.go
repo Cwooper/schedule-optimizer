@@ -112,8 +112,9 @@ func BenchmarkScoreSchedule(b *testing.B) {
 		},
 	}
 
+	sc := newScorer(DefaultPreferences())
 	for b.Loop() {
-		scoreSchedule(schedule)
+		schedule.Score = sc.score(schedule)
 	}
 }
 

@@ -5,8 +5,10 @@ import "schedule-optimizer/internal/cache"
 
 // Constants for schedule generation limits.
 const (
-	MaxSchedulesToReturn   = 2000  // Limit on schedules returned to client
+	// TODO: when backtracking hits this cap, preferences only rank the subset
+	// enumerated first, not the best schedules overall.
 	MaxSchedulesToGenerate = 20000 // Safety limit to prevent runaway generation
+	MaxSchedulesToReturn   = 2000  // Limit on schedules returned to client
 	MaxInputCourses        = 13
 	DefaultMaxCourses      = 8
 )
@@ -26,6 +28,7 @@ type GenerateRequest struct {
 	BlockedTimes []BlockedTime `json:"blockedTimes,omitempty"`
 	MinCourses   int           `json:"minCourses"`
 	MaxCourses   int           `json:"maxCourses"`
+	Preferences  *Preferences  `json:"preferences,omitempty"` // nil = DefaultPreferences
 }
 
 // BlockedTime represents a single time block the user cannot attend.
@@ -66,13 +69,6 @@ const (
 type Schedule struct {
 	Courses []*cache.Course `json:"courses"`
 	Score   float64         `json:"score"`
-	Weights []Weight        `json:"weights"`
-}
-
-// Weight represents a single scoring component.
-type Weight struct {
-	Name  string  `json:"name"`
-	Value float64 `json:"value"`
 }
 
 // GenerateStats contains timing and count information about the generation.

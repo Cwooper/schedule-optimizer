@@ -28,8 +28,7 @@ func TestToResponse_BasicTransformation(t *testing.T) {
 						},
 					},
 				},
-				Score:   0.85,
-				Weights: []Weight{{Name: "gaps", Value: 0.5}},
+				Score: 0.8549, // rounded only on the wire
 			},
 		},
 		CourseResults: []CourseResult{{Name: "CSCI 241", Status: StatusFound, Count: 3}},
@@ -252,7 +251,6 @@ func BenchmarkToResponse_2000Schedules(b *testing.B) {
 		schedules[i] = Schedule{
 			Courses: courses,
 			Score:   float64(i) / 2000.0,
-			Weights: []Weight{{Name: "gaps", Value: 0.5}, {Name: "start", Value: 0.3}},
 		}
 	}
 
