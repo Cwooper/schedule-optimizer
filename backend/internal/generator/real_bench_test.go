@@ -18,7 +18,7 @@ func setupRealData(b *testing.B) (*Service, *cache.TermData) {
 
 	dbPath := os.Getenv("TEST_DB_PATH")
 	if dbPath == "" {
-		dbPath = "../../../data/schedule.db"
+		dbPath = "../../data/schedule.db"
 	}
 
 	db, err := sql.Open("sqlite3", dbPath)
@@ -196,7 +196,7 @@ func BenchmarkGenerate_RealData_WithRequired(b *testing.B) {
 func TestGenerate_RealData_Stats(t *testing.T) {
 	dbPath := os.Getenv("TEST_DB_PATH")
 	if dbPath == "" {
-		dbPath = "../../../data/schedule.db"
+		dbPath = "../../data/schedule.db"
 	}
 
 	db, err := sql.Open("sqlite3", dbPath)
