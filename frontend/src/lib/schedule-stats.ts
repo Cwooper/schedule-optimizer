@@ -29,10 +29,16 @@ export interface ScheduleStats {
 
 type Span = [start: number, end: number]
 
+// parseTime reads anything as a time ("TBD" is midnight); skip what the
+// backend scorer would skip.
+function isClockTime(t: string | undefined): t is string {
+  return !!t && /^\d{2}:?\d{2}$/.test(t)
+}
+
 function weekdaySpans(sections: HydratedSection[]): Span[][] {
   const week: Span[][] = [[], [], [], [], []]
   for (const m of sections.flatMap((s) => s.meetingTimes)) {
-    if (!m.startTime || !m.endTime) continue
+    if (!isClockTime(m.startTime) || !isClockTime(m.endTime)) continue
     const span: Span = [parseTime(m.startTime), parseTime(m.endTime)]
     for (const [day, spans] of week.entries()) {
       if (m.days[day + 1]) spans.push(span)

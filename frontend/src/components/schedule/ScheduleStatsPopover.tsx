@@ -1,3 +1,4 @@
+import { useId } from "react"
 import { BookOpen, CalendarDays, type LucideIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
@@ -14,6 +15,7 @@ import {
   type ScheduleStats,
 } from "@/lib/schedule-stats"
 import { DAYS, DAY_LETTERS, formatClock } from "@/lib/schedule-utils"
+import { useAppStore, wasRanked } from "@/stores/app-store"
 
 /** The pager label, which opens the shown schedule's stats. */
 export function ScheduleStatsPopover({
@@ -28,13 +30,15 @@ export function ScheduleStatsPopover({
   /** 0 to 1, from the generator's ranking. */
   score: number
 }) {
+  const titleId = useId()
+  const ranked = useAppStore((s) => wasRanked(s.generatedWithParams))
   return (
     <Popover>
       <PopoverTrigger asChild>
         {/* Sized like the plain label it replaced, so the pager doesn't move. */}
         <Button
           variant="ghost"
-          className="min-w-20 px-2 font-normal sm:min-w-32"
+          className="min-w-20 px-0 font-normal sm:min-w-32"
         >
           <span>
             <span className="max-sm:hidden">Schedule </span>
@@ -42,13 +46,18 @@ export function ScheduleStatsPopover({
           </span>
         </Button>
       </PopoverTrigger>
-      <PopoverContent side="bottom" align="center" className="w-72">
+      <PopoverContent side="bottom" align="center" className="w-72" aria-labelledby={titleId}>
         <div className="mb-3 flex items-center justify-between">
-          <span className="text-sm font-medium">Schedule {index + 1}</span>
-          <span className="text-sm tabular-nums">
-            <Muted>Score </Muted>
-            {Math.round(score * 100)}%
+          <span id={titleId} className="text-sm font-medium">
+            Schedule {index + 1}
           </span>
+          {ranked && (
+            <span className="text-sm tabular-nums">
+              <Muted>Score </Muted>
+              {/* Clamped: results saved by the old scorer could exceed 1. */}
+              {Math.round(Math.min(Math.max(score, 0), 1) * 100)}%
+            </span>
+          )}
         </div>
         <StatRows stats={computeScheduleStats(sections)} />
       </PopoverContent>

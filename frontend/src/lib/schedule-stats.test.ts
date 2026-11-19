@@ -27,6 +27,15 @@ function section(meetingTimes: MeetingTime[], extra: Partial<HydratedSection> = 
 }
 
 describe("computeScheduleStats", () => {
+  it("skips meetings whose times aren't clock times", () => {
+    const stats = computeScheduleStats([
+      section([meeting("M", "TBD", "0850")]),
+      section([meeting("M", "0930", "1020")]),
+    ])
+    expect(stats.start).toEqual({ day: 0, mins: 9 * 60 + 30 })
+    expect(stats.gapMins).toBe(0)
+  })
+
   it("returns empty stats for an empty schedule", () => {
     expect(computeScheduleStats([])).toEqual({
       start: null,

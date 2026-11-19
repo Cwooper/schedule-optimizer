@@ -1,5 +1,6 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
+import { FACTORS } from "@/lib/factors"
 import { decodeHtmlEntities, genId } from "@/lib/utils"
 import { mergeAdjacentBlocks } from "@/lib/schedule-utils"
 import { DEFAULT_CALENDAR_EXPORT, type CalendarExportOptions } from "@/lib/ics"
@@ -152,6 +153,17 @@ export function computeBlockedTimesFingerprint(
 
 export function computePreferencesFingerprint(p: Preferences): string {
   return [p.start, p.end, p.gap, p.gpa, p.seats, p.idealStart, p.idealEnd].join("-")
+}
+
+/**
+ * Whether a result was generated with any weight on; with every weight off the
+ * backend scores all schedules 0. Results saved before weights existed count
+ * as ranked.
+ */
+export function wasRanked(params: GenerationParams | null): boolean {
+  const fingerprint = params?.preferencesFingerprint
+  if (!fingerprint) return true
+  return fingerprint.split("-").slice(0, FACTORS.length).some((level) => level !== "0")
 }
 
 type GenerationInputs = Pick<
@@ -424,7 +436,7 @@ export function migratePersistedState(
   return out
 }
 
-const IMPORTANCE_KEYS = ["start", "end", "gap", "gpa", "seats"] as const
+const IMPORTANCE_KEYS = FACTORS.map((f) => f.key)
 const TIME_KEYS = ["idealStart", "idealEnd"] as const
 
 /**

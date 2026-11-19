@@ -1,5 +1,6 @@
 import {
   useAppStore,
+  wasRanked,
   buildGenerateRequest,
   changedGenerationParams,
   computeGenerationParams,
@@ -964,5 +965,21 @@ describe("app-store", () => {
       const req = buildGenerateRequest({ ...inputs, blockedTimeGroups: [group(false, 0)] }, [mockSlot])
       expect(req.blockedTimes).toBeUndefined()
     })
+  })
+})
+
+describe("wasRanked", () => {
+  const params = (preferencesFingerprint?: string) =>
+    ({ preferencesFingerprint }) as unknown as GenerationParams
+
+  it("is false only when every weight was off", () => {
+    expect(wasRanked(params("0-0-0-0-0-1000-1400"))).toBe(false)
+    expect(wasRanked(params("0-0-0-0-1-1000-1400"))).toBe(true)
+    expect(wasRanked(params("2-2-2-3-0-1000-1400"))).toBe(true)
+  })
+
+  it("treats results saved before weights as ranked", () => {
+    expect(wasRanked(params(undefined))).toBe(true)
+    expect(wasRanked(null)).toBe(true)
   })
 })
