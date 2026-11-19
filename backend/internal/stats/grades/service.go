@@ -20,8 +20,8 @@ type Service struct {
 	dataPath string
 
 	mu            sync.RWMutex
-	subjectMap    map[string]string          // banner_subject → grade_subject
-	instructorMap map[string]string          // banner_name → grade_name
+	subjectMap    map[string]string          // banner_subject -> grade_subject
+	instructorMap map[string]string          // banner_name -> grade_name
 	courseProfAgg map[string]*GradeAggregate // "SUBJECT:NUM:INSTRUCTOR"
 	courseAgg     map[string]*GradeAggregate // "SUBJECT:NUM"
 	professorAgg  map[string]*GradeAggregate // "INSTRUCTOR"
@@ -39,7 +39,7 @@ func NewService(db *sql.DB, queries *store.Queries, dataPath string) *Service {
 	}
 }
 
-// ImportAndCompute runs the full pipeline: import Excel → compute mappings → aggregate → load into memory.
+// ImportAndCompute runs the full pipeline: import Excel -> compute mappings -> aggregate -> load into memory.
 // Each step is idempotent: if data already exists in DB, the step is skipped.
 func (s *Service) ImportAndCompute(ctx context.Context) error {
 	// Step 1: Import Excel if needed

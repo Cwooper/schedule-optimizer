@@ -28,8 +28,8 @@ export function StatTile({
       <div className="mt-0.5 text-[26px] leading-8 font-semibold tabular-nums">
         {value}
       </div>
-      <div className="text-muted-foreground mt-0.5 truncate text-xs leading-4 tabular-nums">
-        {detail ?? " "}
+      <div className="text-muted-foreground mt-0.5 min-h-4 truncate text-xs leading-4 tabular-nums">
+        {detail}
       </div>
       {children}
     </div>
