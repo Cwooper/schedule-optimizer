@@ -46,7 +46,7 @@ export function ScheduleStatsPopover({
           </span>
         </Button>
       </PopoverTrigger>
-      <PopoverContent side="bottom" align="center" className="w-72" aria-labelledby={titleId}>
+      <PopoverContent side="bottom" align="center" className="w-80" aria-labelledby={titleId}>
         <div className="mb-3 flex items-center justify-between">
           <span id={titleId} className="text-sm font-medium">
             Schedule {index + 1}
@@ -81,21 +81,22 @@ function StatRows({ stats }: { stats: ScheduleStats }) {
           )}
         </>
       ),
-    seats: `${stats.open} of ${classes(stats.sections)} open`,
+    seats: `${stats.open} of ${stats.sections}`,
   }
   // Each value is one extreme or a mean of the week, which the bare factor
   // name doesn't say.
   const qualifiers: Partial<Record<Factor, string>> = {
     start: "earliest",
     end: "latest",
-    gpa: "avg",
+    gpa: "average",
   }
+  const labels: Partial<Record<Factor, string>> = { seats: "Classes open" }
   const days = stats.days.flatMap((on, i) => (on ? [DAY_LETTERS[i + 1]] : []))
 
   return (
     <>
       {FACTORS.map((f) => (
-        <StatRow key={f.key} icon={f.icon} label={f.label} qualifier={qualifiers[f.key]}>
+        <StatRow key={f.key} icon={f.icon} label={labels[f.key] ?? f.label} qualifier={qualifiers[f.key]}>
           {values[f.key]}
         </StatRow>
       ))}
