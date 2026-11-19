@@ -101,7 +101,11 @@ export function DistributionChart({
           width={34}
         />
         <ChartTooltip
-          cursor={{ className: "fill-muted" }}
+          cursor={{
+            fill: "var(--foreground)",
+            fillOpacity: 0.05,
+            stroke: "none",
+          }}
           isAnimationActive={false}
           content={({ active, payload }) => {
             const d = payload?.[0]?.payload as Datum | undefined
