@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react"
+import { Footer } from "@/components/Footer"
 import { useAppStore } from "@/stores/app-store"
 import { CourseStats } from "./CourseStats"
 import { SectionStats } from "./SectionStats"
@@ -18,11 +19,15 @@ export function StatsView() {
     body = <CourseStats subject={subject} number={number} />
 
   return (
-    <div ref={scroller} className="scrollbar-styled h-full overflow-y-auto">
-      <div className="mx-auto max-w-[1180px] px-4 pt-5 pb-7 text-sm sm:px-6">
+    <div
+      ref={scroller}
+      className="scrollbar-styled flex h-full flex-col overflow-x-hidden overflow-y-auto"
+    >
+      <div className="mx-auto w-full max-w-[1180px] flex-1 shrink-0 px-4 pt-5 pb-7 text-sm sm:px-6">
         <StatsPickers />
         {body}
       </div>
+      <Footer />
     </div>
   )
 }

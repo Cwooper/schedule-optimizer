@@ -144,7 +144,8 @@ function App() {
         </div>
       </div>
 
-      <Footer />
+      {/* Statistics puts the footer at the end of its scrolling page */}
+      {tab !== "statistics" && <Footer />}
 
       {/* Course info dialog - single instance, accessible from anywhere */}
       <CourseInfoDialog
