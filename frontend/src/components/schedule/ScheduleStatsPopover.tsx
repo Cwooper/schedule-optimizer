@@ -34,7 +34,6 @@ export function ScheduleStatsPopover({
         {/* Sized like the plain label it replaced, so the pager doesn't move. */}
         <Button
           variant="ghost"
-          aria-label="Schedule stats"
           className="min-w-20 px-2 font-normal sm:min-w-32"
         >
           <span>
