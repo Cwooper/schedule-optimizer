@@ -85,11 +85,19 @@ function CourseBody({ course }: { course: StatsCourse }) {
             summary.withdrew != null ? formatPct(summary.withdrew, 1) : "-"
           }
         />
-        <StatTile label="Students" value={summary.students.toLocaleString()} />
         <StatTile
-          label="Sections"
-          value={course.sections.toLocaleString()}
-          detail={`${course.professors} ${course.professors === 1 ? "professor" : "professors"}`}
+          label="Class size"
+          value={Math.round(summary.students / course.sections)}
+        />
+        <StatTile
+          label="Sections / Professors"
+          value={
+            <>
+              {course.sections.toLocaleString()}
+              <span className="text-muted-foreground font-normal"> / </span>
+              {course.professors}
+            </>
+          }
         />
       </div>
 
