@@ -4,7 +4,6 @@ import type { StatsSection } from "@/lib/api"
 import { formatMonthDay, formatWeekday } from "@/lib/dates"
 import { formatLocation, formatMeetingTime, formatTime } from "@/lib/meetings"
 import {
-  axisDomain,
   distributionColumns,
   formatPct,
   surname,
@@ -14,13 +13,15 @@ import {
 import { cn } from "@/lib/utils"
 import { useAppStore } from "@/stores/app-store"
 import { DistributionChart } from "./charts/DistributionChart"
-import { DotStrip } from "./charts/DotStrip"
+import { SectionDots } from "./charts/SectionDots"
 import {
   Card,
+  DataRangeInfo,
   LegendItem,
   LinkButton,
   type RowScale,
   StatCells,
+  StatCols,
   StatHeaders,
   StatTile,
   StatsMessage,
@@ -45,12 +46,9 @@ function SectionBody({ section: v }: { section: StatsSection }) {
     metric,
     columns,
     mean: metricValue(course, metric),
-    domain: axisDomain(
-      metric,
-      v.dots.map((d) => d.value)
-    ),
   }
   const capacity = v.class?.capacity ?? 0
+  const over = capacity > 0 && section.students > capacity
   const rate = (value: number | null, digits = 0) =>
     value == null ? "-" : formatPct(value, digits)
 
@@ -73,7 +71,10 @@ function SectionBody({ section: v }: { section: StatsSection }) {
         {v.professor && (
           <span className="text-base font-medium">{v.professor}</span>
         )}
-        <span className="text-muted-foreground text-base">CRN {v.crn}</span>
+        <span className="text-muted-foreground text-base">
+          CRN {v.crn}
+          <DataRangeInfo />
+        </span>
       </div>
 
       <div className="mb-3 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:auto-cols-fr lg:grid-flow-col lg:grid-cols-none">
@@ -103,18 +104,24 @@ function SectionBody({ section: v }: { section: StatsSection }) {
             </>
           }
           detail={
-            capacity > 0 &&
-            `${Math.round((section.students / capacity) * 100)}% full`
+            capacity > 0 && (
+              <span className={cn(over && "text-destructive")}>
+                {Math.round((section.students / capacity) * 100)}% full
+              </span>
+            )
           }
         >
           {capacity > 0 && (
-            <div className="bg-muted mt-2 h-1.5 overflow-hidden rounded-[3px]">
+            <div className="bg-muted mt-2 flex h-1.5 overflow-hidden rounded-[3px]">
+              {/* Past capacity the bar is full: capacity's share of the
+                  students in the usual color, the overflow in red. */}
               <div
                 className="bg-foreground h-full"
                 style={{
-                  width: `${Math.min(100, (section.students / capacity) * 100)}%`,
+                  width: `${(over ? capacity / section.students : section.students / capacity) * 100}%`,
                 }}
               />
+              {over && <div className="bg-destructive h-full flex-1" />}
             </div>
           )}
         </StatTile>
@@ -154,8 +161,8 @@ function SectionBody({ section: v }: { section: StatsSection }) {
           }
         >
           <DistributionChart
-            grades={section.grades}
-            background={course.grades}
+            series={section.grades && { label: term, grades: section.grades }}
+            background={course.grades && { label: code, grades: course.grades }}
             columns={columns}
           />
         </Card>
@@ -180,7 +187,12 @@ function SectionBody({ section: v }: { section: StatsSection }) {
             </>
           }
         >
-          <DotStrip dots={v.dots} current={v} metric={metric} />
+          <SectionDots
+            dots={v.dots}
+            current={v}
+            metric={metric}
+            onSelect={(d) => setSelection({ term: d.term, crn: d.crn })}
+          />
         </Card>
       </div>
 
@@ -190,7 +202,13 @@ function SectionBody({ section: v }: { section: StatsSection }) {
           className={cn("col-span-12 pb-0.5", v.class && "lg:col-span-8")}
         >
           <div className="-mx-4 overflow-x-auto px-4">
-            <table className="w-full border-collapse text-sm tabular-nums">
+            <table className="w-full min-w-[760px] table-fixed border-collapse text-sm tabular-nums">
+              <colgroup>
+                <col className="w-[76px]" />
+                <col />
+                <col className="w-[76px]" />
+                <StatCols metric={metric} />
+              </colgroup>
               <thead>
                 <tr>
                   <th className={TH}>CRN</th>
@@ -218,8 +236,10 @@ function SectionBody({ section: v }: { section: StatsSection }) {
                       <td
                         className={cn(
                           TD,
+                          "truncate",
                           !s.professor && "text-muted-foreground"
                         )}
+                        title={s.professor || undefined}
                       >
                         {s.professor || "Unlisted"}
                       </td>

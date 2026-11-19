@@ -1,117 +1,133 @@
-import type { StatsMetric } from "@/lib/api"
-import { formatMetric, quartersGrid } from "@/lib/stats"
-import { AXIS_TEXT, ChartFrame } from "./ChartFrame"
+import type { StatsCourse, StatsMetric } from "@/lib/api"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+import {
+  formatMetric,
+  type QuarterCell,
+  quartersGrid,
+  termName,
+} from "@/lib/stats"
+import { cn } from "@/lib/utils"
+import { TipBody, type TipRow } from "./ChartTip"
 
-const CELL = 22
-const GAP = 4
-const LEFT = 26
+const AXIS = "text-muted-foreground text-[11px] leading-4"
 
 /**
  * Which quarters the course ran in recent academic years, one row per
  * season with its overall value on the right. Upcoming terms are dashed.
  */
 export function QuartersGrid({
-  offered,
-  next,
+  course,
   currentTerm,
-  seasons,
+}: {
+  course: Pick<StatsCourse, "offered" | "terms" | "seasons" | "next" | "metric">
+  currentTerm: string
+}) {
+  const { metric } = course
+  const { years, rows } = quartersGrid(
+    course.offered.map((o) => o.term),
+    course.next?.term,
+    currentTerm
+  )
+  const valueOf = (q: number) =>
+    course.seasons.find((s) => s.quarter === q)?.value ?? null
+  return (
+    <div
+      className="grid items-center gap-1"
+      style={{ gridTemplateColumns: `22px repeat(${years.length}, 22px) 1fr` }}
+    >
+      {rows.map((r) => {
+        const value = valueOf(r.quarter)
+        return [
+          <span key={`${r.quarter}l`} className={AXIS}>
+            {r.label}
+          </span>,
+          ...r.cells.map((cell) => (
+            <QuarterSquare
+              key={cell.term}
+              cell={cell}
+              course={course}
+              metric={metric}
+            />
+          )),
+          <span
+            key={`${r.quarter}v`}
+            className="text-right text-[13px] font-semibold tabular-nums"
+          >
+            {value != null && formatMetric(metric, value)}
+          </span>,
+        ]
+      })}
+      <span />
+      {years.map((yr) => (
+        <span key={yr} className={cn(AXIS, "text-center")}>
+          {String(yr).slice(2)}
+        </span>
+      ))}
+      <span className={cn(AXIS, "text-right")}>
+        {metric === "gpa" ? "GPA" : "Pass"}
+      </span>
+    </div>
+  )
+}
+
+function QuarterSquare({
+  cell,
+  course,
   metric,
 }: {
-  offered: string[]
-  next?: string
-  currentTerm: string
-  seasons: { quarter: number; value: number | null }[]
+  cell: QuarterCell
+  course: Pick<StatsCourse, "offered" | "terms">
   metric: StatsMetric
 }) {
-  const { years, rows } = quartersGrid(offered, next, currentTerm)
-  const height = rows.length * (CELL + GAP) + 16
-  const valueOf = (q: number) =>
-    seasons.find((s) => s.quarter === q)?.value ?? null
+  const graded = course.terms.find((t) => t.term === cell.term)
+  const offered = course.offered.find((o) => o.term === cell.term)
+  const rows: TipRow[] = []
+  if (graded?.value != null) {
+    rows.push([
+      metric === "gpa" ? "GPA" : "Pass",
+      formatMetric(metric, graded.value),
+    ])
+  }
+  const sections = graded?.sections ?? offered?.sections
+  if (sections) rows.push(["Sections", sections])
   return (
-    <ChartFrame height={height}>
-      {(w) => {
-        const right = w - 2
-        return (
-          <svg
-            width={w}
-            height={height}
-            className="block"
-            role="img"
-            aria-label="Quarters offered"
-          >
-            <text
-              x={right}
-              y={height - 2}
-              textAnchor="end"
-              className={AXIS_TEXT}
-            >
-              {metric === "gpa" ? "GPA" : "Pass"}
-            </text>
-            {rows.map((r, i) => {
-              const y = i * (CELL + GAP)
-              const value = valueOf(r.quarter)
-              return (
-                <g key={r.quarter}>
-                  <text x={0} y={y + 15} className={AXIS_TEXT}>
-                    {r.label}
-                  </text>
-                  {value != null && (
-                    <text
-                      x={right}
-                      y={y + 16}
-                      textAnchor="end"
-                      className="fill-foreground text-[13px] font-semibold tabular-nums"
-                    >
-                      {formatMetric(metric, value)}
-                    </text>
-                  )}
-                  {r.cells.map((cell, c) => {
-                    const x = LEFT + c * (CELL + GAP)
-                    return cell === "upcoming" ? (
-                      <rect
-                        key={c}
-                        x={x + 1}
-                        y={y + 1}
-                        width={CELL - 2}
-                        height={CELL - 2}
-                        rx={4}
-                        fill="none"
-                        className="stroke-foreground"
-                        strokeWidth={1.5}
-                        strokeDasharray="3 2.5"
-                      />
-                    ) : (
-                      <rect
-                        key={c}
-                        x={x}
-                        y={y}
-                        width={CELL}
-                        height={CELL}
-                        rx={4}
-                        className={
-                          cell === "taught" ? "fill-foreground" : "fill-muted"
-                        }
-                        fillOpacity={cell === "taught" ? 0.8 : 1}
-                      />
-                    )
-                  })}
-                </g>
-              )
-            })}
-            {years.map((yr, c) => (
-              <text
-                key={yr}
-                x={LEFT + c * (CELL + GAP) + CELL / 2}
-                y={height - 2}
-                textAnchor="middle"
-                className={AXIS_TEXT}
-              >
-                {String(yr).slice(2)}
-              </text>
-            ))}
-          </svg>
-        )
-      }}
-    </ChartFrame>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <span
+          className={cn(
+            "block size-[22px] rounded-[4px]",
+            cell.state === "taught" && "bg-foreground/80",
+            cell.state === "none" && "bg-muted"
+          )}
+        >
+          {cell.state === "upcoming" && (
+            <svg width="22" height="22" className="block" aria-hidden>
+              <rect
+                x="1"
+                y="1"
+                width="20"
+                height="20"
+                rx="4"
+                fill="none"
+                className="stroke-foreground"
+                strokeWidth={1.5}
+                strokeDasharray="3 2.5"
+              />
+            </svg>
+          )}
+        </span>
+      </TooltipTrigger>
+      <TooltipContent>
+        {cell.state === "none" ? (
+          <TipBody title={termName(cell.term)} rows={[["Not offered"]]} />
+        ) : (
+          <TipBody title={termName(cell.term)} rows={rows} />
+        )}
+      </TooltipContent>
+    </Tooltip>
   )
 }

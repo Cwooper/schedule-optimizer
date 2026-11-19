@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react"
+import { lazy, Suspense, useState, useCallback } from "react"
 import { Menu } from "lucide-react"
 import { toast } from "sonner"
 import { useThemeSync } from "@/hooks/use-theme"
@@ -10,7 +10,6 @@ import { Footer } from "@/components/Footer"
 import { ScheduleBuilder } from "@/components/ScheduleBuilder"
 import { ScheduleView, CourseInfoDialog } from "@/components/schedule"
 import { SearchView } from "@/components/SearchView"
-import { StatsView } from "@/components/stats/StatsView"
 import { Button } from "@/components/ui/button"
 import {
   Drawer,
@@ -22,6 +21,12 @@ import {
 import { useAppStore } from "@/stores/app-store"
 
 // TODO: Use framer-motion for more animations (course list enter/exit, tab content transitions, schedule navigation)
+
+
+// Recharts is only needed on the Statistics tab, so it loads with it.
+const StatsView = lazy(() =>
+  import("@/components/stats/StatsView").then((m) => ({ default: m.StatsView }))
+)
 
 function App() {
   useThemeSync()
@@ -130,7 +135,11 @@ function App() {
           <main className="flex-1 overflow-hidden">
             {tab === "schedule" && <ScheduleView />}
             {tab === "search" && <SearchView />}
-            {tab === "statistics" && <StatsView />}
+            {tab === "statistics" && (
+              <Suspense fallback={null}>
+                <StatsView />
+              </Suspense>
+            )}
           </main>
         </div>
       </div>

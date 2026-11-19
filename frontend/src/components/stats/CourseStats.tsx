@@ -3,25 +3,25 @@ import { ChevronDown, ChevronRight } from "lucide-react"
 import { useStatsCourse } from "@/hooks/use-api"
 import type { StatsCourse, StatsProfessorRow } from "@/lib/api"
 import {
-  axisDomain,
   currentTermCode,
   distributionColumns,
   formatPct,
   surname,
   termName,
-  termShort,
   metricValue,
 } from "@/lib/stats"
 import { cn } from "@/lib/utils"
 import { useAppStore } from "@/stores/app-store"
 import { DistributionChart } from "./charts/DistributionChart"
 import { QuartersGrid } from "./charts/QuartersGrid"
-import { TermLineChart } from "./charts/TermLineChart"
+import { TermChart } from "./charts/TermChart"
 import {
   Card,
+  DataRangeInfo,
   LinkButton,
   type RowScale,
   StatCells,
+  StatCols,
   StatHeaders,
   StatTile,
   StatsMessage,
@@ -44,21 +44,13 @@ export function CourseStats({
 }
 
 function CourseBody({ course }: { course: StatsCourse }) {
-  const { metric, summary, level } = course
+  const { metric, summary } = course
   const code = `${course.subject} ${course.number}`
-  const levelName = level && `${course.subject} ${course.number[0]}00-level`
   const columns = distributionColumns(summary.grades)
-  const rowValues = course.professorRows
-    .flatMap((p) => [p, ...p.history])
-    .map((s) => metricValue(s, metric))
   const scale: RowScale = {
     metric,
     columns,
     mean: metricValue(summary, metric),
-    domain: axisDomain(
-      metric,
-      rowValues.filter((v): v is number => v != null)
-    ),
   }
   const next = course.next
 
@@ -68,46 +60,27 @@ function CourseBody({ course }: { course: StatsCourse }) {
         <h1 className="text-[26px] leading-8 font-bold tracking-tight">
           {code}
         </h1>
-        <span className="text-muted-foreground text-base">{course.title}</span>
+        <span className="text-muted-foreground text-base">
+          {course.title}
+          <DataRangeInfo />
+        </span>
       </div>
 
       <div className="mb-3 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:auto-cols-fr lg:grid-flow-col lg:grid-cols-none">
         {metric === "gpa" && (
-          <StatTile
-            label="GPA"
-            value={summary.gpa?.toFixed(2) ?? "-"}
-            detail={
-              levelName &&
-              level.gpa != null &&
-              `${levelName} ${level.gpa.toFixed(2)}`
-            }
-          />
+          <StatTile label="GPA" value={summary.gpa?.toFixed(2) ?? "-"} />
         )}
         <StatTile
           label="Pass"
           value={summary.pass != null ? formatPct(summary.pass) : "-"}
-          detail={
-            levelName &&
-            level.pass != null &&
-            `${levelName} ${formatPct(level.pass)}`
-          }
         />
         <StatTile
           label="Withdrew"
           value={
             summary.withdrew != null ? formatPct(summary.withdrew, 1) : "-"
           }
-          detail={
-            levelName &&
-            level.withdrew != null &&
-            `${levelName} ${formatPct(level.withdrew, 1)}`
-          }
         />
-        <StatTile
-          label="Students"
-          value={summary.students.toLocaleString()}
-          detail={`since ${termName(course.firstTerm)}`}
-        />
+        <StatTile label="Students" value={summary.students.toLocaleString()} />
         <StatTile
           label="Sections"
           value={course.sections.toLocaleString()}
@@ -117,29 +90,22 @@ function CourseBody({ course }: { course: StatsCourse }) {
 
       <div className="mb-3 grid grid-cols-12 gap-3">
         <Card title="Grade distribution" className="col-span-12 lg:col-span-5">
-          <DistributionChart grades={summary.grades} columns={columns} />
+          <DistributionChart
+            series={summary.grades && { label: code, grades: summary.grades }}
+            columns={columns}
+          />
         </Card>
         <Card
           title={metric === "gpa" ? "GPA by term" : "Pass by term"}
           className="col-span-12 md:col-span-7 lg:col-span-4"
         >
-          <TermLineChart
-            points={course.terms}
-            mean={scale.mean}
-            metric={metric}
-          />
+          <TermChart terms={course.terms} mean={scale.mean} metric={metric} />
         </Card>
         <Card
           title="Quarters"
           className="col-span-12 flex flex-col md:col-span-5 lg:col-span-3"
         >
-          <QuartersGrid
-            offered={course.offered}
-            next={next?.term}
-            currentTerm={currentTermCode()}
-            seasons={course.seasons}
-            metric={metric}
-          />
+          <QuartersGrid course={course} currentTerm={currentTermCode()} />
           {next && (
             <div className="mt-auto flex items-center gap-2 border-t pt-2.5">
               <svg width="14" height="14" className="shrink-0" aria-hidden>
@@ -171,14 +137,23 @@ function CourseBody({ course }: { course: StatsCourse }) {
 
       <Card title="Professors" className="pb-0.5">
         <div className="-mx-4 overflow-x-auto px-4">
-          <table className="w-full border-collapse text-sm tabular-nums">
+          <table className="w-full min-w-[1000px] table-fixed border-collapse text-sm tabular-nums">
+            <colgroup>
+              <col />
+              <col className="w-[76px]" />
+              <col className="w-[76px]" />
+              <StatCols metric={metric} />
+              <col className="w-[120px]" />
+              <col className="w-[120px]" />
+            </colgroup>
             <thead>
               <tr>
-                <th className={TH} aria-label="Professor" />
+                <th className={cn(TH, "pl-9")}>Professor</th>
                 <th className={cn(TH, "text-right")}>Sections</th>
                 <th className={cn(TH, "text-right")}>Students</th>
                 <StatHeaders metric={metric} />
                 <th className={TH}>Last taught</th>
+                <th className={TH}>Next</th>
               </tr>
             </thead>
             <tbody className="[&>tr:last-child>td]:border-b-0">
@@ -219,28 +194,24 @@ function ProfessorRows({
     <>
       <tr>
         <td className={TD}>
-          <span className="flex items-center">
-            {/* TODO: link the name to the professor view once it exists (issue #27). */}
-            <button
-              type="button"
-              onClick={() => setOpen(!open)}
-              aria-expanded={open}
-              className="flex cursor-pointer items-center font-medium"
+          {/* TODO: link the name to the professor view once it exists (issue #27). */}
+          <button
+            type="button"
+            onClick={() => setOpen(!open)}
+            aria-expanded={open}
+            className="flex max-w-full cursor-pointer items-center font-medium"
+          >
+            <Chevron
+              className="text-muted-foreground mr-1.5 size-3.5 w-5 shrink-0"
+              aria-hidden
+            />
+            <span
+              className={cn("truncate", !prof.name && "text-muted-foreground")}
+              title={prof.name || undefined}
             >
-              <Chevron
-                className="text-muted-foreground mr-1.5 size-3.5 w-5"
-                aria-hidden
-              />
-              {prof.name || (
-                <span className="text-muted-foreground">Unlisted</span>
-              )}
-            </button>
-            {prof.teachesNext && nextTerm && (
-              <span className="border-muted-foreground ml-2 inline-flex h-5 items-center rounded-full border border-dashed px-[7px] text-[11px] font-medium">
-                {termShort(nextTerm)}
-              </span>
-            )}
-          </span>
+              {prof.name || "Unlisted"}
+            </span>
+          </button>
         </td>
         <td className={cn(TD, "text-right")}>{prof.sections}</td>
         <td className={cn(TD, "text-right")}>
@@ -248,6 +219,9 @@ function ProfessorRows({
         </td>
         <StatCells stats={prof} scale={scale} />
         <td className={TD}>{prof.lastTaught && termName(prof.lastTaught)}</td>
+        <td className={TD}>
+          {prof.teachesNext && nextTerm && termName(nextTerm)}
+        </td>
       </tr>
       {open &&
         shown.map((s) => (
@@ -268,13 +242,14 @@ function ProfessorRows({
               cellClass="bg-muted border-b-background h-10"
             />
             <td className={sub} />
+            <td className={sub} />
           </tr>
         ))}
       {open && hidden > 0 && (
         <tr>
           <td
             className={cn(sub, "pl-10")}
-            colSpan={scale.metric === "gpa" ? 9 : 8}
+            colSpan={scale.metric === "gpa" ? 10 : 9}
           >
             <button
               type="button"

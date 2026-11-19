@@ -1,14 +1,23 @@
+import {
+  Bar,
+  BarChart,
+  type BarShapeProps,
+  CartesianGrid,
+  Cell,
+  XAxis,
+  YAxis,
+} from "recharts"
+import { ChartContainer, ChartTooltip } from "@/components/ui/chart"
 import type { GradeCounts } from "@/lib/api"
-import { GRADE_LABELS, WITHDREW_COLUMN, axisTicks } from "@/lib/stats"
-import { AXIS_TEXT, ChartFrame } from "./ChartFrame"
-
-const HEIGHT = 200
-const PAD = { l: 34, t: 8, b: 22 }
-
-function shares(grades: GradeCounts, columns: number[]): number[] {
-  const total = grades.reduce((a, b) => a + b, 0) || 1
-  return columns.map((c) => grades[c] / total)
-}
+import {
+  GRADE_LABELS,
+  WITHDREW_COLUMN,
+  axisTicks,
+  formatPct,
+  gradeShares,
+} from "@/lib/stats"
+import { ChartTipBox, TipBody, type TipRow } from "./ChartTip"
+import { AXIS_TICK, STATS_CHART_CONFIG } from "./config"
 
 function gridStep(max: number): number {
   if (max <= 0.3) return 0.05
@@ -16,103 +25,144 @@ function gridStep(max: number): number {
   return 0.2
 }
 
+export interface DistributionSeries {
+  label: string
+  grades: GradeCounts
+}
+
+interface Datum {
+  column: number
+  grade: string
+  fg?: number
+  bg?: number
+}
+
 /**
- * Share of students per grade. A background series (the course, behind a
- * section) draws wider and soft so both read at once.
+ * Share of grades per column. A background series (the course, behind a
+ * section) draws full width and soft, with the foreground narrower on top so
+ * both read at once.
  */
 export function DistributionChart({
-  grades,
+  series,
   background,
   columns,
 }: {
-  grades?: GradeCounts
-  background?: GradeCounts
+  series?: DistributionSeries
+  background?: DistributionSeries
   columns: number[]
 }) {
-  const fg = grades ? shares(grades, columns) : []
-  const bg = background ? shares(background, columns) : []
-  const top = Math.max(...fg, ...bg, 0.01) * 1.05
+  const fg = series && gradeShares(series.grades, columns)
+  const bg = background && gradeShares(background.grades, columns)
+  const data: Datum[] = columns.map((c, i) => ({
+    column: c,
+    grade: GRADE_LABELS[c],
+    fg: fg?.[i],
+    bg: bg?.[i],
+  }))
+  const top = Math.max(...(fg ?? []), ...(bg ?? []), 0.01) * 1.05
   const step = gridStep(top)
   const max = Math.ceil(top / step) * step
-  const ticks = axisTicks({ lo: 0, hi: max, step })
+
+  const tipRow = (s: DistributionSeries, column: number, share?: number) =>
+    [
+      s.label,
+      `${s.grades[column].toLocaleString()} ${s.grades[column] === 1 ? "student" : "students"}`,
+      formatPct(share ?? 0, 1),
+    ] as TipRow
+
   return (
-    <ChartFrame height={HEIGHT}>
-      {(w) => {
-        const cw = (w - PAD.l) / columns.length
-        // A fixed 10px gap until columns get narrow on phones, then a share.
-        const bw = Math.min(28, Math.max(cw - 10, cw * 0.72))
-        const bgw = Math.min(bw + 8, cw - 2)
-        const fw = bg.length ? Math.max(bw - 8, bw * 0.55) : bw
-        const h = (v: number) => (v / max) * (HEIGHT - PAD.t - PAD.b)
-        const base = HEIGHT - PAD.b
-        return (
-          <svg
-            width={w}
-            height={HEIGHT}
-            className="block"
-            role="img"
-            aria-label="Grade distribution"
+    <ChartContainer
+      config={STATS_CHART_CONFIG}
+      className="aspect-auto h-[200px] w-full"
+    >
+      <BarChart
+        data={data}
+        margin={{ top: 8, right: 0, bottom: 0, left: 0 }}
+        barCategoryGap="14%"
+      >
+        <CartesianGrid vertical={false} />
+        <XAxis
+          xAxisId="fg"
+          dataKey="grade"
+          tickLine={false}
+          axisLine={false}
+          tick={AXIS_TICK}
+          interval={0}
+          height={22}
+        />
+        <XAxis xAxisId="bg" dataKey="grade" orientation="top" hide />
+        <YAxis
+          domain={[0, max]}
+          ticks={axisTicks({ lo: 0, hi: max, step })}
+          tickFormatter={(v: number) => `${Math.round(v * 100)}%`}
+          tickLine={false}
+          axisLine={false}
+          tick={AXIS_TICK}
+          width={34}
+        />
+        <ChartTooltip
+          cursor={{ className: "fill-muted" }}
+          isAnimationActive={false}
+          content={({ active, payload }) => {
+            const d = payload?.[0]?.payload as Datum | undefined
+            if (!active || !d) return null
+            const rows: TipRow[] = []
+            if (series) rows.push(tipRow(series, d.column, d.fg))
+            if (background) rows.push(tipRow(background, d.column, d.bg))
+            return (
+              <ChartTipBox>
+                <TipBody title={d.grade} rows={rows} />
+              </ChartTipBox>
+            )
+          }}
+        />
+        {bg && (
+          <Bar
+            xAxisId="bg"
+            dataKey="bg"
+            fill="var(--color-soft)"
+            radius={3}
+            maxBarSize={36}
+            isAnimationActive={false}
+          />
+        )}
+        {fg && (
+          <Bar
+            xAxisId="fg"
+            dataKey="fg"
+            fill="var(--color-fg)"
+            radius={3}
+            maxBarSize={bg ? 36 : 28}
+            isAnimationActive={false}
+            shape={bg ? InsetBar : undefined}
           >
-            {ticks.map((v) => (
-              <g key={v}>
-                <line
-                  x1={PAD.l}
-                  x2={w}
-                  y1={base - h(v)}
-                  y2={base - h(v)}
-                  className="stroke-border"
-                />
-                <text
-                  x={PAD.l - 8}
-                  y={base - h(v) + 4}
-                  textAnchor="end"
-                  className={AXIS_TEXT}
-                >
-                  {Math.round(v * 100)}%
-                </text>
-              </g>
+            {data.map((d) => (
+              <Cell
+                key={d.column}
+                fillOpacity={d.column === WITHDREW_COLUMN ? 0.45 : 1}
+              />
             ))}
-            {columns.map((c, i) => {
-              const cx = PAD.l + i * cw + cw / 2
-              return (
-                <g key={c}>
-                  {bg.length > 0 && (
-                    <rect
-                      x={cx - bgw / 2}
-                      y={base - h(bg[i])}
-                      width={bgw}
-                      height={h(bg[i])}
-                      rx={3}
-                      className="fill-chart-soft"
-                    />
-                  )}
-                  {fg.length > 0 && (
-                    <rect
-                      x={cx - fw / 2}
-                      y={base - h(fg[i])}
-                      width={fw}
-                      height={h(fg[i])}
-                      rx={3}
-                      className="fill-foreground"
-                      fillOpacity={c === WITHDREW_COLUMN ? 0.45 : 1}
-                    >
-                      <title>{`${GRADE_LABELS[c]}: ${(fg[i] * 100).toFixed(1)}%`}</title>
-                    </rect>
-                  )}
-                  <text
-                    x={cx}
-                    y={HEIGHT - 6}
-                    textAnchor="middle"
-                    className={AXIS_TEXT}
-                  >
-                    {GRADE_LABELS[c]}
-                  </text>
-                </g>
-              )
-            })}
-          </svg>
-        )
-      }}
-    </ChartFrame>
+          </Bar>
+        )}
+      </BarChart>
+    </ChartContainer>
+  )
+}
+
+/** The foreground bar over a background one: narrower, so both show. */
+function InsetBar(props: BarShapeProps) {
+  const { x = 0, y = 0, width = 0, height = 0, fill, fillOpacity } = props
+  const w = Math.max(width - 8, width * 0.55)
+  if (height <= 0) return <g />
+  return (
+    <rect
+      x={x + (width - w) / 2}
+      y={y}
+      width={w}
+      height={height}
+      rx={3}
+      fill={fill}
+      fillOpacity={fillOpacity}
+    />
   )
 }

@@ -1,14 +1,21 @@
 import type { ReactNode } from "react"
+import { Info } from "lucide-react"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+import { useStatsCourses } from "@/hooks/use-api"
 import type { GradeStats, StatsMetric } from "@/lib/api"
 import {
-  type AxisDomain,
+  formatDelta,
   formatMetric,
   formatPct,
   metricValue,
+  termName,
 } from "@/lib/stats"
 import { TD, TH } from "./table"
 import { cn } from "@/lib/utils"
-import { GpaTrack } from "./charts/GpaTrack"
 import { Sparkline } from "./charts/Sparkline"
 
 export function StatTile({
@@ -33,6 +40,31 @@ export function StatTile({
       </div>
       {children}
     </div>
+  )
+}
+
+/**
+ * An info icon giving the grade data's span and source, placed inline at
+ * the end of a page title's last part so it wraps with the text.
+ */
+export function DataRangeInfo() {
+  const { data } = useStatsCourses()
+  if (!data?.firstTerm) return null
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <button
+          type="button"
+          aria-label="About this data"
+          className="text-muted-foreground hover:text-foreground ml-2 inline-flex cursor-help align-[-2px]"
+        >
+          <Info className="size-4" />
+        </button>
+      </TooltipTrigger>
+      <TooltipContent className="max-w-xs">
+        {`Grades from ${termName(data.firstTerm)} through ${termName(data.lastTerm)}, from WWU records. Sections with fewer than 10 students are not included.`}
+      </TooltipContent>
+    </Tooltip>
   )
 }
 
@@ -61,7 +93,7 @@ export function Card({
     <section
       className={cn("bg-card min-w-0 rounded-lg border px-4 py-3.5", className)}
     >
-      <h3 className="mb-2.5 flex items-center gap-3.5 text-[13px] leading-5 font-semibold">
+      <h3 className="mb-2.5 flex flex-wrap items-center gap-x-3.5 gap-y-1 text-[13px] leading-5 font-semibold">
         {title}
         {legend && (
           <span className="text-muted-foreground ml-auto flex gap-3 text-xs font-normal">
@@ -113,6 +145,22 @@ export function LinkButton({
   )
 }
 
+/**
+ * Column widths matching StatHeaders, for a table-fixed table, so columns
+ * hold still as rows expand.
+ */
+export function StatCols({ metric }: { metric: StatsMetric }) {
+  return (
+    <>
+      <col className="w-16" />
+      <col className="w-[88px]" />
+      <col className="w-[128px]" />
+      {metric === "gpa" && <col className="w-16" />}
+      <col className="w-14" />
+    </>
+  )
+}
+
 /** Header cells matching StatCells. */
 export function StatHeaders({ metric }: { metric: StatsMetric }) {
   return (
@@ -120,7 +168,7 @@ export function StatHeaders({ metric }: { metric: StatsMetric }) {
       <th className={cn(TH, "text-right")}>
         {metric === "gpa" ? "GPA" : "Pass"}
       </th>
-      <th className={TH} aria-label="Compared to the course" />
+      <th className={cn(TH, "text-right")}>vs course</th>
       <th className={TH}>Distribution</th>
       {metric === "gpa" && <th className={cn(TH, "text-right")}>Pass</th>}
       <th className={cn(TH, "text-right")}>W</th>
@@ -132,10 +180,9 @@ export interface RowScale {
   metric: StatsMetric
   columns: number[]
   mean: number | null
-  domain: AxisDomain
 }
 
-/** The value, track, sparkline, pass, and W cells of a table row. */
+/** The value, difference from the course, sparkline, pass, and W cells of a table row. */
 export function StatCells({
   stats,
   scale,
@@ -152,10 +199,10 @@ export function StatCells({
       <td className={cn(td, "text-right font-semibold")}>
         {value != null && formatMetric(scale.metric, value)}
       </td>
-      <td className={td}>
-        {value != null && (
-          <GpaTrack value={value} mean={scale.mean} domain={scale.domain} />
-        )}
+      <td className={cn(td, "text-muted-foreground text-right")}>
+        {value != null &&
+          scale.mean != null &&
+          formatDelta(scale.metric, value, scale.mean)}
       </td>
       <td className={td}>
         {stats.grades && (

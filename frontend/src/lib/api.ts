@@ -332,6 +332,9 @@ export interface GradeStats {
 export interface StatsCoursesResponse {
   subjects: Subject[]
   courses: { subject: string; number: string; title: string }[]
+  // The terms the grade data spans.
+  firstTerm: string
+  lastTerm: string
 }
 
 export interface StatsSectionRow extends GradeStats {
@@ -355,18 +358,28 @@ export interface StatsCourse {
   summary: GradeStats
   sections: number
   professors: number
-  firstTerm: string
-  level?: { gpa: number | null; pass: number | null; withdrew: number | null }
-  terms: { term: string; value: number }[] // oldest first
+  terms: StatsTerm[] // oldest first
   seasons: { quarter: number; value: number | null }[] // Fall, Winter, Spring, Summer
-  offered: string[]
+  // Every term the course ran or is scheduled in, oldest first; sections are
+  // Banner's count, or the graded count for a term Banner does not list.
+  offered: { term: string; sections: number }[]
   next?: { term: string; professors: string[] }
   professorRows: StatsProfessorRow[]
+}
+
+/** A graded term; value is null when its sections are too small to report. */
+export interface StatsTerm {
+  term: string
+  value: number | null
+  sections: number
+  students: number
 }
 
 export interface StatsDot {
   term: string
   crn: string
+  professor: string
+  students: number
   value: number
   mine?: boolean
 }
