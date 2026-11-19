@@ -54,7 +54,7 @@ func TestGeneratePreferences(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			db, queries := testutil.SetupTestDB(t)
 			testutil.SeedTestData(t, db)
-			h := NewHandlers(db, cache.NewScheduleCache(queries, nil), generator.NewService(queries), queries, nil, nil)
+			h := NewHandlers(db, cache.NewScheduleCache(queries, nil), generator.NewService(queries), queries, nil, nil, nil)
 			r := gin.New()
 			r.POST("/api/generate", h.Generate)
 
@@ -103,7 +103,7 @@ func TestGenerateCourseLimit(t *testing.T) {
 	} {
 		db, queries := testutil.SetupTestDB(t)
 		testutil.SeedTestData(t, db)
-		h := NewHandlers(db, cache.NewScheduleCache(queries, nil), generator.NewService(queries), queries, nil, nil)
+		h := NewHandlers(db, cache.NewScheduleCache(queries, nil), generator.NewService(queries), queries, nil, nil, nil)
 		r := gin.New()
 		r.POST("/api/generate", h.Generate)
 

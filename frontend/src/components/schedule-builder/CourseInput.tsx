@@ -97,7 +97,7 @@ export function CourseInput({
         <Label>Add Course</Label>
         <TooltipProvider delayDuration={300}>
           <div className="flex gap-1 text-sm">
-            <Tooltip>
+            <Tooltip touchToggle={false}>
               <TooltipTrigger asChild>
                 <button
                   aria-pressed={inputMode === "subject"}
@@ -118,7 +118,7 @@ export function CourseInput({
               </TooltipContent>
             </Tooltip>
             <span className="text-muted-foreground">|</span>
-            <Tooltip>
+            <Tooltip touchToggle={false}>
               <TooltipTrigger asChild>
                 <button
                   aria-pressed={inputMode === "crn"}
@@ -212,7 +212,7 @@ function SubjectInput({
       <Popover open={showPreview} modal={false}>
         <PopoverAnchor asChild>
           <div className="flex gap-2">
-            <Tooltip>
+            <Tooltip touchToggle={!term}>
               <TooltipTrigger asChild>
                 <div className="flex-1">
                   <SubjectCombobox
@@ -302,7 +302,7 @@ function CRNInput({
       <Popover open={showPreview} modal={false}>
         <PopoverAnchor asChild>
           <div className="flex gap-2">
-            <Tooltip>
+            <Tooltip touchToggle={!term}>
               <TooltipTrigger asChild>
                 {/* Wrapper div enables tooltip on disabled input */}
                 <div className="flex-1">

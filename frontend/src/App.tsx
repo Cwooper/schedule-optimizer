@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react"
+import { lazy, Suspense, useState, useCallback } from "react"
 import { Menu } from "lucide-react"
 import { toast } from "sonner"
 import { useThemeSync } from "@/hooks/use-theme"
@@ -10,6 +10,7 @@ import { Footer } from "@/components/Footer"
 import { ScheduleBuilder } from "@/components/ScheduleBuilder"
 import { ScheduleView, CourseInfoDialog } from "@/components/schedule"
 import { SearchView } from "@/components/SearchView"
+import { ReloadBoundary } from "@/components/ReloadBoundary"
 import { Button } from "@/components/ui/button"
 import {
   Drawer,
@@ -21,6 +22,12 @@ import {
 import { useAppStore } from "@/stores/app-store"
 
 // TODO: Use framer-motion for more animations (course list enter/exit, tab content transitions, schedule navigation)
+
+
+// Recharts is only needed on the Statistics tab, so it loads with it.
+const StatsView = lazy(() =>
+  import("@/components/stats/StatsView").then((m) => ({ default: m.StatsView }))
+)
 
 function App() {
   useThemeSync()
@@ -130,20 +137,18 @@ function App() {
             {tab === "schedule" && <ScheduleView />}
             {tab === "search" && <SearchView />}
             {tab === "statistics" && (
-              <div className="flex h-full flex-col items-center justify-center">
-                <p className="text-muted-foreground">
-                  Statistics (coming soon)
-                </p>
-                <p className="text-muted mt-8 text-xs">
-                  I'm waiting for Western to get back to me :(
-                </p>
-              </div>
+              <ReloadBoundary>
+                <Suspense fallback={null}>
+                  <StatsView />
+                </Suspense>
+              </ReloadBoundary>
             )}
           </main>
         </div>
       </div>
 
-      <Footer />
+      {/* Statistics puts the footer at the end of its scrolling page */}
+      {tab !== "statistics" && <Footer />}
 
       {/* Course info dialog - single instance, accessible from anywhere */}
       <CourseInfoDialog

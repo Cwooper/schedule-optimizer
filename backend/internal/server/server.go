@@ -51,7 +51,6 @@ func Run() {
 	defer stop()
 
 	gradeService := grades.NewService(database, queries, cfg.GradeDataPath)
-	_ = stats.NewService(gradeService) // TODO: pass to handlers when stats endpoints are added
 
 	scheduleCache := cache.NewScheduleCache(queries, gradeService)
 	jobsService := jobs.Setup(ctx, cfg, database, gradeService, scheduleCache)
@@ -65,7 +64,8 @@ func Run() {
 
 	generatorService := generator.NewService(queries)
 	searchService := search.NewService(database, queries, gradeService)
-	handlers := api.NewHandlers(database, scheduleCache, generatorService, queries, searchService, gradeService)
+	statsService := stats.NewService(gradeService, queries)
+	handlers := api.NewHandlers(database, scheduleCache, generatorService, queries, searchService, gradeService, statsService)
 
 	RegisterRoutes(r, handlers)
 

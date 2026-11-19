@@ -281,6 +281,16 @@ interface CourseDialogState {
 
 export type SlotAddResult = "added" | "updated" | "duplicate"
 
+/** The Statistics tab's view: a course, or one of its sections when term and crn are set. */
+export interface StatsSelection {
+  subject: string
+  number: string
+  term: string
+  crn: string
+}
+
+const EMPTY_STATS_SELECTION: StatsSelection = { subject: "", number: "", term: "", crn: "" }
+
 interface AppState {
   // Analytics
   sessionId: string
@@ -323,6 +333,8 @@ interface AppState {
   searchFilters: SearchFilters
   searchResult: SearchResponse | null
   expandedSearchCourses: Set<string> // courseKeys that are expanded in results
+
+  statsSelection: StatsSelection
 
   // Actions
   setTab: (tab: Tab) => void
@@ -374,6 +386,8 @@ interface AppState {
   setSearchResult: (result: SearchResponse | null) => void
   toggleSearchCourseExpanded: (courseKey: string) => void
   clearExpandedSearchCourses: () => void
+
+  setStatsSelection: (selection: Partial<StatsSelection>) => void
 }
 
 // --- Helpers ---
@@ -511,6 +525,7 @@ export const useAppStore = create<AppState>()(
       searchFilters: { ...DEFAULT_SEARCH_FILTERS },
       searchResult: null,
       expandedSearchCourses: new Set(),
+      statsSelection: EMPTY_STATS_SELECTION,
 
       // Actions
       setTab: (tab) => set({ tab }),
@@ -814,6 +829,9 @@ export const useAppStore = create<AppState>()(
 
       clearExpandedSearchCourses: () =>
         set({ expandedSearchCourses: new Set() }),
+
+      setStatsSelection: (selection) =>
+        set((state) => ({ statsSelection: { ...state.statsSelection, ...selection } })),
     }),
     {
       name: "schedule-optimizer",
@@ -838,6 +856,7 @@ export const useAppStore = create<AppState>()(
         generatedWithParams: state.generatedWithParams,
         currentScheduleIndex: state.currentScheduleIndex,
         searchFilters: state.searchFilters,
+        statsSelection: state.statsSelection,
         // Note: searchResult and expandedSearchCourses are NOT persisted
       }),
     }

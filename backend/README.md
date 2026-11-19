@@ -86,6 +86,7 @@ backend/
 │   │   ├── queries.sql       # Named SQL queries (schema from migrations)
 │   │   └── *.go              # Generated (don't edit)
 │   ├── cache/                # In-memory cache for schedule generation
+│   ├── stats/                # Statistics tab course and section views, grade import (stats/grades)
 │   ├── generator/            # Schedule generation (bitmask + backtracking)
 │   │   ├── service.go        # Generate() entry point
 │   │   ├── bitmask.go        # O(1) conflict detection

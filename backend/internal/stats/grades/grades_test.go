@@ -13,105 +13,6 @@ func almostEqual(a, b, tol float64) bool {
 	return math.Abs(a-b) < tol
 }
 
-func TestComputeGPA(t *testing.T) {
-	tests := []struct {
-		name                        string
-		a, am, bp, b, bm, cp, c, cm int
-		dp, d, dm, f                int
-		want                        float64
-	}{
-		{
-			name: "all As",
-			a:    10,
-			want: 4.0,
-		},
-		{
-			name: "all Fs",
-			f:    5,
-			want: 0.0,
-		},
-		{
-			name: "no grades",
-			want: 0.0,
-		},
-		{
-			name: "mixed grades",
-			a:    5, b: 5, c: 5, f: 5,
-			// (5*4.0 + 5*3.0 + 5*2.0 + 5*0.0) / 20 = 45/20 = 2.25
-			want: 2.25,
-		},
-		{
-			name: "single A-minus",
-			am:   1,
-			want: 3.7,
-		},
-		{
-			name: "B+/B- average",
-			bp:   1, bm: 1,
-			// (3.3 + 2.7) / 2 = 3.0
-			want: 3.0,
-		},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got := computeGPA(tt.a, tt.am, tt.bp, tt.b, tt.bm,
-				tt.cp, tt.c, tt.cm, tt.dp, tt.d, tt.dm, tt.f)
-			if !almostEqual(got, tt.want, 0.001) {
-				t.Errorf("computeGPA() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
-
-func TestComputePassRate(t *testing.T) {
-	tests := []struct {
-		name        string
-		s, u, p, np int
-		wantNil     bool
-		want        float64
-	}{
-		{
-			name:    "no data",
-			wantNil: true,
-		},
-		{
-			name: "all pass",
-			s:    10, p: 5,
-			want: 1.0,
-		},
-		{
-			name: "all fail",
-			u:    3, np: 7,
-			want: 0.0,
-		},
-		{
-			name: "mixed",
-			s:    6, u: 2, p: 4, np: 8,
-			// (6+4) / (6+2+4+8) = 10/20 = 0.5
-			want: 0.5,
-		},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got := computePassRate(tt.s, tt.u, tt.p, tt.np)
-			if tt.wantNil {
-				if got != nil {
-					t.Errorf("computePassRate() = %v, want nil", *got)
-				}
-				return
-			}
-			if got == nil {
-				t.Fatal("computePassRate() = nil, want non-nil")
-			}
-			if !almostEqual(*got, tt.want, 0.001) {
-				t.Errorf("computePassRate() = %v, want %v", *got, tt.want)
-			}
-		})
-	}
-}
-
 func TestPickBest(t *testing.T) {
 	tests := []struct {
 		name       string
@@ -430,10 +331,46 @@ func TestImportAndComputeIdempotency(t *testing.T) {
 		t.Error("service should be loaded after ImportAndCompute")
 	}
 
-	// Aggregates should have been computed from the seeded row
-	aggCount, _ := queries.GetGradeAggregateCount(ctx)
-	if aggCount == 0 {
-		t.Error("expected aggregates to be computed")
+	// 92.5 grade points over 28 letters. The generator's pass rate counts
+	// only P/NP/S/U, so a letter-only course has none.
+	agg := svc.GetAggregate("course", "CSCI", "247", "")
+	if agg == nil {
+		t.Fatal("course aggregate not computed")
+	}
+	if !almostEqual(agg.GPA, 92.5/28, 1e-9) || agg.PassRate != nil {
+		t.Errorf("course aggregate GPA = %v, pass rate = %v; want %v and nil", agg.GPA, agg.PassRate, 92.5/28)
+	}
+}
+
+// The stats index joins Banner's sections; a failure there must not keep
+// the generator's GPAs from loading, and a later rebuild recovers it.
+func TestIndexFailureLeavesGPAsLoaded(t *testing.T) {
+	db, queries := testutil.SetupTestDB(t)
+	ctx := context.Background()
+	_, err := db.Exec(`
+		INSERT INTO grade_aggregates (level, subject, course_number, instructor, sections_count, students_count, cnt_a, gpa)
+			VALUES ('course', 'CSCI', '247', '', 1, 20, 20, 4.0);
+		ALTER TABLE sections RENAME TO sections_away;
+	`)
+	if err != nil {
+		t.Fatal(err)
+	}
+	svc := NewService(db, queries, "")
+	if err := svc.LoadFromDB(ctx); err != nil {
+		t.Fatalf("LoadFromDB: %v", err)
+	}
+	if gpa, _, ok := svc.LookupCourseGPA("CSCI", "247"); !ok || gpa != 4.0 {
+		t.Errorf("course GPA = %v, %v; want 4.0", gpa, ok)
+	}
+	if svc.Index() != nil {
+		t.Error("index built without the sections table")
+	}
+
+	if _, err := db.Exec("ALTER TABLE sections_away RENAME TO sections"); err != nil {
+		t.Fatal(err)
+	}
+	if err := svc.RebuildIndex(ctx); err != nil || svc.Index() == nil {
+		t.Errorf("rebuild: %v, index %v", err, svc.Index())
 	}
 }
 

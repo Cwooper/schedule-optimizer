@@ -309,6 +309,103 @@ export interface SearchResponse {
   stats: SearchStats
 }
 
+// --- Statistics ---
+
+/**
+ * Grade counts in the grade file's order: A, A-, B+, B, B-, C+, C, C-, D+,
+ * D, D-, F, W, P, NP, S, U.
+ */
+export type GradeCounts = number[]
+
+/** The comparison metric: GPA, or pass rate for an S/U-only course. */
+export type StatsMetric = "gpa" | "pass"
+
+/** Grades and GPA are absent for a scope too small to report. */
+export interface GradeStats {
+  students: number
+  grades?: GradeCounts
+  gpa: number | null
+  pass: number | null
+  withdrew: number | null
+}
+
+export interface StatsCoursesResponse {
+  subjects: Subject[]
+  courses: { subject: string; number: string; title: string }[]
+  // The terms the grade data spans.
+  firstTerm: string
+  lastTerm: string
+}
+
+export interface StatsSectionRow extends GradeStats {
+  term: string
+  crn: string
+}
+
+export interface StatsProfessorRow extends GradeStats {
+  name: string // "" groups sections with no professor listed
+  sections: number
+  lastTaught?: string
+  nextTerm?: string // soonest upcoming term the professor teaches
+  history: StatsSectionRow[] // newest first
+}
+
+export interface StatsCourse {
+  subject: string
+  number: string
+  title: string
+  metric: StatsMetric
+  summary: GradeStats
+  sections: number
+  professors: number
+  terms: StatsTerm[] // oldest first
+  seasons: { quarter: number; value: number | null }[] // Fall, Winter, Spring, Summer
+  // Every term the course ran or is scheduled in, oldest first; sections
+  // count each CRN once across Banner and the grade file.
+  offered: { term: string; sections: number }[]
+  upcoming: { term: string; professors: string[] }[] // not yet started, soonest first
+  professorRows: StatsProfessorRow[]
+}
+
+/** A graded term; value is null when its sections are too small to report. */
+export interface StatsTerm {
+  term: string
+  value: number | null
+  sections: number
+  students: number
+}
+
+export interface StatsDot {
+  term: string
+  crn: string
+  professor: string
+  students: number
+  value: number
+  mine?: boolean
+}
+
+export interface StatsSection {
+  term: string
+  crn: string
+  subject: string
+  number: string
+  title: string
+  professor: string
+  metric: StatsMetric
+  section: GradeStats
+  course: GradeStats
+  rank: number // 0 when too small to rank
+  dots: StatsDot[]
+  siblings: (GradeStats & { crn: string; professor: string })[]
+  class?: {
+    meetings: MeetingTime[]
+    credits: number
+    creditsHigh?: number
+    capacity: number
+    final?: Final
+  }
+}
+
 // --- Errors ---
 
 export class ApiError extends Error {
@@ -346,14 +443,16 @@ async function fetchAPI<T>(
   }
 
   if (!res.ok) {
-    if (res.status >= 500) {
+    const body = await res.json().catch(() => ({}))
+    // A 503 from the server names what is unavailable (statistics still
+    // loading); other server errors stay generic.
+    if (res.status >= 500 && !(res.status === 503 && body.error)) {
       throw new ApiError(
         "Something went wrong on the server. Try again later.",
         res.status
       )
     }
-    const body = await res.json().catch(() => ({ error: "Request failed" }))
-    throw new ApiError(body.error || `HTTP ${res.status}`, res.status)
+    throw new ApiError(body.error || "Request failed", res.status)
   }
 
   if (res.status === 204) return undefined as T
@@ -448,4 +547,16 @@ export async function searchCourses(
   if (req.minCredits !== undefined) params.set("minCredits", String(req.minCredits))
   if (req.maxCredits !== undefined) params.set("maxCredits", String(req.maxCredits))
   return fetchAPI<SearchResponse>(`/search?${params.toString()}`)
+}
+
+export async function getStatsCourses(): Promise<StatsCoursesResponse> {
+  return fetchAPI<StatsCoursesResponse>("/stats/courses")
+}
+
+export async function getStatsCourse(subject: string, number: string): Promise<StatsCourse> {
+  return fetchAPI<StatsCourse>(`/stats/course/${encodeURIComponent(subject)}/${encodeURIComponent(number)}`)
+}
+
+export async function getStatsSection(term: string, crn: string): Promise<StatsSection> {
+  return fetchAPI<StatsSection>(`/stats/section/${encodeURIComponent(term)}/${encodeURIComponent(crn)}`)
 }

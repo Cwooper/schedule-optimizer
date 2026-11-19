@@ -20,12 +20,13 @@ type Service struct {
 	dataPath string
 
 	mu            sync.RWMutex
-	subjectMap    map[string]string          // banner_subject → grade_subject
-	instructorMap map[string]string          // banner_name → grade_name
+	subjectMap    map[string]string          // banner_subject -> grade_subject
+	instructorMap map[string]string          // banner_name -> grade_name
 	courseProfAgg map[string]*GradeAggregate // "SUBJECT:NUM:INSTRUCTOR"
 	courseAgg     map[string]*GradeAggregate // "SUBJECT:NUM"
 	professorAgg  map[string]*GradeAggregate // "INSTRUCTOR"
 	subjectAgg    map[string]*GradeAggregate // "SUBJECT"
+	index         *Index
 	loaded        bool
 }
 
@@ -38,7 +39,7 @@ func NewService(db *sql.DB, queries *store.Queries, dataPath string) *Service {
 	}
 }
 
-// ImportAndCompute runs the full pipeline: import Excel → compute mappings → aggregate → load into memory.
+// ImportAndCompute runs the full pipeline: import Excel -> compute mappings -> aggregate -> load into memory.
 // Each step is idempotent: if data already exists in DB, the step is skipped.
 func (s *Service) ImportAndCompute(ctx context.Context) error {
 	// Step 1: Import Excel if needed
@@ -87,7 +88,9 @@ func (s *Service) ImportAndCompute(ctx context.Context) error {
 	return s.LoadFromDB(ctx)
 }
 
-// LoadFromDB loads pre-computed mappings and aggregates from DB into memory.
+// LoadFromDB loads the mappings, aggregates, and stats index into memory.
+// The generator's GPAs do not wait on the index: an index error is logged
+// and leaves only the stats views unavailable until RebuildIndex succeeds.
 func (s *Service) LoadFromDB(ctx context.Context) error {
 	// Load subject mappings
 	subjectMappings, err := s.queries.GetSubjectMappings(ctx)
@@ -128,24 +131,13 @@ func (s *Service) LoadFromDB(ctx context.Context) error {
 			Instructor:   row.Instructor,
 			Sections:     int(row.SectionsCount),
 			Students:     int(row.StudentsCount),
-			CntA:         int(row.CntA),
-			CntAM:        int(row.CntAm),
-			CntBP:        int(row.CntBp),
-			CntB:         int(row.CntB),
-			CntBM:        int(row.CntBm),
-			CntCP:        int(row.CntCp),
-			CntC:         int(row.CntC),
-			CntCM:        int(row.CntCm),
-			CntDP:        int(row.CntDp),
-			CntD:         int(row.CntD),
-			CntDM:        int(row.CntDm),
-			CntF:         int(row.CntF),
-			CntW:         int(row.CntW),
-			CntP:         int(row.CntP),
-			CntNP:        int(row.CntNp),
-			CntS:         int(row.CntS),
-			CntU:         int(row.CntU),
-			GPA:          row.Gpa,
+			Counts: Counts{
+				int(row.CntA), int(row.CntAm), int(row.CntBp), int(row.CntB), int(row.CntBm),
+				int(row.CntCp), int(row.CntC), int(row.CntCm), int(row.CntDp), int(row.CntD),
+				int(row.CntDm), int(row.CntF), int(row.CntW), int(row.CntP), int(row.CntNp),
+				int(row.CntS), int(row.CntU),
+			},
+			GPA: row.Gpa,
 		}
 		if row.PassRate.Valid {
 			pr := row.PassRate.Float64
@@ -182,7 +174,50 @@ func (s *Service) LoadFromDB(ctx context.Context) error {
 		"professor_aggs", len(professorAgg),
 		"subject_aggs", len(subjectAgg),
 	)
+	if err := s.RebuildIndex(ctx); err != nil {
+		slog.Error("Failed to build the stats index", "error", err)
+	}
 	return nil
+}
+
+// RebuildIndex rebuilds the stats index from the grade rows and Banner's
+// current sections, which key them. Requests keep reading the old index
+// until the swap. It does nothing before grade data loads.
+func (s *Service) RebuildIndex(ctx context.Context) error {
+	if !s.IsLoaded() {
+		return nil
+	}
+	index, err := s.loadIndex(ctx)
+	if err != nil {
+		return err
+	}
+	s.mu.Lock()
+	s.index = index
+	s.mu.Unlock()
+	slog.Info("Stats index built", "courses", len(index.list))
+	return nil
+}
+
+func (s *Service) loadIndex(ctx context.Context) (*Index, error) {
+	var src indexSource
+	var err error
+	if src.rows, err = s.queries.GetGradeRowsWithBanner(ctx); err != nil {
+		return nil, fmt.Errorf("load grade rows: %w", err)
+	}
+	if src.titles, err = s.queries.GetLatestCourseTitles(ctx); err != nil {
+		return nil, fmt.Errorf("load course titles: %w", err)
+	}
+	if src.subjects, err = s.queries.GetLatestSubjectDescriptions(ctx); err != nil {
+		return nil, fmt.Errorf("load subject descriptions: %w", err)
+	}
+	return buildIndex(src), nil
+}
+
+// Index returns the stats index, or nil until it first builds.
+func (s *Service) Index() *Index {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	return s.index
 }
 
 // IsLoaded returns true if grade data is loaded into memory.

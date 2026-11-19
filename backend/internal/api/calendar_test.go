@@ -28,7 +28,7 @@ func getJSON(t *testing.T, h gin.HandlerFunc, route, url string) (int, map[strin
 func TestGetCalendar(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
-	h := NewHandlers(db, nil, nil, queries, nil, nil)
+	h := NewHandlers(db, nil, nil, queries, nil, nil, nil)
 	testutil.SeedSpring2025Calendar(t, db)
 
 	code, body := getJSON(t, h.GetCalendar, "/calendar/:term", "/calendar/202520")
@@ -60,7 +60,7 @@ func TestGetCalendar(t *testing.T) {
 func TestGetCRNIncludesFinal(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
-	h := NewHandlers(db, nil, nil, queries, nil, nil)
+	h := NewHandlers(db, nil, nil, queries, nil, nil, nil)
 	testutil.SeedSpring2025Calendar(t, db)
 
 	_, body := getJSON(t, h.GetCRN, "/crn/:crn", "/crn/20001?term=202520")
@@ -82,7 +82,7 @@ func TestGetCRNIncludesFinal(t *testing.T) {
 func TestGetCRNWithoutLoadableFinals(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
-	h := NewHandlers(db, nil, nil, queries, nil, nil)
+	h := NewHandlers(db, nil, nil, queries, nil, nil, nil)
 	if _, err := db.Exec(`INSERT INTO finals_mappings (term_code, time_range_start, time_range_end, has_tuth, exam_date, exam_start_time, exam_end_time)
 		VALUES ('202520', '0930', '1029', 0, 'June 10', '1030', '1230')`); err != nil {
 		t.Fatal(err)
@@ -98,7 +98,7 @@ func TestGetCRNWithoutLoadableFinals(t *testing.T) {
 func TestGetTermsIncludesDates(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
 	testutil.SeedTestData(t, db)
-	h := NewHandlers(db, nil, nil, queries, nil, nil)
+	h := NewHandlers(db, nil, nil, queries, nil, nil, nil)
 	testutil.SeedSpring2025Calendar(t, db)
 
 	_, body := getJSON(t, h.GetTerms, "/terms", "/terms")

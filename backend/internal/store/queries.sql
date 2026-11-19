@@ -158,7 +158,7 @@ ORDER BY subject;
 -- name: GetSectionWithInstructorByTermAndCRN :one
 SELECT
     s.id, s.term, s.crn, s.subject, s.subject_description,
-    s.course_number, s.title, s.credit_hours_low,
+    s.course_number, s.title, s.credit_hours_low, s.credit_hours_high,
     s.enrollment, s.max_enrollment, s.seats_available, s.wait_count, s.is_open,
     s.instructional_method, s.schedule_type,
     i.name AS instructor_name, i.email AS instructor_email
@@ -291,6 +291,40 @@ SELECT g.subject as grade_subject, g.course_number as grade_course_number,
 FROM grade_rows g
 JOIN sections s ON g.term = s.term AND g.crn = s.crn
 LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1;
+
+-- One primary instructor per section, so a second primary row cannot count a section twice.
+-- name: GetGradeRowsWithBanner :many
+SELECT sqlc.embed(g),
+       s.subject AS banner_subject, s.course_number AS banner_course_number,
+       i.name AS banner_instructor
+FROM grade_rows g
+LEFT JOIN sections s ON g.term = s.term AND g.crn = s.crn
+LEFT JOIN instructors i ON i.id = (
+    SELECT MIN(id) FROM instructors WHERE section_id = s.id AND is_primary = 1
+);
+
+-- name: GetLatestCourseTitles :many
+SELECT s.subject, s.course_number, s.title, COUNT(*) AS sections
+FROM sections s
+JOIN (
+    SELECT subject, course_number, MAX(term) AS term FROM sections GROUP BY subject, course_number
+) n ON s.subject = n.subject AND s.course_number = n.course_number AND s.term = n.term
+GROUP BY s.subject, s.course_number, s.title;
+
+-- name: GetLatestSubjectDescriptions :many
+SELECT subject, subject_description, CAST(MAX(term) AS TEXT) AS term
+FROM sections
+WHERE subject_description IS NOT NULL AND subject_description != ''
+GROUP BY subject;
+
+-- name: GetCourseOfferings :many
+SELECT s.term, s.crn, i.name AS instructor_name
+FROM sections s
+LEFT JOIN instructors i ON i.id = (
+    SELECT MIN(id) FROM instructors WHERE section_id = s.id AND is_primary = 1
+)
+WHERE s.subject = ? AND s.course_number = ?
+ORDER BY s.term, s.crn;
 
 -- name: UpsertTermDates :exec
 INSERT INTO term_dates (term_code, start_date, end_date)

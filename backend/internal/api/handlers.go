@@ -11,6 +11,7 @@ import (
 	"schedule-optimizer/internal/cache"
 	"schedule-optimizer/internal/generator"
 	"schedule-optimizer/internal/search"
+	"schedule-optimizer/internal/stats"
 	"schedule-optimizer/internal/stats/grades"
 	"schedule-optimizer/internal/store"
 
@@ -27,6 +28,7 @@ type Handlers struct {
 	queries   *store.Queries
 	search    *search.Service
 	grades    *grades.Service
+	stats     *stats.Service
 }
 
 // Helper functions for converting sql.Null types
@@ -99,7 +101,7 @@ func boolToInt64(b bool) int64 {
 }
 
 // NewHandlers creates a new Handlers instance with all dependencies.
-func NewHandlers(db *sql.DB, cache *cache.ScheduleCache, generator *generator.Service, queries *store.Queries, searchSvc *search.Service, gradesSvc *grades.Service) *Handlers {
+func NewHandlers(db *sql.DB, cache *cache.ScheduleCache, generator *generator.Service, queries *store.Queries, searchSvc *search.Service, gradesSvc *grades.Service, statsSvc *stats.Service) *Handlers {
 	return &Handlers{
 		db:        db,
 		cache:     cache,
@@ -107,6 +109,7 @@ func NewHandlers(db *sql.DB, cache *cache.ScheduleCache, generator *generator.Se
 		queries:   queries,
 		search:    searchSvc,
 		grades:    gradesSvc,
+		stats:     statsSvc,
 	}
 }
 

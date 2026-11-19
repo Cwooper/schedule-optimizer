@@ -17,68 +17,6 @@ type aggregateKey struct {
 	instructor   string
 }
 
-// accumulator collects grade counts for one aggregate bucket.
-type accumulator struct {
-	sections         int
-	students         int
-	a, am, bp, b, bm int
-	cp, c, cm        int
-	dp, d, dm, f     int
-	w, p, np, s, u   int
-}
-
-func (acc *accumulator) addRow(row *store.GradeRow) {
-	acc.sections++
-	acc.students += int(row.GradeCount)
-	acc.a += int(row.CntA)
-	acc.am += int(row.CntAm)
-	acc.bp += int(row.CntBp)
-	acc.b += int(row.CntB)
-	acc.bm += int(row.CntBm)
-	acc.cp += int(row.CntCp)
-	acc.c += int(row.CntC)
-	acc.cm += int(row.CntCm)
-	acc.dp += int(row.CntDp)
-	acc.d += int(row.CntD)
-	acc.dm += int(row.CntDm)
-	acc.f += int(row.CntF)
-	acc.w += int(row.CntW)
-	acc.p += int(row.CntP)
-	acc.np += int(row.CntNp)
-	acc.s += int(row.CntS)
-	acc.u += int(row.CntU)
-}
-
-func (acc *accumulator) toAggregate(key aggregateKey) *GradeAggregate {
-	return &GradeAggregate{
-		Level:        key.level,
-		Subject:      key.subject,
-		CourseNumber: key.courseNumber,
-		Instructor:   key.instructor,
-		Sections:     acc.sections,
-		Students:     acc.students,
-		CntA:         acc.a,
-		CntAM:        acc.am,
-		CntBP:        acc.bp,
-		CntB:         acc.b,
-		CntBM:        acc.bm,
-		CntCP:        acc.cp,
-		CntC:         acc.c,
-		CntCM:        acc.cm,
-		CntDP:        acc.dp,
-		CntD:         acc.d,
-		CntDM:        acc.dm,
-		CntF:         acc.f,
-		CntW:         acc.w,
-		CntP:         acc.p,
-		CntNP:        acc.np,
-		CntS:         acc.s,
-		CntU:         acc.u,
-		GPA:          computeGPA(acc.a, acc.am, acc.bp, acc.b, acc.bm, acc.cp, acc.c, acc.cm, acc.dp, acc.d, acc.dm, acc.f),
-		PassRate:     computePassRate(acc.s, acc.u, acc.p, acc.np),
-	}
-}
-
 // computeAggregates loads all grade_rows and pre-computes aggregates at four levels.
 func computeAggregates(ctx context.Context, db *sql.DB, queries *store.Queries) error {
 	// Read grade rows outside the write transaction
@@ -87,7 +25,7 @@ func computeAggregates(ctx context.Context, db *sql.DB, queries *store.Queries) 
 		return err
 	}
 
-	buckets := make(map[aggregateKey]*accumulator)
+	buckets := make(map[aggregateKey]*GradeAggregate)
 
 	for _, row := range rows {
 		prof := row.Professor
@@ -127,8 +65,8 @@ func computeAggregates(ctx context.Context, db *sql.DB, queries *store.Queries) 
 	}
 
 	var count int
-	for key, acc := range buckets {
-		agg := acc.toAggregate(key)
+	for _, agg := range buckets {
+		agg.finish()
 
 		var passRate sql.NullFloat64
 		if agg.PassRate != nil {
@@ -142,23 +80,23 @@ func computeAggregates(ctx context.Context, db *sql.DB, queries *store.Queries) 
 			Instructor:    agg.Instructor,
 			SectionsCount: int64(agg.Sections),
 			StudentsCount: int64(agg.Students),
-			CntA:          int64(agg.CntA),
-			CntAm:         int64(agg.CntAM),
-			CntBp:         int64(agg.CntBP),
-			CntB:          int64(agg.CntB),
-			CntBm:         int64(agg.CntBM),
-			CntCp:         int64(agg.CntCP),
-			CntC:          int64(agg.CntC),
-			CntCm:         int64(agg.CntCM),
-			CntDp:         int64(agg.CntDP),
-			CntD:          int64(agg.CntD),
-			CntDm:         int64(agg.CntDM),
-			CntF:          int64(agg.CntF),
-			CntW:          int64(agg.CntW),
-			CntP:          int64(agg.CntP),
-			CntNp:         int64(agg.CntNP),
-			CntS:          int64(agg.CntS),
-			CntU:          int64(agg.CntU),
+			CntA:          int64(agg.Counts[GradeA]),
+			CntAm:         int64(agg.Counts[GradeAMinus]),
+			CntBp:         int64(agg.Counts[GradeBPlus]),
+			CntB:          int64(agg.Counts[GradeB]),
+			CntBm:         int64(agg.Counts[GradeBMinus]),
+			CntCp:         int64(agg.Counts[GradeCPlus]),
+			CntC:          int64(agg.Counts[GradeC]),
+			CntCm:         int64(agg.Counts[GradeCMinus]),
+			CntDp:         int64(agg.Counts[GradeDPlus]),
+			CntD:          int64(agg.Counts[GradeD]),
+			CntDm:         int64(agg.Counts[GradeDMinus]),
+			CntF:          int64(agg.Counts[GradeF]),
+			CntW:          int64(agg.Counts[GradeW]),
+			CntP:          int64(agg.Counts[GradeP]),
+			CntNp:         int64(agg.Counts[GradeNP]),
+			CntS:          int64(agg.Counts[GradeS]),
+			CntU:          int64(agg.Counts[GradeU]),
 			Gpa:           agg.GPA,
 			PassRate:      passRate,
 		}); err != nil {
@@ -178,9 +116,14 @@ func computeAggregates(ctx context.Context, db *sql.DB, queries *store.Queries) 
 	return nil
 }
 
-func getBucket(buckets map[aggregateKey]*accumulator, key aggregateKey) *accumulator {
+func getBucket(buckets map[aggregateKey]*GradeAggregate, key aggregateKey) *GradeAggregate {
 	if buckets[key] == nil {
-		buckets[key] = &accumulator{}
+		buckets[key] = &GradeAggregate{
+			Level:        key.level,
+			Subject:      key.subject,
+			CourseNumber: key.courseNumber,
+			Instructor:   key.instructor,
+		}
 	}
 	return buckets[key]
 }

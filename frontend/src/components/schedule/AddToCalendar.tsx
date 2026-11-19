@@ -97,7 +97,7 @@ export function AddToCalendar({ sections }: { sections: HydratedSection[] }) {
 
   return (
     <Popover>
-      <Tooltip>
+      <Tooltip touchToggle={false}>
         <TooltipTrigger asChild>
           <PopoverTrigger asChild>
             <Button variant="ghost" size="icon" disabled={!term}>

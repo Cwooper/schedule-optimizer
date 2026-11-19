@@ -8,8 +8,8 @@ import (
 	"schedule-optimizer/internal/stats/grades"
 )
 
-// GradeImportJob imports grade data and computes mappings/aggregates on startup.
-// Runs once on boot. All steps are idempotent.
+// GradeImportJob imports grade data and loads the generator's GPAs and the
+// stats index on startup. Runs once on boot. All steps are idempotent.
 type GradeImportJob struct {
 	gradeService *grades.Service
 	cache        CacheInvalidator

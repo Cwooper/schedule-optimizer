@@ -18,7 +18,7 @@ const testSession = "550e8400-e29b-41d4-a716-446655440000"
 
 func TestRecordEvent(t *testing.T) {
 	db, queries := testutil.SetupTestDB(t)
-	h := NewHandlers(db, nil, nil, queries, nil, nil)
+	h := NewHandlers(db, nil, nil, queries, nil, nil, nil)
 	r := gin.New()
 	r.POST("/api/events", h.RecordEvent)
 

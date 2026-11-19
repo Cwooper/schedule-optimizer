@@ -10,6 +10,9 @@ import (
 
 // RegisterRoutes sets up all API routes and static file serving.
 func RegisterRoutes(r *gin.Engine, h *api.Handlers) {
+	// Match on the escaped path so a subject with a slash (A/HI, sent as
+	// A%2FHI) stays one parameter; params are still unescaped.
+	r.UseRawPath = true
 	apiGroup := r.Group("/api")
 	apiGroup.Use(gzip.Gzip(gzip.DefaultCompression))
 	{
@@ -25,6 +28,9 @@ func RegisterRoutes(r *gin.Engine, h *api.Handlers) {
 		apiGroup.GET("/announcement", h.GetAnnouncement)
 		apiGroup.POST("/feedback", h.SubmitFeedback)
 		apiGroup.POST("/events", h.RecordEvent)
+		apiGroup.GET("/stats/courses", h.GetStatsCourses)
+		apiGroup.GET("/stats/course/:subject/:number", h.GetStatsCourse)
+		apiGroup.GET("/stats/section/:term/:crn", h.GetStatsSection)
 	}
 
 	// Serve static files (compiled frontend)

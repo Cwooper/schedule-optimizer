@@ -42,7 +42,7 @@ const TIME_OPTIONS = Array.from({ length: 25 }, (_, i) => {
 /** Lives inside the Popover that ScheduleBuilder anchors to its footer. */
 export function WeightsTrigger() {
   return (
-    <Tooltip>
+    <Tooltip touchToggle={false}>
       <TooltipTrigger asChild>
         <PopoverTrigger asChild>
           <Button variant="secondary" size="icon">

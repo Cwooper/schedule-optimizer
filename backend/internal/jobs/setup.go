@@ -17,6 +17,8 @@ import (
 // Returns nil if jobs are disabled. The context controls job lifecycle.
 func Setup(ctx context.Context, cfg *config.Config, db *sql.DB, gradeService *grades.Service, cache CacheInvalidator) *Service {
 	if !cfg.JobsEnabled {
+		// TODO: this also skips GradeImportJob, so GPAs stay off and the
+		// Statistics endpoints return 503 for the whole run.
 		return nil
 	}
 
@@ -33,8 +35,8 @@ func Setup(ctx context.Context, cfg *config.Config, db *sql.DB, gradeService *gr
 	// are fresh before the scrape job reads them at those checks.
 	service := NewService(time.Minute)
 	service.Register(NewGradeImportJob(gradeService, cache))
-	service.Register(NewCalendarJob(sc, calendar.NewService(db), cache, cfg.DailyScrapeHour))
-	service.Register(NewScrapeJob(queries, sc, cache, cfg.PastTermYears, cfg.ActiveScrapeHours, cfg.DailyScrapeHour))
+	service.Register(NewCalendarJob(sc, calendar.NewService(db), cache, gradeService, cfg.DailyScrapeHour))
+	service.Register(NewScrapeJob(queries, sc, cache, gradeService, cfg.PastTermYears, cfg.ActiveScrapeHours, cfg.DailyScrapeHour))
 
 	go service.Start(ctx)
 

@@ -12,12 +12,12 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import type { Final, HydratedSection, MeetingTime } from "@/lib/api"
+import type { Final, HydratedSection } from "@/lib/api"
 import { cn } from "@/lib/utils"
 import { describeGrades, type GradeKind } from "@/lib/grades"
 import { formatNumericDate, formatWeekday } from "@/lib/dates"
-import { FINAL_GUESS_REASONS } from "@/lib/finals"
-import { DAY_LETTERS } from "@/lib/schedule-utils"
+import { formatLocation, formatMeetingTime, formatTime } from "@/lib/meetings"
+import { FinalGuessIcon } from "./FinalGuessIcon"
 
 interface SectionCardProps {
   section: HydratedSection
@@ -33,54 +33,6 @@ interface SectionCardProps {
   isAdded?: boolean
   /** Optional term label shown when sections span multiple terms */
   termLabel?: string
-}
-
-function formatDays(days: boolean[]): string {
-  return days
-    .map((active, i) => (active ? DAY_LETTERS[i] : null))
-    .filter(Boolean)
-    .join("")
-}
-
-function formatTime(time: string): string {
-  if (!time) return ""
-  const clean = time.replace(":", "").padStart(4, "0")
-  const hours = parseInt(clean.slice(0, 2), 10)
-  const mins = clean.slice(2, 4)
-  const suffix = hours >= 12 ? "pm" : "am"
-  let displayHour = hours
-  if (hours > 12) {
-    displayHour = hours - 12
-  } else if (hours === 0) {
-    displayHour = 12
-  }
-  return `${displayHour}:${mins}${suffix}`
-}
-
-function isAsync(meeting: MeetingTime): boolean {
-  return meeting.room === "ASNC"
-}
-
-function formatMeetingTime(meeting: MeetingTime): string {
-  const { startTime, endTime } = meeting
-  if (meeting.days.slice(1, 6).some(Boolean) && startTime && endTime) {
-    return `${formatDays(meeting.days)} ${formatTime(startTime)}-${formatTime(endTime)}`
-  }
-  if (isAsync(meeting)) return "Asynchronous, no set times"
-  return "Times arranged with instructor"
-}
-
-function formatLocation(meeting: MeetingTime): string | null {
-  const building = meeting.building || null
-  // Don't show ASNC/SYNC as room names — they're schedule modifiers, not locations
-  const room =
-    meeting.room && meeting.room !== "ASNC" && meeting.room !== "SYNC"
-      ? meeting.room
-      : null
-  if (!building && !room) return null
-  if (!building) return room
-  if (!room) return building
-  return `${building} ${room}`
 }
 
 function formatEnrollment(section: HydratedSection): string {
@@ -101,16 +53,7 @@ function FinalRow({ final }: { final: Final }) {
           <span className="text-muted-foreground">Final</span> {formatWeekday(final.date)}{" "}
           {formatNumericDate(final.date)} {formatTime(final.start)}-{formatTime(final.end)}
         </span>
-        {!final.certain && final.reason && (
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <span className="inline-flex cursor-help" aria-label="Estimated final">
-                <CircleHelp className="size-3 text-muted-foreground" />
-              </span>
-            </TooltipTrigger>
-            <TooltipContent>{FINAL_GUESS_REASONS[final.reason]}</TooltipContent>
-          </Tooltip>
-        )}
+        <FinalGuessIcon final={final} />
       </span>
       {final.location && <span className="text-muted-foreground">{final.location}</span>}
     </div>
