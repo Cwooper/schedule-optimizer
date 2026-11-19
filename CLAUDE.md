@@ -133,11 +133,13 @@ backend/
 │   │   └── scrape.go         # ScrapeJob: each term due by its phase and last_scraped_at; failures retry hourly
 │   ├── cache/                # In-memory schedule cache (sections carry their computed final)
 │   └── generator/            # Schedule generation (bitmask + backtracking)
-│       ├── service.go        # Generate() entry point, course group building
+│       ├── service.go        # Generate() entry point, course group building, ranking order
 │       ├── bitmask.go        # O(1) conflict detection via [8]uint64
-│       ├── backtrack.go      # Recursive enumeration with pruning
-│       ├── scorer.go         # Gap, Start, End scoring
-│       └── types.go          # Request/Response types
+│       ├── backtrack.go      # Recursive enumeration with pruning, bounded by schedules found and search steps
+│       ├── ranker.go         # Keeps the best N schedules during enumeration, so memory stays flat
+│       ├── preferences.go    # Request weights: defaults and validation
+│       ├── scorer.go         # Weighted start, end, gaps, GPA, and seats scoring
+│       └── types.go          # Request/Response types and generation limits
 ├── sqlc.yaml
 ├── Makefile
 └── .env.example
