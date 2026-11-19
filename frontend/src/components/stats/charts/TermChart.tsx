@@ -9,7 +9,7 @@ import {
 import { ChartContainer, ChartTooltip } from "@/components/ui/chart"
 import type { StatsMetric, StatsTerm } from "@/lib/api"
 import { axisDomain, axisTicks, formatMetric, termName } from "@/lib/stats"
-import { ChartTipBox, TipBody } from "./ChartTip"
+import { ChartTipBox, ChartTipPlaceholder, TipBody } from "./ChartTip"
 import { AXIS_TICK, STATS_CHART_CONFIG } from "./config"
 
 /** Terms consecutively, so x spacing is true time and gaps show. */
@@ -91,7 +91,7 @@ export function TermChart({
           isAnimationActive={false}
           content={({ active, payload }) => {
             const d = payload?.[0]?.payload as Datum | undefined
-            if (!active || !d) return null
+            if (!active || !d) return <ChartTipPlaceholder />
             return (
               <ChartTipBox>
                 <TipBody

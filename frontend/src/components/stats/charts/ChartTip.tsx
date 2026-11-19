@@ -41,3 +41,17 @@ export function ChartTipBox({ children }: { children: ReactNode }) {
     </div>
   )
 }
+
+/**
+ * What a Recharts tooltip renders while inactive. Recharts positions the
+ * tooltip from its wrapper's measured size, so an empty wrapper made the
+ * first tooltip show at the chart's top left for a frame. The wrapper is
+ * hidden while inactive, so this stand-in is never seen.
+ */
+export function ChartTipPlaceholder() {
+  return (
+    <ChartTipBox>
+      <TipBody title="-" rows={[["-", "-"]]} />
+    </ChartTipBox>
+  )
+}

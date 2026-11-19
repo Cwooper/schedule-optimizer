@@ -16,7 +16,7 @@ import {
   termName,
 } from "@/lib/stats"
 import { cn } from "@/lib/utils"
-import { ChartTipBox, TipBody } from "./ChartTip"
+import { ChartTipBox, ChartTipPlaceholder, TipBody } from "./ChartTip"
 import { AXIS_TICK, STATS_CHART_CONFIG } from "./config"
 
 // Fixed geometry, so the plot's pixel size is known before Recharts lays it
@@ -102,7 +102,7 @@ export function SectionDots({
             isAnimationActive={false}
             content={({ active, payload }) => {
               const d = payload?.[0]?.payload as DotPoint | undefined
-              if (!active || !d) return null
+              if (!active || !d) return <ChartTipPlaceholder />
               return (
                 <ChartTipBox>
                   <TipBody
