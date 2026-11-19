@@ -88,8 +88,7 @@ func round(v *float64) *float64 {
 	if v == nil {
 		return nil
 	}
-	r := math.Round(*v*1e4) / 1e4
-	return &r
+	return new(math.Round(*v*1e4) / 1e4)
 }
 
 // CourseOption is one course in the pickers.

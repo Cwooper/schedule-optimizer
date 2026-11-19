@@ -116,7 +116,4 @@ func (c Counts) Reportable() bool {
 	return c.graded() >= MinReportable
 }
 
-func ratio(num float64, den int) *float64 {
-	v := num / float64(den)
-	return &v
-}
+func ratio(num float64, den int) *float64 { return new(num / float64(den)) }
