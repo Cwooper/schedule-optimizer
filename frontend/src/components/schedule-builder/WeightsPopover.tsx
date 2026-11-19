@@ -84,7 +84,9 @@ export function WeightsTrigger() {
   )
 }
 
-export function WeightsPanel() {
+export function WeightsPanel({
+  onPointerDownOutside,
+}: Pick<React.ComponentProps<typeof PopoverContent>, "onPointerDownOutside">) {
   const preferences = useAppStore((s) => s.preferences)
   const setPreferences = useAppStore((s) => s.setPreferences)
   const resetPreferences = useAppStore((s) => s.resetPreferences)
@@ -95,6 +97,7 @@ export function WeightsPanel() {
       align="start"
       sideOffset={-8}
       className="mx-2 w-[calc(var(--radix-popover-trigger-width)-1rem)]"
+      onPointerDownOutside={onPointerDownOutside}
     >
       <div className="mb-3 flex items-center justify-between">
         <span className="text-sm font-medium">Weights</span>

@@ -1,5 +1,4 @@
-import { useState, useMemo, useEffect } from "react"
-import { toast } from "sonner"
+import { useState, useMemo, useEffect, useRef } from "react"
 import { CircleHelp, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -12,7 +11,7 @@ import {
 } from "@/components/ui/tooltip"
 import { TermSelector } from "@/components/TermSelector"
 import { TermStatus } from "@/components/TermStatus"
-import { Popover, PopoverAnchor } from "@/components/ui/popover"
+import { Popover, PopoverAnchor, PopoverContent } from "@/components/ui/popover"
 import {
   CourseInput,
   CourseRow,
@@ -22,17 +21,16 @@ import {
 import {
   useAppStore,
   buildGenerateRequest,
-  changedGenerationParams,
   computeGenerationParams,
-  type GenerationParams,
+  computePreferencesFingerprint,
+  weightsCloseRerun,
 } from "@/stores/app-store"
 import {
   useTerms,
   useGenerateSchedules,
   useValidateCourses,
 } from "@/hooks/use-api"
-import type { CourseValidationResult, GenerateRequest, GenerateResponse } from "@/lib/api"
-import { getGenerateWarnings } from "@/lib/generate-warnings"
+import type { CourseValidationResult } from "@/lib/api"
 import { cn } from "@/lib/utils"
 
 export function ScheduleBuilder() {
@@ -50,14 +48,12 @@ export function ScheduleBuilder() {
   const addSectionToSlot = useAppStore((s) => s.addSectionToSlot)
   const removeSlot = useAppStore((s) => s.removeSlot)
   const updateSlot = useAppStore((s) => s.updateSlot)
-  const setGenerateResult = useAppStore((s) => s.setGenerateResult)
-  const getSlotsVersion = useAppStore((s) => s.getSlotsVersion)
   const openCourseDialog = useAppStore((s) => s.openCourseDialog)
   const regenerateRequested = useAppStore((s) => s.regenerateRequested)
   const clearRegenerateRequest = useAppStore((s) => s.clearRegenerateRequest)
 
   const { data: termsData, isLoading: termsLoading } = useTerms()
-  const generateMutation = useGenerateSchedules()
+  const { generate: requestGeneration, isPending } = useGenerateSchedules()
 
   // Auto-select the current term on first load if no term is set
   useEffect(() => {
@@ -65,36 +61,6 @@ export function ScheduleBuilder() {
       setTerm(termsData.current)
     }
   }, [term, termsData, setTerm])
-
-  const showGenerateWarnings = (data: GenerateResponse) => {
-    for (const w of getGenerateWarnings(data)) {
-      if (w.type === "info") toast.info(w.message)
-      else toast.warning(w.message)
-    }
-  }
-
-  // Store result when generation succeeds, but only if slots haven't changed
-  const handleGenerateMutate = (
-    req: GenerateRequest,
-    params: GenerationParams,
-    showWarnings: boolean
-  ) => {
-    const versionAtStart = getSlotsVersion()
-    generateMutation.mutate(req, {
-      onSuccess: (data) => {
-        // Only set result if slots haven't changed during the request
-        if (getSlotsVersion() === versionAtStart) {
-          setGenerateResult(data, params)
-        }
-        if (showWarnings) showGenerateWarnings(data)
-      },
-      onError: (error) => {
-        toast.error(
-          error.message || "Failed to generate schedules. Please try again."
-        )
-      },
-    })
-  }
 
   const [expandedCourses, setExpandedCourses] = useState<Set<string>>(new Set())
 
@@ -163,15 +129,22 @@ export function ScheduleBuilder() {
     [slots, validationMap]
   )
 
+  const hasInvalidBounds =
+    minCourses !== null && maxCourses !== null && maxCourses < minCourses
+
+  const hasNoValidCourses = slots.length > 0 && validSlots.length === 0
+
+  const canGenerate = Boolean(term) && validSlots.length > 0 && !hasInvalidBounds
+
   const generate = (opts: { switchTab: boolean; showWarnings: boolean }) => {
-    if (!term || validSlots.length === 0) return
+    if (!canGenerate) return
 
     if (opts.switchTab && tab !== "schedule") {
       setTab("schedule")
     }
 
     const state = useAppStore.getState()
-    handleGenerateMutate(
+    requestGeneration(
       buildGenerateRequest(state, validSlots),
       computeGenerationParams(state),
       opts.showWarnings
@@ -180,27 +153,41 @@ export function ScheduleBuilder() {
 
   const handleGenerate = () => generate({ switchTab: true, showWarnings: true })
 
+  const generateButtonRef = useRef<HTMLButtonElement>(null)
+  const preferencesAtOpen = useRef("")
+  const generatePressed = useRef(false)
+
   // Weights apply when the panel closes, re-ranking a shown result in place.
   const handleWeightsOpenChange = (open: boolean) => {
-    if (open) return
     const state = useAppStore.getState()
-    if (!state.generateResult || !state.generatedWithParams) return
-    const changed = changedGenerationParams(
-      computeGenerationParams(state),
-      state.generatedWithParams
-    )
-    if (!changed.includes("preferencesFingerprint")) return
-    // A weights-only change reorders the same schedules, whose warnings the
-    // user has already seen.
-    generate({ switchTab: false, showWarnings: changed.length > 1 })
+    if (open) {
+      preferencesAtOpen.current = computePreferencesFingerprint(state.preferences)
+      generatePressed.current = false
+      return
+    }
+    if (generatePressed.current) return
+    const rerun = weightsCloseRerun(state, preferencesAtOpen.current)
+    if (rerun) generate({ switchTab: false, showWarnings: rerun.showWarnings })
   }
 
-  // Handle regenerate requests from other components (e.g., stale warning click)
+  // Radix closes the panel on pointerdown, before Generate's click lands; a
+  // close rerun would disable the button and swallow that click, so the
+  // click does the generating instead.
+  const handleWeightsPointerDownOutside: React.ComponentProps<
+    typeof PopoverContent
+  >["onPointerDownOutside"] = (e) => {
+    const button = generateButtonRef.current
+    const target = e.detail.originalEvent.target
+    generatePressed.current =
+      !!button && !button.disabled && target instanceof Node && button.contains(target)
+  }
+
+  // Both mounted builders (sidebar and mobile drawer) see the request; the
+  // first effect to run claims it.
   useEffect(() => {
-    if (regenerateRequested) {
-      clearRegenerateRequest()
-      handleGenerate()
-    }
+    if (!regenerateRequested || !useAppStore.getState().regenerateRequested) return
+    clearRegenerateRequest()
+    handleGenerate()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [regenerateRequested])
 
@@ -215,11 +202,6 @@ export function ScheduleBuilder() {
       return next
     })
   }
-
-  const hasInvalidBounds =
-    minCourses !== null && maxCourses !== null && maxCourses < minCourses
-
-  const hasNoValidCourses = slots.length > 0 && validSlots.length === 0
 
   const getGenerateTooltip = () => {
     if (!term) return "Select a term first"
@@ -391,17 +373,12 @@ export function ScheduleBuilder() {
                 <TooltipTrigger asChild>
                   <div className="w-full">
                     <Button
+                      ref={generateButtonRef}
                       className="w-full"
                       onClick={handleGenerate}
-                      disabled={
-                        !term ||
-                        slots.length === 0 ||
-                        hasNoValidCourses ||
-                        hasInvalidBounds ||
-                        generateMutation.isPending
-                      }
+                      disabled={!canGenerate || isPending}
                     >
-                      {generateMutation.isPending ? (
+                      {isPending ? (
                         <>
                           <Loader2 className="size-4 animate-spin" />
                           Generating...
@@ -412,10 +389,7 @@ export function ScheduleBuilder() {
                     </Button>
                   </div>
                 </TooltipTrigger>
-                {(!term ||
-                  slots.length === 0 ||
-                  hasNoValidCourses ||
-                  hasInvalidBounds) && (
+                {!canGenerate && (
                   <TooltipContent>{getGenerateTooltip()}</TooltipContent>
                 )}
               </Tooltip>
@@ -425,7 +399,7 @@ export function ScheduleBuilder() {
             </TooltipProvider>
           </div>
         </PopoverAnchor>
-        <WeightsPanel />
+        <WeightsPanel onPointerDownOutside={handleWeightsPointerDownOutside} />
       </Popover>
     </div>
   )

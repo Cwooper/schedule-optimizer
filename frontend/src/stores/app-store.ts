@@ -185,6 +185,40 @@ export function changedGenerationParams(
   )
 }
 
+/** The latest generation request, until its response settles. */
+export interface PendingGeneration {
+  seq: number
+  params: GenerationParams
+  slotsVersion: number
+  showWarnings: boolean
+}
+
+type WeightsCloseInputs = GenerationInputs &
+  Pick<AppState, "pendingGeneration" | "generatedWithParams">
+
+/**
+ * Whether closing the weights panel should rerun generation. It compares
+ * against the latest requested generation, in flight or shown, so closing
+ * during a pending run is not skipped and an older request cannot win.
+ */
+export function weightsCloseRerun(
+  state: WeightsCloseInputs,
+  preferencesAtOpen: string
+): { showWarnings: boolean } | null {
+  const current = computeGenerationParams(state)
+  // Opening and closing without an edit must not rerun a result whose saved
+  // params predate preferences.
+  if (current.preferencesFingerprint === preferencesAtOpen) return null
+  const pending = state.pendingGeneration
+  const latest = pending?.params ?? state.generatedWithParams
+  if (!latest) return null
+  const changed = changedGenerationParams(current, latest)
+  if (!changed.includes("preferencesFingerprint")) return null
+  // A weights-only change re-ranks the same request, whose warnings the user
+  // has already seen, unless the request it supersedes was still due to show them.
+  return { showWarnings: changed.length > 1 || pending?.showWarnings === true }
+}
+
 export function buildGenerateRequest(
   state: GenerationInputs,
   validSlots: CourseSlot[]
@@ -219,6 +253,7 @@ export type {
 import type {
   GenerateRequest,
   GenerateResponse,
+  Importance,
   Preferences,
   SearchResponse,
 } from "@/lib/api"
@@ -264,6 +299,8 @@ interface AppState {
   currentScheduleIndex: number
   // Incremented on slot changes to detect stale mutation results
   slotsVersion: number
+  generationSeq: number
+  pendingGeneration: PendingGeneration | null
   // Flag to request regeneration from outside ScheduleBuilder
   regenerateRequested: boolean
 
@@ -306,7 +343,14 @@ interface AppState {
     params?: GenerationParams
   ) => void
   setCurrentScheduleIndex: (index: number) => void
-  getSlotsVersion: () => number
+  /** Records a generation request as the latest and returns its sequence number. */
+  beginGeneration: (params: GenerationParams, showWarnings: boolean) => number
+  /**
+   * Settles a request: only the latest one applies its result (and only if
+   * slots are unchanged since it began). Returns that request, or null when a
+   * newer one superseded it.
+   */
+  settleGeneration: (seq: number, result?: GenerateResponse) => PendingGeneration | null
   isGenerateResultStale: () => boolean
   openCourseDialog: (opts: { crn?: string; courseKey?: string; source: "schedule" | "search" }) => void
   closeCourseDialog: () => void
@@ -381,16 +425,36 @@ export function migratePersistedState(
   return out
 }
 
+const IMPORTANCE_KEYS = ["start", "end", "gap", "gpa", "seats"] as const
+const TIME_KEYS = ["idealStart", "idealEnd"] as const
+
 /**
- * Persist's default merge is shallow, so preferences stored before a factor
- * existed would leave that factor undefined; fill gaps from the defaults.
+ * Keeps each stored preference only if the backend would accept it, so a
+ * factor added later or a corrupted value falls back to its default instead
+ * of failing every Generate.
  */
+function storedPreferences(stored: unknown): Preferences {
+  const raw = (stored && typeof stored === "object" ? stored : {}) as Record<string, unknown>
+  const out = { ...DEFAULT_PREFERENCES }
+  for (const key of IMPORTANCE_KEYS) {
+    const v = raw[key]
+    if (typeof v === "number" && Number.isInteger(v) && v >= 0 && v <= 3) {
+      out[key] = v as Importance
+    }
+  }
+  for (const key of TIME_KEYS) {
+    const v = raw[key]
+    if (typeof v === "string" && /^([01]\d|2[0-3])[0-5]\d$/.test(v)) out[key] = v
+  }
+  return out
+}
+
 export function mergePersistedState(persisted: unknown, current: AppState): AppState {
   const stored = (persisted ?? {}) as Partial<AppState>
   return {
     ...current,
     ...stored,
-    preferences: { ...DEFAULT_PREFERENCES, ...stored.preferences },
+    preferences: storedPreferences(stored.preferences),
   }
 }
 
@@ -425,6 +489,8 @@ export const useAppStore = create<AppState>()(
       generatedWithParams: null,
       currentScheduleIndex: 0,
       slotsVersion: 0,
+      generationSeq: 0,
+      pendingGeneration: null,
       regenerateRequested: false,
       courseDialog: { open: false },
       searchFilters: { ...DEFAULT_SEARCH_FILTERS },
@@ -648,7 +714,32 @@ export const useAppStore = create<AppState>()(
           return { currentScheduleIndex: Math.max(0, Math.min(index, maxIndex)) }
         }),
 
-      getSlotsVersion: () => get().slotsVersion,
+      beginGeneration: (params, showWarnings) => {
+        const state = get()
+        const seq = state.generationSeq + 1
+        set({
+          generationSeq: seq,
+          pendingGeneration: { seq, params, slotsVersion: state.slotsVersion, showWarnings },
+        })
+        return seq
+      },
+
+      settleGeneration: (seq, result) => {
+        const state = get()
+        const pending = state.pendingGeneration
+        if (pending?.seq !== seq) return null
+        if (result && state.slotsVersion === pending.slotsVersion) {
+          set({
+            pendingGeneration: null,
+            generateResult: result,
+            generatedWithParams: pending.params,
+            currentScheduleIndex: 0,
+          })
+        } else {
+          set({ pendingGeneration: null })
+        }
+        return pending
+      },
 
       isGenerateResultStale: () => {
         const state = get()

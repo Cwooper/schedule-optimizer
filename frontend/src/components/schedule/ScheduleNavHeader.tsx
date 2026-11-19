@@ -89,7 +89,7 @@ export function ScheduleNavHeader({
 
   const regenerateTooltip = () => {
     if (!canRegenerate) return "Add courses to regenerate"
-    if (showStale) return "Course list changed. Click to regenerate."
+    if (showStale) return "Settings changed. Click to regenerate."
     return "Regenerate schedules"
   }
 

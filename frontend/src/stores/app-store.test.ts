@@ -5,14 +5,16 @@ import {
   computeGenerationParams,
   computeSlotsFingerprint,
   DEFAULT_PREFERENCES,
+  computePreferencesFingerprint,
   mergePersistedState,
   migratePersistedState,
   selectScheduleTerm,
+  weightsCloseRerun,
   type BlockedTimeGroup,
   type CourseSlot,
   type GenerationParams,
 } from "./app-store"
-import type { GenerateResponse } from "@/lib/api"
+import type { GenerateResponse, Importance } from "@/lib/api"
 
 const mockSlot: CourseSlot = {
   id: "test-1",
@@ -74,6 +76,7 @@ describe("app-store", () => {
       generatedWithParams: null,
       currentScheduleIndex: 0,
       slotsVersion: 0,
+      pendingGeneration: null,
     })
   })
 
@@ -167,16 +170,16 @@ describe("app-store", () => {
     })
 
     it("increments slotsVersion on add", () => {
-      const v0 = useAppStore.getState().getSlotsVersion()
+      const v0 = useAppStore.getState().slotsVersion
       useAppStore.getState().addCourseToSlot("CSCI", "247", "Computer Systems")
-      expect(useAppStore.getState().getSlotsVersion()).toBe(v0 + 1)
+      expect(useAppStore.getState().slotsVersion).toBe(v0 + 1)
     })
 
     it("does not increment slotsVersion on duplicate", () => {
       useAppStore.getState().addCourseToSlot("CSCI", "247", "Computer Systems")
-      const v1 = useAppStore.getState().getSlotsVersion()
+      const v1 = useAppStore.getState().slotsVersion
       useAppStore.getState().addCourseToSlot("CSCI", "247", "Computer Systems")
-      expect(useAppStore.getState().getSlotsVersion()).toBe(v1)
+      expect(useAppStore.getState().slotsVersion).toBe(v1)
     })
   })
 
@@ -230,19 +233,19 @@ describe("app-store", () => {
     })
 
     it("increments slotsVersion on add and update", () => {
-      const v0 = useAppStore.getState().getSlotsVersion()
+      const v0 = useAppStore.getState().slotsVersion
       useAppStore.getState().addSectionToSlot("12345", "202410", "CSCI", "247", "Computer Systems", "Smith")
-      expect(useAppStore.getState().getSlotsVersion()).toBe(v0 + 1)
-      const v1 = useAppStore.getState().getSlotsVersion()
+      expect(useAppStore.getState().slotsVersion).toBe(v0 + 1)
+      const v1 = useAppStore.getState().slotsVersion
       useAppStore.getState().addSectionToSlot("67890", "202410", "CSCI", "247", "Computer Systems", "Jones")
-      expect(useAppStore.getState().getSlotsVersion()).toBe(v1 + 1)
+      expect(useAppStore.getState().slotsVersion).toBe(v1 + 1)
     })
 
     it("does not increment slotsVersion on duplicate", () => {
       useAppStore.getState().addSectionToSlot("12345", "202410", "CSCI", "247", "Computer Systems", "Smith")
-      const v1 = useAppStore.getState().getSlotsVersion()
+      const v1 = useAppStore.getState().slotsVersion
       useAppStore.getState().addSectionToSlot("12345", "202410", "CSCI", "247", "Computer Systems", "Smith")
-      expect(useAppStore.getState().getSlotsVersion()).toBe(v1)
+      expect(useAppStore.getState().slotsVersion).toBe(v1)
     })
   })
 
@@ -537,26 +540,26 @@ describe("app-store", () => {
 
   describe("slotsVersion", () => {
     it("increments when slots change", () => {
-      const v0 = useAppStore.getState().getSlotsVersion()
+      const v0 = useAppStore.getState().slotsVersion
 
       useAppStore.getState().addSlot(mockSlot)
-      const v1 = useAppStore.getState().getSlotsVersion()
+      const v1 = useAppStore.getState().slotsVersion
       expect(v1).toBe(v0 + 1)
 
       useAppStore.getState().updateSlot("test-1", { required: false })
-      const v2 = useAppStore.getState().getSlotsVersion()
+      const v2 = useAppStore.getState().slotsVersion
       expect(v2).toBe(v1 + 1)
 
       useAppStore.getState().removeSlot("test-1")
-      const v3 = useAppStore.getState().getSlotsVersion()
+      const v3 = useAppStore.getState().slotsVersion
       expect(v3).toBe(v2 + 1)
     })
 
     it("increments when term changes", () => {
-      const v0 = useAppStore.getState().getSlotsVersion()
+      const v0 = useAppStore.getState().slotsVersion
 
       useAppStore.getState().setTerm("202520")
-      const v1 = useAppStore.getState().getSlotsVersion()
+      const v1 = useAppStore.getState().slotsVersion
       expect(v1).toBe(v0 + 1)
     })
   })
@@ -750,6 +753,175 @@ describe("app-store", () => {
         DEFAULT_PREFERENCES
       )
       expect(mergePersistedState(undefined, current()).preferences).toEqual(DEFAULT_PREFERENCES)
+    })
+
+    it("drops each stored preference the backend would reject", () => {
+      const merged = mergePersistedState(
+        {
+          preferences: {
+            start: 4,
+            end: 1.5,
+            gap: "2",
+            gpa: -1,
+            seats: 1,
+            idealStart: "2400",
+            idealEnd: "0960",
+          },
+        },
+        current()
+      )
+      expect(merged.preferences).toEqual({ ...DEFAULT_PREFERENCES, seats: 1 })
+    })
+
+    it("keeps valid boundary values", () => {
+      const stored = { start: 0, end: 3, gap: 0, gpa: 0, seats: 3, idealStart: "0000", idealEnd: "2359" }
+      expect(mergePersistedState({ preferences: stored }, current()).preferences).toEqual(stored)
+    })
+
+    it("ignores a stored preferences value that is not an object", () => {
+      expect(mergePersistedState({ preferences: "high" }, current()).preferences).toEqual(
+        DEFAULT_PREFERENCES
+      )
+    })
+  })
+
+  describe("generation requests", () => {
+    const params = (seats: Importance = 0) =>
+      computeGenerationParams({
+        term: "202520",
+        slots: [mockSlot],
+        minCourses: null,
+        maxCourses: null,
+        blockedTimeGroups: [],
+        preferences: { ...DEFAULT_PREFERENCES, seats },
+      })
+    const resultWith = (score: number): GenerateResponse => ({
+      ...mockGenerateResult,
+      schedules: [{ crns: [], score }],
+    })
+
+    it("applies the latest request's result and clears the pending request", () => {
+      const seq = useAppStore.getState().beginGeneration(params(1), true)
+      expect(useAppStore.getState().pendingGeneration?.params).toEqual(params(1))
+
+      const settled = useAppStore.getState().settleGeneration(seq, resultWith(1))
+      expect(settled?.showWarnings).toBe(true)
+      expect(useAppStore.getState().generateResult).toEqual(resultWith(1))
+      expect(useAppStore.getState().generatedWithParams).toEqual(params(1))
+      expect(useAppStore.getState().pendingGeneration).toBeNull()
+    })
+
+    it("ignores an older response that arrives after a newer request", () => {
+      const first = useAppStore.getState().beginGeneration(params(1), true)
+      const second = useAppStore.getState().beginGeneration(params(2), false)
+
+      useAppStore.getState().settleGeneration(second, resultWith(2))
+      expect(useAppStore.getState().settleGeneration(first, resultWith(1))).toBeNull()
+      expect(useAppStore.getState().generateResult).toEqual(resultWith(2))
+      expect(useAppStore.getState().generatedWithParams).toEqual(params(2))
+    })
+
+    it("ignores an older response that arrives first, keeping the newer request pending", () => {
+      const first = useAppStore.getState().beginGeneration(params(1), true)
+      const second = useAppStore.getState().beginGeneration(params(2), false)
+
+      expect(useAppStore.getState().settleGeneration(first, resultWith(1))).toBeNull()
+      expect(useAppStore.getState().generateResult).toBeNull()
+      expect(useAppStore.getState().pendingGeneration?.seq).toBe(second)
+    })
+
+    it("discards the result when slots changed during the request", () => {
+      const seq = useAppStore.getState().beginGeneration(params(), true)
+      useAppStore.getState().addSlot({ ...mockSlot, id: "x", courseNumber: "305" })
+
+      expect(useAppStore.getState().settleGeneration(seq, resultWith(1))).not.toBeNull()
+      expect(useAppStore.getState().generateResult).toBeNull()
+      expect(useAppStore.getState().pendingGeneration).toBeNull()
+    })
+
+    it("clears the pending request when the latest one fails", () => {
+      const seq = useAppStore.getState().beginGeneration(params(), true)
+      expect(useAppStore.getState().settleGeneration(seq)).not.toBeNull()
+      expect(useAppStore.getState().pendingGeneration).toBeNull()
+    })
+  })
+
+  describe("weightsCloseRerun", () => {
+    const base = {
+      term: "202520",
+      slots: [mockSlot],
+      minCourses: null,
+      maxCourses: null,
+      blockedTimeGroups: [],
+      preferences: DEFAULT_PREFERENCES,
+      pendingGeneration: null,
+      generatedWithParams: null,
+    }
+    const withPrefs = (seats: Importance) => ({
+      ...base,
+      preferences: { ...DEFAULT_PREFERENCES, seats },
+    })
+    const paramsFor = (state: typeof base) => computeGenerationParams(state)
+    const fp = (seats: Importance) =>
+      computePreferencesFingerprint({ ...DEFAULT_PREFERENCES, seats })
+    const pending = (state: typeof base, showWarnings = false) => ({
+      seq: 1,
+      params: paramsFor(state),
+      slotsVersion: 0,
+      showWarnings,
+    })
+
+    it("reruns a shown result quietly when only weights changed", () => {
+      const state = { ...withPrefs(1), generatedWithParams: paramsFor(base) }
+      expect(weightsCloseRerun(state, fp(0))).toEqual({ showWarnings: false })
+    })
+
+    it("shows warnings when more than weights changed", () => {
+      const state = {
+        ...withPrefs(1),
+        minCourses: 2,
+        generatedWithParams: paramsFor(base),
+      }
+      expect(weightsCloseRerun(state, fp(0))).toEqual({ showWarnings: true })
+    })
+
+    it("does not rerun when weights end where they started", () => {
+      const state = { ...base, generatedWithParams: paramsFor(withPrefs(2)) }
+      expect(weightsCloseRerun(state, fp(0))).toBeNull()
+    })
+
+    it("does not rerun a legacy result when the panel closes without an edit", () => {
+      const legacy: Partial<GenerationParams> = paramsFor(base)
+      delete legacy.preferencesFingerprint
+      const state = { ...base, generatedWithParams: legacy as GenerationParams }
+      expect(weightsCloseRerun(state, fp(0))).toBeNull()
+    })
+
+    it("does not rerun when nothing was ever generated", () => {
+      expect(weightsCloseRerun(withPrefs(1), fp(0))).toBeNull()
+    })
+
+    it("reruns during the first in-flight generation, keeping its warnings", () => {
+      const state = { ...withPrefs(1), pendingGeneration: pending(base, true) }
+      expect(weightsCloseRerun(state, fp(0))).toEqual({ showWarnings: true })
+    })
+
+    it("reruns when weights return to the shown result's while a different request is in flight", () => {
+      const state = {
+        ...base,
+        generatedWithParams: paramsFor(base),
+        pendingGeneration: pending(withPrefs(2)),
+      }
+      expect(weightsCloseRerun(state, fp(2))).toEqual({ showWarnings: false })
+    })
+
+    it("does not rerun when the in-flight request already has these weights", () => {
+      const state = {
+        ...withPrefs(2),
+        generatedWithParams: paramsFor(base),
+        pendingGeneration: pending(withPrefs(2)),
+      }
+      expect(weightsCloseRerun(state, fp(0))).toBeNull()
     })
   })
 
