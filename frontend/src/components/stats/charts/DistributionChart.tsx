@@ -16,8 +16,8 @@ import {
   formatPct,
   gradeShares,
 } from "@/lib/stats"
-import { ChartTipBox, ChartTipPlaceholder, TipBody, type TipRow } from "./ChartTip"
-import { AXIS_TICK, STATS_CHART_CONFIG } from "./config"
+import { ChartTipBox, TipBody, type TipRow } from "./ChartTip"
+import { AXIS_TICK, STATS_CHART_CONFIG, tipDatum } from "./config"
 
 function gridStep(max: number): number {
   if (max <= 0.3) return 0.05
@@ -110,8 +110,8 @@ export function DistributionChart({
           }}
           isAnimationActive={false}
           content={({ active, payload }) => {
-            const d = payload?.[0]?.payload as Datum | undefined
-            if (!active || !d) return <ChartTipPlaceholder />
+            const d = tipDatum(active, payload, data[0])
+            if (!d) return null
             const rows: TipRow[] = []
             if (series) rows.push(tipRow(series, d.column, d.fg))
             if (background) rows.push(tipRow(background, d.column, d.bg))
