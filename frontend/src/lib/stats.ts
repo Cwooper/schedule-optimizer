@@ -58,27 +58,36 @@ export function termName(code: string): string {
   return q ? `${q[0]} ${code.slice(0, 4)}` : code
 }
 
-export function formatPct(v: number, digits = 0): string {
-  return `${(v * 100).toFixed(digits)}%`
+/**
+ * v rounded to the given decimals, as a string. Math.round rather than
+ * toFixed alone, whose binary rounding (2.255 -> "2.25") would disagree
+ * with formatDelta's.
+ */
+function fixed(v: number, digits: number): string {
+  const scale = 10 ** digits
+  return (Math.round(v * scale) / scale).toFixed(digits)
 }
 
-/** A row's comparison value; pass rates of unreported rows stay hidden too. */
+export function formatPct(v: number, digits = 0): string {
+  return `${fixed(v * 100, digits)}%`
+}
+
+/** A row's comparison value; the backend leaves it null when unreported. */
 export function metricValue(
   stats: GradeStats,
   metric: StatsMetric
 ): number | null {
-  if (metric === "gpa") return stats.gpa
-  return stats.grades ? stats.pass : null
+  return metric === "gpa" ? stats.gpa : stats.pass
 }
 
 export function formatMetric(metric: StatsMetric, v: number): string {
-  return metric === "gpa" ? v.toFixed(2) : formatPct(v)
+  return metric === "gpa" ? fixed(v, 2) : formatPct(v)
 }
 
 /**
  * A row's value against the course's, signed: "+0.13", "-0.39", "+3%". The
- * difference is taken between the rounded values so it matches the numbers
- * shown beside it.
+ * difference is taken between the values as formatMetric rounds them, so
+ * it matches the numbers shown beside it.
  */
 export function formatDelta(
   metric: StatsMetric,
@@ -113,7 +122,8 @@ export interface AxisDomain {
 
 /**
  * GPA axes run from 4.0 down to 2.0, or lower in half steps when a value
- * falls below. Pass axes do the same from 100% down to 80% in tenths.
+ * falls below. Pass axes do the same from 100% down to 80% in tenths, and
+ * below 60% in fifths, starting on a fifth so a tick lands on 100%.
  */
 export function axisDomain(metric: StatsMetric, values: number[]): AxisDomain {
   const low = values.length ? Math.min(...values) : Infinity
@@ -125,7 +135,8 @@ export function axisDomain(metric: StatsMetric, values: number[]): AxisDomain {
     }
   }
   const lo = Math.max(0, Math.min(0.8, Math.floor(low * 10) / 10))
-  return { lo, hi: 1, step: 1 - lo > 0.4 ? 0.2 : 0.1 }
+  if (lo >= 0.6) return { lo, hi: 1, step: 0.1 }
+  return { lo: Math.max(0, Math.floor(low * 5) / 5), hi: 1, step: 0.2 }
 }
 
 /** The ticks from lo to hi, inclusive, without float drift. */

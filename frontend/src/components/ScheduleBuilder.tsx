@@ -376,7 +376,7 @@ export function ScheduleBuilder() {
         <PopoverAnchor asChild>
           <div className="bg-background sticky bottom-0 flex gap-2 border-t p-4">
             <TooltipProvider delayDuration={0}>
-              <Tooltip>
+              <Tooltip touchToggle={!canGenerate}>
                 <TooltipTrigger asChild>
                   <div className="w-full">
                     <Button

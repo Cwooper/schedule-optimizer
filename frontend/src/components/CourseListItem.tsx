@@ -1,5 +1,6 @@
 import { Plus, Check } from "lucide-react"
 import { cn, formatTermCode } from "@/lib/utils"
+import { formatCredits } from "@/lib/meetings"
 import { Button } from "@/components/ui/button"
 
 // Flexible section info - works with both search and generate responses
@@ -31,14 +32,6 @@ interface CourseListItemProps {
   /** Whether this course is already added to schedule */
   isAdded?: boolean
   className?: string
-}
-
-/** Format credits, handling variable credit courses */
-function formatCredits(credits: number, creditsHigh?: number): string {
-  if (creditsHigh && creditsHigh !== credits) {
-    return `${credits}-${creditsHigh}`
-  }
-  return String(credits)
 }
 
 /** Get unique instructors from sections */

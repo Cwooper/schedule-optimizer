@@ -6,7 +6,8 @@ import { cn } from "@/lib/utils"
 // Context for passing touch handlers from Tooltip to TooltipTrigger
 interface TooltipTouchContextValue {
   triggerRef: React.RefObject<HTMLElement | null>
-  onTouchEnd: (e: React.TouchEvent) => void
+  onTap: () => void
+  onSwipe: () => void
 }
 
 const TooltipTouchContext = React.createContext<TooltipTouchContextValue | null>(null)
@@ -27,6 +28,12 @@ function TooltipProvider({
 interface TooltipProps extends Omit<React.ComponentProps<typeof TooltipPrimitive.Root>, 'open' | 'onOpenChange'> {
   open?: boolean
   onOpenChange?: (open: boolean) => void
+  /**
+   * Whether a tap toggles the tooltip. Turn it off where a tap does
+   * something else (an action button, a popover trigger), so its label
+   * does not linger over the result.
+   */
+  touchToggle?: boolean
 }
 
 /**
@@ -38,6 +45,7 @@ function Tooltip({
   children,
   open: controlledOpen,
   onOpenChange: controlledOnOpenChange,
+  touchToggle = true,
   ...props
 }: TooltipProps) {
   const [uncontrolledOpen, setUncontrolledOpen] = React.useState(false)
@@ -48,52 +56,70 @@ function Tooltip({
   const open = isControlled ? controlledOpen : uncontrolledOpen
   const rawSetOpen = isControlled ? controlledOnOpenChange : setUncontrolledOpen
 
-  // A touch-opened tooltip closes only by touch. Radix's closes are built for
-  // a mouse (pointerdown, click, scroll, leaving the trigger) and the events a
+  // A touch-opened tooltip ignores Radix's closes. They are built for a
+  // mouse (pointerdown, click, scroll, leaving the trigger) and the events a
   // tap generates after touchend set them off, on iOS often well after it.
+  // It closes on a touch elsewhere, a second tap, Escape, or the mouse.
   const setOpen = React.useCallback((newOpen: boolean) => {
     if (touchOpenRef.current && !newOpen) return
     rawSetOpen?.(newOpen)
   }, [rawSetOpen])
 
-  const closeFromTouch = React.useCallback(() => {
+  const closeTouchOpened = React.useCallback(() => {
     touchOpenRef.current = false
     rawSetOpen?.(false)
   }, [rawSetOpen])
 
-  const handleTouchEnd = React.useCallback(() => {
+  const handleTap = React.useCallback(() => {
     if (open) {
-      closeFromTouch()
+      closeTouchOpened()
     } else {
       touchOpenRef.current = true
       rawSetOpen?.(true)
     }
-  }, [open, rawSetOpen, closeFromTouch])
+  }, [open, rawSetOpen, closeTouchOpened])
 
-  // Close tooltip when touching outside the trigger
+  // A swipe from the trigger scrolls the page, so the tooltip would be left
+  // floating over it.
+  const handleSwipe = React.useCallback(() => {
+    if (touchOpenRef.current) closeTouchOpened()
+  }, [closeTouchOpened])
+
   React.useEffect(() => {
     if (!open) return
 
     const handleOutsideTouch = (e: TouchEvent) => {
       if (triggerRef.current && !triggerRef.current.contains(e.target as Node)) {
-        closeFromTouch()
+        closeTouchOpened()
       }
+    }
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && touchOpenRef.current) closeTouchOpened()
+    }
+    const handlePointer = (e: PointerEvent) => {
+      if (e.pointerType === "mouse" && touchOpenRef.current) closeTouchOpened()
     }
 
     // Small delay to prevent the opening touch from immediately closing
     const timeoutId = setTimeout(() => {
       document.addEventListener("touchstart", handleOutsideTouch)
     }, 100)
+    document.addEventListener("keydown", handleKey)
+    document.addEventListener("pointermove", handlePointer)
+    document.addEventListener("pointerdown", handlePointer)
 
     return () => {
       clearTimeout(timeoutId)
       document.removeEventListener("touchstart", handleOutsideTouch)
+      document.removeEventListener("keydown", handleKey)
+      document.removeEventListener("pointermove", handlePointer)
+      document.removeEventListener("pointerdown", handlePointer)
     }
-  }, [open, closeFromTouch])
+  }, [open, closeTouchOpened])
 
   const touchContextValue = React.useMemo(
-    () => ({ triggerRef, onTouchEnd: handleTouchEnd }),
-    [handleTouchEnd]
+    () => (touchToggle ? { triggerRef, onTap: handleTap, onSwipe: handleSwipe } : null),
+    [touchToggle, handleTap, handleSwipe]
   )
 
   return (
@@ -123,19 +149,45 @@ function mergeRefs<T>(...refs: (React.Ref<T> | undefined)[]): React.RefCallback<
   }
 }
 
+// How far a touch may travel and still count as a tap rather than a swipe.
+const TAP_SLOP_PX = 10
+
 const TooltipTrigger = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof TooltipPrimitive.Trigger>
->(({ onTouchEnd: onTouchEndProp, ...props }, forwardedRef) => {
+>(({ onTouchStart: onTouchStartProp, onTouchMove: onTouchMoveProp, onTouchEnd: onTouchEndProp, ...props }, forwardedRef) => {
   const touchContext = React.useContext(TooltipTouchContext)
+  const startRef = React.useRef<{ x: number; y: number } | null>(null)
+  const movedRef = React.useRef(false)
 
   // Merge the forwarded ref with the context's triggerRef
   const mergedRef = mergeRefs(forwardedRef, touchContext?.triggerRef)
 
-  // Combine touch handlers - stopPropagation prevents bubbling to parent touch handlers
+  const strayed = (t: React.Touch | undefined) => {
+    const start = startRef.current
+    return !start || !t || Math.hypot(t.clientX - start.x, t.clientY - start.y) > TAP_SLOP_PX
+  }
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLButtonElement>) => {
+    const t = e.touches[0]
+    startRef.current = { x: t.clientX, y: t.clientY }
+    movedRef.current = false
+    onTouchStartProp?.(e)
+  }
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLButtonElement>) => {
+    if (strayed(e.touches[0])) movedRef.current = true
+    onTouchMoveProp?.(e)
+  }
+
+  // stopPropagation prevents bubbling to parent touch handlers
   const handleTouchEnd = (e: React.TouchEvent<HTMLButtonElement>) => {
     e.stopPropagation()
-    touchContext?.onTouchEnd(e)
+    if (touchContext) {
+      if (movedRef.current || strayed(e.changedTouches[0])) touchContext.onSwipe()
+      else touchContext.onTap()
+    }
+    startRef.current = null
     onTouchEndProp?.(e)
   }
 
@@ -143,6 +195,8 @@ const TooltipTrigger = React.forwardRef<
     <TooltipPrimitive.Trigger
       ref={mergedRef}
       data-slot="tooltip-trigger"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       {...props}
     />

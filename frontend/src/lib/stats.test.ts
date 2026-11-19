@@ -7,6 +7,7 @@ import {
   distributionColumns,
   dotLayout,
   formatDelta,
+  formatMetric,
   quartersGrid,
   termName,
 } from "./stats"
@@ -54,6 +55,11 @@ describe("formatDelta", () => {
   ] as const)("%s %d vs %d", (metric, value, course, want) => {
     expect(formatDelta(metric, value, course)).toBe(want)
   })
+  it("rounds the shown value the way the delta does", () => {
+    // toFixed alone shows 2.255 as 2.25, beside a +0.01 delta against 2.25.
+    expect(formatMetric("gpa", 2.255)).toBe("2.26")
+    expect(formatDelta("gpa", 2.255, 2.25)).toBe("+0.01")
+  })
 })
 
 describe("axisDomain", () => {
@@ -74,6 +80,16 @@ describe("axisDomain", () => {
   it("ticks without float drift", () => {
     expect(axisTicks({ lo: 0.4, hi: 1, step: 0.2 })).toEqual([0.4, 0.6, 0.8, 1])
   })
+  it.each([
+    [0.13, [0, 0.2, 0.4, 0.6, 0.8, 1]],
+    [0.35, [0.2, 0.4, 0.6, 0.8, 1]],
+    [0.5, [0.4, 0.6, 0.8, 1]],
+  ])(
+    "starts a low pass axis (%d) on a fifth so it ends at 100%%",
+    (low, ticks) => {
+      expect(axisTicks(axisDomain("pass", [low, 0.95]))).toEqual(ticks)
+    }
+  )
 })
 
 describe("dotLayout", () => {
@@ -131,6 +147,17 @@ describe("dotLayout", () => {
     })
     // An axis from 80% in tenths gives 2% bins; 93.1% falls in 94%.
     expect(points[0].x).toBeCloseTo(0.94)
+  })
+
+  it("centers a perfect pass rate on 100% when the axis starts low", () => {
+    const { points, xDomain } = dotLayout(
+      [dot("a", 0.5), dot("b", 1)],
+      "pass",
+      current,
+      { width: 400, height: 150 }
+    )
+    expect(points.find((p) => p.crn === "b")!.x).toBeCloseTo(1)
+    expect(xDomain[1]).toBeCloseTo(1.02)
   })
 })
 

@@ -29,7 +29,7 @@ function isAsync(meeting: MeetingTime): boolean {
 
 export function formatMeetingTime(meeting: MeetingTime): string {
   const { startTime, endTime } = meeting
-  if (meeting.days.slice(1, 6).some(Boolean) && startTime && endTime) {
+  if (meeting.days.some(Boolean) && startTime && endTime) {
     return `${formatDays(meeting.days)} ${formatTime(startTime)}-${formatTime(endTime)}`
   }
   if (isAsync(meeting)) return "Asynchronous, no set times"
@@ -47,4 +47,12 @@ export function formatLocation(meeting: MeetingTime): string | null {
   if (!building) return room
   if (!room) return building
   return `${building} ${room}`
+}
+
+/** "4", or "1-3" for a variable-credit course. */
+export function formatCredits(credits: number, creditsHigh?: number): string {
+  if (creditsHigh && creditsHigh !== credits) {
+    return `${credits}-${creditsHigh}`
+  }
+  return String(credits)
 }

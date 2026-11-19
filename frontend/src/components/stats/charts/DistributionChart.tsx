@@ -101,8 +101,10 @@ export function DistributionChart({
           width={34}
         />
         <ChartTooltip
+          // An inline fill, since ChartContainer's fill-muted rule for
+          // the cursor beats the fill attribute.
           cursor={{
-            fill: "var(--foreground)",
+            style: { fill: "var(--foreground)" },
             fillOpacity: 0.05,
             stroke: "none",
           }}

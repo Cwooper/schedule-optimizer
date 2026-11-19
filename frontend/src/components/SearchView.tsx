@@ -258,7 +258,7 @@ export function SearchView() {
             {/* Buttons */}
             <div className="flex items-end gap-2 xl:flex-1">
               <TooltipProvider delayDuration={0}>
-                <Tooltip>
+                <Tooltip touchToggle={!canSearch}>
                   <TooltipTrigger asChild>
                     <div className="flex-1">
                       <Button

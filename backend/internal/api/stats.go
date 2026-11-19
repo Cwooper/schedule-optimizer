@@ -35,7 +35,8 @@ func respondStats(c *gin.Context, resp any, err error, action string) {
 	case err == nil:
 		c.JSON(http.StatusOK, resp)
 	case errors.Is(err, stats.ErrNotLoaded):
-		c.JSON(http.StatusServiceUnavailable, gin.H{"error": err.Error()})
+		// The client shows this message as is.
+		c.JSON(http.StatusServiceUnavailable, gin.H{"error": "Statistics are still loading"})
 	case errors.Is(err, stats.ErrNotFound):
 		c.JSON(http.StatusNotFound, gin.H{"error": err.Error()})
 	default:

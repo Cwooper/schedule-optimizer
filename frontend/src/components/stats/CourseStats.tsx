@@ -5,6 +5,7 @@ import type { StatsCourse, StatsProfessorRow } from "@/lib/api"
 import {
   currentTermCode,
   distributionColumns,
+  formatMetric,
   formatPct,
   surname,
   termName,
@@ -40,7 +41,8 @@ export function CourseStats({
   const { data, error } = useStatsCourse(subject, number)
   if (error) return <StatsMessage error={error} />
   if (!data) return null
-  return <CourseBody course={data} />
+  // Keyed so a cached course does not inherit the last one's open rows.
+  return <CourseBody key={`${data.subject} ${data.number}`} course={data} />
 }
 
 function CourseBody({ course }: { course: StatsCourse }) {
@@ -68,7 +70,10 @@ function CourseBody({ course }: { course: StatsCourse }) {
 
       <div className="mb-3 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:auto-cols-fr lg:grid-flow-col lg:grid-cols-none">
         {metric === "gpa" && (
-          <StatTile label="GPA" value={summary.gpa?.toFixed(2) ?? "-"} />
+          <StatTile
+            label="GPA"
+            value={summary.gpa != null ? formatMetric("gpa", summary.gpa) : "-"}
+          />
         )}
         <StatTile
           label="Pass"

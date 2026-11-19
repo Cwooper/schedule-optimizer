@@ -168,7 +168,7 @@ frontend/
 │   │   ├── dates.ts         # YYYY-MM-DD helpers (API dates are Pacific calendar dates)
 │   │   ├── term-status.ts   # Sidebar term status line and key dates rows
 │   │   ├── stats.ts         # Statistics tab logic: distribution columns, axis domains, quarters grid, dot plot layout, vs-course deltas
-│   │   ├── meetings.ts      # Meeting day/time/room formatting shared by section cards and stats
+│   │   ├── meetings.ts      # Meeting day/time/room and credit formatting shared by section cards, search, and stats
 │   │   ├── finals.ts        # Finals week grid data, guess reason labels
 │   │   ├── factors.ts       # Ranking factors (keys, labels, icons) shared by the weights panel and schedule stats
 │   │   ├── schedule-stats.ts # Shown schedule's stats; gap rules mirror the backend scorer

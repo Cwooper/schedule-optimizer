@@ -104,7 +104,7 @@ export function ScheduleNavHeader({
   // "Schedule" from its label to fit at 320px.
   return (
     <div className="grid grid-cols-[1fr_auto_1fr] items-center border-b p-2">
-      <Tooltip>
+      <Tooltip touchToggle={false}>
         <TooltipTrigger asChild>
           <div className="justify-self-start">
             <Button
@@ -156,7 +156,7 @@ export function ScheduleNavHeader({
       )}
 
       <div className="flex items-center justify-self-end">
-        <Tooltip>
+        <Tooltip touchToggle={false}>
           <TooltipTrigger asChild>
             <div>
               <Button

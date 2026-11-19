@@ -13,6 +13,7 @@ import {
   getStatsCourses,
   getStatsCourse,
   getStatsSection,
+  ApiError,
   type GenerateRequest,
   type SearchRequest,
 } from "@/lib/api"
@@ -27,9 +28,22 @@ export function useAnnouncement() {
   })
 }
 
-// Grade data only changes on a deploy, so stats never go stale in a session.
+// Statistics answer 503 while the grade data loads after a restart, so
+// they keep retrying (with the default backoff, about two minutes in all).
+function retryWhileLoading(failures: number, error: Error): boolean {
+  if (error instanceof ApiError && error.status === 503) return failures < 8
+  return failures < 1
+}
+
+// The course list changes only when the grade index rebuilds, which after
+// the first scrapes rarely changes it.
 export function useStatsCourses() {
-  return useQuery({ queryKey: ["stats-courses"], queryFn: getStatsCourses, staleTime: Infinity })
+  return useQuery({
+    queryKey: ["stats-courses"],
+    queryFn: getStatsCourses,
+    staleTime: Infinity,
+    retry: retryWhileLoading,
+  })
 }
 
 export function useStatsCourse(subject: string, number: string) {
@@ -38,6 +52,7 @@ export function useStatsCourse(subject: string, number: string) {
     queryFn: () => getStatsCourse(subject, number),
     enabled: Boolean(subject && number),
     staleTime: 60 * 60 * 1000,
+    retry: retryWhileLoading,
   })
 }
 
@@ -47,6 +62,7 @@ export function useStatsSection(term: string, crn: string) {
     queryFn: () => getStatsSection(term, crn),
     enabled: Boolean(term && crn),
     staleTime: 60 * 60 * 1000,
+    retry: retryWhileLoading,
   })
 }
 

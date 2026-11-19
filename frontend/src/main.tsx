@@ -16,6 +16,18 @@ import "./index.css"
 import App from "./App.tsx"
 
 track("visit", isDesktopViewport() ? "desktop" : "mobile")
+
+// A deploy replaces the hashed chunks, so a page open across one fails to
+// load a lazy tab; reload for the new ones. The timestamp stops a loop when
+// the reload fails too, and ReloadBoundary covers that case.
+const PRELOAD_RELOAD_KEY = "preload-error-reload"
+window.addEventListener("vite:preloadError", (e) => {
+  const last = Number(sessionStorage.getItem(PRELOAD_RELOAD_KEY) ?? 0)
+  if (Date.now() - last < 10_000) return
+  sessionStorage.setItem(PRELOAD_RELOAD_KEY, String(Date.now()))
+  e.preventDefault()
+  location.reload()
+})
 // On the store rather than TabNav, so programmatic tab switches count too.
 useAppStore.subscribe((state, prev) => {
   if (state.tab !== prev.tab) track("tab", state.tab)

@@ -16,8 +16,8 @@ import type { Final, HydratedSection } from "@/lib/api"
 import { cn } from "@/lib/utils"
 import { describeGrades, type GradeKind } from "@/lib/grades"
 import { formatNumericDate, formatWeekday } from "@/lib/dates"
-import { FINAL_GUESS_REASONS } from "@/lib/finals"
 import { formatLocation, formatMeetingTime, formatTime } from "@/lib/meetings"
+import { FinalGuessIcon } from "./FinalGuessIcon"
 
 interface SectionCardProps {
   section: HydratedSection
@@ -53,16 +53,7 @@ function FinalRow({ final }: { final: Final }) {
           <span className="text-muted-foreground">Final</span> {formatWeekday(final.date)}{" "}
           {formatNumericDate(final.date)} {formatTime(final.start)}-{formatTime(final.end)}
         </span>
-        {!final.certain && final.reason && (
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <span className="inline-flex cursor-help" aria-label="Estimated final">
-                <CircleHelp className="size-3 text-muted-foreground" />
-              </span>
-            </TooltipTrigger>
-            <TooltipContent>{FINAL_GUESS_REASONS[final.reason]}</TooltipContent>
-          </Tooltip>
-        )}
+        <FinalGuessIcon final={final} />
       </span>
       {final.location && <span className="text-muted-foreground">{final.location}</span>}
     </div>

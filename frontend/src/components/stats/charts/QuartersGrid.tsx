@@ -92,8 +92,11 @@ function QuarterSquare({
       formatMetric(metric, graded.value),
     ])
   }
-  const sections = graded?.sections ?? offered?.sections
+  const sections = offered?.sections ?? graded?.sections
   if (sections) rows.push(["Sections", sections])
+  if (graded && graded.sections !== sections) {
+    rows.push(["Graded", graded.sections])
+  }
   return (
     <Tooltip>
       <TooltipTrigger asChild>

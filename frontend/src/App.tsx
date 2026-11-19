@@ -10,6 +10,7 @@ import { Footer } from "@/components/Footer"
 import { ScheduleBuilder } from "@/components/ScheduleBuilder"
 import { ScheduleView, CourseInfoDialog } from "@/components/schedule"
 import { SearchView } from "@/components/SearchView"
+import { ReloadBoundary } from "@/components/ReloadBoundary"
 import { Button } from "@/components/ui/button"
 import {
   Drawer,
@@ -136,9 +137,11 @@ function App() {
             {tab === "schedule" && <ScheduleView />}
             {tab === "search" && <SearchView />}
             {tab === "statistics" && (
-              <Suspense fallback={null}>
-                <StatsView />
-              </Suspense>
+              <ReloadBoundary>
+                <Suspense fallback={null}>
+                  <StatsView />
+                </Suspense>
+              </ReloadBoundary>
             )}
           </main>
         </div>

@@ -1,10 +1,18 @@
+import type { ReactNode } from "react"
 import { ChevronLeft } from "lucide-react"
+import { FinalGuessIcon } from "@/components/schedule/FinalGuessIcon"
 import { useStatsSection } from "@/hooks/use-api"
 import type { StatsSection } from "@/lib/api"
 import { formatMonthDay, formatWeekday } from "@/lib/dates"
-import { formatLocation, formatMeetingTime, formatTime } from "@/lib/meetings"
+import {
+  formatCredits,
+  formatLocation,
+  formatMeetingTime,
+  formatTime,
+} from "@/lib/meetings"
 import {
   distributionColumns,
+  formatMetric,
   formatPct,
   surname,
   termName,
@@ -81,8 +89,10 @@ function SectionBody({ section: v }: { section: StatsSection }) {
         {metric === "gpa" && (
           <StatTile
             label="GPA"
-            value={section.gpa?.toFixed(2) ?? "-"}
-            detail={course.gpa != null && `${code} ${course.gpa.toFixed(2)}`}
+            value={section.gpa != null ? formatMetric("gpa", section.gpa) : "-"}
+            detail={
+              course.gpa != null && `${code} ${formatMetric("gpa", course.gpa)}`
+            }
           />
         )}
         <StatTile
@@ -263,22 +273,30 @@ function ClassCard({
 }: {
   details: NonNullable<StatsSection["class"]>
 }) {
-  const rooms = [
-    ...new Set(details.meetings.map(formatLocation).filter(Boolean)),
+  const unique = (lines: (string | null)[]) => [
+    ...new Set(lines.filter((l): l is string => Boolean(l))),
   ]
   const final = details.final
-  const rows: [string, string[]][] = [
-    ["Meets", details.meetings.map(formatMeetingTime)],
-    ["Room", rooms as string[]],
+  const rows: [string, ReactNode[]][] = [
+    ["Meets", unique(details.meetings.map(formatMeetingTime))],
+    ["Room", unique(details.meetings.map(formatLocation))],
     [
       "Final",
       final
         ? [
-            `${formatWeekday(final.date)} ${formatMonthDay(final.date)}, ${formatTime(final.start)}`,
+            <span key="final" className="inline-flex items-center gap-1.5">
+              {`${formatWeekday(final.date)} ${formatMonthDay(final.date)}, ${formatTime(final.start)}`}
+              <FinalGuessIcon final={final} />
+            </span>,
           ]
         : [],
     ],
-    ["Credits", details.credits ? [String(details.credits)] : []],
+    [
+      "Credits",
+      details.credits
+        ? [formatCredits(details.credits, details.creditsHigh)]
+        : [],
+    ],
   ]
   return (
     <Card title="Class" className="col-span-12 xl:col-span-4">
@@ -292,8 +310,8 @@ function ClassCard({
             >
               <dt className="text-muted-foreground pr-4">{label}</dt>
               <dd className="text-right font-medium tabular-nums">
-                {lines.map((l) => (
-                  <div key={l}>{l}</div>
+                {lines.map((l, i) => (
+                  <div key={i}>{l}</div>
                 ))}
               </dd>
             </div>

@@ -397,7 +397,13 @@ export interface StatsSection {
   rank: number // 0 when too small to rank
   dots: StatsDot[]
   siblings: (GradeStats & { crn: string; professor: string })[]
-  class?: { meetings: MeetingTime[]; credits: number; capacity: number; final?: Final }
+  class?: {
+    meetings: MeetingTime[]
+    credits: number
+    creditsHigh?: number
+    capacity: number
+    final?: Final
+  }
 }
 
 // --- Errors ---
@@ -437,13 +443,15 @@ async function fetchAPI<T>(
   }
 
   if (!res.ok) {
-    if (res.status >= 500) {
+    const body = await res.json().catch(() => ({}))
+    // A 503 from the server names what is unavailable (statistics still
+    // loading); other server errors stay generic.
+    if (res.status >= 500 && !(res.status === 503 && body.error)) {
       throw new ApiError(
         "Something went wrong on the server. Try again later.",
         res.status
       )
     }
-    const body = await res.json().catch(() => ({ error: "Request failed" }))
     throw new ApiError(body.error || `HTTP ${res.status}`, res.status)
   }
 
