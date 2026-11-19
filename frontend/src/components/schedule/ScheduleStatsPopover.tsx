@@ -74,14 +74,19 @@ function StatRows({ stats }: { stats: ScheduleStats }) {
       ),
     seats: `${stats.open} of ${classes(stats.sections)} open`,
   }
-  // The mean over sections, which the bare factor name doesn't say.
-  const labels: Partial<Record<Factor, string>> = { gpa: "Avg GPA" }
+  // Each value is one extreme or a mean of the week, which the bare factor
+  // name doesn't say.
+  const qualifiers: Partial<Record<Factor, string>> = {
+    start: "earliest",
+    end: "latest",
+    gpa: "avg",
+  }
   const days = stats.days.flatMap((on, i) => (on ? [DAY_LETTERS[i + 1]] : []))
 
   return (
     <>
       {FACTORS.map((f) => (
-        <StatRow key={f.key} icon={f.icon} label={labels[f.key] ?? f.label}>
+        <StatRow key={f.key} icon={f.icon} label={f.label} qualifier={qualifiers[f.key]}>
           {values[f.key]}
         </StatRow>
       ))}
@@ -99,17 +104,22 @@ function StatRows({ stats }: { stats: ScheduleStats }) {
 function StatRow({
   icon: Icon,
   label,
+  qualifier,
   children,
 }: {
   icon: LucideIcon
   label: string
+  qualifier?: string
   children: React.ReactNode
 }) {
   return (
     <div className="flex h-8 items-center justify-between gap-3">
       <div className="flex items-center gap-2">
         <Icon className="text-muted-foreground size-4" />
-        <span className="text-sm">{label}</span>
+        <span className="text-sm">
+          {label}
+          {qualifier && <Muted> ({qualifier})</Muted>}
+        </span>
       </div>
       <span className="text-sm tabular-nums">{children}</span>
     </div>
@@ -121,7 +131,7 @@ function DayTimeValue({ time }: { time: DayTime | null }) {
   // Fixed cells keep the weekdays in one column whatever the time's width.
   return (
     <span className="inline-grid grid-cols-[1.75rem_4.25rem]">
-      <Muted>{DAYS[time.day]}</Muted>
+      <span className="text-muted-foreground text-right">{DAYS[time.day]}</span>
       <span className="text-right">{formatClock(time.mins)}</span>
     </span>
   )
