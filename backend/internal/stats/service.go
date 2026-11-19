@@ -106,6 +106,9 @@ type SubjectOption struct {
 type CoursesResponse struct {
 	Subjects []SubjectOption `json:"subjects"`
 	Courses  []CourseOption  `json:"courses"`
+	// FirstTerm and LastTerm bound the grade data.
+	FirstTerm string `json:"firstTerm"`
+	LastTerm  string `json:"lastTerm"`
 }
 
 // Courses lists every course with grade data, for the pickers.
@@ -118,6 +121,7 @@ func (s *Service) Courses() (*CoursesResponse, error) {
 		Subjects: make([]SubjectOption, 0, len(idx.Subjects())),
 		Courses:  make([]CourseOption, 0, len(idx.Courses())),
 	}
+	resp.FirstTerm, resp.LastTerm = idx.Terms()
 	for _, sub := range idx.Subjects() {
 		resp.Subjects = append(resp.Subjects, SubjectOption{Code: sub.Code, Name: sub.Name})
 	}

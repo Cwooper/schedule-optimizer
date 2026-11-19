@@ -58,10 +58,12 @@ func TestCourse(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if v.Title != "Data Structures and Algorithms I" || v.Sections != 4 || v.Professors != 2 || v.FirstTerm != "202340" {
-		t.Errorf("header = %q, %d sections, %d professors, first %s", v.Title, v.Sections, v.Professors, v.FirstTerm)
+	if v.Title != "Data Structures and Algorithms I" || v.Sections != 4 || v.Professors != 2 {
+		t.Errorf("header = %q, %d sections, %d professors", v.Title, v.Sections, v.Professors)
 	}
-	if !slices.Equal(v.Offered, []string{"202340", "202440", "202710"}) {
+	// Banner's section counts: Fall 2024's graded CRN 299 is not in Banner.
+	wantOffered := []OfferedTerm{{"202340", 2}, {"202440", 1}, {"202710", 2}}
+	if !slices.Equal(v.Offered, wantOffered) {
 		t.Errorf("offered = %v", v.Offered)
 	}
 	if v.Next == nil || v.Next.Term != "202710" || !slices.Equal(v.Next.Professors, []string{"Smith, Jordan", "Gu, Xuhang"}) {
@@ -94,8 +96,26 @@ func TestCourse(t *testing.T) {
 	}
 	// A term's GPA sums its sections' counts, the small one included:
 	// Fall 2024 is (15*4 + 5*3) / 20.
-	if !slices.Equal(v.Terms, []TermValue{{"202340", 3.75}, {"202440", 3.75}}) {
-		t.Errorf("terms = %+v", v.Terms)
+	type term struct {
+		term               string
+		value              float64
+		sections, students int
+	}
+	var terms []term
+	for _, tv := range v.Terms {
+		terms = append(terms, term{tv.Term, *tv.Value, tv.Sections, tv.Students})
+	}
+	if !slices.Equal(terms, []term{{"202340", 3.75, 2, 68}, {"202440", 3.75, 2, 48}}) {
+		t.Errorf("terms = %+v", terms)
+	}
+}
+
+func TestOfferedTermsAddsGradedOnly(t *testing.T) {
+	banner := []OfferedTerm{{"202340", 2}, {"202710", 1}}
+	graded := []TermValue{{Term: "202240", Sections: 3}, {Term: "202340", Sections: 1}}
+	want := []OfferedTerm{{"202240", 3}, {"202340", 2}, {"202710", 1}}
+	if got := offeredTerms(banner, graded); !slices.Equal(got, want) {
+		t.Errorf("offered = %v, want %v", got, want)
 	}
 }
 

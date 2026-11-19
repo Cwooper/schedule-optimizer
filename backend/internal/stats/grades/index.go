@@ -47,13 +47,9 @@ type Index struct {
 	courses  map[CourseKey]*Course
 	list     []*Course // by subject, then number
 	sections map[[2]string]*Section
-	levels   map[levelKey]Counts
 	subjects []Subject
-}
-
-type levelKey struct {
-	subject string
-	digit   byte
+	first    string
+	last     string
 }
 
 // indexSource is what buildIndex reads, one query each.
@@ -67,7 +63,6 @@ func buildIndex(src indexSource) *Index {
 	idx := &Index{
 		courses:  make(map[CourseKey]*Course),
 		sections: make(map[[2]string]*Section, len(src.rows)),
-		levels:   make(map[levelKey]Counts),
 	}
 	names := professorNames(src.rows)
 	keys := courseKeys(src.rows)
@@ -96,11 +91,10 @@ func buildIndex(src indexSource) *Index {
 		if sec.Term >= newest[sec.Course] {
 			newest[sec.Course], gradeTitles[sec.Course] = sec.Term, g.Title
 		}
-		if lk, ok := levelOf(sec.Course); ok {
-			counts := idx.levels[lk]
-			counts.Add(sec.Counts)
-			idx.levels[lk] = counts
+		if idx.first == "" || sec.Term < idx.first {
+			idx.first = sec.Term
 		}
+		idx.last = max(idx.last, sec.Term)
 	}
 
 	// Grade titles are abbreviated ("Experimentl Approaches Resrch") and
@@ -213,13 +207,6 @@ func sharesSurname(banner, grade string) bool {
 	return last != "" && strings.Contains(strings.ToLower(grade), strings.ToLower(last))
 }
 
-func levelOf(k CourseKey) (levelKey, bool) {
-	if k.Number == "" || k.Number[0] < '0' || k.Number[0] > '9' {
-		return levelKey{}, false
-	}
-	return levelKey{k.Subject, k.Number[0]}, true
-}
-
 // Courses returns every course with grade data, by subject then number.
 func (x *Index) Courses() []*Course { return x.list }
 
@@ -232,12 +219,5 @@ func (x *Index) Course(k CourseKey) *Course { return x.courses[k] }
 // Section returns nil for a section with no grade data.
 func (x *Index) Section(term, crn string) *Section { return x.sections[[2]string{term, crn}] }
 
-// Level sums every course in k's subject at its hundreds level (CSCI 3xx).
-func (x *Index) Level(k CourseKey) (Counts, bool) {
-	lk, ok := levelOf(k)
-	if !ok {
-		return Counts{}, false
-	}
-	c, ok := x.levels[lk]
-	return c, ok
-}
+// Terms returns the first and last terms with grade data.
+func (x *Index) Terms() (first, last string) { return x.first, x.last }

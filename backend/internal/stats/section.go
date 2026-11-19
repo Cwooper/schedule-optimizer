@@ -33,10 +33,12 @@ type SectionView struct {
 }
 
 type Dot struct {
-	Term  string  `json:"term"`
-	CRN   string  `json:"crn"`
-	Value float64 `json:"value"`
-	Mine  bool    `json:"mine,omitempty"` // taught by this section's professor
+	Term      string  `json:"term"`
+	CRN       string  `json:"crn"`
+	Professor string  `json:"professor"`
+	Students  int     `json:"students"`
+	Value     float64 `json:"value"`
+	Mine      bool    `json:"mine,omitempty"` // taught by this section's professor
 }
 
 type SiblingRow struct {
@@ -64,14 +66,14 @@ func (s *Service) Section(ctx context.Context, term, crn string) (*SectionView, 
 	if sec == nil {
 		return nil, ErrNotFound
 	}
-	v := buildSectionView(idx, idx.Course(sec.Course), sec)
+	v := buildSectionView(idx.Course(sec.Course), sec)
 	if v.Class, err = s.class(ctx, term, crn); err != nil {
 		return nil, err
 	}
 	return v, nil
 }
 
-func buildSectionView(idx *grades.Index, course *grades.Course, sec *grades.Section) *SectionView {
+func buildSectionView(course *grades.Course, sec *grades.Section) *SectionView {
 	total, students := sumStudents(course.Sections)
 	metric := metricOf(total)
 	v := &SectionView{
@@ -97,10 +99,12 @@ func buildSectionView(idx *grades.Index, course *grades.Course, sec *grades.Sect
 		}
 		if val := metric.value(o.Counts); val != nil {
 			v.Dots = append(v.Dots, Dot{
-				Term:  o.Term,
-				CRN:   o.CRN,
-				Value: *val,
-				Mine:  sec.Professor != "" && o.Professor == sec.Professor,
+				Term:      o.Term,
+				CRN:       o.CRN,
+				Professor: o.Professor,
+				Students:  o.Students,
+				Value:     *val,
+				Mine:      sec.Professor != "" && o.Professor == sec.Professor,
 			})
 		}
 	}

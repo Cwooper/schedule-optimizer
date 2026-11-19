@@ -19,29 +19,31 @@ type CourseView struct {
 	Summary    Stats  `json:"summary"`
 	Sections   int    `json:"sections"`
 	Professors int    `json:"professors"`
-	FirstTerm  string `json:"firstTerm"`
-	// Level is the subject's courses at this one's hundreds level (CSCI 3xx).
-	Level *Rates `json:"level,omitempty"`
-	// Terms holds the metric per graded term, oldest first.
+	// Terms holds each graded term, oldest first.
 	Terms []TermValue `json:"terms"`
 	// Seasons holds the metric per quarter over every year: Fall, Winter,
 	// Spring, Summer.
 	Seasons []SeasonValue `json:"seasons"`
-	// Offered is every term Banner lists the course in, past and upcoming.
-	Offered       []string       `json:"offered"`
+	// Offered is every term the course ran or is scheduled in, oldest first.
+	Offered       []OfferedTerm  `json:"offered"`
 	Next          *NextTerm      `json:"next,omitempty"`
 	ProfessorRows []ProfessorRow `json:"professorRows"`
 }
 
-type Rates struct {
-	GPA      *float64 `json:"gpa"`
-	Pass     *float64 `json:"pass"`
-	Withdrew *float64 `json:"withdrew"`
+// TermValue is one term's graded sections; Value is nil when they are too
+// small to report.
+type TermValue struct {
+	Term     string   `json:"term"`
+	Value    *float64 `json:"value"`
+	Sections int      `json:"sections"`
+	Students int      `json:"students"`
 }
 
-type TermValue struct {
-	Term  string  `json:"term"`
-	Value float64 `json:"value"`
+// OfferedTerm counts Banner's sections, or the graded ones for a term
+// Banner does not list.
+type OfferedTerm struct {
+	Term     string `json:"term"`
+	Sections int    `json:"sections"`
 }
 
 type SeasonValue struct {
@@ -91,12 +93,12 @@ func (s *Service) Course(ctx context.Context, subject, number string) (*CourseVi
 	if err != nil {
 		return nil, err
 	}
-	return buildCourseView(idx, course, readOfferings(offerings, started)), nil
+	return buildCourseView(course, readOfferings(offerings, started)), nil
 }
 
 // offeringFacts is what Banner says about a course's terms.
 type offeringFacts struct {
-	offered    []string
+	offered    []OfferedTerm
 	lastTaught map[string]string // professor -> newest started term
 	next       *NextTerm
 	nextKeys   map[string]bool // professors teaching the next term
@@ -106,9 +108,10 @@ type offeringFacts struct {
 func readOfferings(rows []*store.GetCourseOfferingsRow, started func(string) bool) offeringFacts {
 	f := offeringFacts{lastTaught: make(map[string]string), nextKeys: make(map[string]bool)}
 	for _, r := range rows {
-		if len(f.offered) == 0 || f.offered[len(f.offered)-1] != r.Term {
-			f.offered = append(f.offered, r.Term)
+		if len(f.offered) == 0 || f.offered[len(f.offered)-1].Term != r.Term {
+			f.offered = append(f.offered, OfferedTerm{Term: r.Term})
 		}
+		f.offered[len(f.offered)-1].Sections++
 		key := r.InstructorName.String
 		if started(r.Term) {
 			if key != "" {
@@ -125,32 +128,24 @@ func readOfferings(rows []*store.GetCourseOfferingsRow, started func(string) boo
 		f.nextKeys[key] = true
 		f.next.Professors = append(f.next.Professors, key)
 	}
-	if f.offered == nil {
-		f.offered = []string{}
-	}
 	return f
 }
 
-func buildCourseView(idx *grades.Index, course *grades.Course, facts offeringFacts) *CourseView {
+func buildCourseView(course *grades.Course, facts offeringFacts) *CourseView {
 	total, students := sumStudents(course.Sections)
 	metric := metricOf(total)
 	v := &CourseView{
-		Subject:   course.Subject,
-		Number:    course.Number,
-		Title:     course.Title,
-		Metric:    metric,
-		Summary:   newStats(total, students),
-		Sections:  len(course.Sections),
-		FirstTerm: course.Sections[len(course.Sections)-1].Term,
-		Offered:   facts.offered,
-		Next:      facts.next,
-	}
-	if level, ok := idx.Level(course.CourseKey); ok {
-		st := newStats(level, 0)
-		v.Level = &Rates{GPA: st.GPA, Pass: st.Pass, Withdrew: st.Withdrew}
+		Subject:  course.Subject,
+		Number:   course.Number,
+		Title:    course.Title,
+		Metric:   metric,
+		Summary:  newStats(total, students),
+		Sections: len(course.Sections),
+		Next:     facts.next,
 	}
 	v.Terms, v.Seasons = termValues(course.Sections, metric)
-	v.ProfessorRows = professorRows(idx, course.Sections, facts)
+	v.Offered = offeredTerms(facts.offered, v.Terms)
+	v.ProfessorRows = professorRows(course.Sections, facts)
 	for _, p := range v.ProfessorRows {
 		if p.Name != "" {
 			v.Professors++
@@ -160,25 +155,22 @@ func buildCourseView(idx *grades.Index, course *grades.Course, facts offeringFac
 }
 
 func termValues(secs []*grades.Section, metric Metric) ([]TermValue, []SeasonValue) {
-	byTerm := make(map[string]grades.Counts)
+	byTerm := make(map[string][]*grades.Section)
 	bySeason := make(map[int]grades.Counts)
 	for _, s := range secs {
-		c := byTerm[s.Term]
-		c.Add(s.Counts)
-		byTerm[s.Term] = c
+		byTerm[s.Term] = append(byTerm[s.Term], s)
 		_, q, err := termcode.Parse(s.Term)
 		if err != nil {
 			continue
 		}
-		c = bySeason[q]
+		c := bySeason[q]
 		c.Add(s.Counts)
 		bySeason[q] = c
 	}
 	terms := make([]TermValue, 0, len(byTerm))
-	for term, c := range byTerm {
-		if v := metric.value(c); v != nil {
-			terms = append(terms, TermValue{Term: term, Value: *v})
-		}
+	for term, g := range byTerm {
+		c, students := sumStudents(g)
+		terms = append(terms, TermValue{Term: term, Value: metric.value(c), Sections: len(g), Students: students})
 	}
 	slices.SortFunc(terms, func(a, b TermValue) int { return cmp.Compare(a.Term, b.Term) })
 	seasons := make([]SeasonValue, 0, len(seasonOrder))
@@ -188,9 +180,25 @@ func termValues(secs []*grades.Section, metric Metric) ([]TermValue, []SeasonVal
 	return terms, seasons
 }
 
+// offeredTerms adds graded terms Banner does not list (courses keyed on a
+// grade-file code have no Banner sections at all).
+func offeredTerms(banner []OfferedTerm, graded []TermValue) []OfferedTerm {
+	out := slices.Clone(banner)
+	for _, t := range graded {
+		if !slices.ContainsFunc(banner, func(o OfferedTerm) bool { return o.Term == t.Term }) {
+			out = append(out, OfferedTerm{Term: t.Term, Sections: t.Sections})
+		}
+	}
+	slices.SortFunc(out, func(a, b OfferedTerm) int { return cmp.Compare(a.Term, b.Term) })
+	if out == nil {
+		out = []OfferedTerm{}
+	}
+	return out
+}
+
 // professorRows groups sections by professor, most sections first, with
 // unlisted sections last.
-func professorRows(idx *grades.Index, secs []*grades.Section, facts offeringFacts) []ProfessorRow {
+func professorRows(secs []*grades.Section, facts offeringFacts) []ProfessorRow {
 	groups := make(map[string][]*grades.Section)
 	var order []string
 	for _, s := range secs {

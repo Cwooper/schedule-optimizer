@@ -117,9 +117,8 @@ func TestBuildIndex(t *testing.T) {
 			t.Errorf("section %d = %s/%q, want %s/%q", i, s.CRN, s.Professor, w.crn, w.prof)
 		}
 	}
-	level, ok := idx.Level(CourseKey{"CSCI", "399"})
-	if !ok || level[GradeA] != 40 || level[GradeB] != 10 {
-		t.Errorf("CSCI 3xx level = %v, %v", level, ok)
+	if first, last := idx.Terms(); first != "202340" || last != "202440" {
+		t.Errorf("terms = %s to %s", first, last)
 	}
 	if subs := idx.Subjects(); len(subs) != 1 || subs[0].Name != "Computer Science" {
 		t.Errorf("subjects = %v", subs)
