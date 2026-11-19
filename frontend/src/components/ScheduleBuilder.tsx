@@ -19,6 +19,7 @@ import {
   WeightsTrigger,
 } from "@/components/schedule-builder"
 import {
+  selectInvalidBounds,
   useAppStore,
   buildGenerateRequest,
   computeGenerationParams,
@@ -129,8 +130,7 @@ export function ScheduleBuilder() {
     [slots, validationMap]
   )
 
-  const hasInvalidBounds =
-    minCourses !== null && maxCourses !== null && maxCourses < minCourses
+  const hasInvalidBounds = useAppStore(selectInvalidBounds)
 
   const hasNoValidCourses = slots.length > 0 && validSlots.length === 0
 
@@ -165,21 +165,28 @@ export function ScheduleBuilder() {
       generatePressed.current = false
       return
     }
-    if (generatePressed.current) return
+    if (generatePressed.current) {
+      handleGenerate()
+      return
+    }
     const rerun = weightsCloseRerun(state, preferencesAtOpen.current)
     if (rerun) generate({ switchTab: false, showWarnings: rerun.showWarnings })
   }
 
-  // Radix closes the panel on pointerdown, before Generate's click lands; a
-  // close rerun would disable the button and swallow that click, so the
-  // click does the generating instead.
+  // Radix closes the panel on pointerdown, before Generate's click lands, and
+  // a close rerun would disable the button and swallow that click. A left press
+  // on Generate runs the full Generate on close instead, click or not.
   const handleWeightsPointerDownOutside: React.ComponentProps<
     typeof PopoverContent
   >["onPointerDownOutside"] = (e) => {
     const button = generateButtonRef.current
     const target = e.detail.originalEvent.target
     generatePressed.current =
-      !!button && !button.disabled && target instanceof Node && button.contains(target)
+      e.detail.originalEvent.button === 0 &&
+      !!button &&
+      !button.disabled &&
+      target instanceof Node &&
+      button.contains(target)
   }
 
   // Both mounted builders (sidebar and mobile drawer) see the request; the
@@ -207,7 +214,7 @@ export function ScheduleBuilder() {
     if (!term) return "Select a term first"
     if (slots.length === 0) return "Add courses to get started"
     if (hasNoValidCourses) return "No courses available in this term"
-    if (hasInvalidBounds) return "Max courses must be ≥ min courses"
+    if (hasInvalidBounds) return "Max courses must be at least min courses"
     return null
   }
 

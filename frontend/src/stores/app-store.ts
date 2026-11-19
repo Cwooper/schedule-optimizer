@@ -343,7 +343,6 @@ interface AppState {
     params?: GenerationParams
   ) => void
   setCurrentScheduleIndex: (index: number) => void
-  /** Records a generation request as the latest and returns its sequence number. */
   beginGeneration: (params: GenerationParams, showWarnings: boolean) => number
   /**
    * Settles a request: only the latest one applies its result (and only if
@@ -464,6 +463,10 @@ export function mergePersistedState(persisted: unknown, current: AppState): AppS
  */
 export function selectScheduleTerm(state: AppState): string {
   return (state.generateResult && state.generatedWithParams?.term) || state.term
+}
+
+export function selectInvalidBounds(state: AppState): boolean {
+  return state.minCourses !== null && state.maxCourses !== null && state.maxCourses < state.minCourses
 }
 
 // --- Store ---

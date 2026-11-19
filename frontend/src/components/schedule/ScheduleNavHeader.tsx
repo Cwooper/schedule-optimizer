@@ -52,6 +52,7 @@ export function ScheduleBanner({
 
 interface ScheduleNavHeaderProps {
   canRegenerate: boolean
+  hasInvalidBounds: boolean
   showStale: boolean
   onRegenerate: () => void
   /** Index of the shown schedule, and how many there are (0 when none). */
@@ -71,6 +72,7 @@ interface ScheduleNavHeaderProps {
 
 export function ScheduleNavHeader({
   canRegenerate,
+  hasInvalidBounds,
   showStale,
   onRegenerate,
   index,
@@ -88,6 +90,7 @@ export function ScheduleNavHeader({
   const [spinCount, setSpinCount] = useState(0)
 
   const regenerateTooltip = () => {
+    if (hasInvalidBounds) return "Max courses must be at least min courses"
     if (!canRegenerate) return "Add courses to regenerate"
     if (showStale) return "Settings changed. Click to regenerate."
     return "Regenerate schedules"
