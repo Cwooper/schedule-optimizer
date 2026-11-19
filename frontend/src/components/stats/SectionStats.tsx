@@ -88,7 +88,7 @@ function SectionBody({ section: v }: { section: StatsSection }) {
       <div className="mb-3 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:auto-cols-fr lg:grid-flow-col lg:grid-cols-none">
         {metric === "gpa" && (
           <StatTile
-            label="GPA"
+            label="Average GPA"
             value={section.gpa != null ? formatMetric("gpa", section.gpa) : "-"}
             detail={
               course.gpa != null && `${code} ${formatMetric("gpa", course.gpa)}`
@@ -96,12 +96,12 @@ function SectionBody({ section: v }: { section: StatsSection }) {
           />
         )}
         <StatTile
-          label="Pass"
+          label="Pass rate"
           value={rate(section.pass)}
           detail={`${code} ${rate(course.pass)}`}
         />
         <StatTile
-          label="Withdrew"
+          label="Withdrawal rate"
           value={rate(section.withdrew, 1)}
           detail={`${code} ${rate(course.withdrew, 1)}`}
         />

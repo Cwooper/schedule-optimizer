@@ -71,22 +71,22 @@ function CourseBody({ course }: { course: StatsCourse }) {
       <div className="mb-3 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:auto-cols-fr lg:grid-flow-col lg:grid-cols-none">
         {metric === "gpa" && (
           <StatTile
-            label="GPA"
+            label="Average GPA"
             value={summary.gpa != null ? formatMetric("gpa", summary.gpa) : "-"}
           />
         )}
         <StatTile
-          label="Pass"
+          label="Pass rate"
           value={summary.pass != null ? formatPct(summary.pass) : "-"}
         />
         <StatTile
-          label="Withdrew"
+          label="Withdrawal rate"
           value={
             summary.withdrew != null ? formatPct(summary.withdrew, 1) : "-"
           }
         />
         <StatTile
-          label="Class size"
+          label="Average class size"
           value={Math.round(summary.students / course.sections)}
         />
         <StatTile
