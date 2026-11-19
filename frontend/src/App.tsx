@@ -10,6 +10,7 @@ import { Footer } from "@/components/Footer"
 import { ScheduleBuilder } from "@/components/ScheduleBuilder"
 import { ScheduleView, CourseInfoDialog } from "@/components/schedule"
 import { SearchView } from "@/components/SearchView"
+import { StatsView } from "@/components/stats/StatsView"
 import { Button } from "@/components/ui/button"
 import {
   Drawer,
@@ -129,16 +130,7 @@ function App() {
           <main className="flex-1 overflow-hidden">
             {tab === "schedule" && <ScheduleView />}
             {tab === "search" && <SearchView />}
-            {tab === "statistics" && (
-              <div className="flex h-full flex-col items-center justify-center">
-                <p className="text-muted-foreground">
-                  Statistics (coming soon)
-                </p>
-                <p className="text-muted mt-8 text-xs">
-                  I'm waiting for Western to get back to me :(
-                </p>
-              </div>
-            )}
+            {tab === "statistics" && <StatsView />}
           </main>
         </div>
       </div>

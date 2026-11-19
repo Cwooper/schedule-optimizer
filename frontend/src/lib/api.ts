@@ -309,6 +309,84 @@ export interface SearchResponse {
   stats: SearchStats
 }
 
+// --- Statistics ---
+
+/**
+ * Grade counts in the grade file's order: A, A-, B+, B, B-, C+, C, C-, D+,
+ * D, D-, F, W, P, NP, S, U.
+ */
+export type GradeCounts = number[]
+
+/** The comparison metric: GPA, or pass rate for an S/U-only course. */
+export type StatsMetric = "gpa" | "pass"
+
+/** Grades and GPA are absent for a scope too small to report. */
+export interface GradeStats {
+  students: number
+  grades?: GradeCounts
+  gpa: number | null
+  pass: number | null
+  withdrew: number | null
+}
+
+export interface StatsCoursesResponse {
+  subjects: Subject[]
+  courses: { subject: string; number: string; title: string }[]
+}
+
+export interface StatsSectionRow extends GradeStats {
+  term: string
+  crn: string
+}
+
+export interface StatsProfessorRow extends GradeStats {
+  name: string // "" groups sections with no professor listed
+  sections: number
+  lastTaught?: string
+  teachesNext?: boolean
+  history: StatsSectionRow[] // newest first
+}
+
+export interface StatsCourse {
+  subject: string
+  number: string
+  title: string
+  metric: StatsMetric
+  summary: GradeStats
+  sections: number
+  professors: number
+  firstTerm: string
+  level?: { gpa: number | null; pass: number | null; withdrew: number | null }
+  terms: { term: string; value: number }[] // oldest first
+  seasons: { quarter: number; value: number | null }[] // Fall, Winter, Spring, Summer
+  offered: string[]
+  next?: { term: string; professors: string[] }
+  professorRows: StatsProfessorRow[]
+}
+
+export interface StatsDot {
+  term: string
+  crn: string
+  value: number
+  mine?: boolean
+}
+
+export interface StatsSection {
+  term: string
+  crn: string
+  subject: string
+  number: string
+  title: string
+  professor: string
+  metric: StatsMetric
+  section: GradeStats
+  course: GradeStats
+  rank: number // 0 when too small to rank
+  dots: StatsDot[]
+  siblings: (GradeStats & { crn: string; professor: string })[]
+  class?: { meetings: MeetingTime[]; credits: number; capacity: number; final?: Final }
+}
+
 // --- Errors ---
 
 export class ApiError extends Error {
@@ -448,4 +526,16 @@ export async function searchCourses(
   if (req.minCredits !== undefined) params.set("minCredits", String(req.minCredits))
   if (req.maxCredits !== undefined) params.set("maxCredits", String(req.maxCredits))
   return fetchAPI<SearchResponse>(`/search?${params.toString()}`)
+}
+
+export async function getStatsCourses(): Promise<StatsCoursesResponse> {
+  return fetchAPI<StatsCoursesResponse>("/stats/courses")
+}
+
+export async function getStatsCourse(subject: string, number: string): Promise<StatsCourse> {
+  return fetchAPI<StatsCourse>(`/stats/course/${encodeURIComponent(subject)}/${encodeURIComponent(number)}`)
+}
+
+export async function getStatsSection(term: string, crn: string): Promise<StatsSection> {
+  return fetchAPI<StatsSection>(`/stats/section/${encodeURIComponent(term)}/${encodeURIComponent(crn)}`)
 }

@@ -118,7 +118,7 @@ backend/
 │   │   ├── client.go         # HTTP client with cookie jar
 │   │   ├── response.go       # Banner API response types
 │   │   └── store.go          # Persistence helpers
-│   ├── api/                  # HTTP handlers, one file per area (terms, sections, calendar, generate, feedback)
+│   ├── api/                  # HTTP handlers, one file per area (terms, sections, calendar, generate, feedback, stats)
 │   ├── calendar/             # Registrar calendar scraper (see package doc for design)
 │   │   ├── calendar.go       # ScrapeAll: term dates, finals schedule, important dates
 │   │   ├── schedule.go       # Term phases from scraped dates, estimates as fallback
@@ -132,6 +132,13 @@ backend/
 │   │   ├── calendar.go       # CalendarJob: Banner term list + registrar calendar, on startup and daily
 │   │   └── scrape.go         # ScrapeJob: each term due by its phase and last_scraped_at; failures retry hourly
 │   ├── cache/                # In-memory schedule cache (sections carry their computed final)
+│   ├── stats/                # Statistics tab: course and section views (GET /api/stats/...)
+│   │   ├── service.go        # Stats payload, metric (GPA, or pass rate for S/U-only courses), picker list
+│   │   ├── course.go         # Course view: summary, level comparison, by term and season, professors; Banner offerings per request
+│   │   ├── section.go        # Section view: rank, every section's dot, same-term sections, Banner class details and final
+│   │   └── grades/           # Grade file import, CRN-join mappings, generator GPA lookup
+│   │       ├── counts.go     # Counts: GPA, pass, and withdrew from summed counts; small-class threshold
+│   │       └── index.go      # Index: grade rows keyed on their Banner course (the file's subject is a department), professors grouped by joined Banner name
 │   └── generator/            # Schedule generation (bitmask + backtracking)
 │       ├── service.go        # Generate() entry point, course group building, ranking order
 │       ├── bitmask.go        # O(1) conflict detection via [8]uint64
@@ -151,6 +158,8 @@ backend/
 frontend/
 ├── src/
 │   ├── components/          # React components
+│   │   ├── stats/           # Statistics tab: pickers, course and section views
+│   │   │   └── charts/      # Custom SVG charts (no chart library), themed with CSS variables
 │   │   └── ui/              # shadcn/ui components (generated)
 │   ├── hooks/               # Custom React hooks
 │   │   └── use-api.ts       # TanStack Query hooks for API calls
@@ -158,6 +167,8 @@ frontend/
 │   │   ├── api.ts           # Typed fetch functions for backend API
 │   │   ├── dates.ts         # YYYY-MM-DD helpers (API dates are Pacific calendar dates)
 │   │   ├── term-status.ts   # Sidebar term status line and key dates rows
+│   │   ├── stats.ts         # Statistics tab logic: distribution columns, axis domains, quarters grid, dot jitter
+│   │   ├── meetings.ts      # Meeting day/time/room formatting shared by section cards and stats
 │   │   ├── finals.ts        # Finals week grid data, guess reason labels
 │   │   ├── factors.ts       # Ranking factors (keys, labels, icons) shared by the weights panel and schedule stats
 │   │   ├── schedule-stats.ts # Shown schedule's stats; gap rules mirror the backend scorer
@@ -219,7 +230,7 @@ See `internal/scraper/scraper.go` package doc for detailed design decisions (tim
 
 Term dates, registration phases, deadlines, holidays, and the finals schedule come from registrar.wwu.edu, since Banner exposes none of them. See the `internal/calendar` package doc for the pages and how they are parsed.
 
-The API serves calendar data as JSON only: `GET /api/terms` adds each term's phase and dates, `GET /api/calendar/:term` returns its registration phases, holidays, deadlines, and finals week, and section payloads (generate, search, CRN lookup) carry an optional `final`. Deadline titles for calendar events come from the same wording rules that sort deadlines into kinds (`classifyDeadline` in `calendar/term.go`), so the rules live in one place. Calendar export is an `.ics` file built in the browser (`lib/ics.ts`); there are no hosted feeds, so nothing on the server has to track subscribers or stay in sync with a schedule the server never stores.
+The API serves calendar data as JSON only: `GET /api/terms` adds each term's phase and dates, `GET /api/calendar/:term` returns its registration phases, holidays, deadlines, and finals week, and section payloads (generate, search, CRN lookup) carry an optional `final`. Deadline titles for calendar events come from the same wording rules that sort deadlines into kinds (`classifyDeadline` in `calendar/term.go`), so the rules live in one place. The Statistics tab reads `GET /api/stats/courses` (picker list), `GET /api/stats/course/:subject/:number`, and `GET /api/stats/section/:term/:crn`; they return 503 until the grade import job has loaded the index. GPA always comes from summed grade counts, and a scope with fewer than 10 letter grades (`grades.MinReportable`) reports no GPA or distribution. Calendar export is an `.ics` file built in the browser (`lib/ics.ts`); there are no hosted feeds, so nothing on the server has to track subscribers or stay in sync with a schedule the server never stores.
 
 ## Environment Variables
 
