@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest"
 import type { HydratedSection, MeetingTime } from "./api"
-import { computeScheduleStats } from "./schedule-stats"
+import { computeScheduleStats, formatDuration } from "./schedule-stats"
 import { DAY_LETTERS } from "./schedule-utils"
 
 function meeting(days: string, startTime?: string, endTime?: string): MeetingTime {
@@ -123,5 +123,15 @@ describe("computeScheduleStats", () => {
     ])
     expect(stats.start).toEqual({ day: 1, mins: 480 })
     expect(stats.end).toEqual({ day: 0, mins: 950 })
+  })
+})
+
+describe("formatDuration", () => {
+  it.each([
+    [45, "45m"],
+    [60, "1h"],
+    [130, "2h 10m"],
+  ])("formats %i minutes as %s", (mins, label) => {
+    expect(formatDuration(mins)).toBe(label)
   })
 })

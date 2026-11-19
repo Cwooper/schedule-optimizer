@@ -160,6 +160,7 @@ export function ScheduleView() {
           onIndexChange={setCurrentScheduleIndex}
           emptyText={generateResult ? "No valid schedules found" : "No schedules yet"}
           sections={scheduleSections}
+          score={currentSchedule?.score ?? 0}
           onBlockedTimes={() => setDialogOpen(true)}
           onDownloadPng={() => {
             track("png_export", showFinals ? "finals" : "schedule")

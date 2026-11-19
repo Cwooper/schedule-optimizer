@@ -207,7 +207,8 @@ function HelpContent() {
           <li>
             <strong className="text-foreground">Weights</strong>: the button
             next to Generate sets what ranks schedules first, like start and
-            end times, gaps, GPA, and open seats
+            end times, gaps, GPA, and open seats; clicking the schedule count
+            shows that schedule's stats
           </li>
         </ul>
       </div>

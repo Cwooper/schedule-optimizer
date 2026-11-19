@@ -78,3 +78,11 @@ export function computeScheduleStats(sections: HydratedSection[]): ScheduleStats
     days: week.map((ds) => ds != null),
   }
 }
+
+/** Minutes as "2h 10m", dropping a zero part. */
+export function formatDuration(mins: number): string {
+  const h = Math.floor(mins / 60)
+  const m = mins % 60
+  if (h === 0) return `${m}m`
+  return m === 0 ? `${h}h` : `${h}h ${m}m`
+}
