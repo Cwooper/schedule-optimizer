@@ -45,7 +45,8 @@ export function ScheduleStatsPopover({
       <PopoverContent side="bottom" align="center" className="w-72">
         <div className="mb-3 flex items-center justify-between">
           <span className="text-sm font-medium">Schedule {index + 1}</span>
-          <span className="text-muted-foreground text-sm tabular-nums">
+          <span className="text-sm tabular-nums">
+            <Muted>Score </Muted>
             {Math.round(score * 100)}%
           </span>
         </div>
@@ -65,22 +66,22 @@ function StatRows({ stats }: { stats: ScheduleStats }) {
         <Muted>No data</Muted>
       ) : (
         <>
-          {stats.gpaKnown < stats.sections && (
-            <Muted>
-              {stats.gpaKnown} of {stats.sections}{" "}
-            </Muted>
-          )}
           {stats.gpa.toFixed(2)}
+          {stats.gpaKnown < stats.sections && (
+            <Muted> ({stats.gpaKnown} of {classes(stats.sections)})</Muted>
+          )}
         </>
       ),
-    seats: `${stats.open} of ${stats.sections} open`,
+    seats: `${stats.open} of ${classes(stats.sections)} open`,
   }
+  // The mean over sections, which the bare factor name doesn't say.
+  const labels: Partial<Record<Factor, string>> = { gpa: "Avg GPA" }
   const days = stats.days.flatMap((on, i) => (on ? [DAY_LETTERS[i + 1]] : []))
 
   return (
     <>
       {FACTORS.map((f) => (
-        <StatRow key={f.key} icon={f.icon} label={f.label}>
+        <StatRow key={f.key} icon={f.icon} label={labels[f.key] ?? f.label}>
           {values[f.key]}
         </StatRow>
       ))}
@@ -117,12 +118,17 @@ function StatRow({
 
 function DayTimeValue({ time }: { time: DayTime | null }) {
   if (!time) return <Muted>None</Muted>
+  // Fixed cells keep the weekdays in one column whatever the time's width.
   return (
-    <>
-      <Muted>{DAYS[time.day]} </Muted>
-      {formatClock(time.mins)}
-    </>
+    <span className="inline-grid grid-cols-[1.75rem_4.25rem]">
+      <Muted>{DAYS[time.day]}</Muted>
+      <span className="text-right">{formatClock(time.mins)}</span>
+    </span>
   )
+}
+
+function classes(n: number): string {
+  return `${n} ${n === 1 ? "class" : "classes"}`
 }
 
 function Muted({ children }: { children: React.ReactNode }) {
