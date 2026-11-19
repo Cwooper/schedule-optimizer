@@ -35,8 +35,6 @@ func seededService(t *testing.T) *Service {
 			(4, 'Smith, Jordan', 1), (5, 'Gu, Xuhang', 1);
 		INSERT INTO meeting_times (section_id, start_time, end_time, building, room, monday, wednesday, friday)
 			VALUES (1, '1000', '1050', 'CF', '225', 1, 1, 1);
-		INSERT INTO instructor_mappings (banner_name, grade_name, match_count) VALUES
-			('Smith, Jordan', 'Jordan Smith', 5), ('Lee, Kara', 'Kara Lee', 5);
 		INSERT INTO grade_rows (term, crn, subject, course_number, title, professor, students_enrolled, grade_count, cnt_a, cnt_b, cnt_w) VALUES
 			('202340', '100', 'CSCI', '305', 'Analysis of Algs', 'Jordan Smith', 38, 21, 20, 0, 1),
 			('202340', '101', 'CSCI', '305', 'Analysis of Algs', 'Kara Lee', 30, 20, 10, 10, 0),

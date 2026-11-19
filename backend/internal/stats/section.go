@@ -80,7 +80,7 @@ func buildSectionView(idx *grades.Index, course *grades.Course, sec *grades.Sect
 		Subject:   course.Subject,
 		Number:    course.Number,
 		Title:     course.Title,
-		Professor: displayName(idx, sec.Professor),
+		Professor: sec.Professor,
 		Metric:    metric,
 		Section:   newStats(sec.Counts, sec.Students),
 		Course:    newStats(total, students),
@@ -91,7 +91,7 @@ func buildSectionView(idx *grades.Index, course *grades.Course, sec *grades.Sect
 		if o.Term == sec.Term {
 			v.Siblings = append(v.Siblings, SiblingRow{
 				CRN:       o.CRN,
-				Professor: displayName(idx, o.Professor),
+				Professor: o.Professor,
 				Stats:     newStats(o.Counts, o.Students),
 			})
 		}

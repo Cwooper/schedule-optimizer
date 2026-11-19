@@ -154,7 +154,7 @@ func (s *Service) LoadFromDB(ctx context.Context) error {
 		}
 	}
 
-	index, err := s.loadIndex(ctx, instructorMappings)
+	index, err := s.loadIndex(ctx)
 	if err != nil {
 		return err
 	}
@@ -182,8 +182,8 @@ func (s *Service) LoadFromDB(ctx context.Context) error {
 	return nil
 }
 
-func (s *Service) loadIndex(ctx context.Context, mappings []*store.InstructorMapping) (*Index, error) {
-	src := indexSource{mappings: mappings}
+func (s *Service) loadIndex(ctx context.Context) (*Index, error) {
+	var src indexSource
 	var err error
 	if src.rows, err = s.queries.GetGradeRowsWithBanner(ctx); err != nil {
 		return nil, fmt.Errorf("load grade rows: %w", err)

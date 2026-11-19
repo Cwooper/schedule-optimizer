@@ -141,13 +141,6 @@ func (s *Service) termStarted(ctx context.Context) (func(term string) bool, erro
 	}, nil
 }
 
-func displayName(idx *grades.Index, key string) string {
-	if key == "" {
-		return ""
-	}
-	return idx.DisplayName(key)
-}
-
 func sumStudents(secs []*grades.Section) (grades.Counts, int) {
 	var c grades.Counts
 	n := 0

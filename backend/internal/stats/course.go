@@ -91,29 +91,25 @@ func (s *Service) Course(ctx context.Context, subject, number string) (*CourseVi
 	if err != nil {
 		return nil, err
 	}
-	return buildCourseView(idx, course, readOfferings(idx, offerings, started)), nil
+	return buildCourseView(idx, course, readOfferings(offerings, started)), nil
 }
 
 // offeringFacts is what Banner says about a course's terms.
 type offeringFacts struct {
 	offered    []string
-	lastTaught map[string]string // professor key -> newest started term
+	lastTaught map[string]string // professor -> newest started term
 	next       *NextTerm
-	nextKeys   map[string]bool // professor keys teaching the next term
+	nextKeys   map[string]bool // professors teaching the next term
 }
 
 // readOfferings reads a course's Banner sections, in term order.
-func readOfferings(idx *grades.Index, rows []*store.GetCourseOfferingsRow, started func(string) bool) offeringFacts {
+func readOfferings(rows []*store.GetCourseOfferingsRow, started func(string) bool) offeringFacts {
 	f := offeringFacts{lastTaught: make(map[string]string), nextKeys: make(map[string]bool)}
 	for _, r := range rows {
 		if len(f.offered) == 0 || f.offered[len(f.offered)-1] != r.Term {
 			f.offered = append(f.offered, r.Term)
 		}
-		name := r.InstructorName.String
-		key := ""
-		if name != "" {
-			key = idx.ProfessorKey(name)
-		}
+		key := r.InstructorName.String
 		if started(r.Term) {
 			if key != "" {
 				f.lastTaught[key] = max(f.lastTaught[key], r.Term)
@@ -127,7 +123,7 @@ func readOfferings(idx *grades.Index, rows []*store.GetCourseOfferingsRow, start
 			continue
 		}
 		f.nextKeys[key] = true
-		f.next.Professors = append(f.next.Professors, idx.DisplayName(key))
+		f.next.Professors = append(f.next.Professors, key)
 	}
 	if f.offered == nil {
 		f.offered = []string{}
@@ -208,7 +204,7 @@ func professorRows(idx *grades.Index, secs []*grades.Section, facts offeringFact
 		g := groups[key]
 		counts, students := sumStudents(g)
 		row := ProfessorRow{
-			Name:     displayName(idx, key),
+			Name:     key,
 			Sections: len(g),
 			Stats:    newStats(counts, students),
 			History:  make([]SectionRow, 0, len(g)),

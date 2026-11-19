@@ -19,7 +19,7 @@ type Section struct {
 	Term      string
 	CRN       string
 	Course    CourseKey
-	Professor string // a professor key (see Index.ProfessorKey); "" when unlisted
+	Professor string // see professorNames; "" when unlisted
 	Students  int    // enrolled, from the grade file
 	Counts    Counts
 }
@@ -49,8 +49,6 @@ type Index struct {
 	sections map[[2]string]*Section
 	levels   map[levelKey]Counts
 	subjects []Subject
-	names    map[string]string // professor key -> display name
-	keys     map[string]string // Banner name -> professor key
 }
 
 type levelKey struct {
@@ -61,7 +59,6 @@ type levelKey struct {
 // indexSource is what buildIndex reads, one query each.
 type indexSource struct {
 	rows     []*store.GetGradeRowsWithBannerRow
-	mappings []*store.InstructorMapping
 	titles   []*store.GetLatestCourseTitlesRow
 	subjects []*store.GetLatestSubjectDescriptionsRow
 }
@@ -72,8 +69,7 @@ func buildIndex(src indexSource) *Index {
 		sections: make(map[[2]string]*Section, len(src.rows)),
 		levels:   make(map[levelKey]Counts),
 	}
-	idx.names, idx.keys = professorNames(src.mappings)
-
+	names := professorNames(src.rows)
 	keys := courseKeys(src.rows)
 	gradeTitles := make(map[CourseKey]string)
 	newest := make(map[CourseKey]string)
@@ -83,12 +79,12 @@ func buildIndex(src indexSource) *Index {
 			Term:      g.Term,
 			CRN:       g.Crn,
 			Course:    keys[i],
-			Professor: strings.TrimSpace(g.Professor),
+			Professor: names[strings.TrimSpace(g.Professor)],
 			Students:  int(g.StudentsEnrolled),
 			Counts:    countsOf(g),
 		}
-		if sec.Professor == "" && r.BannerInstructor.String != "" {
-			sec.Professor = idx.ProfessorKey(r.BannerInstructor.String)
+		if sec.Professor == "" {
+			sec.Professor = r.BannerInstructor.String
 		}
 		c := idx.courses[sec.Course]
 		if c == nil {
@@ -167,33 +163,46 @@ func courseKeys(rows []*store.GetGradeRowsWithBannerRow) []CourseKey {
 	return keys
 }
 
-// minTrustedMatches is how many CRN joins make a Banner-to-grade name mapping
-// trustworthy even when the names share no surname (a name change). Below
-// it, such a mapping is usually a co-taught section joining the wrong
+// minTrustedMatches is how many CRN joins make a grade-file name's Banner
+// name trustworthy even when they share no surname (a name change). Below
+// it, such a pair is usually a co-taught section joining the other
 // instructor.
 const minTrustedMatches = 3
 
-// professorNames returns each grade-file professor's display name (Banner's
-// "Last, First", the most-joined one when there are several) and each
-// Banner name's professor key, from the trusted mappings.
-func professorNames(mappings []*store.InstructorMapping) (names, keys map[string]string) {
-	names = make(map[string]string)
-	keys = make(map[string]string)
-	best := make(map[string]*store.InstructorMapping)
-	for _, m := range mappings {
-		if m.MatchCount < minTrustedMatches && !sharesSurname(m.BannerName, m.GradeName) {
+// professorNames maps each grade-file professor ("First Last") to the name
+// their sections group and display under: the Banner "Last, First" their
+// sections most often joined, when trusted, else the grade name itself.
+// Grouping by the Banner name merges grade-file variants of one person
+// (Grace Dunbar Miller and Grace Dunbar-Miller, or a maiden name), and lets
+// Banner's later terms match by name alone. A missing key maps to "".
+func professorNames(rows []*store.GetGradeRowsWithBannerRow) map[string]string {
+	joins := make(map[string]map[string]int)
+	for _, r := range rows {
+		grade := strings.TrimSpace(r.GradeRow.Professor)
+		if grade == "" {
 			continue
 		}
-		keys[m.BannerName] = m.GradeName
-		b := best[m.GradeName]
-		if b == nil || m.MatchCount > b.MatchCount || (m.MatchCount == b.MatchCount && m.BannerName < b.BannerName) {
-			best[m.GradeName] = m
+		if joins[grade] == nil {
+			joins[grade] = make(map[string]int)
+		}
+		if banner := r.BannerInstructor.String; banner != "" {
+			joins[grade][banner]++
 		}
 	}
-	for grade, m := range best {
-		names[grade] = m.BannerName
+	names := make(map[string]string, len(joins))
+	for grade, banners := range joins {
+		names[grade] = grade
+		best, n := "", 0
+		for b, c := range banners {
+			if c > n || (c == n && b < best) {
+				best, n = b, c
+			}
+		}
+		if n >= minTrustedMatches || (n > 0 && sharesSurname(best, grade)) {
+			names[grade] = best
+		}
 	}
-	return names, keys
+	return names
 }
 
 // sharesSurname reports whether a Banner "Last, First" name's surname
@@ -231,16 +240,4 @@ func (x *Index) Level(k CourseKey) (Counts, bool) {
 	}
 	c, ok := x.levels[lk]
 	return c, ok
-}
-
-// ProfessorKey returns the key a Banner instructor's grade rows group under:
-// their grade-file name, or the Banner name itself when unmapped.
-func (x *Index) ProfessorKey(bannerName string) string {
-	return cmp.Or(x.keys[bannerName], bannerName)
-}
-
-// DisplayName returns a professor key's name in Banner's "Last, First" form
-// when one is known.
-func (x *Index) DisplayName(key string) string {
-	return cmp.Or(x.names[key], key)
 }
