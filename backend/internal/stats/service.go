@@ -37,8 +37,9 @@ func (s *Service) index() (*grades.Index, error) {
 	return idx, nil
 }
 
-// Stats is one scope's grade numbers. Grades and GPA are omitted for a scope
-// too small to report (see grades.MinReportable).
+// Stats is one scope's grade numbers. A rate is omitted for a scope too
+// small to report it (see grades.MinReportable), and so are Grades and,
+// when it is the metric, Pass, so every view of the metric agrees.
 type Stats struct {
 	Students int            `json:"students"`
 	Grades   *grades.Counts `json:"grades,omitempty"`
@@ -47,17 +48,22 @@ type Stats struct {
 	Withdrew *float64       `json:"withdrew"`
 }
 
-func newStats(c grades.Counts, students int) Stats {
+func newStats(c grades.Counts, students int, m Metric) Stats {
 	st := Stats{Students: students, Pass: round(c.Pass()), Withdrew: round(c.Withdrew())}
-	if c.Reportable() {
-		st.Grades = &c
+	if c.ReportsGPA() {
 		st.GPA = round(c.GPA())
+	}
+	if m.reportable(c) {
+		st.Grades = &c
+	} else if m == MetricPass {
+		st.Pass = nil
 	}
 	return st
 }
 
 // Metric is what a course's sections are compared by: GPA, or the pass
-// rate for a course with no letter grades (S/U only).
+// rate for a course with too few letter grades to report a GPA (S/U only,
+// or nearly) when it has enough grades to report a pass rate.
 type Metric string
 
 const (
@@ -66,15 +72,22 @@ const (
 )
 
 func metricOf(course grades.Counts) Metric {
-	if course.GPA() != nil {
-		return MetricGPA
+	if !course.ReportsGPA() && (course.ReportsPass() || course.GPA() == nil) {
+		return MetricPass
 	}
-	return MetricPass
+	return MetricGPA
+}
+
+func (m Metric) reportable(c grades.Counts) bool {
+	if m == MetricGPA {
+		return c.ReportsGPA()
+	}
+	return c.ReportsPass()
 }
 
 // value is nil when the scope is too small to report.
 func (m Metric) value(c grades.Counts) *float64 {
-	if !c.Reportable() {
+	if !m.reportable(c) {
 		return nil
 	}
 	if m == MetricGPA {

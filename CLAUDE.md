@@ -133,7 +133,7 @@ backend/
 │   │   └── scrape.go         # ScrapeJob: each term due by its phase and last_scraped_at; failures retry hourly
 │   ├── cache/                # In-memory schedule cache (sections carry their computed final)
 │   ├── stats/                # Statistics tab: course and section views (GET /api/stats/...)
-│   │   ├── service.go        # Stats payload, metric (GPA, or pass rate for S/U-only courses), picker list
+│   │   ├── service.go        # Stats payload, metric (GPA, or pass rate for courses with too few letter grades), picker list
 │   │   ├── course.go         # Course view: summary, by term and season, professors; Banner offerings per request
 │   │   ├── section.go        # Section view: rank, every section for the dot plot, same-term sections, Banner class details and final
 │   │   └── grades/           # Grade file import, CRN-join mappings, generator GPA lookup
@@ -230,7 +230,7 @@ See `internal/scraper/scraper.go` package doc for detailed design decisions (tim
 
 Term dates, registration phases, deadlines, holidays, and the finals schedule come from registrar.wwu.edu, since Banner exposes none of them. See the `internal/calendar` package doc for the pages and how they are parsed.
 
-The API serves calendar data as JSON only: `GET /api/terms` adds each term's phase and dates, `GET /api/calendar/:term` returns its registration phases, holidays, deadlines, and finals week, and section payloads (generate, search, CRN lookup) carry an optional `final`. Deadline titles for calendar events come from the same wording rules that sort deadlines into kinds (`classifyDeadline` in `calendar/term.go`), so the rules live in one place. The Statistics tab reads `GET /api/stats/courses` (picker list and the grade data's first and last term), `GET /api/stats/course/:subject/:number`, and `GET /api/stats/section/:term/:crn`; they return 503 until the grade import job has loaded the index. GPA always comes from summed grade counts, and a scope with fewer than 10 letter grades (`grades.MinReportable`) reports no GPA or distribution. Calendar export is an `.ics` file built in the browser (`lib/ics.ts`); there are no hosted feeds, so nothing on the server has to track subscribers or stay in sync with a schedule the server never stores.
+The API serves calendar data as JSON only: `GET /api/terms` adds each term's phase and dates, `GET /api/calendar/:term` returns its registration phases, holidays, deadlines, and finals week, and section payloads (generate, search, CRN lookup) carry an optional `final`. Deadline titles for calendar events come from the same wording rules that sort deadlines into kinds (`classifyDeadline` in `calendar/term.go`), so the rules live in one place. The Statistics tab reads `GET /api/stats/courses` (picker list and the grade data's first and last term), `GET /api/stats/course/:subject/:number`, and `GET /api/stats/section/:term/:crn`; they return 503 until the grade import job has built the stats index, which the scrape and calendar jobs rebuild since it keys grade rows on Banner's sections. GPA always comes from summed grade counts, and a scope shows its metric and distribution only with 10 grades behind it (`grades.MinReportable`: letter grades for GPA, non-W grades for a pass rate). Calendar export is an `.ics` file built in the browser (`lib/ics.ts`); there are no hosted feeds, so nothing on the server has to track subscribers or stay in sync with a schedule the server never stores.
 
 ## Environment Variables
 

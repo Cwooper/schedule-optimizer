@@ -29,9 +29,9 @@ const (
 
 var gradePoints = [GradeF + 1]float64{4, 3.7, 3.3, 3, 2.7, 2.3, 2, 1.7, 1.3, 1, 0.7, 0}
 
-// MinReportable is the fewest grades a scope needs before its GPA and
-// distribution are shown: letter grades, or non-W grades when it has no
-// letters. Smaller classes swing too far on one student to compare.
+// MinReportable is the fewest grades a scope needs before a rate is shown:
+// letter grades for its GPA, non-W grades for its pass rate. Smaller classes
+// swing too far on one student to compare.
 const MinReportable = 10
 
 // Counts holds grade counts summed over any set of sections. GPA and rates
@@ -107,13 +107,12 @@ func (c Counts) PassFail() *float64 {
 	return ratio(float64(c[GradeS]+c[GradeP]), n)
 }
 
-// Reportable reports whether the scope is big enough to show its GPA and
-// distribution (see MinReportable).
-func (c Counts) Reportable() bool {
-	if n := c.letters(); n > 0 {
-		return n >= MinReportable
-	}
-	return c.graded() >= MinReportable
-}
+// ReportsGPA reports whether the scope has enough letter grades to show
+// its GPA (see MinReportable).
+func (c Counts) ReportsGPA() bool { return c.letters() >= MinReportable }
+
+// ReportsPass reports whether the scope has enough non-W grades to show its
+// pass rate (see MinReportable).
+func (c Counts) ReportsPass() bool { return c.graded() >= MinReportable }
 
 func ratio(num float64, den int) *float64 { return new(num / float64(den)) }

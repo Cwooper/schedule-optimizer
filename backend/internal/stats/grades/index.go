@@ -97,19 +97,14 @@ func buildIndex(src indexSource) *Index {
 		idx.last = max(idx.last, sec.Term)
 	}
 
-	// Grade titles are abbreviated ("Experimentl Approaches Resrch") and
-	// courses get renamed, so Banner's newest title wins.
-	bannerTitles := make(map[CourseKey]string, len(src.titles))
-	for _, t := range src.titles {
-		bannerTitles[CourseKey{t.Subject, t.CourseNumber}] = t.Title
-	}
+	titles := bannerTitles(src.titles)
 	descriptions := make(map[string]string, len(src.subjects))
 	for _, s := range src.subjects {
 		descriptions[s.Subject] = s.SubjectDescription.String
 	}
 
 	for k, c := range idx.courses {
-		c.Title = cmp.Or(bannerTitles[k], gradeTitles[k])
+		c.Title = cmp.Or(titles[k], gradeTitles[k])
 		slices.SortFunc(c.Sections, func(a, b *Section) int {
 			return cmp.Or(cmp.Compare(b.Term, a.Term), cmp.Compare(a.CRN, b.CRN))
 		})
@@ -124,6 +119,37 @@ func buildIndex(src indexSource) *Index {
 		}
 	}
 	return idx
+}
+
+// bannerTitles picks each course's title from its newest Banner term: the
+// title most of its sections carry. Grade titles are abbreviated
+// ("Experimentl Approaches Resrch") and courses get renamed, so Banner's
+// wins, except on a tie (a topics course whose sections each have their
+// own), which is left out so the grade file's title stands.
+func bannerTitles(rows []*store.GetLatestCourseTitlesRow) map[CourseKey]string {
+	type best struct {
+		title    string
+		sections int64
+		tied     bool
+	}
+	top := make(map[CourseKey]best, len(rows))
+	for _, t := range rows {
+		k := CourseKey{t.Subject, t.CourseNumber}
+		switch b := top[k]; {
+		case t.Sections > b.sections:
+			top[k] = best{t.Title, t.Sections, false}
+		case t.Sections == b.sections:
+			b.tied = true
+			top[k] = b
+		}
+	}
+	titles := make(map[CourseKey]string, len(top))
+	for k, b := range top {
+		if !b.tied {
+			titles[k] = b.title
+		}
+	}
+	return titles
 }
 
 // courseKeys returns each row's Banner course. A row with no Banner section
@@ -165,7 +191,8 @@ const minTrustedMatches = 3
 
 // professorNames maps each grade-file professor ("First Last") to the name
 // their sections group and display under: the Banner "Last, First" their
-// sections most often joined, when trusted, else the grade name itself.
+// sections most often joined among the trusted ones, else the grade name
+// itself.
 // Grouping by the Banner name merges grade-file variants of one person
 // (Grace Dunbar Miller and Grace Dunbar-Miller, or a maiden name), and lets
 // Banner's later terms match by name alone. A missing key maps to "".
@@ -188,11 +215,14 @@ func professorNames(rows []*store.GetGradeRowsWithBannerRow) map[string]string {
 		names[grade] = grade
 		best, n := "", 0
 		for b, c := range banners {
+			if c < minTrustedMatches && !sharesSurname(b, grade) {
+				continue
+			}
 			if c > n || (c == n && b < best) {
 				best, n = b, c
 			}
 		}
-		if n >= minTrustedMatches || (n > 0 && sharesSurname(best, grade)) {
+		if n > 0 {
 			names[grade] = best
 		}
 	}

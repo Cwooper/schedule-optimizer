@@ -239,7 +239,9 @@ func (q *Queries) GetAllGradeRows(ctx context.Context) ([]*GradeRow, error) {
 const getCourseOfferings = `-- name: GetCourseOfferings :many
 SELECT s.term, s.crn, i.name AS instructor_name
 FROM sections s
-LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1
+LEFT JOIN instructors i ON i.id = (
+    SELECT MIN(id) FROM instructors WHERE section_id = s.id AND is_primary = 1
+)
 WHERE s.subject = ? AND s.course_number = ?
 ORDER BY s.term, s.crn
 `
@@ -484,7 +486,9 @@ SELECT g.id, g.term, g.crn, g.subject, g.course_number, g.title, g.professor, g.
        i.name AS banner_instructor
 FROM grade_rows g
 LEFT JOIN sections s ON g.term = s.term AND g.crn = s.crn
-LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1
+LEFT JOIN instructors i ON i.id = (
+    SELECT MIN(id) FROM instructors WHERE section_id = s.id AND is_primary = 1
+)
 `
 
 type GetGradeRowsWithBannerRow struct {
@@ -494,6 +498,7 @@ type GetGradeRowsWithBannerRow struct {
 	BannerInstructor   sql.NullString `json:"banner_instructor"`
 }
 
+// One primary instructor per section, so a second primary row cannot count a section twice.
 func (q *Queries) GetGradeRowsWithBanner(ctx context.Context) ([]*GetGradeRowsWithBannerRow, error) {
 	rows, err := q.db.QueryContext(ctx, getGradeRowsWithBanner)
 	if err != nil {
@@ -644,19 +649,21 @@ func (q *Queries) GetInstructorsBySection(ctx context.Context, sectionID int64) 
 }
 
 const getLatestCourseTitles = `-- name: GetLatestCourseTitles :many
-SELECT subject, course_number, title, CAST(MAX(term) AS TEXT) AS term
-FROM sections
-GROUP BY subject, course_number
+SELECT s.subject, s.course_number, s.title, COUNT(*) AS sections
+FROM sections s
+JOIN (
+    SELECT subject, course_number, MAX(term) AS term FROM sections GROUP BY subject, course_number
+) n ON s.subject = n.subject AND s.course_number = n.course_number AND s.term = n.term
+GROUP BY s.subject, s.course_number, s.title
 `
 
 type GetLatestCourseTitlesRow struct {
 	Subject      string `json:"subject"`
 	CourseNumber string `json:"course_number"`
 	Title        string `json:"title"`
-	Term         string `json:"term"`
+	Sections     int64  `json:"sections"`
 }
 
-// SQLite fills bare columns from the row holding MAX(term), so title is the newest term's.
 func (q *Queries) GetLatestCourseTitles(ctx context.Context) ([]*GetLatestCourseTitlesRow, error) {
 	rows, err := q.db.QueryContext(ctx, getLatestCourseTitles)
 	if err != nil {
@@ -670,7 +677,7 @@ func (q *Queries) GetLatestCourseTitles(ctx context.Context) ([]*GetLatestCourse
 			&i.Subject,
 			&i.CourseNumber,
 			&i.Title,
-			&i.Term,
+			&i.Sections,
 		); err != nil {
 			return nil, err
 		}
@@ -982,7 +989,7 @@ func (q *Queries) GetSectionCount(ctx context.Context, term string) (int64, erro
 const getSectionWithInstructorByTermAndCRN = `-- name: GetSectionWithInstructorByTermAndCRN :one
 SELECT
     s.id, s.term, s.crn, s.subject, s.subject_description,
-    s.course_number, s.title, s.credit_hours_low,
+    s.course_number, s.title, s.credit_hours_low, s.credit_hours_high,
     s.enrollment, s.max_enrollment, s.seats_available, s.wait_count, s.is_open,
     s.instructional_method, s.schedule_type,
     i.name AS instructor_name, i.email AS instructor_email
@@ -1005,6 +1012,7 @@ type GetSectionWithInstructorByTermAndCRNRow struct {
 	CourseNumber        string         `json:"course_number"`
 	Title               string         `json:"title"`
 	CreditHoursLow      sql.NullInt64  `json:"credit_hours_low"`
+	CreditHoursHigh     sql.NullInt64  `json:"credit_hours_high"`
 	Enrollment          sql.NullInt64  `json:"enrollment"`
 	MaxEnrollment       sql.NullInt64  `json:"max_enrollment"`
 	SeatsAvailable      sql.NullInt64  `json:"seats_available"`
@@ -1028,6 +1036,7 @@ func (q *Queries) GetSectionWithInstructorByTermAndCRN(ctx context.Context, arg 
 		&i.CourseNumber,
 		&i.Title,
 		&i.CreditHoursLow,
+		&i.CreditHoursHigh,
 		&i.Enrollment,
 		&i.MaxEnrollment,
 		&i.SeatsAvailable,

@@ -88,7 +88,9 @@ func (s *Service) ImportAndCompute(ctx context.Context) error {
 	return s.LoadFromDB(ctx)
 }
 
-// LoadFromDB loads pre-computed mappings and aggregates from DB into memory.
+// LoadFromDB loads the mappings, aggregates, and stats index into memory.
+// The generator's GPAs do not wait on the index: an index error is logged
+// and leaves only the stats views unavailable until RebuildIndex succeeds.
 func (s *Service) LoadFromDB(ctx context.Context) error {
 	// Load subject mappings
 	subjectMappings, err := s.queries.GetSubjectMappings(ctx)
@@ -154,13 +156,7 @@ func (s *Service) LoadFromDB(ctx context.Context) error {
 		}
 	}
 
-	index, err := s.loadIndex(ctx)
-	if err != nil {
-		return err
-	}
-
 	s.mu.Lock()
-	s.index = index
 	s.subjectMap = subjectMap
 	s.instructorMap = instructorMap
 	s.courseProfAgg = courseProfAgg
@@ -177,8 +173,28 @@ func (s *Service) LoadFromDB(ctx context.Context) error {
 		"course_aggs", len(courseAgg),
 		"professor_aggs", len(professorAgg),
 		"subject_aggs", len(subjectAgg),
-		"stats_courses", len(index.list),
 	)
+	if err := s.RebuildIndex(ctx); err != nil {
+		slog.Error("Failed to build the stats index", "error", err)
+	}
+	return nil
+}
+
+// RebuildIndex rebuilds the stats index from the grade rows and Banner's
+// current sections, which key them. Requests keep reading the old index
+// until the swap. It does nothing before grade data loads.
+func (s *Service) RebuildIndex(ctx context.Context) error {
+	if !s.IsLoaded() {
+		return nil
+	}
+	index, err := s.loadIndex(ctx)
+	if err != nil {
+		return err
+	}
+	s.mu.Lock()
+	s.index = index
+	s.mu.Unlock()
+	slog.Info("Stats index built", "courses", len(index.list))
 	return nil
 }
 
@@ -197,7 +213,7 @@ func (s *Service) loadIndex(ctx context.Context) (*Index, error) {
 	return buildIndex(src), nil
 }
 
-// Index returns the stats index, or nil until grade data loads.
+// Index returns the stats index, or nil until it first builds.
 func (s *Service) Index() *Index {
 	s.mu.RLock()
 	defer s.mu.RUnlock()

@@ -63,6 +63,9 @@ func TestProfessorNames(t *testing.T) {
 	// A co-taught section joined the other instructor once.
 	join("Alex Nguyen", "Lee, Kara", 1)
 	join("Ana Ortiz", "", 1)
+	// An untrusted name that sorts first must not hide a surname match.
+	join("Matthew Scoggins", "Good, Andrew", 1)
+	join("Matthew Scoggins", "Scoggins, Matthew", 1)
 
 	want := map[string]string{
 		"Grace Dunbar Miller": "Dunbar Miller, Grace",
@@ -71,6 +74,7 @@ func TestProfessorNames(t *testing.T) {
 		"Melanie Williams":    "Williams, Melanie",
 		"Alex Nguyen":         "Alex Nguyen",
 		"Ana Ortiz":           "Ana Ortiz",
+		"Matthew Scoggins":    "Scoggins, Matthew",
 	}
 	got := professorNames(rows)
 	if len(got) != len(want) {
@@ -93,7 +97,13 @@ func TestBuildIndex(t *testing.T) {
 			joinRow("202440", "202", "CSCI", "305", "", "CSCI", "305", "", a10),
 			joinRow("202340", "300", "CSCI", "330", "Jordan Smith", "CSCI", "330", "", Counts{GradeB: 10}),
 		},
-		titles:   []*store.GetLatestCourseTitlesRow{{Subject: "CSCI", CourseNumber: "305", Title: "Data Structures and Algorithms I"}},
+		titles: []*store.GetLatestCourseTitlesRow{
+			{Subject: "CSCI", CourseNumber: "305", Title: "Analysis of Algorithms", Sections: 1},
+			{Subject: "CSCI", CourseNumber: "305", Title: "Data Structures and Algorithms I", Sections: 2},
+			// A topics course: no one title wins.
+			{Subject: "CSCI", CourseNumber: "330", Title: "Topic B", Sections: 1},
+			{Subject: "CSCI", CourseNumber: "330", Title: "Topic A", Sections: 1},
+		},
 		subjects: []*store.GetLatestSubjectDescriptionsRow{{Subject: "CSCI", SubjectDescription: sql.NullString{String: "Computer Science", Valid: true}}},
 	})
 
@@ -102,10 +112,10 @@ func TestBuildIndex(t *testing.T) {
 		t.Fatal("CSCI 305 missing")
 	}
 	if c.Title != "Data Structures and Algorithms I" {
-		t.Errorf("title = %q, want Banner's", c.Title)
+		t.Errorf("title = %q, want Banner's most common", c.Title)
 	}
 	if got := idx.Course(CourseKey{"CSCI", "330"}).Title; got != "CSCI 330" {
-		t.Errorf("title without a Banner title = %q, want the grade file's", got)
+		t.Errorf("title on a tie = %q, want the grade file's", got)
 	}
 	// Newest first; a blank grade name takes the Banner instructor.
 	wantProfs := []struct{ crn, prof string }{

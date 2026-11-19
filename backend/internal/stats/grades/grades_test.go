@@ -331,10 +331,46 @@ func TestImportAndComputeIdempotency(t *testing.T) {
 		t.Error("service should be loaded after ImportAndCompute")
 	}
 
-	// Aggregates should have been computed from the seeded row
-	aggCount, _ := queries.GetGradeAggregateCount(ctx)
-	if aggCount == 0 {
-		t.Error("expected aggregates to be computed")
+	// 92.5 grade points over 28 letters. The generator's pass rate counts
+	// only P/NP/S/U, so a letter-only course has none.
+	agg := svc.GetAggregate("course", "CSCI", "247", "")
+	if agg == nil {
+		t.Fatal("course aggregate not computed")
+	}
+	if !almostEqual(agg.GPA, 92.5/28, 1e-9) || agg.PassRate != nil {
+		t.Errorf("course aggregate GPA = %v, pass rate = %v; want %v and nil", agg.GPA, agg.PassRate, 92.5/28)
+	}
+}
+
+// The stats index joins Banner's sections; a failure there must not keep
+// the generator's GPAs from loading, and a later rebuild recovers it.
+func TestIndexFailureLeavesGPAsLoaded(t *testing.T) {
+	db, queries := testutil.SetupTestDB(t)
+	ctx := context.Background()
+	_, err := db.Exec(`
+		INSERT INTO grade_aggregates (level, subject, course_number, instructor, sections_count, students_count, cnt_a, gpa)
+			VALUES ('course', 'CSCI', '247', '', 1, 20, 20, 4.0);
+		ALTER TABLE sections RENAME TO sections_away;
+	`)
+	if err != nil {
+		t.Fatal(err)
+	}
+	svc := NewService(db, queries, "")
+	if err := svc.LoadFromDB(ctx); err != nil {
+		t.Fatalf("LoadFromDB: %v", err)
+	}
+	if gpa, _, ok := svc.LookupCourseGPA("CSCI", "247"); !ok || gpa != 4.0 {
+		t.Errorf("course GPA = %v, %v; want 4.0", gpa, ok)
+	}
+	if svc.Index() != nil {
+		t.Error("index built without the sections table")
+	}
+
+	if _, err := db.Exec("ALTER TABLE sections_away RENAME TO sections"); err != nil {
+		t.Fatal(err)
+	}
+	if err := svc.RebuildIndex(ctx); err != nil || svc.Index() == nil {
+		t.Errorf("rebuild: %v, index %v", err, svc.Index())
 	}
 }
 

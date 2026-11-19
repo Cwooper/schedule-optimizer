@@ -49,10 +49,11 @@ type SiblingRow struct {
 
 // Class is Banner's listing of the section.
 type Class struct {
-	Meetings []meeting.Time  `json:"meetings"`
-	Credits  int             `json:"credits"`
-	Capacity int             `json:"capacity"`
-	Final    *calendar.Final `json:"final,omitempty"`
+	Meetings    []meeting.Time  `json:"meetings"`
+	Credits     int             `json:"credits"`
+	CreditsHigh int             `json:"creditsHigh,omitempty"` // set for a credit range
+	Capacity    int             `json:"capacity"`
+	Final       *calendar.Final `json:"final,omitempty"`
 }
 
 // Section builds a section's view. It returns ErrNotFound for a section with
@@ -84,8 +85,8 @@ func buildSectionView(course *grades.Course, sec *grades.Section) *SectionView {
 		Title:     course.Title,
 		Professor: sec.Professor,
 		Metric:    metric,
-		Section:   newStats(sec.Counts, sec.Students),
-		Course:    newStats(total, students),
+		Section:   newStats(sec.Counts, sec.Students, metric),
+		Course:    newStats(total, students, metric),
 		Dots:      []Dot{},
 		Siblings:  []SiblingRow{},
 	}
@@ -94,7 +95,7 @@ func buildSectionView(course *grades.Course, sec *grades.Section) *SectionView {
 			v.Siblings = append(v.Siblings, SiblingRow{
 				CRN:       o.CRN,
 				Professor: o.Professor,
-				Stats:     newStats(o.Counts, o.Students),
+				Stats:     newStats(o.Counts, o.Students, metric),
 			})
 		}
 		if val := metric.value(o.Counts); val != nil {
@@ -140,11 +141,20 @@ func (s *Service) class(ctx context.Context, term, crn string) (*Class, error) {
 		return nil, fmt.Errorf("load meetings: %w", err)
 	}
 	meetings := meeting.FromStoreAll(rows)
-	finals, _ := calendar.SectionFinals(ctx, s.queries, []string{term})
-	return &Class{
+	// Unlike search and CRN lookup, a finals error fails the request: the
+	// client caches this view for an hour and would keep it without a final.
+	finals, err := calendar.LoadFinals(ctx, s.queries, []string{term})
+	if err != nil {
+		return nil, fmt.Errorf("load finals: %w", err)
+	}
+	c := &Class{
 		Meetings: meetings,
 		Credits:  int(row.CreditHoursLow.Int64),
 		Capacity: int(row.MaxEnrollment.Int64),
 		Final:    finals[term].FinalFor(row.ScheduleType.String, meetings),
-	}, nil
+	}
+	if high := int(row.CreditHoursHigh.Int64); high > c.Credits {
+		c.CreditsHigh = high
+	}
+	return c, nil
 }

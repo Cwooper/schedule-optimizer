@@ -25,6 +25,18 @@ type CacheInvalidator interface {
 	InvalidateAll()
 }
 
+// IndexRebuilder is the grade service's stats index, which keys grade rows
+// on Banner's sections and so must be rebuilt after a job rewrites them.
+type IndexRebuilder interface {
+	RebuildIndex(ctx context.Context) error
+}
+
+func rebuildIndex(ctx context.Context, index IndexRebuilder) {
+	if err := index.RebuildIndex(ctx); err != nil {
+		slog.Error("Failed to rebuild the stats index", "error", err)
+	}
+}
+
 // ScrapeJob scrapes each term's sections on a cadence set by its phase:
 //
 //	registration      interval after the last scrape, while seats move fastest
@@ -41,6 +53,7 @@ type ScrapeJob struct {
 	queries       *store.Queries
 	scraper       termScraper
 	cache         CacheInvalidator
+	index         IndexRebuilder
 	pastTermYears int
 	interval      time.Duration
 	dailyHour     int
@@ -58,11 +71,12 @@ type ScrapeJob struct {
 // outage would cost a full session on every one-minute check.
 const retryBackoff = time.Hour
 
-func NewScrapeJob(queries *store.Queries, scraper termScraper, cache CacheInvalidator, pastTermYears, intervalHours, dailyHour int) *ScrapeJob {
+func NewScrapeJob(queries *store.Queries, scraper termScraper, cache CacheInvalidator, index IndexRebuilder, pastTermYears, intervalHours, dailyHour int) *ScrapeJob {
 	return &ScrapeJob{
 		queries:       queries,
 		scraper:       scraper,
 		cache:         cache,
+		index:         index,
 		pastTermYears: pastTermYears,
 		interval:      time.Duration(intervalHours) * time.Hour,
 		dailyHour:     dailyHour,
@@ -99,6 +113,10 @@ func (j *ScrapeJob) Run(ctx context.Context, now time.Time) error {
 			continue
 		}
 		slog.Info("Term scrape complete", "term", term.Code, "sections", stored)
+	}
+	// Once per run, not per term: a backfill scrapes dozens of terms.
+	if len(terms) > 0 {
+		rebuildIndex(ctx, j.index)
 	}
 	return nil
 }

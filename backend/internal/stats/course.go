@@ -4,6 +4,7 @@ import (
 	"cmp"
 	"context"
 	"fmt"
+	"maps"
 	"slices"
 
 	"schedule-optimizer/internal/stats/grades"
@@ -39,8 +40,8 @@ type TermValue struct {
 	Students int      `json:"students"`
 }
 
-// OfferedTerm counts Banner's sections, or the graded ones for a term
-// Banner does not list.
+// OfferedTerm counts a term's sections, Banner's and the grade file's, each
+// CRN once: a term can be partly scraped, or older than Banner keeps.
 type OfferedTerm struct {
 	Term     string `json:"term"`
 	Sections int    `json:"sections"`
@@ -98,20 +99,17 @@ func (s *Service) Course(ctx context.Context, subject, number string) (*CourseVi
 
 // offeringFacts is what Banner says about a course's terms.
 type offeringFacts struct {
-	offered    []OfferedTerm
-	lastTaught map[string]string // professor -> newest started term
+	crns       map[string]map[string]bool // term -> CRNs
+	lastTaught map[string]string          // professor -> newest started term
 	next       *NextTerm
 	nextKeys   map[string]bool // professors teaching the next term
 }
 
 // readOfferings reads a course's Banner sections, in term order.
 func readOfferings(rows []*store.GetCourseOfferingsRow, started func(string) bool) offeringFacts {
-	f := offeringFacts{lastTaught: make(map[string]string), nextKeys: make(map[string]bool)}
+	f := offeringFacts{crns: make(map[string]map[string]bool), lastTaught: make(map[string]string), nextKeys: make(map[string]bool)}
 	for _, r := range rows {
-		if len(f.offered) == 0 || f.offered[len(f.offered)-1].Term != r.Term {
-			f.offered = append(f.offered, OfferedTerm{Term: r.Term})
-		}
-		f.offered[len(f.offered)-1].Sections++
+		addCRN(f.crns, r.Term, r.Crn)
 		key := r.InstructorName.String
 		if started(r.Term) {
 			if key != "" {
@@ -139,13 +137,13 @@ func buildCourseView(course *grades.Course, facts offeringFacts) *CourseView {
 		Number:   course.Number,
 		Title:    course.Title,
 		Metric:   metric,
-		Summary:  newStats(total, students),
+		Summary:  newStats(total, students, metric),
 		Sections: len(course.Sections),
 		Next:     facts.next,
 	}
 	v.Terms, v.Seasons = termValues(course.Sections, metric)
-	v.Offered = offeredTerms(facts.offered, v.Terms)
-	v.ProfessorRows = professorRows(course.Sections, facts)
+	v.Offered = offeredTerms(facts.crns, course.Sections)
+	v.ProfessorRows = professorRows(course.Sections, facts, metric)
 	for _, p := range v.ProfessorRows {
 		if p.Name != "" {
 			v.Professors++
@@ -180,25 +178,33 @@ func termValues(secs []*grades.Section, metric Metric) ([]TermValue, []SeasonVal
 	return terms, seasons
 }
 
-// offeredTerms adds graded terms Banner does not list (courses keyed on a
-// grade-file code have no Banner sections at all).
-func offeredTerms(banner []OfferedTerm, graded []TermValue) []OfferedTerm {
-	out := slices.Clone(banner)
-	for _, t := range graded {
-		if !slices.ContainsFunc(banner, func(o OfferedTerm) bool { return o.Term == t.Term }) {
-			out = append(out, OfferedTerm{Term: t.Term, Sections: t.Sections})
-		}
+func addCRN(crns map[string]map[string]bool, term, crn string) {
+	if crns[term] == nil {
+		crns[term] = make(map[string]bool)
 	}
-	slices.SortFunc(out, func(a, b OfferedTerm) int { return cmp.Compare(a.Term, b.Term) })
-	if out == nil {
-		out = []OfferedTerm{}
+	crns[term][crn] = true
+}
+
+// offeredTerms counts each term's CRNs from Banner and the grade file,
+// oldest first.
+func offeredTerms(banner map[string]map[string]bool, graded []*grades.Section) []OfferedTerm {
+	crns := make(map[string]map[string]bool, len(banner))
+	for term, set := range banner {
+		crns[term] = maps.Clone(set)
+	}
+	for _, s := range graded {
+		addCRN(crns, s.Term, s.CRN)
+	}
+	out := make([]OfferedTerm, 0, len(crns))
+	for _, term := range slices.Sorted(maps.Keys(crns)) {
+		out = append(out, OfferedTerm{Term: term, Sections: len(crns[term])})
 	}
 	return out
 }
 
 // professorRows groups sections by professor, most sections first, with
 // unlisted sections last.
-func professorRows(secs []*grades.Section, facts offeringFacts) []ProfessorRow {
+func professorRows(secs []*grades.Section, facts offeringFacts, metric Metric) []ProfessorRow {
 	groups := make(map[string][]*grades.Section)
 	var order []string
 	for _, s := range secs {
@@ -214,7 +220,7 @@ func professorRows(secs []*grades.Section, facts offeringFacts) []ProfessorRow {
 		row := ProfessorRow{
 			Name:     key,
 			Sections: len(g),
-			Stats:    newStats(counts, students),
+			Stats:    newStats(counts, students, metric),
 			History:  make([]SectionRow, 0, len(g)),
 		}
 		if key != "" {
@@ -223,7 +229,7 @@ func professorRows(secs []*grades.Section, facts offeringFacts) []ProfessorRow {
 			row.TeachesNext = facts.nextKeys[key]
 		}
 		for _, s := range g {
-			row.History = append(row.History, SectionRow{Term: s.Term, CRN: s.CRN, Stats: newStats(s.Counts, s.Students)})
+			row.History = append(row.History, SectionRow{Term: s.Term, CRN: s.CRN, Stats: newStats(s.Counts, s.Students, metric)})
 		}
 		rows = append(rows, row)
 	}
