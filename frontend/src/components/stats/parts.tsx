@@ -161,7 +161,7 @@ export function StatCols({ metric }: { metric: StatsMetric }) {
   return (
     <>
       <col className="w-16" />
-      <col className="w-[88px]" />
+      <col className="w-[76px]" />
       <col className="w-[128px]" />
       {metric === "gpa" && <col className="w-16" />}
       <col className="w-14" />
