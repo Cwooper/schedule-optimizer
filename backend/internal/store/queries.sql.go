@@ -1587,8 +1587,8 @@ func (q *Queries) InsertSectionAttribute(ctx context.Context, arg InsertSectionA
 const logGeneration = `-- name: LogGeneration :one
 INSERT INTO generation_logs (
     session_id, term, courses_count, schedules_generated,
-    min_courses, max_courses, blocked_times_count, duration_ms
-) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    min_courses, max_courses, blocked_times_count, duration_ms, preferences
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
 RETURNING id
 `
 
@@ -1601,6 +1601,7 @@ type LogGenerationParams struct {
 	MaxCourses         sql.NullInt64   `json:"max_courses"`
 	BlockedTimesCount  int64           `json:"blocked_times_count"`
 	DurationMs         sql.NullFloat64 `json:"duration_ms"`
+	Preferences        sql.NullString  `json:"preferences"`
 }
 
 func (q *Queries) LogGeneration(ctx context.Context, arg LogGenerationParams) (int64, error) {
@@ -1613,6 +1614,7 @@ func (q *Queries) LogGeneration(ctx context.Context, arg LogGenerationParams) (i
 		arg.MaxCourses,
 		arg.BlockedTimesCount,
 		arg.DurationMs,
+		arg.Preferences,
 	)
 	var id int64
 	err := row.Scan(&id)

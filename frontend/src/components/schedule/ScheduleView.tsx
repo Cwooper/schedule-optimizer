@@ -4,7 +4,7 @@ import { ScheduleGrid } from "./ScheduleGrid"
 import { AsyncCoursesList } from "./AsyncCoursesList"
 import { BlockedTimesDialog } from "./BlockedTimesDialog"
 import { ScheduleBanner, ScheduleNavHeader } from "./ScheduleNavHeader"
-import { selectScheduleTerm, useAppStore, type BlockedTimeBlock, type BlockedTimeGroup } from "@/stores/app-store"
+import { selectInvalidBounds, selectScheduleTerm, useAppStore, type BlockedTimeBlock, type BlockedTimeGroup } from "@/stores/app-store"
 import { useCalendar, useTerms } from "@/hooks/use-api"
 import { useExportPng } from "@/hooks/use-export-png"
 import { hydrateSchedule } from "@/lib/schedule-utils"
@@ -35,7 +35,8 @@ export function ScheduleView() {
   const { data: termsData } = useTerms()
   const { data: calendar } = useCalendar(term)
   const isGenerateResultStale = useAppStore((s) => s.isGenerateResultStale())
-  const canRegenerate = slots.length > 0
+  const hasInvalidBounds = useAppStore(selectInvalidBounds)
+  const canRegenerate = slots.length > 0 && !hasInvalidBounds
   const showStale = isGenerateResultStale && canRegenerate
   const [dialogOpen, setDialogOpen] = useState(false)
   const [finalsView, setFinalsView] = useState(false)
@@ -151,6 +152,7 @@ export function ScheduleView() {
       {!isEditing && (
         <ScheduleNavHeader
           canRegenerate={canRegenerate}
+          hasInvalidBounds={hasInvalidBounds}
           showStale={showStale}
           onRegenerate={requestRegenerate}
           index={safeIndex}
@@ -158,6 +160,7 @@ export function ScheduleView() {
           onIndexChange={setCurrentScheduleIndex}
           emptyText={generateResult ? "No valid schedules found" : "No schedules yet"}
           sections={scheduleSections}
+          score={currentSchedule?.score ?? 0}
           onBlockedTimes={() => setDialogOpen(true)}
           onDownloadPng={() => {
             track("png_export", showFinals ? "finals" : "schedule")

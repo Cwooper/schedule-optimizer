@@ -1,275 +1,370 @@
 package generator
 
 import (
+	"context"
 	"math"
+	"slices"
+	"strings"
 	"testing"
 
 	"schedule-optimizer/internal/cache"
 	"schedule-optimizer/internal/meeting"
 )
 
-func makeScheduleWithMeetings(meetings []meeting.Time) *Schedule {
-	return &Schedule{
-		Courses: []*cache.Course{
-			{MeetingTimes: meetings},
-		},
-	}
+var (
+	mon = [7]bool{1: true}
+	tue = [7]bool{2: true}
+	mwf = [7]bool{1: true, 3: true, 5: true}
+	sat = [7]bool{6: true}
+)
+
+func mt(days [7]bool, start, end string) meeting.Time {
+	return meeting.Time{Days: days, StartTime: start, EndTime: end}
 }
 
-func TestWeighGap_SingleClass(t *testing.T) {
-	// Single class - no gaps possible, should be 1.0
-	s := makeScheduleWithMeetings([]meeting.Time{
-		{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
-	})
-
-	score := weighGap(s)
-	if score != 1.0 {
-		t.Errorf("Single class should have gap score 1.0, got %v", score)
+// scheduleOf gives each meeting its own course.
+func scheduleOf(meetings ...meeting.Time) *Schedule {
+	s := &Schedule{}
+	for _, m := range meetings {
+		s.Courses = append(s.Courses, &cache.Course{MeetingTimes: []meeting.Time{m}})
 	}
+	return s
 }
 
-func TestWeighGap_NoGap(t *testing.T) {
-	// Back-to-back classes on same day - no gap
-	s := &Schedule{
-		Courses: []*cache.Course{
-			{MeetingTimes: []meeting.Time{
-				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
-			}},
-			{MeetingTimes: []meeting.Time{
-				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "1000", EndTime: "1100"},
-			}},
-		},
-	}
+func approx(a, b float64) bool { return math.Abs(a-b) < 1e-3 }
 
-	score := weighGap(s)
-	if score != 1.0 {
-		t.Errorf("Back-to-back classes should have gap score 1.0, got %v", score)
+func crnsOf(s Schedule) []string {
+	crns := make([]string, 0, len(s.Courses))
+	for _, c := range s.Courses {
+		crns = append(crns, c.CRN)
 	}
+	return crns
 }
 
-func TestWeighGap_WithGap(t *testing.T) {
-	// Two 1-hour classes with 1-hour gap
-	// Span = 3 hours, class time = 2 hours, gap = 1 hour
-	// Gap ratio = 1/3 = 0.33, score = 1 - 0.33 = 0.67
-	s := &Schedule{
-		Courses: []*cache.Course{
-			{MeetingTimes: []meeting.Time{
-				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
-			}},
-			{MeetingTimes: []meeting.Time{
-				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "1100", EndTime: "1200"},
-			}},
-		},
-	}
-
-	score := weighGap(s)
-	expected := 0.67 // rounded
-	if math.Abs(score-expected) > 0.01 {
-		t.Errorf("Expected gap score ~%v, got %v", expected, score)
-	}
-}
-
-func TestWeighGap_MultipleDays(t *testing.T) {
-	// Monday: 9-10 (no gap, score 1.0)
-	// Tuesday: 9-10 and 11-12 (1hr gap in 3hr span, score ~0.67)
-	// Average: (1.0 + 0.67) / 2 = 0.835
-	s := &Schedule{
-		Courses: []*cache.Course{
-			{MeetingTimes: []meeting.Time{
-				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
-			}},
-			{MeetingTimes: []meeting.Time{
-				{Days: [7]bool{false, false, true, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
-			}},
-			{MeetingTimes: []meeting.Time{
-				{Days: [7]bool{false, false, true, false, false, false, false}, StartTime: "1100", EndTime: "1200"},
-			}},
-		},
-	}
-
-	score := weighGap(s)
-	expected := 0.83 // (1.0 + 0.67) / 2, rounded
-	if math.Abs(score-expected) > 0.02 {
-		t.Errorf("Expected gap score ~%v, got %v", expected, score)
-	}
-}
-
-func TestWeighStart(t *testing.T) {
+func TestFalloff(t *testing.T) {
 	tests := []struct {
-		name      string
-		startTime string
-		wantMin   float64
-		wantMax   float64
+		name string
+		d, k float64
+		want float64
 	}{
-		{"8am start", "0800", 0.0, 0.01},
-		{"5pm start", "1700", 0.99, 1.0},
-		{"Noon start", "1200", 0.43, 0.46}, // ~4 hours / 9 hours
-		{"Before 8am", "0700", 0.0, 0.01},  // Clamped to 8am
-		{"After 5pm", "1800", 0.99, 1.0},   // Returns 1.0
+		{"negative miss", -30, 60, 1},
+		{"no miss", 0, 60, 1},
+		{"half width", 30, 60, 1 - math.Tanh(0.25)},
+		{"at width", 60, 60, 1 - math.Tanh(1)},
+		{"twice width", 120, 60, 1 - math.Tanh(4)},
+		{"wider curve forgives the same miss", 60, 180, 1 - math.Tanh(1.0/9)},
 	}
-
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			s := makeScheduleWithMeetings([]meeting.Time{
-				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: tt.startTime, EndTime: "1800"},
-			})
-			score := weighStart(s)
-			if score < tt.wantMin || score > tt.wantMax {
-				t.Errorf("weighStart with %s: got %v, want between %v and %v", tt.startTime, score, tt.wantMin, tt.wantMax)
+			if got := falloff(tt.d, tt.k); !approx(got, tt.want) {
+				t.Errorf("falloff(%v, %v) = %v, want %v", tt.d, tt.k, got, tt.want)
 			}
 		})
 	}
 }
 
-func TestWeighEnd(t *testing.T) {
-	tests := []struct {
-		name    string
-		endTime string
-		wantMin float64
-		wantMax float64
-	}{
-		{"5pm end", "1700", 0.0, 0.01},
-		{"8am end", "0800", 0.99, 1.0},
-		{"Noon end", "1200", 0.54, 0.57}, // ~5 hours / 9 hours
-		{"After 5pm", "1800", 0.0, 0.01}, // Clamped to 5pm
-		{"Before 8am", "0700", 0.99, 1.0},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			s := makeScheduleWithMeetings([]meeting.Time{
-				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0700", EndTime: tt.endTime},
-			})
-			score := weighEnd(s)
-			if score < tt.wantMin || score > tt.wantMax {
-				t.Errorf("weighEnd with %s: got %v, want between %v and %v", tt.endTime, score, tt.wantMin, tt.wantMax)
-			}
-		})
-	}
-}
-
-func TestScoreSchedule(t *testing.T) {
-	s := &Schedule{
-		Courses: []*cache.Course{
-			{MeetingTimes: []meeting.Time{
-				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
-			}},
-		},
-	}
-
-	scoreSchedule(s)
-
-	if len(s.Weights) != 5 {
-		t.Errorf("Expected 5 weights, got %d", len(s.Weights))
-	}
-
-	// Check weight names
-	expectedNames := map[string]bool{"GPA": true, "Gap": true, "Start": true, "End": true, "Seats": true}
-	for _, w := range s.Weights {
-		if !expectedNames[w.Name] {
-			t.Errorf("Unexpected weight name: %s", w.Name)
-		}
-	}
-
-	// Score should be average of non-zero weights
-	if s.Score <= 0 || s.Score > 1 {
-		t.Errorf("Score should be between 0 and 1, got %v", s.Score)
-	}
-}
-
-func TestFindEarliestStart(t *testing.T) {
-	s := &Schedule{
-		Courses: []*cache.Course{
-			{MeetingTimes: []meeting.Time{
-				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "1000", EndTime: "1100"},
-			}},
-			{MeetingTimes: []meeting.Time{
-				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "0950"},
-			}},
-		},
-	}
-
-	earliest := findEarliestStart(s)
-	expected := 9 * 60 // 9:00 AM in minutes
-	if earliest != expected {
-		t.Errorf("Expected earliest start %d, got %d", expected, earliest)
-	}
-}
-
-func TestFindLatestEnd(t *testing.T) {
-	s := &Schedule{
-		Courses: []*cache.Course{
-			{MeetingTimes: []meeting.Time{
-				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "0900", EndTime: "1000"},
-			}},
-			{MeetingTimes: []meeting.Time{
-				{Days: [7]bool{false, true, false, false, false, false, false}, StartTime: "1000", EndTime: "1100"},
-			}},
-		},
-	}
-
-	latest := findLatestEnd(s)
-	expected := 11 * 60 // 11:00 AM in minutes
-	if latest != expected {
-		t.Errorf("Expected latest end %d, got %d", expected, latest)
-	}
-}
-
-func TestWeighSeats(t *testing.T) {
+func TestWeekStats(t *testing.T) {
 	tests := []struct {
 		name     string
-		courses  []*cache.Course
-		expected float64
+		schedule *Schedule
+		wantBusy bool
+		want     [weekdays]dayStats
 	}{
 		{
-			name:     "empty schedule",
-			courses:  []*cache.Course{},
-			expected: 0.0,
+			name:     "no timed meetings",
+			schedule: scheduleOf(mt(mon, "", ""), mt(sat, "0900", "1000")),
 		},
 		{
-			name: "all open",
-			courses: []*cache.Course{
-				{IsOpen: true},
-				{IsOpen: true},
-				{IsOpen: true},
-			},
-			expected: 1.0,
+			name:     "gap at the passing-time threshold is ignored",
+			schedule: scheduleOf(mt(mon, "0900", "0950"), mt(mon, "1005", "1100")),
+			wantBusy: true,
+			want:     [weekdays]dayStats{{busy: true, first: 540, last: 660}},
 		},
 		{
-			name: "none open",
-			courses: []*cache.Course{
-				{IsOpen: false},
-				{IsOpen: false},
-			},
-			expected: 0.0,
+			name:     "gap past the threshold counts in full",
+			schedule: scheduleOf(mt(mon, "0900", "0950"), mt(mon, "1010", "1100")),
+			wantBusy: true,
+			want:     [weekdays]dayStats{{busy: true, first: 540, last: 660, idle: 20}},
 		},
 		{
-			name: "half open",
-			courses: []*cache.Course{
-				{IsOpen: true},
-				{IsOpen: false},
-				{IsOpen: true},
-				{IsOpen: false},
-			},
-			expected: 0.5,
+			name: "overlapping meetings merge before measuring gaps",
+			schedule: scheduleOf(
+				mt(mon, "1130", "1200"), // out of order on purpose
+				mt(mon, "0900", "1000"),
+				mt(mon, "0930", "1100"),
+			),
+			wantBusy: true,
+			want:     [weekdays]dayStats{{busy: true, first: 540, last: 720, idle: 30}},
 		},
 		{
-			name: "one of three open",
-			courses: []*cache.Course{
-				{IsOpen: true},
-				{IsOpen: false},
-				{IsOpen: false},
+			name:     "meeting contained in another adds no gap",
+			schedule: scheduleOf(mt(mon, "0900", "1200"), mt(mon, "1000", "1050"), mt(mon, "1300", "1350")),
+			wantBusy: true,
+			want:     [weekdays]dayStats{{busy: true, first: 540, last: 830, idle: 60}},
+		},
+		{
+			name:     "days are independent and days off stay empty",
+			schedule: scheduleOf(mt(mwf, "0800", "0850"), mt(tue, "1300", "1350"), mt(mon, "1200", "1250")),
+			wantBusy: true,
+			want: [weekdays]dayStats{
+				{busy: true, first: 480, last: 770, idle: 190},
+				{busy: true, first: 780, last: 830},
+				{busy: true, first: 480, last: 530},
+				{},
+				{busy: true, first: 480, last: 530},
 			},
-			expected: 0.33,
 		},
 	}
-
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			s := &Schedule{Courses: tt.courses}
-			score := weighSeats(s)
-			if math.Abs(score-tt.expected) > 0.01 {
-				t.Errorf("weighSeats: got %v, want %v", score, tt.expected)
+			got, busy := weekStats(tt.schedule)
+			if busy != tt.wantBusy {
+				t.Errorf("busy = %v, want %v", busy, tt.wantBusy)
+			}
+			if got != tt.want {
+				t.Errorf("weekStats = %+v, want %+v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestStartEndScores(t *testing.T) {
+	prefs := func(start, end int) Preferences {
+		p := DefaultPreferences()
+		p.Start, p.End = start, end
+		return p
+	}
+	tests := []struct {
+		name      string
+		prefs     Preferences
+		schedule  *Schedule
+		wantStart float64
+		wantEnd   float64
+	}{
+		{
+			name:      "inside the ideal window",
+			prefs:     prefs(2, 2),
+			schedule:  scheduleOf(mt(mwf, "1000", "1050"), mt(mwf, "1300", "1400")),
+			wantStart: 1,
+			wantEnd:   1,
+		},
+		{
+			// 8am is 120 minutes early on 3 of 5 days; Firm width is 120.
+			name:      "early start on class days only",
+			prefs:     prefs(2, 2),
+			schedule:  scheduleOf(mt(mwf, "0800", "0850")),
+			wantStart: (3*(1-math.Tanh(1)) + 2) / 5,
+			wantEnd:   1,
+		},
+		{
+			name:      "strict level punishes the same miss harder",
+			prefs:     prefs(3, 3),
+			schedule:  scheduleOf(mt(mwf, "0800", "0850")),
+			wantStart: (3*(1-math.Tanh(4)) + 2) / 5,
+			wantEnd:   1,
+		},
+		{
+			name:      "loose level forgives it",
+			prefs:     prefs(1, 1),
+			schedule:  scheduleOf(mt(mwf, "0800", "0850")),
+			wantStart: (3*(1-math.Tanh(4.0/9)) + 2) / 5,
+			wantEnd:   1,
+		},
+		{
+			// 60 minutes past 2pm on Monday only.
+			name:      "late end",
+			prefs:     prefs(2, 2),
+			schedule:  scheduleOf(mt(mon, "1400", "1500")),
+			wantStart: 1,
+			wantEnd:   (1 - math.Tanh(0.25) + 4) / 5,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			sc := newScorer(tt.prefs)
+			week, _ := weekStats(tt.schedule)
+			if got := sc.startScore(week); !approx(got, tt.wantStart) {
+				t.Errorf("startScore = %v, want %v", got, tt.wantStart)
+			}
+			if got := sc.endScore(week); !approx(got, tt.wantEnd) {
+				t.Errorf("endScore = %v, want %v", got, tt.wantEnd)
+			}
+		})
+	}
+}
+
+func TestGapScore(t *testing.T) {
+	tests := []struct {
+		name     string
+		schedule *Schedule
+		want     float64
+	}{
+		{"back to back", scheduleOf(mt(mwf, "0900", "0950"), mt(mwf, "1000", "1050")), 1},
+		// 3 days x 60 idle minutes = 180 a week, 36 a day.
+		{"hour gap three days", scheduleOf(mt(mwf, "0900", "0950"), mt(mwf, "1050", "1150")), 1 - math.Tanh(0.36)},
+		// Two hours idle on one day spreads to 24 a day, so it hurts less.
+		{"two hour gap one day", scheduleOf(mt(mon, "0900", "1000"), mt(mon, "1200", "1300")), 1 - math.Tanh(0.16)},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			week, _ := weekStats(tt.schedule)
+			if got := gapScore(week); !approx(got, tt.want) {
+				t.Errorf("gapScore = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestGPAScore(t *testing.T) {
+	withGPAs := func(gpas ...float64) *Schedule {
+		s := &Schedule{}
+		for _, g := range gpas {
+			s.Courses = append(s.Courses, &cache.Course{GPA: g})
+		}
+		return s
+	}
+	tests := []struct {
+		name     string
+		schedule *Schedule
+		want     float64
+		wantData bool
+	}{
+		{"no grade data", withGPAs(0, 0), 0, false},
+		{"4.0 is full marks", withGPAs(4.0), 1, true},
+		{"3.0 is the midpoint", withGPAs(3.0), 0.5, true},
+		{"below 2.0 clamps to 0", withGPAs(1.5), 0, true},
+		{"missing counts as 3.0", withGPAs(4.0, 0), 0.75, true},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, ok := gpaScore(tt.schedule)
+			if ok != tt.wantData || !approx(got, tt.want) {
+				t.Errorf("gpaScore = (%v, %v), want (%v, %v)", got, ok, tt.want, tt.wantData)
+			}
+		})
+	}
+}
+
+func TestSeatsScore(t *testing.T) {
+	s := &Schedule{Courses: []*cache.Course{{IsOpen: true}, {IsOpen: false}, {IsOpen: true}, {IsOpen: false}}}
+	if got := seatsScore(s); got != 0.5 {
+		t.Errorf("seatsScore = %v, want 0.5", got)
+	}
+}
+
+func TestScore(t *testing.T) {
+	only := func(set func(*Preferences)) Preferences {
+		p := Preferences{IdealStart: "1000", IdealEnd: "1400"}
+		set(&p)
+		return p
+	}
+	full := &cache.Course{IsOpen: false, MeetingTimes: []meeting.Time{mt(mwf, "1000", "1050")}}
+	open := &cache.Course{IsOpen: true, GPA: 4.0, MeetingTimes: []meeting.Time{mt(tue, "1000", "1050")}}
+
+	tests := []struct {
+		name     string
+		prefs    Preferences
+		schedule *Schedule
+		want     float64
+	}{
+		{"all factors off", Preferences{IdealStart: "1000", IdealEnd: "1400"}, &Schedule{Courses: []*cache.Course{open}}, 0},
+		{"a zero factor still counts", only(func(p *Preferences) { p.Seats = 1; p.Start = 1 }), &Schedule{Courses: []*cache.Course{full}}, 0.5},
+		{
+			name:     "weights scale each factor",
+			prefs:    only(func(p *Preferences) { p.Seats = 3; p.Start = 1 }),
+			schedule: &Schedule{Courses: []*cache.Course{full, open}},
+			want:     (3*0.5 + 1*1) / 4.0,
+		},
+		{
+			name:     "factor without data drops out",
+			prefs:    only(func(p *Preferences) { p.GPA = 3; p.Seats = 1 }),
+			schedule: &Schedule{Courses: []*cache.Course{{IsOpen: true}}},
+			want:     1,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := newScorer(tt.prefs).score(tt.schedule); !approx(got, tt.want) {
+				t.Errorf("score = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestScore_EarlierStartRanksLower(t *testing.T) {
+	sc := newScorer(DefaultPreferences())
+	eight := sc.score(scheduleOf(mt(mwf, "0800", "0850")))
+	nine := sc.score(scheduleOf(mt(mwf, "0900", "0950")))
+	if eight >= nine {
+		t.Errorf("8am score %v should be below 9am score %v", eight, nine)
+	}
+}
+
+func TestCompareSchedules(t *testing.T) {
+	course := func(crn string) *cache.Course { return &cache.Course{CRN: crn} }
+	schedules := []Schedule{
+		{Courses: []*cache.Course{course("2"), course("9")}, Score: 0.9},
+		{Courses: []*cache.Course{course("1"), course("3"), course("5")}, Score: 0.2},
+		{Courses: []*cache.Course{course("1"), course("8")}, Score: 0.9},
+		{Courses: []*cache.Course{course("1"), course("4")}, Score: 0.95},
+	}
+	slices.SortFunc(schedules, compareSchedules)
+
+	var got []string
+	for _, s := range schedules {
+		got = append(got, strings.Join(crnsOf(s), ""))
+	}
+	want := []string{"135", "14", "18", "29"}
+	if !slices.Equal(got, want) {
+		t.Errorf("order = %v, want %v", got, want)
+	}
+}
+
+// TestGenerate_PreferencesChangeRanking runs the real Generate path: an early
+// pair of sections and a late pair, ranked first by Start, then by End.
+func TestGenerate_PreferencesChangeRanking(t *testing.T) {
+	section := func(crn, subject, start, end string) *cache.Course {
+		return &cache.Course{
+			CRN: crn, Subject: subject, CourseNumber: "100",
+			MeetingTimes: []meeting.Time{mt(mwf, start, end)},
+		}
+	}
+	term := &cache.TermData{ByCourseCode: map[string][]*cache.Course{
+		"A:100": {section("A-early", "A", "0800", "0850"), section("A-late", "A", "1400", "1450")},
+		"B:100": {section("B-early", "B", "0900", "0950"), section("B-late", "B", "1500", "1550")},
+	}}
+	specs := []CourseSpec{{Subject: "A", CourseNumber: "100"}, {Subject: "B", CourseNumber: "100"}}
+
+	tests := []struct {
+		name      string
+		start     int
+		end       int
+		wantFirst []string
+	}{
+		{"strict start prefers late classes", 3, 0, []string{"A-late", "B-late"}},
+		{"strict end prefers early classes", 0, 3, []string{"A-early", "B-early"}},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			prefs := Preferences{Start: tt.start, End: tt.end, IdealStart: "1000", IdealEnd: "1400"}
+			resp, err := NewService(nil).Generate(context.Background(), term, GenerateRequest{
+				CourseSpecs: specs,
+				Preferences: &prefs,
+			})
+			if err != nil {
+				t.Fatal(err)
+			}
+			if len(resp.Schedules) != 4 {
+				t.Fatalf("got %d schedules, want 4", len(resp.Schedules))
+			}
+			first, second := resp.Schedules[0], resp.Schedules[1]
+			crns := crnsOf(first)
+			slices.Sort(crns)
+			if !slices.Equal(crns, tt.wantFirst) {
+				t.Errorf("first schedule = %v, want %v", crns, tt.wantFirst)
+			}
+			if margin := first.Score - second.Score; margin < 0.3 {
+				t.Errorf("first leads second by %v, want a clear margin (>= 0.3)", margin)
 			}
 		})
 	}

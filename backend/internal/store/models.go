@@ -55,6 +55,7 @@ type GenerationLog struct {
 	BlockedTimesCount  int64           `json:"blocked_times_count"`
 	DurationMs         sql.NullFloat64 `json:"duration_ms"`
 	CreatedAt          sql.NullTime    `json:"created_at"`
+	Preferences        sql.NullString  `json:"preferences"`
 }
 
 type GenerationLogCourse struct {

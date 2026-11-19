@@ -204,6 +204,12 @@ function HelpContent() {
             <strong className="text-foreground">Min / Max courses</strong>:
             allow partial combinations (e.g. "best 4 of 6")
           </li>
+          <li>
+            <strong className="text-foreground">Weights</strong>: the button
+            next to Generate sets what ranks schedules first, like start and
+            end times, gaps, GPA, and open seats; clicking the schedule count
+            shows that schedule's stats
+          </li>
         </ul>
       </div>
 

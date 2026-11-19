@@ -14,7 +14,7 @@ A course scheduling tool for Western Washington University students. Add your co
 - Mark courses as **required** or **optional** with configurable min/max bounds
 - **Pin specific sections** to lock in a preferred CRN
 - **Blocked times** — paint time slots as unavailable with named groups, custom colors, opacity, and hatching patterns
-- Browse generated schedules with scoring based on gaps, start time, and end time preferences
+- **Weights** rank generated schedules by start and end against ideal times, gaps, instructor GPA, and open seats
 - View async/TBD courses separately
 - **Final exams** on each section with a scheduled final, matched to the registrar's finals schedule; times the meeting pattern leaves ambiguous (labs, several meeting times, once-a-week classes) are marked as guesses
 - **Finals week** view of the current schedule's exams, toggled from the schedule header
@@ -210,7 +210,7 @@ internal/config      — unit
 internal/static      — unit
 ```
 
-Frontend tests cover the Zustand store, schedule utilities, and warning generation (118 tests).
+Frontend tests cover the Zustand store, schedule utilities, and warning generation.
 
 ## Authors
 

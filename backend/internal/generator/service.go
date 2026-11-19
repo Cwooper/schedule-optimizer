@@ -56,14 +56,14 @@ func (s *Service) Generate(ctx context.Context, term *cache.TermData, req Genera
 		}, nil
 	}
 
-	// Sort groups by section count (smallest first = better pruning)
-	// Required groups first, then optional groups
-	slices.SortFunc(requiredGroups, func(a, b courseGroup) int {
-		return len(a.sections) - len(b.sections)
-	})
-	slices.SortFunc(optionalGroups, func(a, b courseGroup) int {
-		return len(a.sections) - len(b.sections)
-	})
+	// Fewest sections first prunes best. The course key breaks ties so the order,
+	// and with it compareSchedules' CRN tiebreak, doesn't depend on the order
+	// courses were requested in.
+	byPruning := func(a, b courseGroup) int {
+		return cmp.Or(cmp.Compare(len(a.sections), len(b.sections)), cmp.Compare(a.courseKey, b.courseKey))
+	}
+	slices.SortFunc(requiredGroups, byPruning)
+	slices.SortFunc(optionalGroups, byPruning)
 
 	allGroups := append(requiredGroups, optionalGroups...)
 	numRequired := len(requiredGroups)
@@ -85,42 +85,29 @@ func (s *Service) Generate(ctx context.Context, term *cache.TermData, req Genera
 
 	minCourses, maxCourses := clampBounds(fallbackMin, req.MaxCourses, totalCourses)
 
-	schedules := backtrack(ctx, backtrackParams{
+	prefs := DefaultPreferences()
+	if req.Preferences != nil {
+		prefs = *req.Preferences
+	}
+	r := newRanker(newScorer(prefs), MaxSchedulesToReturn, effectiveMin)
+	backtrack(ctx, backtrackParams{
 		groups:      allGroups,
 		numRequired: numRequired,
 		minCourses:  minCourses,
 		maxCourses:  maxCourses,
 		limit:       MaxSchedulesToGenerate,
-	})
+	}, r.visit)
+	schedules := r.results()
+	totalGenerated := r.total
 
-	for i := range schedules {
-		scoreSchedule(&schedules[i])
-	}
-	slices.SortFunc(schedules, func(a, b Schedule) int {
-		return cmp.Compare(b.Score, a.Score) // Descending by score
-	})
-
-	// If we used a fallback min and there are full-count schedules,
-	// filter out the shorter ones (prefer full course load)
-	if !userSetMin && fallbackMin < effectiveMin && len(schedules) > 0 {
-		fullCount := 0
-		for _, s := range schedules {
-			if len(s.Courses) >= effectiveMin {
-				fullCount++
-			}
-		}
-		if fullCount > 0 {
-			schedules = slices.DeleteFunc(schedules, func(s Schedule) bool {
-				return len(s.Courses) < effectiveMin
-			})
-		}
-	}
-
-	totalGenerated := len(schedules)
-
-	// Only return top N schedules to client
-	if len(schedules) > MaxSchedulesToReturn {
-		schedules = schedules[:MaxSchedulesToReturn]
+	// If we used a fallback min and there are full-count schedules, drop the
+	// shorter ones (prefer a full course load). Course count ranks first, so the
+	// kept schedules hold every full one that made the cut.
+	if !userSetMin && fallbackMin < effectiveMin && r.full > 0 {
+		schedules = slices.DeleteFunc(schedules, func(s Schedule) bool {
+			return len(s.Courses) < effectiveMin
+		})
+		totalGenerated = r.full
 	}
 
 	return &GenerateResponse{
@@ -132,6 +119,21 @@ func (s *Service) Generate(ctx context.Context, term *cache.TermData, req Genera
 			TimeMs:         float64(time.Since(start).Microseconds()) / 1000,
 		},
 	}, nil
+}
+
+// compareSchedules ranks more courses first, since scores average over the
+// whole week and would otherwise favor lighter schedules; then by score, then
+// by CRNs so equal scores keep a stable order across requests.
+func compareSchedules(a, b Schedule) int {
+	if c := cmp.Compare(len(b.Courses), len(a.Courses)); c != 0 {
+		return c
+	}
+	if c := cmp.Compare(b.Score, a.Score); c != 0 {
+		return c
+	}
+	return slices.CompareFunc(a.Courses, b.Courses, func(x, y *cache.Course) int {
+		return cmp.Compare(x.CRN, y.CRN)
+	})
 }
 
 // buildCourseGroups fetches sections from the term, filters by blocked times and allowed CRNs, and groups by course.

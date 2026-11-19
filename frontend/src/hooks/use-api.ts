@@ -1,4 +1,5 @@
 import { useQuery, useMutation, keepPreviousData } from "@tanstack/react-query"
+import { toast } from "sonner"
 import {
   getTerms,
   getCalendar,
@@ -12,6 +13,8 @@ import {
   type GenerateRequest,
   type SearchRequest,
 } from "@/lib/api"
+import { getGenerateWarnings } from "@/lib/generate-warnings"
+import { useAppStore, type GenerationParams } from "@/stores/app-store"
 
 export function useAnnouncement() {
   return useQuery({
@@ -62,11 +65,31 @@ export function useCRN(crn: string, term?: string) {
   })
 }
 
+/**
+ * Results apply in the mutation-level callbacks, which run even after the
+ * builder that started the request unmounts (the mobile drawer closing),
+ * and through the store's sequence so only the latest request lands.
+ */
 export function useGenerateSchedules() {
-  return useMutation({
-    mutationFn: (req: GenerateRequest) => generateSchedules(req),
+  const { mutate } = useMutation({
+    mutationFn: ({ req }: { req: GenerateRequest; seq: number }) => generateSchedules(req),
     meta: { handlesError: true },
+    onSuccess: (data, { seq }) => {
+      if (!useAppStore.getState().settleGeneration(seq, data)?.showWarnings) return
+      for (const w of getGenerateWarnings(data)) {
+        if (w.type === "info") toast.info(w.message)
+        else toast.warning(w.message)
+      }
+    },
+    onError: (error, { seq }) => {
+      if (!useAppStore.getState().settleGeneration(seq)) return
+      toast.error(error.message || "Failed to generate schedules. Please try again.")
+    },
   })
+  const isPending = useAppStore((s) => s.pendingGeneration !== null)
+  const generate = (req: GenerateRequest, params: GenerationParams, showWarnings: boolean) =>
+    mutate({ req, seq: useAppStore.getState().beginGeneration(params, showWarnings) })
+  return { generate, isPending }
 }
 
 const MAX_VALIDATE_COURSES = 20

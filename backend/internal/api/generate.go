@@ -3,6 +3,8 @@ package api
 import (
 	"context"
 	"database/sql"
+	"encoding/json"
+	"fmt"
 	"log/slog"
 	"net/http"
 	"schedule-optimizer/internal/generator"
@@ -17,6 +19,11 @@ func (h *Handlers) Generate(c *gin.Context) {
 	if err := c.ShouldBindJSON(&req); err != nil {
 		slog.Warn("Invalid generate request", "error", err)
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	if len(req.CourseSpecs) > generator.MaxInputCourses {
+		c.JSON(http.StatusBadRequest, gin.H{"error": fmt.Sprintf("at most %d courses per request", generator.MaxInputCourses)})
 		return
 	}
 
@@ -37,6 +44,12 @@ func (h *Handlers) Generate(c *gin.Context) {
 	}
 
 	sessionID := getSessionID(c)
+	var prefs sql.NullString
+	if req.Preferences != nil {
+		// Marshaling a struct of ints and strings cannot fail.
+		b, _ := json.Marshal(req.Preferences)
+		prefs = sql.NullString{String: string(b), Valid: true}
+	}
 	go func() {
 		logID, err := h.queries.LogGeneration(context.Background(), store.LogGenerationParams{
 			SessionID:          sessionID,
@@ -47,6 +60,7 @@ func (h *Handlers) Generate(c *gin.Context) {
 			MaxCourses:         nullInt64(req.MaxCourses),
 			BlockedTimesCount:  int64(len(req.BlockedTimes)),
 			DurationMs:         sql.NullFloat64{Float64: resp.Stats.TimeMs, Valid: true},
+			Preferences:        prefs,
 		})
 		if err != nil {
 			slog.Warn("Failed to log generation", "error", err)

@@ -22,6 +22,9 @@ func TestParseTimeToMins(t *testing.T) {
 		{"invalid", -1},
 		{"25:00", -1},
 		{"12:60", -1},
+		{"+930", -1},
+		{"9:30", -1},
+		{"10-30", -1},
 	}
 
 	for _, tt := range tests {

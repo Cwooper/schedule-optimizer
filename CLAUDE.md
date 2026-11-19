@@ -133,11 +133,13 @@ backend/
 │   │   └── scrape.go         # ScrapeJob: each term due by its phase and last_scraped_at; failures retry hourly
 │   ├── cache/                # In-memory schedule cache (sections carry their computed final)
 │   └── generator/            # Schedule generation (bitmask + backtracking)
-│       ├── service.go        # Generate() entry point, course group building
+│       ├── service.go        # Generate() entry point, course group building, ranking order
 │       ├── bitmask.go        # O(1) conflict detection via [8]uint64
-│       ├── backtrack.go      # Recursive enumeration with pruning
-│       ├── scorer.go         # Gap, Start, End scoring
-│       └── types.go          # Request/Response types
+│       ├── backtrack.go      # Recursive enumeration with pruning, bounded by schedules found and search steps
+│       ├── ranker.go         # Keeps the best N schedules during enumeration, so memory stays flat
+│       ├── preferences.go    # Request weights: defaults and validation
+│       ├── scorer.go         # Weighted start, end, gaps, GPA, and seats scoring
+│       └── types.go          # Request/Response types and generation limits
 ├── sqlc.yaml
 ├── Makefile
 └── .env.example
@@ -157,6 +159,8 @@ frontend/
 │   │   ├── dates.ts         # YYYY-MM-DD helpers (API dates are Pacific calendar dates)
 │   │   ├── term-status.ts   # Sidebar term status line and key dates rows
 │   │   ├── finals.ts        # Finals week grid data, guess reason labels
+│   │   ├── factors.ts       # Ranking factors (keys, labels, icons) shared by the weights panel and schedule stats
+│   │   ├── schedule-stats.ts # Shown schedule's stats; gap rules mirror the backend scorer
 │   │   ├── ics.ts           # Hand-written RFC 5545 export (TZID times, EXDATE holidays)
 │   │   └── utils.ts         # cn() helper for Tailwind class merging
 │   ├── stores/

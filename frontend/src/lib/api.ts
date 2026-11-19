@@ -156,7 +156,6 @@ export interface GenerateSectionInfo {
 export interface ScheduleRef {
   crns: string[]
   score: number
-  weights: { name: string; value: number }[]
 }
 
 export interface CourseResult {
@@ -206,12 +205,26 @@ export interface CourseSpec {
   allowedCrns?: string[]
 }
 
+/** How much a scoring factor counts: 0 is off, 3 counts most. */
+export type Importance = 0 | 1 | 2 | 3
+
+export interface Preferences {
+  start: Importance
+  end: Importance
+  gap: Importance
+  gpa: Importance
+  seats: Importance
+  idealStart: string // "HHMM"
+  idealEnd: string
+}
+
 export interface GenerateRequest {
   term: string
   courseSpecs: CourseSpec[]
   blockedTimes?: { day: number; startTime: string; endTime: string }[]
   minCourses?: number
   maxCourses?: number
+  preferences?: Preferences
 }
 
 export interface ValidateCoursesRequest {

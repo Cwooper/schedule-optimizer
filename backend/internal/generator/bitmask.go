@@ -1,10 +1,6 @@
 package generator
 
-import (
-	"schedule-optimizer/internal/meeting"
-	"strconv"
-	"strings"
-)
+import "schedule-optimizer/internal/meeting"
 
 // Time slot constants for bitmask representation.
 // Using 10-minute granularity: classes can start at :00, :10, :20, :30, :40, :50.
@@ -69,29 +65,28 @@ func timeToSlot(t string) int {
 
 // parseTimeToMins converts a time string to minutes from midnight.
 // Accepts formats: "1030", "10:30", "0900", "09:00".
-// Returns -1 for invalid or empty strings.
+// Returns -1 for invalid or empty strings. Scoring calls this for every
+// meeting of every candidate schedule, so it avoids allocating.
 func parseTimeToMins(t string) int {
-	if t == "" {
+	var h1, h2, m1, m2 byte
+	switch {
+	case len(t) == 4:
+		h1, h2, m1, m2 = t[0], t[1], t[2], t[3]
+	case len(t) == 5 && t[2] == ':':
+		h1, h2, m1, m2 = t[0], t[1], t[3], t[4]
+	default:
 		return -1
 	}
-
-	// Remove colon if present
-	t = strings.ReplaceAll(t, ":", "")
-
-	if len(t) != 4 {
+	for _, c := range [4]byte{h1, h2, m1, m2} {
+		if c < '0' || c > '9' {
+			return -1
+		}
+	}
+	hours := int(h1-'0')*10 + int(h2-'0')
+	minutes := int(m1-'0')*10 + int(m2-'0')
+	if hours > 23 || minutes > 59 {
 		return -1
 	}
-
-	hours, err := strconv.Atoi(t[:2])
-	if err != nil || hours < 0 || hours > 23 {
-		return -1
-	}
-
-	minutes, err := strconv.Atoi(t[2:])
-	if err != nil || minutes < 0 || minutes > 59 {
-		return -1
-	}
-
 	return hours*60 + minutes
 }
 

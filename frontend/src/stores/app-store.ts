@@ -1,5 +1,6 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
+import { FACTORS } from "@/lib/factors"
 import { decodeHtmlEntities, genId } from "@/lib/utils"
 import { mergeAdjacentBlocks } from "@/lib/schedule-utils"
 import { DEFAULT_CALENDAR_EXPORT, type CalendarExportOptions } from "@/lib/ics"
@@ -99,6 +100,17 @@ export interface CourseSlot {
   sections: SectionFilter[] | null // null = all sections allowed
 }
 
+/** Mirrors the backend's DefaultPreferences. */
+export const DEFAULT_PREFERENCES: Preferences = {
+  start: 2,
+  end: 2,
+  gap: 2,
+  gpa: 3,
+  seats: 0,
+  idealStart: "1000",
+  idealEnd: "1400",
+}
+
 /** Parameters that affect schedule generation - used for stale detection */
 export interface GenerationParams {
   term: string
@@ -106,6 +118,7 @@ export interface GenerationParams {
   maxCourses: number
   slotsFingerprint: string
   blockedTimesFingerprint: string
+  preferencesFingerprint: string
 }
 
 /**
@@ -138,6 +151,109 @@ export function computeBlockedTimesFingerprint(
   return JSON.stringify(enabled)
 }
 
+export function computePreferencesFingerprint(p: Preferences): string {
+  return [p.start, p.end, p.gap, p.gpa, p.seats, p.idealStart, p.idealEnd].join("-")
+}
+
+/**
+ * Whether a result was generated with any weight on; with every weight off the
+ * backend scores all schedules 0. Results saved before weights existed count
+ * as ranked.
+ */
+export function wasRanked(params: GenerationParams | null): boolean {
+  const fingerprint = params?.preferencesFingerprint
+  if (!fingerprint) return true
+  return fingerprint.split("-").slice(0, FACTORS.length).some((level) => level !== "0")
+}
+
+type GenerationInputs = Pick<
+  AppState,
+  "term" | "minCourses" | "maxCourses" | "slots" | "blockedTimeGroups" | "preferences"
+>
+
+/**
+ * Fingerprints all slots, not just the ones valid this term, so the
+ * fingerprint tracks user intent: a course that becomes valid later still
+ * marks the result stale.
+ */
+export function computeGenerationParams(state: GenerationInputs): GenerationParams {
+  return {
+    term: state.term,
+    minCourses: state.minCourses ?? 0,
+    maxCourses: state.maxCourses ?? 0,
+    slotsFingerprint: computeSlotsFingerprint(state.slots),
+    blockedTimesFingerprint: computeBlockedTimesFingerprint(state.blockedTimeGroups),
+    preferencesFingerprint: computePreferencesFingerprint(state.preferences),
+  }
+}
+
+/** The params that differ from the ones a result was generated with. */
+export function changedGenerationParams(
+  current: GenerationParams,
+  generated: GenerationParams
+): (keyof GenerationParams)[] {
+  return (Object.keys(current) as (keyof GenerationParams)[]).filter(
+    (key) => current[key] !== generated[key]
+  )
+}
+
+/** The latest generation request, until its response settles. */
+export interface PendingGeneration {
+  seq: number
+  params: GenerationParams
+  slotsVersion: number
+  showWarnings: boolean
+}
+
+type WeightsCloseInputs = GenerationInputs &
+  Pick<AppState, "pendingGeneration" | "generatedWithParams">
+
+/**
+ * Whether closing the weights panel should rerun generation. It compares
+ * against the latest requested generation, in flight or shown, so closing
+ * during a pending run is not skipped and an older request cannot win.
+ */
+export function weightsCloseRerun(
+  state: WeightsCloseInputs,
+  preferencesAtOpen: string
+): { showWarnings: boolean } | null {
+  const current = computeGenerationParams(state)
+  // Opening and closing without an edit must not rerun a result whose saved
+  // params predate preferences.
+  if (current.preferencesFingerprint === preferencesAtOpen) return null
+  const pending = state.pendingGeneration
+  const latest = pending?.params ?? state.generatedWithParams
+  if (!latest) return null
+  const changed = changedGenerationParams(current, latest)
+  if (!changed.includes("preferencesFingerprint")) return null
+  // A weights-only change re-ranks the same request, whose warnings the user
+  // has already seen, unless the request it supersedes was still due to show them.
+  return { showWarnings: changed.length > 1 || pending?.showWarnings === true }
+}
+
+export function buildGenerateRequest(
+  state: GenerationInputs,
+  validSlots: CourseSlot[]
+): GenerateRequest {
+  const blockedTimes = state.blockedTimeGroups
+    .filter((g) => g.enabled)
+    .flatMap((g) => g.blocks)
+    .map(({ day, startTime, endTime }) => ({ day, startTime, endTime }))
+  return {
+    term: state.term,
+    courseSpecs: validSlots.map((slot) => ({
+      subject: slot.subject,
+      courseNumber: slot.courseNumber,
+      required: slot.required,
+      allowedCrns: slot.sections?.map((s) => s.crn),
+    })),
+    blockedTimes: blockedTimes.length > 0 ? blockedTimes : undefined,
+    minCourses: state.minCourses ?? 0,
+    maxCourses: state.maxCourses ?? 0,
+    preferences: state.preferences,
+  }
+}
+
 // Re-export from api.ts for convenience
 export type {
   HydratedSection,
@@ -146,7 +262,13 @@ export type {
   SearchResponse,
   SearchRequest,
 } from "@/lib/api"
-import type { GenerateResponse, SearchResponse } from "@/lib/api"
+import type {
+  GenerateRequest,
+  GenerateResponse,
+  Importance,
+  Preferences,
+  SearchResponse,
+} from "@/lib/api"
 
 // --- Store State ---
 
@@ -181,6 +303,7 @@ interface AppState {
   theme: Theme
   sidebarCollapsed: boolean
   calendarExport: CalendarExportOptions
+  preferences: Preferences
 
   // Generated schedules
   generateResult: GenerateResponse | null
@@ -188,6 +311,8 @@ interface AppState {
   currentScheduleIndex: number
   // Incremented on slot changes to detect stale mutation results
   slotsVersion: number
+  generationSeq: number
+  pendingGeneration: PendingGeneration | null
   // Flag to request regeneration from outside ScheduleBuilder
   regenerateRequested: boolean
 
@@ -223,12 +348,20 @@ interface AppState {
   setTheme: (theme: Theme) => void
   setSidebarCollapsed: (collapsed: boolean) => void
   setCalendarExport: (options: Partial<CalendarExportOptions>) => void
+  setPreferences: (updates: Partial<Preferences>) => void
+  resetPreferences: () => void
   setGenerateResult: (
     result: GenerateResponse | null,
     params?: GenerationParams
   ) => void
   setCurrentScheduleIndex: (index: number) => void
-  getSlotsVersion: () => number
+  beginGeneration: (params: GenerationParams, showWarnings: boolean) => number
+  /**
+   * Settles a request: only the latest one applies its result (and only if
+   * slots are unchanged since it began). Returns that request, or null when a
+   * newer one superseded it.
+   */
+  settleGeneration: (seq: number, result?: GenerateResponse) => PendingGeneration | null
   isGenerateResultStale: () => boolean
   openCourseDialog: (opts: { crn?: string; courseKey?: string; source: "schedule" | "search" }) => void
   closeCourseDialog: () => void
@@ -303,12 +436,49 @@ export function migratePersistedState(
   return out
 }
 
+const IMPORTANCE_KEYS = FACTORS.map((f) => f.key)
+const TIME_KEYS = ["idealStart", "idealEnd"] as const
+
+/**
+ * Keeps each stored preference only if the backend would accept it, so a
+ * factor added later or a corrupted value falls back to its default instead
+ * of failing every Generate.
+ */
+function storedPreferences(stored: unknown): Preferences {
+  const raw = (stored && typeof stored === "object" ? stored : {}) as Record<string, unknown>
+  const out = { ...DEFAULT_PREFERENCES }
+  for (const key of IMPORTANCE_KEYS) {
+    const v = raw[key]
+    if (typeof v === "number" && Number.isInteger(v) && v >= 0 && v <= 3) {
+      out[key] = v as Importance
+    }
+  }
+  for (const key of TIME_KEYS) {
+    const v = raw[key]
+    if (typeof v === "string" && /^([01]\d|2[0-3])[0-5]\d$/.test(v)) out[key] = v
+  }
+  return out
+}
+
+export function mergePersistedState(persisted: unknown, current: AppState): AppState {
+  const stored = (persisted ?? {}) as Partial<AppState>
+  return {
+    ...current,
+    ...stored,
+    preferences: storedPreferences(stored.preferences),
+  }
+}
+
 /**
  * The term of the schedule on screen: the one it was generated for, which
  * stays shown (marked stale) after the sidebar switches terms.
  */
 export function selectScheduleTerm(state: AppState): string {
   return (state.generateResult && state.generatedWithParams?.term) || state.term
+}
+
+export function selectInvalidBounds(state: AppState): boolean {
+  return state.minCourses !== null && state.maxCourses !== null && state.maxCourses < state.minCourses
 }
 
 // --- Store ---
@@ -329,10 +499,13 @@ export const useAppStore = create<AppState>()(
       theme: "system",
       sidebarCollapsed: false,
       calendarExport: DEFAULT_CALENDAR_EXPORT,
+      preferences: DEFAULT_PREFERENCES,
       generateResult: null,
       generatedWithParams: null,
       currentScheduleIndex: 0,
       slotsVersion: 0,
+      generationSeq: 0,
+      pendingGeneration: null,
       regenerateRequested: false,
       courseDialog: { open: false },
       searchFilters: { ...DEFAULT_SEARCH_FILTERS },
@@ -536,6 +709,11 @@ export const useAppStore = create<AppState>()(
       setCalendarExport: (options) =>
         set((state) => ({ calendarExport: { ...state.calendarExport, ...options } })),
 
+      setPreferences: (updates) =>
+        set((state) => ({ preferences: { ...state.preferences, ...updates } })),
+
+      resetPreferences: () => set({ preferences: DEFAULT_PREFERENCES }),
+
       setGenerateResult: (result, params) =>
         set({
           generateResult: result,
@@ -551,30 +729,41 @@ export const useAppStore = create<AppState>()(
           return { currentScheduleIndex: Math.max(0, Math.min(index, maxIndex)) }
         }),
 
-      getSlotsVersion: () => get().slotsVersion,
+      beginGeneration: (params, showWarnings) => {
+        const state = get()
+        const seq = state.generationSeq + 1
+        set({
+          generationSeq: seq,
+          pendingGeneration: { seq, params, slotsVersion: state.slotsVersion, showWarnings },
+        })
+        return seq
+      },
+
+      settleGeneration: (seq, result) => {
+        const state = get()
+        const pending = state.pendingGeneration
+        if (pending?.seq !== seq) return null
+        if (result && state.slotsVersion === pending.slotsVersion) {
+          set({
+            pendingGeneration: null,
+            generateResult: result,
+            generatedWithParams: pending.params,
+            currentScheduleIndex: 0,
+          })
+        } else {
+          set({ pendingGeneration: null })
+        }
+        return pending
+      },
 
       isGenerateResultStale: () => {
         const state = get()
         if (!state.generateResult || !state.generatedWithParams) {
           return false
         }
-        const current: GenerationParams = {
-          term: state.term,
-          minCourses: state.minCourses ?? 0,
-          maxCourses: state.maxCourses ?? 0,
-          slotsFingerprint: computeSlotsFingerprint(state.slots),
-          blockedTimesFingerprint: computeBlockedTimesFingerprint(
-            state.blockedTimeGroups
-          ),
-        }
         return (
-          current.term !== state.generatedWithParams.term ||
-          current.minCourses !== state.generatedWithParams.minCourses ||
-          current.maxCourses !== state.generatedWithParams.maxCourses ||
-          current.slotsFingerprint !==
-            state.generatedWithParams.slotsFingerprint ||
-          current.blockedTimesFingerprint !==
-            state.generatedWithParams.blockedTimesFingerprint
+          changedGenerationParams(computeGenerationParams(state), state.generatedWithParams)
+            .length > 0
         )
       },
 
@@ -630,6 +819,7 @@ export const useAppStore = create<AppState>()(
       name: "schedule-optimizer",
       version: 2,
       migrate: (state, version) => migratePersistedState(state, version) as AppState,
+      merge: mergePersistedState,
       partialize: (state) => ({
         // Only persist these fields
         sessionId: state.sessionId,
@@ -643,6 +833,7 @@ export const useAppStore = create<AppState>()(
         theme: state.theme,
         sidebarCollapsed: state.sidebarCollapsed,
         calendarExport: state.calendarExport,
+        preferences: state.preferences,
         generateResult: state.generateResult,
         generatedWithParams: state.generatedWithParams,
         currentScheduleIndex: state.currentScheduleIndex,

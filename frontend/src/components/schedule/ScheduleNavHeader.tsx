@@ -26,6 +26,7 @@ import {
 import type { HydratedSection } from "@/lib/api"
 import { cn } from "@/lib/utils"
 import { AddToCalendar } from "./AddToCalendar"
+import { ScheduleStatsPopover } from "./ScheduleStatsPopover"
 
 /** Replaces the nav header while painting blocked times. */
 export function ScheduleBanner({
@@ -52,6 +53,7 @@ export function ScheduleBanner({
 
 interface ScheduleNavHeaderProps {
   canRegenerate: boolean
+  hasInvalidBounds: boolean
   showStale: boolean
   onRegenerate: () => void
   /** Index of the shown schedule, and how many there are (0 when none). */
@@ -59,8 +61,9 @@ interface ScheduleNavHeaderProps {
   count: number
   onIndexChange: (index: number) => void
   emptyText: string
-  /** The shown schedule's sections, for calendar export. */
+  /** The shown schedule's sections and ranking score, for its stats and calendar export. */
   sections: HydratedSection[]
+  score: number
   onBlockedTimes: () => void
   onDownloadPng: () => void
   isExporting: boolean
@@ -71,6 +74,7 @@ interface ScheduleNavHeaderProps {
 
 export function ScheduleNavHeader({
   canRegenerate,
+  hasInvalidBounds,
   showStale,
   onRegenerate,
   index,
@@ -78,6 +82,7 @@ export function ScheduleNavHeader({
   onIndexChange,
   emptyText,
   sections,
+  score,
   onBlockedTimes,
   onDownloadPng,
   isExporting,
@@ -88,8 +93,9 @@ export function ScheduleNavHeader({
   const [spinCount, setSpinCount] = useState(0)
 
   const regenerateTooltip = () => {
+    if (hasInvalidBounds) return "Max courses must be at least min courses"
     if (!canRegenerate) return "Add courses to regenerate"
-    if (showStale) return "Course list changed. Click to regenerate."
+    if (showStale) return "Settings changed. Click to regenerate."
     return "Regenerate schedules"
   }
 
@@ -135,10 +141,7 @@ export function ScheduleNavHeader({
           >
             <ChevronLeft className="size-4" />
           </Button>
-          <span className="min-w-20 text-center text-sm sm:min-w-32">
-            <span className="max-sm:hidden">Schedule </span>
-            {index + 1} of {count}
-          </span>
+          <ScheduleStatsPopover index={index} count={count} sections={sections} score={score} />
           <Button
             variant="ghost"
             size="icon"

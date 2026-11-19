@@ -1,6 +1,8 @@
 package generator
 
 import (
+	"math"
+
 	"schedule-optimizer/internal/cache"
 	"schedule-optimizer/internal/calendar"
 	"schedule-optimizer/internal/meeting"
@@ -36,9 +38,8 @@ type SectionInfo struct {
 
 // ScheduleRef contains CRN references for a single schedule.
 type ScheduleRef struct {
-	CRNs    []string `json:"crns"`
-	Score   float64  `json:"score"`
-	Weights []Weight `json:"weights"`
+	CRNs  []string `json:"crns"`
+	Score float64  `json:"score"`
 }
 
 // Response is the wire format for schedule generation results.
@@ -95,9 +96,8 @@ func (r *GenerateResponse) ToResponse() *Response {
 			crns = append(crns, course.CRN)
 		}
 		schedules = append(schedules, ScheduleRef{
-			CRNs:    crns,
-			Score:   sched.Score,
-			Weights: sched.Weights,
+			CRNs:  crns,
+			Score: math.Round(sched.Score*100) / 100,
 		})
 	}
 	for _, course := range r.Asyncs {
