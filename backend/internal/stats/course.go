@@ -58,13 +58,19 @@ type NextTerm struct {
 	Professors []string `json:"professors"`
 }
 
-type ProfessorRow struct {
-	Name     string `json:"name"` // "" groups sections with no professor listed
+// Row is one group of sections in a view's table, so every view (a course's
+// professors, later a professor's or subject's courses) shares one builder.
+type Row struct {
+	Name     string `json:"name"` // "" groups sections with no name listed
 	Sections int    `json:"sections"`
 	Stats
-	LastTaught  string       `json:"lastTaught,omitempty"`
-	TeachesNext bool         `json:"teachesNext,omitempty"`
-	History     []SectionRow `json:"history"` // newest first
+	History []SectionRow `json:"history"` // newest first
+}
+
+type ProfessorRow struct {
+	Row
+	LastTaught  string `json:"lastTaught,omitempty"`
+	TeachesNext bool   `json:"teachesNext,omitempty"`
 }
 
 type SectionRow struct {
@@ -202,38 +208,43 @@ func offeredTerms(banner map[string]map[string]bool, graded []*grades.Section) [
 	return out
 }
 
-// professorRows groups sections by professor, most sections first, with
-// unlisted sections last.
 func professorRows(secs []*grades.Section, facts offeringFacts, metric Metric) []ProfessorRow {
+	groups := groupRows(secs, func(s *grades.Section) string { return s.Professor }, metric)
+	rows := make([]ProfessorRow, len(groups))
+	for i, g := range groups {
+		rows[i].Row = g
+		if g.Name != "" {
+			// Banner runs past the grade file, so it knows later terms.
+			rows[i].LastTaught = max(facts.lastTaught[g.Name], g.History[0].Term)
+			rows[i].TeachesNext = facts.nextKeys[g.Name]
+		}
+	}
+	return rows
+}
+
+// groupRows groups newest-first sections by key, most sections first, with
+// the unnamed group last.
+func groupRows(secs []*grades.Section, key func(*grades.Section) string, metric Metric) []Row {
 	groups := make(map[string][]*grades.Section)
 	var order []string
 	for _, s := range secs {
-		if groups[s.Professor] == nil {
-			order = append(order, s.Professor)
+		k := key(s)
+		if groups[k] == nil {
+			order = append(order, k)
 		}
-		groups[s.Professor] = append(groups[s.Professor], s)
+		groups[k] = append(groups[k], s)
 	}
-	rows := make([]ProfessorRow, 0, len(order))
-	for _, key := range order {
-		g := groups[key]
+	rows := make([]Row, 0, len(order))
+	for _, k := range order {
+		g := groups[k]
 		counts, students := sumStudents(g)
-		row := ProfessorRow{
-			Name:     key,
-			Sections: len(g),
-			Stats:    newStats(counts, students, metric),
-			History:  make([]SectionRow, 0, len(g)),
-		}
-		if key != "" {
-			// Banner runs past the grade file, so it knows later terms.
-			row.LastTaught = max(facts.lastTaught[key], g[0].Term)
-			row.TeachesNext = facts.nextKeys[key]
-		}
+		row := Row{Name: k, Sections: len(g), Stats: newStats(counts, students, metric), History: make([]SectionRow, 0, len(g))}
 		for _, s := range g {
 			row.History = append(row.History, SectionRow{Term: s.Term, CRN: s.CRN, Stats: newStats(s.Counts, s.Students, metric)})
 		}
 		rows = append(rows, row)
 	}
-	slices.SortStableFunc(rows, func(a, b ProfessorRow) int {
+	slices.SortStableFunc(rows, func(a, b Row) int {
 		if (a.Name == "") != (b.Name == "") {
 			if a.Name == "" {
 				return 1
