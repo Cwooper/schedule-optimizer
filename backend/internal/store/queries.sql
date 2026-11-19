@@ -292,6 +292,33 @@ FROM grade_rows g
 JOIN sections s ON g.term = s.term AND g.crn = s.crn
 LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1;
 
+-- name: GetGradeRowsWithBanner :many
+SELECT sqlc.embed(g),
+       s.subject AS banner_subject, s.course_number AS banner_course_number,
+       i.name AS banner_instructor
+FROM grade_rows g
+LEFT JOIN sections s ON g.term = s.term AND g.crn = s.crn
+LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1;
+
+-- SQLite fills bare columns from the row holding MAX(term), so title is the newest term's.
+-- name: GetLatestCourseTitles :many
+SELECT subject, course_number, title, CAST(MAX(term) AS TEXT) AS term
+FROM sections
+GROUP BY subject, course_number;
+
+-- name: GetLatestSubjectDescriptions :many
+SELECT subject, subject_description, CAST(MAX(term) AS TEXT) AS term
+FROM sections
+WHERE subject_description IS NOT NULL AND subject_description != ''
+GROUP BY subject;
+
+-- name: GetCourseOfferings :many
+SELECT s.term, s.crn, i.name AS instructor_name
+FROM sections s
+LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1
+WHERE s.subject = ? AND s.course_number = ?
+ORDER BY s.term, s.crn;
+
 -- name: UpsertTermDates :exec
 INSERT INTO term_dates (term_code, start_date, end_date)
 VALUES (?, ?, ?)

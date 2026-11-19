@@ -26,6 +26,7 @@ type Service struct {
 	courseAgg     map[string]*GradeAggregate // "SUBJECT:NUM"
 	professorAgg  map[string]*GradeAggregate // "INSTRUCTOR"
 	subjectAgg    map[string]*GradeAggregate // "SUBJECT"
+	index         *Index
 	loaded        bool
 }
 
@@ -128,24 +129,13 @@ func (s *Service) LoadFromDB(ctx context.Context) error {
 			Instructor:   row.Instructor,
 			Sections:     int(row.SectionsCount),
 			Students:     int(row.StudentsCount),
-			CntA:         int(row.CntA),
-			CntAM:        int(row.CntAm),
-			CntBP:        int(row.CntBp),
-			CntB:         int(row.CntB),
-			CntBM:        int(row.CntBm),
-			CntCP:        int(row.CntCp),
-			CntC:         int(row.CntC),
-			CntCM:        int(row.CntCm),
-			CntDP:        int(row.CntDp),
-			CntD:         int(row.CntD),
-			CntDM:        int(row.CntDm),
-			CntF:         int(row.CntF),
-			CntW:         int(row.CntW),
-			CntP:         int(row.CntP),
-			CntNP:        int(row.CntNp),
-			CntS:         int(row.CntS),
-			CntU:         int(row.CntU),
-			GPA:          row.Gpa,
+			Counts: Counts{
+				int(row.CntA), int(row.CntAm), int(row.CntBp), int(row.CntB), int(row.CntBm),
+				int(row.CntCp), int(row.CntC), int(row.CntCm), int(row.CntDp), int(row.CntD),
+				int(row.CntDm), int(row.CntF), int(row.CntW), int(row.CntP), int(row.CntNp),
+				int(row.CntS), int(row.CntU),
+			},
+			GPA: row.Gpa,
 		}
 		if row.PassRate.Valid {
 			pr := row.PassRate.Float64
@@ -164,7 +154,13 @@ func (s *Service) LoadFromDB(ctx context.Context) error {
 		}
 	}
 
+	index, err := s.loadIndex(ctx, instructorMappings)
+	if err != nil {
+		return err
+	}
+
 	s.mu.Lock()
+	s.index = index
 	s.subjectMap = subjectMap
 	s.instructorMap = instructorMap
 	s.courseProfAgg = courseProfAgg
@@ -181,8 +177,31 @@ func (s *Service) LoadFromDB(ctx context.Context) error {
 		"course_aggs", len(courseAgg),
 		"professor_aggs", len(professorAgg),
 		"subject_aggs", len(subjectAgg),
+		"stats_courses", len(index.list),
 	)
 	return nil
+}
+
+func (s *Service) loadIndex(ctx context.Context, mappings []*store.InstructorMapping) (*Index, error) {
+	src := indexSource{mappings: mappings}
+	var err error
+	if src.rows, err = s.queries.GetGradeRowsWithBanner(ctx); err != nil {
+		return nil, fmt.Errorf("load grade rows: %w", err)
+	}
+	if src.titles, err = s.queries.GetLatestCourseTitles(ctx); err != nil {
+		return nil, fmt.Errorf("load course titles: %w", err)
+	}
+	if src.subjects, err = s.queries.GetLatestSubjectDescriptions(ctx); err != nil {
+		return nil, fmt.Errorf("load subject descriptions: %w", err)
+	}
+	return buildIndex(src), nil
+}
+
+// Index returns the stats index, or nil until grade data loads.
+func (s *Service) Index() *Index {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	return s.index
 }
 
 // IsLoaded returns true if grade data is loaded into memory.

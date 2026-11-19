@@ -236,6 +236,48 @@ func (q *Queries) GetAllGradeRows(ctx context.Context) ([]*GradeRow, error) {
 	return items, nil
 }
 
+const getCourseOfferings = `-- name: GetCourseOfferings :many
+SELECT s.term, s.crn, i.name AS instructor_name
+FROM sections s
+LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1
+WHERE s.subject = ? AND s.course_number = ?
+ORDER BY s.term, s.crn
+`
+
+type GetCourseOfferingsParams struct {
+	Subject      string `json:"subject"`
+	CourseNumber string `json:"course_number"`
+}
+
+type GetCourseOfferingsRow struct {
+	Term           string         `json:"term"`
+	Crn            string         `json:"crn"`
+	InstructorName sql.NullString `json:"instructor_name"`
+}
+
+func (q *Queries) GetCourseOfferings(ctx context.Context, arg GetCourseOfferingsParams) ([]*GetCourseOfferingsRow, error) {
+	rows, err := q.db.QueryContext(ctx, getCourseOfferings, arg.Subject, arg.CourseNumber)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []*GetCourseOfferingsRow{}
+	for rows.Next() {
+		var i GetCourseOfferingsRow
+		if err := rows.Scan(&i.Term, &i.Crn, &i.InstructorName); err != nil {
+			return nil, err
+		}
+		items = append(items, &i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
 const getDistinctSubjects = `-- name: GetDistinctSubjects :many
 SELECT DISTINCT subject FROM sections ORDER BY subject
 `
@@ -436,6 +478,75 @@ func (q *Queries) GetGradeRowCount(ctx context.Context) (int64, error) {
 	return count, err
 }
 
+const getGradeRowsWithBanner = `-- name: GetGradeRowsWithBanner :many
+SELECT g.id, g.term, g.crn, g.subject, g.course_number, g.title, g.professor, g.students_enrolled, g.grade_count, g.cnt_a, g.cnt_am, g.cnt_bp, g.cnt_b, g.cnt_bm, g.cnt_cp, g.cnt_c, g.cnt_cm, g.cnt_dp, g.cnt_d, g.cnt_dm, g.cnt_f, g.cnt_w, g.cnt_p, g.cnt_np, g.cnt_s, g.cnt_u,
+       s.subject AS banner_subject, s.course_number AS banner_course_number,
+       i.name AS banner_instructor
+FROM grade_rows g
+LEFT JOIN sections s ON g.term = s.term AND g.crn = s.crn
+LEFT JOIN instructors i ON s.id = i.section_id AND i.is_primary = 1
+`
+
+type GetGradeRowsWithBannerRow struct {
+	GradeRow           GradeRow       `json:"grade_row"`
+	BannerSubject      sql.NullString `json:"banner_subject"`
+	BannerCourseNumber sql.NullString `json:"banner_course_number"`
+	BannerInstructor   sql.NullString `json:"banner_instructor"`
+}
+
+func (q *Queries) GetGradeRowsWithBanner(ctx context.Context) ([]*GetGradeRowsWithBannerRow, error) {
+	rows, err := q.db.QueryContext(ctx, getGradeRowsWithBanner)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []*GetGradeRowsWithBannerRow{}
+	for rows.Next() {
+		var i GetGradeRowsWithBannerRow
+		if err := rows.Scan(
+			&i.GradeRow.ID,
+			&i.GradeRow.Term,
+			&i.GradeRow.Crn,
+			&i.GradeRow.Subject,
+			&i.GradeRow.CourseNumber,
+			&i.GradeRow.Title,
+			&i.GradeRow.Professor,
+			&i.GradeRow.StudentsEnrolled,
+			&i.GradeRow.GradeCount,
+			&i.GradeRow.CntA,
+			&i.GradeRow.CntAm,
+			&i.GradeRow.CntBp,
+			&i.GradeRow.CntB,
+			&i.GradeRow.CntBm,
+			&i.GradeRow.CntCp,
+			&i.GradeRow.CntC,
+			&i.GradeRow.CntCm,
+			&i.GradeRow.CntDp,
+			&i.GradeRow.CntD,
+			&i.GradeRow.CntDm,
+			&i.GradeRow.CntF,
+			&i.GradeRow.CntW,
+			&i.GradeRow.CntP,
+			&i.GradeRow.CntNp,
+			&i.GradeRow.CntS,
+			&i.GradeRow.CntU,
+			&i.BannerSubject,
+			&i.BannerCourseNumber,
+			&i.BannerInstructor,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, &i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
 const getImportantDatesByTerm = `-- name: GetImportantDatesByTerm :many
 SELECT id, term_code, date, end_date, description, category, opens_registration FROM important_dates WHERE term_code = ? ORDER BY date, id
 `
@@ -519,6 +630,84 @@ func (q *Queries) GetInstructorsBySection(ctx context.Context, sectionID int64) 
 			&i.Email,
 			&i.IsPrimary,
 		); err != nil {
+			return nil, err
+		}
+		items = append(items, &i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const getLatestCourseTitles = `-- name: GetLatestCourseTitles :many
+SELECT subject, course_number, title, CAST(MAX(term) AS TEXT) AS term
+FROM sections
+GROUP BY subject, course_number
+`
+
+type GetLatestCourseTitlesRow struct {
+	Subject      string `json:"subject"`
+	CourseNumber string `json:"course_number"`
+	Title        string `json:"title"`
+	Term         string `json:"term"`
+}
+
+// SQLite fills bare columns from the row holding MAX(term), so title is the newest term's.
+func (q *Queries) GetLatestCourseTitles(ctx context.Context) ([]*GetLatestCourseTitlesRow, error) {
+	rows, err := q.db.QueryContext(ctx, getLatestCourseTitles)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []*GetLatestCourseTitlesRow{}
+	for rows.Next() {
+		var i GetLatestCourseTitlesRow
+		if err := rows.Scan(
+			&i.Subject,
+			&i.CourseNumber,
+			&i.Title,
+			&i.Term,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, &i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const getLatestSubjectDescriptions = `-- name: GetLatestSubjectDescriptions :many
+SELECT subject, subject_description, CAST(MAX(term) AS TEXT) AS term
+FROM sections
+WHERE subject_description IS NOT NULL AND subject_description != ''
+GROUP BY subject
+`
+
+type GetLatestSubjectDescriptionsRow struct {
+	Subject            string         `json:"subject"`
+	SubjectDescription sql.NullString `json:"subject_description"`
+	Term               string         `json:"term"`
+}
+
+func (q *Queries) GetLatestSubjectDescriptions(ctx context.Context) ([]*GetLatestSubjectDescriptionsRow, error) {
+	rows, err := q.db.QueryContext(ctx, getLatestSubjectDescriptions)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []*GetLatestSubjectDescriptionsRow{}
+	for rows.Next() {
+		var i GetLatestSubjectDescriptionsRow
+		if err := rows.Scan(&i.Subject, &i.SubjectDescription, &i.Term); err != nil {
 			return nil, err
 		}
 		items = append(items, &i)
