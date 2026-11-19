@@ -11,6 +11,9 @@ import type { BlockedTimeBlock } from "@/stores/app-store"
 
 export const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri"] as const
 
+/** Indexed like MeetingTime.days, Sunday first; R is Thursday so it differs from Tuesday. */
+export const DAY_LETTERS = ["U", "M", "T", "W", "R", "F", "S"] as const
+
 export const GRID = {
   TIME_COL: "2.5rem",
   TIME_COL_PX: 40,
@@ -92,6 +95,13 @@ export function formatHour(hour: number): string {
 
 export function formatAmPm(hour: number): string {
   return hour >= 12 ? "pm" : "am"
+}
+
+/** Minutes from midnight (e.g. 600) to "10:00 AM". */
+export function formatClock(mins: number): string {
+  const hour = Math.floor(mins / 60)
+  const hour12 = hour % 12 || 12
+  return `${hour12}:${String(mins % 60).padStart(2, "0")} ${hour < 12 ? "AM" : "PM"}`
 }
 
 /** Convert total minutes (e.g. 570) to stored time format "0930", clamped to 00:00–23:50 */

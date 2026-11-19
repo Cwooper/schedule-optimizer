@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest"
-import { hydrateSection, hydrateSchedule, hydrateAsyncs, groupSectionsByCourse, clampToAvoidOverlap, blocksToRanges, otherBlockRanges, mergeAdjacentBlocks, type TimeRange } from "./schedule-utils"
+import { hydrateSection, hydrateSchedule, hydrateAsyncs, groupSectionsByCourse, clampToAvoidOverlap, blocksToRanges, otherBlockRanges, mergeAdjacentBlocks, formatClock, type TimeRange } from "./schedule-utils"
 import type { BlockedTimeBlock } from "@/stores/app-store"
 import type {
   GenerateCourseInfo,
@@ -551,5 +551,19 @@ describe("groupSectionsByCourse", () => {
 
     expect(result[0].sections[0].seatsAvailable).toBe(5)
     expect(result[0].sections[0].isOpen).toBe(false)
+  })
+})
+
+describe("formatClock", () => {
+  it.each([
+    [0, "12:00 AM"],
+    [9 * 60 + 5, "9:05 AM"],
+    [11 * 60 + 59, "11:59 AM"],
+    [12 * 60, "12:00 PM"],
+    [12 * 60 + 30, "12:30 PM"],
+    [15 * 60 + 50, "3:50 PM"],
+    [23 * 60 + 50, "11:50 PM"],
+  ])("formats %i minutes as %s", (mins, label) => {
+    expect(formatClock(mins)).toBe(label)
   })
 })

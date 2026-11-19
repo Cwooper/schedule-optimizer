@@ -1,13 +1,4 @@
-import {
-  Armchair,
-  ArrowDownUp,
-  Award,
-  RotateCcw,
-  Sunrise,
-  Sunset,
-  Weight,
-  type LucideIcon,
-} from "lucide-react"
+import { RotateCcw, Weight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import {
@@ -23,48 +14,29 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { minsToTimeStr } from "@/lib/schedule-utils"
+import { FACTORS, type Factor } from "@/lib/factors"
+import { formatClock, minsToTimeStr } from "@/lib/schedule-utils"
 import type { Importance, Preferences } from "@/lib/api"
 import { useAppStore } from "@/stores/app-store"
-
-type Factor = "start" | "end" | "gap" | "gpa" | "seats"
 
 const LEVELS = ["Off", "Low", "Med", "High"]
 const STRICTNESS = ["Off", "Loose", "Firm", "Strict"]
 
-const FACTORS: {
-  key: Factor
-  label: string
-  icon: LucideIcon
-  levels: string[]
-  time?: { key: "idealStart" | "idealEnd"; label: string }
-}[] = [
-  {
-    key: "start",
-    label: "Start",
-    icon: Sunrise,
-    levels: STRICTNESS,
-    time: { key: "idealStart", label: "Prefer after" },
-  },
-  {
-    key: "end",
-    label: "End",
-    icon: Sunset,
-    levels: STRICTNESS,
-    time: { key: "idealEnd", label: "Prefer done by" },
-  },
-  { key: "gap", label: "Gaps", icon: ArrowDownUp, levels: LEVELS },
-  { key: "gpa", label: "GPA", icon: Award, levels: LEVELS },
-  { key: "seats", label: "Seats", icon: Armchair, levels: LEVELS },
-]
+const CONTROLS: Record<
+  Factor,
+  { levels: string[]; time?: { key: "idealStart" | "idealEnd"; label: string } }
+> = {
+  start: { levels: STRICTNESS, time: { key: "idealStart", label: "Prefer after" } },
+  end: { levels: STRICTNESS, time: { key: "idealEnd", label: "Prefer done by" } },
+  gap: { levels: LEVELS },
+  gpa: { levels: LEVELS },
+  seats: { levels: LEVELS },
+}
 
 // 7:00 AM to 7:00 PM in 30-minute steps.
 const TIME_OPTIONS = Array.from({ length: 25 }, (_, i) => {
   const mins = 7 * 60 + i * 30
-  const hour = Math.floor(mins / 60)
-  const hour12 = hour % 12 || 12
-  const label = `${hour12}:${String(mins % 60).padStart(2, "0")} ${hour < 12 ? "AM" : "PM"}`
-  return { value: minsToTimeStr(mins), label }
+  return { value: minsToTimeStr(mins), label: formatClock(mins) }
 })
 
 /** Lives inside the Popover that ScheduleBuilder anchors to its footer. */
@@ -136,7 +108,7 @@ function FactorRows({
 }) {
   const Icon = factor.icon
   const level = preferences[factor.key]
-  const time = factor.time
+  const { levels, time } = CONTROLS[factor.key]
   return (
     <>
       <div className="flex h-8 items-center justify-between gap-3">
@@ -156,7 +128,7 @@ function FactorRows({
           }
           aria-label={factor.label}
         >
-          {factor.levels.map((name, i) => (
+          {levels.map((name, i) => (
             // Fixed width so every group lines up in columns despite label lengths.
             <ToggleGroupItem
               key={name}

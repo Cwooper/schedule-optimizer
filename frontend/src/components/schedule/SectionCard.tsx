@@ -17,6 +17,7 @@ import { cn } from "@/lib/utils"
 import { describeGrades, type GradeKind } from "@/lib/grades"
 import { formatNumericDate, formatWeekday } from "@/lib/dates"
 import { FINAL_GUESS_REASONS } from "@/lib/finals"
+import { DAY_LETTERS } from "@/lib/schedule-utils"
 
 interface SectionCardProps {
   section: HydratedSection
@@ -34,12 +35,9 @@ interface SectionCardProps {
   termLabel?: string
 }
 
-// Single-letter day abbreviations (R = Thursday to distinguish from Tuesday)
-const DAYS_LETTER = ["U", "M", "T", "W", "R", "F", "S"]
-
 function formatDays(days: boolean[]): string {
   return days
-    .map((active, i) => (active ? DAYS_LETTER[i] : null))
+    .map((active, i) => (active ? DAY_LETTERS[i] : null))
     .filter(Boolean)
     .join("")
 }
