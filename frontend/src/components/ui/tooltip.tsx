@@ -42,28 +42,33 @@ function Tooltip({
 }: TooltipProps) {
   const [uncontrolledOpen, setUncontrolledOpen] = React.useState(false)
   const triggerRef = React.useRef<HTMLElement | null>(null)
-  const blockCloseRef = React.useRef(false)
+  const touchOpenRef = React.useRef(false)
 
   const isControlled = controlledOpen !== undefined
   const open = isControlled ? controlledOpen : uncontrolledOpen
   const rawSetOpen = isControlled ? controlledOnOpenChange : setUncontrolledOpen
 
-  // Wrap setOpen to block Radix's close-on-activation during touch
+  // A touch-opened tooltip closes only by touch. Radix's closes are built for
+  // a mouse (pointerdown, click, scroll, leaving the trigger) and the events a
+  // tap generates after touchend set them off, on iOS often well after it.
   const setOpen = React.useCallback((newOpen: boolean) => {
-    if (blockCloseRef.current && !newOpen) return
+    if (touchOpenRef.current && !newOpen) return
     rawSetOpen?.(newOpen)
   }, [rawSetOpen])
 
-  // Toggle tooltip on touch (mobile support)
+  const closeFromTouch = React.useCallback(() => {
+    touchOpenRef.current = false
+    rawSetOpen?.(false)
+  }, [rawSetOpen])
+
   const handleTouchEnd = React.useCallback(() => {
-    blockCloseRef.current = true
-    const nextOpen = !open
-    rawSetOpen?.(nextOpen)
-    // Keep blocking Radix's close attempts until handlers settle
-    setTimeout(() => {
-      blockCloseRef.current = false
-    }, 50)
-  }, [open, rawSetOpen])
+    if (open) {
+      closeFromTouch()
+    } else {
+      touchOpenRef.current = true
+      rawSetOpen?.(true)
+    }
+  }, [open, rawSetOpen, closeFromTouch])
 
   // Close tooltip when touching outside the trigger
   React.useEffect(() => {
@@ -71,7 +76,7 @@ function Tooltip({
 
     const handleOutsideTouch = (e: TouchEvent) => {
       if (triggerRef.current && !triggerRef.current.contains(e.target as Node)) {
-        setOpen(false)
+        closeFromTouch()
       }
     }
 
@@ -84,7 +89,7 @@ function Tooltip({
       clearTimeout(timeoutId)
       document.removeEventListener("touchstart", handleOutsideTouch)
     }
-  }, [open, setOpen])
+  }, [open, closeFromTouch])
 
   const touchContextValue = React.useMemo(
     () => ({ triggerRef, onTouchEnd: handleTouchEnd }),
