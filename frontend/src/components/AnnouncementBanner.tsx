@@ -67,7 +67,7 @@ export function AnnouncementBanner() {
         <p className={`flex-1 text-sm ${config.text}`}>
           <span className="font-semibold">{announcement.title}</span>
           {announcement.body && (
-            <span className="ml-1.5">{announcement.body}</span>
+            <span className="ml-1.5 whitespace-pre-line">{announcement.body}</span>
           )}
         </p>
         <button
