@@ -368,3 +368,12 @@ func TestBacktrack_MultipleRequiredCourses(t *testing.T) {
 		}
 	}
 }
+
+func TestBacktrack_StepBudgetStopsSearch(t *testing.T) {
+	groups := makeTestGroups(6, 4, true)
+	full := len(collectAll(context.Background(), backtrackParams{groups: groups, minCourses: 1, maxCourses: 6, limit: MaxSchedulesToGenerate}))
+	capped := collectAll(context.Background(), backtrackParams{groups: groups, minCourses: 1, maxCourses: 6, limit: MaxSchedulesToGenerate, maxSteps: 100})
+	if len(capped) == 0 || len(capped) >= 100 || len(capped) >= full {
+		t.Errorf("with 100 steps got %d schedules, want between 1 and 99 (full search finds %d)", len(capped), full)
+	}
+}

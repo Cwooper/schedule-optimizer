@@ -2,7 +2,6 @@ package generator
 
 import (
 	"context"
-	"slices"
 	"strings"
 	"testing"
 
@@ -210,54 +209,28 @@ func TestAllowedCRNsFiltering(t *testing.T) {
 	}
 }
 
-// simulateFallback replicates the min-course fallback logic from Generate()
-// to test it in isolation without needing a cache or database.
-func simulateFallback(
-	groups []courseGroup,
-	numRequired int,
-	reqMinCourses int, // 0 = user didn't set
-	reqMaxCourses int,
-) []Schedule {
-	totalCourses := len(groups)
-
-	effectiveMin := reqMinCourses
-	userSetMin := effectiveMin > 0
-	if effectiveMin == 0 {
-		effectiveMin = totalCourses
+// generateFrom runs Generate over test groups, the first numRequired of them
+// required.
+func generateFrom(t *testing.T, groups []courseGroup, numRequired, minCourses, maxCourses int) *GenerateResponse {
+	t.Helper()
+	term := &cache.TermData{ByCourseCode: map[string][]*cache.Course{}}
+	var specs []CourseSpec
+	for i, g := range groups {
+		subject, number, _ := strings.Cut(g.courseKey, ":")
+		for _, sec := range g.sections {
+			term.ByCourseCode[g.courseKey] = append(term.ByCourseCode[g.courseKey], sec.course)
+		}
+		specs = append(specs, CourseSpec{Subject: subject, CourseNumber: number, Required: i < numRequired})
 	}
-	effectiveMin = max(effectiveMin, numRequired)
-
-	fallbackMin := effectiveMin
-	if !userSetMin && effectiveMin > numRequired && effectiveMin > 1 {
-		fallbackMin = effectiveMin - 1
-	}
-
-	minCourses, maxCourses := clampBounds(fallbackMin, reqMaxCourses, totalCourses)
-
-	ctx := context.Background()
-	schedules := collectAll(ctx, backtrackParams{
-		groups:      groups,
-		numRequired: numRequired,
-		minCourses:  minCourses,
-		maxCourses:  maxCourses,
-		limit:       MaxSchedulesToGenerate,
+	resp, err := NewService(nil).Generate(context.Background(), term, GenerateRequest{
+		CourseSpecs: specs,
+		MinCourses:  minCourses,
+		MaxCourses:  maxCourses,
 	})
-
-	if !userSetMin && fallbackMin < effectiveMin && len(schedules) > 0 {
-		fullCount := 0
-		for _, s := range schedules {
-			if len(s.Courses) >= effectiveMin {
-				fullCount++
-			}
-		}
-		if fullCount > 0 {
-			schedules = slices.DeleteFunc(schedules, func(s Schedule) bool {
-				return len(s.Courses) < effectiveMin
-			})
-		}
+	if err != nil {
+		t.Fatal(err)
 	}
-
-	return schedules
+	return resp
 }
 
 func TestFallback_NoFullSchedules_KeepsFallback(t *testing.T) {
@@ -300,7 +273,7 @@ func TestFallback_NoFullSchedules_KeepsFallback(t *testing.T) {
 	// With MinCourses=0 (user didn't set), fallback allows 2-course schedules.
 	// No 3-course combo works (A is Mon 9-10; B2 is Tue 9-10; C2 is also Tue 9-10 — B2+C2 conflict).
 	// So fallback 2-course schedules should be returned.
-	schedules := simulateFallback(groups, 0, 0, 0)
+	schedules := generateFrom(t, groups, 0, 0, 0).Schedules
 	if len(schedules) == 0 {
 		t.Fatal("Expected fallback to produce schedules when no full-count combo works")
 	}
@@ -311,7 +284,7 @@ func TestFallback_NoFullSchedules_KeepsFallback(t *testing.T) {
 	}
 
 	// With MinCourses=3 (user explicitly set), no fallback — should get 0 results.
-	schedules = simulateFallback(groups, 0, 3, 0)
+	schedules = generateFrom(t, groups, 0, 3, 0).Schedules
 	if len(schedules) != 0 {
 		t.Errorf("User-set min=3 should produce 0 schedules when no 3-course combo works, got %d", len(schedules))
 	}
@@ -338,7 +311,11 @@ func TestFallback_FullSchedulesExist_FiltersFallback(t *testing.T) {
 		{courseKey: "C:300", sections: []*sectionData{{course: sectionC, mask: FromMeetingTimes(sectionC.MeetingTimes)}}},
 	}
 
-	schedules := simulateFallback(groups, 0, 0, 0)
+	resp := generateFrom(t, groups, 0, 0, 0)
+	schedules := resp.Schedules
+	if resp.Stats.TotalGenerated != 1 {
+		t.Errorf("TotalGenerated = %d, want 1 (only the full schedule counts)", resp.Stats.TotalGenerated)
+	}
 
 	// All returned schedules should have exactly 3 courses (2-course fallbacks filtered out)
 	if len(schedules) == 0 {
@@ -370,7 +347,7 @@ func TestFallback_UserSetMin_NoFallback(t *testing.T) {
 		{courseKey: "C:300", sections: []*sectionData{{course: sectionC, mask: FromMeetingTimes(sectionC.MeetingTimes)}}},
 	}
 
-	schedules := simulateFallback(groups, 0, 2, 0)
+	schedules := generateFrom(t, groups, 0, 2, 0).Schedules
 
 	// User set min=2, so both 2- and 3-course schedules should appear
 	has2 := false
@@ -412,7 +389,7 @@ func TestFallback_RequiredCourses_FloorRespected(t *testing.T) {
 		{courseKey: "OPT:300", sections: []*sectionData{{course: sectionC, mask: FromMeetingTimes(sectionC.MeetingTimes)}}},
 	}
 
-	schedules := simulateFallback(groups, 2, 0, 0)
+	schedules := generateFrom(t, groups, 2, 0, 0).Schedules
 
 	// All 3 fit, so only 3-course schedules should remain
 	for _, s := range schedules {
@@ -444,7 +421,7 @@ func TestFallback_SingleCourse_NoFallback(t *testing.T) {
 		{courseKey: "A:100", sections: []*sectionData{{course: section, mask: FromMeetingTimes(section.MeetingTimes)}}},
 	}
 
-	schedules := simulateFallback(groups, 0, 0, 0)
+	schedules := generateFrom(t, groups, 0, 0, 0).Schedules
 	if len(schedules) != 1 {
 		t.Errorf("Expected 1 schedule for single course, got %d", len(schedules))
 	}

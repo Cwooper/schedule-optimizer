@@ -68,7 +68,7 @@ func (p *Preferences) UnmarshalJSON(data []byte) error {
 		case v == nil:
 			errs = append(errs, fmt.Errorf("preferences.%s is required", name))
 		case parseTimeToMins(*v) < 0:
-			errs = append(errs, fmt.Errorf("preferences.%s must be a time of day as HHMM, got %q", name, *v))
+			errs = append(errs, fmt.Errorf("preferences.%s must be a time of day as HHMM", name))
 		default:
 			return *v
 		}

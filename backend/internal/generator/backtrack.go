@@ -1,6 +1,7 @@
 package generator
 
 import (
+	"cmp"
 	"context"
 
 	"schedule-optimizer/internal/cache"
@@ -13,6 +14,7 @@ type backtrackParams struct {
 	minCourses  int
 	maxCourses  int
 	limit       int // stop after visiting this many schedules
+	maxSteps    int // stop after this many search steps; 0 means MaxSearchSteps
 }
 
 // backtrack calls visit with each valid schedule combination, found by
@@ -21,13 +23,15 @@ type backtrackParams struct {
 // every schedule). Remaining groups are optional. It explores groups in order,
 // pruning branches that cannot lead to valid schedules.
 func backtrack(ctx context.Context, p backtrackParams, visit func([]*sectionData)) {
-	visited := 0
+	visited, steps := 0, 0
+	maxSteps := cmp.Or(p.maxSteps, MaxSearchSteps)
 	current := make([]*sectionData, 0, p.maxCourses)
 	var currentMask TimeMask
 
 	var generate func(groupIdx int)
 	generate = func(groupIdx int) {
-		if ctx.Err() != nil || visited >= p.limit {
+		steps++
+		if ctx.Err() != nil || visited >= p.limit || steps > maxSteps {
 			return
 		}
 

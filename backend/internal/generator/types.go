@@ -5,13 +5,17 @@ import "schedule-optimizer/internal/cache"
 
 // Constants for schedule generation limits.
 const (
-	// Bounds generation time, not memory: only the best MaxSchedulesToReturn are
-	// kept. When a request hits it, the ranking covers the combinations
-	// enumerated first rather than all of them.
+	// These two bound generation time, not memory: only the best
+	// MaxSchedulesToReturn are kept. A request that hits either is ranked over
+	// the combinations enumerated first rather than all of them.
 	MaxSchedulesToGenerate = 250_000
-	MaxSchedulesToReturn   = 2000  // Limit on schedules returned to client
-	MaxInputCourses        = 13
-	DefaultMaxCourses      = 8
+	// MaxSearchSteps covers requests that search far but find little, such as
+	// a high min over many conflicting courses.
+	MaxSearchSteps       = 2_000_000
+	MaxSchedulesToReturn = 2000 // Limit on schedules returned to client
+	// MaxInputCourses is about twice the largest request seen in production.
+	MaxInputCourses   = 30
+	DefaultMaxCourses = 8
 )
 
 // CourseSpec defines a single course with its constraints.

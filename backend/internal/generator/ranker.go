@@ -5,8 +5,8 @@ import "slices"
 // ranker keeps the best n schedules by compareSchedules as backtracking visits
 // them, so memory stays bounded however many combinations a request has.
 type ranker struct {
-	sc   scorer
-	n    int
+	sc     scorer
+	n      int
 	kept   []Schedule
 	sorted bool // kept[:n] is the best n so far, in order; set by the first trim
 	// scratch scores a candidate without allocating; only schedules that make

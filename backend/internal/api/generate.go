@@ -4,6 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"encoding/json"
+	"fmt"
 	"log/slog"
 	"net/http"
 	"schedule-optimizer/internal/generator"
@@ -18,6 +19,11 @@ func (h *Handlers) Generate(c *gin.Context) {
 	if err := c.ShouldBindJSON(&req); err != nil {
 		slog.Warn("Invalid generate request", "error", err)
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	if len(req.CourseSpecs) > generator.MaxInputCourses {
+		c.JSON(http.StatusBadRequest, gin.H{"error": fmt.Sprintf("at most %d courses per request", generator.MaxInputCourses)})
 		return
 	}
 

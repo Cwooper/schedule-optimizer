@@ -2,6 +2,7 @@ package api
 
 import (
 	"database/sql"
+	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"strings"
@@ -89,5 +90,33 @@ func TestGeneratePreferences(t *testing.T) {
 				t.Errorf("logged preferences = %+v, want %+v", logged, tt.wantLogged)
 			}
 		})
+	}
+}
+
+func TestGenerateCourseLimit(t *testing.T) {
+	for _, tt := range []struct {
+		courses    int
+		wantStatus int
+	}{
+		{generator.MaxInputCourses, http.StatusOK},
+		{generator.MaxInputCourses + 1, http.StatusBadRequest},
+	} {
+		db, queries := testutil.SetupTestDB(t)
+		testutil.SeedTestData(t, db)
+		h := NewHandlers(db, cache.NewScheduleCache(queries, nil), generator.NewService(queries), queries, nil, nil)
+		r := gin.New()
+		r.POST("/api/generate", h.Generate)
+
+		specs := make([]string, tt.courses)
+		for i := range specs {
+			specs[i] = fmt.Sprintf(`{"subject":"CSCI","courseNumber":"%d"}`, 100+i)
+		}
+		body := `{"term":"202520","courseSpecs":[` + strings.Join(specs, ",") + `]}`
+
+		w := httptest.NewRecorder()
+		r.ServeHTTP(w, httptest.NewRequest(http.MethodPost, "/api/generate", strings.NewReader(body)))
+		if w.Code != tt.wantStatus {
+			t.Errorf("%d courses: status = %d, want %d (body %s)", tt.courses, w.Code, tt.wantStatus, w.Body)
+		}
 	}
 }

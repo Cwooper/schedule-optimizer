@@ -56,14 +56,14 @@ func (s *Service) Generate(ctx context.Context, term *cache.TermData, req Genera
 		}, nil
 	}
 
-	// Sort groups by section count (smallest first = better pruning)
-	// Required groups first, then optional groups
-	slices.SortFunc(requiredGroups, func(a, b courseGroup) int {
-		return len(a.sections) - len(b.sections)
-	})
-	slices.SortFunc(optionalGroups, func(a, b courseGroup) int {
-		return len(a.sections) - len(b.sections)
-	})
+	// Fewest sections first prunes best. The course key breaks ties so the order,
+	// and with it compareSchedules' CRN tiebreak, doesn't depend on the order
+	// courses were requested in.
+	byPruning := func(a, b courseGroup) int {
+		return cmp.Or(cmp.Compare(len(a.sections), len(b.sections)), cmp.Compare(a.courseKey, b.courseKey))
+	}
+	slices.SortFunc(requiredGroups, byPruning)
+	slices.SortFunc(optionalGroups, byPruning)
 
 	allGroups := append(requiredGroups, optionalGroups...)
 	numRequired := len(requiredGroups)
