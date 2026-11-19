@@ -7,7 +7,8 @@ import "slices"
 type ranker struct {
 	sc   scorer
 	n    int
-	kept []Schedule // kept[:n] is sorted once the first trim has run
+	kept   []Schedule
+	sorted bool // kept[:n] is the best n so far, in order; set by the first trim
 	// scratch scores a candidate without allocating; only schedules that make
 	// the cut get their own copy.
 	scratch     Schedule
@@ -31,9 +32,9 @@ func (r *ranker) visit(sel []*sectionData) {
 	}
 	r.scratch.Score = r.sc.score(&r.scratch)
 
-	// The sorted kept[n-1] only improves with later trims, so anything that
+	// Once sorted, kept[n-1] only improves with later trims, so anything that
 	// can't beat it now never will.
-	if len(r.kept) >= r.n && compareSchedules(r.scratch, r.kept[r.n-1]) >= 0 {
+	if r.sorted && compareSchedules(r.scratch, r.kept[r.n-1]) >= 0 {
 		return
 	}
 	r.kept = append(r.kept, Schedule{Courses: slices.Clone(r.scratch.Courses), Score: r.scratch.Score})
@@ -47,6 +48,7 @@ func (r *ranker) trim() {
 	keep := min(len(r.kept), r.n)
 	clear(r.kept[keep:])
 	r.kept = r.kept[:keep]
+	r.sorted = keep == r.n
 }
 
 // results returns the kept schedules, best first.
