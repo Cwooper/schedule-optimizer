@@ -346,7 +346,7 @@ export interface StatsProfessorRow extends GradeStats {
   name: string // "" groups sections with no professor listed
   sections: number
   lastTaught?: string
-  teachesNext?: boolean
+  nextTerm?: string // soonest upcoming term the professor teaches
   history: StatsSectionRow[] // newest first
 }
 
@@ -360,10 +360,10 @@ export interface StatsCourse {
   professors: number
   terms: StatsTerm[] // oldest first
   seasons: { quarter: number; value: number | null }[] // Fall, Winter, Spring, Summer
-  // Every term the course ran or is scheduled in, oldest first; sections are
-  // Banner's count, or the graded count for a term Banner does not list.
+  // Every term the course ran or is scheduled in, oldest first; sections
+  // count each CRN once across Banner and the grade file.
   offered: { term: string; sections: number }[]
-  next?: { term: string; professors: string[] }
+  upcoming: { term: string; professors: string[] }[] // not yet started, soonest first
   professorRows: StatsProfessorRow[]
 }
 

@@ -24,19 +24,22 @@ func seededService(t *testing.T) *Service {
 	t.Helper()
 	db, queries := testutil.SetupTestDB(t)
 	_, err := db.Exec(`
-		INSERT INTO terms (code, description) VALUES ('202340', 'Fall 2023'), ('202440', 'Fall 2024'), ('202520', 'Summer 2025'), ('202710', 'Winter 2027');
-		INSERT INTO term_dates (term_code, start_date, end_date) VALUES ('202520', '2025-06-23', '2025-08-15'), ('202710', '2027-01-05', '2027-03-19');
+		INSERT INTO terms (code, description) VALUES ('202340', 'Fall 2023'), ('202440', 'Fall 2024'), ('202520', 'Summer 2025'), ('202710', 'Winter 2027'), ('202720', 'Spring 2027');
+		INSERT INTO term_dates (term_code, start_date, end_date) VALUES ('202520', '2025-06-23', '2025-08-15'), ('202710', '2027-01-05', '2027-03-19'), ('202720', '2027-03-29', '2027-06-11');
 		INSERT INTO sections (id, term, crn, subject, course_number, title, credit_hours_low, credit_hours_high, max_enrollment) VALUES
 			(1, '202340', '100', 'CSCI', '305', 'Old Title', 2, 4, 40),
 			(2, '202340', '101', 'CSCI', '305', 'Old Title', 4, 4, 40),
 			(3, '202440', '200', 'CSCI', '305', 'Old Title', 4, 4, 40),
 			(6, '202520', '400', 'CSCI', '305', 'Old Title', 4, 4, 40),
 			(4, '202710', '300', 'CSCI', '305', 'Data Structures and Algorithms I', 4, 4, 40),
-			(5, '202710', '301', 'CSCI', '305', 'Data Structures and Algorithms I', 4, 4, 40);
+			(5, '202710', '301', 'CSCI', '305', 'Data Structures and Algorithms I', 4, 4, 40),
+			(7, '202720', '500', 'CSCI', '305', 'Data Structures and Algorithms I', 4, 4, 40),
+			(8, '202720', '501', 'CSCI', '305', 'Data Structures and Algorithms I', 4, 4, 40);
 		-- Section 1's second primary row must not count it twice.
 		INSERT INTO instructors (section_id, name, is_primary) VALUES
 			(1, 'Smith, Jordan', 1), (2, 'Lee, Kara', 1), (3, 'Smith, Jordan', 1),
 			(4, 'Smith, Jordan', 1), (5, 'Gu, Xuhang', 1), (6, 'Smith, Jordan', 1),
+			(7, 'Lee, Kara', 1), (8, 'Smith, Jordan', 1),
 			(1, 'Zed, Other', 1);
 		INSERT INTO meeting_times (section_id, start_time, end_time, building, room, monday, wednesday, friday)
 			VALUES (1, '1000', '1050', 'CF', '225', 1, 1, 1);
@@ -67,31 +70,38 @@ func TestCourse(t *testing.T) {
 		t.Errorf("header = %q, %d sections, %d professors", v.Title, v.Sections, v.Professors)
 	}
 	// Fall 2024 counts graded CRN 299, which Banner does not list.
-	wantOffered := []OfferedTerm{{"202340", 2}, {"202440", 2}, {"202520", 1}, {"202710", 2}}
+	wantOffered := []OfferedTerm{{"202340", 2}, {"202440", 2}, {"202520", 1}, {"202710", 2}, {"202720", 2}}
 	if !slices.Equal(v.Offered, wantOffered) {
 		t.Errorf("offered = %v", v.Offered)
 	}
-	if v.Next == nil || v.Next.Term != "202710" || !slices.Equal(v.Next.Professors, []string{"Smith, Jordan", "Gu, Xuhang"}) {
-		t.Errorf("next = %+v", v.Next)
+	wantUpcoming := []UpcomingTerm{
+		{"202710", []string{"Smith, Jordan", "Gu, Xuhang"}},
+		{"202720", []string{"Lee, Kara", "Smith, Jordan"}},
+	}
+	if !slices.EqualFunc(v.Upcoming, wantUpcoming, func(a, b UpcomingTerm) bool {
+		return a.Term == b.Term && slices.Equal(a.Professors, b.Professors)
+	}) {
+		t.Errorf("upcoming = %+v", v.Upcoming)
 	}
 
 	type row struct {
 		name       string
 		sections   int
 		lastTaught string
-		next       bool
+		next       string
 		reported   bool
 	}
 	want := []row{
 		// Summer 2025 is in Banner only; Winter 2027 has not started.
-		{"Smith, Jordan", 2, "202520", true, true},
-		{"Lee, Kara", 1, "202340", false, true},
+		// Smith teaches both upcoming terms; the soonest is next.
+		{"Smith, Jordan", 2, "202520", "202710", true},
+		{"Lee, Kara", 1, "202340", "202720", true},
 		// Five letter grades are too few to report.
-		{"", 1, "", false, false},
+		{"", 1, "", "", false},
 	}
 	var got []row
 	for _, p := range v.ProfessorRows {
-		got = append(got, row{p.Name, p.Sections, p.LastTaught, p.TeachesNext, p.GPA != nil && p.Grades != nil})
+		got = append(got, row{p.Name, p.Sections, p.LastTaught, p.NextTerm, p.GPA != nil && p.Grades != nil})
 	}
 	if !slices.Equal(got, want) {
 		t.Errorf("professor rows =\n%+v\nwant\n%+v", got, want)

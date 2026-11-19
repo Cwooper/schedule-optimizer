@@ -26,8 +26,10 @@ type CourseView struct {
 	// Spring, Summer.
 	Seasons []SeasonValue `json:"seasons"`
 	// Offered is every term the course ran or is scheduled in, oldest first.
-	Offered       []OfferedTerm  `json:"offered"`
-	Next          *NextTerm      `json:"next,omitempty"`
+	Offered []OfferedTerm `json:"offered"`
+	// Upcoming is every term not yet started that offers the course, soonest
+	// first.
+	Upcoming      []UpcomingTerm `json:"upcoming"`
 	ProfessorRows []ProfessorRow `json:"professorRows"`
 }
 
@@ -52,8 +54,7 @@ type SeasonValue struct {
 	Value   *float64 `json:"value"`
 }
 
-// NextTerm is the first term not yet started that offers the course.
-type NextTerm struct {
+type UpcomingTerm struct {
 	Term       string   `json:"term"`
 	Professors []string `json:"professors"`
 }
@@ -69,8 +70,9 @@ type Row struct {
 
 type ProfessorRow struct {
 	Row
-	LastTaught  string `json:"lastTaught,omitempty"`
-	TeachesNext bool   `json:"teachesNext,omitempty"`
+	LastTaught string `json:"lastTaught,omitempty"`
+	// NextTerm is the soonest upcoming term the professor teaches.
+	NextTerm string `json:"nextTerm,omitempty"`
 }
 
 type SectionRow struct {
@@ -107,13 +109,13 @@ func (s *Service) Course(ctx context.Context, subject, number string) (*CourseVi
 type offeringFacts struct {
 	crns       map[string]map[string]bool // term -> CRNs
 	lastTaught map[string]string          // professor -> newest started term
-	next       *NextTerm
-	nextKeys   map[string]bool // professors teaching the next term
+	upcoming   []UpcomingTerm
+	nextTerm   map[string]string // professor -> soonest upcoming term
 }
 
 // readOfferings reads a course's Banner sections, in term order.
 func readOfferings(rows []*store.GetCourseOfferingsRow, started func(string) bool) offeringFacts {
-	f := offeringFacts{crns: make(map[string]map[string]bool), lastTaught: make(map[string]string), nextKeys: make(map[string]bool)}
+	f := offeringFacts{crns: make(map[string]map[string]bool), lastTaught: make(map[string]string), upcoming: []UpcomingTerm{}, nextTerm: make(map[string]string)}
 	for _, r := range rows {
 		addCRN(f.crns, r.Term, r.Crn)
 		key := r.InstructorName.String
@@ -123,14 +125,17 @@ func readOfferings(rows []*store.GetCourseOfferingsRow, started func(string) boo
 			}
 			continue
 		}
-		if f.next == nil {
-			f.next = &NextTerm{Term: r.Term, Professors: []string{}}
+		if n := len(f.upcoming); n == 0 || f.upcoming[n-1].Term != r.Term {
+			f.upcoming = append(f.upcoming, UpcomingTerm{Term: r.Term, Professors: []string{}})
 		}
-		if r.Term != f.next.Term || key == "" || f.nextKeys[key] {
+		u := &f.upcoming[len(f.upcoming)-1]
+		if key == "" || slices.Contains(u.Professors, key) {
 			continue
 		}
-		f.nextKeys[key] = true
-		f.next.Professors = append(f.next.Professors, key)
+		u.Professors = append(u.Professors, key)
+		if f.nextTerm[key] == "" {
+			f.nextTerm[key] = r.Term
+		}
 	}
 	return f
 }
@@ -145,7 +150,7 @@ func buildCourseView(course *grades.Course, facts offeringFacts) *CourseView {
 		Metric:   metric,
 		Summary:  newStats(total, students, metric),
 		Sections: len(course.Sections),
-		Next:     facts.next,
+		Upcoming: facts.upcoming,
 	}
 	v.Terms, v.Seasons = termValues(course.Sections, metric)
 	v.Offered = offeredTerms(facts.crns, course.Sections)
@@ -216,7 +221,7 @@ func professorRows(secs []*grades.Section, facts offeringFacts, metric Metric) [
 		if g.Name != "" {
 			// Banner runs past the grade file, so it knows later terms.
 			rows[i].LastTaught = max(facts.lastTaught[g.Name], g.History[0].Term)
-			rows[i].TeachesNext = facts.nextKeys[g.Name]
+			rows[i].NextTerm = facts.nextTerm[g.Name]
 		}
 	}
 	return rows

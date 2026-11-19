@@ -12,6 +12,7 @@ import {
 } from "@/lib/stats"
 import { cn } from "@/lib/utils"
 import { TipBody, type TipRow } from "./ChartTip"
+import { DashedSquare } from "./DashedSquare"
 
 const AXIS = "text-muted-foreground text-[11px] leading-4"
 
@@ -23,13 +24,16 @@ export function QuartersGrid({
   course,
   currentTerm,
 }: {
-  course: Pick<StatsCourse, "offered" | "terms" | "seasons" | "next" | "metric">
+  course: Pick<
+    StatsCourse,
+    "offered" | "terms" | "seasons" | "upcoming" | "metric"
+  >
   currentTerm: string
 }) {
   const { metric } = course
   const { years, rows } = quartersGrid(
     course.offered.map((o) => o.term),
-    course.next?.term,
+    course.upcoming[0]?.term,
     currentTerm
   )
   const valueOf = (q: number) =>
@@ -108,19 +112,12 @@ function QuarterSquare({
           )}
         >
           {cell.state === "upcoming" && (
-            <svg width="22" height="22" className="block" aria-hidden>
-              <rect
-                x="1"
-                y="1"
-                width="20"
-                height="20"
-                rx="4"
-                fill="none"
-                className="stroke-foreground"
-                strokeWidth={1.5}
-                strokeDasharray="3 2.5"
-              />
-            </svg>
+            <DashedSquare
+              size={22}
+              radius={4}
+              dashesPerSide={3}
+              className="text-foreground"
+            />
           )}
         </span>
       </TooltipTrigger>

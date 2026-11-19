@@ -14,6 +14,7 @@ import {
 import { cn } from "@/lib/utils"
 import { useAppStore } from "@/stores/app-store"
 import { DistributionChart } from "./charts/DistributionChart"
+import { DashedSquare } from "./charts/DashedSquare"
 import { QuartersGrid } from "./charts/QuartersGrid"
 import { TermChart } from "./charts/TermChart"
 import {
@@ -54,7 +55,6 @@ function CourseBody({ course }: { course: StatsCourse }) {
     columns,
     mean: metricValue(summary, metric),
   }
-  const next = course.next
 
   return (
     <>
@@ -111,30 +111,27 @@ function CourseBody({ course }: { course: StatsCourse }) {
           className="col-span-12 flex flex-col md:col-span-5 lg:col-span-3"
         >
           <QuartersGrid course={course} currentTerm={currentTermCode()} />
-          {next && (
-            <div className="mt-auto flex items-center gap-2 border-t pt-2.5">
-              <svg width="14" height="14" className="shrink-0" aria-hidden>
-                <rect
-                  x="1"
-                  y="1"
-                  width="12"
-                  height="12"
-                  rx="3"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeDasharray="3 2"
-                />
-              </svg>
-              <span className="font-semibold whitespace-nowrap">
-                {termName(next.term)}
-              </span>
-              <span
-                className="text-muted-foreground ml-auto truncate"
-                title={next.professors.join("; ")}
-              >
-                {next.professors.map(surname).join(", ")}
-              </span>
+          {course.upcoming.length > 0 && (
+            <div className="mt-auto flex flex-col gap-1.5 border-t pt-2.5">
+              {course.upcoming.map((u) => (
+                <div key={u.term} className="flex items-center gap-2">
+                  <DashedSquare
+                    size={14}
+                    radius={3}
+                    dashesPerSide={2}
+                    className="shrink-0"
+                  />
+                  <span className="font-semibold whitespace-nowrap">
+                    {termName(u.term)}
+                  </span>
+                  <span
+                    className="text-muted-foreground ml-auto truncate"
+                    title={u.professors.join("; ")}
+                  >
+                    {u.professors.map(surname).join(", ")}
+                  </span>
+                </div>
+              ))}
             </div>
           )}
         </Card>
@@ -163,12 +160,7 @@ function CourseBody({ course }: { course: StatsCourse }) {
             </thead>
             <tbody className="[&>tr:last-child>td]:border-b-0">
               {course.professorRows.map((p) => (
-                <ProfessorRows
-                  key={p.name}
-                  prof={p}
-                  scale={scale}
-                  nextTerm={next?.term}
-                />
+                <ProfessorRows key={p.name} prof={p} scale={scale} />
               ))}
             </tbody>
           </table>
@@ -181,11 +173,9 @@ function CourseBody({ course }: { course: StatsCourse }) {
 function ProfessorRows({
   prof,
   scale,
-  nextTerm,
 }: {
   prof: StatsProfessorRow
   scale: RowScale
-  nextTerm?: string
 }) {
   const setSelection = useAppStore((s) => s.setStatsSelection)
   const [open, setOpen] = useState(false)
@@ -224,9 +214,7 @@ function ProfessorRows({
         </td>
         <StatCells stats={prof} scale={scale} />
         <td className={TD}>{prof.lastTaught && termName(prof.lastTaught)}</td>
-        <td className={TD}>
-          {prof.teachesNext && nextTerm && termName(nextTerm)}
-        </td>
+        <td className={TD}>{prof.nextTerm && termName(prof.nextTerm)}</td>
       </tr>
       {open &&
         shown.map((s) => (
