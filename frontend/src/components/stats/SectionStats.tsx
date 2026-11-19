@@ -199,10 +199,10 @@ function SectionBody({ section: v }: { section: StatsSection }) {
       <div className="grid grid-cols-12 gap-3">
         <Card
           title={`${term} sections`}
-          className={cn("col-span-12 pb-0.5", v.class && "lg:col-span-8")}
+          className={cn("col-span-12 pb-0.5", v.class && "xl:col-span-8")}
         >
           <div className="-mx-4 overflow-x-auto px-4">
-            <table className="w-full min-w-[760px] table-fixed border-collapse text-sm tabular-nums">
+            <table className="w-full min-w-[680px] table-fixed border-collapse text-sm tabular-nums">
               <colgroup>
                 <col className="w-[76px]" />
                 <col />
@@ -281,7 +281,7 @@ function ClassCard({
     ["Credits", details.credits ? [String(details.credits)] : []],
   ]
   return (
-    <Card title="Class" className="col-span-12 lg:col-span-4">
+    <Card title="Class" className="col-span-12 xl:col-span-4">
       <dl className="grid grid-cols-[auto_1fr]">
         {rows
           .filter(([, lines]) => lines.length > 0)
