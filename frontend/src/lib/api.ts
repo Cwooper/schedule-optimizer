@@ -452,7 +452,7 @@ async function fetchAPI<T>(
         res.status
       )
     }
-    throw new ApiError(body.error || `HTTP ${res.status}`, res.status)
+    throw new ApiError(body.error || "Request failed", res.status)
   }
 
   if (res.status === 204) return undefined as T
