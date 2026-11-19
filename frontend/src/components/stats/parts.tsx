@@ -61,8 +61,14 @@ export function DataRangeInfo() {
           <Info className="size-4" />
         </button>
       </TooltipTrigger>
-      <TooltipContent className="max-w-xs">
-        {`Grades from ${termName(data.firstTerm)} through ${termName(data.lastTerm)}, from WWU records. Sections with fewer than 10 students are not included.`}
+      <TooltipContent className="max-w-[calc(100vw-2rem)] text-left text-wrap">
+        <p>
+          Grades from{" "}
+          <span className="whitespace-nowrap">{termName(data.firstTerm)}</span>{" "}
+          through{" "}
+          <span className="whitespace-nowrap">{termName(data.lastTerm)}</span>.
+        </p>
+        <p>Sections under 10 students are not included.</p>
       </TooltipContent>
     </Tooltip>
   )
